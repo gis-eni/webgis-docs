@@ -10,6 +10,8 @@ Mit diesem Werkzeug kann ein Kreis mit einem bestimmten Radius um einen Mittelpu
 
 .. image:: img/advanced-tools1.png
 
+.. image:: img/advanced-tools1_1.png
+
 Das Ergebnis kann für Abstandsuntersuchungen verwendet werden.
 
 Bemaßungslinie
@@ -37,3 +39,18 @@ Als Anzeigeeinheit kann Meter [m] und Kilometer [km] angebeben werden.
 
 .. note::
    Gleich wie bei der Bemaßungslinie werden auch hier die Abstandspunkte *live* berechnet und beziehen sich immer auf das aktuelle Kartenkoordinatensystem. Fügt man die Zeichnung in unterschiedliche Karten ein, kann es zu Abweichungen kommen!
+
+
+Kompass
+-------
+
+Neu hinzugekommen zum Redlining ist das Spezialwerkzeug *Kompass*.
+
+.. image:: img/advanced-tools5.png
+
+Fügt man einen solchen ein, hat man unter *Symbolik bearbeiten* die Möglichkeit, Farbe, Linienstärke und Anzahl der Winkel dementsprechend anzupassen.  
+
+.. image:: img/advanced-tools6.png
+
+
+

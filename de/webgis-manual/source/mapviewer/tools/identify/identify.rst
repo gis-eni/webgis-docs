@@ -63,6 +63,8 @@ Wird über einen Kreis abgefragt, gibt es bei den Ergebnissen noch zwei Besonder
 * Die **Entfernung** zum Mittelpunkt des Kreises wird bei den Ergebnissen angezeigt.
 
 .. image:: img/identify3.png
+    :width: 350px
+    :height: 200px
 
 Linien Selektion
 ----------------

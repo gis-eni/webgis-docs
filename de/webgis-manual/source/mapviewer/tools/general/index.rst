@@ -17,4 +17,4 @@ Unter *Werkzeuge* befinden sich folgende Werkzeuge (abhängig von den Einstellun
    editing/index
    georeference
    georef-image
-   measure-3d
+   measure-3d 

@@ -1,3 +1,5 @@
+.. _redlining:
+
 Zeichnen (Redlining)
 ====================
 
@@ -6,7 +8,7 @@ Die Grundidee von Redlining ist es, die Karte mit Zeichenelementen (Linien, Flä
 und Orte für einen Ausdruck zu markieren, zu verschicken oder anderweitig zur Verfügung zu stellen.
 
 Mit Redlining sollten nur kurzlebige Zeichnungen erstellt werden, die auch nicht zu viele Objekte enthalten.
-Die Zeichnungen können zwar gespeichert werden, müssen aber nicht ewig vom Kartenviewer Betreiber auf dem Server
+Die Zeichnungen können zwar gespeichert werden, müssen aber nicht ewig vom Kartenviewer-Betreiber auf dem Server
 behalten werden.
 
 Ebenfalls besteht die Möglichkeit, das Redlining herunterzuladen und selbst zu speichern. Allerdings sollte auch

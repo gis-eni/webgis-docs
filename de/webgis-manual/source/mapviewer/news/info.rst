@@ -21,11 +21,16 @@ Die Versionsnummer wird hier im *Footer* (Fußzeile) der Seite angezeigt:
 
 .. image:: img/news1.png
 
+
+
 **Kartenviewer**
 
 Beim Kartenviewer muss zuerst im Menü (rechts oben) auf ``Karteninfo & Copyright`` geklickt werden:
 
 .. image:: img/news2.png
+    :width: 350px
+    :height: 300px
+
 
 Von dort kommt man über ``Karteninfo`` und ``Credits`` zu folgender Ansicht, auf der die Versionsnummer 
 zu finden ist:
