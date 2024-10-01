@@ -35,6 +35,8 @@ Bei *Sketch drehen* gibt es zwei Optionen: Entweder man setzt den rechten Mauskl
 Über einen rechten Mausklick in die Karte kann auch in beiden Fällen direkt ein Winkelwert in Grad eingegeben werden.
 
 .. image:: img/sketch6.png
+    :width: 250px
+    :height: 200px
 
 
 Sketch parallel versetzen ...

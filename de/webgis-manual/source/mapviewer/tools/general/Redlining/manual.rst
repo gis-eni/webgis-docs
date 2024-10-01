@@ -4,38 +4,23 @@ Bedienung Werkzeug Zeichnen (Redlining)
 Allgemeine Bedienung
 --------------------
 
-Das Zeichnen (Redlining) Werkzeug ist eigentlich eine Sammlung von (Sub) Werkzeugen, die es ermöglichen,
+Das Zeichnen (Redlining-) Werkzeug ist eigentlich eine Sammlung von (Sub-) Werkzeugen, die es ermöglichen,
 den Inhalt der Karte graphisch zu ergänzen.
-Nach dem Öffnen des Werkzeugs wird der Zeichnen (Redlining) Dialog angezeigt.
+Nach dem Öffnen des Werkzeugs wird der Zeichnen- (Redlining-) Dialog angezeigt.
 Darin werden alle Möglichen Zeichenwerkzeuge angeboten. 
-Zusätzlicht gibt es noch Buttons zum Verwalten von Zeichnungen (Laden, Speichern, Teilen, Upload, Download)
+Zusätzlich gibt es noch Buttons zum Verwalten von Zeichnungen (Laden, Speichern, Teilen, Upload, Download).
 
 .. image:: img/redlining1.png
 
 Die Buttons können je nach Endgerät variieren. In der Abbildung sind alle Werkzeuge zu sehen (Desktop).
 Unter den Buttons wird noch einmal der Name des gerade aktiven Zeichenwerkzeugs angezeigt, sowie *gelb* hinterlegt eine
-Beschreibung, wie dieses Werkzeug bedient wird (zB in die Karte klicken, auf bestehendes Zeichnungselement klicken, usw).
+Beschreibung, wie dieses Werkzeug bedient wird (z.B. in die Karte klicken, auf bestehendes Zeichnungselement klicken, usw.).
 
 Aufgrund dieser Beschreibung wird hier nicht auf die genaue Klickabfolge für die einzelnen Zeichenwerkzeuge eingegangen,
 sondern es werden die Möglichkeiten und Unterschiede der Werkzeuge aufgezeigt.
 
 Neues Element zeichnen
 ----------------------
-
-Je nach Zeichenwerkzeug werden unter den Buttons noch Optionsmenüs für die Darstellung des zu zeichnenden Elementes
-angezeigt. Wählt man beispielsweise das Linie Werkzeug aus, gibt es folgende Darstellungsoptionen:
-
-.. image:: img/redlining2.png
-
-Möchte man die Farbe für die Linie änderen, klickt man auf das Optionsmenü, das dadurch aufgeklappt wird und weitere Farben
-anbietet. Gleiches gilt für Linienstärke und Linienart (durchgezogen, strichliert, ...).
-
-Diese Optionen beziehen sich immer auf das gerade aktive Element. Ändert man eine Darstellungsoption, ändert sich die Darstellung
-sofort in der Karte.
-
-.. note:: 
-   Zeichnet man ein neues Objekt, erkennt man die Änderungen erst, wenn man in die Karte klickt um Stützpunkte für das Element 
-   zu erstellen.
 
 Legt man ein neues Element an (beispielsweise eine Linie), müssen durch Klicken in die Karte mindestens zwei Stützpunkte
 definiert werden. Wir die Linie als gültig erkannt (mindesten zwei Stützpunkte), kann sie in die Karte *übernommen* werden.
@@ -56,8 +41,7 @@ folgender Button:
 
 .. image:: img/redlining3.png
 
-In die Karte übernommen wird das Zeichenelement mit dem Button *Übernehmen / Weiteres Zeichnen*. Wie der Name schon vermuten
-lässt, kann nach dem Übernehmen gleich eine weitere Linie gezeichnet werden.
+In die Karte übernommen wird das Zeichenelement mit dem Button mit Häkchen-Symbol. Nach dem Übernehmen kann gleich eine weitere Linie gezeichnet werden.
 Bevor man ein Zeichenelement in die Karte übernimmt, kann optional noch eine Beschreibung angegeben werden.
 Wenn die Linie beispielsweise einen Weg beschreibt, könnte man hier ``Wegbeschreibung nach ...`` eintragen.
 Beschreibungen für Zeichenelemente sind optional, helfen allerdings das Element später wieder zuzuordnen und zu interpretieren.
@@ -76,7 +60,30 @@ Bereits übernommene Zeichenelement werden zusätzlicht zur Karte auch als Liste
 .. image:: img/redlining4.png
 
 Das Icon zeigt an, um welchen Typ es sich bei dem Element handelt (Linie, Fläche, Text, ...). Zusätzlich gibt es noch
-einen *Löschen Button* (Mistkübel) und je nach Typ einen *T Button* (Text - Beschriften, siehe unten)
+einen *Löschen Button* (Mistkübel), einen *Berarbeitungs-Button* (Stift) und je nach Typ einen *T Button* (Text - Beschriften, siehe unten)
+
+
+Symbolik ändern
+^^^^^^^^^^^^^^^
+
+Um die Symbolik des jeweiligen Objektes zu ändern, ist links von der Beschreibung ein Symbol (je nach Objekt ist dieses ein anderes Symbol).
+
+.. image:: img/redlining3_1.png
+
+Klickt man dieses an, gelangt man in das Menü, um Änderungen an der Symbolik zu treffen. 
+Wählt man beispielsweise das Linien-Werkzeug aus, gibt es folgende Darstellungsoptionen:
+
+.. image:: img/redlining2.png
+
+Im Regelfall sind die Optionsmenüs für Farbe, Linienstärke und Linienart bereits aufgeklappt. Möchte man zum Beispiel die Farbe einer Linie ändern, so muss diese nur ausgewählt werden. 
+Gleiches gilt für Linienstärke und Linienart (durchgezogen, strichliert, ...).
+
+Diese Optionen beziehen sich immer auf das gerade aktive Element. Ändert man eine Darstellungsoption, ändert sich die Darstellung
+sofort in der Karte.
+
+.. note:: 
+   Zeichnet man ein neues Objekt, erkennt man die Änderungen erst, wenn man in die Karte klickt um Stützpunkte für das Element 
+   zu erstellen.
 
 Unterschiedliches Verhalten von Elementtypen
 --------------------------------------------
@@ -96,7 +103,7 @@ Freihandlinien gezeichnet werden.
 um die Position des Textes festzulegen. Dadurch wird die Position des Textes *gültig* und es kann der eigentliche 
 Text über das Textfeld und über *Übernehmen / Weiteres zeichnen* geändert werden. Eine Änderung sollte gleich in der 
 Karte ersichtlich werden. Sollte die Position noch einmal geändert werden, kann diese mit einem weiteren Klick 
-in die Karte (oder Ziehen des Einfügepunktes) erfolgen. Mit *Übernehmen /  Weiteres zeichnen* wird der Text endgültig 
+in die Karte (oder Ziehen des Einfügepunktes) erfolgen. Mit klick auf das Häkchen wird der Text endgültig 
 in die Karte übernommen.
 
 
@@ -107,19 +114,22 @@ Es gibt zwei Möglichkeiten, um ein bereits gezeichnetes Element zu verändern.
 
 * Über das Zeichenwerkzeug *Auswählen* (Finger): Damit wird über einen Klick auf das Objekt in der Karte das Element markiert und kann verändert werden.
 
-* Über die Liste der bereits bestehenden Elemente: Durch Klicken auf ein Element in der Liste wird dieses für die Bearbeitung markiert.
+* Über die Liste der bereits bestehenden Elemente: Durch Klicken auf ein Element in der Liste wird dieses für die Bearbeitung markiert. Mit dem Stift-Symbol kann das Objekt dann editiert werden.
 
 Die zweite Methode ist praktisch, wenn mehrere Elemente übereinader liegen und ein geographisches Auswählen schwierig/unmöglich ist.
 
 **Tipp:** Die Elemente in der Liste können leichter zugeordnet werden, wenn sie vor dem Übernehmen beschrieben wurden,
 da die Beschreibung in der Liste angezeigt wird.
 
-Wurde ein Element zum Ändern markiert, wird für das Element in der Karte der Entwurfs *Sketch* angezeigt. Außerdem ändern
-sich die Darstellungsoptionen entsprechend.
+Wurde ein Element zum Ändern markiert, wird für das Element in der Karte der Entwurfs-*Sketch* angezeigt. Außerdem erscheint ein neues Symbol
+*Symbolik* oberhalb der Auflistung, über das man in das Menü zum Bearbeiten der Darstellung kommt. 
 
-Durch den Entwurfs *Sketch* lässt sich die Geometrie des Elements verändern. Ebenfalls kann die Darstellung über die
-Darstellungsoptionen angepasst werden. Zum Abschließen der Änderungen kann wieder auf den *Übernehmen / Weiteres zeichnen* Button 
-geklickt und vorher noch optional eine Beschreibung eingegeben werden.
+.. image:: img/redlining5.png
+    :width: 200px
+    :height: 80px  
+
+Durch den Entwurfs-*Sketch* lässt sich die Geometrie des Elements verändern. Ebenfalls kann die Darstellung über die
+Darstellungsoptionen angepasst werden. Zum Abschließen der Änderungen muss mit dem Häkchen-Button bestätigt werden, um diese zu übernehmen.
 
 Bestehendes Element löschen
 ---------------------------

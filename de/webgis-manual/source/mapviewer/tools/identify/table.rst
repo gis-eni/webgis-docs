@@ -6,3 +6,5 @@ Ein Klick auf dieses Werkzeug öffnet eine Tabelle mit allen aktuellen Abfrageer
 
 .. note::
    Dieses Werkzeug steht auch bei der Liste der Abfrageergebnisse zur Verfügung (siehe Abschnitt *Suchen und Abfragen*).
+
+
