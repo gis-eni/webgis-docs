@@ -288,6 +288,50 @@ Außerdem kann ein Maßstab angegeben werden, über dem kein Model mehr erstellt
 Die beiden letzten Werte geben den Dienst (Dienst-CMS-Id : Layer-Id) für die Texturen 
 Luftbild und Straßenkarte an.
 
+Werkzeug Karte speichern
+++++++++++++++++++++++++
+
+Mit dem Werkzeug *Karte speichern* können Anwender die aktuelle Karte (Dienste, Sichtbarkeit, Redlining) als Projekt abspeichern. Dabei können folgende Einstellungen getroffen werden:
+
+.. code:: xml
+
+  <section name="tool-savemap">
+    <add key="name-maxlength" value="40" />  <!-- default: 40 -->
+  </section>
+
+* ``name-maxlength``: Gibt an, wie lange der Name eines Projektes sein darf. Am Server wird das Projekt im Filesystem abgelegt (inklusive Verschlüsselung). Mit dieser Einstellung kann
+  verhindert werden, dass Filename nicht zu lang werden.
+
+Werkzeug Karte Laden
+++++++++++++++++++++
+
+Mit dem Werkzeug *Karte Laden* können gespeicherte Karte vom Anwender wieder geladen werden. 
+
+Öffnet man eine gespeicherte Karte über die Portalseite (Meine Projekte) wird ein Link erzeugt, mit dem die Karte geöffnet wird. Diese Link wird im Browser in der Adresszeile 
+angezeigt. Theoretisch kann dieser Link kopiert und weitergegeben werden.
+
+Mit den hier angeführten Einstellungen, kann bestimmt werden, wer gespeicherte Karte wieder 
+öffnen kann. Per default können Karten nur von dem User geöffnet werden, der diese auch gespeichert hat.
+
+.. code:: xml
+
+  <section name="tool-loadmap">
+    <add key="allow-collaboration" value="false" />  <!-- default: false  -->
+    <add key="allow-anonymous-collaboration" value="false" />    <!-- default: false  -->
+  </section>
+
+* ``allow-collaboration``: Karten können per default nur von dem Anwender geöffnet werden, der das Projekt auch erstellt hat. Ruft ein anderer Anwender die gespeicherte Karte über einen Link
+  auf kommt eine Fehlermeldung (*Collaboration of projects is not allowed*). Möchte man das es möglich ist, gespeicherte Links weiter zu geben, muss diese Option auf ``true`` gesetzt werden.
+
+* ``allow-anonymous-collaboration``: Setzt man oben beschriebene Option auf ``true`` funktioniert das nur angemeldete Anwender (Anwender mit einem Usernamen). Sollten auch anonyme Anwender einen
+  geteilten Link öffnen können, muss diese Option auf ``true`` gesetzt werden.
+
+.. note:: 
+
+  Aus Datenschutzgründen sollte man das weitergeben von gespeicherten Links nicht zulassen. Mit einen Link kann man sonst immer den aktuellen Stand der Karte (inklusive Redlining) zugreifen!
+  Der empfohlene Weg zum Weitergeben einer Karte sollte das Werkzeug **Karte teilen** sein. Damit wird ein Snapshot der aktuellen Karte gemacht und weiter gegeben. Spätere Änderungen (Redlining)
+  werden im Link der geteilten Karte nicht mehr angezeigt.
+
 Werkzeug Karte teilen 
 +++++++++++++++++++++
 
