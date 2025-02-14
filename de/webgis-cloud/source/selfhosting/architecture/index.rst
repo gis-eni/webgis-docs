@@ -19,10 +19,39 @@ Mit dieser Methode lassen sich sehr gut verteilte Kartenanwendungen erstellen. M
 
 .. image:: img/architecture1.png
 
-Die WebGIS Plattform besteht aus mehreren (Web-) Applikationen, die je nach Anforderungen installiert/gestartet werden müssen.
+WebGIS Anwendungen (Übersicht)
+------------------------------
 
 .. image:: img/architecture2.png      
 
+WebGIS besteht aus den drei Anwendungen:
+
+* **WebGIS CMS**: für Administratoren
+* **WebGIS API**: Restschnittstelle und Javascript API
+* **WebGIS Portal**: Einstiegsseite für den Anwender. Hier werden Portalseiten (Kartensammlungen) 
+  und der Karten Viewer angeboten.
+
+Über das **WebGIS CMS** können Administratoren definieren, welche Dienste über die **WebGIS API** 
+angeboten werden. Außerdem kann hier festgelegt werden, welche Themen aus den Dienst abgefragt 
+werden können, wie das Abfrageergebnis dargestellt wird, welche Themen bearbeitet werden dürfen, etc.
+Die Parametrierung wird am Server in einer Baumstruktur im Filesystem abgelegt 
+(entspricht in etwas der Baumstruktur in der CMS Oberfläche).
+Und die Änderungen im **WebGIS CMS** der **WebGIS API** mitzuteilen, wir im CMS ein **Deploy** 
+ausgeführt, der aus einem CMS-Baum eine XML Datei baut.
+
+Die **WebGIS API** stellt Aufgrund der CMS XML Dateien Kartendienste zur Verfügung. Diese 
+Dienste können über HTTP REST Requests oder über eine Javascript API abgeholt werden.
+
+Das **WebGIS Portal** ist die Einstiegsseite für den Anwender. Hier werden Portal-Seiten angeboten. 
+Dabei handelt es sich um Sammlungen von Karten. Eine Karte ist dabei eine Anwendung, die im
+*Karten Viewer* angeboten angezeigt, die aus mindestens einem *Karten Dienst* besteht. Welche Karten
+angeboten werden, kann ein Administrator bestimmen. Karten werden dabei mit dem **MapBuilder** 
+erstellt. Dort wird definiert, welche *Karten Dienste* und *Werkzeuge* in einer *Karten* angeboten 
+werden.
+
+Über das **WebGIS Portal** erfolgt auch die Authentifizierung des Anwenders. Die Rechte eines 
+Anwenders (oder seiner Rolle) können ebenfalls im **WebGIS CMS** definiert werden und werden
+dann von der **WebGIS API** beim Zugriff auf die *Karten Dienste* berücksichtigt.
 
 WebGIS API
 ----------
