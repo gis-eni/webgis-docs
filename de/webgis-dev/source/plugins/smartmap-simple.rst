@@ -80,6 +80,29 @@ gesetzt wird. Der Anwender muss die Karte dann vor der Verwendung zuerst mit ein
 Das erhöht die *Usability*, da ansonsten beim Scrollen über die Seite unabsichtlich in die Karte gezoomt werden 
 kann und der Anwender schlimmstenfalls nicht mehr "normal" auf über die Seite scrollen kann.
 
+.. note::
+
+    Eine weiter Möglichkeit die Karte beim Scrollen über eine Seite zu sperren ist folgende Option:
+
+    .. code:: javascript
+
+        webgis.clientid = '...';  // only an example client id, not valid
+
+        // gesture handling
+        webgis.usability.cooperativeGestureHandling = true;
+
+        webgis.init(function () {   
+            // smartmap initialsation code, with map_options: { enabled: true }
+        });
+
+    Mit **Cooperative Gesture Handling** verhält sich die Karte, wie es auch von Google Maps Karten 
+    bekannt ist:
+
+    * Scrollen nur mit gedrückter ``STRG`` Taste
+    * Verschieben (am Handy) nur mit zwei Fingern
+  
+    Versucht der Anwender ohne ``STRG`` zu Scrollen wird ein Hinweis angezeigt. 
+
 Über die ``quick_search_*`` Eigenschaften kann die Suche genauer spezifiziert werden.
 Neben dem Suchdienst, kann eine Platzhalter für das leere Suchfeld angegeben werden. Ebenfalls kann 
 ein Maßstab angegeben werden, auf den gezoomt wird, wenn der Anwender ein Suchergebnis auswählt.
