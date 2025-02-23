@@ -37,7 +37,14 @@ Nach dem Editieren muss es sich wieder um eine gültige JavaScript Datei handeln
                   "http://localhost/api/cache/clear"
                 ]
             }
-          }
+          },
+          {
+            "name": "default-upload",
+            "target": "https://localhost/api/cache/upload/{cms-name}",
+            "client": "cms-upload-client",
+            "secret": "my-super-secret-with-min-length-24"
+            "replacement-file": "",
+          },
         ]
       }
     ]
@@ -118,6 +125,21 @@ Knoten ``deployments``
   Der Pfad für die CMS Datei. Das CMS erstellt im gleichen Ordner später noch ein Verzeichnis ``_archive``, 
   in dem bestehende xml-Dateien vor dem überschreiben gesichert werden. Dieser Ordner 
   kann bei Bedarf auch wieder manuell gelöscht werden, falls die Sicherungen nicht mehr nötig sind.
+  
+  Hier kann auch eine Url zur Api angeben werden, zB ``https://localhost/api/cache/upload/{cms-name}``.
+  ``{cms-name}`` ist ist hier der CMS-Name, wie er in der ``api.config`` definiert ist,
+  zB ``<add key="cms_my_cms" value="{path-to-cms.xml}" />`` => ``https://.../cache/upload/my-cms``.
+  Der Upload von CMS Xml Dateien hat den Vorteil, dass die **WebGIS-CMS** Anwendung keinen Zugriff auf 
+  das Filesystem der **WebGIS API** Anwendung haben muss.
+  Aus Sicherheitsgründen muss hier dann aber ein **Client** und ein **Secret** definiert werden.
+  Damit wird sicher gestellt, dass der Upload von einer autorisierten CMS Instanz kommt.
+
+* ``client`` und ``secret`` (wenn ``target`` eine Url zur **WebGIS API** ist)
+  Hier kann ein beliebiger *Client* und eine *Secret* angegeben werden. Das *Secret* sollte ein 
+  sicheres Passwort mit mindestens 24 Zeichnen sein.
+  Damit der Upload von der **WebGIS API** zugelassen wird, muss es in der ``api.config`` einen 
+  Abschnitt ``<section name='cms-upload-{cms-name}'>`` geben. Dort muss der selbe *Client* und das 
+  selbe *Secret* definiert werden.
 
 * ``replacement-file`` (optional)
   Pfad zu einem Replacement-File (aus altem CMS), 
@@ -149,8 +171,14 @@ Knoten ``postEvents``
 
 * ``http-get`` (optional)
   http-Get Requests, die nach dem Erstellen ausgeführt werden sollten. 
-  Das kann z.B. dazu verwendet werden, um nach einem Deploy ein cache/clear einer 
+  Das kann z.B. dazu verwendet werden, um nach einem Deploy ein ``cache/clear`` einer 
   WebGIS Instanz aufzurufen, damit das neue XML-File in den Cache geladen wird.
+
+  .. note:: 
+
+    Verwendet man zum Deployen der **CMS.xml** einen Upload, kann auf ein ``cache/clear``
+    der **WebGIS API** verzichtet werden, da dies von der **WebGIS API** automatisch 
+    ausgeführt wird.
 
 Weitere Attribute
 +++++++++++++++++

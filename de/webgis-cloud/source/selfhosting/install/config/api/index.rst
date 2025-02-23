@@ -332,6 +332,31 @@ Mit den hier angeführten Einstellungen, kann bestimmt werden, wer gespeicherte 
   Der empfohlene Weg zum Weitergeben einer Karte sollte das Werkzeug **Karte teilen** sein. Damit wird ein Snapshot der aktuellen Karte gemacht und weiter gegeben. Spätere Änderungen (Redlining)
   werden im Link der geteilten Karte nicht mehr angezeigt.
 
+CMS Upload
+++++++++++
+
+In der Konfiguration kann angeben werden, ob *CMS.xml* Dateien von einer **WebGIS CMS** Instanz hochgeladen
+werden können: 
+
+.. code:: xml
+
+  <section name="cms-upload-{cms-name}">
+    <add key="allow" value="true" />
+    <add key="client" value="cms-uload-client" />
+    <add key="secret" value="my-super-secret-with-min-length-24" />
+  </section>
+
+``{cms-name}`` ist ist hier der CMS-Name, wie er in der ``api.config`` definiert ist,
+zB ``<add key="cms_my_cms" value="{path-to-cms.xml}" />``.
+
+* ``allow``
+  Muss ``true`` sein, damit ein Upload erlaubt ist.
+
+* ``client`` und ``secret``
+  Hier kann ein beliebiger *Client* und eine *Secret* angegeben werden. Das *Secret* sollte ein 
+  sicheres Passwort mit mindestens 24 Zeichnen sein.
+  Die beiden Werte müssen mit denen in der ``cms.config`` im Abschnitt ``deployment`` übereinstimmen. 
+
 Werkzeug Karte teilen 
 +++++++++++++++++++++
 
