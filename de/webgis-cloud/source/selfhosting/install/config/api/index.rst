@@ -181,6 +181,38 @@ Abschnitt ``Marker``
   Welche Werte möglich sind, ist ersichtlich, wenn man ``/admin/info`` Seite für die API aufruft. 
   Dort wird auch angezeigt, welches *Encoding* aktuell verwendet wird.
 
+Abschnitt ``Logging``
++++++++++++++++++++++
+
+.. code:: xml
+
+  <!-- Logging (optional) -->
+  <add key="logging-type" value="files" />  
+  <!-- Pfad für das Logging: Verschnis muss für WebGIS schreibrechte aufweisen -->
+  <add key="Log_Path" value="C:\\apps\\webgis\\local\\webgis-repository\\logs" />   
+
+  <add key="logging-log-performance" value="true" />
+  <add key="Log_Performance_Columns" value="SESSIONID;MAPREQUESTID;CLIENTIP;DATE;TIME;MAPNAME;USERNAME;X;Y;SCALE" />
+  <add key="logging-log-exceptions" value="true" />
+
+  <add key="trace" value="true" />
+  <!-- only for debugging, don't use this in produktion -->
+	<add key="logging-log-service-requests" value="true" />  
+
+Das Logging kann in Files erfolgen (``logging-type = files``). 
+
+* ``logging-log-performance``
+  Im Performance Log file (CSV) werden die einzelnen Karten Requests geloggt, inklusive 
+  Zugriffszeiten
+
+* ``logging-log-exceptions``
+  Exceptions die während der Laufzeit der **WebGIS API** auftreten werden geloggt
+
+* ``logging-log-service-requests``
+  Die einzelnen Kartenserver Requests mit ihren Antworten werden geloggt. Das sollte nur 
+  zum Debugging dienen und nicht in einer Produktionsumgebung, weil dabei sehr viele Daten 
+  geschrieben werden, was Auswirkungen auf die Performance haben kann.
+  Die Request werden auch nur geloggt, wenn zusätzlich ``trace = true`` gesetzt wird.  
 
 Werkzeug Konfiguration
 ----------------------

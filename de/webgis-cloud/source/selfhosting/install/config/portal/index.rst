@@ -135,5 +135,15 @@ Abschnitt ``Advanced Security``
   Mit diesem Key kann man Benutzerdefinierte Layouts zulassen bzw. untersagen (``true`` / ``false``).
 
 
+Abschnitt ``Logging``
++++++++++++++++++++++
 
-    
+.. code:: xml
+
+  <!-- only for debugging, never in production -->
+  <add key="trace" value="true" />
+  <add key="tracePath" value="C:\\apps\\webgis\\local\\webgis-repository\\logs">
+
+Mit ``trace`` wird in das oben angeführte Verzeichnis eine ``trace.log`` geschrieben.
+Hier wir zB mitgeloggt, mit welchen Parametern eine User angemeldet wird.
+``trace`` sollte nur dem Debugging dienen und niemals in einer Produktionsumgebung verwendet werden.    
