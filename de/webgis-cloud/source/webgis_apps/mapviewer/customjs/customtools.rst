@@ -82,6 +82,54 @@ Die folgende Liste beschreibt die möglichen Eigenschaften:
 
         Der Link wird in einem neuen Browser-Tab geöffnet.
 
+    *   ``command_target: function(reponse) { }``
+
+        Hier wird das ``command`` als **fetch** ausgeführt und das Ergebnis an die hier angegeben 
+        Funktion übergeben. ``response`` ist dabei ein Objekt mit folgenden Eigenschaften:
+
+        .. code:: 
+
+            {
+               result: result,  // das Ergebnis der Abfrage (Objekt bei Json oder ein Text)
+               map: map,     // das aktuelle Map Objekt
+               uiElement: uiElement  // das UI Dom-Element des Werkzeuges, in das beispielsweise Ergebnisse geschrieben werden können
+            }
+
+        Beispielsweise könne ein Werkzeug für diese Typ so definiert werden:
+
+        .. code:: 
+
+            webgis.custom.tools.add({
+                name: 'Fetch Tool',
+                command: 'https://.../rest?x={x}&y={y}',
+                tooltype: 'click',
+                cursor: 'crosshair',
+                image: 'cursor-plus-26-b.png',
+                command_target: function(response) {
+                    const map = response.map;
+                    const result = response.result;
+                    
+                    // remove the custom tool marker
+                    map.removeMarkerGroup('custom-temp-marker');
+
+                    // add a custom tool marker
+                    map.toMarkerGroup('custom-temp-marker', map.addMarker({
+                        lat: result.lat, 
+                        lng: result.lng,
+                        text: '<div>'+result.text+'</div>',
+                        openPopup: true,
+                        buttons: [{
+                            label: 'Marker entfernen',
+                            onclick: function (map, marker) { map.removeMarker(marker); }
+                        }]
+                    }));
+
+                    $('<pre>')
+                        .text(JSON.stringify(response.result))
+                        .appendTo($(response.uiElement));
+                }
+            });
+
 *   ``tooltype``
 
     *	Keine Angabe (Defaultwert)
