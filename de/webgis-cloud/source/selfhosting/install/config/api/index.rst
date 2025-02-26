@@ -446,7 +446,7 @@ Die **Secured-Tiles-Redirect API** Muss explizit über die ``api.config`` aktivi
 
   <section name="secured-tiles-redirect">
     <add key="use-with-ogc-wmts" value="true" />  <!-- default: false -->
-    <add key="referers" value="www.server1.com,www.server2.com," />  <!-- optional -->
+    <add key="referers" value="www.server1.com,www.server2.com" />  <!-- optional -->
   </section>
 
 * ``use-with-ogc-wmts``: Erst wenn dieser Wert auf ``true`` gesetzt wird, 
