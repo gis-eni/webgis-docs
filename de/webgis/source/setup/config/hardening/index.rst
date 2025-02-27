@@ -140,8 +140,13 @@ Um zu verhindern, dass sich Benutzer in einer **öffentlichen Installation** von
 
 Die Anmeldung wird deaktiviert, indem in den Konfigurationsdateien der API (``_config/api.config``) und des Portals (``_config/portal.config``) der Wert für ``allow-subscriber-login`` auf ``false`` gesetzt wird:
 
+
+
+
 API-Konfigurationsdatei (``_config/api.config``)
 ------------------------------------------------
+
+.. image:: img/disable_api_login.png
 
 .. code-block:: xml
 
@@ -156,6 +161,8 @@ API-Konfigurationsdatei (``_config/api.config``)
 
 Portal-Konfigurationsdatei (``_config/portal.config``)
 ------------------------------------------------------
+
+.. image:: img/disable_portal_login.png
 
 .. code-block:: xml
 
