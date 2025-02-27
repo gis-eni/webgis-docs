@@ -426,6 +426,40 @@ Bei flächenhaften Objekte kann das allerdings nicht wünschenswert sein. In der
       <add key="tolerance-for-polygone-layers" value="0" /> <!-- optional -->
    </section>
 
+Abschnitt *Secured Tiles*
++++++++++++++++++++++++++
+
+Kartenkacheln werden immer von Client abgeholt (WMTS Dienste). Sind die Dienste allerdings
+geschützt, hat das den Nachteil, dass der Client auch Information über die 
+Credentials (User, Passwort oder Token) braucht. Diese Credentials sollte allerdings
+nie an den Client weitergereicht werden.
+
+Ein Workaround ist die **Secured-Tiles-Redirect API**. Damit werden die Tiles über einen 
+Aufruf auf die WebGIS API abholt. Die WebGIS API fungiert hier als Reverse Proxy zum
+geschützten WMTS Dienst. Die Credentials bleiben so am Server.
+
+**Client** => TileRequest => **WebGIS API** => TileRequest+Credentials => **WMTS Server**  
+
+Die **Secured-Tiles-Redirect API** Muss explizit über die ``api.config`` aktiviert werden:
+
+.. code:: XML
+
+  <section name="secured-tiles-redirect">
+    <add key="use-with-ogc-wmts" value="true" />  <!-- default: false -->
+    <add key="referers" value="www.server1.com,www.server2.com" />  <!-- optional -->
+  </section>
+
+* ``use-with-ogc-wmts``: Erst wenn dieser Wert auf ``true`` gesetzt wird, 
+  wird bei geschützten WMTS Diensten die **Secured-Tiles-Redirect API** verwendet.
+  Ohne diesen Eintrag funktionieren geschützte wMTS Dienst nicht.
+
+* ``referers``: Damit geschützte Dienste nicht überall über die  **Secured-Tiles-Redirect API**
+  eingebunden werden können, können hier *Referer* der Seiten angeführt werden, 
+  für die der *Redirect* erlaubt wird. In der Regel ist die Domain des Servers,
+  auf denen der WebGIS Viewer läuft.
+  Wird hier keine Wert angegeben, kann jeder Client auf die  **Secured-Tiles-Redirect API** 
+  zugreifen.  
+
 Proxy Server
 ++++++++++++
 
