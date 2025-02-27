@@ -6,8 +6,8 @@ Konfiguration (Postinstallation)
 Die Konfiguration der Web Applikationen erfolgt in ``*.config`` Dateien, die bei der jeweiligen Applikation im Ordner ``_config`` liegen.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Inhalt:
+   :maxdepth: 2
+   :caption: Inhaltsverzeichnis:
 
    cms/index.rst
    api/index.rst

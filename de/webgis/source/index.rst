@@ -117,3 +117,4 @@ konfiguriert werden.
    :caption: Inhaltsverzeichnis:
 
    setup/index
+   apps/index
