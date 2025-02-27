@@ -66,6 +66,34 @@ Admin-Account in der API
 
 Der API-Administrator hat **erweiterte Rechte**, um wichtige Einstellungen der Anwendung zu ändern. Ein Angreifer mit Zugriff auf dieses Konto könnte die gesamte Anwendung kontrollieren oder sogar Daten löschen. Deshalb ist es entscheidend, das Standardpasswort zu ersetzen.
 
+Um einen **Admin-Benutzer** für die API anzulegen, folgen Sie diesen Schritten:
+
+1. **Öffnen der Registrierungsseite**
+
+   Rufen Sie die folgende URL im Browser auf: `http://hostname:5001/Subscribers/Login`. Der Hostname und das Port müssen an die jeweilige Konfiguration angepasst werden.
+
+   .. image:: img/create_admin_1.png
+
+2. **Registrierung starten**
+
+   Klicken Sie auf **"Register as new subscriber"**.
+
+3. **Formular ausfüllen**
+
+   Geben Sie die erforderlichen Informationen im Registrierungsformular ein.  
+
+   .. image:: img/create_admin_2.png  
+
+   - Das Passwort muss mindestens **8 Zeichen** lang sein.
+
+   .. danger::
+
+     **Achten Sie auf ein starkes Passwort!** Die Mindestlänge ist eine technische Vorgabe, aber basierend auf den vorherigen Sicherheitshinweisen sollten Sie ein möglichst sicheres Passwort wählen.  
+
+   .. important::
+
+     Der **Benutzername muss zwingend "admin"** sein. Die *WebGIS API* verwendet intern diesen **festgelegten Namen**, um den Benutzer der **Admin-Rolle** zuzuweisen. Ohne diesen Namen erhält der Benutzer keine Administratorrechte.
+
 Weitere empfohlene Sicherheitsmaßnahmen
 =======================================
 

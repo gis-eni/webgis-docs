@@ -557,6 +557,35 @@ Für **flächenhafte Objekte** kann dies unerwünscht sein. Daher kann die **Tol
 
         Wird oft auf ``0`` gesetzt, um eine exakte Auswahl zu gewährleisten.
 
+Abschnitt ``Secured Tiles``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Kartenkacheln werden immer von Client abgeholt (WMTS Dienste). Sind die Dienste allerdings geschützt, hat das den Nachteil, dass der Client auch Information über die Credentials (User, Passwort oder Token) braucht. Diese Credentials sollte allerdings nie an den Client weitergereicht werden.
+
+Ein Workaround ist die **Secured-Tiles-Redirect API**. Damit werden die Tiles über einen Aufruf auf die WebGIS API abholt. Die WebGIS API fungiert hier als Reverse Proxy zum geschützten WMTS Dienst. Die Credentials bleiben so am Server.
+
+**Client** => TileRequest => **WebGIS API** => TileRequest+Credentials => **WMTS Server**  
+
+Die **Secured-Tiles-Redirect API** Muss explizit über die ``api.config`` aktiviert werden:
+
+.. code:: XML
+
+  <section name="secured-tiles-redirect">
+    <add key="use-with-ogc-wmts" value="true" />  <!-- default: false -->
+    <add key="referers" value="www.server1.com,www.server2.com" />  <!-- optional -->
+  </section>
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - Attribut
+     - Beschreibung
+   * - ``use-with-ogc-wmts``
+     - Erst wenn dieser Wert auf ``true`` gesetzt wird, wird bei geschützten WMTS Diensten die **Secured-Tiles-Redirect API** verwendet. Ohne diesen Eintrag funktionieren geschützte wMTS Dienst nicht.
+   * - ``referers`` *(optional)*
+     - Beschränkt den Zugriff auf die **Secured-Tiles-Redirect API** auf bestimmte **Referer**. Hier können die **Domains** der Server eingetragen werden, auf denen der *WebGIS Viewer* läuft. Wird kein Wert angegeben, kann **jeder Client** auf die API zugreifen.
+
 Proxy Server
 ------------
 

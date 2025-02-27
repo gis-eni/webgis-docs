@@ -14,4 +14,4 @@ Die Konfiguration der Web Applikationen erfolgt in ``*.config`` Dateien, die bei
    portal/index.rst
    etc/index.rst
    authentication/index.rst
-   hardening.rst
+   hardening/index.rst
