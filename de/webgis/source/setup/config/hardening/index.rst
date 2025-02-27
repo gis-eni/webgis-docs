@@ -129,6 +129,48 @@ Die Selbstregistrierung wird deaktiviert, indem in der Konfigurationsdatei der A
 
 Sobald diese Einstellung vorgenommen wurde, ist die **Selbstregistrierung für Subscriber deaktiviert**.
 
+Anmeldemöglichkeiten in öffentlich zugänglichen Instanzen deaktivieren
+======================================================================
+
+Um zu verhindern, dass sich Benutzer in einer **öffentlichen Installation** von WebGIS anmelden können, muss die Anmeldung sowohl im **Portal** als auch in der **API** deaktiviert werden.
+
+.. tip::
+
+  Diese Einstellung ist besonders dann sinnvoll, wenn eine Konfiguration von **internen Installationen** auf eine **öffentlich zugängliche Instanz** übertragen wird, da sichergestellt werden muss, dass sich **keine externen Benutzer anmelden können**.
+
+Die Anmeldung wird deaktiviert, indem in den Konfigurationsdateien der API (``_config/api.config``) und des Portals (``_config/portal.config``) der Wert für ``allow-subscriber-login`` auf ``false`` gesetzt wird:
+
+API-Konfigurationsdatei (``_config/api.config``)
+------------------------------------------------
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8" ?>
+   <configuration>
+      <appSettings>
+         ...
+         <add key="allow-subscriber-login" value="false" />
+         ...
+      </appSettings>
+   </configuration>
+
+Portal-Konfigurationsdatei (``_config/portal.config``)
+------------------------------------------------------
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8" ?>
+   <configuration>
+      <appSettings>
+         ...
+         <add key="allow-subscriber-login" value="false" />
+         ...
+      </appSettings>
+   </configuration>
+
+Sobald diese Einstellung in beiden Konfigurationsdateien vorgenommen wurde, ist die **Anmeldung für Benutzer in der öffentlichen Instanz deaktiviert**.
+
+
 Weitere empfohlene Sicherheitsmaßnahmen
 =======================================
 
