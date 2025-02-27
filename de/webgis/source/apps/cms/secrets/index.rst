@@ -1,3 +1,4 @@
+=======
 Secrets
 =======
 
@@ -7,7 +8,7 @@ Muss beispielsweise ein *Passwort* geändert werden, kann so gewährleistet werd
 vollzogen werden muss.
 
 Secret erstellen
-----------------
+================
 
 Um ein *Secret* zu erstellen, muss man in CMS in den Bereich ``Secrets`` wechseln und ``New Secret`` wählen:
 

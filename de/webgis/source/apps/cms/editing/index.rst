@@ -33,6 +33,7 @@ wird an einigen Ausgewählten Themen gezeigt.
 
 .. toctree::
     :maxdepth: 2
+    :caption: Inhaltsverzeichnis:
 
     create_edittheme
     theme_properties
