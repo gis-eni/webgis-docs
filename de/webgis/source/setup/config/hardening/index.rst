@@ -92,7 +92,42 @@ Um einen **Admin-Benutzer** für die API anzulegen, folgen Sie diesen Schritten:
 
    .. important::
 
-     Der **Benutzername muss zwingend "admin"** sein. Die *WebGIS API* verwendet intern diesen **festgelegten Namen**, um den Benutzer der **Admin-Rolle** zuzuweisen. Ohne diesen Namen erhält der Benutzer keine Administratorrechte.
+     Der Benutzername **muss** mit den Standard-Einstellungen zwingend ``admin`` sein. Die *WebGIS API* verwendet intern diesen **festgelegten Namen**, um den Benutzer der **Admin-Rolle** zuzuweisen. Ohne diesen Namen erhält der Benutzer keine Administratorrechte.
+
+     Welche Benutzername die Administratorenrolle zugeordnet bekommen, wird in der Konfigurationsdatei der Api ``_config/api.config`` festgelegt
+     
+     .. code:: xml
+
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+          <appSettings>
+            ...
+            <add key="subscriber-admins" value="admin" />
+            ...
+          </appSettings>
+        <configuration>
+
+Selbstregistrierung für Subscriber deaktivieren
+===============================================
+
+Sobald alle notwendigen Benutzerkonten angelegt wurden, sollte die **Selbstregistrierung für Subscriber** deaktiviert werden. Andernfalls könnten sich beliebige Nutzer eigenständig einen Account erstellen, was in den meisten Fällen nicht erwünscht ist.  
+
+Nach der Deaktivierung können neue Benutzerkonten nur noch manuell über das **Admin-Konto** angelegt werden.
+
+Die Selbstregistrierung wird deaktiviert, indem in der Konfigurationsdatei der API (``_config/api.config``) der Wert für ``allow-register-new-subscribers`` auf ``false`` gesetzt wird:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8" ?>
+   <configuration>
+      <appSettings>
+         ...
+         <add key="allow-register-new-subscribers" value="false" /> 
+         ...
+      </appSettings>
+   </configuration>
+
+Sobald diese Einstellung vorgenommen wurde, ist die **Selbstregistrierung für Subscriber deaktiviert**.
 
 Weitere empfohlene Sicherheitsmaßnahmen
 =======================================
