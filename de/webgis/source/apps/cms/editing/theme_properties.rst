@@ -1,137 +1,153 @@
-Editthema Eigenschaften bearbeiten
+Editthema-Eigenschaften bearbeiten
 ==================================
 
-Unter ``Eigenschaften`` lassen sich allgemeine Eigenschaften für eine erstelltes Editthema bestimmen:
+Unter ``Eigenschaften`` lassen sich allgemeine Einstellungen für ein erstelltes Editthema festlegen:
 
 .. image:: img/editing5.png
 
-Die Eigenschaften werden ein einem Dialog mit unterschiedlichen Kategorien dargestellt:
+Die Eigenschaften werden in einem Dialog mit unterschiedlichen Kategorien dargestellt:
 
 .. image:: img/editing8.png
 
 Allgemein
 ---------
 
-Hier wird angegeben, ob ein Editthema beim Bearbeiten-Werkzeug angezeigt werden soll. Möchte man das Thema
-im Kartenviewer verwenden, muss die Option ``Sichtbar`` gesetzt werden. 
-Themen können allerdings auch noch über andere Methoden bearbeitet werden. Zum Beispiel gibt es vorgefertigte
-App Vorlagen für den *AppBuilder* (Collector) mit denen Daten erfasst werden können. Damit diese Werkzeuge das 
-Editthema verwenden dürfen, ist die Option ``Über Edit-Server verfügbar`` zu setzen.
+Hier wird festgelegt, ob ein Editthema im Bearbeiten-Werkzeug angezeigt werden soll. Damit das Thema 
+im Kartenviewer verwendet werden kann, muss die Option ``Sichtbar`` aktiviert werden.  
+Themen können jedoch auch über andere Methoden bearbeitet werden, z. B. über vorgefertigte App-Vorlagen für den 
+*AppBuilder* (Collector), mit denen Daten erfasst werden können. Damit diese Werkzeuge das Editthema nutzen dürfen, 
+muss die Option ``Über Edit-Server verfügbar`` gesetzt werden.
 
 .. note:: 
-   Aus Sicherheitsgründen, sollte man immer nur die notwendigen Optionen setzen. ``Edit-Server`` nur aktivieren,
-   falls wirklich ein Zugriff über eine App erfolgen sollte. Sollte ausschließlich über eine App editiert werden,
-   sollte ``Sichtbar`` nicht gesetzt werden, da sich dies auf den Kartenviewer bezieht.
+   Aus Sicherheitsgründen sollten immer nur die notwendigen Optionen aktiviert werden. ``Edit-Server`` sollte nur dann 
+   aktiviert werden, wenn tatsächlich ein Zugriff über eine App erfolgen soll. Falls ausschließlich über eine App 
+   editiert wird, sollte ``Sichtbar`` nicht aktiviert werden, da diese Option sich auf den Kartenviewer bezieht.
 
-Eine wichtige Einstellung ist auch das ``räumliche Bezugssystem (EPSG-Code)``. Hier wird festgelegt, in welchen
-System die Daten über den (AGS-) *FeatureServer* ausgetauscht werden. Hier sollte das Koordinatensystem angeführt werden,
-in dem die Daten auch in der Datenbank geführt werden. Das muss nicht mit dem Koordinatensystem der Karte 
-überein stimmen, in der die Daten editiert werden. Gibt man hier das Bezugssystem der Daten an, vermeidet man
-unnötiges Projizieren der Koordinaten, was zu Rundungsungenauigkeiten führen kann.
+Eine weitere wichtige Einstellung ist das ``räumliche Bezugssystem (EPSG-Code)``. Hier wird festgelegt, in welchem 
+Koordinatensystem die Daten über den (AGS-) *FeatureServer* ausgetauscht werden. Es sollte das Koordinatensystem angegeben 
+werden, in dem die Daten auch in der Datenbank gespeichert sind. Dies muss nicht mit dem Koordinatensystem der Karte 
+übereinstimmen, in der die Daten editiert werden. Durch die Angabe des nativen Bezugssystems der Daten kann unnötiges 
+Projizieren vermieden werden, was Rundungsungenauigkeiten reduzieren kann.
 
-.. note::
-   Projizieren sollte beim Bearbeiten möglichst vermieden werden. Möchte man beispielsweise nur Sachdaten ändern
-   und lässt die Geometrie unberührt, sollte diese nicht beim überspeichern durch Ungenauigkeiten bei der 
-   Projektion verändert werden.
-
+.. note::  
+   Beim Bearbeiten sollte eine Projektion möglichst vermieden werden. Wenn beispielsweise nur Sachdaten geändert 
+   und die Geometrie unverändert bleiben soll, könnte ein erneutes Speichern aufgrund von Ungenauigkeiten bei 
+   der Projektion unerwünschte Änderungen verursachen.
 
 Bezeichnung
 -----------
 
-Hier wird der vergebene Name des Editthemas angegeben und kann dort auch geändert werden.
+Hier wird der Name des Editthemas angegeben und kann bei Bedarf geändert werden.
 
 Rechte
 ------
 
 .. image:: img/editing9.png
 
-Für jedes Thema kann über die *Rechte* bestimmt werden, welche Aktionen für diese Thema möglich sind:
+Für jedes Editthema kann über die *Rechte*-Einstellungen festgelegt werden, welche Aktionen erlaubt sind:
 
 * **INSERT:** Neue Objekte dürfen angelegt werden.
 * **UPDATE:** Bestehende Objekte dürfen bearbeitet werden.
 * **DELETE:** Bestehende Objekte dürfen gelöscht werden.
-* **Geometrie:** Neben den Sachdaten darf auch die Geometrie geändert werden. In manchen Fällen sinnvoll, bei denen der Anwender nur die Sachdaten bestehender Objekte bearbeiten darf.
-* **Massenatributierung:** Ist diese Option gesetzt, kann ein Anwender die Sachdaten für alle ausgewählten Objekte durchführen.
+* **Geometrie:** Neben den Sachdaten darf auch die Geometrie geändert werden. Dies kann nützlich sein, wenn 
+  der Anwender nur Sachdaten bestehender Objekte bearbeiten darf, aber keine geometrischen Änderungen vornehmen soll.
+* **Massenattributierung:** Ist diese Option aktiviert, kann der Anwender Sachdaten für alle ausgewählten Objekte gleichzeitig ändern.
+
 
 Aktionen (Insert)
 -----------------
 
 .. image:: img/editing10.png
 
-In diesem Bereich kann bestimmt werden, welche Möglichkeiten der Anwender hat, um ein erstelltes Geo-Objekt
-zu speichern. Standardmäßig besitzt ein Editthema in der ``Neues Objekte erstellen`` Maske im Kartenviewer
-neben der Attributeingabe noch folgende *Buttons*:
+In diesem Bereich kann festgelegt werden, welche Möglichkeiten der Anwender hat, um ein erstelltes Geo-Objekt zu speichern.  
+Standardmäßig besitzt ein Editthema in der Maske ``Neues Objekt erstellen`` im Kartenviewer neben der Attributeingabe  
+folgende *Buttons*:
 
 .. image:: img/editing11.png
 
-Der Anwender kann ``Speichern`` und danach entweder ein weiteres Objekt des gleichen Typs zeichnen oder die 
-Eingabemaske verlassen. Nach erfolgreichem Speichern erscheint das Objekte in der Karte und die 
-Sachdaten-Eingabemaske wird auf den Standard zurückgesetzt. Für ein neues Objekt müssen von Anwender auch wieder
-alle Sachdaten-Einträge neu vergeben werden (es gibt hier Ausnahmen, Felder die erhalten bleiben und einmal eingegeben 
-werden müssen. Siehe später ``Beständige (Resistant)`` Felder).
-Mit ``Speichern und Auswählen`` kann der Anwender das erstellte Objekte speichern und es dann sofort
-auswählen. Ohne diesen Button müsste für diesen Zweck das Objekt erst gespeichert und dann mit dem Abfrage Werkzeug
-ausgewählt werden. Voraussetzung ist dafür, dass im Dienst für dieses Thema auch eine Abfrage existiert.
-Sinn macht die *Aktion* beispielsweise, wenn für ein erstelltes Objekte im Anschluss eine Nachbarschaftsberechnung 
-durchgeführt werden soll.
+Der Anwender kann auf ``Speichern`` klicken und danach entweder ein weiteres Objekt desselben Typs zeichnen oder die  
+Eingabemaske verlassen. Nach erfolgreichem Speichern erscheint das Objekt in der Karte, und die  
+Sachdaten-Eingabemaske wird auf den Standard zurückgesetzt. Für ein neues Objekt müssen alle Sachdaten erneut eingegeben  
+werden – mit Ausnahme von *beständigen* (resistant) Feldern, die einmal gesetzt und beibehalten werden können.
 
-Beiden Standardbuttons ``Speichern`` und ``Speichern und Auswählen`` können über die Optionen in diesem Dialog
-auch weggeschalten werden.
+Mit ``Speichern und Auswählen`` kann der Anwender das erstellte Objekt speichern und es anschließend direkt auswählen.  
+Ohne diesen Button müsste das Objekt erst gespeichert und dann mit dem Abfrage-Werkzeug ausgewählt werden.  
+Diese Aktion ist sinnvoll, wenn nach der Erstellung des Objekts beispielsweise eine Nachbarschaftsberechnung durchgeführt  
+werden soll. Voraussetzung dafür ist, dass im Dienst eine Abfrage für dieses Thema existiert.
 
-Für spezieller Anforderungen gibt noch weitere optionale Buttons zum Speichern von Geo-Objekten. Über den Dialog,
-können fünf zusätzliche Button erzeugt werden. Damit ein optionaler Button angezeigt wird, muss jeweils die 
-*Speicheraktion* und eine *Text* für den Button angeführt werden.
+Die beiden Standardbuttons ``Speichern`` und ``Speichern und Auswählen`` können über die Optionen in diesem Dialog  
+deaktiviert werden.
 
-Folgende *Aktionen* stehen dabei zur Verfügung:
+Zusätzliche Speicheroptionen  
+----------------------------
 
-* **Speichern (Save):** Entspricht dem einfachen Speichern über den ``Speichern`` Button. Hiermit kann der ``Speichern`` Button theoretisch mit einem alternativen Text dargestellt werden.
-* **Speichern und Auswählen:** Entspricht ebenfalls dem Standardbutton ``Speichern und Auswählen``.
-* **Speichern und Attribute behalten:** Hier bleiben nach den Speichern alle Attribute in der Sachdatenmaske erhalten. Der Anwender kann so theoretisch gleich ein weiteres Geo-Objekt erstellen und muss nicht alle Attributwerte neu vergeben.
-* **Speichern und mit letzten Vertex weiterzeichnen:** Hier wird nach dem Zeichnen der letzte Punkt des gezeichnet Objektes für das nächste Objekt übernommen. Ein Anwendungsfall wird unten beschrieben.
-* **Speichern,mit lebeten Vertix weiterzeichnen und Attribute behalten:** Eine Kombination aus den beiden obigen.
+Für spezielle Anforderungen gibt es weitere optionale Buttons zum Speichern von Geo-Objekten.  
+Über den Dialog können bis zu fünf zusätzliche Buttons definiert werden. Damit ein optionaler Button angezeigt wird,  
+müssen eine *Speicheraktion* und ein *Text* für den Button angegeben werden.
 
-Hier ein kurzes Anwendungsbeispiel, bei dem die unterschiedlichen Aktion nützlich sein können:
+Folgende *Aktionen* stehen zur Verfügung:
 
-Für die Planung von Leitungsobjekten sollte der Künettenverlauf im Kartenviewer erfasst werden (Linien-Objekt). 
-Aufgrund der Länge der Linien können so die etwaigen Kosten geschätzt werden. Die Kosten der Grabungen sind dabei 
-natürlich vom Untergrund (Wiese, Asphalt, ...) abhängig. Darum kann ein entsprechendes Attribute "Untergrund" 
-ausgewählt werden. Ändert sich für ein längeres Leitungsprojekt der Untergrund, muss der Planer an den Übergangspunkten
-die Linie speichern und beim letzten Punkt mit einem neuen *Abschnitt* fortfahren. Das es sich bei diesem 
-Künettenabschnitt um ein neues Geo-Objekt handelt, muss er im Standardfall erst alle Sachdaten (Planungsnummer, Variante, Zuständiger, ...)
-neu vergeben und beim Zeichnen an letzten Punkt des vorherigen Abschnittes anschließen.
+* **Speichern (Save):** Entspricht dem Standardbutton ``Speichern``, kann jedoch mit einem alternativen Text versehen werden.
+* **Speichern und Auswählen:** Entspricht dem Standardbutton ``Speichern und Auswählen``.
+* **Speichern und Attribute behalten:** Die Attributwerte in der Sachdatenmaske bleiben nach dem Speichern erhalten.  
+  Der Anwender kann so direkt ein weiteres Geo-Objekt erstellen, ohne alle Werte erneut eingeben zu müssen.
+* **Speichern und mit letztem Vertex weiterzeichnen:** Nach dem Speichern wird der letzte Punkt des erstellten  
+  Objekts als Startpunkt für das nächste Objekt übernommen.
+* **Speichern, mit letztem Vertex weiterzeichnen und Attribute behalten:** Eine Kombination aus den beiden vorherigen Aktionen.
 
-Eine erhebliche Erleichterung würde hier die letzte oben angeführte Aktion darstellen: Nach dem Speichern
-beim letzten Punkt weiterzeichnen und alle Attribute behalten. So würde mit dem Kick auf einem Button
-ein neuer Abschnitt (neues Geo-Objekt) begonnen werden. Das einzige Attribut das neu vergeben werden müsste 
-ist der *Untergrund*.
+Anwendungsbeispiel  
+------------------
 
-Parametrieren könnte man die ``Aktionen (Insert)`` folgendermaßen:
+Ein kurzes Beispiel, in dem die unterschiedlichen Speicheraktionen sinnvoll eingesetzt werden können:
+
+Für die Planung von Leitungsobjekten sollte der Künettenverlauf im Kartenviewer erfasst werden (Linien-Objekt).  
+Anhand der Linienlänge können die geschätzten Kosten der Grabungen berechnet werden. Diese Kosten hängen  
+wesentlich vom Untergrund (z. B. Wiese, Asphalt) ab, weshalb ein entsprechendes Attribut *Untergrund* ausgewählt  
+werden kann.  
+
+Ändert sich der Untergrund innerhalb eines längeren Leitungsprojekts, muss der Planer an den Übergangspunkten  
+die Linie speichern und den neuen *Abschnitt* am letzten Punkt des vorherigen Abschnitts fortsetzen.  
+Da es sich dabei um ein neues Geo-Objekt handelt, müssten im Standardfall alle Sachdaten (Planungsnummer, Variante,  
+Zuständiger, usw.) erneut eingegeben werden.  
+
+Optimierung mit automatisierter Speicherung  
+-------------------------------------------
+
+Eine erhebliche Erleichterung stellt die Aktion **„Speichern, mit letztem Vertex weiterzeichnen und Attribute behalten“** dar.  
+Mit einem Klick auf einen speziell konfigurierten Button könnte so ein neuer Abschnitt begonnen werden, wobei  
+sämtliche Attribute – mit Ausnahme des *Untergrunds* – übernommen werden.  
+
+Konfiguration der Aktionen (Insert)  
+-----------------------------------
+
+Die *Aktionen (Insert)* können folgendermaßen parametriert werden:
 
 .. image:: img/editing12.png
 
-Die beiden Standardbuttons werden weggeschalten. Das *normale* Speichern wird als optionale Aktion (2) mit neuem
-Text (*Speichern => neue Künette*) parametriert.
-Die erste optionale Aktion (1) entspricht dem oben beschrieben verhalten (*Speichern => neuer Abschnitt*)
+1. Die beiden Standardbuttons werden ausgeblendet.  
+2. Die Standard-Speicheraktion wird als optionaler Button mit neuem Text *„Speichern ⇒ neue Künette“* hinzugefügt.  
+3. Die erste optionale Aktion (1) ermöglicht das direkte Weiterzeichnen mit beibehaltenen Attributen (*„Speichern ⇒ neuer Abschnitt“*).  
 
-Im Kartenviewer erscheinen die Buttons für dieses Thema dann folgendermaßen:
+Im Kartenviewer erscheinen die Buttons für dieses Editthema dann folgendermaßen:
 
 .. image:: img/editing13.png
 
-Erweiterte Eigenschaften
+==================
+
+Erweiterte Eigenschaften  
 ------------------------
 
-.. image:: img/editing14.png
+.. image:: img/editing14.png  
 
-Intern bekommt jedes Editthema zur Identifizierung eine eindeutige Id. Wird das Editthema nicht (nur) über 
-den Kartenviewer, sondern auch über oben erwähnte Apps (Collector) eingebunden, muss im entsprechenden 
-Javascript Code auch diese Id verwendet werden. Da dafür oft eine sprechende Id wünschenswert ist,
-kann der Wert hier geändert werden.
+Jedes Editthema erhält intern eine eindeutige ID zur Identifikation. Falls das Editthema nicht nur im  
+Kartenviewer, sondern auch in externen Anwendungen (z. B. Apps wie *Collector*) verwendet wird, muss diese  
+ID im entsprechenden JavaScript-Code hinterlegt werden.  
 
-.. note::
-   Ändert man diesen Wert manuell, muss gewährleistet sein, dass die Id trotzdem eindeutig (innerhalb des CMS)
-   ist. Die Eindeutigkeit wird **nicht** vom System überprüft und muss von CMS Autor gewährleistet sein.
-   Auch sollte dieser Wert nicht mehr geändert werden, da die Änderung dann in alle Apps mitgezogen werden
-   muss. Möchte man das Thema auch in Apps verwenden und den Namen ändern, sollte dies gleich nach dem Erstellen
-   passieren und danach nicht mehr geändert werden.
+Da eine sprechende ID oft wünschenswert ist, kann der Wert hier manuell geändert werden.  
 
-
+.. note::  
+   Wird die ID manuell geändert, muss sichergestellt werden, dass sie innerhalb des CMS **eindeutig** bleibt.  
+   Das System überprüft die Eindeutigkeit **nicht**, sodass dies in der Verantwortung des CMS-Autors liegt.  
+   Zudem sollte die ID nachträglich nicht mehr geändert werden, da eine Änderung in **allen angebundenen Apps**  
+   nachgezogen werden müsste. Falls eine sprechende ID gewünscht ist, sollte diese direkt nach dem Erstellen  
+   des Editthemas festgelegt werden.

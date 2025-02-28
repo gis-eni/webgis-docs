@@ -1,7 +1,8 @@
 Dienst Auswahllisten
 --------------------
 
-Einige Kartendienst-Server (z.B. ArcGIS Server) bieten von sich aus schon die Möglichkeit von *Domains*.
-Wenn das der Fall ist und auf diese Domains in der Auswahlliste rücksicht genommen werden soll, kann die oben 
-gezeigte Parametrierung entfallen. Es reicht dann, einfach als Eingabefeld Typ ``domain`` abzugeben. Der 
-Kartenviewer befüllt die Liste automatisch aus den Diensteigenschaften.
+Einige **Kartendienst-Server** (z. B. **ArcGIS Server**) bieten bereits eine integrierte Unterstützung für **Domains**.  
+Falls diese Domains genutzt werden sollen, kann die **manuelle Parametrierung** der Auswahlliste **entfallen**.  
+
+Stattdessen reicht es, als **Eingabefeld-Typ** einfach ``domain`` zu setzen.  
+Der **Kartenviewer** erkennt die hinterlegten Domains und befüllt die Liste **automatisch** aus den **Diensteigenschaften**.

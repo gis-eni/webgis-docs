@@ -1,82 +1,109 @@
 Editierbare Felder: Autovalues
 ==============================
 
-*Autovalues* sind Felder, die nicht vom Anwender eingegeben werden müssen, sondern aufgrund von anderen Kriterien 
-vor dem Speichern am Server *automatisch* gesetzt werden.
-So kann damit beispielsweise der Username des aktuellen Anwenders oder das Erstellungsdatum in ein Feld übertragen 
-werden. Diese Felder werden für die Eingabemaske in der Regel als *readonly* oder nicht sichtbar angeführt.
+*Autovalues* sind Felder, die nicht vom Anwender eingegeben werden müssen, sondern vor dem Speichern  
+am Server *automatisch* gesetzt werden.  
 
-Im folgenden Beispiel wird beispielsweise die Länge der erstellten Liniengeometrie in ein Feld übernommen:
+Beispiele für solche Felder sind:  
+- Der Benutzername des aktuellen Anwenders  
+- Das Erstellungsdatum eines Objekts  
+- Die Länge einer Liniengeometrie  
+
+Diese Felder werden in der Eingabemaske meist als *readonly* oder nicht sichtbar definiert.
+
+Im folgenden Beispiel wird die Länge der erstellten Liniengeometrie in ein Feld übernommen:
 
 .. image:: img/editing18.png
 
-Wird als *Autovalue* ``custom`` verwendet, kann im Eingabefeld der Autovalue eingegeben werden.
-Hier könnten beispielsweise konstante Werte mit ``=WEBGIS`` eingegeben werden, wenn man möchte,
-dass ein Feld (zB QUELLE) immer  ``WEBGIS`` eingetragen werden sollte.
+Benutzerdefinierte Werte mit „custom“
+-------------------------------------
 
-Über ``custom`` können Werte aus den Url-Parametern verwendet werden, über den der Viewer aufgerufen wurde. Die funktioniert für sogenannte *originäre* Url-Parameter (siehe Abschnitt: Auf des Viewers).
-Auf diese Werte kann man beispielsweise folgendermaßen zugreifen: ``url-parameter:project_id``.
+Mit dem *Autovalue* ``custom`` können Werte direkt im Eingabefeld definiert werden.  
+Beispielsweise kann für ein Feld **QUELLE** immer der Wert ``WEBGIS`` eingetragen werden:
 
+``=WEBGIS``  
 
-Weiters sind auch automatische Attributierungen über räumliche Beziehungen zu anderen Featureklassen möglich,
-beispielsweise:
+Zusätzlich lassen sich Werte aus den URL-Parametern des Viewers übernehmen.  
+Dies funktioniert mit *originären* URL-Parametern (siehe Abschnitt: Aufruf des Viewers):
 
-``NR FROM GDBAbfrage SERVICE kataster``
+``url-parameter:project_id``  
 
-In das Feld wird das Attribut NR jener Objekte aus dem Thema GDBAbfrage geschrieben, welche sich mit dem gespeicherten 
-Objekt räumlich decken. Gibt es mehrere Ergebnisse, werden diese mit Strichpunkten getrennt.
+Automatische Attributierung über räumliche Beziehungen
+------------------------------------------------------
 
-``TYP FROM kasten SERVICE strom@mycms BUFFERDIST 20 SEPERATOR space-space MAX 10``
+Auch räumliche Beziehungen zu anderen Featureklassen können zur automatischen Attributierung genutzt werden:  
 
-In das Feld wird das Attribute TYP jener Objekte aus dem Thema Kasten geschrieben, welche im Umkreis von 20m
-liegen (BUFFERDIST 20). Gibt es mehrere Ergebnisse, werden diese mittels Leerzeichen-Bindestrich-Leerzeichen 
-voneinander getrennt (SEPERATOR space-space). Es werden jedoch maximal zehn Ergebnisse übernommen (MAX10).
+``NR FROM GDBAbfrage SERVICE kataster``  
 
-Der Autovalue ``db_select`` erfordert ebenfalls die Eingabe weiterer Werte in die beiden Eingabefelder.
-Mit diesem Autovalue wird vor dem Speichern ein Wert über eine Datenbankabfrage befüllt. In die Felder
-muss hier der *ConnectionString* und das *SQL Stamtement* eingeben werden:
+→ Hier wird das Attribut **NR** von Objekten aus dem Thema **GDBAbfrage** übernommen,  
+   wenn diese sich räumlich mit dem gespeicherten Objekt decken.  
+   Gibt es mehrere Treffer, werden diese mit **Strichpunkten** getrennt.
+
+``TYP FROM kasten SERVICE strom@mycms BUFFERDIST 20 SEPARATOR space-space MAX 10``  
+
+→ Hier wird das Attribut **TYP** von Objekten aus dem Thema **Kasten** übernommen,  
+   wenn diese im Umkreis von **20 m** liegen (``BUFFERDIST 20``).  
+   Mehrere Ergebnisse werden mit **Leerzeichen-Bindestrich-Leerzeichen** getrennt  
+   (``SEPARATOR space-space``). Es werden maximal **10 Ergebnisse** übernommen (``MAX 10``).  
+
+Automatische Werte aus einer Datenbankabfrage („db_select“)
+-----------------------------------------------------------
+
+Der Autovalue ``db_select`` ermöglicht das automatische Befüllen eines Feldes  
+über eine Datenbankabfrage. Dazu müssen folgende Angaben gemacht werden:  
+
+- **ConnectionString** → Die Verbindung zur Datenbank  
+- **SQL Statement** → Die Abfrage für das gewünschte Feld  
 
 .. image:: img/editing19.png
 
-Über Platzhalter wie ``{{VORGANG_TEXT}}`` kann dabei auf aktuelle Eingaben zugegriffen werden.
+Mit **Platzhaltern** wie ``{{VORGANG_TEXT}}`` kann auf aktuelle Eingaben zugegriffen werden.
 
-Als Datenquelle für ``db_select`` kann auch ein WebService angeben werden. Das kann beispielsweise auch eine 
-*Datalinq*-Abfrage sein, die als JSON abgeholt wird.
+Autovalues über WebService (DataLinq)
+-------------------------------------
 
-Eine Abfrage liefert etwa folgendes Ergebnis:
+Statt einer Datenbank kann auch ein WebService als Datenquelle für ``db_select`` genutzt werden.  
+Ein Beispiel für eine *DataLinq*-Abfrage:
 
-``https://localhost:44341/datalinq/select/auswahllisten(oJ...token)@color?value=4711``
+``https://localhost:44341/datalinq/select/auswahllisten(oJ...token)@color?value=4711``  
+
+Diese Abfrage liefert folgendes JSON-Ergebnis:
 
 .. code-block:: javascript
 
    [
       {
         "value": "4711",
-        "name":"Blau"
+        "name": "Blau"
       }
    ]
 
-Zum Einbinden dieses Dienstes muss für die Felder ``ConnectionString`` und ``SqlStatement`` folgendes eingetragen werden:
+Für die Einbindung dieses Dienstes müssen die Felder **ConnectionString** und **SqlStatement**  
+folgendermaßen befüllt werden:
 
-ConnectionString:
+**ConnectionString:**  
 
-``https://localhost:44341/datalinq/select/auswahllisten(oJ...token)@color``
+``https://localhost:44341/datalinq/select/auswahllisten(oJ...token)@color``  
 
-SqlStatement:
+**SqlStatement:**  
 
-``value={{color}}``
+``value={{color}}``  
 
-Wobei hier ``color`` das Edit Eingabe/Auswahllisten-Feld ist, das für diesen Autovalue verwendet wird.
-In diesem Beispiel würde als Autovalue der Wert ``Blau`` übernommen werden.
+Hierbei ist ``color`` das Edit-Eingabe/Auswahllisten-Feld, das für diesen Autovalue verwendet wird.  
+In diesem Beispiel würde als Autovalue der Wert **„Blau“** übernommen werden.
 
-.. note::
-   Für den Autovalue wird hier immer das erster Ergebnis verwendet, das zurück gegeben wird. 
-   Wird eine Url Abgefragt, wird der Wert übernommen, der im Feld ``name`` steht. Bei DataLinq PlainText Endpoints heißt das Feld per Definition immer ``text``.
-   Verwendet man im Hintergrund in DataLinq deine Datenbankabfrage, muss man das entsprechende Feld im SQL Statement umbenennen, zB ``SELECT FARBE as name FROM TABLE WHERE ...``.
+.. note::  
+   - Es wird immer das **erste Ergebnis** der Abfrage verwendet.  
+   - Bei einer URL-Abfrage wird der Wert aus dem Feld **„name“** übernommen.  
+   - Bei *DataLinq PlainText*-Endpoints heißt das Feld per Definition immer **„text“**.  
+   - Falls eine eigene SQL-Abfrage in *DataLinq* genutzt wird, sollte das gewünschte Feld umbenannt werden:  
 
-.. note:: 
-   In der Praxis wird nicht empfohlen, *ConnectionString* oder Urls (mit Tokens) wie oben gezeigt an dieser Stelle 
-   ins CMS einzutragen. *ConnectionStrings* und Tokens sollte im Abschnitt ``secrets`` einmal eingetragen werden.
-   An dieser Stelle wird dann nur mehr der Platzhalter für das Secret angegeben:
+     ``SELECT FARBE as name FROM TABLE WHERE ...``  
 
-   ConnectionString: ``{{select-datalinq-endpoint-auswahllisten}}@color``
+.. note::  
+   **Sicherheitshinweis:**  
+   - *ConnectionStrings* oder URLs mit Tokens sollten nicht direkt im CMS hinterlegt werden.  
+   - Stattdessen sollten diese Werte im Abschnitt ``secrets`` gespeichert werden.  
+   - Der ConnectionString kann dann mit einem **Platzhalter** angegeben werden:  
+
+     ``{{select-datalinq-endpoint-auswahllisten}}@color``  

@@ -1,8 +1,8 @@
 Editierbare Felder: Auswahllisten
 =================================
 
-Verwendet man als Eingabefeld Typ ``domain`` wird in der Maske eine Auswahlliste angezeigt.
-Die Werte einer Auswahlliste können dabei aus einer Datenbank kommen oder im CMS *statisch* definiert werden.
+Wenn als Eingabefeld der Typ ``domain`` verwendet wird, erscheint in der Maske eine Auswahlliste.  
+Die Werte dieser Auswahlliste können entweder aus einer Datenbank stammen oder im CMS **statisch** definiert werden.
 
 .. toctree::
     :maxdepth: 1
@@ -11,10 +11,3 @@ Die Werte einer Auswahlliste können dabei aus einer Datenbank kommen oder im CM
     fields_domains_static
     fields_domains_db
     fields_domains_datalinq
-   
-    
-
-
-
-
-
