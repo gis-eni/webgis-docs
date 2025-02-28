@@ -53,7 +53,7 @@ Für die einzelnen Anwendungen wird dazu je eine *lokaler WebServer* gestartet u
             │   └── webgis-portal
 
 * ``start-webgis.bat``:
-  Startet die ``WebGIS Api`` (lokaler WebServer unter HTTP Port 5001) und das ``WebGIS Portal`` (lokaler WebServer unter HTTP Port 5002). Zusätzlich wird ein Browserfenster geöffnet, in das WebGIS Portal angezeigt wird.
+  Startet die ``WebGIS API`` (lokaler WebServer unter HTTP Port 5001) und das ``WebGIS Portal`` (lokaler WebServer unter HTTP Port 5002). Zusätzlich wird ein Browserfenster geöffnet, in das WebGIS Portal angezeigt wird.
 
 * ``start-webgis-cms.bat``:
   Startet die ``WebGIS CMS`` Anwendung in einem lokalen Server unter dem HTTP Port 5003. Zusätzlich wird ein Browserfenster geöffnet, in dem die CMS Anwendung angezeigt wird.

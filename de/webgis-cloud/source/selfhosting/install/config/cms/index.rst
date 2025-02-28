@@ -217,7 +217,7 @@ Welche Instanzen Ã¼ber die CMS Startseite zum Editieren angezeigt werden, kann Ã
    {
       "instances": [
          {
-            "name": "Local WebGIS Api",
+            "name": "Local WebGIS API",
             "description": "My local WebGIS test and developing API",
             "url": "https://my-server/webgis-api"
          }

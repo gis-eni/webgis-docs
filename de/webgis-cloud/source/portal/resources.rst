@@ -17,7 +17,7 @@ der Anforderungen ab:
 
 
 ad 1)
-Für diese Anwendung ist ein **API Client** für die WebGIS Api anzulegen. Dieser kann von einer angegeben 
+Für diese Anwendung ist ein **API Client** für die WebGIS API anzulegen. Dieser kann von einer angegeben 
 Internetseite auf die *Javascript* API von *WebGIS Cloud* zugreifen. Erfolgt der Zugriff nur auf freie Kartendienste (Basemaps) und 
 Adresssuche (Österreich), kann diese Resource mit der *"Free" Subscription* erfolgen.
 

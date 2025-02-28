@@ -1,4 +1,4 @@
-WebGIS Api Clients
+WebGIS API Clients
 ==================
 
 Um auf die WebGIS API zugreifen zu können, ist ein API Client notwendig. Jeder Client bekommt eine eindeutige ID. Wird die WebGIS API in eine Webseite eingebunden, 
