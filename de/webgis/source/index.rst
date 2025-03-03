@@ -19,7 +19,7 @@ Die  *Hintergrund-* und *Fachdaten* müssen dabei über gängige Kartendienst-Sc
 Die *WebGIS Plattform* bietet Werkzeuge zur Darstellung und Abfrage dieser Kartendienste. Abhängig von den Eigenschaften des Kartendiensts können die Geodaten auch erstellt und bearbeitet werden.
 
 *WebGIS* bietet keine Werkzeuge zum *Hosten* von Kartendiensten. Die Kartendienste müssen von eigenen Applikationen, sogenannten Kartenservern gehostet werden.
-Beispiele für Kartenserver sind beispielsweise *GeoServer* (https://geoserver.org/), *gView Server* (https://github.com/jugstalt/gview5) oder auch kommerzielle Produkte wie *ArcGIS Server* (https://www.esri.com/).
+Beispiele für Kartenserver sind beispielsweise *GeoServer* (https://geoserver.org/), *gView Server* (https://github.com/jugstalt/gview-gis) oder auch kommerzielle Produkte wie *ArcGIS Server* (https://www.esri.com/).
 Die Kartenserver greifen in der Regel über ihr Backend auf Geodaten in einer Datenbank zu (z.B. PostGreSQL/PostGIS) und implementieren eine der oben angeführten Schnittstellen.
 
 Mit dieser Methode lassen sich sehr gut verteilte Kartenanwendungen erstellen. Möchte man eigene Daten über *WebGIS* veröffentlichen, ist zusätzlich ein Kartenserver notwendig:

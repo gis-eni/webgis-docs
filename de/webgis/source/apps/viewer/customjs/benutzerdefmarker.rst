@@ -1,16 +1,19 @@
+=========================
 Benutzerdefinierte Marker
 =========================
 
-Findet der Anwender im Kartenviewer Ergebnisse, werden diese standardmäßig mit einem blauen Marker markiert. Mit einem Klick auf den Marker werden dann die Attribute dieses Objektes angezeigt. 
-In gewissen Fällen ist es jedoch wünschenswert, ein anderes Symbol für den Marker zu verwenden. Wie das bewerkstelligt wird, soll diese Beschreibung zeigen.
+Im WebGIS Viewer werden Ergebnisse standardmäßig mit einem **blauen Marker** markiert. In manchen Fällen soll jedoch ein anderes Symbol verwendet werden.
 
 Allgemeine Vorgehensweise
--------------------------
+=========================
 
-Die Art, wie Marker dargestellt werden, erfolgt in den Javascripts der API innerhalb des *webgis-Objekts* über ein Array mit dem Namen ``markerIcons``. 
-Die Keys für dieses Array entsprechen Konstanten, die beim Entwickeln vergeben wurden. So ist beispielsweise der rote Marker für die aktuelle Position wie folgt definiert worden:
+Die Darstellung von **Markern** wird über das Objekt ``webgis.markerIcons`` in der **WebGIS API** gesteuert. Dieses Array enthält vordefinierte Marker, die über **Schlüssel** (Keys) angesprochen werden.
 
-.. code-block :: Javascript
+**Beispiel:** 
+
+Ein vordefinierter Marker für die aktuelle Position:
+
+.. code-block:: JavaScript
 
     this.markerIcons["currentpos_red"] = {
         url: function () { 
@@ -21,28 +24,39 @@ Die Keys für dieses Array entsprechen Konstanten, die beim Entwickeln vergeben 
         popupAnchor: [0, -20]
     }; 
 
-Jedes Objekt, das einen Marker beschreibt, hat folgende Eigenschaften:
+Eigenschaften eines Marker-Objekts
+----------------------------------
 
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
 
+   * - **Eigenschaft**
+     - **Beschreibung**
+   * - ``url``
+     - Eine **Funktion**, die die **URL des Marker-Bildes** zurückgibt. Wird ``webgis.css.imgResource()`` verwendet, muss das Bild im **api5/content/api/img**-Verzeichnis liegen. Der erste Parameter ist der **Dateiname**, der zweite der **Unterordner**. Falls das Marker-Bild nicht in diesem Verzeichnis liegt, kann eine **absolute URL** angegeben werden:  
 
-*   ``url``
+       .. code-block::
 
-    Eine Funktion, die die Url des Marker-Bildes zurückgibt. Hier wird noch mit der Funktion ``webgis.css.imgResource()`` gearbeitet. Diese kann verwendet werden, wenn die Marker im api5/content/api/img Verzeichnis liegen. 
-    Der erste Parameter gibt den Namen der Datei an, der zweite den Unterordner.
-    Wenn sich ein Marker Icon nicht in diesem Verzeichnis befindet, kann hier auch eine absolute Url angegeben werden: http://.....
+          "http://myserver.com/markers/mein_marker.png"
 
-*   ``size``:
-    Die Größe des Marker-Bildes in Pixel.
+   * - ``size``
+     - Die **Größe des Markers** in **Pixel**.
+   * - ``anchor``
+     - Die **Koordinaten des Einfügepunkts** im Bild (**von links, oben**) in **Pixel**.
+   * - ``popupAnchor``
+     - Die **Koordinaten der Infoblase** relativ zum **Einfügepunkt des Markers** in **Pixel**.
 
-*   ``anchor``:
-    Die Bildkoordinaten des Einfügepunktes des Markers (von links, oben) in Pixel.
+.. note::
 
-*   ``popupAnchor``:
-    Der Einfügepunkt der Info-Blase relative zum Einfügepunkt des Markers in Pixel. 
+   **Marker-Attribute** wie **Größe** oder **Einfügepunkt** können auch als **Funktionen** definiert werden, wenn dynamische Anpassungen erforderlich sind.
 
-Die Marker für die Abfrageergebnisse sind folgendermaßen definiert:
+Marker für Abfrageergebnisse
+============================
 
-.. code-block :: Javascript
+Die Marker für **Abfrageergebnisse** werden folgendermaßen definiert:
+
+.. code-block:: Javascript
 
     this.markerIcons["query_result"]["default"] = {
         url: function (index, feature) { 
@@ -53,25 +67,36 @@ Die Marker für die Abfrageergebnisse sind folgendermaßen definiert:
         popupAnchor: function (index, feature) { return [0, -42]; }
     };
 
+Hierbei gilt:
 
-Der Key für das markerIcons-Object ist hier „query_result“. Das ist wieder ein Array, dem als Key die Url-Id einer Abfrage zugewiesen werden kann. 
-Hier wird „default“ verwendet, weil die Definition für alle Abfragen (für die nichts anderes definiert wurde) verwendet werden soll.
+- ``query_result``: Definiert Marker für Abfrageergebnisse.
+- ``default``: Wird verwendet, wenn keine spezielle Definition für eine bestimmte Abfrage vorliegt.
+- Größe und Einfügepunkt als Funktionen: Im Gegensatz zu statischen Werten werden diese **dynamisch berechnet**.
 
-Der Unterschied zum ersten Beispiel ist außerdem, dass hier auch die Größe und der Einfügepunkt Funktionen sind. Als Parameter wird dieser Funktion folgendes übergeben:
+**Funktionsparameter:**  
 
-*   ``index``: 
-    Eine fortlaufende Nummer. Gibt ein Index des Suchergebnisses an, für den der Marker abgeholt wird.
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
 
-*   ``features``:
-    Das eigentliche Feature als Javascript Object (in GeoJSON-Notation) für das der Marker abgeholt wird.
+   * - **Parameter**
+     - **Beschreibung**
+   * - ``index``
+     - Fortlaufende **Nummer des Suchergebnisses**, für das der Marker geladen wird.
+   * - ``feature``
+     - Das **Feature-Objekt** im **GeoJSON-Format**, für das der Marker angezeigt wird.
 
-Die beiden Parameter dieser Funktion werden innerhalb des Funktionsrumpfes nicht berücksichtigt. Der Grund dafür ist, dass standardmäßig immer der gleich Marker für alle Ergebnisse zurück geliefert wird.
+Diese Parameter werden im Beispiel zwar übergeben, aber nicht genutzt.  
+Standardmäßig wird immer **derselbe Marker** für alle Ergebnisse gesetzt.
 
-Wenn man nun eine Seite, die auf die WebGIS API zugreift, programmiert, können diese Werte nach den Laden der Datei api.min.js überschreiben werden. 
-Die Syntax entspricht der oben gezeigten, allerdings kann hier natürlich nicht mit „this“ auf das markerIcons-Array zugegriffen werden, das geht nur innerhalb des webgis-Objekts. 
-Anstelle von „this“ kann man direkt mit „webgis“ auf die Definitionen zugreifen:
+Überschreiben von Markern
+=========================
 
-.. code-block :: Javascript
+Falls eine Seite auf die WebGIS API zugreift, können **Marker-Eigenschaften** nach dem Laden der Datei **api.min.js** überschrieben werden. Die Syntax entspricht der Standarddefinition, jedoch kann ``this`` nicht verwendet werden. Stattdessen erfolgt der Zugriff direkt über ``webgis``.
+
+**Beispiel:** Ein benutzerdefinierter Marker mit eigenem Symbol:
+
+.. code-block:: Javascript
 
     webgis.markerIcons["currentpos_red"] = {
         url: function () { 
@@ -80,15 +105,21 @@ Anstelle von „this“ kann man direkt mit „webgis“ auf die Definitionen zu
         size: [20, 20], 
         anchor: [9, 9], 
         popupAnchor: [0, -10]
-    }; 
+    };
+
+.. warning::  
+
+   Das ``markerIcons``-Array kann nicht mit ``this`` angesprochen werden und der Zugriff muss direkt über ``webgis.markerIcons`` erfolgen.
 
 
 Marker in der custom.js
 -----------------------
 
-Der erste Wert, der in der Beispieldatei überschrieben wird, ist der default-QueryResult-Marker:
+Der erste Wert, der in der ``custom.js``-Datei überschrieben wird, ist der **Standard-Marker für Abfrageergebnisse**.  
 
-.. code-block :: Javascript
+**Beispiel:** Hier wird für jedes Abfrageergebnis anstelle des einfachen blauen Markers ein **blauer Marker mit einer Zahl** angezeigt.
+
+.. code-block:: Javascript
 
     webgis.markerIcons["query_result"]["default"] = {
         url: function (i, f) {
@@ -99,20 +130,27 @@ Der erste Wert, der in der Beispieldatei überschrieben wird, ist der default-Qu
         popupAnchor: function (i, f) { return [0, -42]; }
     };
 
+.  
+Die Zahl entspricht dem **Index des Suchergebnisses**.
 
-Hier wird jetzt anstelle des blauen Markers ein blauer Marker mit einer Zahl darin angezeigt. Die Zahl gibt den Index des Abfrageergebnisses an. 
-Wenn man ins portal5/content/api/img/markers Verzeichnis geht, erkennt man, dass es dort Dateien mit dem Namen marker_blue_1.png, marker_blue_2.png, …, marker_blue_1000.png gibt. Diese werden hier mit dem Index nachgebildet:
+**Funktionsweise:**
 
+- Der Marker wird aus der Datei ``marker_blue_i.png`` im Ordner **markers** geladen wobei ``i``  steht für den Index des Abfrageergebnisses (beginnend bei 0).
+- Damit die Nummerierung bei ``1`` startet, wird ``(i + 1)`` verwendet:
+- Die verfügbaren Marker-Dateien befinden sich im Verzeichnis: ``portal5/content/api/img/markers``.
+- Dort existieren Dateien mit den Namen **marker_blue_1.png, marker_blue_2.png, …, marker_blue_1000.png**.
 
-.. code-block :: Javascript
+.. code-block:: Javascript
 
     'marker_blue_' + (i + 1) + '.png', 'markers'
-
-**Achtung:** Der Index, der der Funktion übergeben wird, beginnt mit 0. Daher (i+1).
 
 Das Ergebnis dieser Änderung sieht wie folgt aus:
 
 .. image:: img/image1.png
+
+
+
+
 
 Die Marker bekommen so eine fortlaufende Nummer, was auch für den Anwender sehr praktisch ist, weil so gleich optisch eine Zuordnung zwischen Liste und Karte möglich ist.
 
