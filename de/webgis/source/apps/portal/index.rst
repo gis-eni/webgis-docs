@@ -10,4 +10,3 @@ WebGIS Portal
     :caption: Inhaltsverzeichnis:
 
     admin/index
-    customjs/index
