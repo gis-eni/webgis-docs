@@ -1,69 +1,93 @@
+=========
 Usability
 =========
 
-Einige Features aus API lassen sich über sogenannte Usability-Konstante steuern. Diese können natürlich auch über die custom.js für einzelne Karten oder komplette Portalseiten gesetzt werden.
+Einige Funktionen der API lassen sich über sogenannte *Usability-Konstanten* steuern. Diese können in der ``custom.js`` für einzelne Karten oder gesamte Portalseiten gesetzt werden.
 
-Die *ClickBubble* dient zur besseren Bedienbarkeit des Viewers auf Touch Geräten. Werkzeuge, die einen Klick in die Karte voraussetzen, (z.B. Identify) sind oft schwer zu bedienen, weil ein Klick mit dem Finger meist zu ungenau ist. 
-Aktiviert man die ClickBubble, erscheint diese bei jedem Werkzeug, das Klick-Interaktion voraussetzt:
- 
+ClickBubble
+===========
+
+Die *ClickBubble* verbessert die Bedienbarkeit des Viewers auf Touch-Geräten. Werkzeuge, die einen Klick in die Karte voraussetzen (z. B. *Identify*), sind auf Touchscreens oft schwer zu bedienen, da ein Fingerklick ungenau sein kann.  
+Wird die *ClickBubble* aktiviert, erscheint sie bei allen Werkzeugen, die eine Klick-Interaktion erfordern:
+
 .. image:: img/image4.png
- 
-Der Anwender kann jetzt nicht mehr wie gewohnt in die Karte klicken, sondern zieht die Bubble an den gewünschten Ort, um eine Aktion auszulösen. Die Spitze markiert dabei den Punkt, für den die Aktion ausgelöst werden soll. 
-Ist die Bubble am gewünschten Ort, kann sie einfach wieder losgelassen werden und kehrt automatisch an den rechten oberen Rand zurück und die Aktion (z.B. Identify) wird gestartet.
 
-Klickt der Anwender auf die Bubble (ohne ziehen) öffnet sich eine Beschreibung, wie diese bedient werden kann.
+Anstatt direkt in die Karte zu klicken, zieht der Anwender die Bubble an die gewünschte Stelle. Die Spitze der Bubble markiert den genauen Punkt für die Aktion. Lässt man die Bubble los, kehrt sie automatisch in die obere rechte Ecke zurück und führt die gewünschte Aktion aus (z. B. *Identify*).
 
-Manche Werkzeuge setzen auch die Möglichkeit einer rechten Maustaste voraus (z.B. das Kontextmenü für den Sketch beim Messen oder Editieren). Dafür gibt es eine weitere Bubble, die aktiviert werden kann. 
-Auf diese kann der Anwender klicken, um das Kontextmenü zu öffnen. Ebenso kann man diese an eine bestimmte Stelle ziehen, um genau für einen bestimmten Ort das Kontextmenü zu öffnen (z.B. einen bestimmten Vertex verschieben oder löschen, rechtwinklig zu Kante konstruieren, usw.).
+Klickt der Anwender auf die Bubble (ohne sie zu ziehen), öffnet sich eine Beschreibung zur Bedienung.
+
+Kontextmenü-Bubble
+==================
+
+Einige Werkzeuge erfordern eine rechte Maustaste (z. B. das Kontextmenü für das Messen oder Editieren eines Sketches). Dafür kann eine zusätzliche *ContextMenu Bubble* aktiviert werden.  
+Der Anwender kann diese anklicken, um das Kontextmenü zu öffnen, oder an eine bestimmte Position ziehen, um genau dort eine Aktion auszuführen (z. B. einen bestimmten *Vertex* verschieben oder löschen, rechtwinklig zur Kante konstruieren etc.).
 
 .. image:: img/image5.png
 
-Mit diesen Werkzeugen stehen einem versierten Anwender alle Möglichkeiten des Konstruierens (inkl. Snapping) auch auf mobilen Geräten zur Verfügung.
+Diese Funktion ermöglicht auch auf mobilen Geräten eine präzise Steuerung von Konstruktionen mit *Snapping*.
 
-Diese Werkzeuge stehen normalerweise nicht zur Verfügung, sondern müssen über die custom.js  aktiviert werden.
+Aktivierung in ``custom.js``
+============================
 
-.. code-block :: JavaScript
+Diese Funktionen sind standardmäßig deaktiviert und müssen explizit in der ``custom.js`` aktiviert werden:
 
-    // ClickBubble aktiviern 
+.. code-block:: javascript
+
+    // ClickBubble aktivieren
     webgis.usability.clickBubble = true;
-    // ContextMenu Bubble aktiviern
+    // ContextMenu Bubble aktivieren
     webgis.usability.contextMenuBubble = true;
 
-Da die Werkzeuge nur Geräten mit Touch Bedienung praktisch sind, kann anstelle von true/false auch die Methode isTouchDevice() verwendet werden:
+Da diese Funktionen nur auf Touch-Geräten sinnvoll sind, kann die Methode ``isTouchDevice()`` genutzt werden:
 
-.. code-block :: JavaScript
+.. code-block:: javascript
 
     webgis.usability.clickBubble =
     webgis.usability.contextMenuBubble = webgis.isTouchDevice();
 
-Beim Sketch bestand bisher für den Anwender die Möglichkeit, auf einen Vertex zu klicken und so ein Popup Menü zu öffnen:
+Sketch-Optimierungen
+====================
+
+Standardmäßig kann der Anwender bei einem *Sketch* auf einen *Vertex* klicken, um ein Popup-Menü zu öffnen:
 
 .. image:: img/image6.png
 
-Dies ist allerdings nicht mehr notwendig, wenn eine rechte Maustaste bzw. die ContextMenu Bubble zur Verfügung steht. Mit folgender Variable kann man dieses Menü trotzdem wieder aktivieren:
+Falls die rechte Maustaste oder die *ContextMenu Bubble* verfügbar ist, wird dieses Menü nicht mehr benötigt. Es kann jedoch weiterhin explizit aktiviert werden:
 
-.. code-block :: JavaScript
+.. code-block:: javascript
 
     webgis.usability.sketchMarkerPopup = true;  // Empfehlung: false!!
 
-Ebenfalls ist es oft wünschenswert, dem Anwender weniger Werkzeuge beim Zeichnen anzubieten. So sind die Konstruktionswerkzeuge eher für versierte Anwender und nicht in jeder Karte sinnvoll. Mit folgender Variabel können die Konstruktionswerkzeuge deaktiviert werden:
+Konstruktionswerkzeuge einschränken
+===================================
 
-.. code-block :: JavaScript
+In manchen Anwendungen sind nicht alle Konstruktionswerkzeuge erforderlich. Insbesondere die erweiterten Konstruktionsoptionen richten sich an versierte Anwender und können in bestimmten Karten deaktiviert werden:
+
+.. code-block:: javascript
 
     webgis.usability.constructionTools = false;
 
-Das komplette Kontextmenü beim Zeichnen kann man mit folgendem Code deaktivieren:
+Komplettes Kontextmenü deaktivieren
+===================================
 
-.. code-block :: JavaScript
+Falls das Kontextmenü beim Zeichnen nicht benötigt wird, kann es mit folgendem Code deaktiviert werden:
+
+.. code-block:: javascript
 
     webgis.usability.sketchContextMenu = false;
 
-Beim Konstruieren des Sketches können diverse *Tastatur Shortcuts* verwendet werden, z.B. können bei gedrückter ``a`` Taste Vertices auf einer Kante gesetzt bzw. mit gedrückter ``d`` Taste gelöscht werden.
-Mit gedrückter ``Ctrl`` Taste kann ein Fenster aufgezogen und damit Vertices selektiert werden. Diese können dann im *Bulg* gelöscht oder verschoben werden.
+Tastatur-Shortcuts für Sketch
+=============================
 
-Ob diese Funktionalität zur Verfügung steht, erfolgt über folgende Schalter:
+Beim Konstruieren eines *Sketches* können verschiedene **Tastatur-Shortcuts** genutzt werden:
 
-.. code-block :: JavaScript
+- **A**: Fügt einen *Vertex* auf einer Kante hinzu.
+- **D**: Löscht einen *Vertex*.
+- **Strg**: Ermöglicht das Aufziehen eines Fensters zur Mehrfachselektion von *Vertices*, die dann gemeinsam verschoben oder gelöscht werden können.
+
+Diese Funktionalität kann über folgende Schalter gesteuert werden:
+
+.. code-block:: javascript
 
    webgis.usability.allowSketchShortcuts = true;
    webgis.usability.allowSelectSketchVertices = true;

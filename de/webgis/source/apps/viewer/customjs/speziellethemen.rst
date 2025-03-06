@@ -1,62 +1,62 @@
+================
 Spezielle Themen
 ================
 
-SpatialRefenceSystem
---------------------
+Spatial Reference System
+========================
 
-Für eine WebGIS Karte können verschiedene Koordinatensysteme verwendet werden. Bestimmte Berechnungen (z.B. das Messen einer Strecke) wird im jeweiligen Kartensystem kartesisch durchgeführt. 
-Kartesisch bedeutet in diesem Zusammenhang, dass für eine Berechnung einfach die (X, Y) Werte verwendet werden.
+Für eine WebGIS-Karte können verschiedene Koordinatensysteme verwendet werden. Bestimmte Berechnungen, wie das Messen einer Strecke, werden im jeweiligen Karten-Koordinatensystem *kartesisch* durchgeführt. *Kartesisch* bedeutet in diesem Zusammenhang, dass für die Berechnung direkt die ``(X, Y)``-Werte des aktuellen Koordinatensystems genutzt werden.
 
-Dabei kann es zu Problemen kommen, wenn das Koordinatensystem große Verzerrungen aufweist, weil dann ebenfalls die (X, Y) Werte „verzerrt“ sind. 
-Gemessene Distanzen entsprechen so nicht mehr der Distanz in der Natur. Ein Beispiel ist die WebMercator-Projektion, die in unserer Breite schon eine sehr hohe Verzerrung beim Hochwert aufweist. 
-Gemessene Längen und Flächen wären in dieser Projektion immer zu groß.
+Dies kann zu Problemen führen, wenn das Koordinatensystem starke Verzerrungen aufweist, da dann auch die ``(X, Y)``-Werte nicht mehr maßstabsgetreu sind. Ein typisches Beispiel ist die **WebMercator-Projektion**, die in unseren Breitengraden eine starke Verzerrung in der **Nord-Süd-Richtung** aufweist.  
+Gemessene Längen und Flächen in dieser Projektion sind daher immer größer als in der Realität.
 
-Abhilfe kann hier die Variable calcCrs schaffen. Durch diese kann der EPSG-Code für ein Koordinatensystem angegeben werden, in dem Berechnungen durchgeführt werden:
+Um dieses Problem zu lösen, kann die Variable ``calcCrs`` genutzt werden. Damit lässt sich der **EPSG-Code** eines Koordinatensystems angeben, in dem Berechnungen durchgeführt werden:
 
-.. code-block :: JavaScript
+.. code-block:: javascript
 
     if (mapUrlName === "Basemap_at") {
         calcCrs = 31287;  // Lambert
     }
 
-Für diese Karte würden Berechnungen etwa im österreichweiten Lambert-System durchgeführt werden. Alle Koordinaten für die Berechnung würden somit erst im Hintergrund nach Lambert transformiert werden. 
-Mit den so erhaltenen Koordinaten wird die Berechnung durchgeführt.
+In diesem Beispiel werden Berechnungen im österreichweiten **Lambert-Koordinatensystem** durchgeführt. Alle für die Berechnung relevanten Koordinaten werden automatisch intern in **Lambert** umgerechnet, bevor die Berechnung stattfindet.
 
-Beispiele:
+**Weitere Beispiele:**
 
-.. code-block :: JavaScript
+.. code-block:: javascript
 
-    calcCrs = 31256;    // Rechnen im GK-M34
+    calcCrs = 31256;    // Berechnungen im GK-M34
 
-Wird dieser Wert nicht angeben, erfolgt die Berechnung immer im jeweiligen Karten Koordinatensystem. Ist dieses ein geographisches Koordinatensystem oder WebMercator, empfiehlt es sich, die Variable zu setzen!
+Falls ``calcCrs`` nicht gesetzt ist, erfolgt die Berechnung standardmäßig im jeweiligen **Karten-Koordinatensystem**. Falls dieses **geographisch** (Längen- und Breitengrade) oder **WebMercator** ist, wird empfohlen, ``calcCrs`` explizit zu setzen!
 
 WebGIS und GNSS
----------------
+===============
 
-Will man mit WebGIS über eine externe GPS-Antenne vermessen, kann dies auch über die custom.js eingestellt werden. Da es sich hierbei um eine eher spezielle Anwendung handelt, und das Thema eher umfangreich ist, wird es hier nur rudimentär beschrieben. 
-Eine genauere Beschreibung erfolgt bei Bedarf auf Nachfrage.
+WebGIS kann mit einer externen **GNSS-Antenne** (GPS) zur Vermessung genutzt werden. Da es sich hierbei um eine spezielle Anwendung handelt, wird hier nur eine grundlegende Beschreibung gegeben. Eine detailliertere Dokumentation ist auf Nachfrage verfügbar.
 
-Die verantwortlichen Einträge lauten:
+Die relevanten Einstellungen für den ``custom.js``-Eintrag lauten:
 
-.. code-block :: JavaScript
+.. code-block:: javascript
 
     webgis.currentPosition = webgis.currentPosition_watch;
 
-    webgis.currentPosition.minAcc = 0.5;   // [m]
-    webgis.currentPosition.maxAgeSeconds = 0.1;  // [s]
+    webgis.currentPosition.minAcc = 0.5;   // Mindestgenauigkeit in Metern
+    webgis.currentPosition.maxAgeSeconds = 0.1;  // Maximales Alter der Positionsdaten in Sekunden
     webgis.currentPosition.useWithSketchTool = true;  
 
-Der letzte Eintrag ist dafür verantwortlich, dass man das GPS in allen Sketchtools verwenden kann. Der Anwender erhält dazu eine zusätzlich Bubble „GPS“. Diese in standardmäßig deaktiviert (grau). 
-Zieht man die Bubble aus dem Inaktiv-Bereich, ändert sie ihre Farbe von Rot auf Grün, je nachdem ob die eingestellt Genauigkeit erreicht wurde. Ist sowohl Bubble als auch das angezeigt Positionsfadenkreuz grün, kann der Anwender durch einen Klick auf die Bubble, einen Vertex für den Sketch übernehmen. 
-Dies kann er so lange wiederholen (Karte folgt dem Fadenkreuz bei Bewegung) bis er die Bubble wieder zurück in den Inaktiv-Bereich schiebt. 
+Die letzte Einstellung ermöglicht die Nutzung des GPS mit allen **Sketch-Tools**. Dazu erhält der Anwender eine zusätzliche *GPS-Bubble*. Diese ist standardmäßig **deaktiviert** (grau). Zieht man die Bubble aus dem **Inaktiv-Bereich**, wechselt sie ihre Farbe von **Rot** zu **Grün**, sobald die eingestellte **Genauigkeit** erreicht ist.  
+
+Sobald sowohl die *Bubble* als auch das angezeigte **Fadenkreuz** grün sind, kann der Benutzer durch einen Klick auf die *Bubble* einen **Vertex** für den Sketch übernehmen. Dieser Vorgang kann beliebig oft wiederholt werden, solange die Bubble aktiv bleibt (die Karte folgt dem Fadenkreuz bei Bewegung). Wird die Bubble zurück in den **Inaktiv-Bereich** geschoben, wird die GNSS-Erfassung beendet.
 
 .. image:: img/image7.png
 
-Info: Solange die Bubble aktiv ist, kann ein Vertex nur mit diesem Werkzeug gesetzt werden!  
+.. important:: Solange die *GPS-Bubble* aktiv ist, kann ein **Vertex nur über dieses Werkzeug** gesetzt werden!
 
-Soll noch eine zusätzliche Helmert Transformation (2D) angebracht werden, um eventuelle Spannungen im Festpunktfeld auszugleichen, kann diese in folgender Form angegeben werden:
+Helmert-Transformation (2D)
+===========================
 
-.. code-block :: JavaScript
+Falls eine zusätzliche **Helmert-Transformation (2D)** benötigt wird, um Spannungen im **Festpunktfeld** auszugleichen, kann diese folgendermaßen definiert werden:
+
+.. code-block:: javascript
 
     webgis.continuousPosition.helmert2d = {
             srs: 31256,
@@ -68,13 +68,17 @@ Soll noch eine zusätzliche Helmert Transformation (2D) angebracht werden, um ev
             scale: 1 + (-6.576 * 1e-6)
     };
 
-Gibt es unterschiedliche räumlich getrennte Transformationen, können diese über ein „Transformations Info Service“ abgeholt werden.
+Transformationen über einen WebGIS-Dienst
+-----------------------------------------
 
-.. code-block :: JavaScript
+Falls für verschiedene Regionen unterschiedliche Transformationen benötigt werden, können diese über einen **Transformations-Info-Service** automatisch abgerufen werden:
+
+.. code-block:: javascript
 
     webgis.continuousPosition.useTransformationService = true;
 
-Dieses Transformations Info Service ist ein WebGIS Dienst. Er liefert die Definitionen der einzelnen Transformationen. Die Informationen der einzelnen Transformationen müssen im etc/trafo Verzeichnis in einer Datei helmert.json liegen. 
-Die Form dieser Datei sieht in etwa so aus:
+Dieser **Transformations-Info-Service** ist ein WebGIS-Dienst, der die Definitionen der jeweiligen Transformationen bereitstellt. Die Informationen zu den einzelnen Transformationen müssen im Verzeichnis ``etc/trafo`` in der Datei **helmert.json** gespeichert werden.
+
+Die Struktur dieser Datei sieht beispielsweise so aus:
 
 .. image:: img/image8.png

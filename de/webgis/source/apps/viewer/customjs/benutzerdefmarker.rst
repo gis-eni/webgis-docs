@@ -148,15 +148,9 @@ Das Ergebnis dieser Änderung sieht wie folgt aus:
 
 .. image:: img/image1.png
 
+Die Marker erhalten eine fortlaufende Nummer, was für den Anwender sehr praktisch ist, da so eine optische Zuordnung zwischen Liste und Karte möglich ist. Das nächste Beispiel bezieht sich ausschließlich auf die Abfrage ``gemeinden``:
 
-
-
-
-Die Marker bekommen so eine fortlaufende Nummer, was auch für den Anwender sehr praktisch ist, weil so gleich optisch eine Zuordnung zwischen Liste und Karte möglich ist.
-
-Das nächste Beispiel bezieht sich nur auf die Abfrage „gemeinden“:
-
-.. code-block :: Javascript
+.. code-block:: javascript
 
     webgis.markerIcons["query_result"]["gemeinden"] = {
         url: function (i, f) {
@@ -169,62 +163,55 @@ Das nächste Beispiel bezieht sich nur auf die Abfrage „gemeinden“:
         popupAnchor: function (i, f) { return [0, -11]; }
     };
 
-Hier wird ebenfalls ein „runder“ Marker mit fortlaufender Nummer verwendet. Allerdings wird hier direkt auf die Attribute des abgefragten Features zugriffen. 
-Im Beispiel wird einem Feature, bei dem das Attribut „Gemeinde“ gleich „Graz“ ist, ein fixer Marker mit der Nummer 99 zugewiesen (Eishockey Fans wissen warum).
+Hier wird ebenfalls ein runder Marker mit fortlaufender Nummer verwendet. Allerdings wird hier direkt auf die Attribute des abgefragten Features zugegriffen. Im Beispiel wird einem Feature, bei dem das Attribut ``Gemeinde`` gleich ``Graz`` ist, ein fixer Marker mit der Nummer 99 zugewiesen.
 
-Alle anderen Funktionen sind nicht vom Index oder vom Feature abhängig, weil alle Marker gleich groß sind und den gleichen Einfügepunkt haben.
-Ist das nicht so, könnte man auch in diesen Funktionen das Feature abfragen und gegebenenfalls unterschiedliche Werte zurückgeben. 
+.. tip:: Eishockey-Fans wissen, warum die Nummer 99 gewählt wurde.
 
-Ein Beispiel für eine Zuordnung aufgrund von Feature-Eigenschaften könnte beispielsweise ein Thema „medizinische Einrichtungen“ sein. 
-Man könnte so unterschiedliche Marker für Ärzte, Krankenhäuser, Apotheken, usw. darstellen.
+Alle anderen Funktionen sind nicht vom Index oder vom Feature abhängig, da alle Marker gleich groß sind und den gleichen Einfügepunkt haben. Falls dies nicht der Fall ist, könnte man auch in diesen Funktionen das Feature abfragen und gegebenenfalls unterschiedliche Werte zurückgeben. Ein Beispiel für eine Zuordnung aufgrund von Feature-Eigenschaften könnte beispielsweise ein Thema ``medizinische Einrichtungen`` sein. So könnten unterschiedliche Marker für Ärzte, Krankenhäuser, Apotheken usw. verwendet werden.
 
 Das Ergebnis aus diesem Beispiel würde etwa so aussehen:
 
 .. image:: img/image2.png
 
-Die weiteren Beispiele, die hier angeführt sind, betreffen nicht mehr die Marker, sondern die Darstellung der Ergebnisliste. In dieser Liste wird immer nur eine Vorschau (wenige Attribute) angezeigt. 
-Diese angezeigten Attribute entsprechen den ersten drei Attributen, nach denen für dieses Thema gesucht werden kann (WebGIS nimmt einmal an, dass diese Attribute aussagekräftig für eine Vorschau sind). 
-Wenn man hier eine andere Darstellung möchte, kann das mit folgenden Beispielen bewerkstelligt werden:
+Die folgenden Beispiele betreffen nicht mehr die Marker selbst, sondern die Darstellung der Ergebnisliste. In dieser Liste wird immer nur eine Vorschau mit wenigen Attributen angezeigt. Diese Attribute entsprechen den ersten drei Attributen, nach denen für dieses Thema gesucht werden kann. WebGIS nimmt an, dass diese Attribute aussagekräftig für eine Vorschau sind. Falls eine andere Darstellung gewünscht ist, kann dies mit den folgenden Beispielen umgesetzt werden:
 
-.. code-block :: Javascript
+.. code-block:: javascript
 
     webgis.hooks["query_result_feature"]["grundstuecke"] = function (map, $parent, feature, base) {
         base(map, $parent, feature);
         webgis.$("<a style='color:gray;font-size:.9em' href='http://bev.gv.at' target='_blank'>(c) 2017 BEV</a>").appendTo($parent);
     };
 
-Der „Hook“ wird aufgerufen, wenn ein Ergebnis für die Vorschau gerendert wird. Es wird die Karte, das Parent-HTML-Element, das Feature und die Ursprungs- oder Default-Funktion übergeben. 
+Der ``Hook`` wird aufgerufen, wenn ein Ergebnis für die Vorschau gerendert wird. Dabei werden die Karte, das Parent-HTML-Element, das Feature und die Ursprungs- bzw. Default-Funktion übergeben. Im Beispiel wird zunächst die Ursprungsfunktion aufgerufen, um das Rendering wie gewohnt auszuführen:
 
-Im Beispiel wird erst einmal die Ursprungsfunktion aufgerufen, damit alles wieder so gerendert wird wie immer: base(map, $parent, feature). 
-Dieser Funktion übergibt man die gleichen Werte außer *base* selbst!
+.. code-block:: javascript
 
-Dahinter wird hier einfach ein Link zum BEV mit einem Copyright Meldung angefügt. Das Ergebnis entspricht dem Screenshot von oben mit den blauen Marken. 
-In der Liste ist hinter jedem Ergebnis der Link in grauer Farbe erkennbar (könnte man natürlich auch in einer neuen Zeile machen).
+    base(map, $parent, feature);
 
-Interessanter ist diese Methode, wenn es für eine Abfrage keine aussagekräftigen Attribute für eine Vorschau gibt. 
-Bei uns gibt es ein Thema mit Baustellenfotos, dass man mit Identify in der Karte abfragen kann. Ein  Feld „Vorschau“ wird im CMS ein Imageexpression auf das Bild erzeugt. 
-Um dieses Bild in der Vorschau anzuzeigen, dient folgender Code:
+Dieser Funktion werden die gleichen Parameter übergeben - mit Ausnahme von ``base`` selbst. Anschließend wird einfach ein Link zum BEV mit einer Copyright-Meldung hinzugefügt. Das Ergebnis entspricht dem obigen Screenshot mit den blauen Markern. In der Liste ist hinter jedem Ergebnis der Link in grauer Farbe erkennbar. Natürlich könnte er auch in einer neuen Zeile platziert werden.
 
-.. code-block :: Javascript
+.. tip:: Diese Methode ist besonders nützlich, wenn für eine Abfrage keine aussagekräftigen Attribute für eine Vorschau existieren.
+
+Ein Beispiel hierfür ist ein Thema mit Baustellenfotos, die mit der Identify-Funktion in der Karte abgefragt werden können. Ein Feld ``Vorschau`` wird im CMS mit einer ``Imageexpression`` auf das Bild gesetzt. Um dieses Bild in der Vorschau anzuzeigen, kann folgender Code verwendet werden:
+
+.. code-block:: javascript
 
     webgis.hooks["query_result_feature"]["enetze_fotos"] = function (map, $parent, feature, base) {
         $(feature.properties.Vorschau).appendTo($parent);
     };
 
-Hier wird die base-Funktion nicht mehr aufgerufen, sondern gleich das Bild eingefügt. Das Ergebnis ist folgendes:
+Hier wird die ``base``-Funktion nicht mehr aufgerufen, sondern das Bild direkt eingefügt. Das Ergebnis sieht folgendermaßen aus:
 
 .. image:: img/image3.png
 
-Die Bilder werden hier gleich in der Vorschau bei den Suchergebnissen angezeigt. Klickt man auf ein Foto, wird in der Karte der entsprechende Marker Popup sichtbar.
+Die Bilder erscheinen direkt in der Vorschau der Suchergebnisse. Klickt man auf ein Foto, wird in der Karte das entsprechende Marker-Popup sichtbar.
 
 Dynamische Marker
 -----------------
 
-Die oben gezeigten Beispiele verweisen auf statische Marker Icons. Zusätzlich gibt es noch die Möglichkeit, die Marker dynamisch erzeugen zu lassen. 
-Dabei kann die Größe und die Farben übergeben werden.
-Um für die Abfrageergebnisse dynamische Marker zu verwenden, würde der Eintrag in der custom.js folgendermaßen lauten:   
+Die oben gezeigten Beispiele verwenden statische Marker-Icons. Zusätzlich besteht die Möglichkeit, Marker dynamisch zu erzeugen. Dabei können die Größe und die Farben übergeben werden. Um für die Abfrageergebnisse dynamische Marker zu verwenden, würde der Eintrag in der ``custom.js`` folgendermaßen aussehen:
 
-.. code-block :: Javascript
+.. code-block:: javascript
 
    webgis.markerIcons["query_result"]["default"] = {
        url: function (i, f) {
@@ -235,38 +222,36 @@ Um für die Abfrageergebnisse dynamische Marker zu verwenden, würde der Eintrag
        popupAnchor: function (i, f) { return [0, -42]; }
     };
 
-Die Url zu dynamischen Markern lautet `{ webgis-api-url }/rest/numbermarker` oder `{ webgis-api-url }/rest/textmarker`, also beispielsweise https://api.webgiscloud.com/rest/numbermarker.
-Der Unterschied zwischen ``numnbermarker`` und ``textmarker`` besteht darin, dass beim ``numbermarker`` nur Nummern übergeben werden dürfen.
-Bei ``textmarker`` können auch Texte übergeben werden, die allerdings abgeschnitten werden, wenn der Text nicht mehr in den Marker passt.
+Die URL für dynamische Marker lautet ``{webgis-api-url}/rest/numbermarker`` oder ``{webgis-api-url}/rest/textmarker``, also beispielsweise: ``https://api.webgiscloud.com/rest/numbermarker``. Der Unterschied zwischen ``numbermarker`` und ``textmarker`` besteht darin, dass beim ``numbermarker`` nur Zahlen übergeben werden dürfen. Beim ``textmarker`` können hingegen auch Texte übergeben werden. Falls der Text zu lang ist, wird er abgeschnitten.
 
-Hier ein paar Beispiele für den Aufruf mit Übergabe von diversen Eigenschaften:
+Hier einige Beispiele für den Aufruf mit verschiedenen Eigenschaften:
 
-Marker mit Number:
+**Marker mit Nummer:**
 
-https://api.webgiscloud.com/rest/numbermarker/42
+.. code-block:: text
 
-Marker mit bestimmter Größe (default 33/41):
+    https://api.webgiscloud.com/rest/numbermarker/42
 
-https://api.webgiscloud.com/rest/numbermarker/42?w=100&h=120
+**Marker mit bestimmter Größe (Standard: 33x41 px):**
 
-**Achtung:** Der Wert für die Höhe muss immer größer sein als die Breite!
+.. code-block:: text
 
-Marker Farben übergeben (Füllfarbe, Umrandungsfarbe, Textfarbe als RGB Hex-Code, 3- oder 6-stellig):
+    https://api.webgiscloud.com/rest/numbermarker/42?w=100&h=120
 
-https://api.webgiscloud.com/rest/numbermarker/42?w=100&h=120&c=fff,f88,fcc
+.. warning:: Der Wert für die Höhe muss immer größer sein als die Breite!
 
-Beispiele für Textmarker:
+**Marker mit benutzerdefinierten Farben** (Füllfarbe, Umrandungsfarbe, Textfarbe als RGB-Hex-Code, 3- oder 6-stellig):
 
-https://api.webgiscloud.com/rest/textmarker/LoremImspum?w=100&h=120&c=fff,f88,fcc&fs=22
+.. code-block:: text
+
+    https://api.webgiscloud.com/rest/numbermarker/42?w=100&h=120&c=fff,f88,fcc
+
+**Beispiele für Textmarker:**
+
+.. code-block:: text
+
+    https://api.webgiscloud.com/rest/textmarker/LoremIpsum?w=100&h=120&c=fff,f88,fcc&fs=22
 
 Hier wurde zusätzlich der Parameter ``fs`` (FontSize) übergeben, der die Textgröße in Pixel angibt.
 
-
-.. note::
-   Marker können auch für *dynamische Inhalte* angepasst werden. Die Vorgehensweise ist fast ident wie hier gezeigt
-   und folgt im nächsten Kapitel. Die dort gezeigt Beispiele lassen sich auch auf die Marker von Abfragen anwenden.
-
-
-
-
-
+.. note:: Marker können auch für *dynamische Inhalte* angepasst werden. Die Vorgehensweise ist nahezu identisch mit den oben gezeigten Beispielen und wird im nächsten Kapitel erläutert. Die dort beschriebenen Techniken lassen sich ebenfalls auf die Marker von Abfragen anwenden.
