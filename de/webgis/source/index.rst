@@ -118,3 +118,4 @@ konfiguriert werden.
 
    setup/index
    apps/index
+   annex/index
