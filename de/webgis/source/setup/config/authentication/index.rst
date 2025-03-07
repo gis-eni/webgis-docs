@@ -13,4 +13,5 @@ in der ``portal.config`` Datei.
    :caption: Inhalt:
 
    windows-auth.rst
+   openid.rst
    header-auth.rst

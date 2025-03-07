@@ -7,14 +7,15 @@ Die Installation erfolgt über das Kommandozeilenprogramm webgis.deploy. Dieses 
 
 - Neuinstallation von webgis-portal, webgis-api und webgis-cms
 - Verwaltung von Deploy-Profilen (z.B. local, test, staging, production)
-- Verteilung von Änderungen an der Konfiguration (z.B. deploy-model.json, api.config, cms.config, portal.config)
+- Verteilung von Änderungen an der Konfiguration (z.B. api.config, cms.config, portal.config)
+- Verteilung von Änderungen am Styling (default.css, portal.css)
 
 Vorbereitung
 ------------
 
-Das Deploymenttool sowie andere Pakete können unter *Releases* aus dem GitHub Repository https://github.com/gis-eni/webgis/releases heruntergeladen werden.
+Das Deploymenttool sowie andere Pakete können unter *Releases* aus dem GitHub Repository https://github.com/e-netze/webgis/releases heruntergeladen werden.
 
-Voraussetzung ist eine Installation der .NET App Runtime 8.0.x.
+Voraussetzung ist eine Installation der .NET App Runtime 9.0.x.
 
 Microsoft bietet für die Ausführung von .NET-Anwendungen zwei Hauptvarianten der Runtime an:
 
@@ -26,7 +27,7 @@ Microsoft bietet für die Ausführung von .NET-Anwendungen zwei Hauptvarianten d
 
 .. raw:: html
 
-   <p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0" target="_blank">Download .NET 8.0 Runtime</a></p>
+   <p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0" target="_blank">Download .NET 8.0 Runtime</a></p>
 
 
 **Windows:**
@@ -47,7 +48,8 @@ Neue Version Ausliefern
 -------------------------------------------
 
 Wenn man das Programm zum ersten Mal startet, muss zunächst ein Profil angelegt werden.
-Das Profil kann beispielsweise ``test``, ``staging`` oder ``production`` sein. Da wir im ersten
+Das Profil kann beispielsweise ``test``, ``staging`` oder ``production`` sein und entspricht 
+im Grund einer WebGIS Instanz. Da wir im ersten
 Schritt *WebGIS* nur lokal testen wollen, bietet sich ein Profil mit dem Namen ``local`` 
 für den Start an:
 
@@ -86,7 +88,7 @@ Im Beispiel also hier: ``C:\deploy\webgis\download``
     C:\deploy\webgis\>
     .
     ├── download
-    │   └── webgis-7.25.701.zip
+    │   └── webgis-win64-7.25.701.zip
     └── webgis.deploy.exe
 
 Liegen ZIP-Dateien im ``download`` Verzeichnis, werden die verschiedenen Versionen angezeigt:
@@ -108,7 +110,7 @@ Die neueste Version bekommt den Index ``0``.
    vorgeschlagene Wert ist, z.B. ``Input version index [0]`` => ``ENTER`` => Version mit
    Index ``0``.
 
-Das Deployment-Tool fägt hier noch einmal nach, ob tatsächlich die gewählte Version mit dem Profil deployed werden sollte:
+Das Deployment-Tool fragt hier noch einmal nach, ob tatsächlich die gewählte Version mit dem Profil deployed werden sollte:
 
 .. code-block:: text
 
@@ -139,28 +141,54 @@ mit ``ENTER`` zu bestätigen.
   installiert werden.
 
 * **Repository-Pfad:** Im Repository-Pfad werden unterschiedliche Dateien gespeichert, die
-  für das Funktionieren der Software notwendig sind, beispielsweise **TODO**. Der Repository-Ordner wird normalerweise im Verzeichnis
+  für das Funktionieren der Software notwendig sind, beispielsweise der CMS Baum, Drucklayouts, etc. 
+  Der Repository-Ordner wird normalerweise im Verzeichnis
   des Profils (hier: ``C:\apps\webgis\local``) angelegt. Da der Ordner nicht im *Versions*-
   Ordner liegt, kann er von einer neu installierten Version gleich mit verwendet werden. Wichtig ist,
   dass unterschiedliche Profile ihr eigenes Repository-Verzeichnis verwenden.
 
-* **WebGIS API Online-URL:** Eine URL, unter der der *webgis-api* zugänglich sein wird.
+* **WebGIS API Online-URL:** Eine URL, unter der der *webgis-api* zugänglich sein wird, 
+  zB https://my-server.com/webgis-api.
   Möchte man das ``local`` Profil testen und die Programme nur lokal ausführen, erfolgt das
-  in der Regel über http://localhost:5001. **TODO: Der Vorteil, diesen Wert hier festzulegen, ist, dass später
-  in der *gView.WebApps* App eine zusätzliche Kachel zum Aufruf des *gView.Servers* angeboten wird. Das
-  erleichtert die Administration. Ohne diese URL würden nur die Kacheln für *gView.Carto* und
-  *gView.Explorer* angezeigt werden.**
+  in der Regel über http://localhost:5001. Wird WebGIS als Anwendung im IIS betrieben, muss hier 
+  die Url eingegeben werden, mit der die WebGIS API über den Browser erreichbar ist.
+  
+* **WebGIS API Internal-URL:** *WebGIS API* und *WebGIS Portal* müssen miteinander Kommunizieren können.
+  Dazu muss hier eine Url angeführt werden, unter der die *WebGIS Portal* Anwendung auf die API direkt 
+  zugreifen kann. Die sollte ohne eine notwendige Authentifizierung erfolgen. Der einfachste Weg ist hier auch 
+  unter einer produktiv Umgebung einen ``localhost`` Pfad anzugeben, zB http://localhost/webgis-api oder 
+  für das ``local`` Profil den vorgeschlagen Wert http://localhost:5001
 
-* **WebGIS API Internal-URL:** Eine URL, unter der der *webgis-api* zugänglich sein wird.
-  Möchte man das ``local`` Profil testen und die Programme nur lokal ausführen, erfolgt das
-  in der Regel über http://localhost:5001. **TODO: Der Vorteil, diesen Wert hier festzulegen, ist, dass später
-  in der *gView.WebApps* App eine zusätzliche Kachel zum Aufruf des *gView.Servers* angeboten wird. Das
-  erleichtert die Administration. Ohne diese URL würden nur die Kacheln für *gView.Carto* und
-  *gView.Explorer* angezeigt werden.**
+* **WebGIS Portal Online-URL:** Hier muss die Url eingegeben werden, unter der das *WebGIS Portal* aufgerufen 
+  wird. Also beispielsweise https://my-server.com/webgis-api.
+  Für das ``local`` Profil kann wieder der vorgeschlagene Wert http://localhost:5002 übernommen werden.
 
-* **WebGIS Portal Online-URL:**
+* **WebGIS Portal Internal-URL:** Gleich wie oben bei der *WebGIS API* muss hier eine Url angeführt werden,
+  mit der die *WebGIS API* Anwendung direkt auf die *WebGIS Portal* Anwendung zugreifen kann, zB
+  http://localhost/webgis-api. Für das ``local`` Profil kann der vorgeschlagene Wert übernommen werden.
 
-* **WebGIS Portal Internal-URL:**
+.. note::
+
+  Die hier festgelegten Werte werden in der ``_deploy_repository\profiles\{profil}\deploy-model.json``
+  Datei abgelegt und können dort auch nachträglich geändert werden.
+
+Im letzten Schritt muss noch angegeben werden, welche Komponenten von WebGIS installiert werden sollte.
+Theoretisch können alle Komponenten (*WebGIS API*, *WebGIS Portal* und *WebGIS CMS*) extra installiert werden.
+Für die erste Installation kann man hier einmal alle Optionen mit YES [Y] beantworten.
+
+.. code-block:: text
+
+  Do you want to deploy WebGIS API? Y/N [Y]
+  Do you want to deploy WebGIS Portal? Y/N [Y]
+  Do you want to deploy WebGIS CMS? Y/N [Y]
+
+.. note::
+
+   Möchte man WebGIS in Internet Anbieten braucht man in der Regel *WebGIS API* und *WebGIS Portal*.
+   Das *WebGIS CMS* ist nur für die Konfiguration durch einen Administrator notwendig und soll nicht 
+   öffentlich zugänglich sein. Idealerweise installiert man das *WebGIS CMS* nur *local* oder im *Intranet* 
+   für eine *Test-Instanz*. Dort erfolgt die Administration durch den Administrator. Die Konfiguration vor 
+   von diese Instanz dann auf alle anderen Instanzen verteilt. 
 
 Danach startet der Deploy-Vorgang:
 
@@ -227,15 +255,17 @@ aktuellen Profil überschrieben.
 .. note::
 
    In die *Override*-Verzeichnisse können beliebige Dateien kopiert werden, die zusätzlich
-   in die Applikationsverzeichnisse kopiert oder überschrieben werden sollen.
-   Konfigurationsdateien sollten nie direkt im Applikationsverzeichnis (Deploy-Verzeichnis) geändert
-   werden, sondern immer im *Override*-Verzeichnis. Damit wird sichergestellt, dass Änderungen
+   in die Applikationsverzeichnisse kopiert oder überschrieben werden sollen, zB Logos, etc.
+   Konfigurationsdateien sollten nie direkt im Applikationsverzeichnis geändert
+   werden, sondern immer für die jeweilige Applikation im 
+   ``_deploy_repository\profiles\{profile}\webgis-[api|cms|portal]\override`` Verzeichnis.
+   Damit wird sichergestellt, dass Änderungen
    an der Konfiguration auch beim nächsten Update eines Profils wieder kopiert werden.
 
 Aktuelle Konfiguration ändern
 -----------------------------
 
-Fügt man Änderungen in der Konfiguration durch (z.B. ``api.config``), erfolgt dies im *Override*
+Fügt man Änderungen in der Konfiguration durch (z.B. ``api.config``), erfolgt dies im *override*
 Verzeichnis. Danach führt man erneut ``webgis.deploy.exe`` aus und erhält folgende Meldung:
 
 .. code-block:: text
@@ -306,24 +336,77 @@ Verzeichnis. Danach führt man erneut ``webgis.deploy.exe`` aus und erhält folg
 
 
 Es erscheint die Warnung, dass diese Version bereits deployed wurde. Aus den ZIP-Dateien werden keine 
-Daten kopiert. Durchgeführt werden nur die *Overrides*.
+Daten kopiert. Durchgeführt werden nur die *Overrides* und Änderungen an den Style ``default.css`` und
+``portal.css``
 
+Styling der Anwendungen 
+-----------------------
 
-TODOs
------
+Für das Styling der Anwendungen sind hauptsächlich zwei *CSS Dateien* verantwortlich:
 
-Hier sind alle noch offenen Aufgaben aufgelistet:
+* ``default.css`` liegt im ``webgis-api/wwwroot/content/...`` Verzeichnis. Hier werden alle Styles für 
+  den WebGIS Karten Viewer festgelegt.
 
-.. todolist::
+* ``portal.css`` liegt im ``webgis-portal/wwwroot/content/...`` Verzeichnis. Hier werden die Styles für 
+  die Portalseiten (Einstiegsseite mit den Kartensammlungen) festgelegt.
 
-Layout übernommen von https://github.com/jugstalt/docs-gviewonline/blob/master/de/source/setup/index.rst
+.. note::
 
+  Diese Daten sollte nie direkt geändert werden. Da WebGIS ständig weiterentwickelt wird ändern sich diese 
+  Dateien mit jeder Version. Überschreibt man diese Dateien eigenständig können sie Dinge verloren gehen
+  und neue Features nicht zugänglich sein. 
 
-https://docs.webgiscloud.com/cloud/selfhosting/install/windows/index.html
+  Möchte man Styles ändern, sollte das unbedingt nach den hier gezeigten Methoden erfolgen.
 
-https://docs.webgiscloud.com/cloud/selfhosting/install/iis/index.html
+Zum Anpassen von Styles (zB Farben) wird von ``webgis.deploy`` Tool unter 
+``_deploy_repository\profiles\{profile}`` ein Ordner ``css-modify`` angelegt. Darunter gibt es für jede 
+der beiden *CSS Dateien* weiter Unterordner und Dateien:
 
+.. code-block:: text
 
-Anwendungen ausführten
+    C:\deploy\webgis\_deploy_repository\profiles\{profile}>
+    .
+    ├── css-modify
+        └── default.css
+        |   └── modify.json
+        |   └── append.css
+        └── portal.css
+            └── modify.json
+            └── append.css
 
-Vorlage: https://docs.gviewonline.com/de/setup/run.html
+* **modify.json** ist eine Datei, in der Styles durch simple Textersetzung geändert werden können.
+  Solche Ersetzungen eigenen sich besonders gut für ändern der CI (Corporate Identity) Farben:
+
+  .. code-block:: json
+
+  {
+    "mode": "shrink",
+    "modifiers": [
+      {
+         "pattern": "#b5dbad",  // CI Color 
+         "replace": "#ccc"
+      },
+      {
+         "pattern": "#82C828",  // CI Color (Button Borders, etc) 
+         "replace": "#aaa"
+      }
+    ]
+  }
+
+ Hier wird jeweils ein ``pattern`` (aktuelle CI Farben von WebGIS) durch einen anderen Wert ``replace`` ersetzt.
+ Mit ``mode=shrink`` wird angegeben, dass die neu erstellte Datei nur die notwendigen Eigenschaften 
+ der geänderten Styles übernimmt (empfohlen).
+
+* **append.css** Hierbei handelt es sich um eine *CSS Datei*, mit der beliebige Styles Klassen aus den 
+  Original Dateien überschrieben werden, Beispielsweise eine andere Schriftart. 
+
+Werden an diesen Dateien Änderungen vorgenommen, kann das ``webgis.deploy`` Tool wieder auf eine 
+bestehende *WebGIS Instanz* angewendet werden. Die aktualisierten *CSS Dateien* werden so an die richtige
+Stelle verteilt.
+
+.. note::
+
+  Die originalen *CSS Dateien* werden nie überschrieben. Stattdessen werden zusätzlich *CSS Dateien* 
+  angelegt in im Browser immer zu einem späteren Zeitpunkt als das Original geladen werden.
+  Die Styles werden damit *nur* überschrieben. Daher ist es wichtig auch in der **append.css** nur jene 
+  Eigenschaften von den gewünschten Klassen anzuführen, die auch wirklich geändert werden sollten! 
