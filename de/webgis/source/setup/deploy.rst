@@ -379,19 +379,19 @@ der beiden *CSS Dateien* weiter Unterordner und Dateien:
 
   .. code-block:: json
 
-  {
-    "mode": "shrink",
-    "modifiers": [
-      {
-         "pattern": "#b5dbad",  // CI Color 
-         "replace": "#ccc"
-      },
-      {
-         "pattern": "#82C828",  // CI Color (Button Borders, etc) 
-         "replace": "#aaa"
-      }
-    ]
-  }
+    {
+      "mode": "shrink",
+      "modifiers": [
+        {
+          "pattern": "#b5dbad",  // CI Color 
+          "replace": "#ccc"
+        },
+        {
+          "pattern": "#82C828",  // CI Color (Button Borders, etc) 
+          "replace": "#aaa"
+        }
+      ]
+    }
 
  Hier wird jeweils ein ``pattern`` (aktuelle CI Farben von WebGIS) durch einen anderen Wert ``replace`` ersetzt.
  Mit ``mode=shrink`` wird angegeben, dass die neu erstellte Datei nur die notwendigen Eigenschaften 
