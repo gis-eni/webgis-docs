@@ -60,7 +60,7 @@ Anmeldekachel OpenId Connect
 
 Damit sich Anwender über **OpenID Connect** auf einer *WebGIS Portal Seite* anmelden können,
 muss noch die *Security* für die Seite angepasst werden (bei der WebGIS API als Subscriber anmelden
-=> Pages => entsprechende Seite auswählen)
+→ Pages → entsprechende Seite auswählen)
 
 .. image::  img/openid1.png
 

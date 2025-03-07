@@ -410,3 +410,33 @@ Stelle verteilt.
   angelegt in im Browser immer zu einem späteren Zeitpunkt als das Original geladen werden.
   Die Styles werden damit *nur* überschrieben. Daher ist es wichtig auch in der **append.css** nur jene 
   Eigenschaften von den gewünschten Klassen anzuführen, die auch wirklich geändert werden sollten! 
+
+
+Update automatisieren
+---------------------
+
+Zum automatisieren von Updates kann das ``webgis.deploy`` mit Parametern aufgerufen.
+Der Parameter ``--help`` gibt aus, welche Parameter möglich sind:
+
+.. code-block:: text
+
+  .\webgis.deploy.exe --help
+   ******************************************
+   *                                        *
+   *      WebGIS.Deploy Tool 7.25.1001      *
+   *                                        *
+   ******************************************
+   Work-Directory: C:\deploy\webgis
+   usage: webgis.deploy [options]
+
+   Options:
+     -h,       --help            Show this help message and exit
+     -p,       --profile         Choose a profile
+     -d,       --download-latest Download latest version
+     -v,       --version         Choose a version, --version latest ... latest version
+     -cms,     --deploy-cms      Deploy WebGis CMS
+     -portal,  --deploy-portal   Deploy WebGIS Portal
+     -api,     --deploy-api      Deploy WebGIS API
+
+   Examples:
+     webgis.deploy -p production -v latest --download-latest --deploy-cms --deploy-portal --deploy-api
