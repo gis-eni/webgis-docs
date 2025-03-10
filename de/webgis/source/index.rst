@@ -42,8 +42,8 @@ WebGIS besteht aus den drei Anwendungen:
 angeboten werden. Außerdem kann hier festgelegt werden, welche Themen aus den Dienst abgefragt 
 werden können, wie das Abfrageergebnis dargestellt wird, welche Themen bearbeitet werden dürfen, etc.
 Die Parametrierung wird am Server in einer Baumstruktur im Filesystem abgelegt 
-(entspricht in etwas der Baumstruktur in der CMS Oberfläche).
-Und die Änderungen im **WebGIS CMS** der **WebGIS API** mitzuteilen, wir im CMS ein **Deploy** 
+(entspricht in etwa der Baumstruktur in der CMS Oberfläche).
+Und die Änderungen im **WebGIS CMS** der **WebGIS API** mitzuteilen, wird im CMS ein **Deploy** 
 ausgeführt, der aus einem CMS-Baum eine XML Datei baut.
 
 Die **WebGIS API** stellt Aufgrund der CMS XML Dateien Kartendienste zur Verfügung. Diese 
@@ -51,7 +51,7 @@ Dienste können über HTTP REST Requests oder über eine Javascript API abgeholt
 
 Das **WebGIS Portal** ist die Einstiegsseite für den Anwender. Hier werden Portal-Seiten angeboten. 
 Dabei handelt es sich um Sammlungen von Karten. Eine Karte ist dabei eine Anwendung, die im
-*Karten Viewer* angeboten angezeigt, die aus mindestens einem *Karten Dienst* besteht. Welche Karten
+*Karten Viewer* angeboten wird, die aus mindestens einem *Karten Dienst* besteht. Welche Karten
 angeboten werden, kann ein Administrator bestimmen. Karten werden dabei mit dem **MapBuilder** 
 erstellt. Dort wird definiert, welche *Karten Dienste* und *Werkzeuge* in einer *Karten* angeboten 
 werden.
@@ -73,7 +73,7 @@ WebGIS Portal
 ^^^^^^^^^^^^^
 
 Das *WebGIS Portal* ist eine Web-Applikationen, die auf die Schnittstellen der *WebGIS API* zugreift, und daraus fertige interaktive (Online) Karten bereitstellen kann.
-Diese Anwendung reichtet sich an alle Anwender/WebGIS Betreiber, die die Kartenanwendungen nicht über Programmierschnittstellen (REST, Javascript) entwickeln wollen.
+Diese Anwendung richtet sich an alle Anwender/WebGIS Betreiber, die die Kartenanwendungen nicht über Programmierschnittstellen (REST, Javascript) entwickeln wollen.
 
 Das *WebGIS Portal* bietet bereits einen voll funktionsfähigen Kartenviewer, der bereits folgende Funktionen erfüllt:
 
