@@ -22,53 +22,94 @@ Beispiel:
 
 .. code-block:: json
 
-    {
+  {
+    "DataLinq": {
+      "RootPath": "path",
       "Crypto": {
-        "defaultPasswort": "passwort",
-        "saltBytes": "saltBytes"
+        "SecureStringEncryptionLevel": "",
+        // None, DefaultStaticEncryption, RandomSaltedPasswordEncryption
+        "DefaultPasswort": "passwort",
+        "SaltBytes": "saltBytes"  // base64 encoded
       },
-      "rootPath": "path",
-      "secureStringEncryptionLevel": "",
-      // None, DefaultStaticEncryption, RandomSaltedPasswordEncryption
-      "Clients": [
-        {
-          "id": "1",
-          "name": "client1",
-          "password": "passwort1"
-        },
-        {
-          "id": "2",
-          "name": "client2",
-          "password": "passwort2",
-          "EndPointParameters": "*,_*"
-        },
-        {
-          "id": "3",
-          "name": "client3",
-          "password": "passwort3",
-          "EndPointParameters": "*"
-        }
-      ]
+      "ClientEndpoints": [  // optional
+          "http://localhost",
+          "https://localhost:7278",
+          "https://localhost:44391",
+          "https://localhost:5001"
+      ],
+      "Code": {
+        "Instances": [
+          {
+            // local Instance
+            "Name": "Local",
+            "Description": "A local datalinq instance for testing and development",
+            "LoginUrl": "~/DataLinqAuth?redirect={0}",
+            "LogoutUrl": "~/DataLinqAuth/Logout?redirect={0}",
+            "CodeApiClientUrl": "~"
+          },
+          {
+            // A Instance for the Url https://localhost:44341
+            "Name": "WebGIS Api",
+            "Description": "A datalinq instance hosted in a local WebGIS API",
+            "LoginUrl": "https://localhost:44341/DataLinqAuth?redirect={0}",
+            "LogoutUrl": "https://localhost:44341/DataLinqAuth/Logout?redirect={0}",
+            "CodeApiClientUrl": "https://localhost:44341"
+          },
+        ],
+        "Clients": [
+          {
+            "id": "1",
+            "name": "datalinq",
+            "password": "datalinq",
+            "EndPointParameters": "*,_*"
+          },
+          {
+            "id": "2",
+            "name": "reader",
+            "password": "reader",
+            "EndPointParameters": "*"
+          }
+        ]
+      }
     }
+  }
 
 Erläuterung der Konfiguration:
 
+- **RootPath**  
+  Definiert das Wurzelverzeichnis im Dateisystem, in dem die Endpoints, Queries und Views gespeichert werden.  
+
 - **Crypto**  
-  - **defaultPasswort** – Standardpasswort für Verschlüsselung  
-  - **saltBytes** – Salzwerte für die Verschlüsselung der Daten  
+  - **SecureStringEncryptionLevel**  
+    ConnectionString und (SQL) Statements, die im Dateisystem am Server gespeichert werden,
+    werden verschlüsselt. Dieser Wert legt das Level der Verschlüsselung fest:  
+      - `None` – Keine Verschlüsselung (ConnectionString im Klartext)
+      - `DefaultStaticEncryption` – **(default)** Standardmäßige statische Verschlüsselung (Einfach zu verteilen, weil die Verschlüsselung über alle DataLinq Instanzen die gleiche ist) 
+      - `RandomSaltedPasswordEncryption` – Verschlüsselung mit *DefaultPassword* und zufälligem Salt  
+  - **DefaultPasswort** – Standardpasswort für Verschlüsselung  
+  - **SaltBytes** – Zusätzlicher Salzwerte für die Verschlüsselung der Daten. Muss hier Base64 kodiert angeführt werden.  
 
-- **rootPath**  
-  - Definiert das Wurzelverzeichnis im Dateisystem, in dem die Endpoints, Queries und Views gespeichert werden.  
+- **ClientEndpoints**
+    Mit dem *DataLinq.Code* Editor können beliebige DataLinq.CodeAPI Endpunkte verwaltet werden. 
+    Die *DataLinq.Code API* erlaubt das Erstellen und Bearbeiten von *EndPoints, Queries und Views*.
+    Hier kann definiert werden, von welchen DataLinq.Code Urls die *DataLinq.Code API* verwaltet werden darf. 
+    Die Angabe der möglichen **ClientEndpoints** ist optional. Wird hier nichts angeführt,
+    die Anmeldung von jedem beliebigen Client möglich. Das sollte allerdings aus Sicherheitsbedenken
+    nicht in produktiven Umgebung zugelassen werden!
 
-- **secureStringEncryptionLevel**  
-  - Legt das Level der Verschlüsselung fest:  
-    - `None` – Keine Verschlüsselung  
-    - `DefaultStaticEncryption` – Standardmäßige statische Verschlüsselung  
-    - `RandomSaltedPasswordEncryption` – Verschlüsselung mit zufälligem Salt  
+- **Code**
+  Einstellungen für die DataLinq Code Oberfläche
 
-- **Clients**  
-  - Hier können Benutzer (`Clients`) definiert werden, die sich mit Benutzernamen und Passwort anmelden.  
-  - **EndPointParameters** bestimmt die Berechtigungen für Datenendpunkte.
+  - **Instances**
+    Hier können die *DataLinq.Code API* angeführt werden, die mit DataLinq Code verwaltet werden
+    können. Die hier angeführten Instances werden in der WebOberfläche als Kacheln angeboten und 
+    führen zu einer Anmeldung bei der jeweiligen *DataLinq.Code API* und öffnet *DataLinq.Code*
+    zu Bearbeiten von *EndPoints, Queries und Views*.
+
+  - **Clients**  
+    Hier können Benutzer (`Clients`) definiert werden, die sich mit Benutzernamen und Passwort anmelden.  
+    - **EndPointParameters** bestimmt die Berechtigungen für Datenendpunkte.
+    
 
 ===============
 
