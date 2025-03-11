@@ -56,7 +56,7 @@ Abschnitt ``Proj4 Database``
    * - **Attribut**
      - **Beschreibung**
    * - ``p4database``
-     - Connection-String zu einer Datenbank, die Projektionsinformationen enthält (Tabelle ``P4``). Hier kann die gleiche Datenbank angegeben werden, die auch von WebGIS 4.0 genutzt wird. Dieser Schlüssel wird nur aus Kompatibilitätsgründen zu WebGIS 4 bereitgestellt. Möchte man die Standard-Projektionsinformationen verwenden, reicht es, ``value="#"`` anzugeben.
+     - Connection-String zu einer Datenbank, die Projektionsinformationen enthält (Tabelle ``P4``). Hier kann die gleiche Datenbank angegeben werden, die auch von WebGIS genutzt wird. Dieser Schlüssel wird nur aus Kompatibilitätsgründen zu WebGIS bereitgestellt. Möchte man die Standard-Projektionsinformationen verwenden, reicht es, ``value="#"`` anzugeben.
 
 Abschnitt ``Cache Datenbank``
 -----------------------------

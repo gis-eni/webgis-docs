@@ -155,7 +155,7 @@ Abschnitt ``deployments``
            In diesem Fall müssen jedoch ein **Client** und ein **Secret** definiert werden, um sicherzustellen, dass der Upload nur von einer autorisierten CMS-Instanz durchgeführt wird.
 
    * - ``client`` und ``secret`` *(erforderlich, wenn ``target`` eine API-URL ist)*
-     - Hier können ein beliebiger *Client* und ein *Secret* definiert werden. Das *Secret* sollte ein sicheres Passwort mit mindestens **24 Zeichen** sein. Damit die **WebGIS API** den Upload akzeptiert, muss in der ``api.config`` ein Abschnitt ``<section name='cms-upload-{cms-name}'>`` vorhanden sein, in dem derselbe *Client* und dasselbe *Secret* hinterlegt sind.
+     - Hier kann ein beliebiger *Client* und ein beliebiges *Secret* definiert werden. Das *Secret* sollte ein sicheres Passwort mit mindestens **24 Zeichen** sein. Damit die **WebGIS API** den Upload akzeptiert, muss in der ``api.config`` ein Abschnitt ``<section name='cms-upload-{cms-name}'>`` vorhanden sein, in dem derselbe *Client* und dasselbe *Secret* hinterlegt ist.
    * - ``replacement-file`` *(optional)*
      - Pfad zu einer **Ersatzdatei** (*Replacement File* aus einem alten CMS), die für dieses Deployment verwendet werden soll.
    * - ``ignoreAuthentication`` *(optional)*
@@ -233,8 +233,6 @@ Welche Instanzen über die CMS-Startseite zum Editieren angezeigt werden, kann �
 Übersicht der wichtigsten Konfigurationsparameter
 -------------------------------------------------
 
-.. todo:: In der config Datei fehlt bei mir der useAppPrefixFilters key, dafür ist ein autoLogin key dazugekommen
-
 .. list-table::
    :widths: 20 80
    :header-rows: 1
@@ -276,7 +274,7 @@ Datei ``_config/settings.config``
 
 In dieser optionalen Datei können allgemeine Einstellungen für die WebGIS-CMS-Applikation hinterlegt werden. Ein Anwendungsfall ist die Konfiguration eines **Logging-Files** oder die Einrichtung eines **Proxy-Servers**.  
 
-Wenn externe Dienste eingebunden werden, kann für den Zugriff ein **Proxy-Server** erforderlich sein. Mit folgender Einstellung kann über diese Datei ein Proxy-Server definiert werden, der für sämtliche Internetzugriffe genutzt wird:
+Wenn externe Dienste eingebunden werden, kann für den Zugriff ein **Proxy-Server** erforderlich sein. Mit den folgenden Einstellungen kann über diese Datei ein Proxy-Server definiert werden, der für sämtliche Internetzugriffe genutzt wird:
 
 .. code-block:: json
 

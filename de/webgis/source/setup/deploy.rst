@@ -23,7 +23,7 @@ Microsoft bietet für die Ausführung von .NET-Anwendungen zwei Hauptvarianten d
    Diese Version enthält ausschließlich die notwendige Laufzeitumgebung, um .NET-Anwendungen als eigenständige Prozesse auszuführen – beispielsweise als Windows-Dienst oder in Containern. Sie eignet sich für Szenarien, in denen kein IIS verwendet wird.
 
 2. **.NET Hosting Bundle (mit IIS-Unterstützung):**  
-   Diese Variante enthält zusätzlich das ASP.NET Core Module für die Integration mit dem Internet Information Services (IIS). Dadurch können ASP.NET Core-Anwendungen direkt über den IIS bereitgestellt werden. Diese Version ist optimal für die Nutzung in Windows-Server-Umgebungen mit IIS.
+   Diese Variante enthält zusätzlich die ASP.NET Core Module für die Integration mit dem Internet Information Services (IIS). Dadurch können ASP.NET Core-Anwendungen direkt über den IIS bereitgestellt werden. Diese Version ist optimal für die Nutzung in Windows-Server-Umgebungen mit IIS.
 
 .. raw:: html
 
