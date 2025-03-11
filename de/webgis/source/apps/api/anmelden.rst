@@ -27,6 +27,7 @@ Füllen Sie das Registrierungsformular aus, indem Sie die folgenden Felder ausf�
 - **Lastname** (Nachname)
 - **Email** (E-Mail-Adresse)
 - **Password** (Passwort) – Achten Sie darauf, ein sicheres Passwort zu wählen. Ein Beispiel für ein sicheres Passwort wäre:
+
   - Mindestens 12 Zeichen
   - Kombination aus Groß- und Kleinbuchstaben
   - Mindestens eine Zahl und ein Sonderzeichen (z.B. !, @, #)

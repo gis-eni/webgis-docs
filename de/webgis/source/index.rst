@@ -116,6 +116,9 @@ konfiguriert werden.
    :maxdepth: 2
    :caption: Inhaltsverzeichnis:
 
-   setup/index
+   installation/index
+   run/index
+   config/index
+   extended_config/index
    apps/index
    annex/index
