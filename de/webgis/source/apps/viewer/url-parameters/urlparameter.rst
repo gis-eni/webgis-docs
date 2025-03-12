@@ -344,7 +344,7 @@ Für das Editwerkzeug ``&tool=webgis.tools.editing.edit`` können zusätzlich fo
 
 .. note::
    Der Parameter ``tooloption`` funktioniert **nur**, wenn die Karte mit dem  
-   *WebGIS 6 Desktop Layout* geöffnet wurde.  
+   *WebGIS Desktop Layout* geöffnet wurde.  
    Ist dies nicht der Fall, muss der Nutzer **manuell auf "Neues Objekt" klicken**.
 
 
