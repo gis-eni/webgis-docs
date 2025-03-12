@@ -9,7 +9,7 @@ eigentlichen CMS Web-Oberfläche (der erste Aufruf kann einige Sekunden dauern, 
 Im ersten Schritt sollten zunächst Hintergrunddienste angelegt werden.
 
 **Hinweis:** In der Praxis würde man in einem leeren CMS zuerst auch eine Rechteckausdehnung definieren. 
-Diese ist im WebGIS 5 notwendig, um überhaupt eine Karte initialisieren zu können. In diesem Objekt wird 
+Diese ist im WebGIS notwendig, um überhaupt eine Karte initialisieren zu können. In diesem Objekt wird 
 nicht nur die koordinative Ausdehnung einer Karte, sondern auch die Maßstäbe (Resolutionen) angegeben. Diese 
 müssen den Auflösungen der eingebundenen Tile-Caches entsprechen. In der Cloud kann man jedoch später 
 vorgefertigte Ausdehnungen für WebMercator aus dem öffentlichen CMS „webgiscloud“ verwenden.  
