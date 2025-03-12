@@ -3,18 +3,18 @@ Konfiguration
 
 Die Konfiguration von **WebGIS DataLinq** erfolgt über zwei Dateien:
 
-1. **appsettings.json** – Verwaltung von Verschlüsselung, Clients und Dateispeicherpfad  
-2. **datalinq.config** – Definiert globale Konstanten wie das Environment  
+1. **datalinq.api.json** – Verwaltung von Verschlüsselung, Clients und Dateispeicherpfad
+2. **datalinqcode.json** – Definiert globale Konstanten und Code-Instanzen
 
 Beide Konfigurationsdateien ermöglichen eine flexible Anpassung der Anwendung an verschiedene Einsatzszenarien.
 
 ===============
 
-`appsettings.json`
-------------------
+`datalinq.api.json`
+-------------------
 
 Diese Datei befindet sich im Verzeichnis:  
-**project/datalinq/appsettings.json**  
+**DataLinq.Api/_config/datalinq.api.json**  
 
 Sie enthält zentrale Einstellungen für Sicherheit, Pfade und Clients.
 
@@ -23,122 +23,93 @@ Beispiel:
 .. code-block:: json
 
   {
-    "DataLinq": {
-      "RootPath": "path",
+    "DataLinq.Api": {
+      "RootPath_": "",
+      "Razor": {
+        "Engine": "default"
+      },
       "Crypto": {
         "SecureStringEncryptionLevel": "",
-        // None, DefaultStaticEncryption, RandomSaltedPasswordEncryption
-        "DefaultPasswort": "passwort",
-        "SaltBytes": "saltBytes"  // base64 encoded
-      },
-      "ClientEndpoints": [  // optional
-          "http://localhost",
-          "https://localhost:7278",
-          "https://localhost:44391",
-          "https://localhost:5001"
-      ],
-      "Code": {
-        "Instances": [
-          {
-            // local Instance
-            "Name": "Local",
-            "Description": "A local datalinq instance for testing and development",
-            "LoginUrl": "~/DataLinqAuth?redirect={0}",
-            "LogoutUrl": "~/DataLinqAuth/Logout?redirect={0}",
-            "CodeApiClientUrl": "~"
-          },
-          {
-            // A Instance for the Url https://localhost:44341
-            "Name": "WebGIS Api",
-            "Description": "A datalinq instance hosted in a local WebGIS API",
-            "LoginUrl": "https://localhost:44341/DataLinqAuth?redirect={0}",
-            "LogoutUrl": "https://localhost:44341/DataLinqAuth/Logout?redirect={0}",
-            "CodeApiClientUrl": "https://localhost:44341"
-          },
-        ],
-        "Clients": [
-          {
-            "id": "1",
-            "name": "datalinq",
-            "password": "datalinq",
-            "EndPointParameters": "*,_*"
-          },
-          {
-            "id": "2",
-            "name": "reader",
-            "password": "reader",
-            "EndPointParameters": "*"
-          }
-        ]
+        "DefaultPasswort_": "",
+        "SaltBytes_": ""
       }
+    },
+    "DataLinq.CodeApi": {
+      "ClientEndpoints_": [
+        "http://localhost"
+      ],
+      "Clients": [
+        {
+          "Id": "1",
+          "Name": "datalinq",
+          "Password": "datalinq",
+          "EndPointParameters": "*,_*"
+        }
+      ]
     }
   }
 
 Erläuterung der Konfiguration:
 
-- **RootPath**  
-  Definiert das Wurzelverzeichnis im Dateisystem, in dem die Endpoints, Queries und Views gespeichert werden.  
+- **RootPath_**  
+  Definiert das Wurzelverzeichnis im Dateisystem für Endpoints, Queries und Views.
+
+- **Razor**  
+  - **Engine** – Legt die Razor-Rendering-Engine fest (`default`, `legacy`, `core`).
 
 - **Crypto**  
-  - **SecureStringEncryptionLevel**  
-    ConnectionString und (SQL) Statements, die im Dateisystem am Server gespeichert werden,
-    werden verschlüsselt. Dieser Wert legt das Level der Verschlüsselung fest:  
-      - `None` – Keine Verschlüsselung (ConnectionString im Klartext)
-      - `DefaultStaticEncryption` – **(default)** Standardmäßige statische Verschlüsselung (Einfach zu verteilen, weil die Verschlüsselung über alle DataLinq Instanzen die gleiche ist) 
-      - `RandomSaltedPasswordEncryption` – Verschlüsselung mit *DefaultPassword* und zufälligem Salt  
-  - **DefaultPasswort** – Standardpasswort für Verschlüsselung  
-  - **SaltBytes** – Zusätzlicher Salzwerte für die Verschlüsselung der Daten. Muss hier Base64 kodiert angeführt werden.  
+  - **SecureStringEncryptionLevel** – Stellt die Verschlüsselungsebene für gespeicherte Verbindungsdaten ein.  
+  - **DefaultPasswort_** – Standardpasswort für die Verschlüsselung.  
+  - **SaltBytes_** – Base64-kodierte Salt-Werte für zusätzliche Sicherheit.
 
-- **ClientEndpoints**
-    Mit dem *DataLinq.Code* Editor können beliebige DataLinq.CodeAPI Endpunkte verwaltet werden. 
-    Die *DataLinq.Code API* erlaubt das Erstellen und Bearbeiten von *EndPoints, Queries und Views*.
-    Hier kann definiert werden, von welchen DataLinq.Code Urls die *DataLinq.Code API* verwaltet werden darf. 
-    Die Angabe der möglichen **ClientEndpoints** ist optional. Wird hier nichts angeführt,
-    die Anmeldung von jedem beliebigen Client möglich. Das sollte allerdings aus Sicherheitsbedenken
-    nicht in produktiven Umgebung zugelassen werden!
+- **ClientEndpoints_**  
+  Definiert erlaubte Client-Verbindungen zur *DataLinq.Code API*.
 
-- **Code**
-  Einstellungen für die DataLinq Code Oberfläche
-
-  - **Instances**
-    Hier können die *DataLinq.Code API* angeführt werden, die mit DataLinq Code verwaltet werden
-    können. Die hier angeführten Instances werden in der WebOberfläche als Kacheln angeboten und 
-    führen zu einer Anmeldung bei der jeweiligen *DataLinq.Code API* und öffnet *DataLinq.Code*
-    zu Bearbeiten von *EndPoints, Queries und Views*.
-
-  - **Clients**  
-    Hier können Benutzer (`Clients`) definiert werden, die sich mit Benutzernamen und Passwort anmelden.  
-    - **EndPointParameters** bestimmt die Berechtigungen für Datenendpunkte.
-    
+- **Clients**  
+  Definiert Benutzer mit Anmeldeinformationen und Berechtigungen.
 
 ===============
 
-`datalinq.config`
------------------
+`datalinqcode.json`
+-------------------
 
 Diese Datei befindet sich unter:  
-**project/datalinq/_config/datalinq.config**  
+**datalinq.code/_config/datalinqcode.json**  
 
-Sie dient zur Definition von Konstanten, die im DataLinq-Code verwendet werden können, z. B. zur Unterscheidung von Entwicklungsumgebungen.
+Sie dient zur Definition von Konstanten, die im DataLinq-Code verwendet werden, sowie zur Konfiguration von Code-Instanzen.
 
 Beispiel:
 
-.. code-block:: xml
+.. code-block:: json
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-        <const>
-            <add name="Environment" value="Test" />
-            <!-- production, staging, test, development, ... -->
-        </const>
-    </configuration>
+  {
+    "DataLinq.Code": {
+      "Crypto": {
+        "DefaultPasswort_": "",
+        "SaltBytes_": ""
+      },
+      "Instances_": [
+        {
+          "Name": "Local",
+          "Description": "A local datalinq instance for testing and development",
+          "LoginUrl": "~/DataLinqAuth?redirect={0}",
+          "LogoutUrl": "~/DataLinqAuth/Logout?redirect={0}",
+          "CodeApiClientUrl": "~"
+        }
+      ]
+    }
+  }
 
 Erläuterung:
 
-- **<const>** – Hier können Konstanten definiert werden, die später im Code genutzt werden.
+- **Crypto**  
+  - **DefaultPasswort_** – Standardpasswort für die Verschlüsselung.  
+  - **SaltBytes_** – Base64-kodierte Salt-Werte für zusätzliche Sicherheit.
 
-Diese Werte können im Code ausgelesen werden, um die Anwendung entsprechend der Umgebung zu konfigurieren.
-
-===============
-
-Mit diesen Konfigurationsdateien kann **WebGIS DataLinq** flexibel an unterschiedliche Anforderungen angepasst werden.
+- **Instances_**  
+  Definiert DataLinq-Code-Instanzen.  
+  - **Name** – Name der Instanz.  
+  - **Description** – Beschreibung der Instanz.  
+  - **LoginUrl** – URL für die Anmeldung.  
+  - **LogoutUrl** – URL für die Abmeldung.  
+  - **CodeApiClientUrl** – Basis-URL für die Code-API.
