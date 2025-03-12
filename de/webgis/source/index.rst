@@ -119,6 +119,6 @@ konfiguriert werden.
    installation/index
    run/index
    config/index
-   extended_config/index
    apps/index
+   extended_config/index
    annex/index
