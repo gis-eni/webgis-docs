@@ -56,4 +56,5 @@ Hier werden Themen rund um die Aufrufmöglichkeiten des *Kartenviewers* behandel
 
    url-parameters/index.rst
    customjs/index.rst
+   layouts/index.rst
    

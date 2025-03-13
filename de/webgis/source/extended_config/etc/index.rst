@@ -14,3 +14,4 @@ Nachfolgend werden einige Beispiele beschrieben:
 
    measure
    xz
+   custom_layouts/index
