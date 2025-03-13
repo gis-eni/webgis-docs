@@ -13,17 +13,10 @@
 ===============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   installation
-   konfiguration
-   allgemeines
-   technischeumsetzung
-   oberflaeche
-   parametrierung
-   aufrufundbeispiele
-   tippsundtricks
-   examples/index
+   provision
+   operation
 
 ===============
 
