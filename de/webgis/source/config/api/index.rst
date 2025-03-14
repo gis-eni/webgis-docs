@@ -635,6 +635,7 @@ DataLinq
    <section name="datalinq">
       <add key="include" value="true" />
       <add key="allow-code-editing" value="true" />
+      
       <!-- optional -->
       <add key="allowed-code-api-clients" value="https://my-server/cms" />
       <add key="environment" value="production" /> <!-- default, production, development, test -->
@@ -643,6 +644,12 @@ DataLinq
       <add key="add-razor-blacklist" value="ForbiddenNamespace." />
       <add key="add-css" value="-/content/styles/my-company/default.css?{version}" />
       <add key="add-js" value="-/scripts/api/three_d.js?{version}" />
+
+      <!-- optional: SelectEngines>
+      <add key="SelectEngines:TextFileEngine:AllowedPaths:0" value="C:\datalinq\data\" />
+      <add key="SelectEngines:TextFileEngine:AllowedPaths:1" value="C:\webgis\data\" />
+      <add key="SelectEngines:TextFileEngine:AllowedExtensions:1" value=".txt" />
+      <add key="SelectEngines:TextFileEngine:AllowedExtensions:0" value=".csv" />
    </section>
 
 .. list-table::
@@ -686,6 +693,19 @@ DataLinq
        Der Platzhalter ``{version}`` sorgt dafür, dass nach einem API-Update keine veralteten CSS-Dateien aus dem **Cache** geladen werden.
    * - ``add-js``
      - Liste von **benutzerdefinierten JavaScript-Dateien**, die in **allen Report Views** eingebunden werden. Funktioniert analog zu ``add-css`` und ermöglicht das **Einbinden eigener Skripte**.
+
+   * - ``SelectEngines``
+     - Manche **SelectEngines** benötigen erweiterte Einstellungen 
+     
+       (siehe https://docs.webgiscloud.com/de/datalinq/configuration-api.html#datalinq-api)
+       
+       Einstellungen für die einzelnen **SelectEngines** können wie oben Beispiel angeben werden
+       
+       (``dotnet-config`` Konvention: ``:`` Unterteilt *Section*, Arrays mit Indexwerten, ...).
+       
+       Ein Beispiel ist die **TextFileEngine**, die es erlaubt Textfiles vom Server 
+       auszugeben. Hier kann angeführt werden, auf welche Verzeichnisse und 
+       Dateierweiterungen zugegriffen werden darf.
 
 **Überprüfung der DataLinq-Konfiguration**
 Um zu prüfen, ob die **DataLinq-Einstellungen** korrekt gesetzt sind, kann die **API** mit folgendem Pfad aufgerufen werden:
