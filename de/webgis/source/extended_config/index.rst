@@ -7,3 +7,4 @@ Erweiterte Werkzeugkonfiguration
    :caption: Inhaltsverzeichnis:
 
    etc/index
+   roles/index
