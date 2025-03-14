@@ -1,6 +1,6 @@
 .. raw:: html
 
-   <h1 style="text-align: center;">WebGIS DataLinq</h1>
+   <h1 style="text-align: center;">DataLinq</h1>
     <br></br>
 
 

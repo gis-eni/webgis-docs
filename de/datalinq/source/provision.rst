@@ -5,4 +5,5 @@ Bereitstellung von DataLinq und DataLinq.Code
    :maxdepth: 1
 
    installation
-   configuration
+   configuration-api
+   configuration-code
