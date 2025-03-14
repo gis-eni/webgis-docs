@@ -10,6 +10,8 @@ Jede Seite (z. B. A4 Hochformat, A3 Querformat usw.) wird grundsätzlich in frei
 
 Um ein bestimmtes Panel innerhalb des XML-Dokuments leichter auffindbar zu machen, werden die hier gezeigten Farben entsprechend im XML-Text verwendet.
 
+.. image:: img/image_1_1.png
+  
 Das XML-Dokument ist so aufgebaut, dass jede Seite – unabhängig von ihrer Größe – auf ein benutzerdefiniertes Layout zurückgreift und den verfügbaren Platz mit Panels füllt. Der restliche freie Platz auf der Seite wird automatisch mit Karteninhalten ausgefüllt.
 
 .. note:: Prinzipiell wäre es auch möglich, den Bereich der Karte fest vorzugeben. In diesem Fall würde jedoch die Nutzung unterschiedlicher Papierformate keinen Sinn ergeben. Daher beschreibt diese Dokumentation ausschließlich, wie der jeweils verbleibende Platz dynamisch mit der Karte befüllt wird.
