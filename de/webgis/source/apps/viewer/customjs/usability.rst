@@ -91,3 +91,28 @@ Diese Funktionalität kann über folgende Schalter gesteuert werden:
 
    webgis.usability.allowSketchShortcuts = true;
    webgis.usability.allowSelectSketchVertices = true;
+
+Inhaltsverzeichnis
+==================
+
+Um das Verhalten des Inhaltsverzeichnis anzupassen gibt es folgende Settings:
+
+* ``makePresentationTocGroupCheckboxes`` (**``true``** / ``false``)): 
+  ist diese Option auf ``true`` gesetzt, werden bei aufklappbaren Gruppen-Layern im
+  Inhaltsverzeichnis automatisch Checkboxes angeboten, wenn alle darunter liegenden 
+  Layer/Darstellungsvarianten ebenfalls eine Checkbox aufweisen.
+  Mit dieser Checkbox können dann alle darunter liegenden Layer mit einem Klick sichtbar
+  oder unsichtbar geschalten werden.
+
+* ``orderPresentationTocContainsByServiceOrder`` (``true``/ **``false``**):
+  Damit wird festgelegt, das im Inhaltsverzeichnis die Container nach der Zeichenreihenfolge
+  der Dienste sortiert werden. Ansonsten gilt die Sortierung aus dem CMS, wie sie 
+  unter ``Viewer/Darstellungsvarianten`` definiert ist.
+  Verwendet man keine Darstellungsvarianten sondern dynamische Inhaltsverzeichnisse,
+  würde die Container ohne diese Option alphabetisch sortiert.
+
+.. code:: javascript
+
+   webgis.usability.makePresentationTocGroupCheckboxes = true;
+
+   webgis.usability.orderPresentationTocContainsByServiceOrder = true;  // default: false
