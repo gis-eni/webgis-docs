@@ -141,7 +141,7 @@ Diese Datei ist optional befindet sich unter:
 
 Sie dient zur Definition von Konstanten, die im DataLinq Views (Razor Code) verwendet werden:
 
-.. code-block:: csharp
+.. code-block:: text
 
   @{  var env = Const.Environment;   }
 
