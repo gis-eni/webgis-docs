@@ -38,7 +38,7 @@ Der Layout Tag kann folgende Attribute enthalten:
    * - ``coord_format``
      - Legt das Format der Koordinaten fest. Mögliche Werte sind ``dms`` (Grad, Minuten, Sekunden) und ``dm`` (Grad, Minuten). Wird kein Wert angegeben, erfolgt die Ausgabe als Dezimalwert.
    * - ``border``
-     - Definiert den Rand für das Layout in Millimetern [mm].
+     - Definiert den Seitenrand für das Layout in Millimetern [mm].
    * - ``image_format``
      - Legt fest, in welchem Format das Druckbild erstellt wird. Standardmäßig wird ``PNG`` verwendet. Da dies bei Luftbildern zu großen PDFs führt, kann alternativ ein anderes Format verwendet werden, beispielsweise ``JPG``.  
        **Beispiel:** ``image_format="jpg"``
@@ -231,6 +231,8 @@ Folgende vordefinierte Variablen stehen zur Verfügung:
      - Abteilung
    * - ``[PURPOSE]``
      - Verwendungszweck
+   * - ``[PAGE_SIZE]``
+     - Seitengröße des Ausdrucks (z. B.: ``A4``)
    * - ``[DPI]``
      - Qualität (Druckauflösung in DPI)
    * - ``[SCALE]``
@@ -239,6 +241,10 @@ Folgende vordefinierte Variablen stehen zur Verfügung:
      - Datum der Kartenerstellung
    * - ``[DATE(Format)]``
      - Datum mit benutzerdefinierter Formatierung (z. B.: ``dd.MM.yyyy``, ``dd.MMMM yyyy``, ``yyyy``)
+   * - ``[MAP_SRS_NAME]``
+     - Name des Koordinatensystems der Karte
+   * - ``[MAP_EPSG]``
+     - EPSG-Code des Koordinatensystems der Karte
    * - ``[COORD_LEFT_0]``
      - Linke Koordinate mit 0 Dezimalstellen
    * - ``[COORD_LEFT_1]``
@@ -376,6 +382,15 @@ Maßstabsleiste einfügen
 Innerhalb der Hauptkarte wird nun die Maßstabsleiste eingefügt sowie der Text `ENERGIE STEIERMARK AG 2007`.
 
 .. image:: img/image_10.png
+
+Nordpfeil einfügen
+==================
+
+Das Nordpfeilsymbol dient dazu, die Ausrichtung der Karte zu verdeutlichen und die Richtung Norden anzuzeigen. Es ist besonders hilfreich, wenn der Druckausschnitt der Karte rotiert wird. Dadurch bleibt die Orientierung unabhängig von der Rotation des Kartenlayouts erhalten. Die Position und Größe des Symbols sowie die Hintergrundfarbe können individuell angepasst werden.
+
+.. code-block:: xml
+
+   <northarrow x="4" y="7" width="7" height="8.5" fillcolor="255,255,255"/>
 
 Benutzerdefinierte Texte
 ========================
