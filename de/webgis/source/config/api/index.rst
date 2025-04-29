@@ -184,7 +184,7 @@ Abschnitt ``Marker``
   
   Wie Dynamische Marker in den Viewer eingebunden werden, wird in der ``custom.js`` Beschreibung gezeigt:
  
-  https://docs.webgiscloud.com/cloud/KartenViewer/CustomJS/benutzerdefmarker.html
+  https://docs.webgiscloud.com/de/webgis/apps/viewer/customjs/benutzerdefmarker.html
   
   Verwendet man die ``custom-recommendtion.js``, werden dynamische Marker automatisch für Suchergebnisse verwendet.
 
