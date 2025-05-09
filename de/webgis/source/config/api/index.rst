@@ -635,7 +635,11 @@ DataLinq
    <section name="datalinq">
       <add key="include" value="true" />
       <add key="allow-code-editing" value="true" />
-      
+
+      <!-- optional: Engine & Serverside Encryption -->     
+      <add key="razor-engine" value="default" /> <!-- default, legacy -->
+      <add key="api-encryption-level" value="DefaultStaticEncryption" /> <!-- DefaultStaticEncryption, None, RandomSaltedPasswordEncryption -->
+
       <!-- optional -->
       <add key="allowed-code-api-clients" value="https://my-server/cms" />
       <add key="environment" value="production" /> <!-- default, production, development, test -->
@@ -666,6 +670,32 @@ DataLinq
        .. danger::
 
           Aus **Sicherheitsgründen** sollte dies nur für **lokale oder Intranet-Instanzen** aktiviert sein. Auf **Produktivsystemen** sollte DataLinq nur als **Read-Only** verwendet werden.
+   * - ``razor-engine``
+     - Gibt an, welche **Razor-Engine** verwendet wird. Standardmäßig ist dies die **DataLinqLanguageEngineRazor** (``default``).  
+       Die **LegacyEngine** (``legacy``) ist eine ältere Version, die nicht mehr weiterentwickelt wird. 
+       Diese sollte nur eingesetzt werden, wenn nach dem Umstieg von einer älteren WebGIS Version (6.x)
+       Probleme beim rendern bestehender *Views* auftreten.
+   * - ``api-encryption-level``
+     - In den DataLinq Endpoints und Queries können teils sensible Daten wie Connection Strings und
+       SQL Statements stehen. Der Wert hier gibt an mit welchen Verschlüsselungslevel 
+       **serverseitig** gespeicherte *Connection Strings* und *Query Statements* verspeichert werden.
+       
+       - ``DefaultStaticEncryption`` (default): Daten werden im Storage mit einem fixen Password verschlüsselt
+       - ``None``: Sensible Daten werden im Storage Unverschlüsselt abgelegt
+       - ``RandomSaltedPasswordEncryption``: Daten werden mit einem hier zufällig für die Instanz
+         generierten Password und einem zufällig generierten Salt verschlüsselt. 
+       
+       Die letzte Variante ist die sicherste, es kann jedoch passieren, dass unterschiedliche 
+       Instanzen die DataLinq Objekte nicht mehr lesen können, da sie mit einem anderen Password
+       verschlüsselt wurden. Empfohlen wird daher die Variante ``DefaultStaticEncryption``, hier sind 
+       die Daten verschlüsselt, können aber von allen Instanzen gelesen werden.
+       
+       .. important::
+
+          Bei der Verwendung von **DataLinq** ist es wichtig, dass die **Verschlüsselung** für alle Instanzen gleich ist.  
+          Andernfalls können **DataLinq-Objekte** nicht mehr gelesen werden.  
+          Dies gilt insbesondere für **WebGIS-Instanzen**, die auf verschiedene **Server verteilt** sind. 
+
    * - ``allowed-code-api-clients``
      - Falls **Code-Bearbeitung** erlaubt ist, können hier die **URLs** der **autorisierten DataLinq.Code-Instanzen** angegeben werden (mit Komma getrennt). In einer WebGIS-Umgebung ist dies meist die URL zum **WebGIS CMS**. Falls eine nicht autorisierte DataLinq.Code-Instanz versucht, Änderungen vorzunehmen, wird eine Fehlermeldung ausgegeben.
    * - ``environment``
