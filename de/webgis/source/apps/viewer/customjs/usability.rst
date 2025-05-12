@@ -116,3 +116,62 @@ Um das Verhalten des Inhaltsverzeichnis anzupassen gibt es folgende Settings:
    webgis.usability.makePresentationTocGroupCheckboxes = true;
 
    webgis.usability.orderPresentationTocContainsByServiceOrder = true;  // default: false
+
+Toolbox
+=======
+
+Mit diesen Einstellungen können die Werkzeuge in der *Toolbox* konfiguriert werden.
+Die Einstellungen erfolgen pro Werkzeug, die Syntax ist wie folgt:
+
+.. code:: javascript
+
+   webgis.usability.toolProperties['{tool-id}'] = { 
+        container: 'a custom container for this tool', // optional
+        name: 'a custom name for this tool', // optional
+        tooltip: 'a custom tooltip for this tool', // optional
+   };
+
+Die ``{tool-id}`` ist die ID des Werkzeugs. Man bekommt die **Ids** der einzelnen Werkzeuge
+über die WebGIS API ``/rest/tools``
+
+Ein Anwendungsbeispiel ist beispielsweise, wenn Werkzeuge in einem anderen Container (Reiter),
+verschoben werden sollten, zB:
+
+.. code:: javascript
+
+  webgis.usability.toolProperties['webgis.tools.fullextent'] =  { 
+        container: 'Start' 
+  };
+  webgis.usability.toolProperties['webgis.tools.identify'] = { 
+    container: ['Start','Abfragen'] 
+  };
+
+Hier wird das Werkzeug *Vollausdehnung* in den Reiter *Start* verschoben und das Werkzeug
+*Abfragen* in den Reiter *Start* und *Abfragen*. Sollte ein Werkzeug also in mehreren Reitern
+sichtbar sein, muss der Container als Array angegeben werden.
+
+Des weiteren kann die Reihenfolger der Container bestimmt werden:
+
+.. code:: javascript
+
+    webgis.usability.toolContainerOrder = [
+        'Start',
+        'Abfragen',
+        'Messwerkzeuge',
+        'Zeichnen',
+        'Navigation'
+    ];
+
+Wird hier nichts angegeben, entspricht die Reihenfolge der Container jener Reihenfolge, mit der die 
+Werkzeuge in die Karte eingefügt wurden. 
+
+.. note::
+
+    Ändert man die ``toolProperties`` der Werkzeuge, sollte immer auch die Container Reihenfolge
+    definiert werden, da sonst die Reihenfolge der Container eher zufällig vergeben wird.
+
+.. note::
+
+    Es müssen bei der Reihenfolge nicht alle Container angegeben werden. Gibt es einen Container,
+    der nicht in der Liste ist, wird dieser immer am Ende angezeigt.
+
