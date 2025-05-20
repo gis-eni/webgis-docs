@@ -625,6 +625,35 @@ Die Konfiguration erfolgt in der optionalen *Section* ``proxy`` in der ``api.con
    * - ``ignore`` *(optional)*
      - Liste von **Regeln**, anhand derer bestimmte Server vom Proxy **ausgenommen** werden. Mehrere Regeln können mit ``;`` getrennt angegeben werden. Es sind auch **reguläre Ausdrücke** möglich.
 
+HttpClient
+----------
+
+.. code-block:: xml
+
+  <section name="httpclient">
+      <add key="default-timeout-seconds" value="300"/> <!-- default:0 = 100 secs --> 
+  </section> 
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``default-timeout-seconds``
+     - Gibt die maximale Wartezeit an, die ein Http Request (zB auf ein MapService wartet)
+       Ist der Wert auf ``0`` oder nicht gesetzt, 
+       wird der Standardwert **100 Sekunden** verwendet. 
+
+       Der Wert, wie lange auf einen MapServer Dienst gewartet wird, wird eigentlich im CMS 
+       für jeden Dienst extra konfiguriert. Werte die höher sind als der hier gesetzte Wert,
+       werden ignoriert. Der hier angeführte Werte ist der **maximale Timeout** für alle Request.
+
+       Ein Erhöhen oder setzen dieses Wertes macht nur Sinn, wenn es Kartendienste gibt, die beim
+       Drucken mit großen Papierformaten und Auflösungen länger als 100 Sekunden brauchen.
+       WebGIS wartet beim Drucken immer maximal 100 Sekunden auf einen Dienst, egal was im CMS
+       konfiguriert ist. Ist im CMS ein höher Wert konfiguriert, muss dieser auch hier gesetzt werden.
+
 DataLinq 
 --------
 
