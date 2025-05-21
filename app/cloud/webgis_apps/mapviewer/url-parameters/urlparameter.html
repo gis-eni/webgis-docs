@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Url Parameter &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Map Builder" href="../../mapbuilder/index.html" />
+    <link rel="prev" title="Voraussetzung" href="voraussetzung.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS Cloud Dokumentation 2022 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../portal/index.html">WebGIS Cloud Portal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applikationen erstellen/verwalten</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Karten Portal und Viewer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../portal/index.html">Karten Portal Seiten verwalten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../customjs/index.html">custom.js</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Parametrierter Aufruf des Karten Viewers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../mapbuilder/index.html">Map Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appbuilder/index.html">App Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../datalinq/index.html">DataLinq</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selfhosting/index.html">WebGIS selbst Bereitstellen</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="url-parameter">
+<h1>Url Parameter<a class="headerlink" href="#url-parameter" title="Link to this heading">¶</a></h1>
+<p>Optional zum normalen Aufruf können noch Parameter übergeben werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://{Host}/{Portal-Applikation}/{Aortal-Seite}/{Kategorie}/{Kartenname}?param1=1&amp;param2=2
+</pre></div>
+</div>
+<section id="kartenausschnitt-und-marker">
+<h2>Kartenausschnitt und Marker<a class="headerlink" href="#kartenausschnitt-und-marker" title="Link to this heading">¶</a></h2>
+<p><strong>Parameter:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bbox</span></code></p>
+<p>Gibt eine Bounding-Box an, auf die Kartenansicht automatisch zoomt. Die Syntax lautet hier: [x-min],[y-min],[x-max],[y-max] bzw. bei geographischen Koordinaten [lng-min],[lat-min],[lng-max],[lat-max], wobei „lng“ für den geographischen Längengrad und „lat“ für den geographischen Breitengrad stehen.
+Die Werte werden mit Beistrich getrennt. Als Kommazeichen für die einzelnen Werte wird ein „.“ vorausgesetzt.</p>
+<p>Beispiel: <code class="docutils literal notranslate"><span class="pre">&amp;bbox=14.6,47.3,15.2,48.1</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center</span></code></p>
+<p>Gibt das Zentrum an, auf das nach dem Start in der Kartenansicht gesprungen wird. Die Syntax lautet hier: [x],[y] bzw. [lng],[lat]</p>
+<p>Die Werte werden mit Beistrich getrennt. Als Kommazeichen für die einzelnen Werte wird ein „.“ vorausgesetzt.</p>
+<p>Beispiel: <code class="docutils literal notranslate"><span class="pre">&amp;center=14.6,47.3</span></code></p>
+<p>Wird kein Maßstab angeben (Parameter scale), zoomt die Ansicht auf einem Maßstab 1:1000.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">srs</span></code></p>
+<p>Der Viewer setzt voraus, dass die Koordinaten für <code class="docutils literal notranslate"><span class="pre">bbox</span></code> und <code class="docutils literal notranslate"><span class="pre">center</span></code> als geographische Koordinaten in WGS 84 übergeben werden. Ist dies nicht der Fall, muss das Koordinatensystem über diesen Parameter spezifiziert werden.
+Übergeben wird hier der EPSG-Code des Koordinatensystems ohne dem „EPSG:“ Literal, also als Integer Zahl.</p>
+<p>Beispiel (GK-M34): <code class="docutils literal notranslate"><span class="pre">&amp;srs=31256</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale</span></code></p>
+<p>Gibt den Maßstab an, auf dem in der Kartenansicht gezoomt wird. Der Parameter wird nur berücksichtigt, wenn auch die Parameter <code class="docutils literal notranslate"><span class="pre">center</span></code> oder <code class="docutils literal notranslate"><span class="pre">marker</span></code> übergeben werden.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">marker</span></code></p>
+<p>Soll ein Punkt in der Karte mittels Marker dargestellt werden, kann der Marker über diesen Parameter definiert werden. Hier wird als Syntax ein Javascript Objekt mit entsprechenden Eigenschaften übergeben.</p>
+<p>Beispiel (mind): <code class="docutils literal notranslate"><span class="pre">&amp;marker={lng:14.7,lat:47.2}</span></code></p>
+<p>Das Objekt wird durch geschwungen Klammern abgegrenzt. Die einzelnen Eigenschaften des Objekts werden mittels Beistrich voneinander getrennt. Die Zuweisung einer Eigenschaft folgt mit folgender Syntax: [Eigenschaft]:[Wert] also beispielsweise lng:14.2</p>
+<p>Entspricht der Wert einem String, muss dieser in einfachen Hochkommata angeführt werden:</p>
+<p>Text:‘Popup Text‘</p>
+<p>Eine Beschreibung der einzelnen Werte folgt unten.</p>
+<p>Wenn nicht über die Parameter <code class="docutils literal notranslate"><span class="pre">center</span></code> oder <code class="docutils literal notranslate"><span class="pre">bbox</span></code> anders definiert, zoomt die Kartenansicht auf den Marker. Der Maßstab kann dafür über den Parameter <code class="docutils literal notranslate"><span class="pre">scale</span></code> übergeben werden.</p>
+</li>
+</ul>
+</section>
+<section id="einen-marker-ubergeben">
+<h2>Einen Marker übergeben<a class="headerlink" href="#einen-marker-ubergeben" title="Link to this heading">¶</a></h2>
+<p>Wie oben schon beschrieben, kann über den Parameter <code class="docutils literal notranslate"><span class="pre">marker</span></code> ein Marker beim Aufruf in eine Karte übergeben werden. Die Übergabe-Syntax ist dabei immer die Darstellung des Markers als Javascript Objekt (siehe oben).
+Folgende Tabelle führt alle möglichen Eigenschaften dieses Objekts an. Double-Werte sind immer Zahlen mit einen „.“ (Punkt) als Komma Separator. Integer Zahlen dürfen nur aus Zahlen bestehen.
+Strings müssen mit Hochkommata versehen werden. Die fett gedruckten Eigenschaften müssen angeführt werden:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lng</span></code></p>
+<ul class="simple">
+<li><p><em>Double</em></p></li>
+<li><p>Der geographische Längengrad, an dem der Marker eingefügt werden soll</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lat</span></code></p>
+<ul class="simple">
+<li><p><em>Double</em></p></li>
+<li><p>Der geographische Breitengrad, an dem der Marker eingefügt werden soll</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p>
+<ul class="simple">
+<li><p><em>Double</em></p></li>
+<li><p>Falls die Übergabe der Koordinaten nicht in geographischen Koordinaten erfolgt, können hier die X,Y Koordinaten und die Koordinatensystem (als EPGS-Wert) übergeben werden. Werden diese Werte angeführt, sind lng und lat keine Pflichtfelder mehr.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code></p>
+<ul class="simple">
+<li><p><em>Double</em></p></li>
+<li><p>Falls die Übergabe der Koordinaten nicht in geographischen Koordinaten erfolgt, können hier die X,Y Koordinaten und die Koordinatensystem (als EPGS-Wert) übergeben werden. Werden diese Werte angeführt, sind lng und lat keine Pflichtfelder mehr.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">srs</span></code></p>
+<ul class="simple">
+<li><p><em>Integer</em></p></li>
+<li><p>Falls die Übergabe der Koordinaten nicht in geographischen Koordinaten erfolgt, können hier die X,Y Koordinaten und die Koordinatensystem (als EPGS-Wert) übergeben werden. Werden diese Werte angeführt, sind lng und lat keine Pflichtfelder mehr.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">icon</span></code></p>
+<ul class="simple">
+<li><p><em>String</em></p></li>
+<li><p>(z.Z. nicht benutzt, es wird immer der Standardmarker gesetzt)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p>
+<ul>
+<li><p><em>Integer</em></p></li>
+<li><p>Soll der Marker Information in Form von Text besitzen, kann dies über diesen Parameter erfolgen. Der Text wird dann als Popup-Text beim Klick auf den Marker angezeigt.</p>
+<p>Innerhalb des Textes können auch Links auf Bilder angeführt werden. Bilder werden mit einem „img:“ als Prefix gekennzeichnet, also beispielsweise <em>img:http://…../bild.jpg</em>.</p>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">openPopup</span></code></p>
+<ul>
+<li><p><em>Boolean</em></p></li>
+<li><p>true/false</p>
+<p>Wird ein Text übergeben, kann hier angeführt werden, ob der Popup-Text automatisch dargestellt wird oder erst durch einen Klick auf den Marker durch den Anwender.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Beispiele:</strong></p>
+<p>Ein Marker mit dem Text „Hallo Welt“:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&amp;marker={lng:14.7,lat:47.2,text:‘Hallo Welt‘}
+</pre></div>
+</div>
+<p>Ein Marker mit projezierten Koordinaten:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">marker</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="o">-</span><span class="mf">68014.6</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="mf">215601.4</span><span class="p">,</span><span class="n">srs</span><span class="p">:</span><span class="mi">31256</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Ein Marker mit Text und eingeschlossenem Bild. Wird nach dem Öffnen des Viewers automatisch angezeigt (<code class="docutils literal notranslate"><span class="pre">openPopup=true</span></code>). Die Zeilenumbrüche dienen hier nur der Veranschaulichung:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&amp;marker={
+lng:15.4,
+lat:47.09,
+openPopup:true,
+text:
+‘Das ist ein Bild img:https://upload.wikimedia.org/wikipedia/de/6/68/Nandu_gesamtes_Bild.jpg mit Subtext‘
+}
+</pre></div>
+</div>
+<img alt="../../../_images/image22.png" src="../../../_images/image22.png" />
+</section>
+<section id="mehrere-marker-ubergeben">
+<h2>Mehrere Marker übergeben<a class="headerlink" href="#mehrere-marker-ubergeben" title="Link to this heading">¶</a></h2>
+<p>Über den Parameter <code class="docutils literal notranslate"><span class="pre">markers</span></code> können auch mehrerer Marker übergeben werden. Die Syntax muss dabei einem <code class="docutils literal notranslate"><span class="pre">Array</span></code> aus einzelnen Markern entsprechen.
+Die Marker werden hier nicht nur in der Karte angezeigt, sondern in der Karte als <em>Dynamischer Inhalt</em> übernommen. Über den optionalen Parameter <code class="docutils literal notranslate"><span class="pre">markers_name</span></code>
+kann ein Name übergeben werden, mit dem der <em>Dynamische Inhalt</em> im TOC angezeigt wird.</p>
+<p><strong>Beispiel</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">markers_name</span><span class="o">=</span><span class="n">Ziele</span><span class="o">&amp;</span><span class="n">markers</span><span class="o">=</span><span class="p">[{</span><span class="n">lng</span><span class="p">:</span><span class="mf">14.7</span><span class="p">,</span><span class="n">lat</span><span class="p">:</span><span class="mf">47.2</span><span class="p">,</span><span class="n">text</span><span class="p">:</span><span class="s1">&#39;Ziel 1&#39;</span><span class="p">},{</span><span class="n">lng</span><span class="p">:</span><span class="mf">14.9</span><span class="p">,</span><span class="n">lat</span><span class="p">:</span><span class="mf">46.8</span><span class="p">,</span><span class="n">text</span><span class="p">:</span><span class="s1">&#39;Ziel 2&#39;</span><span class="p">},{</span><span class="n">lng</span><span class="p">:</span><span class="mf">14.8</span><span class="p">,</span><span class="n">lat</span><span class="p">:</span><span class="mf">47.4</span><span class="p">,</span><span class="n">text</span><span class="p">:</span><span class="s1">&#39;Ziel 3&#39;</span><span class="p">},{</span><span class="n">lng</span><span class="p">:</span><span class="mf">15.8</span><span class="p">,</span><span class="n">lat</span><span class="p">:</span><span class="mf">47.1</span><span class="p">,</span><span class="n">text</span><span class="p">:</span><span class="s1">&#39;Ziel 4&#39;</span><span class="p">},{</span><span class="n">lng</span><span class="p">:</span><span class="mf">15.2</span><span class="p">,</span><span class="n">lat</span><span class="p">:</span><span class="mf">46.9</span><span class="p">,</span><span class="n">text</span><span class="p">:</span><span class="s1">&#39;Ziel 5&#39;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</section>
+<section id="abfragen">
+<h2>Abfragen<a class="headerlink" href="#abfragen" title="Link to this heading">¶</a></h2>
+<p>An den Viewer kann beim Aufruf eine Abfrage mit Werten übergeben werden. Diese Abfrage ist dann automatisch im Viewer als aktuelles Abfrage/Identifythema aktiv.
+Wenn optional noch Werte übergeben werden, wird diese Abfrage ausgeführt und auf die Ergebnisse gezoomt. Ergebnisse werden in der Karte selektiert und mit Markern markiert.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">abfragethema</span></code></p>
+<p>Beide Parameter sind möglich, die Funktionsweise ist gleich. Übergeben wird die Abfrage-Url, wie sie im CMS festgelegt wurde.</p>
+<p>Beispiel: <code class="docutils literal notranslate"><span class="pre">&amp;query=gemeinden</span></code></p>
+</li>
+<li><p>Abragewerte: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">plz</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">hnr</span></code>, …</p>
+<p>Die Abfragewerte heißen so, wie sie im CMS definiert wurden</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">query2</span></code>, <code class="docutils literal notranslate"><span class="pre">abfragethema2</span></code>, <code class="docutils literal notranslate"><span class="pre">querythemeid</span></code></p>
+<p>Wird eine Abfrage übergeben, stellt sich das Abfragethema für <em>Identify</em> und <em>Suche</em> in der Benutzeroberfläche
+ebenfalls auf dieses Thema.
+Möchte man das voreingestellte Abfragethema auf ein (anderes) Thema setzen, kann einer dieser Parameter verwendet werden.</p>
+<p>Beispiel: <code class="docutils literal notranslate"><span class="pre">querythemeid=bezirke</span></code>, <code class="docutils literal notranslate"><span class="pre">querythemeid=%23</span></code></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Abfrage-Id für „sichtbare Themen“ ist <code class="docutils literal notranslate"><span class="pre">#</span></code>. Dieses Zeichen ist allerdings in Urls reserviert und kann nicht 1:1 verwendet
+werden, sondern muss als <code class="docutils literal notranslate"><span class="pre">%23</span></code> kodiert werden.</p>
+</div>
+</section>
+<section id="darstellungsfilter">
+<h2>Darstellungsfilter<a class="headerlink" href="#darstellungsfilter" title="Link to this heading">¶</a></h2>
+<p>Werden in einer Karte Darstellungsfilter angeboten, kann ein Filter über einen Url-Parameter übergen werden.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code></p>
+<p>Die id des Filters (wie im CMS).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filterarg_{argument}</span></code></p>
+<p>Für jedes Argument des Filters muss eine Wert übergeben werden. <code class="docutils literal notranslate"><span class="pre">{argument}</span></code> ist hier der Platzhalter für das entsprechende Argument.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filterservice</span></code> (optional)</p>
+<p>Die Id für den Filter ist nicht eindeutig und kann in unterschiedlichen Diensten vorkommen. Möchte man den Filter für genau einem bestimmten Dienst aktivieren,
+kann die Id des Dienstes hier angegeben werden. Ansonsten wird der Filter für jeden Dienst mit diesem Filter angewendet. Die Dienst-Id besteht in der Regel aus <code class="docutils literal notranslate"><span class="pre">{Dienst</span> <span class="pre">Id}&#64;{CMS</span> <span class="pre">Id}</span></code>.
+Eine Alternative ist, die Dienst-Id gleich über den Parameter <code class="docutils literal notranslate"><span class="pre">filter</span></code> zu definieren: <code class="docutils literal notranslate"><span class="pre">{service-id}~{filterid}</span></code>.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Sollten Filter auch über das Darstellungsfilter-Werkzeug angezeigt werden (wenn der Anwender auf das Werkzeug <code class="docutils literal notranslate"><span class="pre">Darstellungsfilter</span></code> klickt), MUSS die Dienst-Id mitübergeben werden!</p>
+</div>
+<p>Beispiel:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;filter=my-filter&amp;filterarg_WERT1=abc</span></code></p>
+<p>mit eindeutiger Dienst Zuweisung:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;filter=my-filter&amp;filterservice=my-service&#64;my-cms&amp;filterarg_WERT1=abc</span></code>
+oder
+<code class="docutils literal notranslate"><span class="pre">&amp;filter=my-service&#64;my-cms~my-filter&amp;filterarg_WERT1=abc</span></code></p>
+</section>
+<section id="werkzeuge">
+<h2>Werkzeuge<a class="headerlink" href="#werkzeuge" title="Link to this heading">¶</a></h2>
+<p>Der Viewer kann mit einem voreingestelltem Werkzeug aufgerufen werden:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tool</span></code></p>
+<p>Mit diesem Parameter wird die Id des Werkzeugs übergeben, dass beim Aufruf der Karte ausgewählt werden sollte.</p>
+<p>Beispiel: <code class="docutils literal notranslate"><span class="pre">&amp;tool=webgis.tools.measureline</span></code></p>
+</li>
+</ul>
+<p>Die möglichen Werkzeug-Ids können unter <a class="reference external" href="https://api.webgiscloud.com/rest/tools">https://api.webgiscloud.com/rest/tools</a> nachgeschlagen werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Es können nur Werkzeuge und keine einfachen Werkzeug-Buttons übergeben werden. <em>Einfache Werkzeugbuttons</em> sind Werkzeuge,
+die schon beim Anklicken die gewünschte Aktion ausführen, wie <em>gesamter Ausschnitt</em>, <em>Refresh</em>, <em>Zurück</em>.</p>
+</div>
+<p>Für das Editwerkzeug <code class="docutils literal notranslate"><span class="pre">&amp;tool=webgis.tools.editing.edit</span></code> können optional noch weitere Parameter übergeben werden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">editthemeid</span></code>: Die <code class="docutils literal notranslate"><span class="pre">Id</span></code> des Editthemas, das aktiv gestetzt werden sollte. Die <code class="docutils literal notranslate"><span class="pre">Id</span></code> ist im CMS beim entsprechenden Editthema nachzuschlagen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ed_[FIELD_NAME]</span></code>: Der Wert für ein Feld in der Editmaske.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tooloption</span></code>: Das Edit-Subwerkzeug, dass ausgewählt werden sollte. <code class="docutils literal notranslate"><span class="pre">&amp;tooloption=newfeature</span></code> =&gt; es wird die Editmaske geöffnet, um einen neues Feature zu bearbeiten.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Der Parameter <code class="docutils literal notranslate"><span class="pre">tooloption</span></code> funktioniert nur, wenn die Karte am Desktop mit dem <em>WebGIS 6 Desktop Layout</em> geöffnet wurde.
+Ist dies nicht der Fall, muss der Anwender selbstständig auf <code class="docutils literal notranslate"><span class="pre">Neues</span> <span class="pre">Objekt</span></code> klicken.</p>
+</div>
+</section>
+<section id="sichtbarkeit-darstellungsvarianten">
+<h2>Sichtbarkeit/Darstellungsvarianten<a class="headerlink" href="#sichtbarkeit-darstellungsvarianten" title="Link to this heading">¶</a></h2>
+<p>Um beim Aufruf schon eine bestimmte Darstellung anzugeben, kann hier eine Liste von Darstellungsvarianten angeführt werden. Diese werden dann in der angeführten Reihenfolge „automatisch angeklickt“.
+Im CMS hat jede Darstellungsvariante beim Dienst eine Url. Im Viewer können diese Darstellungsvarianten allerdings wieder zu Buttons und Checkboxes gruppiert sein
+oder sich in Dropdowns befinden. Darum funktioniert die Übergabe der Url einer Darstellungsvariante nur, wenn diese in keiner Gruppe ist. Wenn sich die Darstellungsvariante in einer Gruppe befindet,
+kann nur die komplette Gruppe als Parameter übergeben werden. Die interne Url für eine Gruppe ist immer dvg_[Name der Gruppe in Kleinbuchstaben, Leerzeichen werden Underscore, …).
+Wenn man sich nicht sicher ist, wie der interne Name einer Gruppe oder einer Darstellungsvariante unterhalb eines Dropdowns oder einer Gruppe ist, kann man dies über die Entwicklungstools des Browsers feststellen (F12).
+Jedes Element, auf das man in Darstellungsvarianten TOC klicken kann, hat ein Attribut mit dem Namen „data-dvid“. Der Wert dieses Attributes entspricht der Id, die man über einen parametrierten Aufruf übergeben kann:</p>
+<img alt="../../../_images/image32.png" src="../../../_images/image32.png" />
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">presentation</span></code>, <code class="docutils literal notranslate"><span class="pre">darstellungsvariante</span></code></p>
+<p>Beide Parameter sind möglich, die Funktionsweise ist gleich.</p>
+<p>Beispiel: <code class="docutils literal notranslate"><span class="pre">&amp;presentation=dvg_strom-naturbestand/dv_ssg_nb_geb,dvg_kataster</span></code></p>
+</li>
+</ul>
+</section>
+<section id="sichtbarkeit-von-einzelnen-layern">
+<h2>Sichtbarkeit von einzelnen Layern<a class="headerlink" href="#sichtbarkeit-von-einzelnen-layern" title="Link to this heading">¶</a></h2>
+<p>Ist das Sichtbarschalten nicht über Darstellungsvariaten möglich, können auch einzelne Layer sichtbar bzw. unsichtbar geschalten werden. Hierzu werden die Namen (inklusive Gruppe) über einen Parameter übergeben.
+Befindet sich der Layer in einer Gruppe, muss der komplette Pfad mit <em>Backslash</em> als Trennzeichen in der Url übergeben werden.</p>
+<img alt="../../../_images/image42.png" src="../../../_images/image42.png" />
+<p>würde somit folgenden Layernamen ergeben: <code class="docutils literal notranslate"><span class="pre">Verwaltungsdaten\Bezirke</span></code>.</p>
+<p>Mehrere Layer können mit Beistrich getrennt angeführt werden.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">showlayers</span></code>, <code class="docutils literal notranslate"><span class="pre">sichtbar</span></code></p>
+<p>Beide Parameter sind möglich, die Funktionsweise ist gleich. Die hier angeführten Layer wurden zusätzlich sichtbar geschalten.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hidelayers</span></code>, <code class="docutils literal notranslate"><span class="pre">unsichtbar</span></code></p>
+<p>Beide Parameter sind möglich, die Funktionsweise ist gleich. Die hier angeführten Layer wurden unsichtbar geschalten.</p>
+</li>
+</ul>
+<p>Beispiele:</p>
+<p><code class="docutils literal notranslate"><span class="pre">showlayers=Verwaltungsdaten\Bezirke,Verwaltungsdaten\Landesgrenze</span></code>
+<code class="docutils literal notranslate"><span class="pre">hidelayers=Verwaltungsdaten\Bezirke,Verwaltungsdaten\Landesgrenze</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das Schalten einzelner Layer sollte wenn möglich vermieden und nur in Ausnahmefällen verwendet werden. Layernamen und Gruppen können sich im Laufe der Zeit für einen Dienst ändern, was die verwendeten Aufruflinks unbrauchbar macht.
+Ebenso wird nicht unterschieden, in welchem Dienst sich ein Layer mit dem Namen befinden muss. Gibt es hier Doppeldeutigkeiten, kann das zu Fehlern in der Darstellung führen.</p>
+</div>
+</section>
+<section id="sichtbarkeit-von-hintergrunddiensten">
+<h2>Sichtbarkeit von Hintergrunddiensten<a class="headerlink" href="#sichtbarkeit-von-hintergrunddiensten" title="Link to this heading">¶</a></h2>
+<p>Hintergrunddienste (Basemaps) können über den Parameter <code class="docutils literal notranslate"><span class="pre">basemap</span></code> eingeschalten werden. Es können mit Beistrich getrennt mehrere Dienste (ids) angegeben werden, wobei der erste Dienst Hintergrund Basemaps und alle weiteren <em>Oberlayer</em> Basemaps sein müsssen.</p>
+<p>Beispiele:</p>
+<p><code class="docutils literal notranslate"><span class="pre">basemap=orhto_tiles_gray&#64;my_cms</span></code></p>
+<p>oder mit zusätzlichem Basemap <em>Overlay</em> Dienst:</p>
+<p><code class="docutils literal notranslate"><span class="pre">basemap=ortho_tiles_gray&#64;my_cms,streets_tiles_default&#64;my_cms</span></code></p>
+</section>
+<section id="snapshots">
+<h2>Snapshots<a class="headerlink" href="#snapshots" title="Link to this heading">¶</a></h2>
+<p>Wurden im <em>MapBuilder</em> für eine Karte mehre <em>Snapshots</em> angelegt, kann ein bestimmter <em>Snapshot</em> über den Url-Parameter <code class="docutils literal notranslate"><span class="pre">snapshot</span></code> übergeben werden.
+Die Karte wird dann mit der für den Snapshot eingestellen Layer-Sichtbarkeit und Ausschnitt geladen.</p>
+<p>Beispiel:</p>
+<p><code class="docutils literal notranslate"><span class="pre">snapshot=snapshot-name</span></code></p>
+</section>
+<section id="dienste-hinzufugen">
+<h2>Dienste hinzufügen<a class="headerlink" href="#dienste-hinzufugen" title="Link to this heading">¶</a></h2>
+<p>Beim Aufruf einer Karten können noch zusätzliche Dienste übergeben werden. Dazu muss über den Parameter <code class="docutils literal notranslate"><span class="pre">append-services</span></code> oder <code class="docutils literal notranslate"><span class="pre">gdiservices</span></code> eine mit Bestrich getrennt Liste von Dienst Ids übergeben werden.
+Die angeführten Dienste werden in der Reihenfolge in die Karte eingefügt, wie sie übergeben werden. Neue Dienste werden einer Karte grundsätzlich ganz eingefügt. Der zuletzt eingefügte Dienst überdeckt alle bereits eingefügten Dienste.
+Befindet sich ein Dienst bereits in der Karte, wird dieser ignoriert.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">append-services</span></code> gleichbedeutend mit <code class="docutils literal notranslate"><span class="pre">gdiservices</span></code>
+z.B.: <code class="docutils literal notranslate"><span class="pre">append-services=service1,service2,service1&#64;cms1</span></code></p></li>
+</ul>
+</section>
+<section id="allgemeine-originare-url-parameter">
+<h2>Allgemeine (originäre) Url Parameter<a class="headerlink" href="#allgemeine-originare-url-parameter" title="Link to this heading">¶</a></h2>
+<p>Neben den hier angeführten Url-Parametern können auch allgemeine Parameter übergeben werden. Als allgemeiner Parameter wird jeder Parameter behandelt, der keinem oben angeführten Parameter-Schlüsselwort (<code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">abfragethema</span></code>, …)
+entspricht.</p>
+<p>Diese Parameter werden als <em>originale</em> Aufrufparameter behandelt und bei jedem Request innerhalb der Viewer-Session an den Server übergeben. Dort können diese Parameter dann verarbeitet werden.</p>
+<p><strong>Anwendungsbeispiele für allgemeine (originäre) Url Parameter:</strong></p>
+<p>Eine Karte zum Bearbeiten von Projekten soll immer mit einer Projekt-ID aufgerufen werden. In der Karte soll durch einen gesperrten Filter gewährleistet sein, dass nur die Objekte auf dem
+entsprechenden Projekt dargestellt werden.</p>
+<p>Aufruf: <code class="docutils literal notranslate"><span class="pre">http://...?...&amp;project_id=4711...</span></code></p>
+<p>Der gesperrte (<em>locked</em>) Filter, die der Anwender innerhalb der Viewer-Session nicht ändern kann, kann auf <em>originäre</em> Url-Parameter folgendermaßen zugreifen:</p>
+<p>Filter: <code class="docutils literal notranslate"><span class="pre">PROJECT_ID='[url-parameter:project_id]'</span></code></p>
+<p>Über den Prefix <code class="docutils literal notranslate"><span class="pre">url-parameter:</span></code> wird zum setzen des Filters auf den Url-Parameter zugegriffen (funktioniert nur für gesperrte Filter).</p>
+<p>Außerdem sollte der Anwender neue und bestehende Objekte editieren können. Damit die Filter funktionieren, muss dazu die Projekt-ID automatisch beim Editieren in ein Feld übernommen werden.
+Dazu muss im CMS für dieses Edit-Feld bei <code class="docutils literal notranslate"><span class="pre">AutoValue</span></code> der Wert <code class="docutils literal notranslate"><span class="pre">custom</span></code> eingestellt werden. Im Eingabefeld für den <em>custom</em> AutoValue muss man folgendes eingeben:</p>
+<p><code class="docutils literal notranslate"><span class="pre">url-parameter:project_id</span></code></p>
+<p>Auch hier wird über den Prefix <code class="docutils literal notranslate"><span class="pre">url-parameter:</span></code> angegeben, dass der Wert aus einem <em>originären</em> Url Parameter kommt.
+Für weitere Prefixe kann angegeben werden, ob der Wert nur beim INSERT oder UPDATE gesetzt werden soll:</p>
+<p><code class="docutils literal notranslate"><span class="pre">oninsert:url-parameter:project_id</span></code>
+<code class="docutils literal notranslate"><span class="pre">onupdate:url-parameter:project_id</span></code></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Url Parameter</a><ul>
+<li><a class="reference internal" href="#kartenausschnitt-und-marker">Kartenausschnitt und Marker</a></li>
+<li><a class="reference internal" href="#einen-marker-ubergeben">Einen Marker übergeben</a></li>
+<li><a class="reference internal" href="#mehrere-marker-ubergeben">Mehrere Marker übergeben</a></li>
+<li><a class="reference internal" href="#abfragen">Abfragen</a></li>
+<li><a class="reference internal" href="#darstellungsfilter">Darstellungsfilter</a></li>
+<li><a class="reference internal" href="#werkzeuge">Werkzeuge</a></li>
+<li><a class="reference internal" href="#sichtbarkeit-darstellungsvarianten">Sichtbarkeit/Darstellungsvarianten</a></li>
+<li><a class="reference internal" href="#sichtbarkeit-von-einzelnen-layern">Sichtbarkeit von einzelnen Layern</a></li>
+<li><a class="reference internal" href="#sichtbarkeit-von-hintergrunddiensten">Sichtbarkeit von Hintergrunddiensten</a></li>
+<li><a class="reference internal" href="#snapshots">Snapshots</a></li>
+<li><a class="reference internal" href="#dienste-hinzufugen">Dienste hinzufügen</a></li>
+<li><a class="reference internal" href="#allgemeine-originare-url-parameter">Allgemeine (originäre) Url Parameter</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="voraussetzung.html">
+                    <span class="icon">&lt;</span><span>Voraussetzung</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../../mapbuilder/index.html"><span>Map Builder</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

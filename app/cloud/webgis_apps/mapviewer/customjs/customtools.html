@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Benutzerdefinierte Werkzeuge &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Usability" href="usability.html" />
+    <link rel="prev" title="Dynamische Inhalte" href="dynamic-content.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS Cloud Dokumentation 2022 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../portal/index.html">WebGIS Cloud Portal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applikationen erstellen/verwalten</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Karten Portal und Viewer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../portal/index.html">Karten Portal Seiten verwalten</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">custom.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../url-parameters/index.html">Parametrierter Aufruf des Karten Viewers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../mapbuilder/index.html">Map Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appbuilder/index.html">App Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../datalinq/index.html">DataLinq</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selfhosting/index.html">WebGIS selbst Bereitstellen</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="benutzerdefinierte-werkzeuge">
+<h1>Benutzerdefinierte Werkzeuge<a class="headerlink" href="#benutzerdefinierte-werkzeuge" title="Link to this heading">¶</a></h1>
+<p>Benutzerdefinierte Werkzeuge sind Werkzeuge, die in der Werkzeugleiste des Viewers aufscheinen, aber nicht zu den Standardwerkzeugen von WebGIS gehören.</p>
+<p>Diese Werkzeuge können ein z.B. einfacher Button sein (Anzeige zu erweiterten Metadaten einer Karte). Benutzerdefinierte Werkzeuge können allerdings auf Interaktion mit der Karte reagieren (Klick in die Karte oder Rechteck aufziehen).
+In allen Fällen wird nach einer Benutzeraktion (Klick auf Button, Klick in die Karte, Rechteck aufziehen) ein Link aufgerufen, an den entsprechende Werte übergeben werden können.</p>
+<section id="werkzeuge-mit-karteninteraktion">
+<h2>Werkzeuge mit Karteninteraktion<a class="headerlink" href="#werkzeuge-mit-karteninteraktion" title="Link to this heading">¶</a></h2>
+<p>Die benutzerdefinierten Werkzeuge werden in der custom.js mit folgendem Befehl dem Viewer hinzugefügt:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.google.com/maps/@{y},{x},19z&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Fügt man ein benutzerdefiniertes Werkzeug in die custom.js ein, wird es in allen Karten dieser Portalseite hinzugefügt.
+Soll das Werkzeug nur einer bestimmten Karte oder bestimmten Karten auftauchen, kann dies über entsprechende Bedingungen gelöst werden.
+So steht beispielsweise in der Variable mapUrlName der Name der aktuell aufgerufenen Karte:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mapUrlName</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Geoland&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.google.com/maps/@{y},{x},19z&#39;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Tipp:</strong> Diese Methode kann natürlich auf alle hier beschriebenen Methoden angewandt werden (Marker, Usability usw.).</p>
+<p>Der Übergabeparameter ist ein Objekt, welches das Werkzeug beschreibt. Das Objekt muss mindestens die Eigenschaften <code class="docutils literal notranslate"><span class="pre">name</span></code> und <code class="docutils literal notranslate"><span class="pre">command</span></code> aufweisen.</p>
+<p>Die folgende Liste beschreibt die möglichen Eigenschaften:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p>
+<p>Ein Name für den Button.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> (optional ab Build 5.22.2401)</p>
+<blockquote>
+<div><p>Die <em>ID</em> für ein benutzerdefiniertes Werkzeug wird vom System automatisch zufällig und eindeutig vergeben. Der Parameter muss hier in der Regel nicht angegeben werden.
+Eine Ausnahme kann sein, wenn das Werkzeug über einen parametrierten Aufruf des Kartenviewers ausgewählt werden soll (Parameter <code class="docutils literal notranslate"><span class="pre">tool</span></code>).
+Hier kann eine <em>ID</em> angegeben werden, bei der selber sichergestellt werden muss, dass diese <em>ID</em> eindeutig ist.</p>
+<p>Beispiel:</p>
+<blockquote>
+<div><div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my_supertool&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Dieses Werkzeug kann mit dem Url Parameter <code class="docutils literal notranslate"><span class="pre">https://.....?...&amp;tool=webgis.tools.custom.my_supertool</span></code> aufgerufen werden (<code class="docutils literal notranslate"><span class="pre">webgis.tools.custom</span></code> wird vom System automatisch an die angeführte <em>ID</em> vorangestellt).</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command</span></code></p>
+<p>Ein Link, der aufgerufen wird, sobald die entsprechende Useraktion ausgeführt wurde. Diesem Link können über Platzhalter Werte über den aktuellen Kartenauschnitt oder der geklickten Position übergeben werden (siehe unten).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command_target</span></code></p>
+<p>Gibt an, wie der Link aufgerufen werden soll:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">command_target:</span> <span class="pre">'self'</span></code></p>
+<p>Der Link wird im aktuellen Browser-Tab geöffnet.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command_target:</span> <span class="pre">'dialog'</span></code></p>
+<p>Der Link wird in einem Dialog innerhalb des Viewers ausgeführt.</p>
+<p><strong>Achtung:</strong> Das funktioniert oft nicht mit Drittseiten (z.B. Google Maps). Diese Seiten lassen sich nicht innerhalb eines IFrames anzeigen, um nicht die allgemeinen Regeln ihrer API zu umgehen.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command_target:</span> <span class="pre">'_blank'</span> <span class="pre">(Defaultwert)</span></code></p>
+<p>Der Link wird in einem neuen Browser-Tab geöffnet.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command_target:</span> <span class="pre">function(reponse)</span> <span class="pre">{</span> <span class="pre">}</span></code></p>
+<p>Hier wird das <code class="docutils literal notranslate"><span class="pre">command</span></code> als <strong>fetch</strong> ausgeführt und das Ergebnis an die hier angegeben
+Funktion übergeben. <code class="docutils literal notranslate"><span class="pre">response</span></code> ist dabei ein Objekt mit folgenden Eigenschaften:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="n">result</span><span class="p">:</span> <span class="n">result</span><span class="p">,</span>  <span class="o">//</span> <span class="n">das</span> <span class="n">Ergebnis</span> <span class="n">der</span> <span class="n">Abfrage</span> <span class="p">(</span><span class="n">Objekt</span> <span class="n">bei</span> <span class="n">Json</span> <span class="n">oder</span> <span class="n">ein</span> <span class="n">Text</span><span class="p">)</span>
+   <span class="nb">map</span><span class="p">:</span> <span class="nb">map</span><span class="p">,</span>     <span class="o">//</span> <span class="n">das</span> <span class="n">aktuelle</span> <span class="n">Map</span> <span class="n">Objekt</span>
+   <span class="n">uiElement</span><span class="p">:</span> <span class="n">uiElement</span>  <span class="o">//</span> <span class="n">das</span> <span class="n">UI</span> <span class="n">Dom</span><span class="o">-</span><span class="n">Element</span> <span class="n">des</span> <span class="n">Werkzeuges</span><span class="p">,</span> <span class="ow">in</span> <span class="n">das</span> <span class="n">beispielsweise</span> <span class="n">Ergebnisse</span> <span class="n">geschrieben</span> <span class="n">werden</span> <span class="n">können</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Beispielsweise könne ein Werkzeug für diese Typ so definiert werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>webgis.custom.tools.add({
+    name: &#39;Fetch Tool&#39;,
+    command: &#39;https://.../rest?x={x}&amp;y={y}&#39;,
+    tooltype: &#39;click&#39;,
+    cursor: &#39;crosshair&#39;,
+    image: &#39;cursor-plus-26-b.png&#39;,
+    command_target: function(response) {
+        const map = response.map;
+        const result = response.result;
+
+        // remove the custom tool marker
+        map.removeMarkerGroup(&#39;custom-temp-marker&#39;);
+
+        // add a custom tool marker
+        map.toMarkerGroup(&#39;custom-temp-marker&#39;, map.addMarker({
+            lat: result.lat,
+            lng: result.lng,
+            text: &#39;&lt;div&gt;&#39;+result.text+&#39;&lt;/div&gt;&#39;,
+            openPopup: true,
+            buttons: [{
+                label: &#39;Marker entfernen&#39;,
+                onclick: function (map, marker) { map.removeMarker(marker); }
+            }]
+        }));
+
+        $(&#39;&lt;pre&gt;&#39;)
+            .text(JSON.stringify(response.result))
+            .appendTo($(response.uiElement));
+    }
+});
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tooltype</span></code></p>
+<ul>
+<li><p>Keine Angabe (Defaultwert)</p>
+<p>Das Werkzeut ist ein einfacher Button. Ein Klick auf diesen Button ruft den Command-Link auf.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tooltype:</span> <span class="pre">'click'</span></code></p>
+<p>Nach dem Auswählen des Werkzeuges muss der Anwender in die Karte klicken, um den Command-Link aufzurufen.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tooltype:</span> <span class="pre">'box'</span></code></p>
+<p>Nach dem Auswählen des Werkzeuges muss der Anwender in der Karte ein Rechteck aufziehen, um den Command-Link aufzurufen.</p>
+<p><strong>Hinweis zur Usability:</strong> Das Ziehen der Maus bei gedrückter Maustaste ist eigentlich für das Verschieden des Kartenausschnittes reserviert.
+Das Aufziehen eines Rechtecks ist hier die Ausnahme. Da der Anwender in den meisten Fällen ersteres möchte, funktioniert das Rechteck aufziehen immer nur einmal, nachdem ein entsprechendes Werkzeug ausgewählt wurde.
+So werden beispielsweise beim Auswählen von Geo-Objekten mittels Rechteck nach dem Aufziehen die Ergebnisse angezeigt. Im Hintergrund schaltet sich das Rechteck-aufziehen wieder ab und der Anwender kann normal in der Karte navigieren.
+Will er weitere Geo-Objekte selektieren, muss er zum Identify-Werkzeug zurückkehren und wieder <em>Rechteck</em> auswählen.</p>
+<p>Bei den benutzerdefinierten Werkzeugen bedeutet das, dass nach dem Aufziehen des Rechtecks die Aktion ausgeführt wird. Der Viewer schaltet danach allerdings automatisch zum Default-Werkzeug zurück, damit in der Karte wieder normal navigiert werden kann.
+Möchte der Anwender erneut ein Fenster aufziehen, muss er das Werkzeug wieder aktiv auswählen.</p>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">container</span></code></p>
+<p>Gibt an, wo in der Werkzeugleiste das Werkzeug angezeigt wird. Der Defaultwert ist hier „Werkzeuge“:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">container:'Navigation'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">container:'Auswahl'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">container:'Werkzeuge'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">container:'Darstellung'</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image</span></code></p>
+<p>Ein Link zu einem Icon (26x26 Pixel), für den Werkzeug-Button.
+Dieser Link kann ein absoluter Link sein:
+<code class="docutils literal notranslate"><span class="pre">image:'https://www....../icon.png'</span></code></p>
+<p>Befindet sich das Icon bei der API im content/api/img/tools Verzeichnis, reicht es auch aus, nur den Namen des Bildes anzugeben:
+<code class="docutils literal notranslate"><span class="pre">image:</span> <span class="pre">'cursor-plus-26-b.png'</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tooltip</span></code></p>
+<p>Ein Tooltip, der angezeigt wird, wenn man den Mauszeiger über den Button bewegt.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p>
+<p>Damit kann eine Beschreibung für das Werkzeug angegeben werden. Wenn ein Werkzeug eine Benutzeraktion erfordert (z.B. in die Karte klicken), wird dieser Text im Werkzeug Dialog angezeigt.
+Für längere Beschreibungen könne einzelne Absätze im String mit <code class="docutils literal notranslate"><span class="pre">|</span></code> getrennt werden.</p>
+</li>
+</ul>
+<p>Für die Eigenschaft <code class="docutils literal notranslate"><span class="pre">command</span></code> können verschiedene Platzhalter in die Url eingefügt werden, um Parameter aus der Karte in einen andere Web-Seite zu übergeben.
+Abhängig vom <em>tooltype</em> können unterschiedliche Platzhalter verwenden werden, bzw. haben diese unterschiedliche Bedeutungen:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">{map.minx},</span> <span class="pre">{map.miny},</span> <span class="pre">{map.maxx},</span> <span class="pre">{map.maxy}</span></code></p>
+<ul class="simple">
+<li><p><em>ToolTypes:</em> kein, click, box</p></li>
+<li><p>Die Ausdehnung des aktuellen Kartenausschnittes in geographischen Koordinaten. X entspricht hier dem Rechtswert (geographische Länge) und Y dem Hochwert (geographische Breite).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{map.bbox}</span></code></p>
+<ul>
+<li><p><em>ToolTypes:</em> kein, click, box</p></li>
+<li><p>Die Boundingbox des aktuellen Kartenausschnittes in geographischen Koordinaten.</p>
+<p>Entspricht: <code class="docutils literal notranslate"><span class="pre">{map.minx},</span> <span class="pre">{map.miny},</span> <span class="pre">{map.maxx},</span> <span class="pre">{map.maxy}</span></code></p>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{map.centerx},</span> <span class="pre">{map.centery}</span></code></p>
+<ul class="simple">
+<li><p><em>ToolTypes:</em> kein, click, box</p></li>
+<li><p>Der Mittelpunkt des aktuellen Kartenausschnittes in geographischen Koordinaten.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{map.scale}</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>ToolTypes:</em> kein, click, box</p></li>
+<li><p>Der aktuelle Kartenmaßstab.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{map.MINX},</span> <span class="pre">{map.MINY},</span> <span class="pre">{map.MAXX},</span> <span class="pre">{map.MAXY},</span> <span class="pre">{map.BBOX},</span> <span class="pre">{map.CENTERX},</span> <span class="pre">{map.CENTERY}</span></code></p>
+<ul>
+<li><p><em>ToolTypes:</em> kein, click, box</p></li>
+<li><p>Wie oben, nur werden hier geographischen Koordinaten übergeben, sondern Koordinaten im Karten Koordinatensystem (z.B. GK-M34).</p>
+<p>X entspricht hier dem Rechtswert und Y dem Hochwert.</p>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{x},</span> <span class="pre">{y}</span></code></p>
+<ul>
+<li><p><em>ToolTypes:</em> click, box</p></li>
+<li><p>Der Punkt, auf den der Anwender geklickt hat, in geographischen Koordinaten.</p>
+<p>Zieht der Anwender ein Fenster auf, entspricht dieser Wert dem Mittelpunkt des Fensters.</p>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{X},</span> <span class="pre">{Y}</span></code></p>
+<ul class="simple">
+<li><p><em>ToolTypes:</em> click, box</p></li>
+<li><p>Wie oben, nur für Koordinaten im Karten Koordinatensystem.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{minx},</span> <span class="pre">{miny},</span> <span class="pre">{maxx},</span> <span class="pre">{maxy}</span></code></p>
+<ul class="simple">
+<li><p><em>ToolTypes:</em> box</p></li>
+<li><p>Das Rechteck, das der Anwender aufgezogen hat, in geographischen Koordinaten.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{bbox}</span></code></p>
+<ul>
+<li><p><em>ToolTypes:</em> box</p></li>
+<li><p>BoundingBox des Rechteckes, das der Anwender aufgezogen hat.</p>
+<p>Entspricht: <code class="docutils literal notranslate"><span class="pre">{minx},</span> <span class="pre">{miny},</span> <span class="pre">{maxx},</span> <span class="pre">{maxy}</span></code></p>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{MINX},</span> <span class="pre">{MINY},</span> <span class="pre">{MAXX},</span> <span class="pre">{MAXY},</span> <span class="pre">{BBOX}</span></code></p>
+<ul class="simple">
+<li><p><em>ToolTypes:</em> box</p></li>
+<li><p>Wie oben, nur für Koordinaten im Karten Koordinatensystem.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{wkt},</span> <span class="pre">{wkt_digits_1},</span> <span class="pre">{wkt_digits_2},</span> <span class="pre">{wkt_digits_3},</span> <span class="pre">{wkt-4326}</span></code></p>
+<ul class="simple">
+<li><p><em>ToolTypes:</em> sketch0d (=point), sketch1d (=line), sketch2d (=polygon)</p></li>
+<li><p>Damit kann über ein benutzerdefiniertes Werkzeug die Sketchgeometrie als Well-Known-Text <code class="docutils literal notranslate"><span class="pre">POINT(...),</span> <span class="pre">LINESTRING(...),</span> <span class="pre">POLYGON(...)</span></code> übergeben werden.
+Die Geometrie kann in WGS84 oder der aktuellen Sketch-Pojektion übergeben werden.
+Mit den Platzhaltern <code class="docutils literal notranslate"><span class="pre">{*wkt_digits_1..3}</span></code> werden die Koordinaten auf die angegeben Stellen gerundet.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{calc-srs},</span> <span class="pre">{sketch-srs}</span></code></p>
+<ul class="simple">
+<li><p><em>ToolTypes:</em> sketch0d, sketch1d, sketch2d</p></li>
+<li><p>Koordinatensystem, in dem der Sketch, der über <code class="docutils literal notranslate"><span class="pre">{wkt}</span></code> übergeben wird, vorliegt. Beide Platzhalter liefern in der Regel die gleichen Werte.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="benutzerdefinierte-werkzeuge-mit-eingabefeldern">
+<h2>Benutzerdefinierte Werkzeuge mit Eingabefeldern<a class="headerlink" href="#benutzerdefinierte-werkzeuge-mit-eingabefeldern" title="Link to this heading">¶</a></h2>
+<p>Falls schon aus dem Viewer heraus Parameter ausgewählt werden sollten, die dann an die Zielseite übergeben werden, kann dies über die <code class="docutils literal notranslate"><span class="pre">uiElements</span></code> Eigenschaften erfolgen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">webgis</span><span class="o">.</span><span class="n">custom</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
+     <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Höhenprofil&#39;</span><span class="p">,</span>
+     <span class="n">command</span><span class="p">:</span> <span class="s1">&#39;https://server.com/profile?ueberhoehung=</span><span class="si">{ueberhoehung}</span><span class="s1">&amp;hintergrund=bmapgrau&amp;stuetzpunktabstand=</span><span class="si">{stuetzpunktabstand}</span><span class="s1">&amp;title=</span><span class="si">{profile_title}</span><span class="s1">&amp;polygonzug=</span><span class="si">{wkt}</span><span class="s1">&amp;crs=31256&#39;</span><span class="p">,</span>
+     <span class="n">command_target</span><span class="p">:</span> <span class="s1">&#39;dialog&#39;</span><span class="p">,</span>
+     <span class="n">tooltype</span><span class="p">:</span> <span class="s1">&#39;sketch1d&#39;</span><span class="p">,</span>
+     <span class="n">image</span><span class="p">:</span> <span class="s1">&#39;profil.png&#39;</span><span class="p">,</span>
+     <span class="n">uiElements</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;Titel&#39;</span> <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="nb">id</span><span class="p">:</span> <span class="s1">&#39;profile_title&#39;</span><span class="p">,</span>
+             <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;input-text&#39;</span>
+         <span class="p">},</span>
+         <span class="p">{</span> <span class="nb">type</span><span class="p">:</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span><span class="s1">&#39;Überhöhung&#39;</span> <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="nb">id</span><span class="p">:</span> <span class="s1">&#39;ueberhoehung&#39;</span><span class="p">,</span>
+             <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;select&#39;</span><span class="p">,</span>
+             <span class="n">options</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="p">{</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;1:1&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span>
+                 <span class="p">{</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;2:1&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span>
+                 <span class="p">{</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;3:1&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span>
+             <span class="p">]</span>
+         <span class="p">},</span>
+         <span class="p">{</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;Punktabstand [m]&#39;</span> <span class="p">},</span>
+         <span class="p">{</span>
+             <span class="nb">id</span><span class="p">:</span> <span class="s1">&#39;stuetzpunktabstand&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;Punktabstand [m]&#39;</span><span class="p">,</span>
+             <span class="nb">type</span><span class="p">:</span> <span class="s1">&#39;select&#39;</span><span class="p">,</span>
+             <span class="n">options</span><span class="p">:</span> <span class="p">[</span>
+                 <span class="p">{</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;1 m&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span>
+                 <span class="p">{</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;2 m&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span>
+                 <span class="p">{</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;3 m&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span>
+             <span class="p">]</span>
+         <span class="p">}</span>
+     <span class="p">]</span>
+ <span class="p">});</span>
+</pre></div>
+</div>
+<p>Im Beispiel wird gezeigt, wie ein Werkzeug für Höhenprofile erstellt werden kann. Der Anwender kann im Viewer vor dem Aufruf der Ziel-Url noch eine Überhöhung und einen Stützpunktabstand angeben.
+Die <code class="docutils literal notranslate"><span class="pre">id</span></code> des jeweiligen Eingabeelements kann als Platzhalter in der Url verwendet werden.</p>
+<p>Für die Eingabefelder gibt es folgende Typen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">input-text</span></code>: Einfaches Text Eingabefeld</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input-textarea</span></code>: Eingabefeld für mehrzeiligen Text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input-number</span></code>: Eingabefeld für Nummern</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input-date</span></code>: Eingabefeld für Datum mit Uhrzeit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">select</span></code>: Auswahlliste. Hier müssen die einzelnen Werte (Options) als Array definiert werden (siehe Beispiel oben)</p></li>
+</ul>
+<p>Der Werkzeugdialog für dieses Beispiel würde in etwa wie folgt aussehen:</p>
+<img alt="../../../_images/custom1.png" src="../../../_images/custom1.png" />
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Benutzerdefinierte Werkzeuge</a><ul>
+<li><a class="reference internal" href="#werkzeuge-mit-karteninteraktion">Werkzeuge mit Karteninteraktion</a></li>
+<li><a class="reference internal" href="#benutzerdefinierte-werkzeuge-mit-eingabefeldern">Benutzerdefinierte Werkzeuge mit Eingabefeldern</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="dynamic-content.html">
+                    <span class="icon">&lt;</span><span>Dynamische Inhalte</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="usability.html"><span>Usability</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

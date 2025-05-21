@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Auswahllisten aus WebServices (DataLinq) &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Objektfang (Snapping) Einstellungen" href="snapping.html" />
+    <link rel="prev" title="Auswahlliste aus Datenbank" href="fields_domains_db.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS Cloud Dokumentation 2022 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../portal/index.html">WebGIS Cloud Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../webgis_apps/index.html">WebGIS Applikationen erstellen/verwalten</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../einfuehrung.html">WebGIS Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mapbuilder.html">MapBuilder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">CMS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../account.html">CMS Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ui.html">CMS Web Oberfläche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../add_wmts_service.html">WMTS Tilecache Dienst einbinden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../add_ags_service.html">ArcGIS Server Dienst einbinden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../queries/index.html">Abfragen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layers.html">Layer-Schaltungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentations.html">Darstellungsvarianten (Layer-Schaltungen für den Viewer bereitstellen)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Editieren (Geo-Objekte Bearbeiten)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secrets/index.html">Secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/index.html">Berechtigungen (Security)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deploy.html">CMS Veröffentlichen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selfhosting/index.html">WebGIS selbst Bereitstellen</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="auswahllisten-aus-webservices-datalinq">
+<h1>Auswahllisten aus WebServices (DataLinq)<a class="headerlink" href="#auswahllisten-aus-webservices-datalinq" title="Link to this heading">¶</a></h1>
+<p><em>DataLinq</em> ist in der <em>WebGIS API</em> enthalten und wird hauptsächlich verwendet werden, um Berichte auf Basis von diversen Datenquellen zu erstellen.
+Außerdem können die parametrieren Abfragen als JSON über eine REST Schnittstelle abgeholt werden. Die REST Schnittstelle kann auch als Quelle für
+Auswahllisten verwendet werden. Zu den vorher gezeigten Quellen hat das den Vorteil, dass <em>ConnectionString</em> und <em>SQL Statements</em> nicht bei jeder
+Auswahlliste parametriert werden müssen. Die CMS Parametrierung bleibt von frei von <em>ConnectionString</em> und <em>Datenbank Passwörten</em>.</p>
+<p>DataLinq kann auf unterschiedliche Quellen zugreifen und die Daten dann über die REST Schnittstelle veröffentlichen:</p>
+<ul class="simple">
+<li><p>Datenbankabfragen</p></li>
+<li><p>WebGIS API Abfragen auf Kartendienste, die über das WebGIS CMS parametriert wurden</p></li>
+<li><p>Eine (Plain) Text Listen</p></li>
+</ul>
+<p>In dem hier gezeigten Beispiel sollten Auswahllisten aus <em>Plain-Text</em> erstellt werden. Eine Datenbank ist hier nicht notwendig. Das entspricht in etwa
+der vorher gezeigten Methode mit <em>statischen Auswahllisten</em>. Allerdings ist man hier flexibler, die eine Liste immer wieder verwendet werden kann
+und eine Aktualisierung der Liste sofort auf alle Editmasken durchschlägt.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Der Umgang mit <em>Datalinq</em> wird in diesem Abschnitt vorausgesetzt.</p>
+</div>
+<section id="datalinq-endpoint-anlegen">
+<h2>DataLinq Endpoint anlegen<a class="headerlink" href="#datalinq-endpoint-anlegen" title="Link to this heading">¶</a></h2>
+<p>Im ersten Schritt muss ein neuer <em>DataLinq</em> Endpoint angelegt:</p>
+<img alt="../../../_images/datalinq-domains1.png" src="../../../_images/datalinq-domains1.png" />
+<p>Als Typ kann hier <code class="docutils literal notranslate"><span class="pre">PlainText</span></code> angegeben werden. Ein <em>ConnectionString</em> ist für diesen Typ nicht notwendig:</p>
+<img alt="../../../_images/datalinq-domains2.png" src="../../../_images/datalinq-domains2.png" />
+<p>Unter Security können mittels der <code class="docutils literal notranslate"><span class="pre">Resest</span></code> Buttons neue Zugriffstokens erstellt werden. Sollten die Listen nicht frei zugänglich sein,
+müssen diese geschützt werden. Sollte der Client für die Listen nicht ein Anwender sondern ein Applikation sein, erfolgt der Zugang nicht über <em>User</em> und <em>Passwort</em>
+sondern über <em>Tokens</em>. Bei den Auswahllisten ist der Client, der die Listen abholt die <em>WebGIS Application</em>:</p>
+<img alt="../../../_images/datalinq-domains3.png" src="../../../_images/datalinq-domains3.png" />
+</section>
+<section id="datalinq-abfrage-anlegen">
+<h2>Datalinq Abfrage anlegen<a class="headerlink" href="#datalinq-abfrage-anlegen" title="Link to this heading">¶</a></h2>
+<p>Im nächsten Schritt kann unter dem Endpunkt eine Abfrage erstellt werden:</p>
+<img alt="../../../_images/datalinq-domains4.png" src="../../../_images/datalinq-domains4.png" />
+<p>Unter <em>Statment</em> kann der Editor geöffnet werden:</p>
+<img alt="../../../_images/datalinq-domains5.png" src="../../../_images/datalinq-domains5.png" />
+<p>Ist die Quelle eine Datenbank, kann hier das SQL Statement angeführt werden. Beim Typ <em>PlainText</em> werden hier die Werte für die Liste als Text eingetragen:</p>
+<img alt="../../../_images/datalinq-domains6.png" src="../../../_images/datalinq-domains6.png" />
+<p>Pro Zeile kann eine Wert eingetragen werden. Der Wert in der Liste wird so später in der Auswahlliste sowohl als <code class="docutils literal notranslate"><span class="pre">value</span></code> als auch als <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">(Anzeigename)</span></code> verwendet.
+Sollte sich <code class="docutils literal notranslate"><span class="pre">value</span></code> und <code class="docutils literal notranslate"><span class="pre">label</span></code> unterscheiden, müssen die beiden Werte mit einem <code class="docutils literal notranslate"><span class="pre">:</span></code> getrennt werden.</p>
+<img alt="../../../_images/datalinq-domains7.png" src="../../../_images/datalinq-domains7.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Hier wurde auch noch eine Zeile eingefügt, die nur einen Doppelpunkt enthält (<code class="docutils literal notranslate"><span class="pre">:</span></code>). Die Zeile gibt an, dass später in der Auswahlliste auch eine leerer Werte für die Liste angeboten wird.
+Hier könnte auch <code class="docutils literal notranslate"><span class="pre">0:</span></code> geschrieben werden, wenn in der Geo-Datenbank später für Leerwerte der Wert <code class="docutils literal notranslate"><span class="pre">0</span></code> stehen sollte.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Leerzeilen werden in dieser Liste ignoriert.</p>
+</div>
+<p>Den Editor mit <code class="docutils literal notranslate"><span class="pre">Close</span></code> schließen und zum Security Bereich wechseln. Hier sollte der User <code class="docutils literal notranslate"><span class="pre">*</span></code> hinzugefügt werden. Das bedeutet, dass jeder Anwender/Client, der den <em>Endpoint</em> erreichen
+kann, auch diese Abfrage abholen kann. Die Berechtigungen könnten hier auch noch weiter eingeschränkt werden. Für das Beispiel reicht es aber, wenn nur der <em>Entpoint</em> geschützt ist.</p>
+<img alt="../../../_images/datalinq-domains8.png" src="../../../_images/datalinq-domains8.png" />
+<p>Zum Abschluss kann die Abfrage mit <code class="docutils literal notranslate"><span class="pre">Create</span></code> erstellt werden.</p>
+<p>Zum Testen der Abfrage kann man der Abfragendialog geöffnet werden =&gt; <em>Statement</em> =&gt; <em>Test</em>
+Das Ergebnis sollte wie folgt aussehen:</p>
+<img alt="../../../_images/datalinq-domains9.png" src="../../../_images/datalinq-domains9.png" />
+<p>Die Abfrage wird angezeigt, weil wir uns in diesem Beispiel auf der API mit dem Benutzer <code class="docutils literal notranslate"><span class="pre">subscriber::system</span></code> gemeldet haben, für den der <em>Endpunkt</em> sichtbar ist.
+Kopiert man den Link in einen anderen Browser (oder neues <em>Incognito Window</em>) kommt folgender Fehlermeldung:</p>
+<img alt="../../../_images/datalinq-domains10.png" src="../../../_images/datalinq-domains10.png" />
+<p>Das kommt daher, dass der Zugriff auf den <em>Endpunkt</em> nicht für jeden Benutzer freigeben wurde. Damit der Client später auf die Abfrage zugreifen kann, muss einer der vorher beim <em>Endpunkt</em>
+erstellen <em>Tokens</em> übergeben werden.
+Dafür gibt es zwei zulässige Methoden:</p>
+<p><a class="reference external" href="http://...../datalinq/select/endpoint(ENDPOINT-TOKEN)&#64;query(QUERY-TOKEN">http://…../datalinq/select/endpoint(ENDPOINT-TOKEN)&#64;query(QUERY-TOKEN</a>)
+<a class="reference external" href="http://...../datalinq/select/endpoint&#64;query?endpoint_token=ENDPOINT_TOKEN&amp;query_token=QUERY_TOKEN">http://…../datalinq/select/endpoint&#64;query?endpoint_token=ENDPOINT_TOKEN&amp;query_token=QUERY_TOKEN</a></p>
+<p>Wir haben in diesen Beispiel nur Tokens für den <em>Endpunkt</em> definiert. Passt man die Url entsprechend an, funktioniert die Abfrage auch im <em>Incognito Window</em>:</p>
+<img alt="../../../_images/datalinq-domains11.png" src="../../../_images/datalinq-domains11.png" />
+<p>Dieser Link muss so auch ins CMS übertragen werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Welcher der beiden Tokens verwendet wird, ist egal. Beide Tokens sind gleichwertig. Der Grund dafür, dass zwei Tokens erstellt werden müssen ist, dass später eventuell
+ein störungsfreier Wechsel von Tokens möglich ist.</p>
+</div>
+</section>
+<section id="auswahlliste-im-cms-einbinden">
+<h2>Auswahlliste im CMS einbinden<a class="headerlink" href="#auswahlliste-im-cms-einbinden" title="Link to this heading">¶</a></h2>
+<p>Hier wird beim jeweiligen <em>Domain Feld</em> (Edit Maske) unter <em>ConnectionString</em> der Link zur Abfrage eingetragen:</p>
+<img alt="../../../_images/datalinq-domains12.png" src="../../../_images/datalinq-domains12.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Da sich die WebGIS Anwendung nicht mit User und Passwort bei DataLinq anmelden kann, muss hier der Token mit angeführt werden.</p>
+<p>Grundsätzlich kann hier jedes <em>Web Service</em> angesprochen werden, dass ein JSON Array zurück gibt. Das Array muss einzelne Objekte mit <code class="docutils literal notranslate"><span class="pre">value</span></code> und <code class="docutils literal notranslate"><span class="pre">name</span></code>  enthalten.
+Aus welche Properties die Werte genommen werden, kann hier über <code class="docutils literal notranslate"><span class="pre">Db-Feld</span></code> und <code class="docutils literal notranslate"><span class="pre">Db-Anzeige</span> <span class="pre">Feld</span></code> angeführt werden. Die Defaultwerte sind hier <code class="docutils literal notranslate"><span class="pre">value</span></code> und <code class="docutils literal notranslate"><span class="pre">name</span></code>. Für unser
+Beispiel könnten diese Werte also auch leer gelassen werden.</p>
+</div>
+</section>
+<section id="kaskadierende-auswahllisten">
+<h2>Kaskadierende Auswahllisten<a class="headerlink" href="#kaskadierende-auswahllisten" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>Auswahllisten können auch von einer übergeordnet Liste abhängig gemacht werden. Möchte man das mit den hier gezeigten <code class="docutils literal notranslate"><span class="pre">PlainText</span></code> DataLinq-Abfragen umsetzen, wird das in
+der Liste durch Einrückungen umgesetzt (2x Leerzeichen):</p>
+<img alt="../../../_images/datalinq-domains13.png" src="../../../_images/datalinq-domains13.png" />
+</div></blockquote>
+<p>Ruft man danach die Abfrage wieder ohne Parameter auf, ergibt sich wieder die Liste von oben mit den Automarken:</p>
+<img alt="../../../_images/datalinq-domains14.png" src="../../../_images/datalinq-domains14.png" />
+<p>Möchte man die Modelle für eine bestimmte Marke anzeigen, muss der Parameter <code class="docutils literal notranslate"><span class="pre">level0={value}</span></code> übergeben werden:</p>
+<img alt="../../../_images/datalinq-domains15.png" src="../../../_images/datalinq-domains15.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Durch Einrückung könnten beliebig viele Ebenen (Levels) eingeführt werden. Die Einschränkung auf eine Ebene erfolgt dann über die Url
+mit den Parametern <code class="docutils literal notranslate"><span class="pre">level0={value0}&amp;level1={value1}&amp;level2={value2}</span></code>.</p>
+</div>
+<p>Im CMS kann die Einschränkung über die <code class="docutils literal notranslate"><span class="pre">DB-Where</span> <span class="pre">Clause</span></code> angegeben werden:</p>
+<img alt="../../../_images/datalinq-domains16.png" src="../../../_images/datalinq-domains16.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><code class="docutils literal notranslate"><span class="pre">MARKE</span></code> ist hier das Datenbank-Feld, in das die Automarke über die Auswahlliste geschrieben wurde.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Auswahllisten aus WebServices (DataLinq)</a><ul>
+<li><a class="reference internal" href="#datalinq-endpoint-anlegen">DataLinq Endpoint anlegen</a></li>
+<li><a class="reference internal" href="#datalinq-abfrage-anlegen">Datalinq Abfrage anlegen</a></li>
+<li><a class="reference internal" href="#auswahlliste-im-cms-einbinden">Auswahlliste im CMS einbinden</a></li>
+<li><a class="reference internal" href="#kaskadierende-auswahllisten">Kaskadierende Auswahllisten</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="fields_domains_db.html">
+                    <span class="icon">&lt;</span><span>Auswahlliste aus Datenbank</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="snapping.html"><span>Objektfang (Snapping) Einstellungen</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

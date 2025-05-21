@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4 Parametrierung &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="5 Aufruf und Beispiele" href="aufrufundbeispiele.html" />
+    <link rel="prev" title="3 DataLinq.Code Oberfläche" href="oberflaeche.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">WebGIS Cloud Dokumentation 2022 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../portal/index.html">WebGIS Cloud Portal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">WebGIS Applikationen erstellen/verwalten</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../mapviewer/index.html">Karten Portal und Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapbuilder/index.html">Map Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appbuilder/index.html">App Builder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">DataLinq</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="allgemeines.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technischeumsetzung.html"><span class="sectnum">2 </span>Technische Umsetzung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oberflaeche.html"><span class="sectnum">3 </span>DataLinq.Code Oberfläche</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><span class="sectnum">4 </span>Parametrierung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aufrufundbeispiele.html"><span class="sectnum">5 </span>Aufruf und Beispiele</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tippsundtricks.html"><span class="sectnum">6 </span>Tipps und Tricks für Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/index.html"><span class="sectnum">7 </span>Beispiele</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selfhosting/index.html">WebGIS selbst Bereitstellen</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="parametrierung">
+<span id="anchor31"></span><h1><span class="sectnum">4 </span>Parametrierung<a class="headerlink" href="#parametrierung" title="Link to this heading">¶</a></h1>
+<p>Der Navigationsbaum links bildet die Struktur der Endpoints, Queries und Views ab. Damit kann schnell ein Element ausgewählt und bearbeitet werden.</p>
+<section id="endpunkte">
+<h2><span class="sectnum">4.1 </span>Endpunkte<a class="headerlink" href="#endpunkte" title="Link to this heading">¶</a></h2>
+<p>Ein neuer Endpunkt kann seitlich an der Sidebar erstellt werden. Das oberste Element bietet die Möglichkeit, den Namen für den neuen Endpoint einzugeben und mit <em>Enter</em> zu bestätigen.</p>
+<img alt="../../_images/hello_world11.png" src="../../_images/hello_world11.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Für die Namen von Endpunkten sind nur bestimmte Zeichen zulässig: Kleinbuchstaben, Nummern und <code class="docutils literal notranslate"><span class="pre">-</span></code>.
+Es sollten keine Sonderzeichen verwendet werden, weil der Name von Endpoints, Abfragen und Views später
+ein Teil der <em>Aufruf Url</em> wird.</p>
+</div>
+<p>Ein Klick auf den Endpunkt öffnet den <em>Eigenschaften Dialog</em>, in welchem folgende EInstellungen getätigt werden können.</p>
+<p><strong>General</strong></p>
+<ul class="simple">
+<li><p><strong>EndPoint Id:</strong> Eindeutiger Name des Endpoints, wird bei URL Aufruf verwendet</p></li>
+<li><p><strong>EndPoint Name:</strong> Bezeichnung des Endpunktes</p></li>
+<li><p><strong>Description:</strong> Optional, Beschreibung</p></li>
+</ul>
+<p><strong>Connection</strong></p>
+<ul>
+<li><p>Type</p>
+<ul>
+<li><p><strong>Database</strong>: DB-Verbindung, bspw.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SQL</span><span class="p">:</span><span class="n">Server</span><span class="o">=</span><span class="n">db123</span><span class="o">.</span><span class="n">firma</span><span class="o">.</span><span class="n">at</span>\<span class="n">instanz</span><span class="p">;</span><span class="n">Database</span><span class="o">=</span><span class="n">ssg</span><span class="p">;</span><span class="n">User</span> <span class="n">Id</span><span class="o">=</span><span class="n">user1</span><span class="p">;</span><span class="n">Password</span><span class="o">=</span><span class="n">pwd1</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Api</strong>: WebGIS API REST Schnittstelle, bspw. <code class="docutils literal notranslate"><span class="pre">http://localhost/test_api5</span></code>
+Falls der Dienst berechtigt ist, können die Zugangsdaten eines berechtigten Subscribers mit</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">service</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">server123</span><span class="o">.</span><span class="n">at</span><span class="o">/</span><span class="n">api5test</span><span class="p">;</span><span class="n">user</span><span class="o">=</span><span class="n">username</span><span class="p">;</span><span class="n">pwd</span><span class="o">=</span><span class="mi">12345</span>
+</pre></div>
+</div>
+<p>angegeben werden.</p>
+</li>
+<li><p><strong>GeoRss</strong>: Ein GeoRss Dienst. Im <em>ConnectionString</em> kann der erste Teil der Connection
+angegeben werden. Das kann zB. der Server sein: <code class="docutils literal notranslate"><span class="pre">https//some.georss.com</span></code>.
+Unter dem Endpunkt können mehrerer <em>Queries</em> angeben werden. Diese entsprechen bei GeoRss
+den Url Pfaden auf diesem Server: <code class="docutils literal notranslate"><span class="pre">/services/rss</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die beiden Url Teile aus Endpoint (ConnectionString) und Query werden beim Abholen
+des Dienstes einfach zusammengesetzt. Die beiden Teile müssen eine gültige Url ergeben.
+Eine Query muss daher beispielsweise mit einem <code class="docutils literal notranslate"><span class="pre">/</span></code> beginnen, um einen Pfad zu definieren.</p>
+</div>
+<p>Ist der Dienst über <em>Standard-Authentication</em> mit User und Passwort geschützt, kann der ConnectionString
+folgendermaßen angegeben werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">service</span><span class="o">=</span><span class="n">https</span><span class="o">//</span><span class="n">some</span><span class="o">.</span><span class="n">georss</span><span class="o">.</span><span class="n">com</span><span class="p">;</span><span class="n">user</span><span class="o">=</span><span class="n">username</span><span class="p">;</span><span class="n">pwd</span><span class="o">=</span><span class="mi">12345</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>GeoJson</strong>: Ein GeoJon Service. Die Vorgehensweise ist hier gleich wie bei <strong>GeoRss</strong> (siehe oben)</p></li>
+<li><p><strong>DataLinq</strong>: Eine andere WebGIS DataLinq Anwendung. Der ConnectionString entspricht
+der Url der DataLinq Applikation</p></li>
+<li><p><strong>PlainText</strong>: PlainText bedeutet, dass Daten später in den Abfragen zeilenweise als Text</p></li>
+<li><p>eingetragen werden. Die Angabe eines Connection Strings entfällt für diesen Connection Type.</p></li>
+<li><p><strong>TextFile</strong>: Die Quelle sind lose Text Dateien. Das können einfache <code class="docutils literal notranslate"><span class="pre">*.txt</span></code> oder <code class="docutils literal notranslate"><span class="pre">*.log</span></code> Dateien
+oder <code class="docutils literal notranslate"><span class="pre">*.csv</span></code> Dateien sein. Der ConnectionString ist bei diesem Typ das Verzeichnis, in dem
+sich die Dateien befinden, zB. <code class="docutils literal notranslate"><span class="pre">C:\logs</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Security</strong></p>
+<p>Setzen von autorisierten Usern / Rollen, siehe <a class="reference internal" href="#param-berechtigung"><span class="std std-ref">Berechtigung</span></a>.</p>
+<p><strong>Info</strong></p>
+<p>Unter <em>Info</em> wird das Erstelldatum des Endpoints angezeigt.</p>
+<p><strong>Styling</strong></p>
+<p>Mit Klick auf die Schaltfläche <cite>Open EndPoint CSS…</cite> kann das CSS-Dokument bearbeitet werden, auf dessen Stile von allen – in diesem Endpunkt vorhandenen – Views zugegriffen werden kann.</p>
+<p><strong>Delete</strong></p>
+<p>Mittels <cite>Delete</cite> kann der Endpoint gelöscht werden.</p>
+</section>
+<section id="query-abfragen">
+<span id="anchor32"></span><h2><span class="sectnum">4.2 </span>Query (Abfragen)<a class="headerlink" href="#query-abfragen" title="Link to this heading">¶</a></h2>
+<p>Nach der Auswahl eines Endpoints können für diesen Abfragen erstellt werden. Damit kann der Datenbestand des Endpoints (dort wird die Verbindung zum Datenbestand definiert) abgefragt werden. Je nach Verbindungstyp kann diese Abfrage unterschiedlich formuliert sein. Bei Abfragen auf Datenbanken wird dies in der Regel SQL-Code sein, bei Abfragen auf REST-Schnittstellen wird es eine URL sein.</p>
+<p>Ähnlich wie zum Endpoint kann an der Sidebar unter dem dementsprechenden Endpoint eine neue Abfrage erstellt werden:</p>
+<img alt="../../_images/hello_world31.png" src="../../_images/hello_world31.png" />
+<p>Klickt man in der Baumansicht auf den neu entstandenen Knoten der Abfrage, wird im Content Bereich ein
+leeres Editorfenster angezeigt.  Hier gibt man die eigentlich Abfrage ein, die die Daten liefern sollte
+(beim Endpoint Connection Type <em>Database</em> wäre das beispielsweise ein SQL Select Statement).</p>
+<p>Bei Endpoints von Type <em>PlainText</em> kann hier jetzt ein beliebiger Text eingegeben werden, wobei jede
+Zeile (ausgeschlossen Leerzeilen) als Datensatz interpretiert wird.</p>
+<p>Bei Endpoints vom Type <em>Textfile</em> wird hier der Filename des Textfiles eingetragen.</p>
+<p>Anschließend können folgende Einstellungen getätigt werden.</p>
+<p><strong>General</strong></p>
+<ul class="simple">
+<li><p>Query Id</p>
+<ul>
+<li><p>Eindeutiger Name der Abfrage, wird bei URL Aufruf verwendet</p></li>
+</ul>
+</li>
+<li><p>Name</p>
+<ul>
+<li><p>Bezeichnung des Abfrage</p></li>
+</ul>
+</li>
+<li><p>Description</p>
+<ul>
+<li><p>Optional, Beschreibung</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Statement (über Editor)</strong></p>
+<ul>
+<li><p>Je nach Verbindungstyp kann diese Abfrage unterschiedlich formuliert sein</p>
+<ul class="simple">
+<li><p>Abfrage aus Datenbanken: SQL</p></li>
+<li><p>Abfrage aus REST-Schnittstellen: URL</p></li>
+</ul>
+</li>
+<li><p>Auch Parameter, bspw. zur Einschränkung der Ergebnisse, sind möglich</p>
+<ul>
+<li><p>SQL-Parameter: <strong>&#64;Parametername</strong></p>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<span class="w">    </span><span class="p">[</span><span class="n">OBJECTID</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="n">NAME</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">projekt_gebaeude</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">gebaeudeid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">GebaeudeId</span>
+</pre></div>
+</div>
+</li>
+<li><p>WebGIS REST API, GeoRss, GeoJson: <strong>{{Parametername}}</strong></p>
+<div class="highlight-REST notranslate"><div class="highlight"><pre><span></span>URL-PFAD/gebaeude?gebaeudeid={{GebaeudeId}}&amp;…
+</pre></div>
+</div>
+<p>Bei der REST-Abfrage müssen die Parameter im CMS als Suchbegriff definiert sein.</p>
+</li>
+</ul>
+</li>
+<li><p>Optionale Parameter werden nur eingefügt, wenn sie im Aufruf übergeben wurden. Sie können im Query-Statement mit <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">PARAMETERNAME</span> <span class="pre">[…]</span> <span class="pre">#endif</span></code> definiert werden, der Inhalt zwischen diesen beiden Keywords wird dem Statement angehängt.</p>
+<ul>
+<li><p>SQL-Parameter: <strong>&#64;Parametername</strong></p>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<span class="w">    </span><span class="p">[</span><span class="n">NAME</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="n">FARBE</span><span class="p">]</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">gebaeudeart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">GebaeudeArt</span>
+<span class="w">    </span><span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">dachfarbe</span>
+<span class="w">        </span><span class="k">AND</span><span class="w"> </span><span class="n">FARBE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">dachfarbe</span>
+<span class="w">    </span><span class="o">#</span><span class="n">endif</span>
+</pre></div>
+</div>
+</li>
+<li><p>REST: <strong>{{Parametername}}</strong></p>
+<div class="highlight-REST notranslate"><div class="highlight"><pre><span></span>URL-PFAD/gebaeude?gebaeudeart={{GebaeudeArt}}
+#if dachfarbe
+        &amp;farbe = @dachfarbe
+#endif
+</pre></div>
+</div>
+</li>
+<li><p>Textfiles (bei Endpoint Typ <strong>TextFile</strong>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">filename</span>
+<span class="n">my</span><span class="o">-</span><span class="n">log</span><span class="o">.</span><span class="n">csv</span>
+
+<span class="o">//</span> <span class="n">Optionale</span> <span class="n">Parameter</span><span class="p">:</span>
+
+<span class="o">//</span> <span class="n">maximale</span> <span class="n">Anzahl</span> <span class="n">von</span> <span class="n">Zeilen</span> <span class="n">die</span> <span class="n">gelesen</span> <span class="n">werden</span>
+<span class="n">maxlines</span><span class="o">=</span><span class="mi">10</span>
+<span class="o">//</span> <span class="n">von</span> <span class="n">wo</span> <span class="n">wird</span> <span class="n">gelesen</span><span class="p">:</span> <span class="n">von</span> <span class="n">oben</span> <span class="p">(</span><span class="n">top</span><span class="p">)</span> <span class="n">oder</span> <span class="n">von</span> <span class="n">unten</span> <span class="p">(</span><span class="n">bottom</span><span class="p">)</span>
+<span class="n">from</span><span class="o">=</span><span class="n">bottom</span>
+
+<span class="o">//</span> <span class="n">Textfilter</span><span class="p">,</span> <span class="n">der</span> <span class="n">auf</span> <span class="n">die</span> <span class="n">einzelnen</span> <span class="n">Zeilen</span> <span class="n">angewendet</span> <span class="n">wird</span>
+<span class="c1">#if filter</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">{{</span><span class="nb">filter</span><span class="p">}}</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Test Parameter: Hier kann die Query mit Parametern getestet werden. Beim Ausführen der Abfrage wird die Abfrage-URL erstellt, siehe <a class="reference internal" href="aufrufundbeispiele.html#anchor41"><span class="std std-ref">Kapitel 5.1</span></a>.</p>
+<img alt="../../_images/ad3_3.png" src="../../_images/ad3_3.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Bei Abfragen mit Parametern sollte man die Test Parameter so wählen, dass man die Abfrage jederzeit testen kann.</p>
+</div>
+</li>
+<li><p>Domains: zum Übersetzen von Werten, siehe <a class="reference internal" href="tippsundtricks.html#anchor57"><span class="std std-ref">Kapitel 6.7</span></a></p></li>
+</ul>
+<p><strong>Security</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Setzen von autorisierten Usern / Rollen, siehe <a class="reference internal" href="#param-berechtigung"><span class="std std-ref">Berechtigungen</span></a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="views-ansichten">
+<span id="anchor33"></span><h2><span class="sectnum">4.3 </span>Views (Ansichten)<a class="headerlink" href="#views-ansichten" title="Link to this heading">¶</a></h2>
+<p>Zur Darstellung der Ergebnisse einer Abfrage können ein oder mehrere Ansichten erstellt werden.</p>
+<img alt="../../_images/hello_world71.png" src="../../_images/hello_world71.png" />
+<p>Klickt man auf den neu erstellten View, erscheint im Content Bereich die Razor Vorlage für den neuen View, von welchem man über das <em>Zahnrad</em>-Symbol rechts unten zu den Einstellungen wechseln kann.</p>
+<p><strong>General</strong></p>
+<ul class="simple">
+<li><p>View Id</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Eindeutiger Name der Ansicht, wird bei URL Aufruf verwendet</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Name</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Bezeichnung des Ansicht</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Description</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Optional, Beschreibung</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Code (über Editor)</strong></p>
+<blockquote>
+<div><ul>
+<li><p>HTML mit ASP.NET Razor Markup</p>
+<img alt="../../_images/param_editor.png" src="../../_images/param_editor.png" />
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="berechtigung">
+<span id="param-berechtigung"></span><span id="anchor34"></span><h2><span class="sectnum">4.4 </span>Berechtigung<a class="headerlink" href="#berechtigung" title="Link to this heading">¶</a></h2>
+<p>Für Endpunkte und Abfragen können hierarchisch Berechtigungen gesetzt werden. D.h. wer auf einen Endpunkt nicht zugreifen darf, darf auch nicht dessen Abfragen ausführen. Es können einzelne User oder auch Rollen berechtigt werden, Token- und Portalverbund sind ebenfalls möglich.</p>
+<p>Dazu ist die Art (User, Rolle, etc.) zu wählen und der Name einzugeben und mit Klick auf das „+“-Symbol bzw. <em>Enter</em> zu bestätigen. Mit „*“ werden uneingeschränkte Berechtigungen gesetzt.</p>
+<img alt="../../_images/param_berechtigung.png" src="../../_images/param_berechtigung.png" />
+</section>
+<section id="stile">
+<span id="anchor35"></span><h2><span class="sectnum">4.5 </span>Stile<a class="headerlink" href="#stile" title="Link to this heading">¶</a></h2>
+<p>CSS-Stile können sowohl für einen Endpoint und alle darauf aufbauenden Views definiert werden (siehe <a class="reference internal" href="#anchor31"><span class="std std-ref">Kapitel 4.1</span></a>) als auch innerhalb eines Views mit HTML <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code>-Tags bzw. als Inline <code class="docutils literal notranslate"><span class="pre">style</span></code>-Attribut.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#"><span class="sectnum">4 </span>Parametrierung</a><ul>
+<li><a class="reference internal" href="#endpunkte"><span class="sectnum">4.1 </span>Endpunkte</a></li>
+<li><a class="reference internal" href="#query-abfragen"><span class="sectnum">4.2 </span>Query (Abfragen)</a></li>
+<li><a class="reference internal" href="#views-ansichten"><span class="sectnum">4.3 </span>Views (Ansichten)</a></li>
+<li><a class="reference internal" href="#berechtigung"><span class="sectnum">4.4 </span>Berechtigung</a></li>
+<li><a class="reference internal" href="#stile"><span class="sectnum">4.5 </span>Stile</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="oberflaeche.html">
+                    <span class="icon">&lt;</span><span><span class="sectnum">3 </span>DataLinq.Code Oberfläche</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="aufrufundbeispiele.html"><span><span class="sectnum">5 </span>Aufruf und Beispiele</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kundendatenbank bearbeiten &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="GeoJson Einbinden" href="geojson.html" />
+    <link rel="prev" title="Hello World Beispiel" href="helloworld.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS Cloud Dokumentation 2022 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../portal/index.html">WebGIS Cloud Portal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applikationen erstellen/verwalten</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../mapviewer/index.html">Karten Portal und Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mapbuilder/index.html">Map Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appbuilder/index.html">App Builder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">DataLinq</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../allgemeines.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../technischeumsetzung.html"><span class="sectnum">2 </span>Technische Umsetzung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../oberflaeche.html"><span class="sectnum">3 </span>DataLinq.Code Oberfläche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../parametrierung.html"><span class="sectnum">4 </span>Parametrierung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aufrufundbeispiele.html"><span class="sectnum">5 </span>Aufruf und Beispiele</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tippsundtricks.html"><span class="sectnum">6 </span>Tipps und Tricks für Views</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html"><span class="sectnum">7 </span>Beispiele</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selfhosting/index.html">WebGIS selbst Bereitstellen</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="kundendatenbank-bearbeiten">
+<h1>Kundendatenbank bearbeiten<a class="headerlink" href="#kundendatenbank-bearbeiten" title="Link to this heading">¶</a></h1>
+<p>Dieses Beispiel soll zeigen, wie DataLinq-Daten aus einer Datenbank angezeigt und bearbeitet
+werden können. Als Beispiel soll eine einfache Tabelle mit Namen und Adresse dienen.
+Die Daten liegen dabei in einer <em>Postgres</em> Datenbank.</p>
+<section id="datenmodell">
+<h2>Datenmodell<a class="headerlink" href="#datenmodell" title="Link to this heading">¶</a></h2>
+<p>Die Tabelle <code class="docutils literal notranslate"><span class="pre">customers</span></code> besitzt neben einer eindeutigen Id <code class="docutils literal notranslate"><span class="pre">id</span></code> je ein Feld für den Namen <code class="docutils literal notranslate"><span class="pre">name</span></code>
+und für die Adresse <code class="docutils literal notranslate"><span class="pre">address</span></code>:</p>
+<img alt="../../../_images/edit_customers1.png" src="../../../_images/edit_customers1.png" />
+<img alt="../../../_images/edit_customers2.png" src="../../../_images/edit_customers2.png" />
+</section>
+<section id="endpunkt-erstellen">
+<h2>Endpunkt erstellen<a class="headerlink" href="#endpunkt-erstellen" title="Link to this heading">¶</a></h2>
+<p>Im ersten Schritt wird ein Endpunkt erstellt (zB. <code class="docutils literal notranslate"><span class="pre">edit_customers</span></code>). Als <em>Connection Type</em> wird
+<code class="docutils literal notranslate"><span class="pre">Database</span></code> eingestellt und der <em>Connection String</em> zur Postgres Datenbank angegeben.</p>
+<img alt="../../../_images/edit_customers3.png" src="../../../_images/edit_customers3.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Wichtig ist der Prefix <code class="docutils literal notranslate"><span class="pre">postgres:</span></code> am Anfang des <em>Connection Strings</em>. Dadurch weiß DataLinq,
+dass es sich um eine Postgres Datenbank handelt. Andere Prefixes sind beispielsweise <code class="docutils literal notranslate"><span class="pre">SQL:</span></code>
+für SQL Server Datenbanken, <code class="docutils literal notranslate"><span class="pre">Oracle:</span></code> für Oracle Datenbanken oder <code class="docutils literal notranslate"><span class="pre">sqlite:</span></code> für filebasierte
+SqLite Datenbanken.</p>
+</div>
+</section>
+<section id="abfragen-erstellen">
+<h2>Abfragen erstellen<a class="headerlink" href="#abfragen-erstellen" title="Link to this heading">¶</a></h2>
+<p>Im nächsten Schritt muss eine Abfrage erstellt werden, die die Kundendaten bereit stellt, z.B. <code class="docutils literal notranslate"><span class="pre">select_customers</span></code>:</p>
+<img alt="../../../_images/edit_customers4.png" src="../../../_images/edit_customers4.png" />
+<p>Die Abfrage ist ein einfaches SQL-Statement <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">*</span> <span class="pre">from</span> <span class="pre">customers</span></code>. Außerdem wurde hier noch eine
+<em>optionale</em> Einschränkung nach dem <code class="docutils literal notranslate"><span class="pre">id</span></code> Feld eingeführt:</p>
+<p>Die Zeile <code class="docutils literal notranslate"><span class="pre">where</span> <span class="pre">id=&#64;id</span></code> wird hier nur der Abfrage hinzugefügt, wenn der Parameter <code class="docutils literal notranslate"><span class="pre">id</span></code> über die Url
+übergeben wird. Dieser Wert wird dann über den SQL-Parameter &#64;id übergeben.</p>
+<p>Befinden sich bereits Daten in der Datenbank und führt man die Abfrage aus, sollten die Daten angezeigt werden:</p>
+<img alt="../../../_images/edit_customers5.png" src="../../../_images/edit_customers5.png" />
+<p>Zum Testen kann auch versucht werden, die <code class="docutils literal notranslate"><span class="pre">id</span></code>  als Url-Parameter mitzuschicken:</p>
+<img alt="../../../_images/edit_customers6.png" src="../../../_images/edit_customers6.png" />
+<p>Im nächsten Schritt können Abfragen zum Erstellen (<code class="docutils literal notranslate"><span class="pre">add_customer</span></code>), Bearbeiten (<code class="docutils literal notranslate"><span class="pre">edit_customer</span></code>)
+und Löschen (<code class="docutils literal notranslate"><span class="pre">del_customer</span></code>) erstellt werden. Dabei handelt es sich nicht um Abfragen mit <strong>SELECT</strong>,
+sondern um allgemeine SQL-Statements. Diese können später über Buttons in unseren Viewer getriggert werden:</p>
+<img alt="../../../_images/edit_customers7.png" src="../../../_images/edit_customers7.png" />
+<img alt="../../../_images/edit_customers8.png" src="../../../_images/edit_customers8.png" />
+<img alt="../../../_images/edit_customers9.png" src="../../../_images/edit_customers9.png" />
+</section>
+<section id="views-erstellen">
+<h2>Views erstellen<a class="headerlink" href="#views-erstellen" title="Link to this heading">¶</a></h2>
+<p>Alle Viewer werden unter der Abfrage <code class="docutils literal notranslate"><span class="pre">select_customers</span></code> erstellt.</p>
+<p>Der View, der eine Liste mit allen Kunden anzeigen soll, kann beispielsweise <code class="docutils literal notranslate"><span class="pre">all-customers</span></code> genannt werden.
+Im Vergleich zum <em>Hello World</em> Beispiel wird hier die Tabelle nicht einfach über die <em>DataLinqHelper</em>-Methode <code class="docutils literal notranslate"><span class="pre">Table()</span></code>
+angezeigt, sondern über die einzelnen <em>Records</em> der Datenbank Tabelle iteriert:</p>
+<img alt="../../../_images/edit_customers10.png" src="../../../_images/edit_customers10.png" />
+<p>Unter der HTML Tabelle wird hier über die <em>DataLinqHelper</em>-Methode <code class="docutils literal notranslate"><span class="pre">OpenViewInDialog</span></code> ein Button eingefügt,
+der einen Dialog mit einem View zum Anlegen eines neuen Kunden anzeigen soll. Das Ergebnis dieses Views
+soll folgendermaßen aussehen:</p>
+<img alt="../../../_images/edit_customers11.png" src="../../../_images/edit_customers11.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Hier wurde noch kein Styling vorgenommen. Dem <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> wurde aber bereits eine CSS-Klasse <code class="docutils literal notranslate"><span class="pre">customers-table</span></code>
+zugewiesen. Wie man individuelle Styles für einen Endpoint erstellen kann, wird weiter unter gezeigt.</p>
+</div>
+<p>Der Button unter der Tabelle funktioniert bereits und öffnet einen Dialog mit einer Fehlermeldung, die
+angibt, dass der View <code class="docutils literal notranslate"><span class="pre">add-customer</span></code> unter der Abfrage <code class="docutils literal notranslate"><span class="pre">select-customer</span></code> noch nicht existiert.</p>
+<p>Um den Fehler zu beheben legen wir diesen View wie folgt an:</p>
+<img alt="../../../_images/edit_customers12.png" src="../../../_images/edit_customers12.png" />
+<p>Hier wird mit <code class="docutils literal notranslate"><span class="pre">&#64;DLH.BeginForm(&quot;...&quot;)</span></code> ein HTML Formular erstellt. Als Argument wird die <em>Route</em> zu einer
+<em>Abfrage (Query)</em> angegeben. In diesem Fall die <code class="docutils literal notranslate"><span class="pre">edit-customers&#64;add-customer</span></code> mit dem SQL <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> Statement.</p>
+<p>Danach werden die Felder angegeben, die befüllt werden können. Dazu wird zuerst immer mit <code class="docutils literal notranslate"><span class="pre">&#64;DLH.LabelFor()</span></code>
+eine <em>Label</em> und mit <code class="docutils literal notranslate"><span class="pre">&#64;DLH.TextFor()</span></code> ein Eingabe-Textfeld angegeben. Dieser Methode muss ein <em>Record (Datensatz)</em>
+und der Namen des Feldes angegeben werden. In unserem Fall wird der <em>Record</em> erst erstellt, darum wird hier
+<code class="docutils literal notranslate"><span class="pre">null</span></code> angegeben. Wichtig ist, dass mit <code class="docutils literal notranslate"><span class="pre">name:</span></code> der Name des Datenbank-Feldes angegeben wird, in welches
+der Wert aus dem Eingabe-Textfeld eingefügt werden soll.</p>
+<p>Das Formular wird mit <code class="docutils literal notranslate"><span class="pre">&#64;DLH.EndForm(&quot;Button</span> <span class="pre">Text&quot;)</span></code> abgeschlossen. Damit wird ein Button dargestellt, mit
+dem das Formular abgeschickt werden kann.</p>
+<p>Klickt man jetzt auf den Button <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">new</span> <span class="pre">customer..</span></code>, sollte der Dialog erscheinen und Werte können eingetragen werden:</p>
+<img alt="../../../_images/edit_customers13.png" src="../../../_images/edit_customers13.png" />
+<p>Bestätigt man den Dialog mit <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">new</span> <span class="pre">customer</span></code>, schließt sich der Dialog und der neue Kunde wird in die
+Datenbank übernommen. In der Liste wird der neue Kunde gleich angezeigt.</p>
+<p>Im nächsten Schritt sollen bestehende Kunden geändert oder gelöscht werden können. Dazu muss zuerst die Tabelle
+in unsere <code class="docutils literal notranslate"><span class="pre">all-customers</span></code> Ansicht angepasst werden. Es werden in jeder Zeile zwei Spalten mit jeweils einem
+Button <code class="docutils literal notranslate"><span class="pre">Update</span></code> und <code class="docutils literal notranslate"><span class="pre">Delete</span></code> eingefügt. Das Ergebnis sieht beispielsweise wie folgt aus:</p>
+<img alt="../../../_images/edit_customers14.png" src="../../../_images/edit_customers14.png" />
+<p>Über die Buttons werden <em>Views</em> in einem neuen Dialog angezeigt. Als Argument wird hier auch die <em>Id</em>
+des jeweiligen Datensatzes übergeben (<code class="docutils literal notranslate"><span class="pre">parameter:</span> <span class="pre">new</span> <span class="pre">{</span> <span class="pre">id=record[&quot;id&quot;]</span> <span class="pre">}</span></code>).</p>
+<p>Startet man den Preview, sollte die Tabelle jetzt so aussehen:</p>
+<img alt="../../../_images/edit_customers15.png" src="../../../_images/edit_customers15.png" />
+<p>Die Buttons öffnen bereits einen neuen Dialog mit Fehlermeldung, weil die entsprechenden <em>Views</em> noch nicht existieren.</p>
+<p>Im nächsten Schritt werden unter <code class="docutils literal notranslate"><span class="pre">select-customers</span></code> die Views <code class="docutils literal notranslate"><span class="pre">edit-customer</span></code> und <code class="docutils literal notranslate"><span class="pre">del-customer</span></code> angelegt.</p>
+<p>Der fertige View <code class="docutils literal notranslate"><span class="pre">edit-customer</span></code> sollte so aussehen:</p>
+<img alt="../../../_images/edit_customers16.png" src="../../../_images/edit_customers16.png" />
+<p>Wird dieser View aufgerufen, wird der darüber liegenden Abfrage <code class="docutils literal notranslate"><span class="pre">select-customers</span></code> die <em>Id</em> des
+gewünschten Datensatzes übergeben. Der Datensatz befindet sich in <code class="docutils literal notranslate"><span class="pre">Model.Records</span></code>. Am Anfang des
+<em>Scripts</em> wird dieser Datensatz der Variabel <code class="docutils literal notranslate"><span class="pre">record</span></code> zugewiesen mittels <code class="docutils literal notranslate"><span class="pre">Model.Records.First()</span></code> (First:
+der erste und hier einzige Datensatz).</p>
+<p>Dieser Datensatz wird dann im Formular an <code class="docutils literal notranslate"><span class="pre">&#64;DLH.TextFor()</span></code> übergeben. Damit wird das Eingabe-Textfeld
+gleich mit den entsprechenden Werten befüllt.
+Da die Abfrage <code class="docutils literal notranslate"><span class="pre">edit-customer</span></code> die <em>Id</em> des Datensatzes für das UPDATE Statement benötigt, muss dieses
+Feld ebenfalls im Formular enthalten sein. Da der Anwender dieses Feld aber nicht sehen soll (oder braucht),
+wird es im Formular als <em>Hidden-Field</em> eingefügt: <code class="docutils literal notranslate"><span class="pre">&#64;DLH.HiddenFor(record:</span> <span class="pre">record,</span> <span class="pre">name:</span> <span class="pre">&quot;id&quot;)</span></code>.</p>
+<p>Das fertige Formular sieht in der Vorschau dann wie folgt aus:</p>
+<img alt="../../../_images/edit_customers17.png" src="../../../_images/edit_customers17.png" />
+<p>Bestätigt man diesen Dialog, sollte der Datensatz geändert werden. Hier können allerdings auch Datenbank-Fehler
+angezeigt werden:</p>
+<img alt="../../../_images/edit_customers18.png" src="../../../_images/edit_customers18.png" />
+<p>Dieser kommt zustande, weil die <em>Id</em> in der Datenbank vom Typ <code class="docutils literal notranslate"><span class="pre">bigint</span></code> und per Parameter ein <code class="docutils literal notranslate"><span class="pre">string</span></code>
+übergeben wird. Der Grund ist, dass DataLinq alle Parameter über Url-Parameter übergibt und diese immer als
+Zeichenkette interpretiert werden. Kann oder möchte das Datenbank System das nicht automatisch umwandeln, muss
+dies im SQL Statement erfolgen. Falls also dieser Fehler auftritt (Datenbankabhängig) können die
+SQL-Statements für UPDATE und DELETE folgendermaßen angepasst werden (hier für PostgreSQL):</p>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">update</span><span class="w"> </span><span class="n">customers</span>
+<span class="k">set</span><span class="w"> </span><span class="n">name</span><span class="o">=@</span><span class="n">name</span><span class="p">,</span>
+<span class="w">   </span><span class="n">address</span><span class="o">=@</span><span class="n">address</span>
+<span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=@</span><span class="n">id</span><span class="p">::</span><span class="nb">INTEGER</span>
+</pre></div>
+</div>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=@</span><span class="n">id</span><span class="p">::</span><span class="nb">INTEGER</span>
+</pre></div>
+</div>
+<p>Der fertige View für für <code class="docutils literal notranslate"><span class="pre">del-customer</span></code> sieht wie folgt aus:</p>
+<img alt="../../../_images/edit_customers19.png" src="../../../_images/edit_customers19.png" />
+<p>Auch hier wird zuerst der erste und einzige Datensatz als Variable <code class="docutils literal notranslate"><span class="pre">`record</span></code> ausgelesen.
+Danach wird die Tabelle für die <em>Records</em> im <em>Model</em> angezeigt: <code class="docutils literal notranslate"><span class="pre">&#64;DLH.Table(Model.Records)</span></code>.
+Dies sollte nur dazu dienen, damit der Anwender vor dem Löschen sieht, um welchen Datensatz es sich handelt.</p>
+<p>Das Formular, das an die Abfrage <code class="docutils literal notranslate"><span class="pre">del-customer</span></code> mit dem DELETE Statement übermittelt wird, beinhaltet nur
+das <em>Hidden-Field</em> für den Datensatz <em>Id</em>.</p>
+<p>Mit den oben gezeigten Änderungen ist die Anwendung fertig. Neue Datensätze können angelegt,
+bestehende können geändert oder/und gelöscht werden.</p>
+</section>
+<section id="styling">
+<h2>Styling<a class="headerlink" href="#styling" title="Link to this heading">¶</a></h2>
+<p>Im letzten Schritt soll das <em>Styling</em> für die Anwendung angepasst werden. Da es sich bei den <em>Views</em> um
+<em>Razor Syntax</em> handelt, kann das <em>Styling</em> über HTML Tags, Inline oder auch dynamisch über Javascript erfolgen.</p>
+<p>Für jeden Endpunkt kann auch eine übergeordnete CSS-Datei angelegt werden. Diese CSS-Datei wird dann in
+jedem <em>View/Report</em> unter diesem Endpunkt geladen.
+Zum Erstellen/Bearbeiten einer Endpunkt CSS-Datei muss der Eigenschaften Dialog des Endpunktes geöffnet werden
+(durch Klick auf den Endpunkt in der Baumansicht).</p>
+<p>Unter <em>Styling</em> gibt es den Button <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Endpoint</span> <span class="pre">CSS...</span></code>, der einen Editor mit den CSS-Styles öffnet.
+Hier können die gewünschten Styles eingetragen und gespeichert werden:</p>
+<img alt="../../../_images/edit_customers20.png" src="../../../_images/edit_customers20.png" />
+<p>Das Ergebnis sieht dann in etwa so aus:</p>
+<img alt="../../../_images/edit_customers21.png" src="../../../_images/edit_customers21.png" />
+<img alt="../../../_images/edit_customers22.png" src="../../../_images/edit_customers22.png" />
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Kundendatenbank bearbeiten</a><ul>
+<li><a class="reference internal" href="#datenmodell">Datenmodell</a></li>
+<li><a class="reference internal" href="#endpunkt-erstellen">Endpunkt erstellen</a></li>
+<li><a class="reference internal" href="#abfragen-erstellen">Abfragen erstellen</a></li>
+<li><a class="reference internal" href="#views-erstellen">Views erstellen</a></li>
+<li><a class="reference internal" href="#styling">Styling</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="helloworld.html">
+                    <span class="icon">&lt;</span><span>Hello World Beispiel</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="geojson.html"><span>GeoJson Einbinden</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

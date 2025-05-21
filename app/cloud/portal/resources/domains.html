@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Map Portal Login Domain &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="WebGIS Applikationen erstellen/verwalten" href="../../webgis_apps/index.html" />
+    <link rel="prev" title="WebGIS Api Clients" href="apiclients.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">WebGIS Cloud Dokumentation 2022 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">WebGIS Cloud Portal</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../resources.html">WebGIS Cloud Resourcen (Übersicht)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pricing.html">Preise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../register.html">Registrierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ui/index.html">WebGIS Portal Benutzeroberfläche</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">WebGIS Cloud Resourcen (Details)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="projects.html">Projekte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="apiclients.html">WebGIS Api Clients</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Map Portal Login Domain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../webgis_apps/index.html">WebGIS Applikationen erstellen/verwalten</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../selfhosting/index.html">WebGIS selbst Bereitstellen</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="map-portal-login-domain">
+<h1>Map Portal Login Domain<a class="headerlink" href="#map-portal-login-domain" title="Link to this heading">¶</a></h1>
+<p>Mit <em>Map Portal Login Domains</em> können Gruppen von Anwendern angelegt werden, die auf Kartenportale und Kartendienste berechtigt werden können.
+Unter einer <em>Domain</em> kann eine beliebige Anzahl von Benutzern angelegt werden, die sich für ein <em>Karten Portal</em> anmelden können.</p>
+<p>Das Format einer Domain entspricht einer <em>Web Domain</em>, z.B. <code class="docutils literal notranslate"><span class="pre">my-company.com</span></code>. Die <em>Domain</em> muss dabei eindeutig sein. Eine <em>Domain</em>, die bereits unter einer
+anderen <em>Subscription</em> angelegt wurde, kann keine zweites Mal angelegt werden.</p>
+<p>Die Benutzernamen die zur Anmeldung angelegt werden, müssen innerhalb der <em>Domain</em> eindeutig sein. Damit die Logins später <em>global</em> eindeutig sind, wird jedem
+Benutzernamen der <em>Domain-Name</em> mit vorangestelltem <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> angehängt:</p>
+<p>Beispiel: Domain = <code class="docutils literal notranslate"><span class="pre">my-domain.com</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">user1&#64;my-domain.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user2&#64;my-domain.com</span></code></p></li>
+</ul>
+<p><em>Karten Portale</em> und <em>Kartendienste</em> (CMS Account) können für eine gesamte Domain oder für einzelne User berechtigt werden.
+Sollten <em>Karten Portale</em> und <em>Kartendienste</em> von anderen WebPortal-Accounts für diese <em>Domain</em> freigeschalten werden, kann eine <em>Domain</em> auch geteilt werden (siehe unten, share domains).</p>
+<section id="domain-erstellen">
+<h2>Domain erstellen<a class="headerlink" href="#domain-erstellen" title="Link to this heading">¶</a></h2>
+<p>Eine Domain wird erstellt, indem man in der <em>Sidebar</em> auf <strong>New Resource</strong> und dann auf <strong>Map Portal Login Domain</strong> klickt. Alternativ, kann  man über die <em>Sidebar</em> zu <strong>Map Portal Login Domain</strong> springen.
+Damit werden alle, für die aktuelle Subscription angelegten <em>Domains</em> angezeigt bzw. eine neue Domain erstellt:</p>
+<p>Zuerst muss ein eindeutiger <em>Domain Name</em> angegeben werden:</p>
+<img alt="../../_images/domains1.png" src="../../_images/domains1.png" />
+</section>
+<section id="domain-benutzer-erstellen">
+<h2>Domain Benutzer erstellen<a class="headerlink" href="#domain-benutzer-erstellen" title="Link to this heading">¶</a></h2>
+<p>Ist das Erstellen der <em>Domain</em> erfolgreich, können über die Eigenschaften-Seite der <em>Resource</em> Benutzer (Logins) angelegt werden:</p>
+<img alt="../../_images/domains2.png" src="../../_images/domains2.png" />
+<p>Beim Erstellen eines neuen Benutzers muss ein Benutzername/Anmeldename angegeben werden (mindestens 8 Zeichen). Dieser muss innerhalb der Domain eindeutig sein:</p>
+<img alt="../../_images/domains3.png" src="../../_images/domains3.png" />
+<p>Beim Erstellen wird für diesen Benutzernamen ein zufälliges, starkes Passwort angelegt. Ein Anwender kann sich bei einem <em>Karten Portal</em> auf unterschiedliche Arten anmelden.</p>
+<ol class="arabic simple">
+<li><p>Mit Username und Password</p></li>
+<li><p>Mithilfe eines Links inklusive <em>Access Tokens</em></p></li>
+</ol>
+<p>Um eine dieser Methoden verfügbar zu machen, muss die Eigenschaften-Seite der <em>Map Portal Domain Benutzer</em> Resource geöffnet und auf den Reiter <code class="docutils literal notranslate"><span class="pre">User</span></code> gewechselt werden:</p>
+<img alt="../../_images/domains4.png" src="../../_images/domains4.png" />
+<p>Sollte sich der Benutzer mit Usernamen und Passwort anmelden können, muss ein Passwort vergeben werden. Dazu muss auf das Editsymbol (Stift) beim Passwort geklickt werden:</p>
+<img alt="../../_images/domains5.png" src="../../_images/domains5.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das hier eingetragene Passwort wird nicht im Klartext angezeigt. Auch nachträglich kann das Passwort nicht mehr abgefragt werden, da intern nur ein <em>Hash-Code</em> verspeichert wird.
+Wird das Passwort vergessen, kann es hier wieder geändert werden. Eine Änderung des Passwortes durch den Endanwender ist nicht vorgesehen.</p>
+</div>
+<p>Sollte ein Anwender nur einen zeitlich beschränkten Zugriff auf ein Kartenportal haben, kann anstelle eines Passwortes auch ein Link mit <em>Access Token</em> erzeugt werden.
+Klickt man auf den Button <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Access</span> <span class="pre">Token</span></code> öffnet sich folgender Dialog:</p>
+<img alt="../../_images/domains6.png" src="../../_images/domains6.png" />
+<p>Hier muss zuerst die Url des <em>Karten Portals</em>, für das der Link erzeugt werden sollte (<code class="docutils literal notranslate"><span class="pre">{portal}</span></code>), eingetragen werden. Außerdem muss angeführt werden, wie lange der Link gültig sein sollte.
+Klickt man danach auf <code class="docutils literal notranslate"><span class="pre">Generate</span> <span class="pre">Url</span> <span class="pre">Token</span></code>, wird ein Link erzeugt, mit dem man das angeführte Portal aufrufen kann:</p>
+<img alt="../../_images/domains7.png" src="../../_images/domains7.png" />
+<p>Diese Methode ist zu bevorzugen, wenn ein Anwender nur einen zeitlich beschränkten Zugang bekommen sollte. Es ist nicht ausreichend, für einen Anwender nur nach Ablauf eines
+Zeitintervalls das Passwort zu ändern. Ein Anwender, der bereits ein Portal benutzt, könnte es auch nach dem Ändern des Passworts benutzen, solange er ein gültiges <code class="docutils literal notranslate"><span class="pre">Cookie</span></code> für die letzte Anmeldung besitzt.
+Mit der <em>Access Token</em> Methode wird gewährleistet, dass der erzeugt Link nach dem angegeben Zeitpunkt nicht mehr aufgerufen werden kann.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Es ist nicht gewährleistet, dass das <em>Karten Portal</em> das unter <code class="docutils literal notranslate"><span class="pre">{portal}</span></code> eingetragen wurde, auch für den Benutzer berechtigt ist. Der <em>Access Token</em> gewährleistet nur die Identität des Benutzers.
+Ob ein Benutzer ein Portal anrufen darf, stellt der Eigentümer des <em>Karten Portals</em> ein (siehe unten). Ein hier erstellter Link sollte vor dem Weitergeben immer getestet werden.</p>
+</div>
+</section>
+<section id="domains-und-benutzer-berechtigen">
+<h2>Domains und Benutzer berechtigen<a class="headerlink" href="#domains-und-benutzer-berechtigen" title="Link to this heading">¶</a></h2>
+<p>Eine komplette Domain oder einzelne Benutzer können für eine oder mehrere Karten <em>Portal Seiten</em> berechtigt werden. Dazu muss man zur aktuellen Eigenschaften-Seite des <em>Karten Portals</em> wechseln und auf den
+Reiter <code class="docutils literal notranslate"><span class="pre">Logins</span></code> klicken:</p>
+<img alt="../../_images/domains8.png" src="../../_images/domains8.png" />
+<p>Möchte man eine komplette Domain für den Zugriff berechtigen, muss <code class="docutils literal notranslate"><span class="pre">*&#64;my-domain.com</span></code> ausgewählt werden. Alternativ können auch nur einzelnen User ausgewählt werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Werden im <em>Portal</em> <em>Karten-Dienste</em> angeboten, die nicht frei zugänglich sind und über einen <em>CMS Account</em> parametriert wurden, müssen die Berechtigungen auch beim <em>CMS Account</em> eingestellt werden.
+Nur so wird gewährleistet, dass veröffentlichte CMS für diese Anwender sichtbar sind.</p>
+</div>
+</section>
+<section id="domains-fur-externe-resources-berechtigen">
+<h2>Domains für externe Resources berechtigen<a class="headerlink" href="#domains-fur-externe-resources-berechtigen" title="Link to this heading">¶</a></h2>
+<p>Befinden sich das <em>Karten Portal</em> oder der <em>CMS Account</em> in einer fremden Subscription (z.B. Domain Verwaltung und Bereitstellung von Karten/Diensten erfolgt von unterschiedlichen Organisationen)
+kann eine Domain <em>geteilt</em> werden. Durch das Teilen sieht der Eigentümer des <em>Karten Portals</em> diese Domain auf der Eigenschaften-Seite seiner <em>Karten Portale</em> bzw. seines <em>CMS Accounts</em>.
+Dadurch ist ein Berechtigen fremder Domains möglich. Der Empfänger einer geteilten Domain hat ansonsten keinen Einfluss auf die Anwender der
+Domain (es können von ihm keine Anwender angelegt oder Passwörter geändert werden).</p>
+<p>Zum Teilen einer Domain muss auf die Eigenschaften-Seite der Domain gewechselt und auf <code class="docutils literal notranslate"><span class="pre">Share</span></code> geklickt werden:</p>
+<img alt="../../_images/domains9.png" src="../../_images/domains9.png" />
+<p>Damit wird ein Token erzeugt, der dem Empfänger übermittelt werden muss (E-Mail, …):</p>
+<img alt="../../_images/domains10.png" src="../../_images/domains10.png" />
+<p>Der Empfänger klickt in der <em>Sidebar</em> auf <code class="docutils literal notranslate"><span class="pre">Transfered</span> <span class="pre">Resources</span></code> und erstellt so unter Eingabe des <em>Tokens</em> eine neue <em>Transfered Resource</em>.
+Beim Sender scheint diese Resource danach ebenfalls unter <code class="docutils literal notranslate"><span class="pre">Shared</span> <span class="pre">Resources</span></code> in der <em>Sidebar</em> (inklusive Username des Empfängers) auf. Beide Parteien können die Resource wieder
+entfernen und das Teilen so wieder rückgängig machen.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Map Portal Login Domain</a><ul>
+<li><a class="reference internal" href="#domain-erstellen">Domain erstellen</a></li>
+<li><a class="reference internal" href="#domain-benutzer-erstellen">Domain Benutzer erstellen</a></li>
+<li><a class="reference internal" href="#domains-und-benutzer-berechtigen">Domains und Benutzer berechtigen</a></li>
+<li><a class="reference internal" href="#domains-fur-externe-resources-berechtigen">Domains für externe Resources berechtigen</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="apiclients.html">
+                    <span class="icon">&lt;</span><span>WebGIS Api Clients</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../../webgis_apps/index.html"><span>WebGIS Applikationen erstellen/verwalten</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

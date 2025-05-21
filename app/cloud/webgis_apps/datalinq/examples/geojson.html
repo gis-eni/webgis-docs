@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GeoJson Einbinden &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Tutorials" href="../../../tutorials/index.html" />
+    <link rel="prev" title="Kundendatenbank bearbeiten" href="editcustomers.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS Cloud Dokumentation 2022 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../portal/index.html">WebGIS Cloud Portal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applikationen erstellen/verwalten</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../mapviewer/index.html">Karten Portal und Viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mapbuilder/index.html">Map Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../appbuilder/index.html">App Builder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">DataLinq</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../allgemeines.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../technischeumsetzung.html"><span class="sectnum">2 </span>Technische Umsetzung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../oberflaeche.html"><span class="sectnum">3 </span>DataLinq.Code Oberfläche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../parametrierung.html"><span class="sectnum">4 </span>Parametrierung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aufrufundbeispiele.html"><span class="sectnum">5 </span>Aufruf und Beispiele</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tippsundtricks.html"><span class="sectnum">6 </span>Tipps und Tricks für Views</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html"><span class="sectnum">7 </span>Beispiele</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../selfhosting/index.html">WebGIS selbst Bereitstellen</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="geojson-einbinden">
+<h1>GeoJson Einbinden<a class="headerlink" href="#geojson-einbinden" title="Link to this heading">¶</a></h1>
+<p>In diesem Beispiel wird erklärt, wie man einen GeoJson Dienst einbindet und tabellarisch darstellt.
+Über einem Filter wird eine Auswahlliste angeboten. Diese wird auch von einem GeoJson Dienst befüllt.</p>
+<p>Der entsprechende Dienst ist ein <em>gView MapServer</em> Dienst mit Adressen. Über eine Query werden die Werte
+abgeholt. Für die Auswahlliste werden ebenfalls eine Query aus dem Dienst mit zusätzlichem DISTINCT verwendet.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das Beispiel kann auch 1:1 für einen ArcGIS Server MapServer Dienst umgesetzt werden. Hier ändert sich
+nur der Pfad im ConnectionString des <em>EndPoints</em>.</p>
+</div>
+<section id="endpunkt">
+<h2>Endpunkt<a class="headerlink" href="#endpunkt" title="Link to this heading">¶</a></h2>
+<p>Zuerst muss ein <em>EndPoint</em> mit dem Namen <code class="docutils literal notranslate"><span class="pre">geojson-gview</span></code> angelegt werden.
+Der Typ für den <em>EndPoint</em> ist <code class="docutils literal notranslate"><span class="pre">GeoJson</span></code>. Als ConnectionString gibt man
+die Url zur gView Server GeoServices REST Schnittstelle an:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">gview</span><span class="o">/</span><span class="n">geoservices</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">services</span>
+</pre></div>
+</div>
+</section>
+<section id="abfragen">
+<h2>Abfragen<a class="headerlink" href="#abfragen" title="Link to this heading">¶</a></h2>
+<p>Wir möchten aus einem Dienst (bspw. <code class="docutils literal notranslate"><span class="pre">test/basis</span></code>) die Adressen abfragen. Dazu legt man unter dem <em>EndPoint</em>
+eine <em>Query</em> <code class="docutils literal notranslate"><span class="pre">adressen</span></code> an.</p>
+<p>Als Query gibt man den Url Pfad, unter der im ConnectionString des <em>EndPoints</em> angeführten Url an.
+Im Falle von gView (oder AGS) ermittelt man diesen Url Pfad am einfachsten über die REST Oberfläche des
+MapServers. Dort kann man in der Regel für den Dienst eine Abfrage über eine Benutzer Oberfläche erstellen
+und ausführen. Die Url Pfad kann dann aus der Adresszeile des Browsers kopiert werden.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/test/postgis/MapServer/0/query?where=plz%3D{{plz}}&amp;
+                               geometry=&amp;geometryType=&amp;inSR=&amp;relationParam=&amp;objectIds=&amp;time=0&amp;distance=0&amp;
+                               units=&amp;outFields=*&amp;returnGeometry=true&amp;maxAllowableOffset=0&amp;
+                               geometryPrecision=0&amp;outSR=&amp;returnIdsOnly=false&amp;returnCountOnly=false&amp;
+                               returnExtentOnly=false&amp;orderByFields=&amp;outStatistics=&amp;groupByFieldsForStatistics=&amp;
+                               returnZ=false&amp;returnM=false&amp;returnDistinctValues=false&amp;
+                               returnTrueCurves=false&amp;resultOffset=0&amp;resultRecordCount=0&amp;
+                               datumTransformation=&amp;rangeValues=&amp;quantizationParameters=&amp;parameterValues=&amp;
+                               historicMoment=0&amp;
+                               layerId=0&amp;f=geojson
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Eine gView bzw. AGS Abfrage benötigt viele Parameter. Darum wird empfohlen, den Link über die
+UI des MapServer zu erstellen.</p>
+</div>
+<p>Im Beispiel wurde auch noch ein Platzhalter für eine Abfrage definiert: <code class="docutils literal notranslate"><span class="pre">where=plz%3D{{plz}}</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das <code class="docutils literal notranslate"><span class="pre">=</span></code> must mit <code class="docutils literal notranslate"><span class="pre">%3D</span></code> Url-Codiert werden.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Als Ausgabe Format der Abfrage muss <code class="docutils literal notranslate"><span class="pre">geojson</span></code> angegeben werden. Das Standard JSON Format von gView bzw. AGS
+ist nicht GeoJson! <code class="docutils literal notranslate"><span class="pre">&amp;f=geojson</span></code></p>
+</div>
+<p>Ruft man die Query (<a class="reference external" href="https://localhost/datalinq/select/geojson-gview&#64;adressen?plz=3100&amp;_pjson=true">https://localhost/datalinq/select/geojson-gview&#64;adressen?plz=3100&amp;_pjson=true</a>) auf,
+kommt beispielsweise folgendes Ergebnis:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;oid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;_location&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;Latitude&quot;</span><span class="p">:</span> <span class="mf">48.1877734994291</span><span class="p">,</span>
+            <span class="s2">&quot;Longitude&quot;</span><span class="p">:</span> <span class="mf">15.627903754497671</span><span class="p">,</span>
+            <span class="s2">&quot;BBox&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;BBoxValid&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;gid&quot;</span><span class="p">:</span> <span class="mi">8285</span><span class="p">,</span>
+        <span class="s2">&quot;ortsname&quot;</span><span class="p">:</span> <span class="s2">&quot;St. Pölten&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;strassenname&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;adrcd&quot;</span><span class="p">:</span> <span class="mi">6192061</span><span class="p">,</span>
+        <span class="s2">&quot;subcd&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;adresse&quot;</span><span class="p">:</span> <span class="s2">&quot;... 1, 3100 St.Pölten&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hnr&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;plz&quot;</span><span class="p">:</span> <span class="mi">3100</span><span class="p">,</span>
+        <span class="s2">&quot;pgnr&quot;</span><span class="p">:</span> <span class="mi">30201</span><span class="p">,</span>
+        <span class="s2">&quot;pgname&quot;</span><span class="p">:</span> <span class="s2">&quot;St. Pölten&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;okznr&quot;</span><span class="p">:</span> <span class="mi">3158</span><span class="p">,</span>
+        <span class="s2">&quot;kgnr&quot;</span><span class="p">:</span> <span class="mi">19544</span><span class="p">,</span>
+        <span class="s2">&quot;kgname&quot;</span><span class="p">:</span> <span class="s2">&quot;St. Pölten&quot;</span>
+    <span class="p">},</span><span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Im nächten Schritt bauen wir über die MapServer Oberfläche eine Abfrage, die ein DISTINCT über
+die Postleitzahlen (plz) durchführt und tragen den Url Pfad in eine neue DataLinq Abfrage
+<code class="docutils literal notranslate"><span class="pre">adressen-distinct-plz</span></code> ein:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/test/postgis/MapServer/0/query?where=1%3D1&amp;
+                               geometry=&amp;geometryType=&amp;
+                               inSR=&amp;relationParam=&amp;objectIds=&amp;time=0&amp;distance=0&amp;
+                               units=&amp;outFields=plz&amp;returnGeometry=false&amp;
+                               maxAllowableOffset=0&amp;geometryPrecision=0&amp;outSR=&amp;
+                               returnIdsOnly=false&amp;returnCountOnly=false&amp;returnExtentOnly=false&amp;
+                               orderByFields=&amp;outStatistics=&amp;groupByFieldsForStatistics=&amp;
+                               returnZ=false&amp;returnM=false&amp;returnDistinctValues=true&amp;returnTrueCurves=false&amp;
+                               resultOffset=0&amp;resultRecordCount=0&amp;datumTransformation=&amp;rangeValues=&amp;
+                               quantizationParameters=&amp;parameterValues=&amp;historicMoment=0&amp;
+                               layerId=0&amp;f=geojson
+</pre></div>
+</div>
+<p>Diese Abfrage erfordert keine Parameter und liefert bem Aufruf (<a class="reference external" href="https://localhost/datalinq/select/geojson-gview&#64;adressen-distinct-plz?_pjson=true">https://localhost/datalinq/select/geojson-gview&#64;adressen-distinct-plz?_pjson=true</a>)
+folgendes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;oid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;plz&quot;</span><span class="p">:</span> <span class="mi">1300</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;oid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;plz&quot;</span><span class="p">:</span> <span class="mi">2723</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;oid&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;plz&quot;</span><span class="p">:</span> <span class="mi">3925</span>
+    <span class="p">},</span><span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="view">
+<h2>View<a class="headerlink" href="#view" title="Link to this heading">¶</a></h2>
+<p>Unter Query <code class="docutils literal notranslate"><span class="pre">adressen</span></code> bauen wir jetzt ein View <code class="docutils literal notranslate"><span class="pre">table</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">Model</span><span class="o">.</span><span class="n">Records</span><span class="p">,</span> <span class="nb">max</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dieser sollte beim Aufruf die ersten 100 Adressen anzeigen.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Wir haben in der Abfrage einen Filter mit Platzhalter <code class="docutils literal notranslate"><span class="pre">{{plz}}</span></code> angegeben.
+Darum kann es sein, dass die Tabelle <em>leer</em> ist. Die Parameter muss jetzt auch an den <em>View</em>
+übergeben werden. Das kann zum Test auch über die Einstellungen des <em>Views</em> erfolgen:</p>
+<p>Unter <code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">Url</span> <span class="pre">Parameters</span></code> kann <code class="docutils literal notranslate"><span class="pre">plz=3100</span></code> eingetragen werden.</p>
+</div>
+<p>In nächsten Schritt erweitern wir den <em>View</em> noch um einen Filter, um nach Postleitenzahlen zu filtern.
+Der Filter sollte eine Auswahlliste an Postleitzahlen anführen, der über die DataLinq Abfrage <code class="docutils literal notranslate"><span class="pre">adresse-distinct-plz</span></code>
+befüllt wird:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">FilterView</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="s2">&quot;Filter123&quot;</span><span class="p">,</span>
+            <span class="n">filterParameters</span><span class="p">:</span> <span class="n">new</span> <span class="n">Dictionary</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">{</span>
+                <span class="p">{</span><span class="s2">&quot;plz&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Postleitzahl&quot;</span><span class="p">,</span>
+                              <span class="n">source</span><span class="o">=</span><span class="s2">&quot;geojson-gview@adressen-distinct-plz&quot;</span><span class="p">,</span>
+                              <span class="n">valueField</span><span class="o">=</span><span class="s2">&quot;plz&quot;</span><span class="p">,</span>
+                              <span class="n">nameField</span><span class="o">=</span><span class="s2">&quot;plz&quot;</span> <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+
+<span class="nd">@DLH</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">Model</span><span class="o">.</span><span class="n">Records</span><span class="p">,</span> <span class="nb">max</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Führt man den <em>View</em> aus, sollte die Tabelle über die Postleitzahl filtern können.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">GeoJson Einbinden</a><ul>
+<li><a class="reference internal" href="#endpunkt">Endpunkt</a></li>
+<li><a class="reference internal" href="#abfragen">Abfragen</a></li>
+<li><a class="reference internal" href="#view">View</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="editcustomers.html">
+                    <span class="icon">&lt;</span><span>Kundendatenbank bearbeiten</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../../../tutorials/index.html"><span>Tutorials</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
