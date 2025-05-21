@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snapping &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Stützpunkt(e) konstruieren" href="construct.html" />
+    <link rel="prev" title="Sketch Werkzeuge" href="sketchtools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../identify/index.html">Abfrage Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">Allgemeine Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sketch/Entwurfswerkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="index.html#ruckgangig-undo">Rückgängig/Undo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#vertex-bearbeiten">Vertex Bearbeiten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#shortcuts">Shortcuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#vertices-selektieren">Vertices selektieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#sketch-entfernen">Sketch entfernen</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html#abschnitt-schlieszen-neuen-beginnen">Abschnitt schließen/neuen beginnen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Sketch/Entwurfswerkzeuge</a></li>
+      <li class="breadcrumb-item active">Snapping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/sketch/snapping.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="snapping">
+<h1>Snapping<a class="headerlink" href="#snapping" title="Link to this heading"></a></h1>
+<p>Über rechte Maustaste (egal ob in Karte oder auf Sketch) und <em>Snapping …</em> kann ausgewählt werden, auf welche Schema der Objektfang (Snapping) aktiviert werden soll.
+Des weiteren kann festgelegt werden, ob nur Kanten, Knoten oder Endpunkt snapbar sind. Snapbare Linien werden dann in gelb dargestellt, wenn man mit der Maus in deren Nähe fährt.</p>
+<img alt="../../../_images/snapping1.png" src="../../../_images/snapping1.png" />
+<p>Bei aktiviertem Snapping scheinen dann im Menü noch weitere Optionen auf, welche hier genauer erläutert werden.</p>
+<img alt="../../../_images/snapping2.png" src="../../../_images/snapping2.png" />
+<section id="mit-kante-verschneiden">
+<h2>Mit Kante verschneiden<a class="headerlink" href="#mit-kante-verschneiden" title="Link to this heading"></a></h2>
+<p>Wenn man eine Distanz oder Richtung fixiert hat, erscheint zusätzlich die Funktion <em>Mit Kante verschneiden</em>. Damit kann man den Schnittpunkt einer snapbaren Kante und der fixierten Richtung/Distanz ermitteln.</p>
+</section>
+<section id="mittelpunkt-kante">
+<h2>Mittelpunkt Kante<a class="headerlink" href="#mittelpunkt-kante" title="Link to this heading"></a></h2>
+<p>Mit dieser Option kann der Mittelpunkt einer snapbaren Kante gewählt werden.
+Dazu muss mit der rechten Maustaste auf die dementsprechende Kante geklickt werden und dann <em>Mittelpunkt Kante</em> gewählt werden.</p>
+</section>
+<section id="richtung-fixieren-parallel">
+<h2>Richtung fixieren: Parallel<a class="headerlink" href="#richtung-fixieren-parallel" title="Link to this heading"></a></h2>
+<p>Mit dieser Option können z.B. Linien verlängert werden.
+Dafür muss mit der rechten Maustaste auf die zu verlängernde Linie geklickt werden und dann <em>Richtung fixieren: Parallel</em> gewählt werden.
+Dadurch wird die Verlängerung der Linie in grün dargestellt.</p>
+<img alt="../../../_images/snapping3.png" src="../../../_images/snapping3.png" />
+<p>Zudem kann man hierbei auch mit einem weiteren rechten Mausklick in die Karte eine gewünschte Distanz für die Länge der neuen parallelen Kante eingeben.</p>
+<img alt="../../../_images/snapping11.png" src="../../../_images/snapping11.png" />
+</section>
+<section id="richtung-fixieren-rechtwinklig">
+<h2>Richtung fixieren: Rechtwinklig<a class="headerlink" href="#richtung-fixieren-rechtwinklig" title="Link to this heading"></a></h2>
+<p>Mit dieser Option kann ähnlich wie beim <em>Richtung fixieren: Parallel</em> der neue Vertex rechtwinklig auf die zuvor gesetzte Kante positioniert werden.</p>
+<img alt="../../../_images/snapping4.png" src="../../../_images/snapping4.png" />
+</section>
+<section id="distanz-fixieren">
+<h2>Distanz fixieren<a class="headerlink" href="#distanz-fixieren" title="Link to this heading"></a></h2>
+<p>Mit <em>Distanz fixieren</em> lässt sich die Distanz zwischen dem zuletzt gesetztem Vertex und einem snapbaren Objekt fixieren. Mit Hilfe einer grünen Hilfslinie kann der nächste
+Vertex in der fixierten Distanz platziert werden.
+Diese Funktion lässt sich über einen erneuten rechten Mausklick und anschließendem <em>Distanz fixieren: aus</em> wieder beenden.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sketchtools.html" class="btn btn-neutral float-left" title="Sketch Werkzeuge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="construct.html" class="btn btn-neutral float-right" title="Stützpunkt(e) konstruieren" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

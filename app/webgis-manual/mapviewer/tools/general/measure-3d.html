@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D messen &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Darstellungswerkzeuge" href="../presentation/index.html" />
+    <link rel="prev" title="Bilder Georeferenzieren" href="georef-image.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../identify/index.html">Abfrage Werkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Allgemeine Werkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="measure-line.html">Strecke messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="measure-area.html">Fläche messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="circle.html">Umgebungskreis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profile.html">Höhenprofil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="redlining/index.html">Zeichnen (Redlining)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapmarkup/index.html">Zeichnen (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="editing/index.html">Bearbeiten (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="georeference.html">Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="georef-image.html">Bilder Georeferenzieren</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3D messen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sketch/index.html">Sketch/Entwurfswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Allgemeine Werkzeuge</a></li>
+      <li class="breadcrumb-item active">3D messen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/general/measure-3d.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-messen">
+<h1>3D messen<a class="headerlink" href="#d-messen" title="Link to this heading"></a></h1>
+<p>Mit diesem Werkzeug kann ein 3D-Modell erstellt werden, in welchem auch Messungen durchgeführt werden können.</p>
+<p>Nach Klicken auf das Werkzeug öffnet sich das Menü, in welchem mehrere Spezifikationen eingestellt werden können.</p>
+<img alt="../../../_images/meas3d1.png" src="../../../_images/meas3d1.png" />
+<p><strong>Bounding Box</strong></p>
+<p>Dafür muss zuerst der Bereich des 3D-Modells bestimmt werden. Dieser kann entweder über den aktuellen Ausschnitt oder über Aufziehen eines Rechteckes definiert werden.
+Alternativ können die Koordinaten auch händisch eingetragen werden.</p>
+<p><strong>Höhenmodell</strong></p>
+<p>Unter Höhenmodell kann das gewünschte Höhenmodell ausgewählt werden, auf dessen Basis das 3D-Modell erstellt wird.</p>
+<p><strong>Auflösung</strong></p>
+<p>Des weiteren muss die Auflösung des 3D-Modelles festgelegt werden.
+Die bestmögliche Auflösung, welche von der Größe des Ausschnitts sowie vom Oberflächenmodell im Hintergrund abhängt, wird bereits im Feld vorgeschlagen.
+Wird die Auflösung zu fein gewählt, wird eine Warnung beim Erstellen des 3D-Modelles kommen.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Je größer die Bounding Box und je feiner die Auflösung ist, desto umfangreicher wird das 3D-Modell.</p>
+</div>
+<p><strong>Darstellung (Textur)</strong></p>
+<p>Für die Darstellung des 3D-Modells können unterschiedliche Texturen gewählt werden.
+Die jeweilig gewählte Textur sieht man dann direkt in der Vorschau.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Modell</span> <span class="pre">erzeugen</span> <span class="pre">...</span></code> wird zum ausgewähltem 3D-Modell gewechselt.</p>
+<img alt="../../../_images/meas3d2.png" src="../../../_images/meas3d2.png" />
+<p>In diesem View gibt es folgende Navigationsmöglichkeiten:</p>
+<ul class="simple">
+<li><p><strong>verschieben:</strong> Dazu muss mit der rechten Maustaste in das Modell geklickt und bei gedrückt gehaltener Maustaste das Modell verschoben werden. Durch das Loslassen der Maustaste wird der Vorgang beendet.</p></li>
+<li><p><strong>zoomen:</strong> Dies kann mithilfe des Mausrades erfolgen. Das nach Vorne drehen des Mausrads verkleinert den Ausschnitt und umgekehrt.</p></li>
+<li><p><strong>drehen:</strong> Dazu muss mit der linken Maustaste in das Modell geklickt und bei gedrückt gehaltener Maustaste das Modell verdreht werden.</p></li>
+</ul>
+<p>Rechts unten befindet sich eine Box mit den Lageinformationen zur Mausposition.</p>
+<p>Durch einfaches Klicken in die Karte wird ein Stützpunkt gesetzt. Werden weitere Stützpunkte gesetzt, wird die Länge in 2D und 3D sowie die Höhendifferenz zwischen den jeweiligen Stützpunkten berechnet.</p>
+<img alt="../../../_images/meas3d4.png" src="../../../_images/meas3d4.png" />
+<p>Gelb hinterlegt ist die Summe der Längen sowie der summierte Höhenunterschied aller Stützpunkte ersichtlich.</p>
+<img alt="../../../_images/meas3d5.png" src="../../../_images/meas3d5.png" />
+<p>Mit dem <code class="docutils literal notranslate"><span class="pre">Undo</span></code> Button kann der zuletzt gesetzte Stützpunkt entfernt werden. Durch einen Klick auf den <code class="docutils literal notranslate"><span class="pre">Alle</span> <span class="pre">entfernen</span></code> Button werden alle Stützpunkte entfernt.</p>
+<p>Über das <code class="docutils literal notranslate"><span class="pre">X</span></code> rechts oben kann das 3D-Modell wieder geschlossen werden.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="georef-image.html" class="btn btn-neutral float-left" title="Bilder Georeferenzieren" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="../presentation/index.html" class="btn btn-neutral float-right" title="Darstellungswerkzeuge" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

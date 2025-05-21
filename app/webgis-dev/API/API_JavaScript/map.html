@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>WebGIS 5.0 API: map &#8212; webgis 1.0 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=bfd86df6" />
+    <script src="../../_static/documentation_options.js?v=8fdbe8ab"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="WebGIS 5.0 API: service" href="service.html" />
+    <link rel="prev" title="WebGIS 5.0 API: graphics" href="graphics.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">webgis 1.0 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">JavaScript</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="graphics.html">graphics</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="service.html">service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketch.html">sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui.html">ui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webgis.html">webgis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../clients/index.html">C# Clients</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../embedded/index.html">Eingebettete Karten</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="webgis-5-0-api-map">
+<h1>WebGIS 5.0 API: map<a class="headerlink" href="#webgis-5-0-api-map" title="Link to this heading">¶</a></h1>
+<section id="members">
+<h2>Members<a class="headerlink" href="#members" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#adddynamiccontentanchor"><span class="std std-ref">addDynamicContent (contentItems, loadFirst)</span></a></p></td>
+<td><p>Zum Hinzufügen von dynamischem Inhalt in eine Karte.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#addmarkeranchor"><span class="std std-ref">addMarker (options)</span></a></p></td>
+<td><p>Fügt einen Marker der Karte hinzu.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#currentbasemapserviceidanchor"><span class="std std-ref">currentBasemapServiceId ()</span></a></p></td>
+<td><p>Frage die Id des aktuellen Hintergrunddienstes ab.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#getserviceanchor"><span class="std std-ref">getService (id)</span></a></p></td>
+<td><p>Gibt das entsprechende Service Objekt zurück.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#printanchor"><span class="std std-ref">print (options, callback)</span></a></p></td>
+<td><p>Erzeugt aus der aktuell dargestellten Karte einen Ausdruck bzw. ein Bild.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#removemarkeranchor"><span class="std std-ref">removeMarker (marker)</span></a></p></td>
+<td><p>Entfernt einen Marker aus der Karte.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#removemarkergroupanchor"><span class="std std-ref">removeMarkerGroup (groupName)</span></a></p></td>
+<td><p>Entfernt alle Marker, die mit der Methode toMarkerGroup() einer bestimmten Gruppe zugeor…</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#serviceidsanchor"><span class="std std-ref">serviceIds ()</span></a></p></td>
+<td><p>Gibt ein Array mit den Ids aller Services (Kartendiensten) zurück, die in der Karte eingebun..</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#setbasemapanchor"><span class="std std-ref">setBasemap (serviceId)</span></a></p></td>
+<td><p>Schaltet eine entsprechende Hintergrundkarte sichtbar</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#setscaleanchor"><span class="std std-ref">setScale (s, center)</span></a></p></td>
+<td><p>Zoomt die Karte auf einen Punkt und Maßstab.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#tomarkergroupanchor"><span class="std std-ref">toMarkerGroup (groupName, marker)</span></a></p></td>
+<td><p>Mit dieser Methode kann ein Marker einer Gruppe zugeordnet werden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#zoomtoanchormap"><span class="std std-ref">zoomTo (bounds, project)</span></a></p></td>
+<td><p>Zoomt die Karte auf einen übergebenen Ausschnitt.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#graphicspropertyanchor"><span class="std std-ref">graphics</span></a></p></td>
+<td><p>Das graphics Element für diese Karte.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#sketchpropertyanchor"><span class="std std-ref">sketch</span></a></p></td>
+<td><p>Über diess Eigenschaft erfolgt der Zugriff auf den Sketch in der Karte.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="member-details">
+<h2>Member Details<a class="headerlink" href="#member-details" title="Link to this heading">¶</a></h2>
+<section id="adddynamiccontent-contentitems-loadfirst">
+<span id="adddynamiccontentanchor"></span><h3>addDynamicContent (contentItems, loadFirst)<a class="headerlink" href="#adddynamiccontent-contentitems-loadfirst" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Zum Hinzufügen von dynamischem Inhalt in eine Karte.</p>
+<p>Dynamischer Inhalt kann dabei sein:</p>
+<ul class="simple">
+<li><p>Ein GeoRSS Dienst</p></li>
+<li><p>Ein GeoJson Dienst</p></li>
+<li><p>Eine von der API veröffentlichte Abfrage</p></li>
+</ul>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">addDynamicContent</span><span class="p">([</span>
+<span class="w">        </span><span class="p">{</span><span class="w">   </span><span class="c1">// Einbinden einer vordefinierten API Suche</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id1&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Dynamische Inhalt 1&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/rest/services/serviceid@cms/queries/queryid&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;api-query&#39;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w">   </span><span class="c1">// Einbinden einer vordefinierten API Suche mit suchbegriff(en)</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id2&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Dynamische Inhalt 2&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/rest/services/serviceid@cms/queries/queryid/query?suchbegriff=wert&amp;..&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;api-query&#39;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id3&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Geo RSS Dienst&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://....../info.rss&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;georss&#39;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id3&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GeoJson Dienst&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://....../info.json&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;geojson&#39;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">     </span><span class="p">],</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="addmarker-options">
+<span id="addmarkeranchor"></span><h3>addMarker (options)<a class="headerlink" href="#addmarker-options" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Fügt einen Marker der Karte hinzu. Als Parameter wird ein Objekt übergeben, dass mindestens die geographischen Koordinaten des Markers enthalten muss. Zusätzlich kann noch beispielsweise ein Text übergeben werden, der dann in einem Popup für den Marker dargestellt wird.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">marker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="nx">lngLat</span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">lng</span><span class="o">:</span><span class="w"> </span><span class="nx">lngLat</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">icon</span><span class="o">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ich bin hier: (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">openPopup</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">buttons</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Marker entfernen&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">onclick</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">marker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarker</span><span class="p">(</span><span class="nx">marker</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Hier wird noch ein Text für das Popup Fenster übergeben. Außerdem soll das Popup Fenster gleich geöffnet werden. Mit der Eigenschaft <code class="docutils literal notranslate"><span class="pre">buttons</span></code> kann noch ein Array von Objekten übergeben werden, die dann im Popup als Buttons dargestellt werden. Das Klickevent kann hier über die Eigentschaft onclick für jeden Button angeführt werden und erhält als Parameter das Map Objekt.</p>
+<p>Als Icon können über die entsprechende <code class="docutils literal notranslate"><span class="pre">icon</span></code>-Eigenschaft gesetzt werden. Mögliche Werte sind hier</p>
+<ul class="simple">
+<li><p>blue</p></li>
+<li><p>currentpos_red</p></li>
+<li><p>currentpos_green</p></li>
+<li><p>sektch_vertex</p></li>
+</ul>
+<p>übergeben werden. Übergibt man dieser Eigenschaft ein Objekt, können auch komplett benutzerdefinierte Marker erstellt werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">iconUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://...&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Url zu einem Icon Bild</span>
+<span class="w">    </span><span class="nx">iconSize</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">],</span><span class="w"> </span><span class="c1">// Größe des Bildes</span>
+<span class="w">    </span><span class="nx">iconAnchor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">],</span><span class="w"> </span><span class="c1">// Einfügepunkt des Markers in Bildkoordinaten</span>
+<span class="w">    </span><span class="nx">popupAnchor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="c1">// Einfügepunkt des Popups in Bildkoordinaten</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="currentbasemapserviceid">
+<span id="currentbasemapserviceidanchor"></span><h3>currentBasemapServiceId ()<a class="headerlink" href="#currentbasemapserviceid" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Frage die Id des aktuellen Hintergrunddienstes ab. Hintergrunddienste sind immer Tiling Dienste (Kacheln).</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">basemapId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">currentBasemapServiceId</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="getservice-id">
+<span id="getserviceanchor"></span><h3>getService (id)<a class="headerlink" href="#getservice-id" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Gibt das entsprechende Service Objekt zurück.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="print-options-callback">
+<span id="printanchor"></span><h3>print (options, callback)<a class="headerlink" href="#print-options-callback" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Erzeugt aus der aktuell dargestellten Karte einen Ausdruck bzw. ein Bild. In diesem Bild sind alle Dienste, Kacheln und dargestellen Graphiken (gilt nicht für den aktuellen Werkzeugsketch oder Marker von Abfrageergebnissen) zusamengefasst.</p>
+<p>Der erste Parameter gibt Optionen an, die das zurückgebene Bild beschreiben. Hier sind alle Eigenschaften optional (siehe Beispiel). Wichtig sind vor allem die Eigenschaften <code class="docutils literal notranslate"><span class="pre">imageWidth</span></code> und <code class="docutils literal notranslate"><span class="pre">imageHeight</span></code>, die die Größe des ausgegeben Bildes beschreiben. Die Defaultwerte sind hier [1024, 760]. Weiters kann der Maßstab über die Eigenschaft <code class="docutils literal notranslate"><span class="pre">scale</span></code> übergeben werden. Hier ist der Defaultwert der aktuelle Maßstab in der Karte im Browser. Beim Erzeugen des Kartenbildes bleibt der übergebene Maßstab immer erhalben. Wenn sich die Bildgröße von der Größe der Karte im Browser unterscheidet, kann sich somit auch der aktuelle Auschnitt ändern. Die aufrufende API Applikation ist hier dafür verantwortlich, dass die Größe richtig übergeben wird. Wenn sich die Kartenbildgröße von der Karte im Browser unterscheidet und trotzdem der gesammte dargestellt Ausschnitt gezeichnet werden soll, muss der Maßstab (Eigenschaft scale) entsprechend angepasst werden. Der Mittelpunkt der Karte im Browser ist auch immer der Mittelpunkt im erzeugten Kartenbild.</p>
+<p>Theoretisch können auch Parameter übergeben werden, um als Rückgabe ein PDF Dokument zu bekommen. Das wird hier allerdings nicht beschrieben, da die Möglichkeiten hier vom jeweiligen Betreiber/Adrministrator der WebGIS-API abhängig ist.</p>
+<p>Die Funktion ist asynkron, der zweite Parameter ist eine Funktion, die aufgerufen wird, wenn das Kartenbild fertig ist. Dieser Funktion wird ein Objekt übergeben mit einer Eigenschaft <code class="docutils literal notranslate"><span class="pre">url</span></code>, die einen Link zum erstellen Bild entspricht.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">print</span><span class="p">({},</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// result.url....</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">pring</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">imageWidth</span><span class="o">:</span><span class="w"> </span><span class="mf">1920</span><span class="p">,</span><span class="w">    </span><span class="c1">// default: 1024</span>
+<span class="w">    </span><span class="nx">imageHeight</span><span class="o">:</span><span class="w"> </span><span class="mf">1024</span><span class="p">,</span><span class="w">   </span><span class="c1">// default: 760</span>
+<span class="w">    </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w">               </span><span class="c1">// defaullt: aktueller Maßstab in der Karte</span>
+<span class="p">},</span>
+<span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;img /&gt;&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="removemarker-marker">
+<span id="removemarkeranchor"></span><h3>removeMarker (marker)<a class="headerlink" href="#removemarker-marker" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Entfernt einen Marker aus der Karte. Einziges Argument ist hier der Marker der von der Methode <a class="reference internal" href="#addmarkeranchor"><span class="std std-ref">addMarker (options)</span></a> zurück gegeben wird.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">marker</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...});</span>
+<span class="p">...</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">removeMarker</span><span class="p">(</span><span class="nx">marker</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="removemarkergroup-groupname">
+<span id="removemarkergroupanchor"></span><h3>removeMarkerGroup (groupName)<a class="headerlink" href="#removemarkergroup-groupname" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Entfernt alle Marker, die mit der Methode <a class="reference internal" href="#tomarkergroupanchor"><span class="std std-ref">toMarkerGroup (groupName, marker)</span></a> einer bestimmten Gruppe zugeordnet wurden. Als Parameter wird der Gruppenname (Zeichenkette) übergeben.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...});</span>
+<span class="p">...</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">removeMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="serviceids">
+<span id="serviceidsanchor"></span><h3>serviceIds ()<a class="headerlink" href="#serviceids" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Gibt ein Array mit den Ids aller Services (Kartendiensten) zurück, die in der Karte eingebunden sind. Diese Methode kann verwendet werden um alle vorhanden Dienste in der Karte aufzulisten oder zu verarbeiten.</p>
+<p><em>Beispiel</em></p>
+<p>Hier wirde ein Schleife über alle Dienste ausgeführt und danach mit der Methode <a class="reference internal" href="#getserviceanchor"><span class="std std-ref">getService (id)</span></a> das eigentliche service-Object abgefragt. Danach kann auf die Methode und Eigenschaften des Dienstes zugegriffen werden.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">serviceIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">getServiceIds</span><span class="p">();</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">serviceIds</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="nx">serviceIds</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+
+<span class="w">    </span><span class="c1">// do something</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nx">service</span><span class="p">.</span><span class="nx">setOpacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="setbasemap-serviceid">
+<span id="setbasemapanchor"></span><h3>setBasemap (serviceId)<a class="headerlink" href="#setbasemap-serviceid" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Schaltet eine entsprechende Hintergrundkarte sichtbar. Als Hintergrundkarte ist hier immer Tiling-Dinst zu verstehen. Da immer nur ein Hintergrunddienst gleichzeit sichtbar ist, wird mit dieser Methode der aktuelle Hintergrunddienst automatisch ausgeblendet.</p>
+<p>Als Parameter wird die Id des Hintergrunddienstes übergeben.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">setBasemap</span><span class="p">(</span><span class="s1">&#39;ortsplan@ccgis-default&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="setscale-s-center">
+<span id="setscaleanchor"></span><h3>setScale (s, center)<a class="headerlink" href="#setscale-s-center" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Zoomt die Karte auf einen Punkt und Maßstab. Der erste Parameter ist der Maßstab (zb 1000 für 1:1000). Der zweite Paremeter ist das neue Kartenzentrum als Array von geographischen Koordinaten [Lng, Lat].</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">zoomTo</span><span class="p">(</span><span class="mf">1000</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">46</span><span class="p">]);</span><span class="w">   </span><span class="c1">// Maßstab 1:1000</span>
+</pre></div>
+</div>
+</section>
+<section id="tomarkergroup-groupname-marker">
+<span id="tomarkergroupanchor"></span><h3>toMarkerGroup (groupName, marker)<a class="headerlink" href="#tomarkergroup-groupname-marker" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Mit dieser Methode kann ein Marker einer Gruppe zugeordnet werden. Das Gruppe ist hier eine beliebige Zeichenkette zu verstehen, die als Klammer für gleichartige Marker dient. Durch das Zuordnen von Markern in eine Gruppe wird später das entfernen dieser Marker einfacher, siehe Methode <a class="reference internal" href="#removemarkergroupanchor"><span class="std std-ref">removeMarkerGroup (groupName)</span></a>.</p>
+<p>Der erster Parameter für die Methode ist der Name der Gruppe, der zweite Parameter entspricht dem Marker, wie er von der Methode <a class="reference internal" href="#addmarkeranchor"><span class="std std-ref">addMarker (options)</span></a> zurückgegeben wird.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...}));</span>
+</pre></div>
+</div>
+</section>
+<section id="zoomto-bounds-project">
+<span id="zoomtoanchormap"></span><h3>zoomTo (bounds, project)<a class="headerlink" href="#zoomto-bounds-project" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Zoomt die Karte auf einen übergebenen Ausschnitt. Der erste Paremeter ist ein Array mit den Werten der BoundingBox: [min-Lng, min-Lat, max-Lng, max-Lat].</p>
+<p>Lng steht hier für Longitude, also die geographische Länge (Längengrad)</p>
+<p>Lat steht hier für Latitude, also die geographische Breite (Breitengrad)</p>
+<p>Der zweite Parameter ist optional und ein Bool-Werte.</p>
+<p>Die Methode erwartet als BoundingBox geographische Koordinaten (Länge [-180…+180], Breite [-90…+90]). Wird für den zweiten Parameter der Wert true übergeben, können hier auch projezierte Koordinaten in System der Karte übergeben werden.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">zoomTo</span><span class="p">([</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">47</span><span class="p">,</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="mf">28</span><span class="p">]);</span>
+
+<span class="nx">map</span><span class="p">.</span><span class="nx">zoomTo</span><span class="p">([</span><span class="o">-</span><span class="mf">68000</span><span class="p">,</span><span class="w"> </span><span class="mf">215000</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">69000</span><span class="p">,</span><span class="w"> </span><span class="mf">216000</span><span class="p">],</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="c1">// zB bei Kartenprojetion 31256 - GK-M34</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="property-details">
+<h2>Property Details<a class="headerlink" href="#property-details" title="Link to this heading">¶</a></h2>
+<section id="graphics">
+<span id="graphicspropertyanchor"></span><h3>graphics<a class="headerlink" href="#graphics" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Das graphics Element für diese Karte. Damit hat man Zugriff auf auf graphische Overlays (Linien, Symbole, Flächen) bzw. kann solche der Karte hinzufügen.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">fromGeoJson</span><span class="p">(</span><span class="nx">geoJson</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="sketch">
+<span id="sketchpropertyanchor"></span><h3>sketch<a class="headerlink" href="#sketch" title="Link to this heading">¶</a></h3>
+<p><em>Beschreibung</em></p>
+<p>Über diess Eigenschaft erfolgt der Zugriff auf den Sketch in der Karte. Mit dem Sketch hat der Anwender die Möglichkeit, Objekte zu zeichnen. Dies wird beispielsweise beim Messen oder Bearbeiten verwendet.</p>
+<p><em>Beispiel</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">sketch</span><span class="p">.</span><span class="nx">zoomTo</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">WebGIS 5.0 API: map</a><ul>
+<li><a class="reference internal" href="#members">Members</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#member-details">Member Details</a><ul>
+<li><a class="reference internal" href="#adddynamiccontent-contentitems-loadfirst">addDynamicContent (contentItems, loadFirst)</a></li>
+<li><a class="reference internal" href="#addmarker-options">addMarker (options)</a></li>
+<li><a class="reference internal" href="#currentbasemapserviceid">currentBasemapServiceId ()</a></li>
+<li><a class="reference internal" href="#getservice-id">getService (id)</a></li>
+<li><a class="reference internal" href="#print-options-callback">print (options, callback)</a></li>
+<li><a class="reference internal" href="#removemarker-marker">removeMarker (marker)</a></li>
+<li><a class="reference internal" href="#removemarkergroup-groupname">removeMarkerGroup (groupName)</a></li>
+<li><a class="reference internal" href="#serviceids">serviceIds ()</a></li>
+<li><a class="reference internal" href="#setbasemap-serviceid">setBasemap (serviceId)</a></li>
+<li><a class="reference internal" href="#setscale-s-center">setScale (s, center)</a></li>
+<li><a class="reference internal" href="#tomarkergroup-groupname-marker">toMarkerGroup (groupName, marker)</a></li>
+<li><a class="reference internal" href="#zoomto-bounds-project">zoomTo (bounds, project)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#property-details">Property Details</a><ul>
+<li><a class="reference internal" href="#graphics">graphics</a></li>
+<li><a class="reference internal" href="#sketch">sketch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="graphics.html">
+                    <span class="icon">&lt;</span><span>WebGIS 5.0 API: graphics</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="service.html"><span>WebGIS 5.0 API: service</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

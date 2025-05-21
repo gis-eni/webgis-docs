@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zeichnen (Map Markup &amp; Annotations) &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../../search.html" />
+    <link rel="next" title="Bedienung Werkzeug Zeichnen (Map-Markup)" href="manual.html" />
+    <link rel="prev" title="Elemente aus Selektion ins Redlining übernehmen" href="../redlining/selection.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../identify/index.html">Abfrage Werkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Allgemeine Werkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../measure-line.html">Strecke messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-area.html">Fläche messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../circle.html">Umgebungskreis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../profile.html">Höhenprofil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../redlining/index.html">Zeichnen (Redlining)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Zeichnen (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Bearbeiten (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georeference.html">Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georef-image.html">Bilder Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-3d.html">3D messen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sketch/index.html">Sketch/Entwurfswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Allgemeine Werkzeuge</a></li>
+      <li class="breadcrumb-item active">Zeichnen (Map Markup &amp; Annotations)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/mapviewer/tools/general/mapmarkup/index.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zeichnen-map-markup-annotations">
+<span id="mapmarkup"></span><h1>Zeichnen (Map Markup &amp; Annotations)<a class="headerlink" href="#zeichnen-map-markup-annotations" title="Link to this heading"></a></h1>
+<p>Zeichnen (Map-Markup) ist ein sehr mächtiges Kartenwerkzeug und kann für verschiedene Anwendungen verwendet werden.
+Die Grundidee von Map-Markup ist es, die Karte mit Zeichenelementen (Linien, Flächen, Texte, Symbole) zu erweitern
+und Orte für einen Ausdruck zu markieren, zu verschicken oder anderweitig zur Verfügung zu stellen.</p>
+<p>Mit Map-Markup sollten nur kurzlebige Zeichnungen erstellt werden, die auch nicht zu viele Objekte enthalten.
+Die Zeichnungen können zwar gespeichert werden, müssen aber nicht ewig vom Kartenviewer-Betreiber auf dem Server
+behalten werden.</p>
+<p>Ebenfalls besteht die Möglichkeit, das Map-Markup herunterzuladen und selbst zu speichern. Allerdings sollte auch
+hier darauf hingewiesen werden, dass zukünftige Versionen der Software nicht hundertprozentig kompatibel mit alten
+Projektdaten sein müssen und gewisse Eigenschaften verloren gehen können.</p>
+<p>Wenn Sie das Tool zum ersten Mal nutzen, sollten Sie eventuell die unten stehenden Punkte berücksichtigen.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">Bedienung Werkzeug Zeichnen (Map-Markup)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#allgemeine-bedienung">Allgemeine Bedienung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#neues-element-zeichnen">Neues Element zeichnen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#symbolik-andern">Symbolik ändern</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#unterschiedliches-verhalten-von-elementtypen">Unterschiedliches Verhalten von Elementtypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#bestehendes-element-verandern">Bestehendes Element verändern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#bestehendes-element-loschen">Bestehendes Element löschen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#elemente-beschriften">Elemente Beschriften</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced-tools.html">Spezialwerkzeuge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced-tools.html#umgebungskreis">Umgebungskreis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-tools.html#bemaszungslinie">Bemaßungslinie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-tools.html#hektometrierungslinie">Hektometrierungslinie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-tools.html#kompass">Kompass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">Zeichnungen Verwalten</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#zeichnung-speichern">Zeichnung speichern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#zeichnung-laden">Zeichnung laden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#zeichnung-teilen">Zeichnung teilen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#zeichnung-herunterladen">Zeichnung herunterladen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html#zeichnung-hochladen">Zeichnung hochladen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selection.html">Elemente aus Selektion ins Map-Markup übernehmen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="selection.html#vorgehensweise">Vorgehensweise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selection.html#formen-der-ubernahme">Formen der Übernahme</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="beispiele-fur-gute-anwendungsfalle">
+<h2>Beispiele für gute Anwendungsfälle<a class="headerlink" href="#beispiele-fur-gute-anwendungsfalle" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Markieren eines Standortes und Ausdrucken bzw. Teilen der Karte</p></li>
+<li><p>Einzeichnen von kurzen Wegbeschreibungen (ebenfalls zum Drucken oder Teilen)</p></li>
+<li><p>Einzeichnen von (Wander) Wegen und herunterladen der Tracks im GPX Format für ein Navigationsgerät</p></li>
+<li><p>Hochladen von bestehenden GPX Dateien, um die Tracks und Wegpunkte zu drucken oder zu teilen</p></li>
+<li><p>Kleinere lokal begrenzte Projektierungen. Dabei sollten die Zeichnungen nach der Fertigstellung allerdings heruntergeladen und gespeichert werden, um keinen Datenverlust zu erleiden.</p></li>
+<li><p>Kleinere lokal begrenzte Projektierungen auf Basis der Kartendaten und Herunterladen der gezeichneten Geo-Objekte im Esri Shape Format zum Weiterverarbeiten in unterschiedlichen Softwarepaketen.</p></li>
+</ul>
+</section>
+<section id="beispiele-fur-schlechte-anwendungsfalle">
+<h2>Beispiele für schlechte Anwendungsfälle<a class="headerlink" href="#beispiele-fur-schlechte-anwendungsfalle" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Größere und lokal ausgedehnte Projekte und Verspeicherung dieser Projekte am Server des Kartenviewer Betreibers</p></li>
+<li><p>Verwalten von Leitungs-/Kanalnetzen für eine komplette Gemeinde/Kommunalverband</p></li>
+<li><p>Verwaltung/Erstellung von Flächenwidmungsplänen</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Für die hier als schlechte Beispiele angeführten Anwendungsfälle eignet sich eher das Editing/Bearbeiten Werkzeug!</p>
+</div>
+</section>
+<section id="alternativen">
+<h2>Alternativen<a class="headerlink" href="#alternativen" title="Link to this heading"></a></h2>
+<p>Möchten Sie ein hier angeführtes Projekt mit dem Kartenviewer umsetzen, wenden Sie sich bitte an den
+Betreiber des Kartenviewers oder an den Betreiber von <a class="reference external" href="http://webgiscoud.com">http://webgiscoud.com</a>.</p>
+<p>Der bessere Ansatz ist hier, mit den Editwerkzeugen zu arbeiten. Damit werden die gezeichneten Geo-Objekte in einer
+Geodatenbank gespeichert, was folgende Vorteile bringt:</p>
+<ul class="simple">
+<li><p>Daten bleiben dauerhaft gespeichert</p></li>
+<li><p>Daten können aus einer Geodatenbank leichter in eine andere Geodatenbank überführt werden. Man kann also vorerst einmal klein beginnen und den Kartenviewer als Edit-Client verwenden und bei Bedarf auf ein eigenes GI-System umsteigen.</p></li>
+<li><p>Pflege von Sachdaten: Neben der Geometrie können auch beliebige Sachdaten mit der Geometrie verknüpft werden (Widmungsart, Baujahr, Material, …)</p></li>
+<li><p>Mehr Möglichkeiten in der kartographischen Darstellung der Daten</p></li>
+<li><p>Bessere Performance bei großen Datenmengen (quasi keine Größenbeschränkung der Projekte)</p></li>
+<li><p>Mehrbenutzer Betrieb: Mehrere Anwender können gleichzeitig (je nach Berechtigung) Geodaten bearbeiten</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../redlining/selection.html" class="btn btn-neutral float-left" title="Elemente aus Selektion ins Redlining übernehmen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="manual.html" class="btn btn-neutral float-right" title="Bedienung Werkzeug Zeichnen (Map-Markup)" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

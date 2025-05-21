@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Willkommen bei WebGIS &#8212; WebGIS 2025 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
+    <script src="_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=70a09b52"></script>
+    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="Installation" href="installation/index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="#" title="Go to homepage">WebGIS 2025 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run/index.html">WebGIS Anwendungen Ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config/index.html">Konfiguration (Postinstallation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apps/index.html">WebGIS Applikationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extended_config/index.html">Erweiterte Werkzeugkonfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex/index.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="willkommen-bei-webgis">
+<h1>Willkommen bei WebGIS<a class="headerlink" href="#willkommen-bei-webgis" title="Link to this heading">¶</a></h1>
+<p>WebGIS ist ein flexibles Open Source Framework zur Erstellung und Bereitstellung interaktiver Karten- und Feature-Dienste. Über eine intuitive Web-Oberfläche können Kartenanwendungen konfiguriert und verwaltet werden – ob lokal am Client oder serverseitig gehostet. Dabei werden Karten mithilfe integrierter Tools erstellt, die es ermöglichen, verschiedene Geodatenquellen als individuell gestaltbare Layer einzubinden.</p>
+<p>Fertige Kartenanwendungen können über den WebGIS Server publiziert und über standardisierte Schnittstellen wie WMTS, WMS, ArcGIS Server oder ArcIMS abgerufen werden. So bietet WebGIS eine modulare Plattform für die Realisierung moderner Geoinformationssysteme, die sowohl Administratoren als auch Endanwendern gerecht wird.</p>
+<section id="aufbau-der-webgis-plattform-architektur">
+<h2>Aufbau der WebGIS Plattform (Architektur)<a class="headerlink" href="#aufbau-der-webgis-plattform-architektur" title="Link to this heading">¶</a></h2>
+<p>Über die <em>WebGIS Plattform</em> können Karten mit <em>Hintergrund-</em> und <em>Fachdaten</em> über eine Browseranwendung angeboten werden.
+Die  <em>Hintergrund-</em> und <em>Fachdaten</em> müssen dabei über gängige Kartendienst-Schnittstellen implementiert werden:</p>
+<ul class="simple">
+<li><p>WMTS</p></li>
+<li><p>WMS</p></li>
+<li><p>ArcGIS Server</p></li>
+<li><p>ArcIMS</p></li>
+</ul>
+<p>Die <em>WebGIS Plattform</em> bietet Werkzeuge zur Darstellung und Abfrage dieser Kartendienste. Abhängig von den Eigenschaften des Kartendiensts können die Geodaten auch erstellt und bearbeitet werden.</p>
+<p><em>WebGIS</em> bietet keine Werkzeuge zum <em>Hosten</em> von Kartendiensten. Die Kartendienste müssen von eigenen Applikationen, sogenannten Kartenservern gehostet werden.
+Beispiele für Kartenserver sind beispielsweise <em>GeoServer</em> (<a class="reference external" href="https://geoserver.org/">https://geoserver.org/</a>), <em>gView Server</em> (<a class="reference external" href="https://github.com/jugstalt/gview-gis">https://github.com/jugstalt/gview-gis</a>) oder auch kommerzielle Produkte wie <em>ArcGIS Server</em> (<a class="reference external" href="https://www.esri.com/">https://www.esri.com/</a>).
+Die Kartenserver greifen in der Regel über ihr Backend auf Geodaten in einer Datenbank zu (z.B. PostGreSQL/PostGIS) und implementieren eine der oben angeführten Schnittstellen.</p>
+<p>Mit dieser Methode lassen sich sehr gut verteilte Kartenanwendungen erstellen. Möchte man eigene Daten über <em>WebGIS</em> veröffentlichen, ist zusätzlich ein Kartenserver notwendig:</p>
+<img alt="_images/architecture1.png" src="_images/architecture1.png" />
+</section>
+<section id="webgis-anwendungen-ubersicht">
+<h2>WebGIS Anwendungen (Übersicht)<a class="headerlink" href="#webgis-anwendungen-ubersicht" title="Link to this heading">¶</a></h2>
+<img alt="_images/architecture2.png" src="_images/architecture2.png" />
+<p>WebGIS besteht aus den drei Anwendungen:</p>
+<ul class="simple">
+<li><p><strong>WebGIS CMS</strong>: für Administratoren</p></li>
+<li><p><strong>WebGIS API</strong>: Restschnittstelle und Javascript API</p></li>
+<li><p><strong>WebGIS Portal</strong>: Einstiegsseite für den Anwender. Hier werden Portalseiten (Kartensammlungen)
+und der Karten Viewer angeboten.</p></li>
+</ul>
+<p>Über das <strong>WebGIS CMS</strong> können Administratoren definieren, welche Dienste über die <strong>WebGIS API</strong>
+angeboten werden. Außerdem kann hier festgelegt werden, welche Themen aus den Dienst abgefragt
+werden können, wie das Abfrageergebnis dargestellt wird, welche Themen bearbeitet werden dürfen, etc.
+Die Parametrierung wird am Server in einer Baumstruktur im Filesystem abgelegt
+(entspricht in etwa der Baumstruktur in der CMS Oberfläche).
+Und die Änderungen im <strong>WebGIS CMS</strong> der <strong>WebGIS API</strong> mitzuteilen, wird im CMS ein <strong>Deploy</strong>
+ausgeführt, der aus einem CMS-Baum eine XML Datei baut.</p>
+<p>Die <strong>WebGIS API</strong> stellt Aufgrund der CMS XML Dateien Kartendienste zur Verfügung. Diese
+Dienste können über HTTP REST Requests oder über eine Javascript API abgeholt werden.</p>
+<p>Das <strong>WebGIS Portal</strong> ist die Einstiegsseite für den Anwender. Hier werden Portal-Seiten angeboten.
+Dabei handelt es sich um Sammlungen von Karten. Eine Karte ist dabei eine Anwendung, die im
+<em>Karten Viewer</em> angeboten wird, die aus mindestens einem <em>Karten Dienst</em> besteht. Welche Karten
+angeboten werden, kann ein Administrator bestimmen. Karten werden dabei mit dem <strong>MapBuilder</strong>
+erstellt. Dort wird definiert, welche <em>Karten Dienste</em> und <em>Werkzeuge</em> in einer <em>Karten</em> angeboten
+werden.</p>
+<p>Über das <strong>WebGIS Portal</strong> erfolgt auch die Authentifizierung des Anwenders. Die Rechte eines
+Anwenders (oder seiner Rolle) können ebenfalls im <strong>WebGIS CMS</strong> definiert werden und werden
+dann von der <strong>WebGIS API</strong> beim Zugriff auf die <em>Karten Dienste</em> berücksichtigt.</p>
+<section id="webgis-api">
+<h3>WebGIS API<a class="headerlink" href="#webgis-api" title="Link to this heading">¶</a></h3>
+<p>Die <em>WebGIS API</em> ist der Kern der WebGIS Plattform. Über diese Anwendung werden (Programmier-) Schnittstellen für den Zugriff auf Kartendienste
+angeboten. Als Schnittstelle wird eine REST API angeboten. Zur Entwicklung von Browserbasierten wird auch eine Javascript API angeboten, in der
+die REST API Aufrufe bereits gekapselt sind. Eine Beschreibung der Javascript API findet man hier: <a class="reference external" href="https://docs.webgiscloud.com/dev/index.html">https://docs.webgiscloud.com/dev/index.html</a></p>
+<p>Möchte man selber Kartenanwendungen entwickeln (über Javascript) ist in der Regel nur diese Anwendung zu installieren.</p>
+</section>
+<section id="webgis-portal">
+<h3>WebGIS Portal<a class="headerlink" href="#webgis-portal" title="Link to this heading">¶</a></h3>
+<p>Das <em>WebGIS Portal</em> ist eine Web-Applikationen, die auf die Schnittstellen der <em>WebGIS API</em> zugreift, und daraus fertige interaktive (Online) Karten bereitstellen kann.
+Diese Anwendung richtet sich an alle Anwender/WebGIS Betreiber, die die Kartenanwendungen nicht über Programmierschnittstellen (REST, Javascript) entwickeln wollen.</p>
+<p>Das <em>WebGIS Portal</em> bietet bereits einen voll funktionsfähigen Kartenviewer, der bereits folgende Funktionen erfüllt:</p>
+<ul class="simple">
+<li><p>Darstellung mehrerer Kartendienste innerhalb einer Kartenanwendung</p></li>
+<li><p>Schaltung einzelner Themen/Schichten/Layer der eingebunden Kartendienste</p></li>
+<li><p>Legende</p></li>
+<li><p>Abfragen und Suchen in den eingebundenen Kartendiensten</p></li>
+<li><p>Maßstäbliches Drucken von Karten im PDF Format</p></li>
+<li><p>diverse Kartenwerkzeuge (Messen, 3D Modell, Redlining, Editieren von Geodaten, Abfragen, Suchen, Koordinaten, …)</p></li>
+</ul>
+<p>Als Beispiel kann hier auf eine einfache Karte (nur Hintergrundkarten) verwiesen werden:
+<a class="reference external" href="https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at">https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at</a></p>
+<p>Für Administratoren bietet das <em>WebGIS Portal</em> einen MapBuilder, um die Karten zu erstellen. Diese Karten können dann auf sogenannten <em>Kartenportalen</em> (Kartensammlungen) veröffentlicht werden (z.B. <a class="reference external" href="https://maps.webgiscloud.com">https://maps.webgiscloud.com</a>).</p>
+</section>
+<section id="webgis-cms">
+<h3>WebGIS CMS<a class="headerlink" href="#webgis-cms" title="Link to this heading">¶</a></h3>
+<p>Das <em>WebGIS CMS</em> ist nur für Administratoren relevant und muss/soll nicht für alle Anwender von WebGIS zugänglich sein.
+Über diese Anwendung wird festgelegt, welche Kartendienste über eine <em>WebGIS API</em> Instanz zur Verfügung gestellt werden. Außerdem kann für die einzelnen Dienste bestimmt werden,
+welche Themen sichtbar, abfragbar oder bearbeitbar sind.</p>
+<p>Die Konfiguration der Kartendienste erfolgt über eine Web-Oberfläche in einer Baumstruktur. Dieser <em>CMS-Baum</em> kann dann für eine <em>WebGIS API</em> Instanz veröffentlicht werden. In diesem Schritt wird der Baum zu einem
+<em>CMS File</em> zusammengefasst. Dieses File kann über <em>WebGIS API Konfiguration</em> in eine <em>WebGIS API Instanz</em> einbunden werden. Eine <em>WebGIS API</em> kann dabei mehrere <em>CMS Files</em> einbinden.</p>
+</section>
+<section id="webgis-datalinq">
+<h3>(WebGIS) DataLinq<a class="headerlink" href="#webgis-datalinq" title="Link to this heading">¶</a></h3>
+<p>WebGIS beinhaltet eine <em>DataLinq Instanz</em>, die DataLinq um den Umgang mit integrierten Karten erweitert.
+Das DataLinq Rendering erfolgt dabei innerhalb einer WebGIS API Instanz. Die Konfiguration erfolgt in
+<code class="docutils literal notranslate"><span class="pre">api/_config/api.config</span></code> Abschnitt <code class="docutils literal notranslate"><span class="pre">datalinq</span></code>.</p>
+<p>Das Editieren von DataLinq Objekten (Endpoints, Queries, Views) erfolgt über <em>DataLinq.Code</em>. Der Editor
+ist im WebGIS in der CMS Anwendung integriert und kann über die Datei <code class="docutils literal notranslate"><span class="pre">cms/_config/datalinq.config</span></code>
+konfiguriert werden.</p>
+<img alt="_images/datalinq1.png" src="_images/datalinq1.png" />
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html#vorbereitung">Vorbereitung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html#neue-version-ausliefern">Neue Version Ausliefern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html#aktuelle-konfiguration-andern">Aktuelle Konfiguration ändern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html#styling-der-anwendungen">Styling der Anwendungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html#update-automatisieren">Update automatisieren</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="run/index.html">WebGIS Anwendungen Ausführen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="run/run-local.html">Lokal ausführen (Windows Desktop Modus)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run/run-iis.html">Im Internet Information Server (IIS) ausführen</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config/index.html">Konfiguration (Postinstallation)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config/cms/index.html">Konfiguration der CMS Applikation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/api/index.html">Konfiguration der API-Applikation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/portal/index.html">Konfiguration der Portal Applikation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/authentication/index.html">Authentifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config/hardening/index.html">Sicherheitsmaßnahmen (Hardening)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apps/index.html">WebGIS Applikationen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apps/cms/index.html">WebGIS CMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps/api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps/portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps/map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps/app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps/viewer/index.html">WebGIS Viewer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extended_config/index.html">Erweiterte Werkzeugkonfiguration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extended_config/etc/index.html">etc-Verzeichnis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extended_config/roles/index.html">Rollenparameter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annex/index.html">Anhang</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annex/index.html#sicherheitsmasznahmen-fur-das-webgis-portal">Sicherheitsmaßnahmen für das WebGIS Portal</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Willkommen bei WebGIS</a><ul>
+<li><a class="reference internal" href="#aufbau-der-webgis-plattform-architektur">Aufbau der WebGIS Plattform (Architektur)</a></li>
+<li><a class="reference internal" href="#webgis-anwendungen-ubersicht">WebGIS Anwendungen (Übersicht)</a><ul>
+<li><a class="reference internal" href="#webgis-api">WebGIS API</a></li>
+<li><a class="reference internal" href="#webgis-portal">WebGIS Portal</a></li>
+<li><a class="reference internal" href="#webgis-cms">WebGIS CMS</a></li>
+<li><a class="reference internal" href="#webgis-datalinq">(WebGIS) DataLinq</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="installation/index.html"><span>Installation</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
