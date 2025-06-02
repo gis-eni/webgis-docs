@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Headerbasierte Authentifizierung &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/eni.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -152,8 +155,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="headerbasierte-authentifizierung">
-<h1>Headerbasierte Authentifizierung<a class="headerlink" href="#headerbasierte-authentifizierung" title="Link to this heading">¶</a></h1>
+  <div class="section" id="headerbasierte-authentifizierung">
+<h1>Headerbasierte Authentifizierung<a class="headerlink" href="#headerbasierte-authentifizierung" title="Permalink to this heading">¶</a></h1>
 <p>Bei dieser Methode werden der angemeldete Benutzername und die Rollen über <strong>HTTP-Header-Variablen</strong> des Requests ausgelesen.</p>
 <p>Diese Methode eignet sich insbesondere, wenn das <em>WebGIS Portal</em> hinter einem <em>Reverse Proxy</em> betrieben wird. In diesem Fall übernimmt der <em>Reverse Proxy</em> die <strong>Authentifizierung</strong> und <strong>Autorisierung</strong> der Zugriffe. Beim Weiterleiten der Anfragen fügt er spezifische HTTP-Header hinzu, die Informationen über den angemeldeten Benutzer enthalten. Das <em>WebGIS Portal</em> liest diese Header-Variablen aus und verwendet sie zur <strong>Zugriffssteuerung</strong> für Karten und Kartendienste.</p>
 <div class="admonition danger">
@@ -176,12 +179,12 @@
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
-<section id="beschreibung-der-konfigurationswerte">
-<h2>Beschreibung der Konfigurationswerte<a class="headerlink" href="#beschreibung-der-konfigurationswerte" title="Link to this heading">¶</a></h2>
-<table class="docutils align-default">
+<div class="section" id="beschreibung-der-konfigurationswerte">
+<h2>Beschreibung der Konfigurationswerte<a class="headerlink" href="#beschreibung-der-konfigurationswerte" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Attribut</p></th>
@@ -227,8 +230,8 @@ Beispiel: <code class="docutils literal notranslate"><span class="pre">(param1=1
 </tr>
 </tbody>
 </table>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -275,8 +278,8 @@ Beispiel: <code class="docutils literal notranslate"><span class="pre">(param1=1
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

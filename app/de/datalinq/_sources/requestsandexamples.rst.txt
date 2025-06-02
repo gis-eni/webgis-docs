@@ -69,7 +69,7 @@ Aufbereitete Daten aufrufen (REPORT)
 
 Wenn für eine Abfrage ein oder mehrere Views bestehen, können diese aufgerufen werden und die Daten in einer aufbereiteten Form darstellen:
 
-:grey:`http://localhost/api5/datalinq/`:brown:`select/`:green:`ssg-sdet`:orange:`@proj-geb`:purple:`?GebaeudeId=E313049`
+:grey:`http://localhost/api5/datalinq/`:brown:`report/`:green:`ssg-sdet`:orange:`@proj-geb`:purple:`?GebaeudeId=E313049`
 
 .. code-block:: html 
 

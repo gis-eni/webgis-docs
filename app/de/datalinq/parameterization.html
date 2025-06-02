@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="./">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parametrierung &#8212; DataLinq 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
-    <script src="_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/translations.js?v=70a09b52"></script>
-    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/js/eni.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
@@ -144,170 +147,401 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="parametrierung">
-<h1>Parametrierung<a class="headerlink" href="#parametrierung" title="Link to this heading">¶</a></h1>
+  <div class="section" id="parametrierung">
+<h1>Parametrierung<a class="headerlink" href="#parametrierung" title="Permalink to this heading">¶</a></h1>
 <p>Der <strong>Navigationsbaum</strong> auf der linken Seite bildet die Struktur der <strong>Endpoints, Queries und Views</strong> ab.
 Durch einfaches Anklicken kann ein Element schnell ausgewählt und bearbeitet werden.</p>
-<hr class="docutils" />
-<section id="endpunkte">
-<h2>Endpunkte<a class="headerlink" href="#endpunkte" title="Link to this heading">¶</a></h2>
+<div class="section" id="endpunkt">
+<h2>Endpunkt<a class="headerlink" href="#endpunkt" title="Permalink to this heading">¶</a></h2>
 <p>Ein neuer <strong>Endpoint</strong> kann direkt in der <strong>Sidebar</strong> erstellt werden.
 Das oberste Eingabefeld ermöglicht die <strong>Namensvergabe</strong>, die durch <strong>Enter</strong> bestätigt wird.</p>
 <img alt="Endpunkt erstellen" class="align-center" src="_images/hello_world11.png" />
-<p><strong>Hinweis:</strong>
-Die Namen von Endpunkten dürfen <strong>nur Kleinbuchstaben, Zahlen und den Bindestrich (`-`)</strong> enthalten.
+<div class="admonition important">
+<p class="admonition-title">Wichtig</p>
+<p>Die Namen von Endpunkten dürfen <strong>nur Kleinbuchstaben, Zahlen und den Bindestrich (`-`)</strong> enthalten.
 Sonderzeichen sollten vermieden werden, da die Namen später Teil der <strong>Aufruf-URL</strong> sind.</p>
+</div>
 <p>Ein Klick auf einen <strong>Endpoint</strong> öffnet den <strong>Eigenschaften-Dialog</strong>, in dem folgende Einstellungen vorgenommen werden können:</p>
-<p>General
-- <strong>EndPoint Id</strong> → Eindeutiger Name des Endpoints für den URL-Aufruf
-- <strong>EndPoint Name</strong> → Bezeichnung des Endpoints
-- <strong>Description</strong> → Optionale Beschreibung</p>
-<p>Connection
-Je nach <strong>Verbindungstyp</strong> variiert die Konfiguration.</p>
-<p><strong>Datenbank (Database)</strong>
-Beispiel für eine <strong>SQL-Server-Verbindung</strong>:</p>
+<div class="section" id="einstellungen">
+<h3>Einstellungen<a class="headerlink" href="#einstellungen" title="Permalink to this heading">¶</a></h3>
+<p>In der unteren Übersicht werden alle Sektionen des <strong>Eigenschaften-Dialogs</strong> mit den jeweiligen Feldern aufgelistet:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feld</p></th>
+<th class="head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EndPoint</span> <span class="pre">Id</span></code></p></td>
+<td><p>Eindeutiger Name des Endpoints für den URL-Aufruf</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Name</span></code></p></td>
+<td><p>Bezeichnung des Endpoints</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>Optionale Beschreibung</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Connection</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EndPoint</span> <span class="pre">Connection</span> <span class="pre">Type</span></code></p></td>
+<td><p>Folgende <strong>Verbindungstypen</strong> sind möglich:</p>
+<ul class="simple">
+<li><p>Datenbank (Database)</p></li>
+<li><p>API (REST-Schnittstelle)</p></li>
+<li><p>GeoRss</p></li>
+<li><p>GeoJson</p></li>
+<li><p>DataLinq</p></li>
+<li><p>PlainText</p></li>
+<li><p>TextFile</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ConnectionString</span></code></p></td>
+<td><p>Je nach Verbindungstyp variiert die Konfiguration.</p>
+<ul>
+<li><p><strong>Datenbank (Database)</strong>:</p>
+<p>Beispiel für eine <code class="docutils literal notranslate"><span class="pre">SQL-Server</span></code> Verbindung:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SQL:Server=db123.firma.at\instanz;Database=ssg;User Id=user1;Password=pwd1;
 </pre></div>
 </div>
-<p><strong>API (REST-Schnittstelle)</strong>
-WebGIS API REST-Verbindung:</p>
+</li>
+<li><p><strong>API (REST-Schnittstelle)</strong>:</p>
+<p>Beispiel für eine <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">API</span> <span class="pre">REST</span></code> Verbindung:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>service=http://server123.at/api5test;user=username;pwd=12345
 </pre></div>
 </div>
-<p><strong>GeoRss</strong>
-GeoRss-Dienst mit URL:</p>
+</li>
+<li><p><strong>GeoRss</strong>:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>service=https//some.georss.com;user=username;pwd=12345
 </pre></div>
 </div>
-<p><strong>GeoJson</strong>
-Ähnliche Vorgehensweise wie bei <strong>GeoRss</strong>.</p>
-<p><strong>DataLinq</strong>
-Ein anderer <strong>WebGIS DataLinq Dienst</strong>, der ConnectionString ist die <strong>URL der Anwendung</strong>.</p>
-<p><strong>PlainText</strong>
-Daten werden als <strong>zeilenweise Texte</strong> abgefragt. Kein ConnectionString erforderlich.</p>
-<p><strong>TextFile</strong>
-Datenquelle sind <strong>lose Textdateien</strong> (<cite>*.txt</cite>, <cite>*.log</cite>, <cite>*.csv</cite>).
-Der ConnectionString definiert das <strong>Verzeichnis</strong>, z. B.:</p>
+</li>
+<li><p><strong>GeoJson</strong>:</p>
+<p>Siehe <strong>GeoRss</strong>.</p>
+</li>
+<li><p><strong>DataLinq</strong>:</p>
+<p>Ein anderer <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">DataLinq</span> <span class="pre">Dienst</span></code>, der ConnectionString ist die URL der Anwendung.</p>
+</li>
+<li><p><strong>PlainText</strong>:</p>
+<p>Daten werden als <strong>zeilenweise Texte</strong> abgefragt, kann leer gelassen werden.</p>
+</li>
+<li><p><strong>TextFile</strong>:</p>
+<p>Datenquellen sind lose Textdateien (<cite>*.txt</cite>, <cite>*.log</cite>, <cite>*.csv</cite>).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\logs
 </pre></div>
 </div>
-<p>Security
-- <strong>Berechtigungen für Nutzer und Rollen setzen</strong> (siehe <strong>Berechtigungen</strong>).</p>
-<p>Info
-- <strong>Erstelldatum des Endpoints</strong> wird hier angezeigt.</p>
-<p>Styling
-- <strong>Open EndPoint CSS…</strong> → Bearbeitung des CSS-Dokuments für alle zugehörigen <strong>Views</strong>.</p>
-<p>Delete
-- Löschen des Endpoints über die <cite>Delete</cite>-Funktion.</p>
-</section>
-<hr class="docutils" />
-<section id="query-abfragen">
-<h2>Query (Abfragen)<a class="headerlink" href="#query-abfragen" title="Link to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Hier wird das <strong>Verzeichnis</strong> angegeben, in welchem die Textdateien liegen. Es können mehrere Textdateien in einem Verzeichnis liegen, welche dann über die Abfrage angesprochen werden.</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Security</strong></p></td>
+<td><p>Berechtigungen für Nutzer und Rollen setzen (siehe <strong>Berechtigungen</strong>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Info</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
+<td><p>Erstelldatum des Endpoints</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Styling</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">EndPoint</span> <span class="pre">CSS</span> <span class="pre">Button</span></code></p></td>
+<td><p>Bearbeitung des CSS-Dokuments für alle zugehörigen <strong>Views</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Scripting</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">EndPoint</span> <span class="pre">Javascript</span> <span class="pre">Button</span></code></p></td>
+<td><p>Bearbeitung des Script-Dokuments für alle zugehörigen <strong>Views</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Delete</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
+<td><p>Löschen des Endpoints</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="query-abfragen">
+<h2>Query (Abfragen)<a class="headerlink" href="#query-abfragen" title="Permalink to this heading">¶</a></h2>
 <p>Nach Auswahl eines <strong>Endpoints</strong> können für diesen <strong>Abfragen</strong> erstellt werden.
 Die Abfragen ermöglichen den Zugriff auf die zugehörigen <strong>Datenbestände</strong>.</p>
 <p>Ein neuer <strong>Query-Knoten</strong> kann direkt in der <strong>Sidebar</strong> unterhalb des gewünschten Endpoints erstellt werden:</p>
 <img alt="Abfrage erstellen" class="align-center" src="_images/hello_world31.png" />
 <p>Klickt man auf die neue <strong>Query</strong>, erscheint im <strong>Content-Bereich</strong> ein <strong>Editorfenster</strong>, in dem die Abfrage formuliert werden kann.</p>
-</section>
-<section id="abfragearten">
-<h2>Abfragearten<a class="headerlink" href="#abfragearten" title="Link to this heading">¶</a></h2>
-<p>Je nach <strong>ConnectionType</strong> unterscheidet sich die Syntax:</p>
-<p><strong>Datenbank (SQL)</strong>
-Beispiel für eine SQL-Abfrage:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
-<span class="w">    </span><span class="p">[</span><span class="n">OBJECTID</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="n">NAME</span><span class="p">]</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">projekt_gebaeude</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">gebaeudeid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">GebaeudeId</span><span class="p">;</span>
-</pre></div>
-</div>
-<p><strong>REST-API (WebGIS, GeoJson, GeoRss)</strong>
-URL-Abfrage mit <strong>Platzhaltern für Parameter</strong>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>URL-PFAD/gebaeude?gebaeudeid={{GebaeudeId}}&amp;...
-</pre></div>
-</div>
-<p><strong>Dynamische Parameter (Optional)</strong>
-SQL:</p>
+<p>Je nach <strong>EndPoint Connection Type</strong> unterscheidet sich die Möglichkeiten und die Syntax für die Abfrage.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EndPoint Connection Type</p></th>
+<th class="head"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Datenbank (SQL)</strong></p></td>
+<td><p>Abfrage mit geseztem Filterwert</p>
+<ul class="simple">
+<li><p>Mit Farbfilter: <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/endpoint&#64;query?GebaeudeArt=Einfamilienhaus&amp;Dachfarbe=rot</span></code></p></li>
+<li><p>Ohne Farbfilter: <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/endpoint&#64;query?GebaeudeArt=Einfamilienhaus</span></code></p></li>
+</ul>
+<p>SQL-Abfrage:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
 <span class="w">    </span><span class="p">[</span><span class="n">NAME</span><span class="p">],</span>
 <span class="w">    </span><span class="p">[</span><span class="n">FARBE</span><span class="p">]</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">projekt_gebaeude</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">gebaeudeart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">GebaeudeArt</span>
-<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">dachfarbe</span>
-<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">FARBE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">dachfarbe</span>
+<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">Dachfarbe</span>
+<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">FARBE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Dachfarbe</span>
 <span class="o">#</span><span class="n">endif</span>
 </pre></div>
 </div>
-<p><strong>REST:</strong></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>URL-PFAD/gebaeude?gebaeudeart={{GebaeudeArt}}
-#if dachfarbe
-    &amp;farbe = @dachfarbe
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>REST</strong></p></td>
+<td><p>Auch hier können Urlparameter, welche mit der Query-URL mitübergeben wurden an die abzufragende REST API weitergeleitet werden.</p>
+<p>Beispiel: <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/endpoint&#64;query?parameter1=wert1&amp;parameter2=wert2</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://server123.at/api?p1=parameter1
+
+#if parameter2
+    &amp;p2 = @parameter2
 #endif
 </pre></div>
 </div>
-<p><strong>Textfiles (bei Endpoint Typ TextFile)</strong>
-Beispiel für eine Datei-Abfrage:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my-log.csv
+<p>Die zusammengesetzte URL der abzufragenden REST API wäre (falls <code class="docutils literal notranslate"><span class="pre">parameter2</span></code> gesetzt ist) <code class="docutils literal notranslate"><span class="pre">https://server123.at/api?p1=parameter1&amp;p2=parameter2</span></code>, ansonsten <code class="docutils literal notranslate"><span class="pre">https://server123.at/api?p1=parameter1</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Textfiles (CSV)</strong></p></td>
+<td><div class="admonition hint">
+<p class="admonition-title">Hinweis</p>
+<ul class="simple">
+<li><p>Spalten in CSV Dateien müssen mit <code class="docutils literal notranslate"><span class="pre">;</span></code> getrennt werden.</p></li>
+<li><p>Falls eine Header-Zeile vorhanden ist, muss diese entfernt werden. Die einzelnen Spalten können mit <cite>column1</cite>, <cite>column2</cite>, <cite>column3</cite>, … angesprochen werden.</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Die Datei muss im <strong>Verzeichnis</strong> des Endpoints liegen. Dieses Verzeichnis wird im Verbindungstyp des Endpoints angegeben.</p>
+</div>
+<p>In der Abfrage können folgende Parameter definiert werden:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my-datafile.csv # Die Quelldatei, welche die Datensätze enthält
+
+maxlines=10     # Maximale Anzahl der Zeilen (optional)
+from=bottom     # Von unten lesen (optional)
+filter=xxx      # Filterbedingung (optional)
 </pre></div>
 </div>
-<p>Optionale Parameter:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>maxlines=10   # Maximale Anzahl der Zeilen
-from=bottom   # Von unten lesen
-</pre></div>
-</div>
-<p>Falls ein <strong>Filter</strong> benötigt wird:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#if filter
-    filter={{filter}}
+<p>Ein Filter kann verwendet werden, um nur die Datenzeilen zu extrahieren, welche den im Filter definierten Text enthalten (case-insensitive). Dies kann hilfreich sein, um große Datenmengen zu durchsuchen und nur relevante Informationen zu extrahieren.</p>
+<p><strong>Beispiel für eine URL mit Filter:</strong></p>
+<p>In diesem Beispiel filtert die URL <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/dh-form&#64;get?_pjson=true&amp;GebaeudeArt=Einfamilienhaus</span></code> nur die Datensätze, bei denen die jeweilige Zeile in der CSV Datei den Wert <code class="docutils literal notranslate"><span class="pre">Einfamilienhaus</span></code> enthält.</p>
+<p>Filter-Bedingung in der Abfrage:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my-datafile.csv
+
+...
+
+#if GebaeudeArt
+   filter={{GebaeudeArt}}
 #endif
 </pre></div>
 </div>
-<p>Test Parameter
-- Hier können <strong>Testparameter</strong> für die Abfrage festgelegt und ausgeführt werden.</p>
+<p>Dies stellt sicher, dass der Filter nur angewendet wird, wenn der Wert <cite>GebaeudeArt</cite> definiert ist. Andernfalls wird der Filter nicht angewendet, und alle Zeilen der Textdatei werden in die Abfrage einbezogen.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h3>Einstellungen<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<p>Zu den Einstellungen für die jeweilige Abfrage gelangt man über einen Klick auf das <strong>Zahnrad-Symbol</strong> in der rechten unteren Ecke des Editorfensters.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feld</p></th>
+<th class="head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Link</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Route</span></code></p></td>
+<td><p>URL-Route für die Abfrage (<code class="docutils literal notranslate"><span class="pre">endpoint_id&#64;query_id</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Id</span></code></p></td>
+<td><p>Eindeutiger Name der Abfrage (wird in der URL verwendet)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Name</span></code></p></td>
+<td><p>Bezeichnung der Abfrage</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>Optionale Beschreibung</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Debug</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">Url</span> <span class="pre">Parameters</span></code></p></td>
+<td><p>Hier können <strong>Testparameter</strong> für die Abfrage festgelegt und ausgeführt werden.</p>
 <img alt="Testparameter setzen" class="align-center" src="_images/ad3_3.png" />
-<p><strong>Hinweis:</strong>
-Parameter sollten so gewählt werden, dass <strong>Testabfragen jederzeit ausführbar</strong> sind.</p>
-</section>
-<hr class="docutils" />
-<section id="views-ansichten">
-<h2>Views (Ansichten)<a class="headerlink" href="#views-ansichten" title="Link to this heading">¶</a></h2>
+<div class="admonition hint">
+<p class="admonition-title">Hinweis</p>
+<p>Die Testparameter sollten so gewählt werden, dass <strong>Testabfragen jederzeit ausführbar</strong> sind.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Security</strong></p></td>
+<td><p>Berechtigungen für Nutzer und Rollen setzen (siehe <strong>Berechtigungen</strong>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Domains</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Domains</span></code></p></td>
+<td><p>Query-Domains werden verwendet, um kodierte Werte in einer Tabelle durch verständliche Namen zu ersetzen, indem eine Lookup-Tabelle genutzt wird, die die kodierten Werte und deren Übersetzungen enthält.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Field</span></code>: Bezeichnung der Spalte, die die kodierten Werte enthält.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Id</span></code>: Lookup-Tabelle, die kodierte Werte und deren Übersetzungen enthält.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">Field</span></code>: Spaltenname in der Lookup-Tabelle, der die kodierten Werte enthält.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span> <span class="pre">Field</span></code>: Spaltenname in der Lookup-Tabelle, der die Übersetzungen enthält.</p></li>
+</ul>
+<p>Siehe auch <a class="reference internal" href="tippsandtricks.html#anchor57"><span class="std std-ref">Queries mit Domain-Übersetzung</span></a>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Info</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
+<td><p>Erstelldatum der Abfrage</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Delete</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
+<td><p>Löschen des Endpoints</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="views-ansichten">
+<h2>Views (Ansichten)<a class="headerlink" href="#views-ansichten" title="Permalink to this heading">¶</a></h2>
 <p>Zur <strong>Darstellung</strong> der Ergebnisse einer Abfrage können <strong>eine oder mehrere Views</strong> erstellt werden.</p>
 <img alt="View erstellen" class="align-center" src="_images/hello_world71.png" />
-<p>Ein Klick auf eine <strong>View</strong> öffnet den <strong>Razor-Code</strong>, der über das <strong>Zahnrad-Symbol</strong> zu den <strong>Einstellungen</strong> führt.</p>
-<p>General
-- <strong>View Id</strong> → Eindeutiger Name der View (wird in der URL verwendet)
-- <strong>Name</strong> → Bezeichnung der View
-- <strong>Description</strong> → Optionale Beschreibung</p>
-</section>
-<section id="code-uber-editor">
-<h2>Code (über Editor)<a class="headerlink" href="#code-uber-editor" title="Link to this heading">¶</a></h2>
 <p>Views nutzen <strong>HTML mit ASP.NET Razor Markup</strong>.</p>
 <img alt="Razor Code Editor" class="align-center" src="_images/param_editor.png" />
-</section>
-<hr class="docutils" />
-<section id="berechtigung">
-<h2>Berechtigung<a class="headerlink" href="#berechtigung" title="Link to this heading">¶</a></h2>
-<p>Für <strong>Endpoints und Abfragen</strong> können <strong>Berechtigungen</strong> gesetzt werden.
-Hierarchisch bedeutet: Wer auf einen <strong>Endpoint keinen Zugriff</strong> hat, kann auch dessen <strong>Abfragen nicht ausführen</strong>.</p>
+<div class="section" id="id2">
+<h3>Einstellungen<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>Zu den Einstellungen für die jeweilige Abfrage gelangt man über einen Klick auf das <strong>Zahnrad-Symbol</strong> in der rechten unteren Ecke des Editorfensters.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feld</p></th>
+<th class="head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Link</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Route</span></code></p></td>
+<td><p>URL-Route für die View (<code class="docutils literal notranslate"><span class="pre">endpoint_id&#64;query_id&#64;view_id</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">Id</span></code></p></td>
+<td><p>Eindeutiger Name der View (wird in der URL verwendet)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Name</span></code></p></td>
+<td><p>Bezeichnung der View</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>Optionale Beschreibung</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Debug</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">Url</span> <span class="pre">Parameters</span></code></p></td>
+<td><p>Hier können <strong>Testparameter</strong> für die Abfrage festgelegt und ausgeführt werden.</p>
+<img alt="Testparameter setzen" class="align-center" src="_images/ad3_3.png" />
+<div class="admonition hint">
+<p class="admonition-title">Hinweis</p>
+<p>Die Testparameter sollten so gewählt werden, dass <strong>Testabfragen jederzeit ausführbar</strong> sind.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>JS Libraries</strong></p></td>
+<td><p>Hier können die derzeit verfügbaren JS-Bibliotheken für die View hinzugefügt werden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Info</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
+<td><p>Erstelldatum der View</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Changed</span></code></p></td>
+<td><p>Änderungsdatum der View</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Delete</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
+<td><p>Löschen des Endpoints</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="berechtigungen">
+<h2>Berechtigungen<a class="headerlink" href="#berechtigungen" title="Permalink to this heading">¶</a></h2>
+<p>Für <strong>Endpoints und Abfragen</strong> können in den Einstellungen Berechtigungen gesetzt werden, welche hierarchisch vererbt werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Hierarchisch bedeutet: Wer auf einen <strong>Endpoint keinen Zugriff</strong> hat, kann auch dessen <strong>Abfragen nicht ausführen</strong>.</p>
+</div>
 <ul class="simple">
 <li><p>Berechtigungen können für <strong>einzelne Benutzer, Rollen oder Gruppen</strong> gesetzt werden.</p></li>
 <li><p><strong>Token- und Portal-Authentifizierung</strong> sind ebenfalls möglich.</p></li>
 </ul>
 <p>Die Berechtigungsverwaltung erfolgt über das <strong>„+“-Symbol</strong> oder durch <strong>Enter</strong>.</p>
-<ul class="simple">
-<li><p><cite>„*“</cite> → <strong>Uneingeschränkter Zugriff für alle Benutzer</strong>.</p></li>
-</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Hier können auch Wildcards mittels der Zeichenfolge <cite>„*“</cite> vergeben werden. Diese Zeichenfolge bedeutet einen <strong>uneingeschränkten Zugriff für alle Benutzer</strong>.</p>
+</div>
 <img alt="Berechtigungen setzen" class="align-center" src="_images/param_berechtigung.png" />
-</section>
-<hr class="docutils" />
-<section id="stile-css">
-<h2>Stile (CSS)<a class="headerlink" href="#stile-css" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="stile-css">
+<h2>Stile (CSS)<a class="headerlink" href="#stile-css" title="Permalink to this heading">¶</a></h2>
 <p>CSS-Stile können <strong>auf zwei Ebenen</strong> definiert werden:</p>
 <ol class="arabic simple">
 <li><p><strong>Globale Styles für den gesamten Endpoint</strong>.</p></li>
 <li><p><strong>Inline-Stile direkt in einer View</strong> über <cite>&lt;style&gt;</cite>-Tags oder <cite>style</cite>-Attribute.</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -324,12 +558,19 @@ Hierarchisch bedeutet: Wer auf einen <strong>Endpoint keinen Zugriff</strong> ha
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Parametrierung</a><ul>
-<li><a class="reference internal" href="#endpunkte">Endpunkte</a></li>
-<li><a class="reference internal" href="#query-abfragen">Query (Abfragen)</a></li>
-<li><a class="reference internal" href="#abfragearten">Abfragearten</a></li>
-<li><a class="reference internal" href="#views-ansichten">Views (Ansichten)</a></li>
-<li><a class="reference internal" href="#code-uber-editor">Code (über Editor)</a></li>
-<li><a class="reference internal" href="#berechtigung">Berechtigung</a></li>
+<li><a class="reference internal" href="#endpunkt">Endpunkt</a><ul>
+<li><a class="reference internal" href="#einstellungen">Einstellungen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#query-abfragen">Query (Abfragen)</a><ul>
+<li><a class="reference internal" href="#id1">Einstellungen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#views-ansichten">Views (Ansichten)</a><ul>
+<li><a class="reference internal" href="#id2">Einstellungen</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#berechtigungen">Berechtigungen</a></li>
 <li><a class="reference internal" href="#stile-css">Stile (CSS)</a></li>
 </ul>
 </li>
@@ -360,8 +601,8 @@ Hierarchisch bedeutet: Wer auf einen <strong>Endpoint keinen Zugriff</strong> ha
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

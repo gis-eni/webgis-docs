@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Aufrufen/Öffnen &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/eni.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -155,11 +158,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="app-aufrufen-offnen">
-<h1>App Aufrufen/Öffnen<a class="headerlink" href="#app-aufrufen-offnen" title="Link to this heading">¶</a></h1>
+  <div class="section" id="app-aufrufen-offnen">
+<h1>App Aufrufen/Öffnen<a class="headerlink" href="#app-aufrufen-offnen" title="Permalink to this heading">¶</a></h1>
 <p>Die einfachste Methode, eine veröffentlichte App zu öffnen, ist, die entsprechende Kachel auf der Portalseite anzuklicken. Die Kachel für die App sollte nach dem Veröffentlichen unter der gewählten Kategorie erscheinen. Dies ist allerdings nur möglich, wenn beim Veröffentlichen unter Sichtbarkeit <code class="docutils literal notranslate"><span class="pre">sichtbar</span></code> gewählt wurde. Ansonsten wird die App nur für den Kartenautor angezeigt (transparente Kachel) oder kann direkt über den Link aufgerufen werden.</p>
-<section id="aufruf-uber-link">
-<h2>Aufruf über Link<a class="headerlink" href="#aufruf-uber-link" title="Link to this heading">¶</a></h2>
+<div class="section" id="aufruf-uber-link">
+<h2>Aufruf über Link<a class="headerlink" href="#aufruf-uber-link" title="Permalink to this heading">¶</a></h2>
 <p>Der Link wird ersichtlich, wenn die App über die Portalseite aufgerufen wird. Dies sollte für den Kartenautor immer möglich sein. Der Link hat beispielsweise folgende Form:</p>
 <p><code class="docutils literal notranslate"><span class="pre">https://myserver.com/App/PortalApp/{portal-page-id}?app={name-der-app}&amp;category={kategorie-der-app}</span></code></p>
 <p>Neben den zwingenden URL-Parametern <code class="docutils literal notranslate"><span class="pre">app</span></code> und <code class="docutils literal notranslate"><span class="pre">category</span></code> können noch weitere optionale Parameter übergeben werden, um in der App beispielsweise auf einen bestimmten Kartenausschnitt zu springen:</p>
@@ -175,9 +178,9 @@
 <p class="admonition-title">Bemerkung</p>
 <p>Ruft man die App aus dem Kartenviewer auf, können im Link die entsprechenden Platzhalter für den aktuellen Ausschnitt angegeben werden, z.B. <code class="docutils literal notranslate"><span class="pre">...&amp;center={map.centerx},{map.centery}&amp;scale={map.scale}</span></code>.</p>
 </div>
-</section>
-<section id="aufruf-uber-benutzerdefiniertes-werkzeug">
-<h2>Aufruf über benutzerdefiniertes Werkzeug<a class="headerlink" href="#aufruf-uber-benutzerdefiniertes-werkzeug" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="aufruf-uber-benutzerdefiniertes-werkzeug">
+<h2>Aufruf über benutzerdefiniertes Werkzeug<a class="headerlink" href="#aufruf-uber-benutzerdefiniertes-werkzeug" title="Permalink to this heading">¶</a></h2>
 <p>Wie schon beschrieben, kann man eine App auch über einen Link mit Übergabe des aktuellen Kartenausschnitts aufrufen. Dadurch kann eine App sehr einfach als <em>benutzerdefiniertes Werkzeug</em> in den Kartenviewer eingebunden werden.</p>
 <p>Benutzerdefinierte Werkzeuge werden in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>-Datei definiert (<a class="reference external" href="./../KartenViewer/CustomJS/benutzerdefmarker.html#benutzerdefinierte-werkzeuge">siehe</a>).</p>
 <p>Die Definition des Werkzeugs sieht etwa folgendermaßen aus:</p>
@@ -190,9 +193,9 @@
 </pre></div>
 </div>
 <p>Hier wird ein Werkzeug definiert, das die App <code class="docutils literal notranslate"><span class="pre">SideBySide</span></code> aus der Kategorie <code class="docutils literal notranslate"><span class="pre">Allgemein</span></code> mit dem gleichen Maßstab wie die Karte in einem Dialogfenster öffnet.</p>
-</section>
-<section id="aufruf-uber-einen-metadaten-button">
-<h2>Aufruf über einen „Metadaten“-Button<a class="headerlink" href="#aufruf-uber-einen-metadaten-button" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="aufruf-uber-einen-metadaten-button">
+<h2>Aufruf über einen „Metadaten“-Button<a class="headerlink" href="#aufruf-uber-einen-metadaten-button" title="Permalink to this heading">¶</a></h2>
 <p>Im CMS kann für jede Darstellungsvariante ein <em>Metadaten</em>-Button definiert werden. Dieser wird in der Regel im TOC vor der Darstellungsvariante als (i)-Button angezeigt. Dies dient vor allem dazu, um einen Link zu Metadaten für ein Thema anzuzeigen.</p>
 <p>Da man dem hier hinterlegten Link auch die oben gezeigten Platzhalter für den aktuellen Kartenausschnitt angeben und der Button auch in anderer Form dargestellt werden kann, bietet der „Metadaten“-Button eine weitere Option zum Aufrufen einer App.</p>
 <div class="admonition note">
@@ -204,8 +207,8 @@
 <img alt="../../_images/appbuilder4.png" src="../../_images/appbuilder4.png" />
 <p>Für den Anwender sieht dieser Button im TOC folgendermaßen aus:</p>
 <img alt="../../_images/appbuilder5.png" src="../../_images/appbuilder5.png" />
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -254,8 +257,8 @@
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

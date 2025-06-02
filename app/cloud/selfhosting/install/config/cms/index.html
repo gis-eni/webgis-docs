@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Konfiguration der CMS Applikation &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/js/eni.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../../genindex.html" />
@@ -148,10 +151,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="konfiguration-der-cms-applikation">
-<h1>Konfiguration der CMS Applikation<a class="headerlink" href="#konfiguration-der-cms-applikation" title="Link to this heading">¶</a></h1>
-<section id="datei-config-cms-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code><a class="headerlink" href="#datei-config-cms-config" title="Link to this heading">¶</a></h2>
+  <div class="section" id="konfiguration-der-cms-applikation">
+<h1>Konfiguration der CMS Applikation<a class="headerlink" href="#konfiguration-der-cms-applikation" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="datei-config-cms-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code><a class="headerlink" href="#datei-config-cms-config" title="Permalink to this heading">¶</a></h2>
 <p>Die Konfiguration der CMS Anwendung erfolgt über die Datei <code class="docutils literal notranslate"><span class="pre">webgis-cms/_config/cms.config</span></code>.</p>
 <p>Dabei handelt es sich um eine JSON Datei (JavaScript Object Notation). Darum ist beim Editieren dieser Datei auf die Besonderheiten der JavaScript Syntax aufzupassen.
 Nach dem Editieren muss es sich wieder um eine gültige JavaScript Datei handeln. Die Vorlage sieht folgendermaßen aus:</p>
@@ -222,8 +225,8 @@ nicht weiß, was die eigentlich für den Anwender sichtbare Url ist. Diese Url k
 Der Wert für cms-items muss ein Array sein. Ein cms-item-Objekt hat dann wieder einzelne Werte. Die beiden gelb markierten Werte (path, target)
 geben beispielsweise an, wo sich die Wurzel des CMS Baumes befindet (path) und wohin ein CMS veröffentlicht wird (target).
 Hier werden die einzelnen Attribute von CMS Item erläutert:</p>
-<section id="knoten-cms-item">
-<h3>Knoten <code class="docutils literal notranslate"><span class="pre">cms-item</span></code><a class="headerlink" href="#knoten-cms-item" title="Link to this heading">¶</a></h3>
+<div class="section" id="knoten-cms-item">
+<h3>Knoten <code class="docutils literal notranslate"><span class="pre">cms-item</span></code><a class="headerlink" href="#knoten-cms-item" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>
 Eine eindeutige Id für das CMS. Sollte nur aus Kleinbuchstaben und Nummern bestehen (keine umlaute)</p></li>
@@ -255,9 +258,9 @@ Mehrere Deployments können hilfreich sein, um für Test-, Ausfall-,
 Schulungs- und Produktivsystem unterschiedliche xml-Dateien zu erzeugen.
 </pre></div>
 </div>
-</section>
-<section id="knoten-deployments">
-<h3>Knoten <code class="docutils literal notranslate"><span class="pre">deployments</span></code><a class="headerlink" href="#knoten-deployments" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="knoten-deployments">
+<h3>Knoten <code class="docutils literal notranslate"><span class="pre">deployments</span></code><a class="headerlink" href="#knoten-deployments" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>
 Ein sprechender Name für das Deployment (z.B: localhost, Entwicklung, Schulung, Test, Produktion, …).</p></li>
@@ -295,9 +298,9 @@ Für ein <code class="docutils literal notranslate"><span class="pre">Secret</sp
 <em>ConnectionStrings</em> definiert werden.
 Mögliche Werte sind hier: <code class="docutils literal notranslate"><span class="pre">Default</span></code>, <code class="docutils literal notranslate"><span class="pre">Test</span></code>, <code class="docutils literal notranslate"><span class="pre">Staging</span></code>, <code class="docutils literal notranslate"><span class="pre">Production</span></code>.</p></li>
 </ul>
-</section>
-<section id="knoten-postevents">
-<h3>Knoten <code class="docutils literal notranslate"><span class="pre">postEvents</span></code><a class="headerlink" href="#knoten-postevents" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="knoten-postevents">
+<h3>Knoten <code class="docutils literal notranslate"><span class="pre">postEvents</span></code><a class="headerlink" href="#knoten-postevents" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">commands</span></code> (optional: <em>Array von Strings</em>)
 Die hier angeführten Kommandozeilen-Befehle werden nacheinander abgearbeitet.
@@ -316,9 +319,9 @@ ausgeführt wird.</p>
 </div>
 </li>
 </ul>
-</section>
-<section id="weitere-attribute">
-<h3>Weitere Attribute<a class="headerlink" href="#weitere-attribute" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="weitere-attribute">
+<h3>Weitere Attribute<a class="headerlink" href="#weitere-attribute" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">company</span></code>
 Ein Kürzel für die Firma. Optional kann später eine <code class="docutils literal notranslate"><span class="pre">wwwroot/css/{company}/site.css</span></code>
@@ -337,10 +340,10 @@ Verfügung stehen. Das kann grundsätzlich auch im entsprechenden Dialog im Web 
 angeführt werden (jedes mal neu). Gibt man den Wert hier an, erhöht sich später der
 Eingabekomfort.</p></li>
 </ul>
-</section>
-</section>
-<section id="datei-config-datalinq-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code><a class="headerlink" href="#datei-config-datalinq-config" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="datei-config-datalinq-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code><a class="headerlink" href="#datei-config-datalinq-config" title="Permalink to this heading">¶</a></h2>
 <p>Die CMS Applikation beinhaltet auch <em>DataLinq.Code</em> zum Bearbeiten von DataLinq Endpoints, Queries und Views.
 Die eigentliche <em>DataLinq Engine</em> läuft bei WebGIS immer innerhalb einer WebGIS API Instanz.</p>
 <p>Welche Instanzen über die CMS Startseite zum Editieren angezeigt werden, kann über die Datei
@@ -348,7 +351,7 @@ Die eigentliche <em>DataLinq Engine</em> läuft bei WebGIS immer innerhalb einer
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
    <span class="s2">&quot;instances&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Local WebGIS Api&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Local WebGIS API&quot;</span><span class="p">,</span>
          <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;My local WebGIS test and developing API&quot;</span><span class="p">,</span>
          <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://my-server/webgis-api&quot;</span>
       <span class="p">}</span>
@@ -384,9 +387,9 @@ existieren. Der Filter kann immer wieder neu gesetzt werden, wenn man auf die Ü
 </dl>
 </li>
 </ul>
-</section>
-<section id="datei-config-settings-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code><a class="headerlink" href="#datei-config-settings-config" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="datei-config-settings-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code><a class="headerlink" href="#datei-config-settings-config" title="Permalink to this heading">¶</a></h2>
 <p>In dieser optionalen Datei können allgemeine Einstellung für die WebGIS CMS Applikation eingetragen werden. Ein Anwendungsfall
 ist derzeit die Angabe eines Logging Files oder das Einstellen eines Proxy Servers.
 Bindet man Dienste aus dem Internet ein, kann für den Zugriff ein Proxy Server notwendig sein.
@@ -421,9 +424,9 @@ einer dieser Zeichenkette, wird der Proxy ignoriert. Hier können ebenfalls regu
 </dl>
 </li>
 </ul>
-</section>
-<section id="datei-config-application-security-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code><a class="headerlink" href="#datei-config-application-security-config" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="datei-config-application-security-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code><a class="headerlink" href="#datei-config-application-security-config" title="Permalink to this heading">¶</a></h2>
 <p>Das Web CMS ist von jedem, der die Url zum CMS kennt, verwendbar.
 Um das CMS nur mit User und Passwort aufzurufen, kann diese Datei verwendet werden.
 Existiert die Datei nicht, ist das CMS frei zugänglich.</p>
@@ -516,8 +519,8 @@ könnte die <code class="docutils literal notranslate"><span class="pre">applica
 <p>Hier dürfen in alle Anwender, die die Rolle „gis-admin-webgis-cms“ haben,
 ins CMS einsteigen. <code class="docutils literal notranslate"><span class="pre">ClientId</span></code> und <code class="docutils literal notranslate"><span class="pre">ClientSecret</span></code> müssen am OpenId Server eingestellt werden.
 Also Scopes müssen für den Client mindestens <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">profile</span></code> und <code class="docutils literal notranslate"><span class="pre">role</span></code> zur möglich sein.</p>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -573,8 +576,8 @@ Also Scopes müssen für den Client mindestens <code class="docutils literal not
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

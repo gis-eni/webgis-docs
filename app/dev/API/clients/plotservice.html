@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plot Service &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=bfd86df6" />
-    <script src="../../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/eni.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -144,8 +147,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="plot-service">
-<h1>Plot Service<a class="headerlink" href="#plot-service" title="Link to this heading">¶</a></h1>
+  <div class="section" id="plot-service">
+<h1>Plot Service<a class="headerlink" href="#plot-service" title="Permalink to this heading">¶</a></h1>
 <p>Mithilfe des <em>PlotService</em> API können Ausdrucke im PDF Format abgeholt werden. Dazu wird</p>
 <ul class="simple">
 <li><p>der Name (plus Kategorie und Portalseite) der Karte</p></li>
@@ -154,8 +157,8 @@
 <li><p>und eine Bounding-Box (plus EPSG-Code, falls nicht WGS 84)</p></li>
 </ul>
 <p>übergeben.</p>
-<section id="layout-xml-files">
-<h2>Layout Xml Files<a class="headerlink" href="#layout-xml-files" title="Link to this heading">¶</a></h2>
+<div class="section" id="layout-xml-files">
+<h2>Layout Xml Files<a class="headerlink" href="#layout-xml-files" title="Permalink to this heading">¶</a></h2>
 <p>Die API versucht  den übergeben Bereich in das Kartenlayout einzupassen, unter der Voraussetzung, dass dies für den übergeben Maßstab möglich ist.
 Dazu probiert die API unterschiedliche Papiergrößen (A4, A3, …) und Ausrichtungen (Hoch-, Querformat) aus. Sobald eine Papiergröße gefunden wird, wir ein PDF File für diese Papiergröße erzeugt.</p>
 <p>Welche Papiergrößen und Ausrichtungen möglich sind, kann im jeweiligen Layout.xml File definiert werden:</p>
@@ -195,9 +198,9 @@ Ist das Layout nicht im MapBuilder für diese Karte definiert worden, liefert da
 <p class="admonition-title">Bemerkung</p>
 <p>Manche Layout sind über <code class="docutils literal notranslate"><span class="pre">&lt;layout</span> <span class="pre">scales=&quot;5000,2500,1000&quot;</span> <span class="pre">&gt;</span></code> nur für bestimmte Maßstabe zugelassen. Das gibt auch wenn dieses Layout mit den <em>PlotService</em> verwendet wird. Wird ein anderer Maßstab übergeben, liefert das <em>PlotService</em> eine Fehlermeldung.</p>
 </div>
-</section>
-<section id="rest-aufruf">
-<h2>REST Aufruf<a class="headerlink" href="#rest-aufruf" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="rest-aufruf">
+<h2>REST Aufruf<a class="headerlink" href="#rest-aufruf" title="Permalink to this heading">¶</a></h2>
 <p>Das <em>PlotService</em> lässt sich über die REST Schnittstelle der WebGIS API unter <code class="docutils literal notranslate"><span class="pre">https://{api-url}/rest/plotservice</span></code> aufrufen. Der Aufruf muss über einen <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">POST</span></code> Request erfolgen.
 Als Parameter werden die oben angeführten zwingenden Parameter übergeben (als Http Form):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapName</span><span class="o">=</span><span class="n">Basiskarte</span><span class="o">&amp;</span><span class="n">mapCategory</span><span class="o">=</span><span class="n">Allgemein</span><span class="o">&amp;</span><span class="n">mapPortal</span><span class="o">=</span><span class="n">dev</span><span class="o">&amp;</span><span class="n">layout</span><span class="o">=</span><span class="n">lkmyzkjugleodsjpu</span><span class="o">-</span><span class="mi">75</span><span class="n">pdg</span><span class="nd">@ccgis_default</span><span class="o">&amp;</span><span class="n">scale</span><span class="o">=</span><span class="mi">1000</span><span class="o">&amp;</span><span class="n">bbox</span><span class="o">=-</span><span class="mf">68310.17</span><span class="p">,</span><span class="mf">215052.83</span><span class="p">,</span><span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span><span class="mf">216004.68</span><span class="o">&amp;</span><span class="n">bbox_srs</span><span class="o">=</span><span class="mi">31256</span>
@@ -239,9 +242,9 @@ Wert auszuwerten.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">filters</span></code>: Übergabe von Darstellungsfiltern</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">presentations</span></code>: Darstellungsvarianten</p></li>
 </ul>
-</section>
-<section id="api-client-net-standard">
-<h2>API Client (.NET Standard)<a class="headerlink" href="#api-client-net-standard" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="api-client-net-standard">
+<h2>API Client (.NET Standard)<a class="headerlink" href="#api-client-net-standard" title="Permalink to this heading">¶</a></h2>
 <p>Wird das <em>PlotService</em> von einem .NET Programm aufgerufen, wird empfohlen, die Library <code class="docutils literal notranslate"><span class="pre">E.Standard.WebGIS.Api.Client</span></code> zu verwendet. Darin ist ein Service <code class="docutils literal notranslate"><span class="pre">E.Standard.WebGIS.Api.Client.Services.WebGISPlotService</span></code> enthalten,
 das den Aufruf abstrahiert. Damit wird vor allem die Übergaben von komplexeren Parametern (<code class="docutils literal notranslate"><span class="pre">filters</span></code>, <code class="docutils literal notranslate"><span class="pre">presentations</span></code>) vereinfacht.</p>
 <p>Ein Beispielprojekte, das die Vorgehensweise zeigt, ist die .NET Core Konsolenanwendung <code class="docutils literal notranslate"><span class="pre">WebGIS.Api.Test.Client</span></code>.</p>
@@ -297,9 +300,9 @@ else
 }
 </pre></div>
 </div>
-</section>
-<section id="darstellungsvarianten">
-<h2>Darstellungsvarianten<a class="headerlink" href="#darstellungsvarianten" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="darstellungsvarianten">
+<h2>Darstellungsvarianten<a class="headerlink" href="#darstellungsvarianten" title="Permalink to this heading">¶</a></h2>
 <p>Darstellungsvarianten können über den Parameter <code class="docutils literal notranslate"><span class="pre">presentations</span></code> übergeben werden. Der Parameter muss ein JSON String sein.
 Hier wird nur beschrieben, wie Darstellungsvarianten über die API Client Library übergeben werden:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Presentations</span> <span class="o">=</span> <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">[]</span>
@@ -330,9 +333,9 @@ Die Übergebenen Darstellungsvarianten werden in der Reihenfolge ausgeführt, in
 <p class="admonition-title">Bemerkung</p>
 <p>Wird ein hier angeführter Dienste, Darstellungsvariante oder Layer nicht gefunden, liefert die API eine Fehlermeldung und keine Druck wird erzeugt.</p>
 </div>
-</section>
-<section id="layer-sichtbarkeit">
-<h2>Layer Sichtbarkeit<a class="headerlink" href="#layer-sichtbarkeit" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="layer-sichtbarkeit">
+<h2>Layer Sichtbarkeit<a class="headerlink" href="#layer-sichtbarkeit" title="Permalink to this heading">¶</a></h2>
 <p>Ähnlich wie bei Darstellungsvarianten, können auch einzelne Layer über den Parameter <code class="docutils literal notranslate"><span class="pre">layers</span></code> sichtbar bzw. unsichtbar geschalten werden:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Layers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">[]</span>
 <span class="p">{</span>
@@ -360,9 +363,9 @@ Die Übergebenen Darstellungsvarianten werden in der Reihenfolge ausgeführt, in
 <p class="admonition-title">Bemerkung</p>
 <p>Möchte man Hintergrunddienste schalten, ist die <em>Layer-Id</em> für den <em>TileCache</em> immer <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>. Schaltet man einen Hintergrunddienst mit dieser Methode, werden alle anderen Hintergrunddienste automatisch unsichtbar geschalten.</p>
 </div>
-</section>
-<section id="authentication">
-<h2>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this heading">¶</a></h2>
 <p>Karten, Dienste usw. können über das WebGIS CMS berechtigt werden. Möchte man nicht öffentliche Dienste ausdrucken,
 müssen entsprechende <em>Credentials</em> beim API Aufrufen übergeben werden. Die Authenfikation erfolgt für API Aufrufe in der Regel über <em>Clients</em>.</p>
 <p>Eine <em>Client</em> kann von einem <em>Subscriber</em> über die API Administrations Oberfläche angelegt werden:</p>
@@ -385,8 +388,8 @@ Wurde der oben gezeigte Client vom Subscriber <code class="docutils literal notr
          <span class="n">new</span> <span class="n">WebGISApiClient</span><span class="p">(</span><span class="s2">&quot;0e4....&quot;</span><span class="p">,</span> <span class="s2">&quot;8337f.....&quot;</span><span class="p">));</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -438,8 +441,8 @@ Wurde der oben gezeigte Client vom Subscriber <code class="docutils literal notr
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

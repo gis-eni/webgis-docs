@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="./">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Konfiguration DataLinq.API und DataLinq.CodeApi &#8212; DataLinq 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
-    <script src="_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/translations.js?v=70a09b52"></script>
-    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/js/eni.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
@@ -140,8 +143,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="konfiguration-datalinq-api-und-datalinq-codeapi">
-<h1>Konfiguration DataLinq.API und DataLinq.CodeApi<a class="headerlink" href="#konfiguration-datalinq-api-und-datalinq-codeapi" title="Link to this heading">¶</a></h1>
+  <div class="section" id="konfiguration-datalinq-api-und-datalinq-codeapi">
+<h1>Konfiguration DataLinq.API und DataLinq.CodeApi<a class="headerlink" href="#konfiguration-datalinq-api-und-datalinq-codeapi" title="Permalink to this heading">¶</a></h1>
 <p>Die Konfiguration von <strong>DataLinq.API</strong> und <strong>DataLinq.CodeAPI</strong> erfolgt über zwei Dateien:</p>
 <ol class="arabic simple">
 <li><p><strong>datalinq.api.json</strong> – Verwaltung von Clients und Dateispeicherpfad, etc</p></li>
@@ -150,8 +153,8 @@
 <p>Die Konfigurationsdateien ermöglichen eine flexible Anpassung der Anwendung an
 verschiedene Einsatzszenarien.</p>
 <hr class="docutils" />
-<section id="datalinq-api-json">
-<h2><cite>datalinq.api.json</cite><a class="headerlink" href="#datalinq-api-json" title="Link to this heading">¶</a></h2>
+<div class="section" id="datalinq-api-json">
+<h2><cite>datalinq.api.json</cite><a class="headerlink" href="#datalinq-api-json" title="Permalink to this heading">¶</a></h2>
 <p>Diese Datei befindet sich im Verzeichnis:
 <strong>DataLinq.Api/_config/datalinq.api.json</strong></p>
 <p>Sie enthält zentrale Einstellungen für Sicherheit, Pfade und Clients.</p>
@@ -197,8 +200,8 @@ verschiedene Einsatzszenarien.</p>
 </pre></div>
 </div>
 <p>Erläuterung der Konfiguration:</p>
-<section id="datalinq-api">
-<h3>DataLinq.Api<a class="headerlink" href="#datalinq-api" title="Link to this heading">¶</a></h3>
+<div class="section" id="datalinq-api">
+<h3>DataLinq.Api<a class="headerlink" href="#datalinq-api" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><strong>StoragePath</strong>
 Definiert das Wurzelverzeichnis im Dateisystem für Endpoints, Queries und Views.</p></li>
@@ -240,9 +243,9 @@ mit der <strong>TextFileEngine</strong> zugegriffen werden darf.</p></li>
 </ul>
 </li>
 </ul>
-</section>
-<section id="datalinq-codeapi">
-<h3>DataLinq.CodeApi<a class="headerlink" href="#datalinq-codeapi" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="datalinq-codeapi">
+<h3>DataLinq.CodeApi<a class="headerlink" href="#datalinq-codeapi" title="Permalink to this heading">¶</a></h3>
 <p>Wird dieser Abschnitt nicht angeführt, wird in dieser Instanz die <strong>DataLinq.CodeApi</strong> nicht
 angeboten.</p>
 <div class="admonition note">
@@ -268,15 +271,15 @@ Clients mit sicheren Passwörtern anzuführen!</p>
 <li><p><strong>Clients</strong>
 Definiert Benutzer mit Anmeldeinformationen und Berechtigungen.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 <hr class="docutils" />
-<section id="datalinq-config">
-<h2><cite>datalinq.config</cite><a class="headerlink" href="#datalinq-config" title="Link to this heading">¶</a></h2>
+<div class="section" id="datalinq-config">
+<h2><cite>datalinq.config</cite><a class="headerlink" href="#datalinq-config" title="Permalink to this heading">¶</a></h2>
 <p>Diese Datei ist optional befindet sich unter:
 <strong>datalinq.api/_config/datalinq.config</strong></p>
 <p>Sie dient zur Definition von Konstanten, die im DataLinq Views (Razor Code) verwendet werden:</p>
-<div class="highlight-razor notranslate"><div class="highlight"><pre><span></span>@{  var env = Const.Environment;   }
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@{  var env = Const.Environment;   }
 
 @if(env == &quot;Production&quot;) {
    // ...
@@ -301,8 +304,8 @@ Definiert Benutzer mit Anmeldeinformationen und Berechtigungen.</p></li>
 der Umgebung zu konfigurieren.</p>
 <p>Mit diesen Konfigurationsdateien kann <strong>DataLinq</strong> flexibel an unterschiedliche
 Anforderungen angepasst werden.</p>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -354,8 +357,8 @@ Anforderungen angepasst werden.</p>
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

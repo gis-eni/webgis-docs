@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Konfiguration der API Applikation &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/js/eni.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../../genindex.html" />
@@ -148,10 +151,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="konfiguration-der-api-applikation">
-<h1>Konfiguration der API Applikation<a class="headerlink" href="#konfiguration-der-api-applikation" title="Link to this heading">¶</a></h1>
-<section id="datei-config-api-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code><a class="headerlink" href="#datei-config-api-config" title="Link to this heading">¶</a></h2>
+  <div class="section" id="konfiguration-der-api-applikation">
+<h1>Konfiguration der API Applikation<a class="headerlink" href="#konfiguration-der-api-applikation" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="datei-config-api-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code><a class="headerlink" href="#datei-config-api-config" title="Permalink to this heading">¶</a></h2>
 <p>Diese Datei wird (falls nicht vorhanden) beim ersten Start der API mit Default Werten angelegt.
 In diesem Abschnitt wird gezeigt, wie diese Datei den eigenen Bedürfnissen für einen
 produktiven Betrieb angepasst werden kann:</p>
@@ -169,8 +172,8 @@ produktiven Betrieb angepasst werden kann:</p>
 &lt;configuration&gt;
 </pre></div>
 </div>
-<section id="abschnitt-cms">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">CMS</span></code><a class="headerlink" href="#abschnitt-cms" title="Link to this heading">¶</a></h3>
+<div class="section" id="abschnitt-cms">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">CMS</span></code><a class="headerlink" href="#abschnitt-cms" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cmspath</span></code>, <code class="docutils literal notranslate"><span class="pre">cmspath_geoland</span></code>, …
 Pfad zu den CMS Dateien, die in die API eingebunden werden.</p></li>
@@ -188,9 +191,9 @@ Verzeichnis, in dem sich <code class="docutils literal notranslate"><span class=
 Im <code class="docutils literal notranslate"><span class="pre">etc</span></code> Verzeichnis befindet sich die Serverseite Konfiguration der API für die
 komplette Instanz (zB. Drucklayouts).</p></li>
 </ul>
-</section>
-<section id="abschnitt-proj-database">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Proj</span> <span class="pre">Database</span></code><a class="headerlink" href="#abschnitt-proj-database" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-proj-database">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Proj</span> <span class="pre">Database</span></code><a class="headerlink" href="#abschnitt-proj-database" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">p4database</span></code>:
 Connection String zu einer Datenbank, in der die Projektionsinformationen stehen (Tabelle P4).
@@ -198,9 +201,9 @@ Hier kann die gleiche Datenbank, die auch für webGIS 4.0 genutzt wird, angegebe
 Dieser Key wird nur aus Kompatibilitätsgründen zu WebGIS 4 angeboten. Möchte man die
 Standardwert Projektionsinformationen verwenden, reicht es hier <code class="docutils literal notranslate"><span class="pre">value=&quot;#&quot;</span></code> anzugeben.</p></li>
 </ul>
-</section>
-<section id="abschnitt-cache-datenbank">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-cache-datenbank" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-cache-datenbank">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-cache-datenbank" title="Permalink to this heading">¶</a></h3>
 <p>In dieser Datenbank werden die „Sessions“ gespeichert. Darin muss sich die Tabelle
 <code class="docutils literal notranslate"><span class="pre">webgis_cache</span></code> befinden, siehe unten. Verwendet man auch die Portal Anwendung, müssen beide den
 gleichen Session-Cache verwenden. Alternativ zu einer Datenbank, kann man diese Daten
@@ -211,9 +214,9 @@ auch vereinfacht in einem Verzeichnis im Filesystem ablegen. Dann muss keine Tab
 <li><p><code class="docutils literal notranslate"><span class="pre">cache-connectionstring</span></code>
 Connection-String auf die Datenbank oder Pfad in Filesystem.</p></li>
 </ul>
-</section>
-<section id="abschnitt-cache-aside-optional">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code> (optional)<a class="headerlink" href="#abschnitt-cache-aside-optional" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-cache-aside-optional">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code> (optional)<a class="headerlink" href="#abschnitt-cache-aside-optional" title="Permalink to this heading">¶</a></h3>
 <p>Um die Zugriffe auf die Cache Datenbank zu verringern (auf den Cache wird bei jedem API Request zugegriffen)
 empfiehlt es sich bei hoch ausgelasteten Instanzen einen Cache neben der Datenbank anzurichten.
 Dieser ermöglicht schnelle Zugriffe.</p>
@@ -226,9 +229,9 @@ Dieser ermöglicht schnelle Zugriffe.</p>
 Der dazugehörige Connection String: zB <code class="docutils literal notranslate"><span class="pre">localhost:6379</span></code> bei Redis.
 Bei InApp wird hier der Wert in Sekunden angegeben, für die ein Wert im Side-Cache gehalten werden soll, z.B. <code class="docutils literal notranslate"><span class="pre">3600</span></code>.</p></li>
 </ul>
-</section>
-<section id="abschnitt-subscriber-datenbank">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-subscriber-datenbank" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-subscriber-datenbank">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-subscriber-datenbank" title="Permalink to this heading">¶</a></h3>
 <p>Subscriber sind User, die sich am WebGIS Portal anmelden können, um Karten zu erstellen.
 Die Information dieser User können in einer Datenbank oder vereinfacht auch im Filesystem
 gehalten werden (Connection-String: <code class="docutils literal notranslate"><span class="pre">value=&quot;fs:C:\webgis\webgis-repository\....&quot;</span></code>).</p>
@@ -239,9 +242,9 @@ Connection-String zur Subscriber Datenbank.</p></li>
 Eine Liste (mit Beistrich getrennt) von Subscriber Namen, die Administratoren sind,
 z.B. <code class="docutils literal notranslate"><span class="pre">admin</span></code>. Diese User können dann anderer Profile bearbeiten (Löschen, Änderen, …).</p></li>
 </ul>
-</section>
-<section id="abschnitt-subscriber-registration">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Registration</span></code><a class="headerlink" href="#abschnitt-subscriber-registration" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-subscriber-registration">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Registration</span></code><a class="headerlink" href="#abschnitt-subscriber-registration" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code>
 Hier kann angegeben werden, ob sich Subscriber in dieser Instanz anmelden können (<code class="docutils literal notranslate"><span class="pre">true</span></code> ,``false``).
@@ -263,9 +266,9 @@ Gibt an, was ein beliebiger Subscriber auf dem Portal erstellen darf (default: <
 Sollten auch Portal Seiten erstellt werden, kann hier
 <code class="docutils literal notranslate"><span class="pre">clients</span></code> , <code class="docutils literal notranslate"><span class="pre">portal-pages</span></code>, <code class="docutils literal notranslate"><span class="pre">dataLinq-endpoints</span></code> angeführt werden.</p></li>
 </ul>
-</section>
-<section id="abschnitt-api-portal-url">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Api/Portal</span> <span class="pre">Url</span></code><a class="headerlink" href="#abschnitt-api-portal-url" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-api-portal-url">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Api/Portal</span> <span class="pre">Url</span></code><a class="headerlink" href="#abschnitt-api-portal-url" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">api-url</span></code>
 Die Url auf das Portal, wie sie für den Anwender sichtbar ist.</p></li>
@@ -278,9 +281,9 @@ Url anzugeben. Wenn beide Applikationen am gleichen Server installiert sind,
 z.B.: <code class="docutils literal notranslate"><span class="pre">http://localhost/webgis-portal</span></code>.
 Wird dieser Wert nicht befüllt, greift die API intern immer mit der portal-url auf das Portal zu.</p></li>
 </ul>
-</section>
-<section id="abschnitt-storage">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Storage</span></code><a class="headerlink" href="#abschnitt-storage" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-storage">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Storage</span></code><a class="headerlink" href="#abschnitt-storage" title="Permalink to this heading">¶</a></h3>
 <p>Benutzerprojekte, Inhalt von Portalseiten, usw. werden hier abgelegt.
 Es handelt sich hier nicht um eine Datenbank im klassischen Sinn, sondern Daten/Blobs
 werden im Dateisystem angelegt.</p>
@@ -294,9 +297,9 @@ Das Verzeichnis kann jederzeit geändert werden (Inhalt einfach woanders hin kop
 </div>
 </li>
 </ul>
-</section>
-<section id="abschnitt-marker">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Marker</span></code><a class="headerlink" href="#abschnitt-marker" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-marker">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Marker</span></code><a class="headerlink" href="#abschnitt-marker" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">default-marker-colors</span></code>
 Verwendet man dynamische Marker (empfohlen), können hier die Standardfarbwerte für
@@ -321,9 +324,9 @@ und sollte alle deutschen Sonderzeichen berücksichtigen.
 Welche Werte möglich sind, ist ersichtlich, wenn man <code class="docutils literal notranslate"><span class="pre">/admin/info</span></code> Seite für die API aufruft.
 Dort wird auch angezeigt, welches <em>Encoding</em> aktuell verwendet wird.</p></li>
 </ul>
-</section>
-<section id="abschnitt-logging">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code><a class="headerlink" href="#abschnitt-logging" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-logging">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code><a class="headerlink" href="#abschnitt-logging" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Logging (optional) --&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-type&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;files&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="cm">&lt;!-- Pfad für das Logging: Verschnis muss für WebGIS schreibrechte aufweisen --&gt;</span>
@@ -351,17 +354,17 @@ zum Debugging dienen und nicht in einer Produktionsumgebung, weil dabei sehr vie
 geschrieben werden, was Auswirkungen auf die Performance haben kann.
 Die Request werden auch nur geloggt, wenn zusätzlich <code class="docutils literal notranslate"><span class="pre">trace</span> <span class="pre">=</span> <span class="pre">true</span></code> gesetzt wird.</p></li>
 </ul>
-</section>
-</section>
-<section id="werkzeug-konfiguration">
-<h2>Werkzeug Konfiguration<a class="headerlink" href="#werkzeug-konfiguration" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="werkzeug-konfiguration">
+<h2>Werkzeug Konfiguration<a class="headerlink" href="#werkzeug-konfiguration" title="Permalink to this heading">¶</a></h2>
 <p>Einige Werkzeuge, die im WebGIS Viewer angeboten werden, benötigen Konfigurationseinträge.
 Das passiert ebenfalls in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code>.
 Damit die <code class="docutils literal notranslate"><span class="pre">api.config</span></code> nicht unübersichtlich wird, werden diese Einträge über <em>Sections</em> gegliedert.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;section&gt;</span></code> Tags müssen sich innerhalb das <code class="docutils literal notranslate"><span class="pre">&lt;appSettings&gt;</span></code> Tag befinden.</p>
 <p>Hier die Werkzeuge, für die eine eigene Konfiguration notwendig ist:</p>
-<section id="werkzeug-redlining">
-<h3>Werkzeug Redlining<a class="headerlink" href="#werkzeug-redlining" title="Link to this heading">¶</a></h3>
+<div class="section" id="werkzeug-redlining">
+<h3>Werkzeug Redlining<a class="headerlink" href="#werkzeug-redlining" title="Permalink to this heading">¶</a></h3>
 <p>Die Konfiguration für das Redlining-Werkzeug schaut in etwa folgendermaßen aus:</p>
 <img alt="../../../../_images/config-tools1.png" src="../../../../_images/config-tools1.png" />
 <p>Über die Konfiguration wird bestimmt, was mit Redlining in welchem Ausmaß erlaubt ist:</p>
@@ -377,9 +380,9 @@ Werden das sehr viele Objekte (oder Objekte mit sehr vielen Vertices – Bezirks
 kann das zu Performanceeinbußen am Client führen. Ebenfalls steigt die Datenrate zwischen Server/Client.</p>
 <p>Es sollten daher, dem Anwendungsfall entsprechend, Einschränkungen bezüglich der Max-Werte vorgenommen werden.
 Besonders wichtig bei (freien) Internet Anwendungen.</p>
-</section>
-<section id="werkzeug-koordinaten-xy">
-<h3>Werkzeug Koordinaten (XY)<a class="headerlink" href="#werkzeug-koordinaten-xy" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-koordinaten-xy">
+<h3>Werkzeug Koordinaten (XY)<a class="headerlink" href="#werkzeug-koordinaten-xy" title="Permalink to this heading">¶</a></h3>
 <img alt="../../../../_images/config-tools2.png" src="../../../../_images/config-tools2.png" />
 <p>Beim XY Werkzeug können Koordinatenlisten hochgeladen werden. Das kann zum Visualisieren oder
 zum Projizieren (wenn die Koordinaten später wieder heruntergeladen werden) verwendet werden.</p>
@@ -391,9 +394,9 @@ zum Projizieren (wenn die Koordinaten später wieder heruntergeladen werden) ver
 </ul>
 <p>Um die maximale Anzahl an Koordinaten zu beschränken, die auf diesem Weg hochgeladen werden können,
 dient der Wert <code class="docutils literal notranslate"><span class="pre">allow-upload-max-rows</span></code>.</p>
-</section>
-<section id="werkzeug-drucken">
-<h3>Werkzeug Drucken<a class="headerlink" href="#werkzeug-drucken" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-drucken">
+<h3>Werkzeug Drucken<a class="headerlink" href="#werkzeug-drucken" title="Permalink to this heading">¶</a></h3>
 <p>Für das Drucken kann in der Konfiguration eingestellt werden, welche Qualitäten (DPI) beim Drucken möglich sind.
 Eine hohe Qualität erhöht die Lesbarkeit (vor allem von Texten) des Ausdrucks. Allerdings entstehen dadurch
 auch größere PDF Dateien und eine höhere Serverlast. Höhere Auflösung als 150 Dpi sollte in öffentlichen
@@ -412,26 +415,26 @@ Werden diese Werte nicht angeben, werden die in der Karte möglichen Kartenzooms
 <p>Die Einstellungen im Layout File überbieten die Werte in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> Datei bzw. die Kartenmaßstäbe.</p>
 <p>Die Maßstäbe im Layout zu parametrieren ist gute Praxis, weil so für unterschiedliche Layouts
 die erlaubten/sinnvollen Maßstäbe angegeben werden und der Anwender diese verwenden muss.</p>
-</section>
-<section id="werkzeug-liveshare">
-<h3>Werkzeug LiveShare<a class="headerlink" href="#werkzeug-liveshare" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-liveshare">
+<h3>Werkzeug LiveShare<a class="headerlink" href="#werkzeug-liveshare" title="Permalink to this heading">¶</a></h3>
 <p>Damit LiveShare verwendet werden kann ist die Url des Hubs in der api.config anzugeben.</p>
 <img alt="../../../../_images/config-tools5.png" src="../../../../_images/config-tools5.png" />
 <p>Der erste Wert gibt an, dass die SessionIds vereinfacht werden (9 stellige Zahl).</p>
 <p>Ist der Hub nicht offen, muss hier noch eine Client Id und ein Client Secret angeführt werden.
 Diese Werte bekommt man von Betreiber des Hubs.</p>
-</section>
-<section id="werkzeug-3d-messen">
-<h3>Werkzeug 3D Messen<a class="headerlink" href="#werkzeug-3d-messen" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-3d-messen">
+<h3>Werkzeug 3D Messen<a class="headerlink" href="#werkzeug-3d-messen" title="Permalink to this heading">¶</a></h3>
 <p>Damit 3D Messen funktioniert müssen folgende Werte in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> parametriert werden:</p>
 <img alt="../../../../_images/config-tools6.png" src="../../../../_images/config-tools6.png" />
 <p>Neben der minimalen und maximalen Auflösung [m] kann hier die maximale Modellgröße angegeben werden (hier 1500 x 1500).
 Außerdem kann ein Maßstab angegeben werden, über dem kein Model mehr erstellt werden darf.</p>
 <p>Die beiden letzten Werte geben den Dienst (Dienst-CMS-Id : Layer-Id) für die Texturen
 Luftbild und Straßenkarte an.</p>
-</section>
-<section id="werkzeug-karte-speichern">
-<h3>Werkzeug Karte speichern<a class="headerlink" href="#werkzeug-karte-speichern" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-karte-speichern">
+<h3>Werkzeug Karte speichern<a class="headerlink" href="#werkzeug-karte-speichern" title="Permalink to this heading">¶</a></h3>
 <p>Mit dem Werkzeug <em>Karte speichern</em> können Anwender die aktuelle Karte (Dienste, Sichtbarkeit, Redlining) als Projekt abspeichern. Dabei können folgende Einstellungen getroffen werden:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;name-maxlength&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: 40 --&gt;</span>
@@ -442,9 +445,9 @@ Luftbild und Straßenkarte an.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">name-maxlength</span></code>: Gibt an, wie lange der Name eines Projektes sein darf. Am Server wird das Projekt im Filesystem abgelegt (inklusive Verschlüsselung). Mit dieser Einstellung kann
 verhindert werden, dass Filename nicht zu lang werden.</p></li>
 </ul>
-</section>
-<section id="werkzeug-karte-laden">
-<h3>Werkzeug Karte Laden<a class="headerlink" href="#werkzeug-karte-laden" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-karte-laden">
+<h3>Werkzeug Karte Laden<a class="headerlink" href="#werkzeug-karte-laden" title="Permalink to this heading">¶</a></h3>
 <p>Mit dem Werkzeug <em>Karte Laden</em> können gespeicherte Karte vom Anwender wieder geladen werden.</p>
 <p>Öffnet man eine gespeicherte Karte über die Portalseite (Meine Projekte) wird ein Link erzeugt, mit dem die Karte geöffnet wird. Diese Link wird im Browser in der Adresszeile
 angezeigt. Theoretisch kann dieser Link kopiert und weitergegeben werden.</p>
@@ -468,9 +471,9 @@ geteilten Link öffnen können, muss diese Option auf <code class="docutils lite
 Der empfohlene Weg zum Weitergeben einer Karte sollte das Werkzeug <strong>Karte teilen</strong> sein. Damit wird ein Snapshot der aktuellen Karte gemacht und weiter gegeben. Spätere Änderungen (Redlining)
 werden im Link der geteilten Karte nicht mehr angezeigt.</p>
 </div>
-</section>
-<section id="cms-upload">
-<h3>CMS Upload<a class="headerlink" href="#cms-upload" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="cms-upload">
+<h3>CMS Upload<a class="headerlink" href="#cms-upload" title="Permalink to this heading">¶</a></h3>
 <p>In der Konfiguration kann angeben werden, ob <em>CMS.xml</em> Dateien von einer <strong>WebGIS CMS</strong> Instanz hochgeladen
 werden können:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;cms-upload-{cms-name}&quot;</span><span class="nt">&gt;</span>
@@ -490,9 +493,9 @@ Hier kann ein beliebiger <em>Client</em> und eine <em>Secret</em> angegeben werd
 sicheres Passwort mit mindestens 24 Zeichnen sein.
 Die beiden Werte müssen mit denen in der <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> im Abschnitt <code class="docutils literal notranslate"><span class="pre">deployment</span></code> übereinstimmen.</p></li>
 </ul>
-</section>
-<section id="werkzeug-karte-teilen">
-<h3>Werkzeug Karte teilen<a class="headerlink" href="#werkzeug-karte-teilen" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-karte-teilen">
+<h3>Werkzeug Karte teilen<a class="headerlink" href="#werkzeug-karte-teilen" title="Permalink to this heading">¶</a></h3>
 <p>Karten können über einen Hyperlink geteilt werden. Dazu wird die aktuelle Karte inklusive
 Redlining und Layerschaltung am Server abgespeichert.
 Damit nicht unnötig Karten (als JSON) im WebGIS Storage abgelegt werden, haben diese Links ein Ablaufdatum.
@@ -501,9 +504,9 @@ Der Anwender kann wählen, wie lange ein Link gültig ist. Standwerte sind: ein 
 <p>Sollten hier andere Werte angeboten werden, kann dies über die <code class="docutils literal notranslate"><span class="pre">api.config</span></code> eingestellt werden:</p>
 <img alt="../../../../_images/config-tools8.png" src="../../../../_images/config-tools8.png" />
 <p>Die Syntax für den Key duration lautet: <code class="docutils literal notranslate"><span class="pre">[Anzahl</span> <span class="pre">de</span> <span class="pre">Tage(Integer)]:[Anzeigetext],</span> <span class="pre">[]…</span></code>.</p>
-</section>
-<section id="werkzeug-identify">
-<h3>Werkzeug Identify<a class="headerlink" href="#werkzeug-identify" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="werkzeug-identify">
+<h3>Werkzeug Identify<a class="headerlink" href="#werkzeug-identify" title="Permalink to this heading">¶</a></h3>
 <p>Geo-Objekte können mit den Identify Werkzeug abgefragt werden. Klickt der Anwender in die Karte (Punkt-Identify)
 wird mit einer bestimmten Pixel Toleranz angefragt. Diese Toleranz gibt an, wie groß der Bereich ist, in dem
 gesucht werden soll. Das ist notwendig, weil nicht gewährleistet ist, dass der Anwender das gewünschte Geo-Objekt genau
@@ -519,9 +522,9 @@ Bei flächenhaften Objekte kann das allerdings nicht wünschenswert sein. In der
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
-</section>
-<section id="abschnitt-secured-tiles">
-<h3>Abschnitt <em>Secured Tiles</em><a class="headerlink" href="#abschnitt-secured-tiles" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-secured-tiles">
+<h3>Abschnitt <em>Secured Tiles</em><a class="headerlink" href="#abschnitt-secured-tiles" title="Permalink to this heading">¶</a></h3>
 <p>Kartenkacheln werden immer von Client abgeholt (WMTS Dienste). Sind die Dienste allerdings
 geschützt, hat das den Nachteil, dass der Client auch Information über die
 Credentials (User, Passwort oder Token) braucht. Diese Credentials sollte allerdings
@@ -533,7 +536,7 @@ geschützten WMTS Dienst. Die Credentials bleiben so am Server.</p>
 <p>Die <strong>Secured-Tiles-Redirect API</strong> Muss explizit über die <code class="docutils literal notranslate"><span class="pre">api.config</span></code> aktiviert werden:</p>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;secured-tiles-redirect&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-with-ogc-wmts&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;referers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;www.server1.com,www.server2.com,&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;referers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;www.server1.com,www.server2.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -548,9 +551,9 @@ auf denen der WebGIS Viewer läuft.
 Wird hier keine Wert angegeben, kann jeder Client auf die  <strong>Secured-Tiles-Redirect API</strong>
 zugreifen.</p></li>
 </ul>
-</section>
-<section id="proxy-server">
-<h3>Proxy Server<a class="headerlink" href="#proxy-server" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="proxy-server">
+<h3>Proxy Server<a class="headerlink" href="#proxy-server" title="Permalink to this heading">¶</a></h3>
 <p>Werden Dienste aus dem Internet eingebunden, kann dafür ein Proxy Server notwendig sein. Die entsprechenden Einstellungen erfolgen in der optionalen
 <em>Section</em> <code class="docutils literal notranslate"><span class="pre">proxy</span></code>:</p>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;proxy&quot;</span><span class="nt">&gt;</span>
@@ -567,9 +570,9 @@ zugreifen.</p></li>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">pwd</span></code> und <code class="docutils literal notranslate"><span class="pre">domain</span></code> sind optional. Bei <code class="docutils literal notranslate"><span class="pre">ignore</span></code> können mehrere Regeln mit <code class="docutils literal notranslate"><span class="pre">;</span></code> getrennt angegeben werden. Beginnt der aufgerufene Server mit
 einer dieser Zeichenkette, wird der Proxy ignoriert. Hier können ebenfalls reguläre Ausdrücke eingetragen werden.</p>
-</section>
-<section id="datalinq">
-<h3>DataLinq<a class="headerlink" href="#datalinq" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="datalinq">
+<h3>DataLinq<a class="headerlink" href="#datalinq" title="Permalink to this heading">¶</a></h3>
 <p>Über die <em>Section</em> kann angegeben werden, ob DataLinq von einer WebGIS API Instanz angeboten wird.</p>
 <div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;datalinq&quot;</span><span class="nt">&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;include&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -625,9 +628,9 @@ Wie <code class="docutils literal notranslate"><span class="pre">add-css</span><
 <p>Um zu Überprüfen, ob die Einstellungen von DataLinq richtig eingestellt sind, kann die API mit dem
 Pfad <code class="docutils literal notranslate"><span class="pre">/datalinq</span></code> aufgerufen werden:</p>
 <img alt="../../../../_images/config-tools9.png" src="../../../../_images/config-tools9.png" />
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -702,8 +705,8 @@ Pfad <code class="docutils literal notranslate"><span class="pre">/datalinq</spa
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

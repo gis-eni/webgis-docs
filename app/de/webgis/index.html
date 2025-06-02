@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="./">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Willkommen bei WebGIS &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
-    <script src="_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/translations.js?v=70a09b52"></script>
-    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/js/eni.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
@@ -139,12 +142,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="willkommen-bei-webgis">
-<h1>Willkommen bei WebGIS<a class="headerlink" href="#willkommen-bei-webgis" title="Link to this heading">¶</a></h1>
+  <div class="section" id="willkommen-bei-webgis">
+<h1>Willkommen bei WebGIS<a class="headerlink" href="#willkommen-bei-webgis" title="Permalink to this heading">¶</a></h1>
 <p>WebGIS ist ein flexibles Open Source Framework zur Erstellung und Bereitstellung interaktiver Karten- und Feature-Dienste. Über eine intuitive Web-Oberfläche können Kartenanwendungen konfiguriert und verwaltet werden – ob lokal am Client oder serverseitig gehostet. Dabei werden Karten mithilfe integrierter Tools erstellt, die es ermöglichen, verschiedene Geodatenquellen als individuell gestaltbare Layer einzubinden.</p>
 <p>Fertige Kartenanwendungen können über den WebGIS Server publiziert und über standardisierte Schnittstellen wie WMTS, WMS, ArcGIS Server oder ArcIMS abgerufen werden. So bietet WebGIS eine modulare Plattform für die Realisierung moderner Geoinformationssysteme, die sowohl Administratoren als auch Endanwendern gerecht wird.</p>
-<section id="aufbau-der-webgis-plattform-architektur">
-<h2>Aufbau der WebGIS Plattform (Architektur)<a class="headerlink" href="#aufbau-der-webgis-plattform-architektur" title="Link to this heading">¶</a></h2>
+<div class="section" id="aufbau-der-webgis-plattform-architektur">
+<h2>Aufbau der WebGIS Plattform (Architektur)<a class="headerlink" href="#aufbau-der-webgis-plattform-architektur" title="Permalink to this heading">¶</a></h2>
 <p>Über die <em>WebGIS Plattform</em> können Karten mit <em>Hintergrund-</em> und <em>Fachdaten</em> über eine Browseranwendung angeboten werden.
 Die  <em>Hintergrund-</em> und <em>Fachdaten</em> müssen dabei über gängige Kartendienst-Schnittstellen implementiert werden:</p>
 <ul class="simple">
@@ -159,9 +162,9 @@ Beispiele für Kartenserver sind beispielsweise <em>GeoServer</em> (<a class="re
 Die Kartenserver greifen in der Regel über ihr Backend auf Geodaten in einer Datenbank zu (z.B. PostGreSQL/PostGIS) und implementieren eine der oben angeführten Schnittstellen.</p>
 <p>Mit dieser Methode lassen sich sehr gut verteilte Kartenanwendungen erstellen. Möchte man eigene Daten über <em>WebGIS</em> veröffentlichen, ist zusätzlich ein Kartenserver notwendig:</p>
 <img alt="_images/architecture1.png" src="_images/architecture1.png" />
-</section>
-<section id="webgis-anwendungen-ubersicht">
-<h2>WebGIS Anwendungen (Übersicht)<a class="headerlink" href="#webgis-anwendungen-ubersicht" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="webgis-anwendungen-ubersicht">
+<h2>WebGIS Anwendungen (Übersicht)<a class="headerlink" href="#webgis-anwendungen-ubersicht" title="Permalink to this heading">¶</a></h2>
 <img alt="_images/architecture2.png" src="_images/architecture2.png" />
 <p>WebGIS besteht aus den drei Anwendungen:</p>
 <ul class="simple">
@@ -188,15 +191,15 @@ werden.</p>
 <p>Über das <strong>WebGIS Portal</strong> erfolgt auch die Authentifizierung des Anwenders. Die Rechte eines
 Anwenders (oder seiner Rolle) können ebenfalls im <strong>WebGIS CMS</strong> definiert werden und werden
 dann von der <strong>WebGIS API</strong> beim Zugriff auf die <em>Karten Dienste</em> berücksichtigt.</p>
-<section id="webgis-api">
-<h3>WebGIS API<a class="headerlink" href="#webgis-api" title="Link to this heading">¶</a></h3>
+<div class="section" id="webgis-api">
+<h3>WebGIS API<a class="headerlink" href="#webgis-api" title="Permalink to this heading">¶</a></h3>
 <p>Die <em>WebGIS API</em> ist der Kern der WebGIS Plattform. Über diese Anwendung werden (Programmier-) Schnittstellen für den Zugriff auf Kartendienste
 angeboten. Als Schnittstelle wird eine REST API angeboten. Zur Entwicklung von Browserbasierten wird auch eine Javascript API angeboten, in der
 die REST API Aufrufe bereits gekapselt sind. Eine Beschreibung der Javascript API findet man hier: <a class="reference external" href="https://docs.webgiscloud.com/dev/index.html">https://docs.webgiscloud.com/dev/index.html</a></p>
 <p>Möchte man selber Kartenanwendungen entwickeln (über Javascript) ist in der Regel nur diese Anwendung zu installieren.</p>
-</section>
-<section id="webgis-portal">
-<h3>WebGIS Portal<a class="headerlink" href="#webgis-portal" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="webgis-portal">
+<h3>WebGIS Portal<a class="headerlink" href="#webgis-portal" title="Permalink to this heading">¶</a></h3>
 <p>Das <em>WebGIS Portal</em> ist eine Web-Applikationen, die auf die Schnittstellen der <em>WebGIS API</em> zugreift, und daraus fertige interaktive (Online) Karten bereitstellen kann.
 Diese Anwendung richtet sich an alle Anwender/WebGIS Betreiber, die die Kartenanwendungen nicht über Programmierschnittstellen (REST, Javascript) entwickeln wollen.</p>
 <p>Das <em>WebGIS Portal</em> bietet bereits einen voll funktionsfähigen Kartenviewer, der bereits folgende Funktionen erfüllt:</p>
@@ -211,17 +214,17 @@ Diese Anwendung richtet sich an alle Anwender/WebGIS Betreiber, die die Kartenan
 <p>Als Beispiel kann hier auf eine einfache Karte (nur Hintergrundkarten) verwiesen werden:
 <a class="reference external" href="https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at">https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at</a></p>
 <p>Für Administratoren bietet das <em>WebGIS Portal</em> einen MapBuilder, um die Karten zu erstellen. Diese Karten können dann auf sogenannten <em>Kartenportalen</em> (Kartensammlungen) veröffentlicht werden (z.B. <a class="reference external" href="https://maps.webgiscloud.com">https://maps.webgiscloud.com</a>).</p>
-</section>
-<section id="webgis-cms">
-<h3>WebGIS CMS<a class="headerlink" href="#webgis-cms" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="webgis-cms">
+<h3>WebGIS CMS<a class="headerlink" href="#webgis-cms" title="Permalink to this heading">¶</a></h3>
 <p>Das <em>WebGIS CMS</em> ist nur für Administratoren relevant und muss/soll nicht für alle Anwender von WebGIS zugänglich sein.
 Über diese Anwendung wird festgelegt, welche Kartendienste über eine <em>WebGIS API</em> Instanz zur Verfügung gestellt werden. Außerdem kann für die einzelnen Dienste bestimmt werden,
 welche Themen sichtbar, abfragbar oder bearbeitbar sind.</p>
 <p>Die Konfiguration der Kartendienste erfolgt über eine Web-Oberfläche in einer Baumstruktur. Dieser <em>CMS-Baum</em> kann dann für eine <em>WebGIS API</em> Instanz veröffentlicht werden. In diesem Schritt wird der Baum zu einem
 <em>CMS File</em> zusammengefasst. Dieses File kann über <em>WebGIS API Konfiguration</em> in eine <em>WebGIS API Instanz</em> einbunden werden. Eine <em>WebGIS API</em> kann dabei mehrere <em>CMS Files</em> einbinden.</p>
-</section>
-<section id="webgis-datalinq">
-<h3>(WebGIS) DataLinq<a class="headerlink" href="#webgis-datalinq" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="webgis-datalinq">
+<h3>(WebGIS) DataLinq<a class="headerlink" href="#webgis-datalinq" title="Permalink to this heading">¶</a></h3>
 <p>WebGIS beinhaltet eine <em>DataLinq Instanz</em>, die DataLinq um den Umgang mit integrierten Karten erweitert.
 Das DataLinq Rendering erfolgt dabei innerhalb einer WebGIS API Instanz. Die Konfiguration erfolgt in
 <code class="docutils literal notranslate"><span class="pre">api/_config/api.config</span></code> Abschnitt <code class="docutils literal notranslate"><span class="pre">datalinq</span></code>.</p>
@@ -273,9 +276,9 @@ konfiguriert werden.</p>
 </li>
 </ul>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -326,8 +329,8 @@ konfiguriert werden.</p>
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

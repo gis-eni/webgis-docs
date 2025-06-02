@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Konfiguration der Portal Applikation &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/translations.js"></script>
+    <script src="../../../../_static/js/eni.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../../genindex.html" />
@@ -148,10 +151,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="konfiguration-der-portal-applikation">
-<h1>Konfiguration der Portal Applikation<a class="headerlink" href="#konfiguration-der-portal-applikation" title="Link to this heading">¶</a></h1>
-<section id="datei-config-portal-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code><a class="headerlink" href="#datei-config-portal-config" title="Link to this heading">¶</a></h2>
+  <div class="section" id="konfiguration-der-portal-applikation">
+<h1>Konfiguration der Portal Applikation<a class="headerlink" href="#konfiguration-der-portal-applikation" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="datei-config-portal-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code><a class="headerlink" href="#datei-config-portal-config" title="Permalink to this heading">¶</a></h2>
 <p>Die Installation des Portals ist optional. Wenn WebGIS 5 nur als API für HTML/Javascript Clients verwendet wird,
 kann darauf auch verzichtet werden. Allerdings können die Kartenanwendungen dann nur ohne Hilfsmittel
 erstellt werden. Ohne die Installation des Portals, steht auch kein MapBuilder zur Verfügung.</p>
@@ -159,8 +162,8 @@ erstellt werden. Ohne die Installation des Portals, steht auch kein MapBuilder z
 In diesem Abschnitt wird gezeigt, wie diese Datei den eigenen Bedürfnissen für einen
 produktiven Betrieb angepasst werden kann:</p>
 <p>Die Datei ist (wie die <code class="docutils literal notranslate"><span class="pre">api.config</span></code>) ein XML Datei mit unterschiedlichen <code class="docutils literal notranslate"><span class="pre">Schlüssel/Werte</span></code>-Paaren.</p>
-<section id="abschnitt-allgemein">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Allgemein</span></code><a class="headerlink" href="#abschnitt-allgemein" title="Link to this heading">¶</a></h3>
+<div class="section" id="abschnitt-allgemein">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Allgemein</span></code><a class="headerlink" href="#abschnitt-allgemein" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">company</span></code>
 Hier kann ein eindeutige Kennung für das Unternehmen des Portalbetreibers angeben werden
@@ -173,9 +176,9 @@ Ein Text, der in der Titelzeile für alle Portalseiten angezeigt wird (default: 
 Ein Link auf die Webseite des Portalbetreibers.
 Diese wird aufgerufen, wenn der Anwender auf den Text in der Titelzeile klickt.</p></li>
 </ul>
-</section>
-<section id="abschnitt-security">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Security</span></code><a class="headerlink" href="#abschnitt-security" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-security">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Security</span></code><a class="headerlink" href="#abschnitt-security" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">security</span></code>
 Gibt an, mit welcher Methode sich ein Anwender beim Portal anmeldet. Mögliche Werte sind hier:
@@ -204,9 +207,9 @@ Auch für Intranetanwendungen sollte eine Verbindung ohne SSL heute kein Thema m
 </div>
 </li>
 </ul>
-</section>
-<section id="abschnitt-auswahllisten">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Auswahllisten</span></code><a class="headerlink" href="#abschnitt-auswahllisten" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-auswahllisten">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Auswahllisten</span></code><a class="headerlink" href="#abschnitt-auswahllisten" title="Permalink to this heading">¶</a></h3>
 <p>Verwendet man Windows Authentifizierung, können hier Keys für das LDAP Verzeichnis angeführt werden.
 Auf diese wird dann beispielsweise zugegriffen, wenn ein Subscriber Portalseite berechtigt.
 Die möglichen Werte werden ihm dann über Auswahllisten zur Verfügung gestellt.</p>
@@ -216,9 +219,9 @@ z.B.: <code class="docutils literal notranslate"><span class="pre">LDAP://Domän
 <li><p><code class="docutils literal notranslate"><span class="pre">portal-windows-authentication-ldap-format</span></code>
 z.B.: <code class="docutils literal notranslate"><span class="pre">Domöne\{0}</span></code></p></li>
 </ul>
-</section>
-<section id="abschnitt-cache-datenbank">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-cache-datenbank" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-cache-datenbank">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-cache-datenbank" title="Permalink to this heading">¶</a></h3>
 <p>In dieser Datenbank werden die „Sessions“ gespeichert. Darin muss sich die Tabelle <code class="docutils literal notranslate"><span class="pre">webgis_cache</span></code>,
 siehe oben, befinden. Verwendet man auch die Portal Anwendung, müssen beide Anwendungen (API und Portal)
 den selben Session-Cache verwenden.</p>
@@ -229,21 +232,21 @@ den selben Session-Cache verwenden.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">cache-connectionstring</span></code>
 Connection-String auf die Datenbank oder Pfad in Filesystem.</p></li>
 </ul>
-</section>
-<section id="abschnitt-cache-aside-optional">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code> (optional)<a class="headerlink" href="#abschnitt-cache-aside-optional" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-cache-aside-optional">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code> (optional)<a class="headerlink" href="#abschnitt-cache-aside-optional" title="Permalink to this heading">¶</a></h3>
 <p>Hier die gleiche Werte, wie in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> angeben.</p>
-</section>
-<section id="abschnitt-subscriber-datenbank">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-subscriber-datenbank" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-subscriber-datenbank">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-subscriber-datenbank" title="Permalink to this heading">¶</a></h3>
 <p>Hier die gleiche Werte, wie in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> angeben:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">subscriber-db-connectionstring</span></code>
 Connection-String zu der oben angelegen Datenbank oder Verzeichnis im Filesystem.</p></li>
 </ul>
-</section>
-<section id="abschnitt-urls">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Urls</span></code><a class="headerlink" href="#abschnitt-urls" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-urls">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Urls</span></code><a class="headerlink" href="#abschnitt-urls" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">api</span></code>
 Die Url zur API, wie sie für den Anwender sichtbar ist.</p></li>
@@ -257,9 +260,9 @@ Grundsätzlich kann hier der gleiche Wert wie bei <code class="docutils literal 
 Die Url zum Portal (diese Anwendung), wie sie für den Anwender sichtbar ist. Diese Url wird beispielsweise
 verwendet, um Links für das Teilen von Karten zu erzeugen.</p></li>
 </ul>
-</section>
-<section id="abschnitt-advanced-security">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">Security</span></code><a class="headerlink" href="#abschnitt-advanced-security" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-advanced-security">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">Security</span></code><a class="headerlink" href="#abschnitt-advanced-security" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code>
 Verhindert das Anmelden von Subscribern für diese Instanz.
@@ -269,9 +272,9 @@ Eine Beschreibung für diesen Key steht in der Auflistung der Keys für die <cod
 Für den Kartenviewer lassen sich benutzerdefinierte Layouts anlegen (je nach Bildschirmgröße).
 Mit diesem Key kann man Benutzerdefinierte Layouts zulassen bzw. untersagen (<code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p></li>
 </ul>
-</section>
-<section id="abschnitt-logging">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code><a class="headerlink" href="#abschnitt-logging" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="abschnitt-logging">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code><a class="headerlink" href="#abschnitt-logging" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- only for debugging, never in production --&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;trace&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tracePath&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;C:\\apps\\webgis\\local\\webgis-repository\\logs&quot;</span><span class="nt">&gt;</span>
@@ -280,9 +283,9 @@ Mit diesem Key kann man Benutzerdefinierte Layouts zulassen bzw. untersagen (<co
 <p>Mit <code class="docutils literal notranslate"><span class="pre">trace</span></code> wird in das oben angeführte Verzeichnis eine <code class="docutils literal notranslate"><span class="pre">trace.log</span></code> geschrieben.
 Hier wir zB mitgeloggt, mit welchen Parametern eine User angemeldet wird.
 <code class="docutils literal notranslate"><span class="pre">trace</span></code> sollte nur dem Debugging dienen und niemals in einer Produktionsumgebung verwendet werden.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -340,8 +343,8 @@ Hier wir zB mitgeloggt, mit welchen Parametern eine User angemeldet wird.
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

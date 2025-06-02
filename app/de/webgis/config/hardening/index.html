@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sicherheitsmaßnahmen (Hardening) &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/eni.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -147,23 +150,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="sicherheitsmasznahmen-hardening">
-<h1>Sicherheitsmaßnahmen (Hardening)<a class="headerlink" href="#sicherheitsmasznahmen-hardening" title="Link to this heading">¶</a></h1>
+  <div class="section" id="sicherheitsmasznahmen-hardening">
+<h1>Sicherheitsmaßnahmen (Hardening)<a class="headerlink" href="#sicherheitsmasznahmen-hardening" title="Permalink to this heading">¶</a></h1>
 <p>Eine sichere Konfiguration des <em>WebGIS Portals</em> ist essenziell, um <strong>Datenverluste, unbefugten Zugriff und Manipulationen</strong> zu verhindern. Selbst wenn die Anwendung nur <strong>im Intranet</strong> genutzt wird, sind zusätzliche Schutzmaßnahmen notwendig, da <strong>die gleichen sensiblen Daten übertragen und gespeichert werden wie bei einer öffentlich zugänglichen Anwendung</strong>.</p>
 <div class="admonition caution">
 <p class="admonition-title">Vorsicht</p>
 <p>Web-Security ist ein komplexes Thema, das je nach Organisation unterschiedliche Anforderungen haben kann. Diese Beschreibung dient daher lediglich als Orientierungspunkt und stellt eine empfohlene Mindestkonfiguration dar. Es wird empfohlen, weitere Sicherheitsmaßnahmen individuell an die spezifischen Gegebenheiten der eigenen IT-Infrastruktur anzupassen.</p>
 </div>
 <p>Dieser Abschnitt beschreibt empfohlene Sicherheitsmaßnahmen, um das System bestmöglich zu schützen. Weitere generelle Informationen zur Sicherheit von Webapplikationen finden Sie im Anhang unter <a class="reference internal" href="../../annex/index.html"><span class="doc">Sicherheitsmaßnahmen für das WebGIS Portal</span></a>.</p>
-<section id="standardpassworter-andern">
-<h2>Standardpasswörter ändern<a class="headerlink" href="#standardpassworter-andern" title="Link to this heading">¶</a></h2>
+<div class="section" id="standardpassworter-andern">
+<h2>Standardpasswörter ändern<a class="headerlink" href="#standardpassworter-andern" title="Permalink to this heading">¶</a></h2>
 <p>Bei der Erstinstallation enthält das System vordefinierte Benutzerkonten mit Standardpasswörtern, die allgemein bekannt sind. Diese Passwörter sollten <strong>sofort nach der Installation</strong> geändert werden, um unbefugten Zugriff zu verhindern.</p>
-<section id="author-account">
-<h3>Author-Account<a class="headerlink" href="#author-account" title="Link to this heading">¶</a></h3>
+<div class="section" id="author-account">
+<h3>Author-Account<a class="headerlink" href="#author-account" title="Permalink to this heading">¶</a></h3>
 <p>Dieses Konto wird für das <strong>Bearbeiten und Veröffentlichen von Inhalten</strong> genutzt. Wenn das Standardpasswort nicht geändert wird, könnten sich andere Personen unbefugt einloggen und Karten oder andere Daten manipulieren.</p>
-</section>
-<section id="admin-account-in-der-api">
-<h3>Admin-Account in der API<a class="headerlink" href="#admin-account-in-der-api" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="admin-account-in-der-api">
+<h3>Admin-Account in der API<a class="headerlink" href="#admin-account-in-der-api" title="Permalink to this heading">¶</a></h3>
 <p>Der API-Administrator hat <strong>erweiterte Rechte</strong>, um wichtige Einstellungen der Anwendung zu ändern. Ein Angreifer mit Zugriff auf dieses Konto könnte die gesamte Anwendung kontrollieren oder sogar Daten löschen. Deshalb ist es entscheidend, das Standardpasswort zu ersetzen.</p>
 <p>Um einen <strong>Admin-Benutzer</strong> für die API anzulegen, folgen Sie diesen Schritten:</p>
 <ol class="arabic">
@@ -201,10 +204,10 @@
 </div>
 </li>
 </ol>
-</section>
-</section>
-<section id="selbstregistrierung-fur-subscriber-deaktivieren">
-<h2>Selbstregistrierung für Subscriber deaktivieren<a class="headerlink" href="#selbstregistrierung-fur-subscriber-deaktivieren" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="selbstregistrierung-fur-subscriber-deaktivieren">
+<h2>Selbstregistrierung für Subscriber deaktivieren<a class="headerlink" href="#selbstregistrierung-fur-subscriber-deaktivieren" title="Permalink to this heading">¶</a></h2>
 <p>Sobald alle notwendigen Benutzerkonten angelegt wurden, sollte die <strong>Selbstregistrierung für Subscriber</strong> deaktiviert werden. Andernfalls könnten sich beliebige Nutzer eigenständig einen Account erstellen, was in den meisten Fällen nicht erwünscht ist.</p>
 <p>Nach der Deaktivierung können neue Benutzerkonten nur noch manuell über das <strong>Admin-Konto</strong> angelegt werden.</p>
 <p>Die Selbstregistrierung wird deaktiviert, indem in der Konfigurationsdatei der API (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>) der Wert für <code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code> auf <code class="docutils literal notranslate"><span class="pre">false</span></code> gesetzt wird:</p>
@@ -219,17 +222,17 @@
 </pre></div>
 </div>
 <p>Sobald diese Einstellung vorgenommen wurde, ist die <strong>Selbstregistrierung für Subscriber deaktiviert</strong>.</p>
-</section>
-<section id="anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren">
-<h2>Anmeldemöglichkeiten in öffentlich zugänglichen Instanzen deaktivieren<a class="headerlink" href="#anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren">
+<h2>Anmeldemöglichkeiten in öffentlich zugänglichen Instanzen deaktivieren<a class="headerlink" href="#anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren" title="Permalink to this heading">¶</a></h2>
 <p>Um zu verhindern, dass sich Benutzer in einer <strong>öffentlichen Installation</strong> von WebGIS anmelden können, muss die Anmeldung sowohl im <strong>Portal</strong> als auch in der <strong>API</strong> deaktiviert werden.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tipp</p>
 <p>Diese Einstellung ist besonders dann sinnvoll, wenn eine Konfiguration von <strong>internen Installationen</strong> auf eine <strong>öffentlich zugängliche Instanz</strong> übertragen wird, da sichergestellt werden muss, dass sich <strong>keine externen Benutzer anmelden können</strong>.</p>
 </div>
 <p>Die Anmeldung wird deaktiviert, indem in den Konfigurationsdateien der API (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>) und des Portals (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>) der Wert für <code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code> auf <code class="docutils literal notranslate"><span class="pre">false</span></code> gesetzt wird:</p>
-<section id="api-konfigurationsdatei-config-api-config">
-<h3>API-Konfigurationsdatei (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>)<a class="headerlink" href="#api-konfigurationsdatei-config-api-config" title="Link to this heading">¶</a></h3>
+<div class="section" id="api-konfigurationsdatei-config-api-config">
+<h3>API-Konfigurationsdatei (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>)<a class="headerlink" href="#api-konfigurationsdatei-config-api-config" title="Permalink to this heading">¶</a></h3>
 <img alt="../../_images/disable_api_login.png" src="../../_images/disable_api_login.png" />
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
@@ -241,9 +244,9 @@
 <span class="nt">&lt;/configuration&gt;</span>
 </pre></div>
 </div>
-</section>
-<section id="portal-konfigurationsdatei-config-portal-config">
-<h3>Portal-Konfigurationsdatei (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>)<a class="headerlink" href="#portal-konfigurationsdatei-config-portal-config" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="portal-konfigurationsdatei-config-portal-config">
+<h3>Portal-Konfigurationsdatei (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>)<a class="headerlink" href="#portal-konfigurationsdatei-config-portal-config" title="Permalink to this heading">¶</a></h3>
 <img alt="../../_images/disable_portal_login.png" src="../../_images/disable_portal_login.png" />
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
@@ -256,9 +259,9 @@
 </pre></div>
 </div>
 <p>Sobald diese Einstellung in beiden Konfigurationsdateien vorgenommen wurde, ist die <strong>Anmeldung für Benutzer in der öffentlichen Instanz deaktiviert</strong>.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -315,8 +318,8 @@
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

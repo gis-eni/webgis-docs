@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebGIS 5.0 API: webgis &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=bfd86df6" />
-    <script src="../../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/eni.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -149,11 +152,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="webgis-5-0-api-webgis">
-<h1>WebGIS 5.0 API: webgis<a class="headerlink" href="#webgis-5-0-api-webgis" title="Link to this heading">¶</a></h1>
-<section id="members">
-<h2>Members<a class="headerlink" href="#members" title="Link to this heading">¶</a></h2>
+  <div class="section" id="webgis-5-0-api-webgis">
+<h1>WebGIS 5.0 API: webgis<a class="headerlink" href="#webgis-5-0-api-webgis" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="members">
+<h2>Members<a class="headerlink" href="#members" title="Permalink to this heading">¶</a></h2>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Beschreibung</p></th>
@@ -177,10 +184,14 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">¶</a></h2>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Beschreibung</p></th>
@@ -192,11 +203,11 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="member-details">
-<h2>Member Details<a class="headerlink" href="#member-details" title="Link to this heading">¶</a></h2>
-<section id="createmap-elemid-options">
-<span id="createmapanchor"></span><h3>createMap (elemId, options)<a class="headerlink" href="#createmap-elemid-options" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="member-details">
+<h2>Member Details<a class="headerlink" href="#member-details" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="createmap-elemid-options">
+<span id="createmapanchor"></span><h3>createMap (elemId, options)<a class="headerlink" href="#createmap-elemid-options" title="Permalink to this heading">¶</a></h3>
 <p><em>Beschreibung</em></p>
 <p>Mit dieser Methode wird eine neue Karte in einem HTML (div) Element erzeugt. Als Parameter werden hier die Id des Ziel HTML Elements und ein Objekt, dass die Karte beschreibt übergeben. In diesem Objekt werden mindestens der Karten-Extent (entpricht Ausdehung und Koordinatensystem der Karte) und die zu ladenden Dienste angeführt.</p>
 <p><em>Beispiel</em></p>
@@ -207,9 +218,9 @@
 </pre></div>
 </div>
 <p>Die Name der Extents und Dienste sind von der jeweiligen API Betreiber abhängig und können über die REST Schnittstelle eingesehen werden.</p>
-</section>
-<section id="init-oninit">
-<span id="initanchor"></span><h3>init (oninit)<a class="headerlink" href="#init-oninit" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="init-oninit">
+<span id="initanchor"></span><h3>init (oninit)<a class="headerlink" href="#init-oninit" title="Permalink to this heading">¶</a></h3>
 <p><em>Beschreibung</em></p>
 <p>Einstiegspunkt für jede WebGIS-API Anwending. Diese Methode initialisiert die alle notwendigen API Elemente. Als Parameter wird eine Funktion übergeben, die nach der Initialisierung aufgerufen wird. Erst nach der Initialsierung kann begonnen werden, Karten zu erzeugen.</p>
 <p><em>Beispiel</em></p>
@@ -222,9 +233,9 @@
 <span class="p">});</span>
 </pre></div>
 </div>
-</section>
-<section id="project-id-lnglat">
-<span id="projectanchor"></span><h3>project (id, lnglat)<a class="headerlink" href="#project-id-lnglat" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="project-id-lnglat">
+<span id="projectanchor"></span><h3>project (id, lnglat)<a class="headerlink" href="#project-id-lnglat" title="Permalink to this heading">¶</a></h3>
 <p><em>Beschreibung</em></p>
 <p>Projektziert Koordinaten von WGS84 in ein projekziertes Koordinatensystem. Als Parameter werden die Id des Koordinatensystems (EPSG Code) und eine Array mit den Koordinaten [geographicse Länge, geographische Breite] übergeben. Wenn die Zielkoordinatensystem nicht das Kartenkoordinatensystem ist, muss dieses zuerst mit <code class="docutils literal notranslate"><span class="pre">webgis.registerCRS</span></code> registriert werden. Ansonsten wird ein Eingabewert zurückgegeben. Das Ergebnis ist wieder ein Array mit den projekzierten Koordinaten [X,Y]</p>
 <p><em>Beispiel</em></p>
@@ -233,9 +244,9 @@
 <span class="kd">var</span><span class="w"> </span><span class="nx">Y</span><span class="o">=</span><span class="nx">xy</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
 </pre></div>
 </div>
-</section>
-<section id="registercrs-id">
-<span id="registercrsanchor"></span><h3>registerCRS (id)<a class="headerlink" href="#registercrs-id" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="registercrs-id">
+<span id="registercrsanchor"></span><h3>registerCRS (id)<a class="headerlink" href="#registercrs-id" title="Permalink to this heading">¶</a></h3>
 <p><em>Beschreibung</em></p>
 <p>Registriert ein Koordinatensystem für die Projektion. Intern wird in der Karte mit geographischen Koordinaten (EPSG:4326) gerechnet. Zum Umrechnenen von projezierten Koordinaten in dieses System gibt es die Methoden <code class="docutils literal notranslate"><span class="pre">webgis.project</span></code> und <code class="docutils literal notranslate"><span class="pre">webgis.unproject</span></code>. Durch das Laden einer Karte mit <code class="docutils literal notranslate"><span class="pre">webgis.createMap</span></code> ist eine Projektion zwischen dem Kartensystem (Extent) und den geographischen Koordinaten möglich. Sollten auch noch andere Koordinatensystem projeziert werden, müssen diese mit dieser Methode registriert werden.</p>
 <p><em>Beispiel</em></p>
@@ -243,9 +254,9 @@
 </pre></div>
 </div>
 <p>Registriert zusätzlich zum Karten-Koordinatensystem BMN-M34. Danach kann mit den Methoden <code class="docutils literal notranslate"><span class="pre">webgis.project</span></code> und <code class="docutils literal notranslate"><span class="pre">webgis.unproject</span></code> projeziert werden.</p>
-</section>
-<section id="unproject-id-xy">
-<span id="unprojectanchor"></span><h3>unproject (id, xy)<a class="headerlink" href="#unproject-id-xy" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="unproject-id-xy">
+<span id="unprojectanchor"></span><h3>unproject (id, xy)<a class="headerlink" href="#unproject-id-xy" title="Permalink to this heading">¶</a></h3>
 <p><em>Beschreibung</em></p>
 <p>Projektziert Koordinaten aus einen projekzierten Koordinatensystem nach WGS84. Als Parameter werden die Id des Koordinatensystems (EPSG Code) und eine Array mit den Koordinaten  [X,Y] übergeben. Wenn die Zielkoordinatensystem nicht das Kartenkoordinatensystem ist, muss dieses zuerst mit <code class="docutils literal notranslate"><span class="pre">webgis.registerCRS</span></code> registriert werden. Ansonsten wird eine Eingabewert zurückgegeben. Das Ergebnis ist wieder ein Array mit den geographischen Koordinaten [geographicse Länge, geographische Breite]</p>
 <p><em>Beispiel</em></p>
@@ -254,12 +265,12 @@
 <span class="kd">var</span><span class="w"> </span><span class="nx">lng</span><span class="o">=</span><span class="nx">ll</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="property-details">
-<h2>Property Details<a class="headerlink" href="#property-details" title="Link to this heading">¶</a></h2>
-<section id="clientid">
-<span id="clientidpropertyanchor"></span><h3>clientid<a class="headerlink" href="#clientid" title="Link to this heading">¶</a></h3>
+</div>
+</div>
+<div class="section" id="property-details">
+<h2>Property Details<a class="headerlink" href="#property-details" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="clientid">
+<span id="clientidpropertyanchor"></span><h3>clientid<a class="headerlink" href="#clientid" title="Permalink to this heading">¶</a></h3>
 <p><em>Beschreibung</em></p>
 <p>Die Client Id für die WebGIS-API Anwendung. Entwickelt man einen API Client, muss man diesen erst als API Subscriber erstellen. Die dabei erzeugte Client Id muss hier angeben werden und gilt nur für Clients die unter einer bestimmter Domäne laufen (HTTP-Referer).</p>
 <p><strong>Achtung:</strong> Die Client Id muss noch vor dem Aufruf von <code class="docutils literal notranslate"><span class="pre">webgis.init()</span></code> zugewiesen werden!</p>
@@ -267,9 +278,9 @@
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">clientid</span><span class="o">=</span><span class="s1">&#39;meine client id&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -329,8 +340,8 @@
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

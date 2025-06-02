@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="./">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Technische Umsetzung &#8212; DataLinq 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
-    <script src="_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/translations.js?v=70a09b52"></script>
-    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <script src="_static/js/eni.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
@@ -144,8 +147,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="technische-umsetzung">
-<h1>Technische Umsetzung<a class="headerlink" href="#technische-umsetzung" title="Link to this heading">¶</a></h1>
+  <div class="section" id="technische-umsetzung">
+<h1>Technische Umsetzung<a class="headerlink" href="#technische-umsetzung" title="Permalink to this heading">¶</a></h1>
 <p>Die Architektur von <strong>WebGIS DataLinq</strong> basiert auf einer modularen und hierarchischen Struktur, die eine flexible und effiziente Datenabfrage sowie -darstellung ermöglicht. Das System besteht aus drei zentralen Komponenten:</p>
 <ul class="simple">
 <li><p><strong>Endpoint (Endpunkt)</strong></p></li>
@@ -155,11 +158,11 @@
 <hr class="docutils" />
 <img alt="_images/ad2_1.png" src="_images/ad2_1.png" />
 <hr class="docutils" />
-<section id="struktur-der-komponenten">
-<h2>Struktur der Komponenten<a class="headerlink" href="#struktur-der-komponenten" title="Link to this heading">¶</a></h2>
-</section>
-<section id="endpoint-endpunkt">
-<h2>1. Endpoint (Endpunkt)<a class="headerlink" href="#endpoint-endpunkt" title="Link to this heading">¶</a></h2>
+<div class="section" id="struktur-der-komponenten">
+<h2>Struktur der Komponenten<a class="headerlink" href="#struktur-der-komponenten" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="endpoint-endpunkt">
+<h2>1. Endpoint (Endpunkt)<a class="headerlink" href="#endpoint-endpunkt" title="Permalink to this heading">¶</a></h2>
 <p>Der <strong>Endpunkt</strong> stellt die Verbindung zu den Datenquellen her und dient als Schnittstelle für externe Systeme. Er kann verschiedene Quellen ansprechen, darunter:</p>
 <ul class="simple">
 <li><p><strong>Datenbanken</strong></p></li>
@@ -167,18 +170,18 @@
 <li><p><strong>Weitere WebGIS DataLinq-Instanzen</strong></p></li>
 </ul>
 <p>Ein Endpunkt definiert somit die Grundlage für Datenabfragen und bestimmt, woher die Daten stammen.</p>
-</section>
-<section id="query-abfrage">
-<h2>2. Query (Abfrage)<a class="headerlink" href="#query-abfrage" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="query-abfrage">
+<h2>2. Query (Abfrage)<a class="headerlink" href="#query-abfrage" title="Permalink to this heading">¶</a></h2>
 <p>Die <strong>Abfrage (Query)</strong> ermöglicht den Zugriff auf die Daten, die über den Endpunkt bereitgestellt werden. Sie kann:</p>
 <ul class="simple">
 <li><p>Spezifische Informationen aus der Datenquelle abrufen</p></li>
 <li><p>Daten in Form von <strong>Rohdaten (JSON)</strong> oder als aufbereitete <strong>Ansicht (View)</strong> zurückgeben</p></li>
 </ul>
 <p>Die Abfragen sind flexibel konfigurierbar und können Parameter enthalten, um gezielte Datensätze zu filtern.</p>
-</section>
-<section id="view-ansicht">
-<h2>3. View (Ansicht)<a class="headerlink" href="#view-ansicht" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="view-ansicht">
+<h2>3. View (Ansicht)<a class="headerlink" href="#view-ansicht" title="Permalink to this heading">¶</a></h2>
 <p>Die <strong>Ansicht (View)</strong> dient der <strong>Visualisierung und Präsentation</strong> der Abfrageergebnisse. Sie ermöglicht:</p>
 <ul class="simple">
 <li><p>Die formatierte Darstellung der Daten in einer lesbaren Form</p></li>
@@ -186,8 +189,8 @@
 <li><p>Eine nutzerfreundliche Präsentation von Analyseergebnissen</p></li>
 </ul>
 <p>Falls nur eine <strong>Rohdatenausgabe (JSON)</strong> benötigt wird, kann auf die Erstellung einer Ansicht verzichtet werden.</p>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -237,8 +240,8 @@
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

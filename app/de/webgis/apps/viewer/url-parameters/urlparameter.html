@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL-Parameter &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/eni.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -153,20 +156,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="url-parameter">
-<h1>URL-Parameter<a class="headerlink" href="#url-parameter" title="Link to this heading">¶</a></h1>
+  <div class="section" id="url-parameter">
+<h1>URL-Parameter<a class="headerlink" href="#url-parameter" title="Permalink to this heading">¶</a></h1>
 <p>Zusätzlich zum normalen Aufruf können Parameter übergeben werden:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://{Host}/{Portal-Applikation}/{Portal-Seite}/{Kategorie}/{Kartenname}?param1=1&amp;param2=2
 </pre></div>
 </div>
-<section id="kartenausschnitte-und-marker">
-<h2>Kartenausschnitte und Marker<a class="headerlink" href="#kartenausschnitte-und-marker" title="Link to this heading">¶</a></h2>
-<section id="kartenauschnitte">
-<h3>Kartenauschnitte<a class="headerlink" href="#kartenauschnitte" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+<div class="section" id="kartenausschnitte-und-marker">
+<h2>Kartenausschnitte und Marker<a class="headerlink" href="#kartenausschnitte-und-marker" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="kartenauschnitte">
+<h3>Kartenauschnitte<a class="headerlink" href="#kartenauschnitte" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -233,9 +236,9 @@ Der Maßstab kann mit <code class="docutils literal notranslate"><span class="pr
 </tr>
 </tbody>
 </table>
-</section>
-<section id="einen-marker-ubergeben">
-<h3>Einen Marker übergeben<a class="headerlink" href="#einen-marker-ubergeben" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="einen-marker-ubergeben">
+<h3>Einen Marker übergeben<a class="headerlink" href="#einen-marker-ubergeben" title="Permalink to this heading">¶</a></h3>
 <p>Wie oben beschrieben, kann über den Parameter <code class="docutils literal notranslate"><span class="pre">marker</span></code> ein Marker beim Aufruf einer Karte übergeben werden. Die Übergabe erfolgt als <strong>JSON</strong> mit verschiedenen Eigenschaften.</p>
 <p>Formattierungsregeln:</p>
 <ul class="simple">
@@ -243,11 +246,11 @@ Der Maßstab kann mit <code class="docutils literal notranslate"><span class="pr
 <li><p>Integer-Werte bestehen nur aus Zahlen</p></li>
 <li><p>Strings müssen in Hochkommata stehen <code class="docutils literal notranslate"><span class="pre">'</span></code></p></li>
 </ul>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 15.0%" />
-<col style="width: 15.0%" />
-<col style="width: 70.0%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 70%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Eigenschaft</strong></p></th>
@@ -319,20 +322,20 @@ Werden diese Werte angegeben, sind <code class="docutils literal notranslate"><s
 </pre></div>
 </div>
 <img alt="../../../_images/image21.png" src="../../../_images/image21.png" />
-</section>
-<section id="mehrere-marker-ubergeben">
-<h3>Mehrere Marker übergeben<a class="headerlink" href="#mehrere-marker-ubergeben" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="mehrere-marker-ubergeben">
+<h3>Mehrere Marker übergeben<a class="headerlink" href="#mehrere-marker-ubergeben" title="Permalink to this heading">¶</a></h3>
 <p>Über den Parameter <code class="docutils literal notranslate"><span class="pre">markers</span></code> können mehrere Marker übergeben werden. Die Syntax entspricht einem <strong>Array</strong> aus einzelnen Markern.</p>
 <p><strong>Hinweise:</strong></p>
 <ul class="simple">
 <li><p>Die Marker werden nicht nur in der Karte angezeigt, sondern auch als <strong>Dynamischer Inhalt</strong> übernommen.</p></li>
 <li><p>Über den optionalen Parameter <code class="docutils literal notranslate"><span class="pre">markers_name</span></code> kann ein Name definiert werden, unter dem der <strong>Dynamische Inhalt</strong> im TOC angezeigt wird.</p></li>
 </ul>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -361,20 +364,20 @@ Jedes Element im Array entspricht einem <strong>Marker-Objekt</strong> mit dense
                              {lng:15.2,lat:46.9,text:&#39;Ziel 5&#39;}]
 </pre></div>
 </div>
-</section>
-</section>
-<section id="abfragen">
-<h2>Abfragen<a class="headerlink" href="#abfragen" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="abfragen">
+<h2>Abfragen<a class="headerlink" href="#abfragen" title="Permalink to this heading">¶</a></h2>
 <p>An den Viewer kann beim Aufruf eine Abfrage mit Werten übergeben werden. Diese Abfrage wird dann automatisch als <strong>aktuelles Abfrage-/Identifythema</strong> im Viewer aktiv.</p>
 <p><strong>Funktionsweise:</strong>
 - Wird die Abfrage ohne Werte übergeben, wird das Abfragethema in der Benutzeroberfläche aktiviert.
 - Werden zusätzlich <strong>Abfragewerte</strong> übergeben, wird die Abfrage ausgeführt und auf die <strong>Ergebnisse gezoomt</strong>.
 - Ergebnisse werden in der Karte <strong>selektiert und mit Markern markiert</strong>.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -408,15 +411,15 @@ Jedes Element im Array entspricht einem <strong>Marker-Objekt</strong> mit dense
 <p class="admonition-title">Bemerkung</p>
 <p>Die Abfrage-ID für <strong>„sichtbare Themen“</strong> ist <code class="docutils literal notranslate"><span class="pre">#</span></code>. Da das Zeichen <code class="docutils literal notranslate"><span class="pre">#</span></code> in URLs reserviert ist, muss es als <code class="docutils literal notranslate"><span class="pre">%23</span></code> kodiert werden.</p>
 </div>
-</section>
-<section id="darstellungsfilter">
-<h2>Darstellungsfilter<a class="headerlink" href="#darstellungsfilter" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="darstellungsfilter">
+<h2>Darstellungsfilter<a class="headerlink" href="#darstellungsfilter" title="Permalink to this heading">¶</a></h2>
 <p>Werden in einer Karte <strong>Darstellungsfilter</strong> angeboten, kann ein Filter über einen <strong>URL-Parameter</strong> übergeben werden.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -462,15 +465,15 @@ Jedes Element im Array entspricht einem <strong>Marker-Objekt</strong> mit dense
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="nb">filter</span><span class="o">=</span><span class="n">my</span><span class="o">-</span><span class="n">service</span><span class="nd">@my</span><span class="o">-</span><span class="n">cms</span><span class="o">~</span><span class="n">my</span><span class="o">-</span><span class="nb">filter</span><span class="o">&amp;</span><span class="n">filterarg_WERT1</span><span class="o">=</span><span class="n">abc</span>
 </pre></div>
 </div>
-</section>
-<section id="werkzeuge">
-<h2>Werkzeuge<a class="headerlink" href="#werkzeuge" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="werkzeuge">
+<h2>Werkzeuge<a class="headerlink" href="#werkzeuge" title="Permalink to this heading">¶</a></h2>
 <p>Der Viewer kann mit einem voreingestellten <strong>Werkzeug</strong> aufgerufen werden.</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -498,14 +501,14 @@ z. B. <em>Gesamter Ausschnitt</em>, <em>Refresh</em>, <em>Zurück</em>.</p>
 </div>
 <p>Die möglichen <strong>Werkzeug-IDs</strong> können unter folgendem Link nachgeschlagen werden:
 <a class="reference external" href="https://api.webgiscloud.com/rest/tools">https://api.webgiscloud.com/rest/tools</a></p>
-<section id="erweiterte-parameter-fur-das-edit-werkzeug">
-<h3>Erweiterte Parameter für das <strong>Edit-Werkzeug</strong><a class="headerlink" href="#erweiterte-parameter-fur-das-edit-werkzeug" title="Link to this heading">¶</a></h3>
+<div class="section" id="erweiterte-parameter-fur-das-edit-werkzeug">
+<h3>Erweiterte Parameter für das <strong>Edit-Werkzeug</strong><a class="headerlink" href="#erweiterte-parameter-fur-das-edit-werkzeug" title="Permalink to this heading">¶</a></h3>
 <p>Für das Editwerkzeug <code class="docutils literal notranslate"><span class="pre">&amp;tool=webgis.tools.editing.edit</span></code> können zusätzlich folgende Parameter übergeben werden:</p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -542,10 +545,10 @@ Das Feld muss im Editthema definiert sein.</p></td>
 <em>WebGIS Desktop Layout</em> geöffnet wurde.
 Ist dies nicht der Fall, muss der Nutzer <strong>manuell auf „Neues Objekt“ klicken</strong>.</p>
 </div>
-</section>
-</section>
-<section id="sichtbarkeit-darstellungsvarianten">
-<h2>Sichtbarkeit/Darstellungsvarianten<a class="headerlink" href="#sichtbarkeit-darstellungsvarianten" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="sichtbarkeit-darstellungsvarianten">
+<h2>Sichtbarkeit/Darstellungsvarianten<a class="headerlink" href="#sichtbarkeit-darstellungsvarianten" title="Permalink to this heading">¶</a></h2>
 <p>Um beim Aufruf eine bestimmte <strong>Darstellungsvariante</strong> anzugeben, kann eine Liste von Varianten übergeben werden.
 Diese werden dann in der angegebenen Reihenfolge <strong>automatisch aktiviert</strong>.</p>
 <p><strong>Hinweise zur Funktionsweise:</strong></p>
@@ -560,11 +563,11 @@ Diese werden dann in der angegebenen Reihenfolge <strong>automatisch aktiviert</
 Jedes Element in den <strong>Darstellungsvarianten im TOC</strong> hat ein Attribut <strong>„data-dvid“</strong>, dessen Wert die zu übergebene ID ist.</p></li>
 </ul>
 <img alt="../../../_images/image31.png" src="../../../_images/image31.png" />
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -585,9 +588,9 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">presentation</span><span class="o">=</span><span class="n">dvg_strom</span><span class="o">-</span><span class="n">naturbestand</span><span class="o">/</span><span class="n">dv_ssg_nb_geb</span><span class="p">,</span><span class="n">dvg_kataster</span>
 </pre></div>
 </div>
-</section>
-<section id="sichtbarkeit-von-einzelnen-layern">
-<h2>Sichtbarkeit von einzelnen Layern<a class="headerlink" href="#sichtbarkeit-von-einzelnen-layern" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="sichtbarkeit-von-einzelnen-layern">
+<h2>Sichtbarkeit von einzelnen Layern<a class="headerlink" href="#sichtbarkeit-von-einzelnen-layern" title="Permalink to this heading">¶</a></h2>
 <p>Ist das Sichtbarschalten über <strong>Darstellungsvarianten</strong> nicht möglich, können auch <strong>einzelne Layer</strong> direkt <strong>sichtbar</strong> oder <strong>unsichtbar</strong> geschaltet werden. Die Namen der Layer (inklusive Gruppe) werden dabei als Parameter übergeben.</p>
 <p><strong>Hinweise zur Funktionsweise:</strong></p>
 <ul class="simple">
@@ -600,11 +603,11 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Verwaltungsdaten</span>\<span class="n">Bezirke</span>
 </pre></div>
 </div>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -642,9 +645,9 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 <li><p>Es wird nicht geprüft, zu welchem Dienst ein Layer gehört. Falls es mehrere Layer mit <strong>dem gleichen Namen</strong> in verschiedenen Diensten gibt, kann dies <strong>zu Darstellungsfehlern führen</strong>.</p></li>
 </ul>
 </div>
-</section>
-<section id="sichtbarkeit-von-hintergrunddiensten">
-<h2>Sichtbarkeit von Hintergrunddiensten<a class="headerlink" href="#sichtbarkeit-von-hintergrunddiensten" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="sichtbarkeit-von-hintergrunddiensten">
+<h2>Sichtbarkeit von Hintergrunddiensten<a class="headerlink" href="#sichtbarkeit-von-hintergrunddiensten" title="Permalink to this heading">¶</a></h2>
 <p>Hintergrunddienste (<strong>Basemaps</strong>) können über den Parameter <code class="docutils literal notranslate"><span class="pre">basemap</span></code> aktiviert werden. Es können mehrere Dienste durch <strong>Beistrich getrennt</strong> übergeben werden:</p>
 <ul class="simple">
 <li><p>Der <strong>erste Dienst</strong> wird als <strong>Hintergrund-Basemap</strong> verwendet.</p></li>
@@ -659,17 +662,17 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basemap</span><span class="o">=</span><span class="n">ortho_tiles_gray</span><span class="nd">@my_cms</span><span class="p">,</span><span class="n">streets_tiles_default</span><span class="nd">@my_cms</span>
 </pre></div>
 </div>
-</section>
-<section id="snapshots">
-<h2>Snapshots<a class="headerlink" href="#snapshots" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="snapshots">
+<h2>Snapshots<a class="headerlink" href="#snapshots" title="Permalink to this heading">¶</a></h2>
 <p>Falls im <strong>MapBuilder</strong> für eine Karte mehrere <em>Snapshots</em> definiert wurden, kann ein bestimmter <strong>Snapshot</strong> über den Parameter <code class="docutils literal notranslate"><span class="pre">snapshot</span></code> geladen werden. Die Karte wird dann mit der für den Snapshot <strong>eingestellten Sichtbarkeit und dem gespeicherten Ausschnitt</strong> geöffnet.</p>
 <p><strong>Beispiel:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">snapshot</span><span class="o">=</span><span class="n">snapshot</span><span class="o">-</span><span class="n">name</span>
 </pre></div>
 </div>
-</section>
-<section id="dienste-hinzufugen">
-<h2>Dienste hinzufügen<a class="headerlink" href="#dienste-hinzufugen" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="dienste-hinzufugen">
+<h2>Dienste hinzufügen<a class="headerlink" href="#dienste-hinzufugen" title="Permalink to this heading">¶</a></h2>
 <p>Beim Aufruf einer Karte können zusätzliche <strong>Dienste</strong> übergeben werden. Dazu kann der Parameter <code class="docutils literal notranslate"><span class="pre">append-services</span></code> oder <code class="docutils literal notranslate"><span class="pre">gdiservices</span></code> genutzt werden. Die angegebenen Dienste werden in <strong>der Reihenfolge eingefügt</strong>, in der sie übergeben wurden.</p>
 <ul class="simple">
 <li><p><strong>Neue Dienste</strong> werden in der Karte hinzugefügt.</p></li>
@@ -677,11 +680,11 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 <li><p><strong>Der zuletzt eingefügte Dienst</strong> überdeckt alle vorherigen Dienste.</p></li>
 </ul>
 <p><strong>Verfügbare Parameter:</strong></p>
-<table class="docutils align-default">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 15.0%" />
-<col style="width: 65.0%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Parameter</strong></p></th>
@@ -701,9 +704,9 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="allgemeine-originare-url-parameter">
-<h2>Allgemeine (originäre) URL-Parameter<a class="headerlink" href="#allgemeine-originare-url-parameter" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="allgemeine-originare-url-parameter">
+<h2>Allgemeine (originäre) URL-Parameter<a class="headerlink" href="#allgemeine-originare-url-parameter" title="Permalink to this heading">¶</a></h2>
 <p>Neben den spezifischen URL-Parametern können auch <strong>allgemeine Parameter</strong> übergeben werden. Diese werden als <strong>originäre Aufrufparameter</strong> behandelt und bei jedem Request in der Viewer-Session an den Server übermittelt. Dort können sie entsprechend verarbeitet werden.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
@@ -735,8 +738,8 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 <span class="n">onupdate</span><span class="p">:</span><span class="n">url</span><span class="o">-</span><span class="n">parameter</span><span class="p">:</span><span class="n">project_id</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -800,8 +803,8 @@ Beide Parameter sind möglich und haben die gleiche Funktion.</p></td>
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ArcGIS Server Dienst einbinden &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/eni.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -165,8 +168,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="arcgis-server-dienst-einbinden">
-<h1>ArcGIS Server Dienst einbinden<a class="headerlink" href="#arcgis-server-dienst-einbinden" title="Link to this heading">¶</a></h1>
+  <div class="section" id="arcgis-server-dienst-einbinden">
+<h1>ArcGIS Server Dienst einbinden<a class="headerlink" href="#arcgis-server-dienst-einbinden" title="Permalink to this heading">¶</a></h1>
 <p>Dazu im CMS-Baum auf <code class="docutils literal notranslate"><span class="pre">Dienste/ArcGIS</span> <span class="pre">Server/MapServer</span> <span class="pre">Dienst</span></code> wechseln:</p>
 <img alt="../../_images/image120.png" src="../../_images/image120.png" />
 <p>Auf <code class="docutils literal notranslate"><span class="pre">Neuen</span> <span class="pre">Dienst</span> <span class="pre">einbinden</span></code> klicken:</p>
@@ -201,8 +204,8 @@ weil ein Client meistens Zugriff auf das Output-Verzeichnis hat. So folgt in der
 <li><p>Client (Browser)            &lt;-&gt;           Output-Verzeichnis</p></li>
 </ol>
 </div>
-<section id="dynamische-dienste">
-<h2>Dynamische Dienste<a class="headerlink" href="#dynamische-dienste" title="Link to this heading">¶</a></h2>
+<div class="section" id="dynamische-dienste">
+<h2>Dynamische Dienste<a class="headerlink" href="#dynamische-dienste" title="Permalink to this heading">¶</a></h2>
 <p>Eine Vereinfachung bei der Parametrierung bieten folgende Einstellungen:</p>
 <img alt="../../_images/add_ags_service1.png" src="../../_images/add_ags_service1.png" />
 <p>In der Regel müssen im CMS für einen Dienst sowohl Darstellungsvarianten als auch Abfragen extra parametriert werden.
@@ -217,8 +220,8 @@ parametriert werden können. Stellt man in den hier gezeigten Optionen einen and
 diese Bereiche. Es gibt nur die Möglichkeit, die Inhalte entweder <em>dynamisch</em> oder <em>individuell parametriert</em> zur Verfügung
 zu stellen.</p>
 </div>
-<section id="dynamische-darstellungsvarianten">
-<h3>Dynamische Darstellungsvarianten<a class="headerlink" href="#dynamische-darstellungsvarianten" title="Link to this heading">¶</a></h3>
+<div class="section" id="dynamische-darstellungsvarianten">
+<h3>Dynamische Darstellungsvarianten<a class="headerlink" href="#dynamische-darstellungsvarianten" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><strong>None:</strong> Die Darstellungsvarianten müssen individuell parametriert werden. Zuerst müssen dafür die einzelnen Schaltungen im Abschnitt <code class="docutils literal notranslate"><span class="pre">Layerschaltungen</span></code> des Dienstes definiert werden. Diese können dann im CMS-Knoten <code class="docutils literal notranslate"><span class="pre">Karten</span> <span class="pre">Viewer</span></code> in einen Darstellungs-Container hinzugefügt werden. Dieser Vorgang wird in den nächsten Abschnitten beschrieben.</p></li>
 <li><p><strong>Auto:</strong> Der Themenbaum wird aus dem Dienst übernommen. Für jedes Thema wird in der entsprechenden Gruppe eine <em>Checkbox</em>-Schaltfläche angeboten. Im Karten Viewer wird im Darstellungsvarianten-TOC ein extra Container für diesen Dienst angelegt.</p></li>
@@ -262,9 +265,9 @@ zu stellen.</p>
 weitere Möglichkeiten ausschöpfen (Buttons, Optionbox, Marker), muss der komplette Baum im CMS über
 Layer-Schaltungen/Darstellungsvarianten parametriert werden.</p>
 </div>
-</section>
-<section id="dynamische-abfragen">
-<h3>Dynamische Abfragen<a class="headerlink" href="#dynamische-abfragen" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="dynamische-abfragen">
+<h3>Dynamische Abfragen<a class="headerlink" href="#dynamische-abfragen" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><strong>None:</strong> Die Abfragen müssen für den Dienst im Abschnitt <code class="docutils literal notranslate"><span class="pre">Abfragen</span></code> parametriert werden. Dieser Vorgang wird im nächsten Abschnitt beschrieben.</p></li>
 <li><p><strong>Auto:</strong> Für jedes abfragbare Thema im Dienst wird zur Laufzeit ein Abfragethema erstellt. In der Tabelle der Ergebnisse werden alle Felder angezeigt.</p></li>
@@ -275,9 +278,9 @@ Layer-Schaltungen/Darstellungsvarianten parametriert werden.</p>
 Abfrage zur Verfügung stehen oder in Themen über Suchfelder gesucht werden können, müssen alle Abfragen
 im CMS parametriert werden.</p>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -328,8 +331,8 @@ im CMS parametriert werden.</p>
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

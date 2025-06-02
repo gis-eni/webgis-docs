@@ -26,3 +26,9 @@ können mit ``webgis.defaults`` Standardwerte gesetzt werden:
 
     // sets the default viewer layout for larger screens (here: desktop)
     webgis.defaults["map.properties.template.1200"] = "desktop";  // touch
+
+    // set defaults for user preferences
+    // automatically select feature after query/identify
+    webgis.defaults["user.preferences.select-new-query-results"] = "yes";
+    // do not show markers automatically after query/identify
+    webgis.defaults["user.preferences.show-markers-on-new-queries"] = "no";

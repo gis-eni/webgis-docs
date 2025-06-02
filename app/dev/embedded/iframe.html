@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Karten über iFrame einbettten &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=bfd86df6" />
-    <script src="../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/translations.js?v=70a09b52"></script>
-    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/js/eni.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
@@ -139,14 +142,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="karten-uber-iframe-einbettten">
-<h1>Karten über iFrame einbettten<a class="headerlink" href="#karten-uber-iframe-einbettten" title="Link to this heading">¶</a></h1>
+  <div class="section" id="karten-uber-iframe-einbettten">
+<h1>Karten über iFrame einbettten<a class="headerlink" href="#karten-uber-iframe-einbettten" title="Permalink to this heading">¶</a></h1>
 <p>In diesem Abschnitt wird eine Anwendung vorgestellt, bei der eine bestehende WebGIS Karte über ein <code class="docutils literal notranslate"><span class="pre">iframe</span></code> auf einer
 Drittseite eingebunden wird. Zusätzlich wird über eine <code class="docutils literal notranslate"><span class="pre">callback</span></code> Funktion versucht, auf der Drittseite auf
 Änderungen des Kartenausschnittes zu reagieren. Außerdem kann ein Bild des aktuellen Karteninhalts von der <em>Parent</em> Seite abgeholt werden,
 um das aktuelle Kartenbild herunterzuladen (bzw. in einem <code class="docutils literal notranslate"><span class="pre">img</span></code> Element auf der Drittseite darzustellen)</p>
-<section id="iframe-mit-webgis-anwendung">
-<h2>IFrame mit WebGIS Anwendung<a class="headerlink" href="#iframe-mit-webgis-anwendung" title="Link to this heading">¶</a></h2>
+<div class="section" id="iframe-mit-webgis-anwendung">
+<h2>IFrame mit WebGIS Anwendung<a class="headerlink" href="#iframe-mit-webgis-anwendung" title="Permalink to this heading">¶</a></h2>
 <p>Um eine WebGIS Anwendung auf der Drittseite einzubetten, ist ein entsprechendes <code class="docutils literal notranslate"><span class="pre">iframe</span></code> Element innerhalb
 des <code class="docutils literal notranslate"><span class="pre">body</span></code> Elements zu definieren:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://localhost/map0.htm&quot;</span>
@@ -156,9 +159,9 @@ des <code class="docutils literal notranslate"><span class="pre">body</span></co
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">src</span></code> Verweist dabei auf die WebGIS Anwendung. Dies kann eine statische Seite, die die WebGIS API
 einbindet, oder auch eine WebGIS Karte sein, die über ein WebGIS Portal bereitgestellt wird (siehe Beispiel unten) sein.</p>
-</section>
-<section id="callback-funktionen">
-<h2>Callback Funktionen<a class="headerlink" href="#callback-funktionen" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="callback-funktionen">
+<h2>Callback Funktionen<a class="headerlink" href="#callback-funktionen" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Voraussetzung, damit ein Callback funktioniert, ist, dass dies von der eingebetten Karte erlaubt wird. Dafür muss
@@ -307,8 +310,8 @@ aktuellen Karte in unterschiedlichen Formaten anbietet:</p>
  <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -354,8 +357,8 @@ aktuellen Karte in unterschiedlichen Formaten anbietet:</p>
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

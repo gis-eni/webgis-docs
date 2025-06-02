@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auswahllisten aus WebServices (DataLinq) &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/eni.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -165,13 +168,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="auswahllisten-aus-webservices-datalinq">
-<h1>Auswahllisten aus WebServices (DataLinq)<a class="headerlink" href="#auswahllisten-aus-webservices-datalinq" title="Link to this heading">¶</a></h1>
+  <div class="section" id="auswahllisten-aus-webservices-datalinq">
+<h1>Auswahllisten aus WebServices (DataLinq)<a class="headerlink" href="#auswahllisten-aus-webservices-datalinq" title="Permalink to this heading">¶</a></h1>
 <p><em>DataLinq</em> ist Teil der <em>WebGIS API</em> und wird hauptsächlich verwendet, um Berichte basierend auf verschiedenen Datenquellen zu erstellen.
 Zudem können parametrierte Abfragen als JSON über eine REST-Schnittstelle abgerufen werden. Diese REST-Schnittstelle
 kann auch als Quelle für <strong>Auswahllisten</strong> genutzt werden.</p>
-<section id="vorteile-gegenuber-anderen-quellen">
-<h2>Vorteile gegenüber anderen Quellen<a class="headerlink" href="#vorteile-gegenuber-anderen-quellen" title="Link to this heading">¶</a></h2>
+<div class="section" id="vorteile-gegenuber-anderen-quellen">
+<h2>Vorteile gegenüber anderen Quellen<a class="headerlink" href="#vorteile-gegenuber-anderen-quellen" title="Permalink to this heading">¶</a></h2>
 <p>Im Vergleich zu vorher gezeigten Methoden entfällt hier die Notwendigkeit, für jede Auswahlliste einen
 <em>ConnectionString</em> oder ein <em>SQL Statement</em> anzugeben.
 Dies hat mehrere Vorteile:
@@ -189,10 +192,10 @@ jedoch mit dem Vorteil, dass Änderungen an der Liste <strong>direkt übernommen
 <p class="admonition-title">Bemerkung</p>
 <p>Grundkenntnisse zu <em>DataLinq</em> werden in diesem Abschnitt vorausgesetzt.</p>
 </div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="datalinq-endpoint-anlegen">
-<h2>DataLinq Endpoint anlegen<a class="headerlink" href="#datalinq-endpoint-anlegen" title="Link to this heading">¶</a></h2>
+<div class="section" id="datalinq-endpoint-anlegen">
+<h2>DataLinq Endpoint anlegen<a class="headerlink" href="#datalinq-endpoint-anlegen" title="Permalink to this heading">¶</a></h2>
 <p>Zunächst wird ein neuer <em>DataLinq</em> Endpoint erstellt:</p>
 <img alt="../../../_images/datalinq-domains1.png" src="../../../_images/datalinq-domains1.png" />
 <p>Als <strong>Typ</strong> wird <code class="docutils literal notranslate"><span class="pre">PlainText</span></code> angegeben. Ein <em>ConnectionString</em> ist für diesen Typ nicht erforderlich:</p>
@@ -203,10 +206,10 @@ Falls der Client kein Benutzer, sondern eine <strong>Applikation</strong> ist, e
 sondern über <strong>Tokens</strong>.</p>
 <p>Der Client, der die Listen abruft, ist in diesem Fall die <strong>WebGIS Application</strong>:</p>
 <img alt="../../../_images/datalinq-domains3.png" src="../../../_images/datalinq-domains3.png" />
-</section>
+</div>
 <hr class="docutils" />
-<section id="datalinq-abfrage-anlegen">
-<h2>DataLinq Abfrage anlegen<a class="headerlink" href="#datalinq-abfrage-anlegen" title="Link to this heading">¶</a></h2>
+<div class="section" id="datalinq-abfrage-anlegen">
+<h2>DataLinq Abfrage anlegen<a class="headerlink" href="#datalinq-abfrage-anlegen" title="Permalink to this heading">¶</a></h2>
 <p>Im nächsten Schritt wird unter dem <strong>Endpoint</strong> eine <strong>Abfrage</strong> erstellt:</p>
 <img alt="../../../_images/datalinq-domains4.png" src="../../../_images/datalinq-domains4.png" />
 <p>Anschließend kann unter <strong>Statement</strong> der Editor geöffnet werden:</p>
@@ -214,9 +217,9 @@ sondern über <strong>Tokens</strong>.</p>
 <p>Falls die Datenquelle eine <strong>Datenbank</strong> ist, kann hier ein <strong>SQL Statement</strong> hinterlegt werden.
 Beim Typ <strong>PlainText</strong> werden die Werte für die Liste <strong>direkt als Text</strong> eingetragen:</p>
 <img alt="../../../_images/datalinq-domains6.png" src="../../../_images/datalinq-domains6.png" />
-</section>
-<section id="formatierung-der-werte">
-<h2>Formatierung der Werte<a class="headerlink" href="#formatierung-der-werte" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="formatierung-der-werte">
+<h2>Formatierung der Werte<a class="headerlink" href="#formatierung-der-werte" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Jede Zeile entspricht einem <strong>Eintrag</strong> in der Auswahlliste.</p></li>
 <li><p>Der Wert wird sowohl als <strong>„value“</strong> als auch als <strong>„label“</strong> (Anzeigename) verwendet.</p></li>
@@ -238,10 +241,10 @@ Das bedeutet, dass jeder Client, der Zugriff auf den <em>Endpoint</em> hat, auch
 den <em>Endpoint</em> zu schützen:</p>
 <img alt="../../../_images/datalinq-domains8.png" src="../../../_images/datalinq-domains8.png" />
 <p>Zum Abschluss wird die Abfrage mit <strong>„Create“</strong> erstellt.</p>
-</section>
+</div>
 <hr class="docutils" />
-<section id="abfrage-testen">
-<h2>Abfrage testen<a class="headerlink" href="#abfrage-testen" title="Link to this heading">¶</a></h2>
+<div class="section" id="abfrage-testen">
+<h2>Abfrage testen<a class="headerlink" href="#abfrage-testen" title="Permalink to this heading">¶</a></h2>
 <p>Zum Testen kann der Abfragedialog geöffnet werden:
 <strong>Statement → Test</strong></p>
 <p>Das Ergebnis sollte folgendermaßen aussehen:</p>
@@ -263,10 +266,10 @@ Die Abfrage funktioniert dann auch im <em>Incognito-Fenster</em>:</p>
 <strong>Beide Tokens sind gleichwertig.</strong>
 Der Grund für zwei separate Tokens ist, dass später ein <strong>nahtloser Wechsel</strong> zwischen ihnen möglich bleibt.</p>
 </div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="auswahlliste-im-cms-einbinden">
-<h2>Auswahlliste im CMS einbinden<a class="headerlink" href="#auswahlliste-im-cms-einbinden" title="Link to this heading">¶</a></h2>
+<div class="section" id="auswahlliste-im-cms-einbinden">
+<h2>Auswahlliste im CMS einbinden<a class="headerlink" href="#auswahlliste-im-cms-einbinden" title="Permalink to this heading">¶</a></h2>
 <p>Beim jeweiligen <strong>Domain-Feld</strong> (Edit-Maske) wird unter <strong>ConnectionString</strong> der Link zur Abfrage eingetragen:</p>
 <img alt="../../../_images/datalinq-domains12.png" src="../../../_images/datalinq-domains12.png" />
 <div class="admonition note">
@@ -279,10 +282,10 @@ Der Grund für zwei separate Tokens ist, dass später ein <strong>nahtloser Wech
 <li><p>In diesem Beispiel entsprechen die Werte <strong>bereits den Defaultwerten</strong>, sodass sie leer bleiben können.</p></li>
 </ul>
 </div>
-</section>
+</div>
 <hr class="docutils" />
-<section id="kaskadierende-auswahllisten">
-<h2>Kaskadierende Auswahllisten<a class="headerlink" href="#kaskadierende-auswahllisten" title="Link to this heading">¶</a></h2>
+<div class="section" id="kaskadierende-auswahllisten">
+<h2>Kaskadierende Auswahllisten<a class="headerlink" href="#kaskadierende-auswahllisten" title="Permalink to this heading">¶</a></h2>
 <p>Auswahllisten können auch von einer <strong>übergeordneten Liste</strong> abhängig gemacht werden.
 Beim Typ <code class="docutils literal notranslate"><span class="pre">PlainText</span></code> wird dies durch <strong>Einrückungen (2x Leerzeichen)</strong> umgesetzt:</p>
 <img alt="../../../_images/datalinq-domains13.png" src="../../../_images/datalinq-domains13.png" />
@@ -305,8 +308,8 @@ Beim Typ <code class="docutils literal notranslate"><span class="pre">PlainText<
 <p class="admonition-title">Bemerkung</p>
 <p>Hier ist <code class="docutils literal notranslate"><span class="pre">MARKE</span></code> das <strong>Datenbank-Feld</strong>, in das die Automarke über die Auswahlliste geschrieben wird.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -359,8 +362,8 @@ Beim Typ <code class="docutils literal notranslate"><span class="pre">PlainText<
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

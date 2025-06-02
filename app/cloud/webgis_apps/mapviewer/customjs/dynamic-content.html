@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dynamische Inhalte &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/eni.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -149,11 +152,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="dynamische-inhalte">
-<h1>Dynamische Inhalte<a class="headerlink" href="#dynamische-inhalte" title="Link to this heading">¶</a></h1>
+  <div class="section" id="dynamische-inhalte">
+<h1>Dynamische Inhalte<a class="headerlink" href="#dynamische-inhalte" title="Permalink to this heading">¶</a></h1>
 <p>Wurden in eine Karte <em>dynamische Inhalte</em> eingefügt (siehe Abschnitt <code class="docutils literal notranslate"><span class="pre">MapBuilder</span></code>), können die Marker und Ergebnisse ebenfalls über die <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> angepasst werden.</p>
-<section id="marker">
-<h2>Marker<a class="headerlink" href="#marker" title="Link to this heading">¶</a></h2>
+<div class="section" id="marker">
+<h2>Marker<a class="headerlink" href="#marker" title="Permalink to this heading">¶</a></h2>
 <p>Das Anpassen der Marker für <em>dynamische Inhalte</em> kann wie bei Abfragemarker über die Auflistung <code class="docutils literal notranslate"><span class="pre">webghis.markerIcons[]</span></code> angepasst werden.
 Allerdings lauten die Listenwerte anstelle von <code class="docutils literal notranslate"><span class="pre">query_result</span></code> hier <code class="docutils literal notranslate"><span class="pre">dynamic_content</span></code> und <code class="docutils literal notranslate"><span class="pre">dynamic_content_extenddependent</span></code>:</p>
 <ul class="simple">
@@ -193,9 +196,9 @@ Außerdem soll die Anzahl der Kunden unter einer Adresse im Marker als Zahl ange
 </div>
 <p>Ergebnis:</p>
 <img alt="../../../_images/dynamic-content1.png" src="../../../_images/dynamic-content1.png" />
-</section>
-<section id="hooks">
-<h2>Hooks<a class="headerlink" href="#hooks" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="hooks">
+<h2>Hooks<a class="headerlink" href="#hooks" title="Permalink to this heading">¶</a></h2>
 <p>Über <code class="docutils literal notranslate"><span class="pre">hooks</span></code> kann nach dem Laden eines <em>dynamischen Inhalts</em> auf die Features zugegriffen werden. Dabei können die Features auch geändert werden.
 Ein Anwendungsbeispiel für <code class="docutils literal notranslate"><span class="pre">hooks</span></code> ist beispielsweise das Umbenennen oder Einschränken der Attribute, die für den <em>dynamischen Inhalt</em> angezeigt werden sollen.</p>
 <p>Folgende Auflistungen stehen dabei zur Verfügung:</p>
@@ -258,8 +261,8 @@ zweite Wort von <code class="docutils literal notranslate"><span class="pre">Tex
 </div>
 <p>Ergebnis:</p>
 <img alt="../../../_images/dynamic-content3.png" src="../../../_images/dynamic-content3.png" />
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -307,8 +310,8 @@ zweite Wort von <code class="docutils literal notranslate"><span class="pre">Tex
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

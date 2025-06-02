@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Benutzerdefinierte Werkzeuge &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/eni.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -149,13 +152,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="benutzerdefinierte-werkzeuge">
-<h1>Benutzerdefinierte Werkzeuge<a class="headerlink" href="#benutzerdefinierte-werkzeuge" title="Link to this heading">¶</a></h1>
+  <div class="section" id="benutzerdefinierte-werkzeuge">
+<h1>Benutzerdefinierte Werkzeuge<a class="headerlink" href="#benutzerdefinierte-werkzeuge" title="Permalink to this heading">¶</a></h1>
 <p>Benutzerdefinierte Werkzeuge sind Werkzeuge, die in der Werkzeugleiste des Viewers aufscheinen, aber nicht zu den Standardwerkzeugen von WebGIS gehören.</p>
 <p>Diese Werkzeuge können ein z.B. einfacher Button sein (Anzeige zu erweiterten Metadaten einer Karte). Benutzerdefinierte Werkzeuge können allerdings auf Interaktion mit der Karte reagieren (Klick in die Karte oder Rechteck aufziehen).
 In allen Fällen wird nach einer Benutzeraktion (Klick auf Button, Klick in die Karte, Rechteck aufziehen) ein Link aufgerufen, an den entsprechende Werte übergeben werden können.</p>
-<section id="werkzeuge-mit-karteninteraktion">
-<h2>Werkzeuge mit Karteninteraktion<a class="headerlink" href="#werkzeuge-mit-karteninteraktion" title="Link to this heading">¶</a></h2>
+<div class="section" id="werkzeuge-mit-karteninteraktion">
+<h2>Werkzeuge mit Karteninteraktion<a class="headerlink" href="#werkzeuge-mit-karteninteraktion" title="Permalink to this heading">¶</a></h2>
 <p>Die benutzerdefinierten Werkzeuge werden in der custom.js mit folgendem Befehl dem Viewer hinzugefügt:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
 <span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
@@ -392,9 +395,9 @@ Mit den Platzhaltern <code class="docutils literal notranslate"><span class="pre
 </ul>
 </li>
 </ul>
-</section>
-<section id="benutzerdefinierte-werkzeuge-mit-eingabefeldern">
-<h2>Benutzerdefinierte Werkzeuge mit Eingabefeldern<a class="headerlink" href="#benutzerdefinierte-werkzeuge-mit-eingabefeldern" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="benutzerdefinierte-werkzeuge-mit-eingabefeldern">
+<h2>Benutzerdefinierte Werkzeuge mit Eingabefeldern<a class="headerlink" href="#benutzerdefinierte-werkzeuge-mit-eingabefeldern" title="Permalink to this heading">¶</a></h2>
 <p>Falls schon aus dem Viewer heraus Parameter ausgewählt werden sollten, die dann an die Zielseite übergeben werden, kann dies über die <code class="docutils literal notranslate"><span class="pre">uiElements</span></code> Eigenschaften erfolgen:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">webgis</span><span class="o">.</span><span class="n">custom</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">add</span><span class="p">({</span>
      <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;Höhenprofil&#39;</span><span class="p">,</span>
@@ -445,8 +448,8 @@ Die <code class="docutils literal notranslate"><span class="pre">id</span></code
 </ul>
 <p>Der Werkzeugdialog für dieses Beispiel würde in etwa wie folgt aussehen:</p>
 <img alt="../../../_images/custom1.png" src="../../../_images/custom1.png" />
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -494,8 +497,8 @@ Die <code class="docutils literal notranslate"><span class="pre">id</span></code
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

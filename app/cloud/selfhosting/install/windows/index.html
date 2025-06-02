@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Installation unter Windows &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/eni.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -148,8 +151,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="installation-unter-windows">
-<h1>Installation unter Windows<a class="headerlink" href="#installation-unter-windows" title="Link to this heading">¶</a></h1>
+  <div class="section" id="installation-unter-windows">
+<h1>Installation unter Windows<a class="headerlink" href="#installation-unter-windows" title="Permalink to this heading">¶</a></h1>
 <p>Die Installationspakete können unter <em>Releases</em> aus dem GitHub Repository <a class="reference external" href="https://github.com/gis-eni/webgis/releases">https://github.com/gis-eni/webgis/releases</a> heruntergeladen werden.</p>
 <p>Das Paket besteht aus einer ZIP-Datei und muss im ersten Schritt an einer beliebigen Stelle entpackt werden.
 Es können unterschiedliche Versionen von gView GIS parallel installiert werden. Dabei empfiehlt es sich, das ZIP File beispielsweise unter <code class="docutils literal notranslate"><span class="pre">C:\webgis\3.21.4504</span></code> zu entpacken:</p>
@@ -170,7 +173,7 @@ Darin befinden sich zwei ausführbare Batch-Dateien. Diese können verwendet wer
 Für die einzelnen Anwendungen wird dazu je eine <em>lokaler WebServer</em> gestartet und die Anwendungen über den Browser angezeigt.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">start-webgis.bat</span></code>:
-Startet die <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">Api</span></code> (lokaler WebServer unter HTTP Port 5001) und das <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">Portal</span></code> (lokaler WebServer unter HTTP Port 5002). Zusätzlich wird ein Browserfenster geöffnet, in das WebGIS Portal angezeigt wird.</p></li>
+Startet die <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">API</span></code> (lokaler WebServer unter HTTP Port 5001) und das <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">Portal</span></code> (lokaler WebServer unter HTTP Port 5002). Zusätzlich wird ein Browserfenster geöffnet, in das WebGIS Portal angezeigt wird.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">start-webgis-cms.bat</span></code>:
 Startet die <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">CMS</span></code> Anwendung in einem lokalen Server unter dem HTTP Port 5003. Zusätzlich wird ein Browserfenster geöffnet, in dem die CMS Anwendung angezeigt wird.</p></li>
 </ul>
@@ -220,7 +223,7 @@ Die Applikation startet als lokale Server Anwendung (HTTP Port 5003) und wird in
 <li><p><code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">Release</span> <span class="pre">Default</span></code>: Darin sind die Basiskartendienste (Basemap.at) definiert, die auch in der ersten Beispielkarte dargestellt werden. Diese wurde von den <em>WebGIS Entwicklern</em> erstellt und sollte als Basis verwendet und nicht geändert werden.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">Custom</span></code>: Hier können/sollten eigene Dienste konfiguriert werden.</p></li>
 </ul>
-</section>
+</div>
 
 
             <div class="clearer"></div>
@@ -250,8 +253,8 @@ Die Applikation startet als lokale Server Anwendung (HTTP Port 5003) und wird in
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

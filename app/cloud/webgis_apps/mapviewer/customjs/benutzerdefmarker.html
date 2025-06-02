@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Benutzerdefinierte Marker &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/eni.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -149,12 +152,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="benutzerdefinierte-marker">
-<h1>Benutzerdefinierte Marker<a class="headerlink" href="#benutzerdefinierte-marker" title="Link to this heading">¶</a></h1>
+  <div class="section" id="benutzerdefinierte-marker">
+<h1>Benutzerdefinierte Marker<a class="headerlink" href="#benutzerdefinierte-marker" title="Permalink to this heading">¶</a></h1>
 <p>Findet der Anwender im Kartenviewer Ergebnisse, werden diese standardmäßig mit einem blauen Marker markiert. Mit einem Klick auf den Marker werden dann die Attribute dieses Objektes angezeigt.
 In gewissen Fällen ist es jedoch wünschenswert, ein anderes Symbol für den Marker zu verwenden. Wie das bewerkstelligt wird, soll diese Beschreibung zeigen.</p>
-<section id="allgemeine-vorgehensweise">
-<h2>Allgemeine Vorgehensweise<a class="headerlink" href="#allgemeine-vorgehensweise" title="Link to this heading">¶</a></h2>
+<div class="section" id="allgemeine-vorgehensweise">
+<h2>Allgemeine Vorgehensweise<a class="headerlink" href="#allgemeine-vorgehensweise" title="Permalink to this heading">¶</a></h2>
 <p>Die Art, wie Marker dargestellt werden, erfolgt in den Javascripts der API innerhalb des <em>webgis-Objekts</em> über ein Array mit dem Namen <code class="docutils literal notranslate"><span class="pre">markerIcons</span></code>.
 Die Keys für dieses Array entsprechen Konstanten, die beim Entwickeln vergeben wurden. So ist beispielsweise der rote Marker für die aktuelle Position wie folgt definiert worden:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="k">this</span><span class="p">.</span><span class="nx">markerIcons</span><span class="p">[</span><span class="s2">&quot;currentpos_red&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -215,9 +218,9 @@ Anstelle von „this“ kann man direkt mit „webgis“ auf die Definitionen zu
 <span class="p">};</span>
 </pre></div>
 </div>
-</section>
-<section id="marker-in-der-custom-js">
-<h2>Marker in der custom.js<a class="headerlink" href="#marker-in-der-custom-js" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="marker-in-der-custom-js">
+<h2>Marker in der custom.js<a class="headerlink" href="#marker-in-der-custom-js" title="Permalink to this heading">¶</a></h2>
 <p>Der erste Wert, der in der Beispieldatei überschrieben wird, ist der default-QueryResult-Marker:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">markerIcons</span><span class="p">[</span><span class="s2">&quot;query_result&quot;</span><span class="p">][</span><span class="s2">&quot;default&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -284,9 +287,9 @@ Um dieses Bild in der Vorschau anzuzeigen, dient folgender Code:</p>
 <p>Hier wird die base-Funktion nicht mehr aufgerufen, sondern gleich das Bild eingefügt. Das Ergebnis ist folgendes:</p>
 <img alt="../../../_images/image31.png" src="../../../_images/image31.png" />
 <p>Die Bilder werden hier gleich in der Vorschau bei den Suchergebnissen angezeigt. Klickt man auf ein Foto, wird in der Karte der entsprechende Marker Popup sichtbar.</p>
-</section>
-<section id="dynamische-marker">
-<h2>Dynamische Marker<a class="headerlink" href="#dynamische-marker" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="dynamische-marker">
+<h2>Dynamische Marker<a class="headerlink" href="#dynamische-marker" title="Permalink to this heading">¶</a></h2>
 <p>Die oben gezeigten Beispiele verweisen auf statische Marker Icons. Zusätzlich gibt es noch die Möglichkeit, die Marker dynamisch erzeugen zu lassen.
 Dabei kann die Größe und die Farben übergeben werden.
 Um für die Abfrageergebnisse dynamische Marker zu verwenden, würde der Eintrag in der custom.js folgendermaßen lauten:</p>
@@ -319,8 +322,8 @@ Bei <code class="docutils literal notranslate"><span class="pre">textmarker</spa
 <p>Marker können auch für <em>dynamische Inhalte</em> angepasst werden. Die Vorgehensweise ist fast ident wie hier gezeigt
 und folgt im nächsten Kapitel. Die dort gezeigt Beispiele lassen sich auch auf die Marker von Abfragen anwenden.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -369,8 +372,8 @@ und folgt im nächsten Kapitel. Die dort gezeigt Beispiele lassen sich auch auf 
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

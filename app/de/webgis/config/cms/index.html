@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Konfiguration der CMS Applikation &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/eni.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -147,10 +150,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="konfiguration-der-cms-applikation">
-<h1>Konfiguration der CMS Applikation<a class="headerlink" href="#konfiguration-der-cms-applikation" title="Link to this heading">¶</a></h1>
-<section id="datei-config-cms-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code><a class="headerlink" href="#datei-config-cms-config" title="Link to this heading">¶</a></h2>
+  <div class="section" id="konfiguration-der-cms-applikation">
+<h1>Konfiguration der CMS Applikation<a class="headerlink" href="#konfiguration-der-cms-applikation" title="Permalink to this heading">¶</a></h1>
+<div class="section" id="datei-config-cms-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code><a class="headerlink" href="#datei-config-cms-config" title="Permalink to this heading">¶</a></h2>
 <p>Die Konfiguration der CMS-Anwendung erfolgt über die Datei <code class="docutils literal notranslate"><span class="pre">webgis-cms/_config/cms.config</span></code>.</p>
 <p>Dabei handelt es sich um eine JSON-Datei (<strong>JavaScript Object Notation</strong>), ein strukturiertes Datenformat, das unabhängig von JavaScript ist. Beim Bearbeiten der Datei ist darauf zu achten, dass sie weiterhin gültiges JSON bleibt. Insbesondere dürfen keine Kommentare eingefügt und Schlüssel müssen als Strings in Anführungszeichen geschrieben werden.</p>
 <div class="admonition note">
@@ -214,12 +217,12 @@
 </pre></div>
 </div>
 <p>Im Folgenden findet sich eine Übersicht der wichtigsten Konfigurationsparameter.</p>
-<section id="abschnitt-root-element">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Root-Element</span></code><a class="headerlink" href="#abschnitt-root-element" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+<div class="section" id="abschnitt-root-element">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Root-Element</span></code><a class="headerlink" href="#abschnitt-root-element" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
@@ -241,13 +244,13 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">path</span></code>: Wo sich die Wurzel des CMS-Baums befindet.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: Wohin ein CMS veröffentlicht wird.</p></li>
 </ul>
-</section>
-<section id="abschnitt-cms-item">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">cms-item</span></code><a class="headerlink" href="#abschnitt-cms-item" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+</div>
+<div class="section" id="abschnitt-cms-item">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">cms-item</span></code><a class="headerlink" href="#abschnitt-cms-item" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
@@ -288,13 +291,13 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="abschnitt-deployments">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">deployments</span></code><a class="headerlink" href="#abschnitt-deployments" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+</div>
+<div class="section" id="abschnitt-deployments">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">deployments</span></code><a class="headerlink" href="#abschnitt-deployments" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
@@ -335,13 +338,13 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="abschnitt-postevents">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">postEvents</span></code><a class="headerlink" href="#abschnitt-postevents" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+</div>
+<div class="section" id="abschnitt-postevents">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">postEvents</span></code><a class="headerlink" href="#abschnitt-postevents" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
@@ -365,13 +368,13 @@ Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann 
 </tr>
 </tbody>
 </table>
-</section>
-<section id="weitere-attribute">
-<h3>Weitere Attribute<a class="headerlink" href="#weitere-attribute" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+</div>
+<div class="section" id="weitere-attribute">
+<h3>Weitere Attribute<a class="headerlink" href="#weitere-attribute" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
@@ -396,10 +399,10 @@ Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann 
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="datei-config-datalinq-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code><a class="headerlink" href="#datei-config-datalinq-config" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="datei-config-datalinq-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code><a class="headerlink" href="#datei-config-datalinq-config" title="Permalink to this heading">¶</a></h2>
 <p>Die CMS-Applikation enthält auch <strong>DataLinq.Code</strong> zum Bearbeiten von <strong>DataLinq-Endpoints</strong>, <strong>Queries</strong> und <strong>Views</strong>. Die eigentliche <strong>DataLinq-Engine</strong> läuft innerhalb einer <strong>WebGIS-API-Instanz</strong>.</p>
 <p>Welche Instanzen über die CMS-Startseite zum Editieren angezeigt werden, kann über die Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code> gesteuert werden:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -415,12 +418,12 @@ Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann 
 <span class="p">}</span>
 </pre></div>
 </div>
-<section id="ubersicht-der-wichtigsten-konfigurationsparameter">
-<h3>Übersicht der wichtigsten Konfigurationsparameter<a class="headerlink" href="#ubersicht-der-wichtigsten-konfigurationsparameter" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+<div class="section" id="ubersicht-der-wichtigsten-konfigurationsparameter">
+<h3>Übersicht der wichtigsten Konfigurationsparameter<a class="headerlink" href="#ubersicht-der-wichtigsten-konfigurationsparameter" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
@@ -456,10 +459,10 @@ Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann 
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="datei-config-settings-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code><a class="headerlink" href="#datei-config-settings-config" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="datei-config-settings-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code><a class="headerlink" href="#datei-config-settings-config" title="Permalink to this heading">¶</a></h2>
 <p>In dieser optionalen Datei können allgemeine Einstellungen für die WebGIS-CMS-Applikation hinterlegt werden. Ein Anwendungsfall ist die Konfiguration eines <strong>Logging-Files</strong> oder die Einrichtung eines <strong>Proxy-Servers</strong>.</p>
 <p>Wenn externe Dienste eingebunden werden, kann für den Zugriff ein <strong>Proxy-Server</strong> erforderlich sein. Mit den folgenden Einstellungen kann über diese Datei ein Proxy-Server definiert werden, der für sämtliche Internetzugriffe genutzt wird:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -476,12 +479,12 @@ Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann 
 <span class="p">}</span>
 </pre></div>
 </div>
-<section id="id1">
-<h3>Übersicht der wichtigsten Konfigurationsparameter<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
-<table class="docutils align-default">
+<div class="section" id="id1">
+<h3>Übersicht der wichtigsten Konfigurationsparameter<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 20.0%" />
-<col style="width: 80.0%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
@@ -510,10 +513,10 @@ Damit kann nachverfolgt werden, welche Benutzer Änderungen im CMS vorgenommen h
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="datei-config-application-security-config">
-<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code><a class="headerlink" href="#datei-config-application-security-config" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="datei-config-application-security-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code><a class="headerlink" href="#datei-config-application-security-config" title="Permalink to this heading">¶</a></h2>
 <p>Standardmäßig ist das Web-CMS für alle Benutzer zugänglich, die die URL kennen. Um den Zugriff mit <strong>Benutzername und Passwort</strong> einzuschränken, kann diese Datei verwendet werden.</p>
 <p>Existiert die Datei <strong>nicht</strong>, ist das CMS <strong>frei zugänglich</strong>.</p>
 <div class="admonition danger">
@@ -528,10 +531,10 @@ Damit kann nachverfolgt werden, welche Benutzer Änderungen im CMS vorgenommen h
 <li><p>Für eine <strong>sichere Authentifizierung</strong> sollten <strong>Windows-Authentifizierung</strong> oder <strong>OpenID Connect</strong> genutzt werden. Diese Methoden werden weiter unten beschrieben.</p></li>
 </ul>
 </div>
-<section id="gesicherter-benutzerzugang">
-<h3>Gesicherter Benutzerzugang<a class="headerlink" href="#gesicherter-benutzerzugang" title="Link to this heading">¶</a></h3>
-<section id="passwortgeschutzten-zugriff-auf-das-cms-einrichten">
-<h4>Passwortgeschützten Zugriff auf das CMS einrichten<a class="headerlink" href="#passwortgeschutzten-zugriff-auf-das-cms-einrichten" title="Link to this heading">¶</a></h4>
+<div class="section" id="gesicherter-benutzerzugang">
+<h3>Gesicherter Benutzerzugang<a class="headerlink" href="#gesicherter-benutzerzugang" title="Permalink to this heading">¶</a></h3>
+<div class="section" id="passwortgeschutzten-zugriff-auf-das-cms-einrichten">
+<h4>Passwortgeschützten Zugriff auf das CMS einrichten<a class="headerlink" href="#passwortgeschutzten-zugriff-auf-das-cms-einrichten" title="Permalink to this heading">¶</a></h4>
 <p>Um den Zugriff auf das CMS mit einem <strong>Benutzername-Passwort-Schutz</strong> zu versehen,
 gehen Sie folgendermaßen vor:</p>
 <ol class="arabic">
@@ -586,9 +589,9 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 <p>Falls der Zugriff weiterhin ungeschützt ist, muss möglicherweise der <strong>Application Pool</strong> im IIS neu gestartet werden.</p>
 </div>
 <p>Neben der klassischen Anmeldung über ein Login-Formular kann das CMS auch über <strong>Windows-Authentifizierung</strong> oder <strong>OpenID Connect</strong> abgesichert werden.</p>
-</section>
-<section id="windows-authentifizierung">
-<h4>Windows-Authentifizierung<a class="headerlink" href="#windows-authentifizierung" title="Link to this heading">¶</a></h4>
+</div>
+<div class="section" id="windows-authentifizierung">
+<h4>Windows-Authentifizierung<a class="headerlink" href="#windows-authentifizierung" title="Permalink to this heading">¶</a></h4>
 <p>Für eine <strong>Windows-basierte Anmeldung</strong> kann die <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> folgendermaßen konfiguriert werden:</p>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -613,9 +616,9 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 <p class="admonition-title">Tipp</p>
 <p>Damit diese Methode funktioniert, muss die Web-Applikation im <strong>IIS</strong> so konfiguriert werden, dass <strong>Windows-Authentifizierung aktiviert</strong> und <strong>anonyme Anmeldung deaktiviert</strong> ist.</p>
 </div>
-</section>
-<section id="anmeldung-uber-openid-connect">
-<h4>Anmeldung über OpenID Connect<a class="headerlink" href="#anmeldung-uber-openid-connect" title="Link to this heading">¶</a></h4>
+</div>
+<div class="section" id="anmeldung-uber-openid-connect">
+<h4>Anmeldung über OpenID Connect<a class="headerlink" href="#anmeldung-uber-openid-connect" title="Permalink to this heading">¶</a></h4>
 <p>Möchte man eine <strong>OpenID-Connect-konforme Authentifizierung</strong> nutzen, kann die <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> folgendermaßen aussehen:</p>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -639,10 +642,10 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 <li><p>Als <strong>Scopes</strong> müssen mindestens <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">profile</span></code> und <code class="docutils literal notranslate"><span class="pre">role</span></code> aktiviert werden.</p></li>
 </ul>
 </div>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -713,8 +716,8 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

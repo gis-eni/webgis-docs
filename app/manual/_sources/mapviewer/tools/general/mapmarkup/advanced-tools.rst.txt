@@ -44,7 +44,7 @@ Als Anzeigeeinheit kann Meter [m] und Kilometer [km] angebeben werden.
 Kompass
 -------
 
-Neu hinzugekommen zum Redlining ist das Spezialwerkzeug *Kompass*.
+Neu hinzugekommen zum Map-Markup ist das Spezialwerkzeug *Kompass*.
 
 .. image:: img/advanced-tools5.png
 

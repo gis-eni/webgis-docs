@@ -1,19 +1,22 @@
+
 <!DOCTYPE html>
 
-<html lang="de" data-content_root="../../../">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Auswahllisten aus WebServices (DataLinq) &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
-    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="../../../_static/js/eni.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -156,8 +159,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="auswahllisten-aus-webservices-datalinq">
-<h1>Auswahllisten aus WebServices (DataLinq)<a class="headerlink" href="#auswahllisten-aus-webservices-datalinq" title="Link to this heading">¶</a></h1>
+  <div class="section" id="auswahllisten-aus-webservices-datalinq">
+<h1>Auswahllisten aus WebServices (DataLinq)<a class="headerlink" href="#auswahllisten-aus-webservices-datalinq" title="Permalink to this heading">¶</a></h1>
 <p><em>DataLinq</em> ist in der <em>WebGIS API</em> enthalten und wird hauptsächlich verwendet werden, um Berichte auf Basis von diversen Datenquellen zu erstellen.
 Außerdem können die parametrieren Abfragen als JSON über eine REST Schnittstelle abgeholt werden. Die REST Schnittstelle kann auch als Quelle für
 Auswahllisten verwendet werden. Zu den vorher gezeigten Quellen hat das den Vorteil, dass <em>ConnectionString</em> und <em>SQL Statements</em> nicht bei jeder
@@ -175,8 +178,8 @@ und eine Aktualisierung der Liste sofort auf alle Editmasken durchschlägt.</p>
 <p class="admonition-title">Bemerkung</p>
 <p>Der Umgang mit <em>Datalinq</em> wird in diesem Abschnitt vorausgesetzt.</p>
 </div>
-<section id="datalinq-endpoint-anlegen">
-<h2>DataLinq Endpoint anlegen<a class="headerlink" href="#datalinq-endpoint-anlegen" title="Link to this heading">¶</a></h2>
+<div class="section" id="datalinq-endpoint-anlegen">
+<h2>DataLinq Endpoint anlegen<a class="headerlink" href="#datalinq-endpoint-anlegen" title="Permalink to this heading">¶</a></h2>
 <p>Im ersten Schritt muss ein neuer <em>DataLinq</em> Endpoint angelegt:</p>
 <img alt="../../../_images/datalinq-domains1.png" src="../../../_images/datalinq-domains1.png" />
 <p>Als Typ kann hier <code class="docutils literal notranslate"><span class="pre">PlainText</span></code> angegeben werden. Ein <em>ConnectionString</em> ist für diesen Typ nicht notwendig:</p>
@@ -185,9 +188,9 @@ und eine Aktualisierung der Liste sofort auf alle Editmasken durchschlägt.</p>
 müssen diese geschützt werden. Sollte der Client für die Listen nicht ein Anwender sondern ein Applikation sein, erfolgt der Zugang nicht über <em>User</em> und <em>Passwort</em>
 sondern über <em>Tokens</em>. Bei den Auswahllisten ist der Client, der die Listen abholt die <em>WebGIS Application</em>:</p>
 <img alt="../../../_images/datalinq-domains3.png" src="../../../_images/datalinq-domains3.png" />
-</section>
-<section id="datalinq-abfrage-anlegen">
-<h2>Datalinq Abfrage anlegen<a class="headerlink" href="#datalinq-abfrage-anlegen" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="datalinq-abfrage-anlegen">
+<h2>Datalinq Abfrage anlegen<a class="headerlink" href="#datalinq-abfrage-anlegen" title="Permalink to this heading">¶</a></h2>
 <p>Im nächsten Schritt kann unter dem Endpunkt eine Abfrage erstellt werden:</p>
 <img alt="../../../_images/datalinq-domains4.png" src="../../../_images/datalinq-domains4.png" />
 <p>Unter <em>Statment</em> kann der Editor geöffnet werden:</p>
@@ -229,9 +232,9 @@ Dafür gibt es zwei zulässige Methoden:</p>
 <p>Welcher der beiden Tokens verwendet wird, ist egal. Beide Tokens sind gleichwertig. Der Grund dafür, dass zwei Tokens erstellt werden müssen ist, dass später eventuell
 ein störungsfreier Wechsel von Tokens möglich ist.</p>
 </div>
-</section>
-<section id="auswahlliste-im-cms-einbinden">
-<h2>Auswahlliste im CMS einbinden<a class="headerlink" href="#auswahlliste-im-cms-einbinden" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="auswahlliste-im-cms-einbinden">
+<h2>Auswahlliste im CMS einbinden<a class="headerlink" href="#auswahlliste-im-cms-einbinden" title="Permalink to this heading">¶</a></h2>
 <p>Hier wird beim jeweiligen <em>Domain Feld</em> (Edit Maske) unter <em>ConnectionString</em> der Link zur Abfrage eingetragen:</p>
 <img alt="../../../_images/datalinq-domains12.png" src="../../../_images/datalinq-domains12.png" />
 <div class="admonition note">
@@ -241,9 +244,9 @@ ein störungsfreier Wechsel von Tokens möglich ist.</p>
 Aus welche Properties die Werte genommen werden, kann hier über <code class="docutils literal notranslate"><span class="pre">Db-Feld</span></code> und <code class="docutils literal notranslate"><span class="pre">Db-Anzeige</span> <span class="pre">Feld</span></code> angeführt werden. Die Defaultwerte sind hier <code class="docutils literal notranslate"><span class="pre">value</span></code> und <code class="docutils literal notranslate"><span class="pre">name</span></code>. Für unser
 Beispiel könnten diese Werte also auch leer gelassen werden.</p>
 </div>
-</section>
-<section id="kaskadierende-auswahllisten">
-<h2>Kaskadierende Auswahllisten<a class="headerlink" href="#kaskadierende-auswahllisten" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="kaskadierende-auswahllisten">
+<h2>Kaskadierende Auswahllisten<a class="headerlink" href="#kaskadierende-auswahllisten" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>Auswahllisten können auch von einer übergeordnet Liste abhängig gemacht werden. Möchte man das mit den hier gezeigten <code class="docutils literal notranslate"><span class="pre">PlainText</span></code> DataLinq-Abfragen umsetzen, wird das in
 der Liste durch Einrückungen umgesetzt (2x Leerzeichen):</p>
@@ -264,8 +267,8 @@ mit den Parametern <code class="docutils literal notranslate"><span class="pre">
 <p class="admonition-title">Bemerkung</p>
 <p><code class="docutils literal notranslate"><span class="pre">MARKE</span></code> ist hier das Datenbank-Feld, in das die Automarke über die Auswahlliste geschrieben wurde.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
             <div class="clearer"></div>
@@ -315,8 +318,8 @@ mit den Parametern <code class="docutils literal notranslate"><span class="pre">
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
