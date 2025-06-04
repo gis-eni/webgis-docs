@@ -123,30 +123,30 @@ body {
 
 /*****************************************************************************/
 /* Top nav */
-#searchbox h3#searchlabel {
+div#searchbox h3#searchlabel {
   display: none;
 }
-#searchbox form.search {
+div#searchbox form.search {
   display: flex;
   flex-direction: row;
 }
-#searchbox form.search input {
+div#searchbox form.search input {
   display: block;
   box-sizing: border-box;
   padding: 0.3rem;
   color: rgba(0, 0, 0, 0.7);
   border-radius: 0.2rem;
 }
-#searchbox form.search input[type=text] {
+div#searchbox form.search input[type=text] {
   border: none;
   background-color: rgba(255, 255, 255, 0.6);
   flex-grow: 1;
   margin-right: 0.2rem;
 }
-#searchbox form.search input[type=text]::placeholder {
+div#searchbox form.search input[type=text]::placeholder {
   color: rgba(0, 0, 0, 0.6);
 }
-#searchbox form.search input[type=submit] {
+div#searchbox form.search input[type=submit] {
   cursor: pointer;
   color: var(--mainNavColor);
   flex-grow: 0;
@@ -260,21 +260,21 @@ div#top_nav nav p.mobile_search_link a svg {
     display: none;
   }
 }
-div#top_nav nav div.searchbox_wrapper #searchbox {
+div#top_nav nav div.searchbox_wrapper div#searchbox {
   align-items: center;
   display: flex !important;
   flex-direction: row-reverse;
 }
-div#top_nav nav div.searchbox_wrapper #searchbox p.highlight-link {
+div#top_nav nav div.searchbox_wrapper div#searchbox p.highlight-link {
   margin: 0 0.5rem 0 0;
 }
-div#top_nav nav div.searchbox_wrapper #searchbox p.highlight-link a {
+div#top_nav nav div.searchbox_wrapper div#searchbox p.highlight-link a {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.8em;
   padding-right: 0.5rem;
   text-decoration: underline;
 }
-div#top_nav nav div.searchbox_wrapper #searchbox p.highlight-link a:hover {
+div#top_nav nav div.searchbox_wrapper div#searchbox p.highlight-link a:hover {
   color: white;
 }
 

@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>App Template: Service Side-by-Side &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/translations.js"></script>
-    <script src="../../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -154,8 +151,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="app-template-service-side-by-side">
-<h1>App Template: Service Side-by-Side<a class="headerlink" href="#app-template-service-side-by-side" title="Permalink to this heading">¶</a></h1>
+  <section id="app-template-service-side-by-side">
+<h1>App Template: Service Side-by-Side<a class="headerlink" href="#app-template-service-side-by-side" title="Link to this heading">¶</a></h1>
 <p>Mit dieser Vorlage besteht die Möglichkeit, einen Kartendienst in unterschiedlichen Darstellungen nebeneinander darzustellen.
 Die Trennlinie zwischen den beiden Darstellungen ist dabei frei verschiebbar, damit ein besserer Eindruck der Unterschiede erkennbar wird.
 Die Vorlage kann beispielsweise dazu benutzt werden, um unterschiedliche Befliegungsstände von Luftbildern zu vergleichen:</p>
@@ -163,14 +160,14 @@ Die Vorlage kann beispielsweise dazu benutzt werden, um unterschiedliche Beflieg
 <p>Wählt man die Vorlage aus, können folgende Parameter angegeben werden:</p>
 <img alt="../../../_images/side-by-side1.png" src="../../../_images/side-by-side1.png" />
 <p>Hier eine Beschreibung der einzelnen Parameter:</p>
-<div class="section" id="karten-ausdehnung">
-<h2>Karten Ausdehnung<a class="headerlink" href="#karten-ausdehnung" title="Permalink to this heading">¶</a></h2>
+<section id="karten-ausdehnung">
+<h2>Karten Ausdehnung<a class="headerlink" href="#karten-ausdehnung" title="Link to this heading">¶</a></h2>
 <p>Für jede WebGIS API Karten Anwendung muss eine Kartenausdehnung angegeben werden. Neben der Ausdehnung werden damit auch die Zoomstufen und die Kartenprojektion
 definiert (siehe Definition einer Ausdehnung im CMS).
 Hier werden alle verfügbaren Ausdehnungen aus dem CMS aufgelistet. Durch anklicken eines Elements wird dieses ausgewählt.</p>
-</div>
-<div class="section" id="karten-hintergrund-dienst">
-<h2>Karten Hintergrund Dienst<a class="headerlink" href="#karten-hintergrund-dienst" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="karten-hintergrund-dienst">
+<h2>Karten Hintergrund Dienst<a class="headerlink" href="#karten-hintergrund-dienst" title="Link to this heading">¶</a></h2>
 <p>Der Kartendienst, der zum Vergleich herangezogen wird, ist in der Regel im WMS/AGS Dienst. Diese haben den Nachteil, dass die Anzeige nicht so flüssig erscheint,
 wie bei einem vorprozessierten <em>Tiling</em>-Dienst. Damit die App beim Verändern des Kartenausschnittes trotzdem flüssig wirkt, muss hier ein Hintergrund-Dienst angegeben werden,
 der unter dem eigentlich Dienst, der verglichen werden sollte, dargestellt wird.</p>
@@ -178,18 +175,18 @@ der unter dem eigentlich Dienst, der verglichen werden sollte, dargestellt wird.
 <p class="admonition-title">Bemerkung</p>
 <p>Der Hintergrund Dienst sollte ein <em>Tiling</em>-Dienst sein. Außerdem ist darauf zu achten, dass der Dienst zur oben gewählten Ausdehnung passt (Projektion und Zoomstufen).</p>
 </div>
-</div>
-<div class="section" id="hintergrund-durchlassigkeit">
-<h2>Hintergrund Durchlässigkeit<a class="headerlink" href="#hintergrund-durchlassigkeit" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="hintergrund-durchlassigkeit">
+<h2>Hintergrund Durchlässigkeit<a class="headerlink" href="#hintergrund-durchlassigkeit" title="Link to this heading">¶</a></h2>
 <p>Da der Hintergrund Dienst nur der Usability und der Orientierung dient, es also quasi ein Nebendarsteller in der Anwendung ist, kann dieser transparent (aufgehellt) dargestellt werden.
 Hier kann ein Wert zwischen 0 und 1 angeben werden, wobei <code class="docutils literal notranslate"><span class="pre">0</span></code> komplett durchlässig und <code class="docutils literal notranslate"><span class="pre">1</span></code> komplett deckend bedeutet.</p>
-</div>
-<div class="section" id="karten-vergleichs-dienst">
-<h2>Karten Vergleichs Dienst<a class="headerlink" href="#karten-vergleichs-dienst" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="karten-vergleichs-dienst">
+<h2>Karten Vergleichs Dienst<a class="headerlink" href="#karten-vergleichs-dienst" title="Link to this heading">¶</a></h2>
 <p>Hier wird der eigentliche Dienste angegeben, der verglichen werden soll. Es werden wieder alle im CMS verfügbaren Dienste aufgelistet. Es kann dabei genau ein Dienst ausgewählt werden.</p>
-</div>
-<div class="section" id="vergleichs-ansichten">
-<h2>Vergleichs-Ansichten<a class="headerlink" href="#vergleichs-ansichten" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="vergleichs-ansichten">
+<h2>Vergleichs-Ansichten<a class="headerlink" href="#vergleichs-ansichten" title="Link to this heading">¶</a></h2>
 <p>Damit Daten aus dem Dienst verglichen werden können, muss der Dienst links und rechts mit unterschiedlichen Layer-Schaltungen dargestellt werden. Welche Layer das sind,
 kann hier festgelegt werden. Die Möglichkeiten beschränken sich dabei nicht auf zwei Varianten, sondern es können beliebig viele Ansichten definiert werden.
 Der Anwender kann in der App dann für die Seite die gewünschte Ansicht wählen:</p>
@@ -219,8 +216,8 @@ Klammern definiert. Als Attribute können <code class="docutils literal notransl
 </div>
 <p>Mit dem <code class="docutils literal notranslate"><span class="pre">Save</span></code> Button kann das JSON gespeichert werden.</p>
 <p>Zum Abschluss kann die App mit <code class="docutils literal notranslate"><span class="pre">Übernehmen</span></code> in der Vorschau angezeigt und danach mit <code class="docutils literal notranslate"><span class="pre">App</span> <span class="pre">Veröffentlichen</span></code> veröffentlicht werden.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -271,8 +268,8 @@ Klammern definiert. Als Attribute können <code class="docutils literal notransl
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Erweiterte Werkzeugkonfiguration (etc-Verzeichnis) &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <script src="../../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../../_static/translations.js"></script>
-    <script src="../../../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../../genindex.html" />
@@ -151,16 +148,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="erweiterte-werkzeugkonfiguration-etc-verzeichnis">
-<h1>Erweiterte Werkzeugkonfiguration (etc-Verzeichnis)<a class="headerlink" href="#erweiterte-werkzeugkonfiguration-etc-verzeichnis" title="Permalink to this heading">¶</a></h1>
+  <section id="erweiterte-werkzeugkonfiguration-etc-verzeichnis">
+<h1>Erweiterte Werkzeugkonfiguration (etc-Verzeichnis)<a class="headerlink" href="#erweiterte-werkzeugkonfiguration-etc-verzeichnis" title="Link to this heading">¶</a></h1>
 <p>Einige Werkzeug benötigen mehr Konfigurationsmöglichkeit, als es in einer
 <em>flachen</em> config-Datei möglich ist. Diese Konfigurationsdateien werden im <code class="docutils literal notranslate"><span class="pre">etc</span></code>-Verzeichnis angelegt.</p>
 <p>In der Regel gibt es für jedes konfigurierbare Werkzeug ein Unterverzeichnis.
 Im Installationspaket befindet sich in jedem dieser Sub-Verzeichnis ein example(s) Ordner,
 in dem eine mögliche Konfiguration abgelegt ist, die dann angepasst werden kann.</p>
 <p>Einige Beispiele werden hier kurz beschreiben:</p>
-<div class="section" id="werkzeug-strecke-messen">
-<h2>Werkzeug Strecke Messen<a class="headerlink" href="#werkzeug-strecke-messen" title="Permalink to this heading">¶</a></h2>
+<section id="werkzeug-strecke-messen">
+<h2>Werkzeug Strecke Messen<a class="headerlink" href="#werkzeug-strecke-messen" title="Link to this heading">¶</a></h2>
 <p>Damit das Strecke Messen Werkzeug auch in 3D möglich ist,
 kann ins <code class="docutils literal notranslate"><span class="pre">etc/measure</span></code> Verzeichnis eine Datei <code class="docutils literal notranslate"><span class="pre">3d.xml</span></code> abgelegt werden.
 Die Struktur des Files entspricht wieder dem für die Höhenabfrage.
@@ -181,9 +178,9 @@ und dass das Ergebnis ein Höhenwert (Zahl ohne Textzusatz wie müA…) ist:</p>
  <span class="o">&lt;/</span><span class="n">xml</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="werkzeug-xz-koordinaten-hohen">
-<h2>Werkzeug XZ (Koordinaten/Höhen)<a class="headerlink" href="#werkzeug-xz-koordinaten-hohen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="werkzeug-xz-koordinaten-hohen">
+<h2>Werkzeug XZ (Koordinaten/Höhen)<a class="headerlink" href="#werkzeug-xz-koordinaten-hohen" title="Link to this heading">¶</a></h2>
 <p>In der alten WebGIS 4.0 Installationen lag im API app-Verzeichnis ein Ordner <code class="docutils literal notranslate"><span class="pre">system/proj</span></code>,
 in dem Projektionen definiert wurden.
 Diese Konfiguration befindet sich ab jetzt unter <code class="docutils literal notranslate"><span class="pre">etc/coordinates/proj</span></code>.</p>
@@ -191,8 +188,8 @@ Diese Konfiguration befindet sich ab jetzt unter <code class="docutils literal n
 ein <code class="docutils literal notranslate"><span class="pre">h.xml</span></code> angelegt werden. Hier wird angegeben, welche Höhen zusätzlich zu den Koordinaten
 ermittelt werden.
 Der Aufbau der Datei entspricht dem für das Höhenabfragetool (<code class="docutils literal notranslate"><span class="pre">etc/heightabovedatum</span></code>).</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -240,8 +237,8 @@ Der Aufbau der Datei entspricht dem für das Höhenabfragetool (<code class="doc
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>OpenID Connect Authentifizierung &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -155,8 +152,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="openid-connect-authentifizierung">
-<h1>OpenID Connect Authentifizierung<a class="headerlink" href="#openid-connect-authentifizierung" title="Permalink to this heading">¶</a></h1>
+  <section id="openid-connect-authentifizierung">
+<h1>OpenID Connect Authentifizierung<a class="headerlink" href="#openid-connect-authentifizierung" title="Link to this heading">¶</a></h1>
 <p>Mit sich Anwender im <em>WebGIS Portal</em> über <em>Open ID Connect</em> anmelden können, muss in der
 <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> folgendes definiert werden:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Security --&gt;</span>
@@ -182,8 +179,8 @@ Hier werden die Eigenschaften (Authority, ClientId, etc) für die <strong>OpenID
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="windows-azure-id">
-<h2>Windows Azure ID<a class="headerlink" href="#windows-azure-id" title="Permalink to this heading">¶</a></h2>
+<section id="windows-azure-id">
+<h2>Windows Azure ID<a class="headerlink" href="#windows-azure-id" title="Link to this heading">¶</a></h2>
 <p>Eine Anmeldung über Windows Azure wird ebenfalls angeboten. Dabei handelt sich ebenfalls um
 eine <strong>OpenID Connect</strong> Anmeldung. Die Konfiguration in der <code class="docutils literal notranslate"><span class="pre">_config/application-security.json</span></code>
 ist allerdings zu modifizieren:</p>
@@ -202,9 +199,9 @@ ist allerdings zu modifizieren:</p>
 <p>Der Parameter <code class="docutils literal notranslate"><span class="pre">etendet-roles-from</span> <span class="pre">=</span> <span class="pre">windows</span></code> ist optional. Hier wird nur der Username aus
 der Azure Anmeldung übernommen, die Gruppen für diesen User werden hier allerdings aus dem
 Windows AD (LDAP) ausgelesen.</p>
-</div>
-<div class="section" id="anmeldekachel-openid-connect">
-<h2>Anmeldekachel OpenId Connect<a class="headerlink" href="#anmeldekachel-openid-connect" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="anmeldekachel-openid-connect">
+<h2>Anmeldekachel OpenId Connect<a class="headerlink" href="#anmeldekachel-openid-connect" title="Link to this heading">¶</a></h2>
 <p>Damit sich Anwender über <strong>OpenID Connect</strong> auf einer <em>WebGIS Portal Seite</em> anmelden können,
 muss noch die <em>Security</em> für die Seite angepasst werden (bei der WebGIS API als Subscriber anmelden
 → Pages → entsprechende Seite auswählen)</p>
@@ -212,8 +209,8 @@ muss noch die <em>Security</em> für die Seite angepasst werden (bei der WebGIS 
 <p>Mit diese Einstellung erscheint dann auf der <em>WebGIS Portal</em> Startseite die Option
 <code class="docutils literal notranslate"><span class="pre">Mit</span> <span class="pre">OpenId</span> <span class="pre">Connect</span> <span class="pre">anmelden</span></code>:</p>
 <img alt="../../_images/openid2.png" src="../../_images/openid2.png" />
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -261,8 +258,8 @@ muss noch die <em>Security</em> für die Seite angepasst werden (bei der WebGIS 
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

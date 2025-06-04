@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>API Client anlegen und verwalten &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -156,45 +153,45 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="api-client-anlegen-und-verwalten">
-<h1>API Client anlegen und verwalten<a class="headerlink" href="#api-client-anlegen-und-verwalten" title="Permalink to this heading">¶</a></h1>
+  <section id="api-client-anlegen-und-verwalten">
+<h1>API Client anlegen und verwalten<a class="headerlink" href="#api-client-anlegen-und-verwalten" title="Link to this heading">¶</a></h1>
 <p>Um API-Clients zu verwalten oder neue zu erstellen, müssen Sie sich zunächst bei der <strong>WebGIS API</strong> anmelden. Nach der Anmeldung können Sie über den Menüpunkt <strong>API Clients</strong> eine Übersicht der bereits angelegten Clients aufrufen.</p>
-<div class="section" id="api-clients-ubersicht">
-<h2>API Clients Übersicht<a class="headerlink" href="#api-clients-ubersicht" title="Permalink to this heading">¶</a></h2>
+<section id="api-clients-ubersicht">
+<h2>API Clients Übersicht<a class="headerlink" href="#api-clients-ubersicht" title="Link to this heading">¶</a></h2>
 <p>Klicken Sie auf den Menüpunkt <strong>API Clients</strong>, um zur Übersicht der bereits angelegten Clients zu gelangen.</p>
 <img alt="Übersicht der API Clients" src="../../_images/img_apiClients.PNG" />
 <p>In der Übersicht sehen Sie eine Liste aller bestehenden API Clients. Wenn Sie einen spezifischen Client bearbeiten möchten, können Sie einfach auf den gewünschten Client klicken.</p>
-</div>
-<div class="section" id="neuen-api-client-anlegen">
-<h2>Neuen API Client anlegen<a class="headerlink" href="#neuen-api-client-anlegen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="neuen-api-client-anlegen">
+<h2>Neuen API Client anlegen<a class="headerlink" href="#neuen-api-client-anlegen" title="Link to this heading">¶</a></h2>
 <p>Um einen neuen API Client anzulegen, klicken Sie auf den Button <strong>„New API Client“</strong>.</p>
 <img alt="Übersicht und Button &quot;New API Client&quot;" src="../../_images/img_overviewAndNew.PNG" />
-</div>
-<div class="section" id="general-informationen-eingeben">
-<h2>General Informationen eingeben<a class="headerlink" href="#general-informationen-eingeben" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="general-informationen-eingeben">
+<h2>General Informationen eingeben<a class="headerlink" href="#general-informationen-eingeben" title="Link to this heading">¶</a></h2>
 <p>Nachdem Sie auf <strong>New API Client</strong> geklickt haben, erscheint ein Formular, in dem Sie den neuen Client benennen müssen. Geben Sie im Feld <strong>Client Name</strong> einen aussagekräftigen Namen für den API Client ein und fügen Sie im Feld <strong>HTTP Referer</strong> den entsprechenden HTTP-Referer-Link hinzu.</p>
 <p>Klicken Sie auf den Button <strong>„Next“</strong>, um zu den <strong>Security</strong>-Informationen weiterzuziehen.</p>
 <img alt="Allgemeine Informationen für den API Client" src="../../_images/img_general.PNG" />
-</div>
-<div class="section" id="sicherheitsinformationen">
-<h2>Sicherheitsinformationen<a class="headerlink" href="#sicherheitsinformationen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="sicherheitsinformationen">
+<h2>Sicherheitsinformationen<a class="headerlink" href="#sicherheitsinformationen" title="Link to this heading">¶</a></h2>
 <p>Unter dem Bereich <strong>Security</strong> werden Informationen wie die <strong>ClientID</strong> und das <strong>Client Secret</strong> angezeigt. Diese Informationen sind wichtig, da sie für die Authentifizierung des API Clients verwendet werden.</p>
 <p>Klicken Sie auf <strong>Next</strong>, um zu den <strong>Creation Infos</strong> zu gelangen.</p>
 <img alt="Sicherheitsinformationen des API Clients" src="../../_images/img_security.PNG" />
-</div>
-<div class="section" id="erstellungsinformationen">
-<h2>Erstellungsinformationen<a class="headerlink" href="#erstellungsinformationen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="erstellungsinformationen">
+<h2>Erstellungsinformationen<a class="headerlink" href="#erstellungsinformationen" title="Link to this heading">¶</a></h2>
 <p>Im Abschnitt <strong>Creation Infos</strong> sehen Sie das genaue Datum und die Uhrzeit, zu der der API Client erstellt wurde. Diese Information dient nur der Anzeige und kann nicht verändert werden.</p>
 <p>Mit einem Klick auf den Button <strong>„Save“</strong> wird der API Client erstellt und der Anlegeprozess abgeschlossen.</p>
 <img alt="Erstellungsinformationen und Button &quot;Save&quot;" src="../../_images/img_creationInfo.PNG" />
 <img alt="Erstellungsinformationen und Button &quot;Save&quot;" src="../../_images/img_created.PNG" />
-</div>
-<div class="section" id="api-client-bearbeiten">
-<h2>API Client bearbeiten<a class="headerlink" href="#api-client-bearbeiten" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="api-client-bearbeiten">
+<h2>API Client bearbeiten<a class="headerlink" href="#api-client-bearbeiten" title="Link to this heading">¶</a></h2>
 <p>Möchten Sie einen bereits bestehenden API Client bearbeiten, beispielsweise den <strong>Client Name</strong> oder den <strong>HTTP Referer</strong> ändern, klicken Sie einfach auf den gewünschten Client in der Übersicht.</p>
 <p>Sie können die Felder nach Bedarf ändern oder ergänzen. Sobald Sie die Änderungen vorgenommen haben, klicken Sie erneut auf <strong>„Save“</strong>, um die Änderungen zu übernehmen.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -246,8 +243,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

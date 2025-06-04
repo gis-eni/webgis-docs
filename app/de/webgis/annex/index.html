@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Anhang &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=d882a67f" />
+    <script src="../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=70a09b52"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
@@ -142,12 +139,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="anhang">
-<h1>Anhang<a class="headerlink" href="#anhang" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="sicherheitsmasznahmen-fur-das-webgis-portal">
-<h2>Sicherheitsmaßnahmen für das WebGIS Portal<a class="headerlink" href="#sicherheitsmasznahmen-fur-das-webgis-portal" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="tipps-zur-passwortsicherheit">
-<h3>Tipps zur Passwortsicherheit<a class="headerlink" href="#tipps-zur-passwortsicherheit" title="Permalink to this heading">¶</a></h3>
+  <section id="anhang">
+<h1>Anhang<a class="headerlink" href="#anhang" title="Link to this heading">¶</a></h1>
+<section id="sicherheitsmasznahmen-fur-das-webgis-portal">
+<h2>Sicherheitsmaßnahmen für das WebGIS Portal<a class="headerlink" href="#sicherheitsmasznahmen-fur-das-webgis-portal" title="Link to this heading">¶</a></h2>
+<section id="tipps-zur-passwortsicherheit">
+<h3>Tipps zur Passwortsicherheit<a class="headerlink" href="#tipps-zur-passwortsicherheit" title="Link to this heading">¶</a></h3>
 <p>Ein sicheres Passwort ist der erste Schritt, um das <em>WebGIS Portal</em> zu schützen. Hier sind einige Tipps, wie Sie ein starkes Passwort erstellen können:</p>
 <p>Standardpasswörter wie <code class="docutils literal notranslate"><span class="pre">admin123</span></code> oder <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> sind <strong>besonders anfällig für Brute-Force-Angriffe</strong>. Ein Brute-Force-Angriff ist eine Methode, bei der automatisierte Programme Millionen von Passwörtern ausprobieren, bis das richtige gefunden wird. Je kürzer und einfacher das Passwort, desto schneller kann es geknackt werden.</p>
 <p>Beispiel:</p>
@@ -169,9 +166,9 @@
 <p>Zum Generieren und sicheren Speichern von Passwörtern empfiehlt sich die Verwendung eines <strong>Passwortmanagers</strong>.</p>
 <p>Mehr zur Sicherheit von Passwörtern und Brute-Force-Angriffen:
 <a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">OWASP Authentication Cheat Sheet</a></p>
-</div>
-<div class="section" id="https-auch-im-intranet-verwenden">
-<h3>HTTPS auch im Intranet verwenden<a class="headerlink" href="#https-auch-im-intranet-verwenden" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="https-auch-im-intranet-verwenden">
+<h3>HTTPS auch im Intranet verwenden<a class="headerlink" href="#https-auch-im-intranet-verwenden" title="Link to this heading">¶</a></h3>
 <p>Viele glauben, dass ein Intranet automatisch sicher ist, weil es nicht direkt aus dem Internet erreichbar ist. Doch das ist ein Irrtum! Auch innerhalb eines Firmennetzwerks gibt es Risiken:</p>
 <ul class="simple">
 <li><p><strong>Mitarbeitergeräte können infiziert sein</strong> (z. B. durch Phishing oder Malware) und so sensible Daten ausspähen.</p></li>
@@ -181,9 +178,9 @@
 </ul>
 <p>Deshalb sollte das <em>WebGIS Portal</em> immer über <strong>HTTPS</strong> betrieben werden, auch wenn es nur intern genutzt wird. Weitere Informationen zur Bedeutung von HTTPS und möglichen Angriffen sind in der OWASP-Dokumentation zu finden:</p>
 <p><a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html">Transport Layer Security Cheat Sheet</a></p>
-</div>
-<div class="section" id="weitere-empfohlene-sicherheitsmasznahmen">
-<h3>Weitere empfohlene Sicherheitsmaßnahmen<a class="headerlink" href="#weitere-empfohlene-sicherheitsmasznahmen" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="weitere-empfohlene-sicherheitsmasznahmen">
+<h3>Weitere empfohlene Sicherheitsmaßnahmen<a class="headerlink" href="#weitere-empfohlene-sicherheitsmasznahmen" title="Link to this heading">¶</a></h3>
 <p>Neben HTTPS und der Änderung von Standardpasswörtern gibt es weitere wichtige Maßnahmen, um die Anwendung abzusichern:</p>
 <ul class="simple">
 <li><p><strong>Zugriff auf die Administrationsoberfläche einschränken</strong>
@@ -195,9 +192,9 @@ Veraltete Software kann Sicherheitslücken enthalten. Es ist wichtig, sowohl das
 <li><p><strong>Verdächtige Aktivitäten überwachen</strong>
 Das System sollte protokollieren, wer sich wann eingeloggt hat. Wenn sich jemand mit falschen Passwörtern anmeldet oder ungewöhnlich oft auf die Administration zugreift, könnte dies ein Hinweis auf einen Angriff sein. In diesem Fall sollten Administratoren benachrichtigt werden.</p></li>
 </ul>
-</div>
-<div class="section" id="weiterfuhrende-informationen-fur-interessierte">
-<h3>Weiterführende Informationen für Interessierte<a class="headerlink" href="#weiterfuhrende-informationen-fur-interessierte" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="weiterfuhrende-informationen-fur-interessierte">
+<h3>Weiterführende Informationen für Interessierte<a class="headerlink" href="#weiterfuhrende-informationen-fur-interessierte" title="Link to this heading">¶</a></h3>
 <p>Es gibt eine Vielzahl von <strong>möglichen Angriffsszenarien</strong>, die auch Intranet-Anwendungen betreffen. Dazu gehören:</p>
 <ul class="simple">
 <li><p><strong>Man-in-the-Middle-Angriffe (MITM)</strong>, bei denen ein Angreifer den Netzwerkverkehr mitliest.</p></li>
@@ -207,9 +204,9 @@ Das System sollte protokollieren, wer sich wann eingeloggt hat. Wenn sich jemand
 <p>Mehr zu diesen Angriffstechniken und wie man sich dagegen schützt, findet sich in der OWASP-Dokumentation:
 <a class="reference external" href="https://owasp.org/www-project-top-ten/">OWASP Top 10 Security Risks</a></p>
 <p>Durch die Umsetzung dieser Maßnahmen wird das <em>WebGIS Portal</em> optimal geschützt und bleibt sicher und zuverlässig – egal ob im Intranet oder öffentlich im Internet.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -260,8 +257,8 @@ Das System sollte protokollieren, wer sich wann eingeloggt hat. Wenn sich jemand
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

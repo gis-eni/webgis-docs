@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Benutzerdefinierte Layouts &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/translations.js"></script>
-    <script src="../../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -156,24 +153,24 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="benutzerdefinierte-layouts">
-<h1>Benutzerdefinierte Layouts<a class="headerlink" href="#benutzerdefinierte-layouts" title="Permalink to this heading">¶</a></h1>
+  <section id="benutzerdefinierte-layouts">
+<h1>Benutzerdefinierte Layouts<a class="headerlink" href="#benutzerdefinierte-layouts" title="Link to this heading">¶</a></h1>
 <p>WebGIS ist API-basiert, und man kann theoretisch per HTML und JavaScript Anwendungen entwickeln. Um sich das bei jeder Kartenanwendung zu ersparen (man müsste jedes Mal ein HTML-Dokument erstellen und auch irgendwo über einen Webserver hosten), gibt es das WebGIS-Portal, in dem man über eine einfache Weboberfläche (MapBuilder) Kartenanwendungen aus den (im CMS parametrierten) Diensten erstellen kann. Diese Kartenanwendungen werden dann gleich im Portal gehostet. Die grundsätzliche Vorgehensweise für das Erstellen kann der Subscriber-Dokumentation entnommen werden.</p>
 <p>Das Default-Layout des Kartenviewers für das Portal ist für Handys optimiert. Neben der bildschirmfüllenden Karte sind alle Elemente wie Layer-Switcher, Toolbox und Schnellsuche sparsam und halbtransparent angebracht:</p>
 <img alt="../../../_images/image_1.png" src="../../../_images/image_1.png" />
 <p>Da es sich bei WebGIS um eine Web-Applikation handelt, kann es auch von beliebigen Endgeräten aufgerufen werden. Voraussetzung ist nur ein moderner Browser. Auf größeren Displays oder Bildschirmen ist das Bedienen des Kartenviewers zwar möglich, allerdings gäbe es für komplexere Anwendungen übersichtlichere Layouts, um sich viele Klicks und Scrollen zu ersparen.</p>
 <p>Damit WebGIS also in Zukunft auch den Desktop-Bereich abdecken kann, wurde eine Möglichkeit geschaffen, Layouts für größere Displays zu definieren.</p>
-<div class="section" id="voraussetzungen">
-<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Permalink to this heading">¶</a></h2>
+<section id="voraussetzungen">
+<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">¶</a></h2>
 <p>Der Mechanismus für das Verwenden von unterschiedlichen Layouts muss erst über die <code class="docutils literal notranslate"><span class="pre">portal.config</span></code>-Datei eingeschaltet werden. Dafür ist der folgende Key verantwortlich:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;query-custom-map-layout&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>Ist dieser Wert auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt, wird nach dem Aufruf des Kartenviewers vom Client noch einmal ein Ajax-Request mit der aktuellen Fenstergröße des Browsers an den Server gesendet. Dieser entscheidet dann, welches Layout für den Client ideal ist und gibt gegebenenfalls ein benutzerdefiniertes Layout als HTML-Fragment zurück. Erst wenn das benutzerdefinierte Layout in den Kartenviewer eingefügt wurde, startet die Initialisierung der Karte.</p>
 <p>Will man grundsätzlich keine benutzerdefinierten Layouts zur Verfügung stellen, kann man diesen Key löschen oder auf <code class="docutils literal notranslate"><span class="pre">false</span></code> setzen und erspart sich diesen Zwischenschritt/Request.</p>
-</div>
-<div class="section" id="parametrierung-der-layouts">
-<h2>Parametrierung der Layouts<a class="headerlink" href="#parametrierung-der-layouts" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="parametrierung-der-layouts">
+<h2>Parametrierung der Layouts<a class="headerlink" href="#parametrierung-der-layouts" title="Link to this heading">¶</a></h2>
 <p>Benutzerdefinierte Layouts sind Textdateien, die HTML-Fragmente enthalten. Man kann diese Layouts pro Portalseite definieren, d.h., man kann für jede Portalseite unterschiedliche Layouts (anderes Logo, Styles usw.) anbieten.</p>
 <p>Abgelegt werden diese Dateien im Verzeichnis:</p>
 <p><code class="docutils literal notranslate"><span class="pre">portal/ViewerLayouts/{url-der-Portalseite}</span></code></p>
@@ -184,8 +181,8 @@
 <p>Die <code class="docutils literal notranslate"><span class="pre">Browserfensterbreite</span></code> muss eine <code class="docutils literal notranslate"><span class="pre">Ganzzahl</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> sein, also beispielsweise <code class="docutils literal notranslate"><span class="pre">w1024.html</span></code>, <code class="docutils literal notranslate"><span class="pre">w1200.html</span></code> usw. Das <code class="docutils literal notranslate"><span class="pre">w</span></code> am Anfang steht für <code class="docutils literal notranslate"><span class="pre">width</span></code>, also Breite.</p>
 <p>Wenn diese Dateien für eine Portalseite existieren, überprüft WebGIS nach dem oben beschriebenen Mechanismus, welches Layout ideal ist. Die Fenstergröße muss dabei mindestens so groß sein wie die Zahl im Dateinamen. Von allen möglichen Kandidaten gewinnt immer das Layout mit der größten Zahl.</p>
 <p>Die beiden hier im Beispiel beschriebenen Layouts sind auch in Releases enthalten und können somit als Vorlage für eigene Layouts verwendet werden. Auf die einzelnen Abschnitte wird hier kurz eingegangen.</p>
-<div class="section" id="w1024-html">
-<h3>w1024.html<a class="headerlink" href="#w1024-html" title="Permalink to this heading">¶</a></h3>
+<section id="w1024-html">
+<h3>w1024.html<a class="headerlink" href="#w1024-html" title="Link to this heading">¶</a></h3>
 <p>Die Idee für dieses Layout war, für etwas größere Displays, etwa Tablets, eine optimierte Darstellung zu erzielen. Grundsätzlich sollten bis auf die Toolbox alle UI-Elemente wie beim Handy-Layout bleiben. Die Toolbox sollte allerdings größer und einfacher zugänglich neben den „+/-“ Zoombuttons transparent über der Karte erscheinen. Sobald man die Toolbox fokussiert, ändert sich die Transparenz auf voll sichtbar.</p>
 <img alt="../../../_images/image_2.png" src="../../../_images/image_2.png" />
 <p>Egal, ob man nur die Toolbox verändern will – in einem benutzerdefinierten Layout müssen immer alle UI-Elemente angeführt werden:</p>
@@ -238,11 +235,11 @@
 </div>
 <p>Die Tabs müssen nicht extra positioniert werden und erscheinen am linken unteren Rand. Durch die Angabe der Klasse <code class="docutils literal notranslate"><span class="pre">tabs-layout-container-options</span></code> wird festgelegt, dass hier noch einige Optionen für das Tabs-Control überschrieben werden.</p>
 <p>Die Tabs müssen nicht extra positioniert werden und erscheinen am linken unteren Rand. Durch die Angabe der Klasse <code class="docutils literal notranslate"><span class="pre">tabs-layout-container-options</span></code> wird festgelegt, dass hier noch einige Optionen für das Tabs-Control überschrieben werden.</p>
-<table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-text">Optionen für das Tabs-Control</span><a class="headerlink" href="#id1" title="Link zu dieser Tabelle">¶</a></caption>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Optionen für das Tabs-Control</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Option</strong></p></th>
@@ -290,9 +287,9 @@
 </div>
 <p>Wichtig ist wieder die <code class="docutils literal notranslate"><span class="pre">id=&quot;toolbar&quot;</span></code>. Über die Klasse <code class="docutils literal notranslate"><span class="pre">webgis-ui-trans</span></code> wird die Toolbar transparent und erst voll sichtbar, wenn sie im Fokus ist (Mouseover oder Berührung mit dem Finger).</p>
 <p>Die Positionierung kann ebenfalls über Inline-Styles erfolgen. In diesem Beispiel wird die Position allerdings bereits im ersten Abschnitt bei den Styles definiert.</p>
-</div>
-<div class="section" id="w1200-html">
-<h3>w1200.html<a class="headerlink" href="#w1200-html" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="w1200-html">
+<h3>w1200.html<a class="headerlink" href="#w1200-html" title="Link to this heading">¶</a></h3>
 <p>Für größere Displays war die Idee, ein Layout ähnlich dem gewöhnlichen Web-Kartenatlas zu gestalten. Links sollten die Darstellungsvarianten und oben die Toolbox sein. Außerdem bleibt links oben noch genug Platz für ein Logo.</p>
 <img alt="../../../_images/image_3.png" src="../../../_images/image_3.png" />
 <p>Auch in diesem Layout sind oben wieder notwendige Styles definiert, die sich durch das Layout ergeben. Im nächsten Abschnitt folgt hier ein Skript-Teil:</p>
@@ -380,9 +377,9 @@
 </div>
 <p>Der Fantasie sind bei den Layouts eigentlich keine Grenzen gesetzt. Allerdings sollte man unserer Meinung nach ungefähr bei den hier gezeigten Varianten bleiben (besonders beim Desktop-Layout). Der Grund ist, dass Anwender die Applikation und deren Handhabung in den unterschiedlichen Installationen wiedererkennen sollten.</p>
 <p>Mit dieser Beschreibung sollten die Möglichkeiten gezeigt werden, sodass jeder eigene Logos, Texte und Hintergrundfarben anpassen kann.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -434,8 +431,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Voraussetzung &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/translations.js"></script>
-    <script src="../../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -156,23 +153,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="voraussetzung">
-<h1>Voraussetzung<a class="headerlink" href="#voraussetzung" title="Permalink to this heading">¶</a></h1>
+  <section id="voraussetzung">
+<h1>Voraussetzung<a class="headerlink" href="#voraussetzung" title="Link to this heading">¶</a></h1>
 <p>In diesem Dokument wird beschrieben, wie Karten, die für eine <strong>Portalseite</strong> erstellt wurden, mit <strong>parametrierten URLs</strong> aufgerufen werden können.
 Voraussetzung ist, dass eine <strong>Portalseite existiert</strong>, die Karten enthält.</p>
 <p>Karten sind innerhalb einer Portalseite in <strong>Kartensammlungen</strong> organisiert. Jede Karte hat einen <strong>Namen</strong> und ist einer <strong>Kategorie</strong> zugeordnet:</p>
 <img alt="../../../_images/image11.png" src="../../../_images/image11.png" />
-<div class="section" id="kartenaufruf-und-url-bestandteile">
-<h2>Kartenaufruf und URL-Bestandteile<a class="headerlink" href="#kartenaufruf-und-url-bestandteile" title="Permalink to this heading">¶</a></h2>
+<section id="kartenaufruf-und-url-bestandteile">
+<h2>Kartenaufruf und URL-Bestandteile<a class="headerlink" href="#kartenaufruf-und-url-bestandteile" title="Link to this heading">¶</a></h2>
 <p>Eine Karte wird immer über die folgende URL-Struktur aufgerufen:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="p">{</span><span class="n">Host</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">Portal</span><span class="o">-</span><span class="n">Applikation</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">Portal</span><span class="o">-</span><span class="n">Seite</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">Kategorie</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">Kartenname</span><span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Erklärung der URL-Bestandteile</strong></p>
-<table class="colwidths-given docutils align-default">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Bestandteil</p></th>
@@ -203,15 +200,15 @@ Voraussetzung ist, dass eine <strong>Portalseite existiert</strong>, die Karten 
 <strong>Leerzeichen</strong> können entweder mit <code class="docutils literal notranslate"><span class="pre">%20</span></code> oder – zur besseren Lesbarkeit – mit einer <strong>Tilde</strong> (<code class="docutils literal notranslate"><span class="pre">~</span></code>) angegeben werden, z. B.:
 <code class="docutils literal notranslate"><span class="pre">Planung~und~Kataster</span></code>.</p>
 </div>
-<div class="section" id="beispielaufruf-einer-basiskarte">
-<h3>Beispielaufruf einer Basiskarte<a class="headerlink" href="#beispielaufruf-einer-basiskarte" title="Permalink to this heading">¶</a></h3>
+<section id="beispielaufruf-einer-basiskarte">
+<h3>Beispielaufruf einer Basiskarte<a class="headerlink" href="#beispielaufruf-einer-basiskarte" title="Link to this heading">¶</a></h3>
 <p>Soll die <strong>Basiskarte</strong> direkt aufgerufen werden, lautet die URL:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="p">{</span><span class="n">host</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">portal</span><span class="o">-</span><span class="n">applikation</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">portal</span><span class="o">-</span><span class="n">seite</span><span class="p">}</span><span class="o">/</span><span class="n">Allgemein</span><span class="o">/</span><span class="n">Basiskarte</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -261,8 +258,8 @@ Voraussetzung ist, dass eine <strong>Portalseite existiert</strong>, die Karten 
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

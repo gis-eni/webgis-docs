@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>3 DataLinq.Code Oberfläche &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -132,13 +129,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../mapbuilder/index.html">Map Builder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../appbuilder/index.html">App Builder</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">DataLinq</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="allgemeines.html"><span class="sectnum">1</span> Allgemeines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="technischeumsetzung.html"><span class="sectnum">2</span> Technische Umsetzung</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#"><span class="sectnum">3</span> DataLinq.Code Oberfläche</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parametrierung.html"><span class="sectnum">4</span> Parametrierung</a></li>
-<li class="toctree-l3"><a class="reference internal" href="aufrufundbeispiele.html"><span class="sectnum">5</span> Aufruf und Beispiele</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tippsundtricks.html"><span class="sectnum">6</span> Tipps und Tricks für Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="examples/index.html"><span class="sectnum">7</span> Beispiele</a></li>
+<li class="toctree-l3"><a class="reference internal" href="allgemeines.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="technischeumsetzung.html"><span class="sectnum">2 </span>Technische Umsetzung</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><span class="sectnum">3 </span>DataLinq.Code Oberfläche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parametrierung.html"><span class="sectnum">4 </span>Parametrierung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="aufrufundbeispiele.html"><span class="sectnum">5 </span>Aufruf und Beispiele</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tippsundtricks.html"><span class="sectnum">6 </span>Tipps und Tricks für Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples/index.html"><span class="sectnum">7 </span>Beispiele</a></li>
 </ul>
 </li>
 </ul>
@@ -156,17 +153,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="datalinq-code-oberflache">
-<h1><span class="sectnum">3</span> DataLinq.Code Oberfläche<a class="headerlink" href="#datalinq-code-oberflache" title="Permalink to this heading">¶</a></h1>
+  <section id="datalinq-code-oberflache">
+<h1><span class="sectnum">3 </span>DataLinq.Code Oberfläche<a class="headerlink" href="#datalinq-code-oberflache" title="Link to this heading">¶</a></h1>
 <img alt="../../_images/oberfl.png" src="../../_images/oberfl.png" />
-<div class="section" id="start">
-<h2><span class="sectnum">3.1</span> Start<a class="headerlink" href="#start" title="Permalink to this heading">¶</a></h2>
+<section id="start">
+<h2><span class="sectnum">3.1 </span>Start<a class="headerlink" href="#start" title="Link to this heading">¶</a></h2>
 <p>Auf der Startseite von DataLinq.Code erscheinen folgende Felder.</p>
 <img alt="../../_images/oberfl_start.png" src="../../_images/oberfl_start.png" />
 <p>Mit <strong>Verify All Views</strong> können alle Views verifiziert werden. Dabei wird auf Syntax und auch sicherheitsrelevante Keywords geachtet. Dies wird vor allem nach Updates empfohlen!</p>
-</div>
-<div class="section" id="sidebar">
-<h2><span class="sectnum">3.2</span> Sidebar<a class="headerlink" href="#sidebar" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="sidebar">
+<h2><span class="sectnum">3.2 </span>Sidebar<a class="headerlink" href="#sidebar" title="Link to this heading">¶</a></h2>
 <p>Die Sidebar bietet über das Suchfeld die Möglichkeit nach Endpoints, Queries und Views zu suchen.</p>
 <img alt="../../_images/oberfl_sidebar1.png" src="../../_images/oberfl_sidebar1.png" />
 <p>Mit dem „Pfeil nach oben“ Button daneben lässt sich der aufgeklappte Baum wieder vollständig hochklappen.</p>
@@ -180,9 +177,9 @@
 <p>Den Endpoint/Query/View öffnen und dann unter den Einstellungen unten mittels <em>delete</em> löschen.</p>
 <p><strong>Endpoint/Query/View Bezeichnung kopieren</strong></p>
 <p>Fährt man mit der Maus über ein Element, erscheint rechts ein Copy-Symbol, durch welches die Bezeichnung in die Zwischenablage gelegt wird.</p>
-</div>
-<div class="section" id="tabs">
-<h2><span class="sectnum">3.3</span> Tabs<a class="headerlink" href="#tabs" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="tabs">
+<h2><span class="sectnum">3.3 </span>Tabs<a class="headerlink" href="#tabs" title="Link to this heading">¶</a></h2>
 <img alt="../../_images/oberfl_tabs1.png" src="../../_images/oberfl_tabs1.png" />
 <p>Ein roter Ring erscheint, sobald Änderungen im File vorgenommen wurden.</p>
 <p>Wenn viele Tabs gleichzeitig geöffnet sind, kann über das Dreieck rechts ein Fenster geöffnet werden, welches ein übersichtlicheres Navigieren der geöffneten Files ermöglicht.</p>
@@ -190,9 +187,9 @@
 <p>Damit können auch alle ausgewählten Files geschlossen werden, welche davor allerdings gespeichert werden müssen.</p>
 <p>Werden nicht-gespeicherte Files geschlossen, wird der Vorgang abgefangen und muss extra bestätigt werden.</p>
 <img alt="../../_images/oberfl_tabs4.png" src="../../_images/oberfl_tabs4.png" />
-</div>
-<div class="section" id="toolbar">
-<h2><span class="sectnum">3.4</span> Toolbar<a class="headerlink" href="#toolbar" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="toolbar">
+<h2><span class="sectnum">3.4 </span>Toolbar<a class="headerlink" href="#toolbar" title="Link to this heading">¶</a></h2>
 <p>Die Toolbar stellt folgende Buttons zur Verfügung:</p>
 <img alt="../../_images/oberfl_toolbar1.png" src="../../_images/oberfl_toolbar1.png" />
 <ul class="simple">
@@ -213,14 +210,14 @@
 <li><p><strong>Ausloggen</strong></p></li>
 <li><p><strong>DataLinqHelper:</strong> Beschreibung zu den DataLinqHelper-Funktionen</p></li>
 </ul>
-</div>
-<div class="section" id="editor">
-<h2><span class="sectnum">3.5</span> Editor<a class="headerlink" href="#editor" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="editor">
+<h2><span class="sectnum">3.5 </span>Editor<a class="headerlink" href="#editor" title="Link to this heading">¶</a></h2>
 <p>Mit den beiden Buttons recht unten, lässt sich zwischen Code und Einstellungen umschalten.</p>
 <img alt="../../_images/oberfl_content1.png" src="../../_images/oberfl_content1.png" />
 <p>Genauere Beschreibungen zu den Einstellungen befinden sich im  Kapitel <a class="reference internal" href="parametrierung.html#anchor31"><span class="std std-ref">Parametrierung</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -236,12 +233,12 @@
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#"><span class="sectnum">3</span> DataLinq.Code Oberfläche</a><ul>
-<li><a class="reference internal" href="#start"><span class="sectnum">3.1</span> Start</a></li>
-<li><a class="reference internal" href="#sidebar"><span class="sectnum">3.2</span> Sidebar</a></li>
-<li><a class="reference internal" href="#tabs"><span class="sectnum">3.3</span> Tabs</a></li>
-<li><a class="reference internal" href="#toolbar"><span class="sectnum">3.4</span> Toolbar</a></li>
-<li><a class="reference internal" href="#editor"><span class="sectnum">3.5</span> Editor</a></li>
+<li><a class="reference internal" href="#"><span class="sectnum">3 </span>DataLinq.Code Oberfläche</a><ul>
+<li><a class="reference internal" href="#start"><span class="sectnum">3.1 </span>Start</a></li>
+<li><a class="reference internal" href="#sidebar"><span class="sectnum">3.2 </span>Sidebar</a></li>
+<li><a class="reference internal" href="#tabs"><span class="sectnum">3.3 </span>Tabs</a></li>
+<li><a class="reference internal" href="#toolbar"><span class="sectnum">3.4 </span>Toolbar</a></li>
+<li><a class="reference internal" href="#editor"><span class="sectnum">3.5 </span>Editor</a></li>
 </ul>
 </li>
 </ul>
@@ -257,13 +254,13 @@
             <div class="left">
                 
                 <a href="technischeumsetzung.html">
-                    <span class="icon">&lt;</span><span><span class="sectnum">2</span> Technische Umsetzung</span></a>
+                    <span class="icon">&lt;</span><span><span class="sectnum">2 </span>Technische Umsetzung</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="parametrierung.html"><span><span class="sectnum">4</span> Parametrierung</span><span class="icon">&gt;</span></a>
+                    <a href="parametrierung.html"><span><span class="sectnum">4 </span>Parametrierung</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>
@@ -271,8 +268,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

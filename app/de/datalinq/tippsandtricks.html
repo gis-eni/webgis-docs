@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Tipps und Tricks für Views &#8212; DataLinq 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/eni.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/translations.js"></script>
-    <script src="_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
+    <script src="_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=70a09b52"></script>
+    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
@@ -147,10 +144,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tipps-und-tricks-fur-views">
-<h1>Tipps und Tricks für Views<a class="headerlink" href="#tipps-und-tricks-fur-views" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="zugriff-auf-abfrageergebnisse">
-<span id="anchor51"></span><h2>Zugriff auf Abfrageergebnisse<a class="headerlink" href="#zugriff-auf-abfrageergebnisse" title="Permalink to this heading">¶</a></h2>
+  <section id="tipps-und-tricks-fur-views">
+<h1>Tipps und Tricks für Views<a class="headerlink" href="#tipps-und-tricks-fur-views" title="Link to this heading">¶</a></h1>
+<section id="zugriff-auf-abfrageergebnisse">
+<span id="anchor51"></span><h2>Zugriff auf Abfrageergebnisse<a class="headerlink" href="#zugriff-auf-abfrageergebnisse" title="Link to this heading">¶</a></h2>
 <p>Die Ergebnisse der Abfrage werden dem View als Model übergeben:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Model.Success</span></code></p></li>
@@ -203,9 +200,9 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span><span class="o">.</span><span class="n">Records</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">String</span><span class="o">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="o">||</span> <span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;x_field&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;data_field&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="hilfsfunktionen">
-<span id="anchor52"></span><h2>Hilfsfunktionen<a class="headerlink" href="#hilfsfunktionen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="hilfsfunktionen">
+<span id="anchor52"></span><h2>Hilfsfunktionen<a class="headerlink" href="#hilfsfunktionen" title="Link to this heading">¶</a></h2>
 <p>Es gibt einige Hilfsfunktionen („DataLinqHelper“) mit denen zusätzliche Daten eingebunden oder etwa Formulare erzeugt werden können. Als Abkürzung kann statt „DataLinqHelper“ auch „DLH“ verwendet werden:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DataLinqHelper.IncludeView(url)</span></code></p></li>
@@ -263,18 +260,14 @@
 </div></blockquote>
 <p>Diese und weitere Hilfsfunktionen sind in der Hilfe zu DataLinqHelper mit Beispielen angeführt. Der Link zur Hilfe ist im Razor Markup Code Editor bei der Erstellung von Views rechts oben zu finden.</p>
 <p>In den Views kann auch JavaScript in <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code>-Tags definiert werden. jQuery ist bereits eingebunden.</p>
-</div>
-<div class="section" id="beschrankung-der-abfrageergebnisse-query">
-<span id="anchor53"></span><h2>Beschränkung der Abfrageergebnisse - Query<a class="headerlink" href="#beschrankung-der-abfrageergebnisse-query" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="beschrankung-der-abfrageergebnisse-query">
+<span id="anchor53"></span><h2>Beschränkung der Abfrageergebnisse - Query<a class="headerlink" href="#beschrankung-der-abfrageergebnisse-query" title="Link to this heading">¶</a></h2>
 <p>Um die Serverlast und v.a. die Ladezeit beim Seitenaufbau am Client gering zu halten, ist es sinnvoll, die maximale Anzahl der Abfrageergebnisse und Felder zu beschränken:</p>
 <ul>
 <li><p>bei API-Endpoints auf die WebGIS-Api ist diese Anzahl mit 1000 Datensätzen festgelegt, hier werden alle Spalten zurückgegeben, die im CMS definiert sind.</p></li>
 <li><p>DB-Abfragen können im SQL-Statement beschränkt werden, bspw.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>SELECT TOP 200       * …</p></td>
 <td><p>bei MSSQL</p></td>
@@ -290,9 +283,9 @@
 </li>
 </ul>
 <p>Idealerweise sollten die Ergebnisse durch eine Filterung mit (optionalen) Parametern soweit wie möglich eingeschränkt werden, um den AnwenderInnen eine schnellere Auswahl zu ermöglichen und nicht hunderte Zeilen durchsuchen zu müssen.</p>
-</div>
-<div class="section" id="beschrankung-filtern-der-abfrageergebnisse">
-<span id="anchor54"></span><h2>Beschränkung / Filtern der Abfrageergebnisse<a class="headerlink" href="#beschrankung-filtern-der-abfrageergebnisse" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="beschrankung-filtern-der-abfrageergebnisse">
+<span id="anchor54"></span><h2>Beschränkung / Filtern der Abfrageergebnisse<a class="headerlink" href="#beschrankung-filtern-der-abfrageergebnisse" title="Link to this heading">¶</a></h2>
 <p>Mithilfe von (optionalen) Parameter in den Queries lassen sich Abfrageergebnisse einschränken. In Views kann mit dem <code class="docutils literal notranslate"><span class="pre">DataLinqHelper.FilterView</span></code> ein Filter eingebaut werden, der eine einfache und übersichtliche Eingabe / Auswahl dieser Filterparameter ermöglicht. Im Hintergrund werden die Übergabeparameter einfach an die Aufruf-URL (siehe <a class="reference internal" href="requestsandexamples.html#anchor4"><span class="std std-ref">Kapitel 4</span></a>) angehängt.
 Werden bereits beim Aufruf der View über die URL Filter- bzw. Sortierungsparameter definiert, so sind diese in der GUI bereits ausgefüllt bzw. gesetzt.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">FilterView</span><span class="p">(</span>
@@ -384,9 +377,9 @@ Die entsprechende Abfrage (hier Datenbankabfrage) muss natürlich den übergeben
 </div>
 <p>In der View wird der Filter gerendert:</p>
 <img alt="_images/ad5_4.png" src="_images/ad5_4.png" />
-</div>
-<div class="section" id="sortieren-der-abfrageergebnisse">
-<span id="anchor55"></span><h2>Sortieren der Abfrageergebnisse<a class="headerlink" href="#sortieren-der-abfrageergebnisse" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="sortieren-der-abfrageergebnisse">
+<span id="anchor55"></span><h2>Sortieren der Abfrageergebnisse<a class="headerlink" href="#sortieren-der-abfrageergebnisse" title="Link to this heading">¶</a></h2>
 <p>Neben der Filterung steht mit DataLinqHelper.SortView ein weiterer Baustein zur Verfügung, mit dem die Datensätze im View per GUI sortiert werden können.
 Die Sortier-Felder werden wie die Filterparameter im Hintergrund an der Aufruf-URL mit <code class="docutils literal notranslate"><span class="pre">_orderby=…</span></code> angehängt.
 Absteigende Sortierungen werden mit einem Minus („-“) vor dem Spaltennamen übergeben.</p>
@@ -401,9 +394,9 @@ Absteigende Sortierungen werden mit einem Minus („-“) vor dem Spaltennamen �
 </div>
 <p>In der Query müssen diese Felder entgegengenommen werden, siehe Statements in <a class="reference internal" href="#anchor54"><span class="std std-ref">Kapitel 5.4</span></a>, in der View wird das Sortierwerkzeug gerendert:</p>
 <img alt="_images/ad5_6.png" src="_images/ad5_6.png" />
-</div>
-<div class="section" id="aktualisierung-aufteilen-von-statischen-und-dynamischen-inhalten">
-<span id="anchor56"></span><h2>Aktualisierung - Aufteilen von statischen und dynamischen Inhalten<a class="headerlink" href="#aktualisierung-aufteilen-von-statischen-und-dynamischen-inhalten" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="aktualisierung-aufteilen-von-statischen-und-dynamischen-inhalten">
+<span id="anchor56"></span><h2>Aktualisierung - Aufteilen von statischen und dynamischen Inhalten<a class="headerlink" href="#aktualisierung-aufteilen-von-statischen-und-dynamischen-inhalten" title="Link to this heading">¶</a></h2>
 <p>Bei der (periodischen) Aktualisierung von Views werden alle Inhalte neu geladen.
 Falls in den Views CSS-Styles oder JavaScript vorkommt, wird dieses ebenfalls wieder dazu geladen und kann (v.a. bei JavaScript-Triggern) die Seite auf Dauer langsam machen (bis wieder eine „harte“ Aktualisierung mit F5, oder ein neuer Aufruf über die URL erfolgt).</p>
 <p>Ein Beispiel für View-Inhalte, die häufig am selben Client aktualisiert werden, könnten Hydrographie-Daten – als eine Art Dashboard, das je Minute aktualisiert wird – sein.
@@ -418,9 +411,9 @@ Immer wenn ein View neu geladen wurde, wird das Event „onpageloaded“ gefeuer
             ...
 </pre></div>
 </div>
-</div>
-<div class="section" id="queries-mit-domain-ubersetzung">
-<span id="anchor57"></span><h2>Queries mit Domain-Übersetzung<a class="headerlink" href="#queries-mit-domain-ubersetzung" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="queries-mit-domain-ubersetzung">
+<span id="anchor57"></span><h2>Queries mit Domain-Übersetzung<a class="headerlink" href="#queries-mit-domain-ubersetzung" title="Link to this heading">¶</a></h2>
 <p>Query-Domains kommen zur Anwendung, wenn in einer Tabelle ein Attribut eines Objektes mit einem Wert kodiert wird, bspw. 0 für „Wald“, 1 für „Wiese“ und 2 für „verbautes Gebiet“.
 In einer Tabellenansicht möchte man diese Werte nun mit den richtigen Namen übersetzen, um es den NutzerInnen verständlicher zu machen.</p>
 <img alt="_images/tipps_domains2.png" src="_images/tipps_domains2.png" />
@@ -428,8 +421,8 @@ In einer Tabellenansicht möchte man diese Werte nun mit den richtigen Namen üb
 Unter „Query Id“ wird eine Lookup-Tabelle angegeben, die einerseits die kodierten Werte enthält und andererseits die Übersetzung.
 „Value-“ bzw. „Name Field“ geben die Spaltennamen dieser Lookup-Tabelle an.
 Wird im View des ursprünglichen Query auf das Feld (in der Grafik „STATUS_NAME“) zugegriffen, so wird nicht der kodierte Werte (bspw. 1) sondern die Übersetzung („Wiese“) ausgegeben.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -482,8 +475,8 @@ Wird im View des ursprünglichen Query auf das Feld (in der Grafik „STATUS_NAM
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

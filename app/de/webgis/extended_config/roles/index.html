@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Rollenparameter &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
@@ -147,11 +144,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rollenparameter">
-<h1>Rollenparameter<a class="headerlink" href="#rollenparameter" title="Permalink to this heading">¶</a></h1>
+  <section id="rollenparameter">
+<h1>Rollenparameter<a class="headerlink" href="#rollenparameter" title="Link to this heading">¶</a></h1>
 <p>Rollenparameter im webGIS sind bestimmte Key/Value-Paare, die einem webGIS-Anwender zugeordnet sind. Der Begriff und die Idee kommen eigentlich aus dem PVP-Umfeld, wo einer Rolle auch noch weitere Parameter übergeben werden können. So kann zum Beispiel eine Rolle <strong>Gemeinde</strong> noch genauer durch einen Parameter <code class="docutils literal notranslate"><span class="pre">GemeindeNummer</span></code> spezifiziert werden. Die Rolle berechtigt einen authentifizierten Anwender für eine bestimmte Anwendung (Karte). Der Rollenparameter bestimmt die eigentliche Gemeinde und kann für unterschiedliche Anwendungsfälle verwendet werden.</p>
-<div class="section" id="rollenparameter-verwenden">
-<h2>Rollenparameter verwenden<a class="headerlink" href="#rollenparameter-verwenden" title="Permalink to this heading">¶</a></h2>
+<section id="rollenparameter-verwenden">
+<h2>Rollenparameter verwenden<a class="headerlink" href="#rollenparameter-verwenden" title="Link to this heading">¶</a></h2>
 <p>Wird PVP als Authentifizierungsmethode verwendet, werden die Rollenparameter von dort automatisch ausgelesen. Zusätzlich können jedem User auch Rollenparameter aus einer Datenbank übergeben werden. Dazu sind in der <code class="docutils literal notranslate"><span class="pre">webgis.config</span></code> folgende beiden Tags notwendig:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;portal_extended_role_parameters_source&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;postgres:Server=127.0.0.1;Database=webgis;User Id=postgres;Password=…&quot;</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;portal_extended_role_parameters_statement&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;select EventID,OrgID,EventName,OrgName from digikat_user_rights where User=@username&quot;</span><span class="nt">/&gt;</span>
@@ -177,9 +174,9 @@
 <p class="admonition-title">Warnung</p>
 <p>Gibt man unter dem Feld <code class="docutils literal notranslate"><span class="pre">WebgisAddRoles</span></code> mehrere Gruppen an, müssen diese mit Beistrich getrennt werden. Bei den übrigen Rollen werden die einzelnen Rollenparameter jedoch mit einer Tilde (~) getrennt. Der Grund ist, dass – wie im Beispiel oben – auch allgemeine Texte für einen Ausdruck definiert werden können. Da in diesen Texten Beistriche vorkommen können, wurde die Tilde gewählt. Möchte man beispielsweise eine Rolle <code class="docutils literal notranslate"><span class="pre">KANALVERBUND</span></code> mit den Parametern <code class="docutils literal notranslate"><span class="pre">61001</span></code> und <code class="docutils literal notranslate"><span class="pre">61002</span></code> definieren, muss der Wert der Spalte <code class="docutils literal notranslate"><span class="pre">KANALVERBUND</span></code> <code class="docutils literal notranslate"><span class="pre">61001~61002</span></code> lauten.</p>
 </div>
-</div>
-<div class="section" id="rollenparameter-fur-unterschiedliche-werkzeuge">
-<h2>Rollenparameter für unterschiedliche Werkzeuge<a class="headerlink" href="#rollenparameter-fur-unterschiedliche-werkzeuge" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="rollenparameter-fur-unterschiedliche-werkzeuge">
+<h2>Rollenparameter für unterschiedliche Werkzeuge<a class="headerlink" href="#rollenparameter-fur-unterschiedliche-werkzeuge" title="Link to this heading">¶</a></h2>
 <p>Anwendungsbereiche für Rollenparameter:</p>
 <ol class="arabic simple">
 <li><p>Gesperrte Darstellungsfilter</p></li>
@@ -187,12 +184,12 @@
 <li><p>Drucklayout</p></li>
 <li><p>Viewer Layout</p></li>
 </ol>
-<div class="section" id="rollenparameter-in-gesperrten-darstellungsfiltern">
-<h3>Rollenparameter in gesperrten Darstellungsfiltern<a class="headerlink" href="#rollenparameter-in-gesperrten-darstellungsfiltern" title="Permalink to this heading">¶</a></h3>
+<section id="rollenparameter-in-gesperrten-darstellungsfiltern">
+<h3>Rollenparameter in gesperrten Darstellungsfiltern<a class="headerlink" href="#rollenparameter-in-gesperrten-darstellungsfiltern" title="Link to this heading">¶</a></h3>
 <p>Eine ausführlichere Beschreibung für gesperrte Darstellungsfilter ist der CMS Dokumentation zu entnehmen. Es handelt sich hier um Darstellungsfilter vom Typ <code class="docutils literal notranslate"><span class="pre">locked</span></code>, die der Anwender nicht über die Benutzeroberfläche des Viewers beeinflussen kann. Damit kann die Sichtbarkeit von Objekten innerhalb eines Layers für deinen bestimmten Anwender gesteuert werden. Sollten beispielsweise einem Benutzer nur ein Subset an Objekten eines Layers angezeigt werden, sind gesperrte Darstellungsfilter die richtige Wahl.</p>
 <p>Innerhalb des Filter Statements können Platzhalter in eckigen Klammern angeführt werden, wie beispielsweise [username] (siehe CMS Dokumentation). Für Rollenparameter gibt es folgenden Platzhalter:</p>
-<div class="section" id="role-paramerter">
-<h4>[role-paramerter: …]<a class="headerlink" href="#role-paramerter" title="Permalink to this heading">¶</a></h4>
+<section id="role-paramerter">
+<h4>[role-paramerter: …]<a class="headerlink" href="#role-paramerter" title="Link to this heading">¶</a></h4>
 <p>Mit diesem Platzhalter können Rollenparameter in einen Filter eingebaut werden.Beispielsweise könnte eine Rolle von PVP als <code class="docutils literal notranslate"><span class="pre">X-AUTHORIZE-roles:</span> <span class="pre">GEM(gemnr=41725,gemnr=41728,gemnr=41733,gemnr=41720)</span></code> übergegeben werden. Der Filter Platzhalter könnte diese Parameter folgendermaßen implementieren: <code class="docutils literal notranslate"><span class="pre">[role-parameter:gemnr,GEM_NR</span> <span class="pre">like</span> <span class="pre">'{0}',OR]</span></code>.</p>
 <p>Dem Role-Parameter Platzhalte können drei Parameter übergeben werden:</p>
 <ol class="arabic simple">
@@ -200,9 +197,9 @@
 <li><p>Die eigentliche SQL Klausel. Bei {0} wird der entsprechende Wert eingetragen</p></li>
 <li><p>Die Verknüpfung der SQL Klausel, wenn mehre gleiche Parameter vorhanden sind. Dieser Parameter ist optional.</p></li>
 </ol>
-</div>
-<div class="section" id="rollenparameter-in-editmasken">
-<h4>Rollenparameter in Editmasken<a class="headerlink" href="#rollenparameter-in-editmasken" title="Permalink to this heading">¶</a></h4>
+</section>
+<section id="rollenparameter-in-editmasken">
+<h4>Rollenparameter in Editmasken<a class="headerlink" href="#rollenparameter-in-editmasken" title="Link to this heading">¶</a></h4>
 <p>Rollenparameter können als <code class="docutils literal notranslate"><span class="pre">autovalue</span></code> automatisch in eine Editmaske übernommen werden. Dazu muss der Parametername folgendermaßen in die Maske übernommen werden:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;edit:attribute prompt=&quot;EventName:&quot; autovalue=&quot;role-parameter:EventName&quot; ... /&gt;
 </pre></div>
@@ -217,9 +214,9 @@
 Validierungen werden immer am Ende vor dem Speichern des Objektes überprüft. Ist die Validierung nicht erfolgreich, bekommt der Anwender eine entsprechende Fehlermeldung. Parametriert werden die Validierungen mit der Editmaske innerhalb des <code class="docutils literal notranslate"><span class="pre">&lt;edit:mask&gt;</span></code> Tags:</p>
 <img alt="../../_images/image_32.png" src="../../_images/image_32.png" />
 <p>Im Attribut <code class="docutils literal notranslate"><span class="pre">feld</span></code>, wird das Feld angegeben, das Überprüft werden soll. Der Wert dieses Attributes sollte die gleiche Schreibweise haben wie beim entsprechenden <code class="docutils literal notranslate"><span class="pre">&lt;edit:attribute&gt;</span></code> Tag. Als Operator kann <code class="docutils literal notranslate"><span class="pre">=</span></code> oder <code class="docutils literal notranslate"><span class="pre">==</span></code> angegeben werden. <code class="docutils literal notranslate"><span class="pre">=</span></code> überprüft, ob das Feld und der Validator gleich sind, wobei die Groß/Kleinschreibung nicht relevant ist. <code class="docutils literal notranslate"><span class="pre">==</span></code> überprüft die genaue Schreibweise. Als Operator kann wie hier im Beispiel wieder ein Rollenparameter angeführt werden. Sinn macht so eine Validierung, wenn beispielsweise überprüft werden soll, ob ein gezeichnetes Objekt innerhalb einer Gemeinde liegt. Dazu muss das Feld zuerst über einen Geometrieverschnitt als Autovalue berechnet werden (siehe oben, <code class="docutils literal notranslate"><span class="pre">GNR</span> <span class="pre">FROM</span> <span class="pre">Gemeinden</span></code>). Da die Validierung erst nach dem Berechnen der Autovalues erfolgt, würde eine Fehlermeldung ausgegeben werden, wenn der berechnete Wert nicht mit dem Gemeindenummer-Rollenparameter des angemeldeten Benutzers zusammen passt.</p>
-</div>
-<div class="section" id="rollenparameter-im-drucklayout">
-<h4>Rollenparameter im Drucklayout<a class="headerlink" href="#rollenparameter-im-drucklayout" title="Permalink to this heading">¶</a></h4>
+</section>
+<section id="rollenparameter-im-drucklayout">
+<h4>Rollenparameter im Drucklayout<a class="headerlink" href="#rollenparameter-im-drucklayout" title="Link to this heading">¶</a></h4>
 <p>Das Parametrieren von Drucklayouts ist in der webGIS Admin Dokumentation beschrieben und wird hier vorausgesetzt.</p>
 <p>Wenn Rollenparameter im Ausdruck angezeigt werden sollten, müssen sie im Drucklayout als Variable definiert werden (layout.xml):</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;variables&gt;</span>
@@ -236,18 +233,18 @@ Validierungen werden immer am Ende vor dem Speichern des Objektes überprüft. I
 <p>Als Ergebnis wird der Parameter im Druckdialog vor dem Drucken angezeigt und danach im Ausdruck eingefügt:</p>
 <img alt="../../_images/image_41.png" src="../../_images/image_41.png" />
 <p>Der Anwender hat ihr auch noch die Möglichkeit, den Text zu verändern. Soll das nicht möglich sein, kann die Variable im Drucklayout mit <code class="docutils literal notranslate"><span class="pre">visible=&quot;false&quot;</span></code> gekennzeichnet werden. Damit erscheint sie nicht im Dialog und kann auch nicht verändert werden. In den Ausdruck wir der Parameter allerdings übernommen.</p>
-</div>
-<div class="section" id="rollenparameter-in-viewer-layout">
-<h4>Rollenparameter in Viewer Layout<a class="headerlink" href="#rollenparameter-in-viewer-layout" title="Permalink to this heading">¶</a></h4>
+</section>
+<section id="rollenparameter-in-viewer-layout">
+<h4>Rollenparameter in Viewer Layout<a class="headerlink" href="#rollenparameter-in-viewer-layout" title="Link to this heading">¶</a></h4>
 <p>Um Rollenparameter im Viewerlayout anzuzeigen, ist der [role-parameter:…] Platzhalter ebenfalls in der layout_viewer.xml möglich.</p>
 <p>Beispiel:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;span</span><span class="w"> </span><span class="na">style=</span><span class="s">&quot;position:absolute;right:156px;top:6px&quot;</span><span class="nt">&gt;</span>[role-parameter:X-AUTHENTICATE-cn]:<span class="nt">&lt;/span&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -304,8 +301,8 @@ Validierungen werden immer am Ende vor dem Speichern des Objektes überprüft. I
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

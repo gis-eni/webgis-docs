@@ -1,195 +1,116 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<html class="writer-html5" lang="de" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3 Darstellung und Karteninhalte &mdash; WebGIS Manual 2022 Dokumentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/eni-gray.css?v=9afab3ce" />
 
   
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
-        <script src="../../_static/js/eni.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/eni-gray.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="4 Legende und Themen" href="../legend/index.html" />
     <link rel="prev" title="2 Navigation in der Karte" href="../navigation/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> WebGIS Manual
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            WebGIS Manual
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../general/index.html"><span class="sectnum">1</span> Allgemeines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../navigation/index.html"><span class="sectnum">2</span> Navigation in der Karte</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><span class="sectnum">3</span> Darstellung und Karteninhalte</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dynamische-inhalte"><span class="sectnum">3.1</span> Dynamische Inhalte</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hintergrund-basemaps"><span class="sectnum">3.2</span> Hintergrund (Basemaps)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#darstellungsvarianten-fachdaten"><span class="sectnum">3.3</span> Darstellungsvarianten (Fachdaten)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tipps-und-tricks"><span class="sectnum">3.4</span> Tipps und Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dynamische-inhalte"><span class="sectnum">3.1 </span>Dynamische Inhalte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hintergrund-basemaps"><span class="sectnum">3.2 </span>Hintergrund (Basemaps)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#darstellungsvarianten-fachdaten"><span class="sectnum">3.3 </span>Darstellungsvarianten (Fachdaten)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tipps-und-tricks"><span class="sectnum">3.4 </span>Tipps und Tricks</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../legend/index.html"><span class="sectnum">4</span> Legende und Themen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../search_identify/index.html"><span class="sectnum">5</span> Suchen und Abfragen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tools/index.html"><span class="sectnum">6</span> Werkzeuge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../news/info.html"><span class="sectnum">7</span> Neuerungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tips/index.html"><span class="sectnum">8</span> Tipps und Tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">WebGIS Manual</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">Benutzerhandbuch Karten Viewer</a> &raquo;</li>
-        
-      <li><span class="sectnum">3</span> Darstellung und Karteninhalte</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Benutzerhandbuch Karten Viewer</a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">3 </span>Darstellung und Karteninhalte</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../../_sources/mapviewer/presentation/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
+            <a href="../../_sources/mapviewer/presentation/index.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="darstellung-und-karteninhalte">
-<h1><span class="sectnum">3</span> Darstellung und Karteninhalte<a class="headerlink" href="#darstellung-und-karteninhalte" title="Permalink to this heading">¶</a></h1>
+             
+  <section id="darstellung-und-karteninhalte">
+<h1><span class="sectnum">3 </span>Darstellung und Karteninhalte<a class="headerlink" href="#darstellung-und-karteninhalte" title="Link to this heading"></a></h1>
 <p>Je nach Karte gibt es unterschiedliche Karteninhalte. So ist beispielsweise eine Karte mit Katasterdaten und eine andere mit Daten aus der Flächenwidmung denkbar.
 Natürlich könnte eine Karte auch beide Themenbereiche abdecken. Welche Inhalte in einer Karte sind, bestimmt der Kartenautor. Hier werden nur die allgemeinen
 Konzepte beschrieben, wie die Darstellung von Karteninhalten organisiert werden kann und der Anwender diese beeinflussen kann.</p>
 <p>Die Karteninhalte werden im Kartenviewer hauptsächlich im Bereich <strong>Darstellung</strong> festgelegt (am Desktop in der Regel im linken <em>Frame</em>, auf mobilen Geräten am unteren Bildschirmrand - siehe Übersicht)</p>
 <p>Es gibt in der Regel unterschiedliche Arten von Geodaten die auch im Kartenviewer auf unterschiedliche Art und Weise bedient werden können:</p>
-<div class="section" id="dynamische-inhalte">
-<h2><span class="sectnum">3.1</span> Dynamische Inhalte<a class="headerlink" href="#dynamische-inhalte" title="Permalink to this heading">¶</a></h2>
+<section id="dynamische-inhalte">
+<h2><span class="sectnum">3.1 </span>Dynamische Inhalte<a class="headerlink" href="#dynamische-inhalte" title="Link to this heading"></a></h2>
 <p>Dynamische Inhalte sind meist sehr spezifische Daten und nicht in jeder Karte vorhanden. Sie werden in der Liste der Darstellungsinhalte in der Regel ganz oben angezeigt und können extra ein- oder ausgeblendet werden.
 Die dynamischen Inhalte werden in der Karte als klickbare Marker dargestellt. Es kann von diesen Themen immer nur eines aktuell in der Karte dargestellt werden.</p>
 <img alt="../../_images/dyn_inhalte1.png" src="../../_images/dyn_inhalte1.png" />
 <p>Dynamische Inhalte dienen in der Regel dazu, sehr dynamische Themen (die sich schnell ändern können) in einer Karte bereitzustellen.
 Da sie in der Karte als Marker dargestellt werden, verhalten sie sich wie die Ergebnisse einer Abfrage/Suche und können somit auch als vordefinierte Abfragen verstanden werden.
 Abfragen/Suchen werden in einem späteren Abschnitt noch genauer behandelt.</p>
-</div>
-<div class="section" id="hintergrund-basemaps">
-<h2><span class="sectnum">3.2</span> Hintergrund (Basemaps)<a class="headerlink" href="#hintergrund-basemaps" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="hintergrund-basemaps">
+<h2><span class="sectnum">3.2 </span>Hintergrund (Basemaps)<a class="headerlink" href="#hintergrund-basemaps" title="Link to this heading"></a></h2>
 <p>Diese Daten sind eher statisch und dienen hauptsächlich der Orientierung in der Karte. Sie liegen in der Regel in der Karte unter allen anderen Daten (Hintergrund).
 Meist handelt es sich bei diesen Hintergrunddaten um Luftbilder oder Orts- und Straßenkarten. Die Daten sind meistens flächenfüllend, daher kann immer nur ein
 Hintergrund gleichzeit angezeigt werden.</p>
@@ -210,9 +131,9 @@ Das macht beispielsweise Sinn, wenn über eine Luftbild Karte zur Orientierung n
 <p>Da Hintergrund Karten in der Regel statische Daten enthalten, liegen sie als sogenannte Karten-Kacheln vor. Diese Kacheln existieren bereits vorberechnet für alle Maßstäbe auf dem Server,
 was die Darstellung besonders performant macht und beim Navigieren in der Karte für <em>flüssige</em> Übergänge sorgt.</p>
 </div>
-</div>
-<div class="section" id="darstellungsvarianten-fachdaten">
-<h2><span class="sectnum">3.3</span> Darstellungsvarianten (Fachdaten)<a class="headerlink" href="#darstellungsvarianten-fachdaten" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="darstellungsvarianten-fachdaten">
+<h2><span class="sectnum">3.3 </span>Darstellungsvarianten (Fachdaten)<a class="headerlink" href="#darstellungsvarianten-fachdaten" title="Link to this heading"></a></h2>
 <p>Dabei handelt es sich um die für eine Kartenanwendung eigentlich entscheidenden Daten. Im Gegensatz zu den Hintergrund Karten liegen diese Daten in der Regel nicht vorprozessiert für alle Maßstäbe vor, sondern werden
 für jeden Kartenausschnitt individuell auf Basis der Anforderungen des Anwenders erstellt. Damit gleichen diese Daten eher den <em>Dynamischen Inhalten</em> (siehe oben), mit dem Unterschied, dass hier in der Karte
 nicht nur <em>klickbare</em> Kartenmarker angezeigt werden. Vielmehr erscheinen diese Daten als kartographisch aufbereitetes Kartenbild, das über die Hintergrundkarten gelegt wird.</p>
@@ -254,9 +175,9 @@ gewünschten Themen anzeigen). Zoomt man weiter in die Karte hinein, werden dies
 </div>
 <p>Der Grund für die maßstabsabhängige Darstellung ist in der Regel, dass nicht alle Themen in jedem Maßstab Sinn ergeben. Grundstücksgrenzen machen etwa in einem sehr kleinen Maßstab (zB komplettes Bundesland) keinen Sinn
 und würden den Kartenaufbau nur verlangsamen.</p>
-</div>
-<div class="section" id="tipps-und-tricks">
-<h2><span class="sectnum">3.4</span> Tipps und Tricks<a class="headerlink" href="#tipps-und-tricks" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="tipps-und-tricks">
+<h2><span class="sectnum">3.4 </span>Tipps und Tricks<a class="headerlink" href="#tipps-und-tricks" title="Link to this heading"></a></h2>
 <p>Karten mit sehr vielen Fachendaten, können recht umfangreiche Darstellungsvarianten Bäume haben. Um eine Darstellungsvariante zu finden, sind dabei je nach Übung mehrere Klicks notwendig.
 Um diesen Vorgang zu beschleunigen, kann nach Darstellungsvarianten im Baum gesucht werden. Dazu gibt es direkt über dem obersten Container (nur Desktop Variante) ein kleines Eingebfeld
 mit der Beschriftung <em>Inhalte suchen…</em></p>
@@ -265,56 +186,38 @@ mit der Beschriftung <em>Inhalte suchen…</em></p>
 <p>Klickt man auf die gefundene Darstellungsvariante, wird diese aktiv und der Darstellungsvarianten Baum wird wieder in der ursprünglichen Form angezeigt.
 Man kann ebenfalls auf eine relevante Gruppe klicken, um diese dann im ursprünglichen Baum zu öffen und die darunter liegenden Darstellungsvarianten anzuzeigen.</p>
 <p>Möchte man den Darstellungsvarianten Baum einfach wieder in der ursprünglichen Form darstellen, muss der Inhalte aus dem <em>Inhalte suchen</em> Eingabefeld gelöscht werden.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../legend/index.html" class="btn btn-neutral float-right" title="4 Legende und Themen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../navigation/index.html" class="btn btn-neutral float-left" title="2 Navigation in der Karte" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../navigation/index.html" class="btn btn-neutral float-left" title="2 Navigation in der Karte" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="../legend/index.html" class="btn btn-neutral float-right" title="4 Legende und Themen" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2022, ENI
-
-    </p>
+    <p>&#169; Copyright 2022, ENI.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

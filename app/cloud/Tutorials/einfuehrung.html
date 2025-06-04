@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>WebGIS Cloud &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/translations.js"></script>
-    <script src="../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=d882a67f" />
+    <script src="../_static/documentation_options.js?v=7d611786"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=70a09b52"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
@@ -146,10 +143,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="webgis-cloud">
-<h1>WebGIS Cloud<a class="headerlink" href="#webgis-cloud" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="einleitung">
-<h2>Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this heading">¶</a></h2>
+  <section id="webgis-cloud">
+<h1>WebGIS Cloud<a class="headerlink" href="#webgis-cloud" title="Link to this heading">¶</a></h1>
+<section id="einleitung">
+<h2>Einleitung<a class="headerlink" href="#einleitung" title="Link to this heading">¶</a></h2>
 <p>Das Tutorial erfolgt in der WebGIS Cloud.</p>
 <p>Die folgende Themen werden behandelt:</p>
 <ul class="simple">
@@ -160,27 +157,27 @@
 <li><p>Anpassen von Styles</p></li>
 </ul>
 <p>Die weitere Beschreibung der Vorgehensweise erfolgt teilweise in Stichworten mit entsprechenden Screenshots. Auf die Unterschiede zur Vorgehensweise bei Kundeninstallationen von WebGIS 5 wird hingewiesen.</p>
-</div>
-<div class="section" id="einfuhrung-ins-verwaltungsportal-der-webgis-cloud">
-<h2>Einführung ins Verwaltungsportal der WebGIS Cloud<a class="headerlink" href="#einfuhrung-ins-verwaltungsportal-der-webgis-cloud" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="einfuhrung-ins-verwaltungsportal-der-webgis-cloud">
+<h2>Einführung ins Verwaltungsportal der WebGIS Cloud<a class="headerlink" href="#einfuhrung-ins-verwaltungsportal-der-webgis-cloud" title="Link to this heading">¶</a></h2>
 <p>Aufruf des Portals mit <a class="reference external" href="https://webgiscloud.com">https://webgiscloud.com</a></p>
 <p><strong>Registrieren</strong></p>
 <p>Registrierungsformular ausfüllen und anmelden (Email sollte ein gültige E-Mail Adresse ein)</p>
 <img alt="../_images/image1.png" src="../_images/image1.png" />
 <p>Es wird eine Gratis (Free) Subscription und ein Projekt (Default Projekt) angelegt. Mit dieser Subscription können nur API Clients für das Einbinden von Karten auf eine eigene Homepage erstellt werden.</p>
 <img alt="../_images/image2.png" src="../_images/image2.png" />
-</div>
-<div class="section" id="projekt-erstellen">
-<h2>Projekt erstellen<a class="headerlink" href="#projekt-erstellen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="projekt-erstellen">
+<h2>Projekt erstellen<a class="headerlink" href="#projekt-erstellen" title="Link to this heading">¶</a></h2>
 <p>Um die Übersicht zu behalten, müssen Resources innerhalb eines Projektes angelegt werden.</p>
 <p>Resources mit gleicher Lebensdauer sollten innerhalb eines Projektes angelegt werden. Sobald Resources später nicht mehr benötigt werden, kann dies durch Löschen eines Projektes erfolgen.</p>
 <p>Um ein Projekt zu erstellen, muss zuerst auf <code class="docutils literal notranslate"><span class="pre">Projects</span></code>, dann auf <code class="docutils literal notranslate"><span class="pre">Add</span></code> und anschließend auf <code class="docutils literal notranslate"><span class="pre">Create</span></code> gedrückt werden.</p>
 <img alt="../_images/image9.png" src="../_images/image9.png" />
 <p>Anschließend ist der Name des Projekts einzugeben.</p>
 <img alt="../_images/image10.png" src="../_images/image10.png" />
-</div>
-<div class="section" id="webgis-api-client-erstellen">
-<h2>WebGIS API Client erstellen<a class="headerlink" href="#webgis-api-client-erstellen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="webgis-api-client-erstellen">
+<h2>WebGIS API Client erstellen<a class="headerlink" href="#webgis-api-client-erstellen" title="Link to this heading">¶</a></h2>
 <p>Um auf die WebGIS API zuzugreifen, ist ein API Client notwendig.</p>
 <p>Um eine neue WebGIS API zu erstellen, muss zuerst <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">API</span> <span class="pre">Clients</span></code> ausgewählt und anschließend auf <code class="docutils literal notranslate"><span class="pre">Create</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">Add</span></code> (wenn bereits ein WebGis API Client vorhanden ist) geklickt werden.</p>
 <img alt="../_images/image3.png" src="../_images/image3.png" />
@@ -189,8 +186,8 @@
 <p>Jeder Client bekommt eine eindeutige ID. Wird die WebGIS API in eine Webseite eingebunden, muss diese ID angeführt werden.</p>
 <p>Zusätzlich zur ID muss für einen API Client noch die Url der Webseite angeben werden, in die die WebGIS API eingebunden wird. Dies erfolgt über den HTTP-Referer, der garantieren soll, dass ein API Client nicht in einer anderen Seite verwendet werden kann.</p>
 <img alt="../_images/image4.png" src="../_images/image4.png" />
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -240,8 +237,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

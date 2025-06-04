@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tipps und Tricks für Views &#8212; DataLinq 2025 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
+    <script src="_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=70a09b52"></script>
+    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="Beispiele" href="examples/index.html" />
+    <link rel="prev" title="Aufruf und Beispiele" href="aufrufundbeispiele.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">DataLinq 2025 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="konfiguration.html">Konfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allgemeines.html">Allgemeines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technischeumsetzung.html">Technische Umsetzung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oberflaeche.html">DataLinq.Code Oberfläche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parametrierung.html">Parametrierung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aufrufundbeispiele.html">Aufruf und Beispiele</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tipps und Tricks für Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Beispiele</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="tipps-und-tricks-fur-views">
+<h1>Tipps und Tricks für Views<a class="headerlink" href="#tipps-und-tricks-fur-views" title="Link to this heading">¶</a></h1>
+<section id="zugriff-auf-abfrageergebnisse">
+<span id="anchor51"></span><h2>Zugriff auf Abfrageergebnisse<a class="headerlink" href="#zugriff-auf-abfrageergebnisse" title="Link to this heading">¶</a></h2>
+<p>Die Ergebnisse der Abfrage werden dem View als Model übergeben:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Model.Success</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>bool</em></p></li>
+<li><p>war die Abfrage erfolgreich</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Model.CountRecords</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>integer</em></p></li>
+<li><p>Anzahl der zurückgegebenen Datensätze</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Model.ElapsedMillisconds</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>integer</em></p></li>
+<li><p>Abfragedauer in Millisekunden</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Model.Records</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Dictionary&lt;string,object&gt;[]</em></p></li>
+<li><p>Enthält die Datensätze des Ergebnisses</p></li>
+<li><p><strong>ACHTUNG:</strong> da der Wert als Object-Typ gespeichert ist, sind <strong>keine</strong> direkten Vergleichsoperationen wie <code class="docutils literal notranslate"><span class="pre">record[‘NAME‘]</span> <span class="pre">==</span> <span class="pre">‘Franz‘</span></code> möglich (Referenzvergleich). Hier muss über Equals verglichen werden, bspw. <code class="docutils literal notranslate"><span class="pre">&quot;Franz&quot;.Equals(record[&quot;NAME&quot;])</span></code></p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Model.QueryString</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>NameValueCollection</em></p></li>
+<li><p>Enthält die Übergabeparameter des Aufrufes</p></li>
+<li><p>Zugriff bspw. über: <code class="docutils literal notranslate"><span class="pre">Model.QueryString[&quot;Parametername&quot;]</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>Auf die Datensätze im Dictionary kann über Linq zugegriffen werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span><span class="o">.</span><span class="n">Records</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">String</span><span class="o">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="o">||</span> <span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;x_field&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;data_field&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="hilfsfunktionen">
+<span id="anchor52"></span><h2>Hilfsfunktionen<a class="headerlink" href="#hilfsfunktionen" title="Link to this heading">¶</a></h2>
+<p>Es gibt einige Hilfsfunktionen („DataLinqHelper“) mit denen zusätzliche Daten eingebunden oder etwa Formulare erzeugt werden können. Als Abkürzung kann statt „DataLinqHelper“ auch „DLH“ verwendet werden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataLinqHelper.IncludeView(url)</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>Zeigt in einem View Daten aus einem anderen an</p></li>
+<li><p>Die URL ist ab der Endpunkt-Bezeichnung einzugeben:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DataLinqHelper.IncludeView(“ssg-sdet@proj-geb@proj-geb-bestand?GebaeudeId =E313049“)
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataLinqHelper.IncludeClickView(url,text)</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>siehe IncludeView, Inhalt wird erst bei Klick auf eine Schaltfläche geladen und angezeigt</p></li>
+<li><p>der Parameter <code class="docutils literal notranslate"><span class="pre">text</span></code> bezieht sich auf die Beschriftung der Schaltfläche</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataLinqHelper.ResponsiveSwitcher()</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Erzeugt eine Schaltfläche, die auf Klick alle HTML-Elemente mit der Klasse „responsive“ innerhalb der aktuellen Tabelle anzeigt bzw. wieder versteckt</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataLinqHelper.IncludeCombo(id,</span> <span class="pre">url,</span> <span class="pre">valueField,</span> <span class="pre">nameField)</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Erzeugt eine Dropdown-Liste mit den Ergebnissen einer Abfrage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> wird als HTML-Id-Attribut gesetzt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code> zeigt auf die Abfrage, deren Ergebnisse aufgelistet werden sollen</p>
+<ul>
+<li><p>Bspw. ein Abfrage mit GroupBy</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">valueField</span></code> befüllt den Options-Wert mit dem angegeben Feld aus den Ergebnissen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nameField</span></code> befüllt den Options-Namen mit dem angegeben Feld aus den Ergebnissen</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DLH.UrlEncode(text)</span></code></p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Kodiert den Text für die Verwendung in einer URL</p></li>
+</ul>
+</div></blockquote>
+<p>Diese und weitere Hilfsfunktionen sind in der Hilfe zu DataLinqHelper mit Beispielen angeführt. Der Link zur Hilfe ist im Razor Markup Code Editor bei der Erstellung von Views rechts oben zu finden.</p>
+<p>In den Views kann auch JavaScript in <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code>-Tags definiert werden. jQuery ist bereits eingebunden.</p>
+</section>
+<section id="beschrankung-der-abfrageergebnisse-query">
+<span id="anchor53"></span><h2>Beschränkung der Abfrageergebnisse - Query<a class="headerlink" href="#beschrankung-der-abfrageergebnisse-query" title="Link to this heading">¶</a></h2>
+<p>Um die Serverlast und v.a. die Ladezeit beim Seitenaufbau am Client gering zu halten, ist es sinnvoll, die maximale Anzahl der Abfrageergebnisse und Felder zu beschränken:</p>
+<ul>
+<li><p>bei API-Endpoints auf die WebGIS-Api ist diese Anzahl mit 1000 Datensätzen festgelegt, hier werden alle Spalten zurückgegeben, die im CMS definiert sind.</p></li>
+<li><p>DB-Abfragen können im SQL-Statement beschränkt werden, bspw.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>SELECT TOP 200       * …</p></td>
+<td><p>bei MSSQL</p></td>
+</tr>
+<tr class="row-even"><td><p>SELECT * … LIMIT 200</p></td>
+<td><p>bei MySQL, PostgreSQL</p></td>
+</tr>
+<tr class="row-odd"><td><p>SELECT * … WHERE ROWNUM &lt;= 200</p></td>
+<td><p>bei Oracle</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>Idealerweise sollten die Ergebnisse durch eine Filterung mit (optionalen) Parametern soweit wie möglich eingeschränkt werden, um den AnwenderInnen eine schnellere Auswahl zu ermöglichen und nicht hunderte Zeilen durchsuchen zu müssen.</p>
+</section>
+<section id="beschrankung-filtern-der-abfrageergebnisse">
+<span id="anchor54"></span><h2>Beschränkung / Filtern der Abfrageergebnisse<a class="headerlink" href="#beschrankung-filtern-der-abfrageergebnisse" title="Link to this heading">¶</a></h2>
+<p>Mithilfe von (optionalen) Parameter in den Queries lassen sich Abfrageergebnisse einschränken. In Views kann mit dem <code class="docutils literal notranslate"><span class="pre">DataLinqHelper.FilterView</span></code> ein Filter eingebaut werden, der eine einfache und übersichtliche Eingabe / Auswahl dieser Filterparameter ermöglicht. Im Hintergrund werden die Übergabeparameter einfach an die Aufruf-URL (siehe <a class="reference internal" href="aufrufundbeispiele.html#anchor4"><span class="std std-ref">Kapitel 4</span></a>) angehängt.
+Werden bereits beim Aufruf der View über die URL Filter- bzw. Sortierungsparameter definiert, so sind diese in der GUI bereits ausgefüllt bzw. gesetzt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">FilterView</span><span class="p">(</span>
+    <span class="s2">&quot;Filter&quot;</span><span class="p">,</span>
+    <span class="n">new</span> <span class="n">Dictionary</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">(){</span>
+        <span class="p">{</span><span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;endpoint@lov-status&quot;</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;multiple&quot;</span><span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;NACHNAME&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Nachname&quot;</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;GAS&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Nur Gas betroffen&quot;</span><span class="p">,</span> <span class="n">dataType</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">Checkbox</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;ERSTELLD_FROM&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Datum von&quot;</span><span class="p">,</span> <span class="n">dataType</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">Date</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Ein Filterfeld kann als Auswahlliste definiert werden, dessen Werte aus einer anderen DataLinq-Query kommen, siehe Feld <code class="docutils literal notranslate"><span class="pre">STATUS</span></code>. Bei Bedarf können auch mehrere
+Listenwerte mit <code class="docutils literal notranslate"><span class="pre">;</span></code> getrennt übergeben werden (<code class="docutils literal notranslate"><span class="pre">multiple=“multiple“</span></code>). Im SQL-Statement muss diese Aneinanderreihung wieder aufgesplittet werden. Bei einer REST-API Abfrage
+muss im CMS die Abfrage-Methode des Suchfeldes als „In“ definiert werden.</p>
+<p>Falls alle Filterfelder optional sind (also auch ohne eine einzige Einschränkung gesucht werden kann), kann man bei SQL-Statements eine allgemein gültige
+WHERE-Bedingung definieren und alle anderen optionalen Bedingungen mit „AND …“ anhängen.</p>
+<p>Die Auswahllisten im Filter können kaskadierend sein, das heißt, ein Eingabefeld ist von einem anderen Feld abhängig. Immer wenn dieses Feld über die Auswahlliste geändert wird,
+ändert sich der Wert der abhängigen Auswahlliste(n).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">FilterView</span><span class="p">(</span>
+   <span class="s2">&quot;Filter&quot;</span><span class="p">,</span>
+    <span class="n">new</span> <span class="n">Dictionary</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">(){</span>
+       <span class="p">{</span><span class="s2">&quot;APP&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;App(s)&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;read@wlogging-apps&quot;</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span> <span class="p">}},</span>
+       <span class="p">{</span><span class="s2">&quot;TYPE&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Type(s)&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;read@logging-types?APP=[APP]&quot;</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Das Feld <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> ist hier von der Auswahlliste <code class="docutils literal notranslate"><span class="pre">APP</span></code> durch den Platzhalter <code class="docutils literal notranslate"><span class="pre">[APP]</span></code> abhängig (<code class="docutils literal notranslate"><span class="pre">APP=[APP]</span></code>). Immer wenn im Filter die Auswahl für <code class="docutils literal notranslate"><span class="pre">APP</span></code> geändert wird,
+wird die Auswahlliste <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> neu befüllt.
+Die entsprechende Abfrage (hier Datenbankabfrage) muss natürlich den übergebenen Parameter <code class="docutils literal notranslate"><span class="pre">APP</span></code> berücksichtigen, z.B.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span>
+   <span class="n">DISTINCT</span><span class="p">(</span><span class="n">TYPE</span><span class="p">)</span> <span class="k">as</span> <span class="n">VALUE</span>
+   <span class="n">FROM</span> <span class="n">LOG_TABLE</span>
+   <span class="n">WHERE</span> <span class="mi">1</span><span class="o">=</span><span class="mi">1</span>
+
+ <span class="c1">#if APP</span>
+     <span class="n">AND</span> <span class="n">APP</span> <span class="o">=</span> <span class="nd">@APP</span>
+ <span class="c1">#endif</span>
+</pre></div>
+</div>
+<p><strong>REST-API</strong></p>
+<div class="highlight-REST notranslate"><div class="highlight"><pre><span></span>dienst@cms/queries/abfrage?
+
+#if STATUS
+    &amp;status_in={{STATUS}}
+#endif
+#if NACHNAME
+    &amp;nachname={{NACHNAME}}
+#endif
+#if ERSTELLD_FROM
+    &amp;date_from={{ERSTELLD_FROM}}
+#endif
+#if GAS
+    &amp;gas_betroffen=Ja*
+#endif
+#if _orderby
+    &amp;_orderby={{_orderby}}
+#endif
+</pre></div>
+</div>
+<p><strong>SQL</strong></p>
+<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="w">    </span><span class="n">status</span><span class="p">,</span>
+<span class="w">    </span><span class="n">erstellt</span><span class="p">,</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">tabelle</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">STATUS</span>
+<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">STRING_SPLIT</span><span class="p">(</span><span class="o">@</span><span class="n">STATUS</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;;&#39;</span><span class="p">))</span>
+<span class="o">#</span><span class="n">endif</span>
+
+<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">NACHNAME</span>
+<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">nachname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">NACHNAME</span>
+<span class="o">#</span><span class="n">endif</span>
+
+<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">GAS</span>
+<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">gasanschluss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
+<span class="o">#</span><span class="n">endif</span>
+<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">ERSTELLD_FROM</span>
+<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">erstellt</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="k">CONVERT</span><span class="w"> </span><span class="p">(</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">ERSTELLD_FROM</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">)</span>
+<span class="o">#</span><span class="n">endif</span>
+<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">_orderby</span>
+<span class="w">    </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">@</span><span class="n">_orderby</span>
+<span class="o">#</span><span class="n">endif</span>
+</pre></div>
+</div>
+<p>In der View wird der Filter gerendert:</p>
+<img alt="_images/ad5_4.png" src="_images/ad5_4.png" />
+</section>
+<section id="sortieren-der-abfrageergebnisse">
+<span id="anchor55"></span><h2>Sortieren der Abfrageergebnisse<a class="headerlink" href="#sortieren-der-abfrageergebnisse" title="Link to this heading">¶</a></h2>
+<p>Neben der Filterung steht mit DataLinqHelper.SortView ein weiterer Baustein zur Verfügung, mit dem die Datensätze im View per GUI sortiert werden können.
+Die Sortier-Felder werden wie die Filterparameter im Hintergrund an der Aufruf-URL mit <code class="docutils literal notranslate"><span class="pre">_orderby=…</span></code> angehängt.
+Absteigende Sortierungen werden mit einem Minus („-“) vor dem Spaltennamen übergeben.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">SortView</span><span class="p">(</span>
+    <span class="s2">&quot;Sortierung&quot;</span><span class="p">,</span>
+    <span class="n">new</span> <span class="n">Dictionary</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">(){</span>
+        <span class="p">{</span><span class="s2">&quot;ERSTELLD&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Zeitpunkt Erstellung&quot;</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span> <span class="p">}},</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In der Query müssen diese Felder entgegengenommen werden, siehe Statements in <a class="reference internal" href="#anchor54"><span class="std std-ref">Kapitel 5.4</span></a>, in der View wird das Sortierwerkzeug gerendert:</p>
+<img alt="_images/ad5_6.png" src="_images/ad5_6.png" />
+</section>
+<section id="aktualisierung-aufteilen-von-statischen-und-dynamischen-inhalten">
+<span id="anchor56"></span><h2>Aktualisierung - Aufteilen von statischen und dynamischen Inhalten<a class="headerlink" href="#aktualisierung-aufteilen-von-statischen-und-dynamischen-inhalten" title="Link to this heading">¶</a></h2>
+<p>Bei der (periodischen) Aktualisierung von Views werden alle Inhalte neu geladen.
+Falls in den Views CSS-Styles oder JavaScript vorkommt, wird dieses ebenfalls wieder dazu geladen und kann (v.a. bei JavaScript-Triggern) die Seite auf Dauer langsam machen (bis wieder eine „harte“ Aktualisierung mit F5, oder ein neuer Aufruf über die URL erfolgt).</p>
+<p>Ein Beispiel für View-Inhalte, die häufig am selben Client aktualisiert werden, könnten Hydrographie-Daten – als eine Art Dashboard, das je Minute aktualisiert wird – sein.
+In der „einfachen“ Form besteht diese Seite aus den tabellarischen Daten (HTML), Karte (JavaScript), CSS-Styles und JavaScript zum Anzeige der Diagramme – alles in einer einzigen View.
+Wenn dieser View über den <code class="docutils literal notranslate"><span class="pre">DLH.RefreshViewTicker</span></code> alle 60 Sekunden neu geladen wird, kommt jedes Mal JavaScript und CSS dazu – obwohl sich nur die tabellarischen Daten (HTML) ändern.</p>
+<p>Hier macht es Sinn, den statischen, immer gleich bleibenden Code (JavaScript, CSS) vom dynamischen Teil (HTML) zu trennen und nur diesen neu zu laden.
+Immer wenn ein View neu geladen wurde, wird das Event „onpageloaded“ gefeuert. Auf dieses Ereignis kann im statischen Teil reagiert und bspw. Klick-Listener gesetzt werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;script&gt;
+    webgis_datalinq.events.on(&#39;onpageloaded, function(channel, sender, args){
+        webgis.$(&quot;.TABDET.clickable tbody tr.extended-click&quot;).on(&quot;click&quot;, function() {
+            var id = $(this).attr(&quot;stoer_id&quot;);
+            ...
+</pre></div>
+</div>
+</section>
+<section id="queries-mit-domain-ubersetzung">
+<span id="anchor57"></span><h2>Queries mit Domain-Übersetzung<a class="headerlink" href="#queries-mit-domain-ubersetzung" title="Link to this heading">¶</a></h2>
+<p>Query-Domains kommen zur Anwendung, wenn in einer Tabelle ein Attribut eines Objektes mit einem Wert kodiert wird, bspw. 0 für „Wald“, 1 für „Wiese“ und 2 für „verbautes Gebiet“.
+In einer Tabellenansicht möchte man diese Werte nun mit den richtigen Namen übersetzen, um es den NutzerInnen verständlicher zu machen.</p>
+<img alt="_images/tipps_domains2.png" src="_images/tipps_domains2.png" />
+<p>Im „Destination Field“ wird die Spaltenbezeichnung (kann auch ein Alias sein) jenes Feldes angegeben, das die kodierten Werte enthält.
+Unter „Query Id“ wird eine Lookup-Tabelle angegeben, die einerseits die kodierten Werte enthält und andererseits die Übersetzung.
+„Value-“ bzw. „Name Field“ geben die Spaltennamen dieser Lookup-Tabelle an.
+Wird im View des ursprünglichen Query auf das Feld (in der Grafik „STATUS_NAME“) zugegriffen, so wird nicht der kodierte Werte (bspw. 1) sondern die Übersetzung („Wiese“) ausgegeben.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Tipps und Tricks für Views</a><ul>
+<li><a class="reference internal" href="#zugriff-auf-abfrageergebnisse">Zugriff auf Abfrageergebnisse</a></li>
+<li><a class="reference internal" href="#hilfsfunktionen">Hilfsfunktionen</a></li>
+<li><a class="reference internal" href="#beschrankung-der-abfrageergebnisse-query">Beschränkung der Abfrageergebnisse - Query</a></li>
+<li><a class="reference internal" href="#beschrankung-filtern-der-abfrageergebnisse">Beschränkung / Filtern der Abfrageergebnisse</a></li>
+<li><a class="reference internal" href="#sortieren-der-abfrageergebnisse">Sortieren der Abfrageergebnisse</a></li>
+<li><a class="reference internal" href="#aktualisierung-aufteilen-von-statischen-und-dynamischen-inhalten">Aktualisierung - Aufteilen von statischen und dynamischen Inhalten</a></li>
+<li><a class="reference internal" href="#queries-mit-domain-ubersetzung">Queries mit Domain-Übersetzung</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="aufrufundbeispiele.html">
+                    <span class="icon">&lt;</span><span>Aufruf und Beispiele</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="examples/index.html"><span>Beispiele</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

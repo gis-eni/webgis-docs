@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 
-<html lang="de">
+<html lang="de" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Usability &#8212; WebGIS 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
-    <script src="../../../_static/translations.js"></script>
-    <script src="../../../_static/js/eni.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
@@ -156,26 +153,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="usability">
-<h1>Usability<a class="headerlink" href="#usability" title="Permalink to this heading">¶</a></h1>
+  <section id="usability">
+<h1>Usability<a class="headerlink" href="#usability" title="Link to this heading">¶</a></h1>
 <p>Einige Funktionen der API lassen sich über sogenannte <em>Usability-Konstanten</em> steuern. Diese können in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> für einzelne Karten oder gesamte Portalseiten gesetzt werden.</p>
-<div class="section" id="clickbubble">
-<h2>ClickBubble<a class="headerlink" href="#clickbubble" title="Permalink to this heading">¶</a></h2>
+<section id="clickbubble">
+<h2>ClickBubble<a class="headerlink" href="#clickbubble" title="Link to this heading">¶</a></h2>
 <p>Die <em>ClickBubble</em> verbessert die Bedienbarkeit des Viewers auf Touch-Geräten. Werkzeuge, die einen Klick in die Karte voraussetzen (z. B. <em>Identify</em>), sind auf Touchscreens oft schwer zu bedienen, da ein Fingerklick ungenau sein kann.
 Wird die <em>ClickBubble</em> aktiviert, erscheint sie bei allen Werkzeugen, die eine Klick-Interaktion erfordern:</p>
 <img alt="../../../_images/image4.png" src="../../../_images/image4.png" />
 <p>Anstatt direkt in die Karte zu klicken, zieht der Anwender die Bubble an die gewünschte Stelle. Die Spitze der Bubble markiert den genauen Punkt für die Aktion. Lässt man die Bubble los, kehrt sie automatisch in die obere rechte Ecke zurück und führt die gewünschte Aktion aus (z. B. <em>Identify</em>).</p>
 <p>Klickt der Anwender auf die Bubble (ohne sie zu ziehen), öffnet sich eine Beschreibung zur Bedienung.</p>
-</div>
-<div class="section" id="kontextmenu-bubble">
-<h2>Kontextmenü-Bubble<a class="headerlink" href="#kontextmenu-bubble" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="kontextmenu-bubble">
+<h2>Kontextmenü-Bubble<a class="headerlink" href="#kontextmenu-bubble" title="Link to this heading">¶</a></h2>
 <p>Einige Werkzeuge erfordern eine rechte Maustaste (z. B. das Kontextmenü für das Messen oder Editieren eines Sketches). Dafür kann eine zusätzliche <em>ContextMenu Bubble</em> aktiviert werden.
 Der Anwender kann diese anklicken, um das Kontextmenü zu öffnen, oder an eine bestimmte Position ziehen, um genau dort eine Aktion auszuführen (z. B. einen bestimmten <em>Vertex</em> verschieben oder löschen, rechtwinklig zur Kante konstruieren etc.).</p>
 <img alt="../../../_images/image51.png" src="../../../_images/image51.png" />
 <p>Diese Funktion ermöglicht auch auf mobilen Geräten eine präzise Steuerung von Konstruktionen mit <em>Snapping</em>.</p>
-</div>
-<div class="section" id="aktivierung-in-custom-js">
-<h2>Aktivierung in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code><a class="headerlink" href="#aktivierung-in-custom-js" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="aktivierung-in-custom-js">
+<h2>Aktivierung in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code><a class="headerlink" href="#aktivierung-in-custom-js" title="Link to this heading">¶</a></h2>
 <p>Diese Funktionen sind standardmäßig deaktiviert und müssen explizit in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> aktiviert werden:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// ClickBubble aktivieren</span>
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">clickBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
@@ -188,32 +185,32 @@ Der Anwender kann diese anklicken, um das Kontextmenü zu öffnen, oder an eine 
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">contextMenuBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">isTouchDevice</span><span class="p">();</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sketch-optimierungen">
-<h2>Sketch-Optimierungen<a class="headerlink" href="#sketch-optimierungen" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="sketch-optimierungen">
+<h2>Sketch-Optimierungen<a class="headerlink" href="#sketch-optimierungen" title="Link to this heading">¶</a></h2>
 <p>Standardmäßig kann der Anwender bei einem <em>Sketch</em> auf einen <em>Vertex</em> klicken, um ein Popup-Menü zu öffnen:</p>
 <img alt="../../../_images/image61.png" src="../../../_images/image61.png" />
 <p>Falls die rechte Maustaste oder die <em>ContextMenu Bubble</em> verfügbar ist, wird dieses Menü nicht mehr benötigt. Es kann jedoch weiterhin explizit aktiviert werden:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">sketchMarkerPopup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// Empfehlung: false!!</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="konstruktionswerkzeuge-einschranken">
-<h2>Konstruktionswerkzeuge einschränken<a class="headerlink" href="#konstruktionswerkzeuge-einschranken" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="konstruktionswerkzeuge-einschranken">
+<h2>Konstruktionswerkzeuge einschränken<a class="headerlink" href="#konstruktionswerkzeuge-einschranken" title="Link to this heading">¶</a></h2>
 <p>In manchen Anwendungen sind nicht alle Konstruktionswerkzeuge erforderlich. Insbesondere die erweiterten Konstruktionsoptionen richten sich an versierte Anwender und können in bestimmten Karten deaktiviert werden:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">constructionTools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="komplettes-kontextmenu-deaktivieren">
-<h2>Komplettes Kontextmenü deaktivieren<a class="headerlink" href="#komplettes-kontextmenu-deaktivieren" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="komplettes-kontextmenu-deaktivieren">
+<h2>Komplettes Kontextmenü deaktivieren<a class="headerlink" href="#komplettes-kontextmenu-deaktivieren" title="Link to this heading">¶</a></h2>
 <p>Falls das Kontextmenü beim Zeichnen nicht benötigt wird, kann es mit folgendem Code deaktiviert werden:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">sketchContextMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tastatur-shortcuts-fur-sketch">
-<h2>Tastatur-Shortcuts für Sketch<a class="headerlink" href="#tastatur-shortcuts-fur-sketch" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="tastatur-shortcuts-fur-sketch">
+<h2>Tastatur-Shortcuts für Sketch<a class="headerlink" href="#tastatur-shortcuts-fur-sketch" title="Link to this heading">¶</a></h2>
 <p>Beim Konstruieren eines <em>Sketches</em> können verschiedene <strong>Tastatur-Shortcuts</strong> genutzt werden:</p>
 <ul class="simple">
 <li><p><strong>A</strong>: Fügt einen <em>Vertex</em> auf einer Kante hinzu.</p></li>
@@ -225,9 +222,9 @@ Der Anwender kann diese anklicken, um das Kontextmenü zu öffnen, oder an eine 
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">allowSelectSketchVertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="inhaltsverzeichnis">
-<h2>Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="inhaltsverzeichnis">
+<h2>Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Link to this heading">¶</a></h2>
 <p>Um das Verhalten des Inhaltsverzeichnis anzupassen gibt es folgende Settings:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">makePresentationTocGroupCheckboxes</span></code> (<strong>``true``</strong> / <code class="docutils literal notranslate"><span class="pre">false</span></code>)):
@@ -248,9 +245,9 @@ würde die Container ohne diese Option alphabetisch sortiert.</p></li>
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">orderPresentationTocContainsByServiceOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: false</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="toolbox">
-<h2>Toolbox<a class="headerlink" href="#toolbox" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="toolbox">
+<h2>Toolbox<a class="headerlink" href="#toolbox" title="Link to this heading">¶</a></h2>
 <p>Mit diesen Einstellungen können die Werkzeuge in der <em>Toolbox</em> konfiguriert werden.
 Die Einstellungen erfolgen pro Werkzeug, die Syntax ist wie folgt:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;{tool-id}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
@@ -297,8 +294,8 @@ definiert werden, da sonst die Reihenfolge der Container eher zufällig vergeben
 <p>Es müssen bei der Reihenfolge nicht alle Container angegeben werden. Gibt es einen Container,
 der nicht in der Liste ist, wird dieser immer am Ende angezeigt.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -353,8 +350,8 @@ der nicht in der Liste ist, wird dieser immer am Ende angezeigt.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

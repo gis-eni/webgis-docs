@@ -5,9 +5,23 @@ Editierbare Felder: Autovalues
 am Server *automatisch* gesetzt werden.  
 
 Beispiele für solche Felder sind:  
-- Der Benutzername des aktuellen Anwenders  
-- Das Erstellungsdatum eines Objekts  
-- Die Länge einer Liniengeometrie  
+
+- Der Benutzername des aktuellen Anwenders: ``create_login``, ``create_login_full``, ``create_login_short``, ... 
+
+- Das Erstellungsdatum eines Objekts:  ``create_date``, ``create_time``, ... 
+
+- Die Länge einer Liniengeometrie: ``shape_len``, ``shape_area``, ... 
+
+- GUIDs
+ 
+  * ``guid``: eine Guid in diesem Format ``4b2dd0dfeb1b40188b2583167886e886``
+    eignet sich, wenn die GUID in der Datenbank als Text gespeichert werden soll.
+  * ``guid_sql``: ein GUid in diesem Format ``{9e2702e4-169f-41ec-b3e3-fcf786182885}``
+    eignet sich, wenn die GUID in einer SQL-Datenbank als GUID gespeichert werden soll.
+  * ``guid_v7``, ``guid_v7_sql``: Wie oben, aber mit einer Version 7 GUID.
+    Version 7 GUIDs eigenen sich für die Speicherung in Datenbanken, wenn die Zugrunde 
+    liegenden Felder auch indiziert werden sollen. Die erzeugten GUIDs sind zeitlich nach 
+    ihrem Wert sortiert, was in der Regel zu einer geringeren Fragmentierung der Indizes führt.
 
 Diese Felder werden in der Eingabemaske meist als *readonly* oder nicht sichtbar definiert.
 
