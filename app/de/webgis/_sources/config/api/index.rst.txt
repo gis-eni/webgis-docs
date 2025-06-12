@@ -535,7 +535,11 @@ Für **flächenhafte Objekte** kann dies unerwünscht sein. Daher kann die **Tol
       <add key="tolerance" value="20" />
       <add key="tolerance-for-point-layers" value="10" />
       <add key="tolerance-for-line-layers" value="5" />
-      <add key="tolerance-for-polygone-layers" value="0" />
+      <add key="tolerance-for-polygon-layers" value="0" />
+
+      <add key="show-layer-visibility-checkboxes" value="true" />
+      
+      <add key="max-vertices-for-hover-highlighting" value="0" />
    </section>
 
 .. list-table::
@@ -550,12 +554,32 @@ Für **flächenhafte Objekte** kann dies unerwünscht sein. Daher kann die **Tol
      - Spezifische **Toleranz** für **punktförmige Objekte**.
    * - ``tolerance-for-line-layers`` *(optional)*
      - Spezifische **Toleranz** für **linienförmige Objekte**.
-   * - ``tolerance-for-polygone-layers`` *(optional)*
+   * - ``tolerance-for-polygon-layers`` *(optional)*
      - Spezifische **Toleranz** für **flächenhafte Objekte**. 
-
+     
        .. tip::
 
-        Wird oft auf ``0`` gesetzt, um eine exakte Auswahl zu gewährleisten.
+          Wird oft auf ``0`` gesetzt, um eine exakte Auswahl zu gewährleisten.
+
+   * - ``show-layer-visibility-checkboxes`` *(optional)*
+     - Gibt an, ob im in der Liste der gefunden Themen auch eine Checkbox angezeigt wird,
+       mit dem man den betroffenen Layer in der Karte ein- oder ausblenden kann.
+   * - ``max-vertices-for-hover-highlighting`` *(optional)*  
+     - Legt die maximale Anzahl an **Vertices** fest, die für das **Hover-Highlighting** 
+       von Objekten verwendet werden. Das **Hover-Highlighting** tritt in Kraft, wenn der 
+       Anwender den Mauszeiger über die Zeile in der Ergebnistabelle bewegt.
+       Da hier die Geometrie des Objekts bei der Abfrage an den Client geschickt wird, 
+       sollte hier ein Maximalwert gesetzt werden, um die Performance nicht zu beeinträchtigen.
+       Der Standardwert ist ``1000``. Ein Wert von ``0`` deaktiviert das **Hover-Highlighting**.
+       
+       .. tip::
+       
+         Hat mindestens ein Feature in einer Abfrage mehr als die angegebene Anzahl an Vertices,
+         wird das Hover-Highlighting für alle Features dieser Abfrage deaktiviert, da es ansonsten
+         für den Anwender verwirrend ist, warum nur bestimmte Features hervorgehoben werden. In diesen 
+         Fall muss der Anwender auf eine Zeile in der Tabelle klicken um ein Feature hervorzuheben.
+
+       
 
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
