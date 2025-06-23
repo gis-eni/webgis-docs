@@ -770,6 +770,10 @@ Für <strong>flächenhafte Objekte</strong> kann dies unerwünscht sein. Daher k
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;show-layer-visibility-checkboxes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-vertices-for-hover-highlighting&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-date-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-time-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;HH.mm&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-date-time-culture&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;de-AT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -818,6 +822,25 @@ Der Standardwert ist <code class="docutils literal notranslate"><span class="pre
 wird das Hover-Highlighting für alle Features dieser Abfrage deaktiviert, da es ansonsten
 für den Anwender verwirrend ist, warum nur bestimmte Features hervorgehoben werden. In diesen
 Fall muss der Anwender auf eine Zeile in der Tabelle klicken um ein Feature hervorzuheben.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">result-date-format</span></code> <em>(optional)</em></p></td>
+<td><p>Legt das <strong>Datumsformat</strong> für die Ergebnisse fest. Der Standardwert ist <code class="docutils literal notranslate"><span class="pre">dd.MM.yyyy</span></code>.
+Dieser Wert wird für alle <strong>Datum-Felder</strong> in den Ergebnissen verwendet.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">result-time-format</span></code> <em>(optional)</em></p></td>
+<td><p>Legt das <strong>Zeitformat</strong> für die Ergebnisse fest. Der Standardwert ist <code class="docutils literal notranslate"><span class="pre">HH.mm:ss</span></code>.
+Dieser Wert wird für alle <strong>Zeit-Felder</strong> in den Ergebnissen verwendet.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">result-date-time-culture</span></code> <em>(optional)</em></p></td>
+<td><p>Legt die <strong>Kultur</strong> für die Datums- und Zeitformate fest.
+Der Standard wird ist die Culture unter der die Applikation betrieben wird (Server Betriebssytem).
+Dieser Wert beeinflusst die Formatierung von Datums- und Zeitangaben in den Ergebnissen.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Die Werte für Datums-, Uhrzeitformat und <strong>Kultur</strong> entsprechenden der <code class="docutils literal notranslate"><span class="pre">C#</span></code>/<code class="docutils literal notranslate"><span class="pre">dotnet</span></code>
+Nomenklatur (<a class="reference external" href="https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings">https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings</a>).</p>
 </div>
 </td>
 </tr>

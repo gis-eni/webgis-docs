@@ -540,6 +540,10 @@ Für **flächenhafte Objekte** kann dies unerwünscht sein. Daher kann die **Tol
       <add key="show-layer-visibility-checkboxes" value="true" />
       
       <add key="max-vertices-for-hover-highlighting" value="0" />
+
+      <add key="result-date-format" value="dd.MM.yyyy" />  <!-- optional -->
+      <add key="result-time-format" value="HH.mm" />
+      <add key="result-date-time-culture" value="de-AT" />
    </section>
 
 .. list-table::
@@ -579,7 +583,23 @@ Für **flächenhafte Objekte** kann dies unerwünscht sein. Daher kann die **Tol
          für den Anwender verwirrend ist, warum nur bestimmte Features hervorgehoben werden. In diesen 
          Fall muss der Anwender auf eine Zeile in der Tabelle klicken um ein Feature hervorzuheben.
 
-       
+   * - ``result-date-format`` *(optional)*
+     - Legt das **Datumsformat** für die Ergebnisse fest. Der Standardwert ist ``dd.MM.yyyy``.
+       Dieser Wert wird für alle **Datum-Felder** in den Ergebnissen verwendet.
+
+   * - ``result-time-format`` *(optional)*
+     - Legt das **Zeitformat** für die Ergebnisse fest. Der Standardwert ist ``HH.mm:ss``.
+       Dieser Wert wird für alle **Zeit-Felder** in den Ergebnissen verwendet.
+
+   * - ``result-date-time-culture`` *(optional)*
+     - Legt die **Kultur** für die Datums- und Zeitformate fest. 
+       Der Standard wird ist die Culture unter der die Applikation betrieben wird (Server Betriebssytem).  
+       Dieser Wert beeinflusst die Formatierung von Datums- und Zeitangaben in den Ergebnissen.
+
+       .. tip::
+
+         Die Werte für Datums-, Uhrzeitformat und **Kultur** entsprechenden der ``C#``/``dotnet`` 
+         Nomenklatur (https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings).
 
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
