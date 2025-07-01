@@ -25,6 +25,10 @@ Die **headerbasierte Authentifizierung** wird über die Sektion ``header-authent
 
       <add key="user-prefix" value="header-user" />
       <add key="role-prefix" value="header-role" />
+
+      <!-- Optional: -->
+      <add key="extended-role-parameters-from-headers-prefix" value="X-AUTH-" />
+      <add key="extended-role-parameters-from-headers" value="roleparam1,roleparam2" />
    </section>
 
 Beschreibung der Konfigurationswerte
@@ -65,4 +69,18 @@ Beschreibung der Konfigurationswerte
        ``user-prefix = header-user``, Benutzername = ``maxmustermann``  
        → ``header-user::maxmustermann``  
 
-       In der CMS-Berechtigungsverwaltung wird der vollständige Name inklusive Präfix verwendet (``header-user::maxmustermann``).
+       In der CMS-Berechtigungsverwaltung wird der vollständige Name inklusive Präfix 
+       verwendet (``header-user::maxmustermann``).
+
+   * - ``extended-role-parameters-from-headers-prefix``, ``extended-role-parameters-from-headers``
+     - Diese beiden Parameter ermöglichen die Definition von **zusätzlichen Rollenparametern**, 
+       die aus den HTTP-Headern extrahiert werden.  
+       Der Präfix wird vor den Parameternamen gesetzt, um sie eindeutig zu kennzeichnen.  
+        
+       → Die Header ``X-AUTH-roleparam1`` und ``X-AUTH-roleparam2`` für das Beispiel von oben 
+       werden als Rollenparameter extrahiert: Zusätzliche Rollenparameter könnten 
+       dann ``roleparam1=wert1`` und ``roleparam2=wert2`` sein.
+       
+       
+       
+       

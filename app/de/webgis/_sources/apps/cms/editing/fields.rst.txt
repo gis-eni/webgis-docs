@@ -34,6 +34,22 @@ Die Art der Eingabe wird über den ``Eingabe Type`` bestimmt:
 * **File:** Zum Hochladen von Dateien.
 * **Info:** Ein reiner Informationstext (keine Interaktion mit dem Anwender).
 
+  .. note::
+
+    Der Text für Info kann auch ein (eingeschränkter) **Markdown-Text** sein. 
+    Das ermöglicht die Verwendung von Links und anderen Formatierungen. 
+    Der Text muss dazu mit ``md:`` beginnen.
+    Links können dabei folgendermaßen eingebunden werden:
+    
+    * ``md: Beliebiger Text [Linktext](https://www.example.com)``: damit wird ein Link angezeigt,
+      die Url wird ein einem neuen Tab geöffnet, wenn der Anwender darauf klickt.
+      
+    Die *Link Syntax* kann noch folgendermaßen erweitert werden:
+    
+    * ``[[Linktext]](https://www.example.com``: Anzeige des Links als Button.
+    * ``{Linktext}(https://www.example.com)``: Der Link wird in einem Popup geöffnet.
+    * ``{[Linktext]}(https://www.example.com)``: Der Link wird als Button angezeigt und in einem Popup geöffnet.
+
 Zusätzlich gibt es unter ``Allgemein`` noch folgende Optionen für ein Eingabefeld:
 
 * **Sichtbar:** Gibt an, ob das Feld für den Anwender sichtbar ist. Unsichtbare Felder können praktisch sein, wenn diese erst später über einen AutoValue berechnet werden.

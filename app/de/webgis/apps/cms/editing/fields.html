@@ -183,13 +183,31 @@ vergeben werden, unter dem das Feld in der Eingabemaske angezeigt wird.</p>
 Dialog mit weiteren Eigenschaften:</p>
 <img alt="../../../_images/editing16.png" src="../../../_images/editing16.png" />
 <p>Die Art der Eingabe wird über den <code class="docutils literal notranslate"><span class="pre">Eingabe</span> <span class="pre">Type</span></code> bestimmt:</p>
-<ul class="simple">
+<ul>
 <li><p><strong>Text:</strong> Ein einfaches Texteingabe-Feld.</p></li>
 <li><p><strong>Domain:</strong> Eine Auswahlliste mit definierten Werten. Die Werte können im CMS statisch hinterlegt oder aus einer Datenbank abgerufen werden.</p></li>
 <li><p><strong>TextArea:</strong> Ein mehrzeiliges Eingabefeld.</p></li>
 <li><p><strong>Date:</strong> Ein Datums-Eingabefeld.</p></li>
 <li><p><strong>File:</strong> Zum Hochladen von Dateien.</p></li>
-<li><p><strong>Info:</strong> Ein reiner Informationstext (keine Interaktion mit dem Anwender).</p></li>
+<li><p><strong>Info:</strong> Ein reiner Informationstext (keine Interaktion mit dem Anwender).</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Der Text für Info kann auch ein (eingeschränkter) <strong>Markdown-Text</strong> sein.
+Das ermöglicht die Verwendung von Links und anderen Formatierungen.
+Der Text muss dazu mit <code class="docutils literal notranslate"><span class="pre">md:</span></code> beginnen.
+Links können dabei folgendermaßen eingebunden werden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">md:</span> <span class="pre">Beliebiger</span> <span class="pre">Text</span> <span class="pre">[Linktext](https://www.example.com)</span></code>: damit wird ein Link angezeigt,
+die Url wird ein einem neuen Tab geöffnet, wenn der Anwender darauf klickt.</p></li>
+</ul>
+<p>Die <em>Link Syntax</em> kann noch folgendermaßen erweitert werden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[[Linktext]](https://www.example.com</span></code>: Anzeige des Links als Button.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{Linktext}(https://www.example.com)</span></code>: Der Link wird in einem Popup geöffnet.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{[Linktext]}(https://www.example.com)</span></code>: Der Link wird als Button angezeigt und in einem Popup geöffnet.</p></li>
+</ul>
+</div>
+</li>
 </ul>
 <p>Zusätzlich gibt es unter <code class="docutils literal notranslate"><span class="pre">Allgemein</span></code> noch folgende Optionen für ein Eingabefeld:</p>
 <ul class="simple">

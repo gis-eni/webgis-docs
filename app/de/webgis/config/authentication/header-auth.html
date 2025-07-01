@@ -173,6 +173,10 @@
 
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;user-prefix&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;header-user&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;role-prefix&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;header-role&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="cm">&lt;!-- Optional: --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;extended-role-parameters-from-headers-prefix&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;X-AUTH-&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;extended-role-parameters-from-headers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;roleparam1,roleparam2&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -222,7 +226,17 @@ Beispiel: <code class="docutils literal notranslate"><span class="pre">(param1=1
 <p>Beispiel:
 <code class="docutils literal notranslate"><span class="pre">user-prefix</span> <span class="pre">=</span> <span class="pre">header-user</span></code>, Benutzername = <code class="docutils literal notranslate"><span class="pre">maxmustermann</span></code>
 → <code class="docutils literal notranslate"><span class="pre">header-user::maxmustermann</span></code></p>
-<p>In der CMS-Berechtigungsverwaltung wird der vollständige Name inklusive Präfix verwendet (<code class="docutils literal notranslate"><span class="pre">header-user::maxmustermann</span></code>).</p>
+<p>In der CMS-Berechtigungsverwaltung wird der vollständige Name inklusive Präfix
+verwendet (<code class="docutils literal notranslate"><span class="pre">header-user::maxmustermann</span></code>).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">extended-role-parameters-from-headers-prefix</span></code>, <code class="docutils literal notranslate"><span class="pre">extended-role-parameters-from-headers</span></code></p></td>
+<td><p>Diese beiden Parameter ermöglichen die Definition von <strong>zusätzlichen Rollenparametern</strong>,
+die aus den HTTP-Headern extrahiert werden.
+Der Präfix wird vor den Parameternamen gesetzt, um sie eindeutig zu kennzeichnen.</p>
+<p>→ Die Header <code class="docutils literal notranslate"><span class="pre">X-AUTH-roleparam1</span></code> und <code class="docutils literal notranslate"><span class="pre">X-AUTH-roleparam2</span></code> für das Beispiel von oben
+werden als Rollenparameter extrahiert: Zusätzliche Rollenparameter könnten
+dann <code class="docutils literal notranslate"><span class="pre">roleparam1=wert1</span></code> und <code class="docutils literal notranslate"><span class="pre">roleparam2=wert2</span></code> sein.</p>
 </td>
 </tr>
 </tbody>
