@@ -45,6 +45,22 @@ Beispielkonfiguration:
 
 .. code-block:: xml
 
+   <!-- Example for an ArcGIS Server ImageServer Service -->
+   <xml>
+      <heightabovedatum type="ags-imageserver"
+                  srs="31255"
+                  
+                  user="username" pwd="my-passw0rd" tokenExpiration="60"  
+                  
+                  server="my-server.com"
+                  service="https://my-server.com/arcgis/rest/services/.../ImageServer"
+                  rastertheme="0"
+                  expression="+{0:.00} müA"
+                  />
+   </xml>
+
+.. code-block:: xml
+
    <!-- Example for a IMS Service -->
    <xml>
       <heightabovedatum 
