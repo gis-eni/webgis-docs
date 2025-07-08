@@ -230,7 +230,14 @@ An den Viewer kann beim Aufruf eine Abfrage mit Werten übergeben werden. Diese 
        - ``querythemeid=%23``
 
 .. note::
+
    Die Abfrage-ID für **"sichtbare Themen"** ist ``#``. Da das Zeichen ``#`` in URLs reserviert ist, muss es als ``%23`` kodiert werden.
+
+.. note::
+  
+   Die Ergebnisse der Abfrage werden in der Karte **selektiert** und mit **Markern** markiert.
+   Möchte man die Selektion der Abfrageergebnisse **verhindern**, kann der Parameter 
+   ``&mode=noselect`` genutzt werden.
 
 Darstellungsfilter
 ==================
