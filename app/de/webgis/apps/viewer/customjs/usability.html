@@ -295,6 +295,29 @@ definiert werden, da sonst die Reihenfolge der Container eher zufällig vergeben
 der nicht in der Liste ist, wird dieser immer am Ende angezeigt.</p>
 </div>
 </section>
+<section id="tastatur-shortcuts">
+<h2>Tastatur-Shortcuts<a class="headerlink" href="#tastatur-shortcuts" title="Link to this heading">¶</a></h2>
+<p>Die WebGIS API bietet die Möglichkeit, Tastatur-Shortcuts für verschiedene Aktionen zu verwenden.
+Diese Shortcuts können in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> aktiviert werden, um die Benutzerfreundlichkeit
+zu verbessern.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">useAdvancedKeyShortcutHandling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Der Standardwert ist <code class="docutils literal notranslate"><span class="pre">false</span></code>, was bedeutet, dass die erweiterten Tastatur-Shortcuts für WebGIS API Anwendungen
+nicht aktiviert sind. Verwendet man den WebGIS Viewer, wird standardmäßig auch die <code class="docutils literal notranslate"><span class="pre">custom-recommendations.js</span></code> geladen,
+die diesen Wert auf <code class="docutils literal notranslate"><span class="pre">true</span></code> setzt. Im Viewer sind die Shortcuts also standardmäßig aktiviert.</p>
+<p>Sind die erweiterten Tastatur-Shortcuts aktiviert, können folgende Aktionen durchgeführt werden:</p>
+<p><strong>Bearbeiten-Selektionswerkzeug</strong></p>
+<ul class="simple">
+<li><p><strong>Leertaste</strong>: Nur ein Objekt selektieren. Es wird das Objekt ausgewählt, dass dem geklickten Punkt am nächsten ist.</p></li>
+<li><p><strong>E</strong>: Wie oben, nur dass sofort die Bearbeiten Maske geöffnet wird.</p></li>
+<li><p><strong>D</strong>: Wie oben, nur dass sofort die Löschen Maske geöffnet wird.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><strong>Voraussetzung</strong>: das Selektionswerkzeug muss aktiv sein (Punkt Selektion) und ein Thema aus der Liste muss ausgewählt sein.</p>
+</div>
+</section>
 </section>
 
 
@@ -321,6 +344,7 @@ der nicht in der Liste ist, wird dieser immer am Ende angezeigt.</p>
 <li><a class="reference internal" href="#tastatur-shortcuts-fur-sketch">Tastatur-Shortcuts für Sketch</a></li>
 <li><a class="reference internal" href="#inhaltsverzeichnis">Inhaltsverzeichnis</a></li>
 <li><a class="reference internal" href="#toolbox">Toolbox</a></li>
+<li><a class="reference internal" href="#tastatur-shortcuts">Tastatur-Shortcuts</a></li>
 </ul>
 </li>
 </ul>

@@ -175,3 +175,29 @@ Werkzeuge in die Karte eingefügt wurden.
     Es müssen bei der Reihenfolge nicht alle Container angegeben werden. Gibt es einen Container,
     der nicht in der Liste ist, wird dieser immer am Ende angezeigt.
 
+Tastatur-Shortcuts
+==================
+
+Die WebGIS API bietet die Möglichkeit, Tastatur-Shortcuts für verschiedene Aktionen zu verwenden. 
+Diese Shortcuts können in der ``custom.js`` aktiviert werden, um die Benutzerfreundlichkeit 
+zu verbessern.
+
+.. code:: javascript
+
+   webgis.usability.useAdvancedKeyShortcutHandling = true;
+
+Der Standardwert ist ``false``, was bedeutet, dass die erweiterten Tastatur-Shortcuts für WebGIS API Anwendungen
+nicht aktiviert sind. Verwendet man den WebGIS Viewer, wird standardmäßig auch die ``custom-recommendations.js`` geladen,
+die diesen Wert auf ``true`` setzt. Im Viewer sind die Shortcuts also standardmäßig aktiviert.
+
+Sind die erweiterten Tastatur-Shortcuts aktiviert, können folgende Aktionen durchgeführt werden:
+
+**Bearbeiten-Selektionswerkzeug**
+
+- **Leertaste**: Nur ein Objekt selektieren. Es wird das Objekt ausgewählt, dass dem geklickten Punkt am nächsten ist.
+- **E**: Wie oben, nur dass sofort die Bearbeiten Maske geöffnet wird. 
+- **D**: Wie oben, nur dass sofort die Löschen Maske geöffnet wird.
+
+.. note::
+
+   **Voraussetzung**: das Selektionswerkzeug muss aktiv sein (Punkt Selektion) und ein Thema aus der Liste muss ausgewählt sein.
