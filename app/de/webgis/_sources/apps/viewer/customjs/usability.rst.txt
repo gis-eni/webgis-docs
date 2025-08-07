@@ -201,3 +201,31 @@ Sind die erweiterten Tastatur-Shortcuts aktiviert, können folgende Aktionen dur
 .. note::
 
    **Voraussetzung**: das Selektionswerkzeug muss aktiv sein (Punkt Selektion) und ein Thema aus der Liste muss ausgewählt sein.
+
+.. _customjs-domain-pro-behaviour:
+
+Auswahllisten Pro Verhalten
+===========================
+
+Parametriert man im CMS Editmasken Felder als Auswahlliste (Typ ``Domain``), kann in der 
+CMS Dialog unter ``optional: Domain Behaviour (experimental)`` das Verhalten der Auswahlliste 
+auf ``Pro`` gesetzt werden. Damit wird die Auswahlliste als *select2* dargestellt, 
+was eine bessere Benutzererfahrung bietet.
+
+Voraussetzung ist, dass die *select2* Bibliothek für diesen Zweck verwendet soll.
+Standardmäßig, ändert sich das ``Pro`` Verhalten der Auswahllisten erst dann, wenn die 
+``webgis.usability.select_pro_behaviour`` Konstante in der ``custom.js`` gesetzt wird.
+
+.. code:: javascript
+
+   webgis.usability.select_pro_behaviour = "select2";
+
+.. note::
+
+    Derzeit ist der einzig mögliche Werte für diese Konstante ``select2``.
+    Alle anderen Werte werden ignoriert und das Verhalten der Auswahllisten bleibt unverändert.
+
+.. note::
+
+    Ein Beschreibung des ``Pro`` Verhaltens der Auswahllisten findet sich in der
+    :ref:`CMS Domain Verhalten ändern <cms-fields-domain-behaviour>`.

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Objektfang (Snapping) Einstellungen &#8212; WebGIS 2025 Dokumentation</title>
+    <title>Domain Verhalten ändern &#8212; WebGIS 2025 Dokumentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
@@ -18,8 +18,8 @@
     <script src="../../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
     <link rel="search" title="Suche" href="../../../search.html" />
-    <link rel="next" title="Secrets" href="../secrets/index.html" />
-    <link rel="prev" title="Domain Verhalten ändern" href="fields_domain_behaviour.html" /> 
+    <link rel="next" title="Objektfang (Snapping) Einstellungen" href="snapping.html" />
+    <link rel="prev" title="Auswahllisten aus WebServices (DataLinq)" href="fields_domains_datalinq.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -165,21 +165,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="objektfang-snapping-einstellungen">
-<h1>Objektfang (Snapping) Einstellungen<a class="headerlink" href="#objektfang-snapping-einstellungen" title="Link to this heading">¶</a></h1>
-<img alt="../../../_images/editing7.png" src="../../../_images/editing7.png" />
-<p>Zum exakten Konstruieren von Geo-Objekten ist der Objektfang essenziell. Dabei wird der Zeichen-Cursor auf bestimmte
-Objekte <em>gesnappt</em>, wenn er sich in deren Nähe befindet. Für jeden Dienst können beliebig viele <em>Snapping-Schemata</em>
-erstellt werden, die wiederum mehrere Themen enthalten können.
-<em>Gesnappt</em> werden kann auf Knotenpunkte und Kanten.</p>
-<p>Der Anwender ist in der Regel dafür verantwortlich, das richtige Snapping-Thema zu wählen.
-Falls beim Editieren <em>Snapping</em> zwingend vorgegeben ist oder sich das Snapping-Thema je nach Editthema unterscheidet,
-empfiehlt es sich, <em>Snapping-Themen</em> automatisch vorzugeben.</p>
-<p>Dies geschieht unter einem bestimmten Knoten. Die hier angegebenen Snapping-Themen werden beim Einstellen eines Editthemas durch
-den Anwender automatisch gesetzt:</p>
-<img alt="../../../_images/editing23.png" src="../../../_images/editing23.png" />
-<p>In den Einstellungen kann zudem festgelegt werden, welche Snapping-Optionen in diesem Thema automatisch gesetzt werden:</p>
-<img alt="../../../_images/editing24.png" src="../../../_images/editing24.png" />
+  <section id="domain-verhalten-andern">
+<span id="cms-fields-domain-behaviour"></span><h1>Domain Verhalten ändern<a class="headerlink" href="#domain-verhalten-andern" title="Link to this heading">¶</a></h1>
+<p>Domain Felder werden in der Editmaske als HTML <code class="docutils literal notranslate"><span class="pre">&lt;SELECT&gt;</span></code> Element dargestellt.
+Das Verhalten dieser Felder kann im CMS über die Option <code class="docutils literal notranslate"><span class="pre">optional:</span> <span class="pre">Domain</span> <span class="pre">Behaviour</span> <span class="pre">(experimental)</span></code>
+geändert werden. Diese Option ist nur verfügbar, wenn das Feld als Domain definiert ist:</p>
+<a class="reference internal image-reference" href="../../../_images/domain-behaviour1.png"><img alt="Domain Behaviour Option im CMS" src="../../../_images/domain-behaviour1.png" style="width: 680px;" /></a>
+<p>Die Option <code class="docutils literal notranslate"><span class="pre">Pro</span></code> ändert das Verhalten der Auswahlliste, sodass sie als <em>select2</em> dargestellt
+wird. Dies bietet eine bessere Benutzererfahrung, da <em>select2</em> erweiterte Funktionen
+wie Suchfunktionen bietet:</p>
+<a class="reference internal image-reference" href="../../../_images/domain-behaviour2.png"><img alt="Domain Behaviour Pro im Viewer" src="../../../_images/domain-behaviour2.png" style="width: 400px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Damit das <em>select2</em> Verhalten funktioniert, muss die <em>select2</em> Bibliothek im Viewer
+eingebunden sein. Dies geschieht standardmäßig, wenn die <code class="docutils literal notranslate"><span class="pre">webgis.usability.select_pro_behaviour</span></code>
+Konstante in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> gesetzt ist:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="sb">``</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">select_pro_behaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="sb">``</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../viewer/customjs/usability.html#customjs-domain-pro-behaviour"><span class="std std-ref">Auswahllisten Pro Verhalten (custom.js)</span></a>.</p>
+</div>
 </section>
 
 
@@ -195,14 +200,14 @@ den Anwender automatisch gesetzt:</p>
         <div class="button_nav">
             <div class="left">
                 
-                <a href="fields_domain_behaviour.html">
-                    <span class="icon">&lt;</span><span>Domain Verhalten ändern</span></a>
+                <a href="fields_domains_datalinq.html">
+                    <span class="icon">&lt;</span><span>Auswahllisten aus WebServices (DataLinq)</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../secrets/index.html"><span>Secrets</span><span class="icon">&gt;</span></a>
+                    <a href="snapping.html"><span>Objektfang (Snapping) Einstellungen</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>
