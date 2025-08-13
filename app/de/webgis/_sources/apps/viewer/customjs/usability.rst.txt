@@ -129,6 +129,7 @@ Die Einstellungen erfolgen pro Werkzeug, die Syntax ist wie folgt:
         container: 'a custom container for this tool', // optional
         name: 'a custom name for this tool', // optional
         tooltip: 'a custom tooltip for this tool', // optional
+        priority: 100 // optional, default: 0
    };
 
 Die ``{tool-id}`` ist die ID des Werkzeugs. Man bekommt die **Ids** der einzelnen Werkzeuge
@@ -143,12 +144,15 @@ verschoben werden sollten, zB:
         container: 'Start' 
   };
   webgis.usability.toolProperties['webgis.tools.identify'] = { 
-    container: ['Start','Abfragen'] 
+    container: ['Start','Abfragen'], priority: 10
   };
+  webgis.usability.toolProperties['webgis.tools.boxzoomin'] = { priority: 12 };
 
 Hier wird das Werkzeug *Vollausdehnung* in den Reiter *Start* verschoben und das Werkzeug
 *Abfragen* in den Reiter *Start* und *Abfragen*. Sollte ein Werkzeug also in mehreren Reitern
 sichtbar sein, muss der Container als Array angegeben werden.
+Das Werkzeug *Box-Zoom* erhält eine höhere Priorität und landet damit im Reiter (Container) 
+weiter vorne (Mit ``priority`` kann die Reihenfolge der Werkzeuge innerhalb eines Containers beeinflusst werden).   
 
 Des weiteren kann die Reihenfolger der Container bestimmt werden:
 

@@ -254,6 +254,7 @@ Die Einstellungen erfolgen pro Werkzeug, die Syntax ist wie folgt:</p>
 <span class="w">     </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom container for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
 <span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom name for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
 <span class="w">     </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom tooltip for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="c1">// optional, default: 0</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -265,13 +266,16 @@ verschoben werden sollten, zB:</p>
 <span class="w">      </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span>
 <span class="p">};</span>
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.identify&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span><span class="s1">&#39;Abfragen&#39;</span><span class="p">]</span>
+<span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span><span class="s1">&#39;Abfragen&#39;</span><span class="p">],</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span>
 <span class="p">};</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.boxzoomin&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
 <p>Hier wird das Werkzeug <em>Vollausdehnung</em> in den Reiter <em>Start</em> verschoben und das Werkzeug
 <em>Abfragen</em> in den Reiter <em>Start</em> und <em>Abfragen</em>. Sollte ein Werkzeug also in mehreren Reitern
-sichtbar sein, muss der Container als Array angegeben werden.</p>
+sichtbar sein, muss der Container als Array angegeben werden.
+Das Werkzeug <em>Box-Zoom</em> erhält eine höhere Priorität und landet damit im Reiter (Container)
+weiter vorne (Mit <code class="docutils literal notranslate"><span class="pre">priority</span></code> kann die Reihenfolge der Werkzeuge innerhalb eines Containers beeinflusst werden).</p>
 <p>Des weiteren kann die Reihenfolger der Container bestimmt werden:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolContainerOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s1">&#39;Start&#39;</span><span class="p">,</span>
