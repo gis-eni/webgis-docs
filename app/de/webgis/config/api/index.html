@@ -457,8 +457,8 @@ Werden vom Anwender beispielsweise CSV Dateien heruntergeladen, muss das Encodin
 <p>Hier die Werkzeuge, für die eine eigene Konfiguration notwendig ist:</p>
 <section id="werkzeug-redlining">
 <h4>Werkzeug <code class="docutils literal notranslate"><span class="pre">Redlining</span></code><a class="headerlink" href="#werkzeug-redlining" title="Link to this heading">¶</a></h4>
-<p>Die Konfiguration für das <strong>Redlining-Werkzeug</strong> sieht folgendermaßen aus:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-redlining&quot;</span><span class="nt">&gt;</span>
+<p>Die Konfiguration für das <strong>MapMarkup-Werkzeug</strong> sieht folgendermaßen aus:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-mapmarkup&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection-max-features&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection-max-vertices&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -469,7 +469,7 @@ Werden vom Anwender beispielsweise CSV Dateien heruntergeladen, muss das Encodin
 </div>
 <div class="admonition important">
 <p class="admonition-title">Wichtig</p>
-<p>Beim <strong>Redlining</strong> müssen alle Objekte direkt im <strong>Client (Browser)</strong> gerendert werden. Daher kann eine <strong>sehr hohe Anzahl an Objekten</strong> oder <strong>Objekte mit vielen Vertices</strong> (z. B. <strong>katastergenaue Bezirksgrenzen</strong>) zu <strong>Leistungsproblemen</strong> führen.</p>
+<p>Beim <strong>MapMarkup (Zeichnen)</strong> müssen alle Objekte direkt im <strong>Client (Browser)</strong> gerendert werden. Daher kann eine <strong>sehr hohe Anzahl an Objekten</strong> oder <strong>Objekte mit vielen Vertices</strong> (z. B. <strong>katastergenaue Bezirksgrenzen</strong>) zu <strong>Leistungsproblemen</strong> führen.</p>
 <p>Es sollten daher, dem Anwendungsfall entsprechend, Einschränkungen bezüglich der Max-Werte vorgenommen werden. Besonders wichtig bei (freien) Internet Anwendungen.</p>
 </div>
 </section>

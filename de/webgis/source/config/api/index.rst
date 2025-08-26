@@ -245,11 +245,11 @@ Hier die Werkzeuge, für die eine eigene Konfiguration notwendig ist:
 Werkzeug ``Redlining``
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Die Konfiguration für das **Redlining-Werkzeug** sieht folgendermaßen aus:
+Die Konfiguration für das **MapMarkup-Werkzeug** sieht folgendermaßen aus:
 
 .. code:: xml
 
-    <section name="tool-redlining">
+    <section name="tool-mapmarkup">
       <add key="allow-add-from-selection" value="true" />
       <add key="allow-add-from-selection-max-features" value="1000" />
       <add key="allow-add-from-selection-max-vertices" value="10000" />
@@ -259,7 +259,7 @@ Die Konfiguration für das **Redlining-Werkzeug** sieht folgendermaßen aus:
 
 .. important::
 
-    Beim **Redlining** müssen alle Objekte direkt im **Client (Browser)** gerendert werden. Daher kann eine **sehr hohe Anzahl an Objekten** oder **Objekte mit vielen Vertices** (z. B. **katastergenaue Bezirksgrenzen**) zu **Leistungsproblemen** führen.  
+    Beim **MapMarkup (Zeichnen)** müssen alle Objekte direkt im **Client (Browser)** gerendert werden. Daher kann eine **sehr hohe Anzahl an Objekten** oder **Objekte mit vielen Vertices** (z. B. **katastergenaue Bezirksgrenzen**) zu **Leistungsproblemen** führen.  
 
     Es sollten daher, dem Anwendungsfall entsprechend, Einschränkungen bezüglich der Max-Werte vorgenommen werden. Besonders wichtig bei (freien) Internet Anwendungen.
 
