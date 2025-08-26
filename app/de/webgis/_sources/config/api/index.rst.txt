@@ -242,7 +242,7 @@ Einige Werkzeuge, die im **WebGIS Viewer** angeboten werden, benötigen eigene K
 
 Hier die Werkzeuge, für die eine eigene Konfiguration notwendig ist:
 
-Werkzeug ``Redlining``
+Werkzeug ``MapMarkup``
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Die Konfiguration für das **MapMarkup-Werkzeug** sieht folgendermaßen aus:
