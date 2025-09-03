@@ -250,7 +250,7 @@ Für die Schnellsuche können über die `webgis.usability.quickSearch`-Konfigura
    webgis.usability.quickSearch.selectFirstOnEnter = true;  // 
 
 
-Mit ``selectForstOnEnter`` wird automatisch der erste Vorschlagswert ausgewählt, wenn der 
+Mit ``selectFirstOnEnter`` wird automatisch der erste Vorschlagswert ausgewählt, wenn der 
 Benutzer die Eingabetaste drückt. Ansonsten bewirkt Enter, eine komplette Suche mit dem 
 bisher eingegeben Suchbegriff (ident mit Klick auf das Lupensymbol).
 
