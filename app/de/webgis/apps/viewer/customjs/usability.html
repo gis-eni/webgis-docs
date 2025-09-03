@@ -345,6 +345,28 @@ Alle anderen Werte werden ignoriert und das Verhalten der Auswahllisten bleibt u
 <a class="reference internal" href="../../cms/editing/fields_domain_behaviour.html#cms-fields-domain-behaviour"><span class="std std-ref">CMS Domain Verhalten ändern</span></a>.</p>
 </div>
 </section>
+<section id="schnellsuche">
+<h2>Schnellsuche<a class="headerlink" href="#schnellsuche" title="Link to this heading">¶</a></h2>
+<p>Für die Schnellsuche können über die <cite>webgis.usability.quickSearch</cite>-Konfiguration verschiedene Einstellungen vorgenommen werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// allows enter geocodes in quicksearch</span>
+<span class="c1">//    default is false, but set to true for the view in custom-recommendations.js</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">displayMetadata</span><span class="p">.</span><span class="nx">geocodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// select first result on enter</span>
+<span class="c1">//    default is false, but set to true for the view in custom-recommendations.js</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">selectFirstOnEnter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">//</span>
+</pre></div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">selectForstOnEnter</span></code> wird automatisch der erste Vorschlagswert ausgewählt, wenn der
+Benutzer die Eingabetaste drückt. Ansonsten bewirkt Enter, eine komplette Suche mit dem
+bisher eingegeben Suchbegriff (ident mit Klick auf das Lupensymbol).</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Hat der Anwender die Vorschläge durch die Eingabe auf einen Vorschlag eingeschränkt,
+entspricht <code class="docutils literal notranslate"><span class="pre">ENTER</span></code> immer einem Selektieren dieses Vorschlagwertes, egal was
+hier eingestellt wird.</p>
+</div>
+</section>
 </section>
 
 
@@ -373,6 +395,7 @@ Alle anderen Werte werden ignoriert und das Verhalten der Auswahllisten bleibt u
 <li><a class="reference internal" href="#toolbox">Toolbox</a></li>
 <li><a class="reference internal" href="#tastatur-shortcuts">Tastatur-Shortcuts</a></li>
 <li><a class="reference internal" href="#auswahllisten-pro-verhalten">Auswahllisten Pro Verhalten</a></li>
+<li><a class="reference internal" href="#schnellsuche">Schnellsuche</a></li>
 </ul>
 </li>
 </ul>

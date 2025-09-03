@@ -233,3 +233,29 @@ Standardmäßig, ändert sich das ``Pro`` Verhalten der Auswahllisten erst dann,
 
     Ein Beschreibung des ``Pro`` Verhaltens der Auswahllisten findet sich in der
     :ref:`CMS Domain Verhalten ändern <cms-fields-domain-behaviour>`.
+
+Schnellsuche
+============
+
+Für die Schnellsuche können über die `webgis.usability.quickSearch`-Konfiguration verschiedene Einstellungen vorgenommen werden:
+
+.. code:: javascript
+   
+   // allows enter geocodes in quicksearch
+   //    default is false, but set to true for the view in custom-recommendations.js
+   webgis.usability.quickSearch.displayMetadata.geocodes = true; 
+
+   // select first result on enter
+   //    default is false, but set to true for the view in custom-recommendations.js
+   webgis.usability.quickSearch.selectFirstOnEnter = true;  // 
+
+
+Mit ``selectForstOnEnter`` wird automatisch der erste Vorschlagswert ausgewählt, wenn der 
+Benutzer die Eingabetaste drückt. Ansonsten bewirkt Enter, eine komplette Suche mit dem 
+bisher eingegeben Suchbegriff (ident mit Klick auf das Lupensymbol).
+
+.. note::
+
+    Hat der Anwender die Vorschläge durch die Eingabe auf einen Vorschlag eingeschränkt, 
+    entspricht ``ENTER`` immer einem Selektieren dieses Vorschlagwertes, egal was 
+    hier eingestellt wird.
