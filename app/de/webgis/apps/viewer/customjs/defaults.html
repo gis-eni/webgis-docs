@@ -181,6 +181,12 @@ können mit <code class="docutils literal notranslate"><span class="pre">webgis.
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">defaults</span><span class="p">[</span><span class="s2">&quot;user.preferences.show-markers-on-new-queries&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;no&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>Möchte man, diese die Default-Werte immer gesetzt werden, egal, was der Anwender
+einstellt, kann dem entsprechenden Wert ein <code class="docutils literal notranslate"><span class="pre">!</span></code> vorangestellt werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// forces the desktop layout for larger screens</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">defaults</span><span class="p">[</span><span class="s2">&quot;map.properties.template.1200&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;!desktop&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
 </section>
 
 

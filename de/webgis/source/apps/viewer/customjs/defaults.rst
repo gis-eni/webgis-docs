@@ -32,3 +32,13 @@ können mit ``webgis.defaults`` Standardwerte gesetzt werden:
     webgis.defaults["user.preferences.select-new-query-results"] = "yes";
     // do not show markers automatically after query/identify
     webgis.defaults["user.preferences.show-markers-on-new-queries"] = "no";
+
+
+Möchte man, diese die Default-Werte immer gesetzt werden, egal, was der Anwender 
+einstellt, kann dem entsprechenden Wert ein ``!`` vorangestellt werden:
+
+.. code:: javascript
+
+    // forces the desktop layout for larger screens
+    webgis.defaults["map.properties.template.1200"] = "!desktop"; 
+
