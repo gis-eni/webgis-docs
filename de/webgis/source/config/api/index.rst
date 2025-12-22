@@ -331,6 +331,85 @@ Eine alternative Möglichkeit zur Definition von Druckmaßstäben besteht darin,
 
   Die Einstellungen im **Layout-File** haben Vorrang vor den Werten in der ``api.config`` und den Kartenmaßstäben. Es wird empfohlen, die Maßstäbe direkt im Layout-File zu definieren, da so für jedes Layout passende Maßstäbe vorgegeben werden, die der Benutzer nutzen muss.
 
+Werkzeug ``Seriendruck``
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+   Ab Version 8.X
+ 
+Die Konfiguration für das **Seriendruck-Werkzeug** sieht folgendermaßen aus:
+
+.. code-block:: xml
+
+   <section name="tool-map-series-print">
+      <add key="qualities-dpi" value="150:Hoch (150 dpi),120:Mittel (120 dpi),225:Sehr hoch (225 dpi)" />
+      <add key="scales" value="50000,25000,10000,5000,3000,2000,1000,500,250,100" />
+      <add key="default-format" value="A4.Landscape" />
+      <add key="max-pages" value="10"/>
+      <add key="overview-page-layout" value="" />  <!-- default: layout_map_services_overview.xml  -->
+      <add key="overview-page-format" value="A4.Portrait" />  <!-- default: empty => use same format as series pages -->
+   </section>
+
+Die Einstellungen für **Druckqualitäten**, **Format** und **Maßstäbe** funktionieren genauso wie beim 
+normalen **Druck-Werkzeug** (siehe oben).
+
+Zusätzlich können folgende Parameter konfiguriert werden:
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``max-pages``
+     - Legt die maximale Anzahl an Seiten fest, die im **Seriendruck** erzeugt werden dürfen.  
+       Dies dient dazu, eine **übermäßige Serverlast** zu vermeiden, wenn sehr große Gebiete ausgewählt werden.
+   * - ``overview-page-layout``
+     - Definiert das **Layout-File** für die **Übersichtsseite** im Seriendruck.  
+       Wird kein Wert angegeben, wird das Standardlayout ``layout_map_services_overview.xml`` verwendet.
+   * - ``overview-page-format``
+     - Legt das **Papierformat** für die **Übersichtsseite** fest (z. B. ``A4.Portrait``).  
+       Wird kein Wert angegeben, wird dasselbe Format wie für die Seriendruckseiten verwendet.
+
+Werkzeug ``Darstellungsfilter``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: xml
+
+   <section name="tool-visfilter">
+      <add key="allow-toc-visfilter" value="true" />
+   </section>
+
+Ab Version 8.x kann im **Inhaltsverzeichnis (TOC)** für jeden Layer ein **Darstellungsfilter** definiert werden.
+Damit dies genutzt werden kann, muss der folgende Parameter in der ``api.config`` gesetzt werden:
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``allow-toc-visfilter``
+     - Muss auf ``true`` gesetzt sein, damit im **Inhaltsverzeichnis (TOC)** für Layer ein **Darstellungsfilter** definiert werden kann.
+
+Das Verhalten ist dann so, dass bei Themen Im **Inhaltsverzeichnis (TOC)** ein 
+kleines **Filter-Symbol** angezeigt wird, dass einen **Query-Builder** öffnet, mit der Benutzer 
+einen **Darstellungsfilter** im SQL Style definieren kann.
+Welche Felder dabei anboten werden, kann im CMS beim Dienst unter **QueryBuilder** definiert werden.
+
+.. note::
+
+  Diese Funktion sollte nur in **geschützten Umgebungen** (Intranet, niemals Internet) verwendet werden, 
+  da Benutzer durch unsachgemäße Filterung **Leistungsprobleme** verursachen
+  oder **Sicherheitslücken** ausnutzen können.
+
+.. note::
+
+  Da diese Funktion muss sich noch zusätzlich
+  über die ``custom.js`` freigeschalten werden: ``webgis.usability.allowTocVisFilters=true;`` (default: ``false``).
+  Damit kann diese Funktion auch nur für bestimmte Karten freigeschalten werden.
+
 Werkzeug ``LiveShare``
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -715,6 +794,7 @@ DataLinq
 
       <!-- optional -->
       <add key="allowed-code-api-clients" value="https://my-server/cms" />
+      <add key="initialize-sandbox-on-startup" value="false" />  <!-- default: false -->
       <add key="environment" value="production" /> <!-- default, production, development, test -->
       <add key="add-namespaces" value="" />
       <add key="add-razor-whitelist" value="DXImageTransform.Microsoft." />
@@ -771,6 +851,10 @@ DataLinq
 
    * - ``allowed-code-api-clients``
      - Falls **Code-Bearbeitung** erlaubt ist, können hier die **URLs** der **autorisierten DataLinq.Code-Instanzen** angegeben werden (mit Komma getrennt). In einer WebGIS-Umgebung ist dies meist die URL zum **WebGIS CMS**. Falls eine nicht autorisierte DataLinq.Code-Instanz versucht, Änderungen vorzunehmen, wird eine Fehlermeldung ausgegeben.
+   * - ``initialize-sandbox-on-startup``
+     - Gibt an, ob die **DataLinq-Sandbox** beim **Start der API** initialisiert oder upgedated werden soll.  
+       Da die Sandbox nur Hilfe für die Entwicklung ist sollte sie nur auf **Entwicklungs- oder Testsystemen** initialisiert werden.
+       Auf Produktionssystemen sollte dieser Wert auf ``false`` gesetzt werden.
    * - ``environment``
      - Gibt an, welche **Umgebung** für die Instanz verwendet wird. Dies beeinflusst z. B., welcher **Connection-String** für Endpunkte verwendet wird.  
        **Mögliche Werte:** ``production``, ``development``, ``test``.

@@ -394,6 +394,18 @@ Ein Aufruf mit mehreren Darstellungsvarianten:
 
    &presentation=dvg_strom-naturbestand/dv_ssg_nb_geb,dvg_kataster
 
+.. note::
+
+   Ist die Darstellungsvariante eine **Checkbox** oder **Optionbox**, 
+   kann auch mitgeben werden, ob sie **aktiviert** oder **deaktiviert** werden soll. 
+   Dazu ist dem Namen der Darstellungsvariante der Suffix ``=off`` mitzugeben.
+
+   **Beispiel:**
+
+   .. code-block::
+
+       &presentation=dvg_strom-naturbestand/dv_ssg_nb_geb=off,dvg_kataster
+
 Sichtbarkeit von einzelnen Layern
 =================================
 

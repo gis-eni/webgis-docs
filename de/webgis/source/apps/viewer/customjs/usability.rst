@@ -259,3 +259,17 @@ bisher eingegeben Suchbegriff (ident mit Klick auf das Lupensymbol).
     Hat der Anwender die Vorschläge durch die Eingabe auf einen Vorschlag eingeschränkt, 
     entspricht ``ENTER`` immer einem Selektieren dieses Vorschlagwertes, egal was 
     hier eingestellt wird.
+
+Nachbarschaft Berechnen
+=======================
+
+Für die Nachbarschaft Berechnen Funktion können über die `webgis.usability.defaultBufferDistance` die Standard Pufferdistanz in Metern festgelegt werden:
+
+.. code:: javascript
+
+   // default buffer distance in meters
+   webgis.usability.defaultBufferDistance = 15; // default is 30 meters
+
+.. note::
+    
+    Ab Version 8.x
