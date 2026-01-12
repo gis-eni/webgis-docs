@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Benutzerdefinierte Werkzeuge &#8212; WebGIS 2025 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Usability" href="usability.html" />
+    <link rel="prev" title="Dynamische Inhalte" href="dynamic-content.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2025 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../run/index.html">WebGIS Anwendungen Ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../config/index.html">Konfiguration (Postinstallation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applikationen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../cms/index.html">WebGIS CMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">WebGIS Viewer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../url-parameters/index.html">Parametrierter Aufruf des Karten Viewers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">custom.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layouts/index.html">Benutzerdefinierte Layouts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extended_config/index.html">Erweiterte Werkzeugkonfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex/index.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="benutzerdefinierte-werkzeuge">
+<h1>Benutzerdefinierte Werkzeuge<a class="headerlink" href="#benutzerdefinierte-werkzeuge" title="Link to this heading">¶</a></h1>
+<p>Benutzerdefinierte Werkzeuge sind Werkzeuge, die in der Werkzeugleiste des Viewers erscheinen, aber nicht zu den Standardwerkzeugen von WebGIS gehören. Diese Werkzeuge können beispielsweise einfache Buttons sein (z. B. für erweiterte Metadaten einer Karte) oder auf Interaktionen mit der Karte reagieren (Klick in die Karte oder Aufziehen eines Rechtecks). In allen Fällen wird nach einer Benutzeraktion (Klick auf den Button, Klick in die Karte oder Aufziehen eines Rechtecks) ein Link aufgerufen, an den entsprechende Werte übergeben werden können.</p>
+<section id="werkzeuge-mit-karteninteraktion">
+<h2>Werkzeuge mit Karteninteraktion<a class="headerlink" href="#werkzeuge-mit-karteninteraktion" title="Link to this heading">¶</a></h2>
+<p>Benutzerdefinierte Werkzeuge werden in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> mit folgendem Befehl dem Viewer hinzugefügt:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.google.com/maps/@{y},{x},19z&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Fügt man ein benutzerdefiniertes Werkzeug in die <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> ein, wird es in allen Karten dieser Portalseite hinzugefügt. Soll das Werkzeug nur in bestimmten Karten erscheinen, kann dies über Bedingungen gesteuert werden. Beispielsweise steht in der Variablen <code class="docutils literal notranslate"><span class="pre">mapUrlName</span></code> der Name der aktuell aufgerufenen Karte:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mapUrlName</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Geoland&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.google.com/maps/@{y},{x},19z&#39;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Diese Methode kann auf alle hier beschriebenen Anwendungsfälle angewandt werden, z. B. für Marker oder Usability-Optimierungen.</p>
+</div>
+</section>
+<section id="eigenschaften-benutzerdefinierter-werkzeuge">
+<h2>Eigenschaften benutzerdefinierter Werkzeuge<a class="headerlink" href="#eigenschaften-benutzerdefinierter-werkzeuge" title="Link to this heading">¶</a></h2>
+<p>Der Übergabeparameter ist ein Objekt, das das Werkzeug beschreibt und mindestens die Eigenschaften <code class="docutils literal notranslate"><span class="pre">name</span></code> und <code class="docutils literal notranslate"><span class="pre">command</span></code> enthalten muss. Die folgende Tabelle beschreibt alle möglichen Eigenschaften:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Eigenschaften benutzerdefinierter Werkzeuge</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Eigenschaft</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>Name des Buttons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code> (optional ab Build 5.22.2401)</p></td>
+<td><p>Eine eindeutige ID für das Werkzeug, falls es über einen parametrierten Aufruf des Kartenviewers ausgewählt werden soll.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">command</span></code></p></td>
+<td><p>URL, die bei einer Benutzeraktion aufgerufen wird. Platzhalter können genutzt werden (siehe unten).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">command_target</span></code></p></td>
+<td><p>Steuert, wie der Link aufgerufen wird:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'self'</span></code>: Link öffnet sich im aktuellen Tab.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'dialog'</span></code>: Link wird in einem Dialog im Viewer geöffnet (kann bei Drittseiten wie Google Maps nicht funktionieren).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'_blank'</span></code> (Standardwert): Link öffnet sich in einem neuen Tab.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">command_target:</span> <span class="pre">function(response)</span> <span class="pre">{</span> <span class="pre">}</span></code></p></td>
+<td><p>Führt den <code class="docutils literal notranslate"><span class="pre">command</span></code> als <strong>fetch</strong> aus und übergibt das Ergebnis an eine Callback-Funktion. <code class="docutils literal notranslate"><span class="pre">response</span></code> enthält folgende Eigenschaften:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">,</span><span class="w">  </span><span class="c1">// Das Ergebnis der Abfrage (Objekt bei JSON oder ein Text)</span>
+<span class="w">   </span><span class="nx">map</span><span class="o">:</span><span class="w"> </span><span class="nx">map</span><span class="p">,</span><span class="w">        </span><span class="c1">// Das aktuelle Map-Objekt</span>
+<span class="w">   </span><span class="nx">uiElement</span><span class="o">:</span><span class="w"> </span><span class="nx">uiElement</span><span class="w">  </span><span class="c1">// Das UI-DOM-Element des Werkzeugs, in das beispielsweise Ergebnisse geschrieben werden können</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Beispiel für ein Werkzeug mit Callback-Funktion:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Fetch Tool&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://.../rest?x={x}&amp;y={y}&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tooltype</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;click&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cursor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;crosshair&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cursor-plus-26-b.png&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">command_target</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">map</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Remove the custom tool marker</span>
+<span class="w">        </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarkerGroup</span><span class="p">(</span><span class="s1">&#39;custom-temp-marker&#39;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Add a custom tool marker</span>
+<span class="w">        </span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;custom-temp-marker&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({</span>
+<span class="w">            </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">lng</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">lng</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&lt;div&gt;&#39;</span><span class="o">+</span><span class="nx">result</span><span class="p">.</span><span class="nx">text</span><span class="o">+</span><span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">openPopup</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">buttons</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Marker entfernen&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">onclick</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">marker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarker</span><span class="p">(</span><span class="nx">marker</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}]</span>
+<span class="w">        </span><span class="p">}));</span>
+
+<span class="w">        </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">result</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">uiElement</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tooltype</span></code></p></td>
+<td><p>Art des Werkzeugs:</p>
+<ul class="simple">
+<li><p><em>keine Angabe</em> (Default): Werkzeug ist ein einfacher Button.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'click'</span></code>: Benutzer klickt in die Karte, um den <code class="docutils literal notranslate"><span class="pre">command</span></code>-Link aufzurufen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'box'</span></code>: Benutzer zieht ein Rechteck auf, um den <code class="docutils literal notranslate"><span class="pre">command</span></code>-Link aufzurufen.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">container</span></code></p></td>
+<td><p>Bereich der Werkzeugleiste, in dem das Werkzeug angezeigt wird:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'Navigation'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Auswahl'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Werkzeuge'</span></code> (Standard)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Darstellung'</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">image</span></code></p></td>
+<td><p>Link zu einem 26x26px großen Icon für den Button. Kann ein absoluter Pfad oder ein Dateiname sein, falls das Icon in <code class="docutils literal notranslate"><span class="pre">content/api/img/tools</span></code> liegt.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tooltip</span></code></p></td>
+<td><p>Text, der als Tooltip erscheint, wenn man mit der Maus über den Button fährt.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>Beschreibung des Werkzeugs. Wird angezeigt, falls eine Benutzerinteraktion erforderlich ist.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="platzhalter-fur-command">
+<h2>Platzhalter für <code class="docutils literal notranslate"><span class="pre">command</span></code><a class="headerlink" href="#platzhalter-fur-command" title="Link to this heading">¶</a></h2>
+<p>Für die Eigenschaft <code class="docutils literal notranslate"><span class="pre">command</span></code> können verschiedene Platzhalter in die URL eingefügt werden, um Parameter aus der Karte an eine andere Web-Seite zu übergeben. Abhängig vom <code class="docutils literal notranslate"><span class="pre">tooltype</span></code> können unterschiedliche Platzhalter verwendet werden, die je nach Kontext eine spezifische Bedeutung haben.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Platzhalter für <code class="docutils literal notranslate"><span class="pre">command</span></code></span><a class="headerlink" href="#id2" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 15.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Platzhalter</strong></p></th>
+<th class="head"><p><strong>ToolTypes</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{map.minx},</span> <span class="pre">{map.miny},</span> <span class="pre">{map.maxx},</span> <span class="pre">{map.maxy}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kein,</span> <span class="pre">click,</span> <span class="pre">box</span></code></p></td>
+<td><p>Die Ausdehnung des aktuellen Kartenausschnitts in geographischen Koordinaten. <code class="docutils literal notranslate"><span class="pre">x</span></code> entspricht hier dem Rechtswert (geographische Länge), <code class="docutils literal notranslate"><span class="pre">y</span></code> dem Hochwert (geographische Breite).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{map.bbox}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kein,</span> <span class="pre">click,</span> <span class="pre">box</span></code></p></td>
+<td><p>Die BoundingBox des aktuellen Kartenausschnitts in geographischen Koordinaten.
+Entspricht: <code class="docutils literal notranslate"><span class="pre">{map.minx},</span> <span class="pre">{map.miny},</span> <span class="pre">{map.maxx},</span> <span class="pre">{map.maxy}</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{map.centerx},</span> <span class="pre">{map.centery}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kein,</span> <span class="pre">click,</span> <span class="pre">box</span></code></p></td>
+<td><p>Der Mittelpunkt des aktuellen Kartenausschnitts in geographischen Koordinaten.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{map.scale}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kein,</span> <span class="pre">click,</span> <span class="pre">box</span></code></p></td>
+<td><p>Der aktuelle Kartenmaßstab.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{map.MINX},</span> <span class="pre">{map.MINY},</span> <span class="pre">{map.MAXX},</span> <span class="pre">{map.MAXY},</span> <span class="pre">{map.BBOX},</span> <span class="pre">{map.CENTERX},</span> <span class="pre">{map.CENTERY}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kein,</span> <span class="pre">click,</span> <span class="pre">box</span></code></p></td>
+<td><p>Wie oben, jedoch werden hier keine geographischen Koordinaten übergeben, sondern Koordinaten im Karten-Koordinatensystem (z. B. GK-M34). <code class="docutils literal notranslate"><span class="pre">x</span></code> entspricht dem Rechtswert, <code class="docutils literal notranslate"><span class="pre">y</span></code> dem Hochwert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{x},</span> <span class="pre">{y}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">click,</span> <span class="pre">box</span></code></p></td>
+<td><p>Der Punkt, auf den der Anwender geklickt hat, in geographischen Koordinaten. Falls der Anwender ein Fenster aufzieht, entspricht dieser Wert dem Mittelpunkt des Fensters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{X},</span> <span class="pre">{Y}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">click,</span> <span class="pre">box</span></code></p></td>
+<td><p>Wie oben, jedoch im Karten-Koordinatensystem.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{minx},</span> <span class="pre">{miny},</span> <span class="pre">{maxx},</span> <span class="pre">{maxy}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">box</span></code></p></td>
+<td><p>Die Ausdehnung des aufgezogenen Rechtecks in geographischen Koordinaten.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{bbox}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">box</span></code></p></td>
+<td><p>Die BoundingBox des aufgezogenen Rechtecks.
+Entspricht: <code class="docutils literal notranslate"><span class="pre">{minx},</span> <span class="pre">{miny},</span> <span class="pre">{maxx},</span> <span class="pre">{maxy}</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{MINX},</span> <span class="pre">{MINY},</span> <span class="pre">{MAXX},</span> <span class="pre">{MAXY},</span> <span class="pre">{BBOX}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">box</span></code></p></td>
+<td><p>Wie oben, jedoch für das Karten-Koordinatensystem.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{wkt},</span> <span class="pre">{wkt_digits_1},</span> <span class="pre">{wkt_digits_2},</span> <span class="pre">{wkt_digits_3},</span> <span class="pre">{wkt-4326}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sketch0d</span> <span class="pre">(=point),</span> <span class="pre">sketch1d</span> <span class="pre">(=line),</span> <span class="pre">sketch2d</span> <span class="pre">(=polygon)</span></code></p></td>
+<td><p>Ermöglicht das Übergeben einer Sketch-Geometrie als Well-Known-Text (<code class="docutils literal notranslate"><span class="pre">POINT(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">LINESTRING(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">POLYGON(...)</span></code>). Die Geometrie kann entweder in WGS84 oder in der aktuellen Sketch-Projektion übergeben werden.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{wkt}</span></code>: Übergibt die Geometrie mit voller Genauigkeit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{wkt_digits_1}</span></code>, <code class="docutils literal notranslate"><span class="pre">{wkt_digits_2}</span></code>, <code class="docutils literal notranslate"><span class="pre">{wkt_digits_3}</span></code>: Rundet die Koordinaten auf die angegebene Dezimalstellenzahl.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{calc-srs},</span> <span class="pre">{sketch-srs}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sketch0d,</span> <span class="pre">sketch1d,</span> <span class="pre">sketch2d</span></code></p></td>
+<td><p>Gibt das Koordinatensystem an, in dem der Sketch, der über <code class="docutils literal notranslate"><span class="pre">{wkt}</span></code> übergeben wird, vorliegt. Beide Platzhalter liefern in der Regel dieselben Werte.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="benutzerdefinierte-werkzeuge-mit-eingabefeldern">
+<h2>Benutzerdefinierte Werkzeuge mit Eingabefeldern<a class="headerlink" href="#benutzerdefinierte-werkzeuge-mit-eingabefeldern" title="Link to this heading">¶</a></h2>
+<p>Falls bereits im Viewer Parameter ausgewählt werden sollen, die an die Zielseite übergeben werden, kann dies über die <code class="docutils literal notranslate"><span class="pre">uiElements</span></code>-Eigenschaft erfolgen. Dadurch können vor der eigentlichen Ausführung des Werkzeugs Eingabefelder zur Verfügung gestellt werden, um benutzerdefinierte Werte an die URL zu übergeben.</p>
+<p><strong>Beispiel:</strong>
+Ein Werkzeug für Höhenprofile, bei dem der Benutzer vor der Ausführung Parameter wie Überhöhung und Stützpunktabstand eingeben kann.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+<span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Höhenprofil&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://server.com/profile?ueberhoehung={ueberhoehung}&amp;hintergrund=bmapgrau&amp;stuetzpunktabstand={stuetzpunktabstand}&amp;title={profile_title}&amp;polygonzug={wkt}&amp;crs=31256&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">command_target</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dialog&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">tooltype</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sketch1d&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;profil.png&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">uiElements</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Titel&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;profile_title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;input-text&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="s1">&#39;Überhöhung&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ueberhoehung&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;select&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1:1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2:1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;3:1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">}</span>
+<span class="w">         </span><span class="p">]},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Punktabstand [m]&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;stuetzpunktabstand&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;select&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1 m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2 m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;3 m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">}</span>
+<span class="w">         </span><span class="p">]}</span>
+<span class="w">     </span><span class="p">]</span>
+<span class="w"> </span><span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>In diesem Beispiel kann der Benutzer vor der Ausführung des Werkzeugs verschiedene Parameter anpassen. Die <code class="docutils literal notranslate"><span class="pre">id</span></code> der Eingabefelder kann als Platzhalter in der <code class="docutils literal notranslate"><span class="pre">command</span></code>-URL verwendet werden.</p>
+</div>
+<section id="typen-von-eingabefeldern">
+<h3>Typen von Eingabefeldern<a class="headerlink" href="#typen-von-eingabefeldern" title="Link to this heading">¶</a></h3>
+<p>Für die <code class="docutils literal notranslate"><span class="pre">uiElements</span></code>-Eigenschaft gibt es verschiedene Eingabefeldtypen:</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Verfügbare Eingabefeldtypen</span><a class="headerlink" href="#id3" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Typ</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">input-text</span></code></p></td>
+<td><p>Einfaches einzeiliges Textfeld.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">input-textarea</span></code></p></td>
+<td><p>Mehrzeiliges Textfeld für längere Eingaben.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">input-number</span></code></p></td>
+<td><p>Eingabefeld für numerische Werte.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">input-date</span></code></p></td>
+<td><p>Datumsfeld mit Uhrzeit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">select</span></code></p></td>
+<td><p>Dropdown-Liste zur Auswahl eines vordefinierten Wertes. Die verfügbaren Optionen müssen als Array definiert werden (siehe Beispiel oben).</p></td>
+</tr>
+</tbody>
+</table>
+<p>Der Werkzeugdialog für das obige Beispiel würde wie folgt aussehen:</p>
+<img alt="../../../_images/custom1.png" src="../../../_images/custom1.png" />
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Benutzerdefinierte Werkzeuge</a><ul>
+<li><a class="reference internal" href="#werkzeuge-mit-karteninteraktion">Werkzeuge mit Karteninteraktion</a></li>
+<li><a class="reference internal" href="#eigenschaften-benutzerdefinierter-werkzeuge">Eigenschaften benutzerdefinierter Werkzeuge</a></li>
+<li><a class="reference internal" href="#platzhalter-fur-command">Platzhalter für <code class="docutils literal notranslate"><span class="pre">command</span></code></a></li>
+<li><a class="reference internal" href="#benutzerdefinierte-werkzeuge-mit-eingabefeldern">Benutzerdefinierte Werkzeuge mit Eingabefeldern</a><ul>
+<li><a class="reference internal" href="#typen-von-eingabefeldern">Typen von Eingabefeldern</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="dynamic-content.html">
+                    <span class="icon">&lt;</span><span>Dynamische Inhalte</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="usability.html"><span>Usability</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

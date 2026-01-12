@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Usability &#8212; WebGIS 2025 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Defaults" href="defaults.html" />
+    <link rel="prev" title="Benutzerdefinierte Werkzeuge" href="customtools.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2025 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../run/index.html">WebGIS Anwendungen Ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../config/index.html">Konfiguration (Postinstallation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applikationen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../cms/index.html">WebGIS CMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">WebGIS Viewer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../url-parameters/index.html">Parametrierter Aufruf des Karten Viewers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">custom.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layouts/index.html">Benutzerdefinierte Layouts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extended_config/index.html">Erweiterte Werkzeugkonfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex/index.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="usability">
+<h1>Usability<a class="headerlink" href="#usability" title="Link to this heading">¶</a></h1>
+<p>Einige Funktionen der API lassen sich über sogenannte <em>Usability-Konstanten</em> steuern. Diese können in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> für einzelne Karten oder gesamte Portalseiten gesetzt werden.</p>
+<section id="clickbubble">
+<h2>ClickBubble<a class="headerlink" href="#clickbubble" title="Link to this heading">¶</a></h2>
+<p>Die <em>ClickBubble</em> verbessert die Bedienbarkeit des Viewers auf Touch-Geräten. Werkzeuge, die einen Klick in die Karte voraussetzen (z. B. <em>Identify</em>), sind auf Touchscreens oft schwer zu bedienen, da ein Fingerklick ungenau sein kann.
+Wird die <em>ClickBubble</em> aktiviert, erscheint sie bei allen Werkzeugen, die eine Klick-Interaktion erfordern:</p>
+<img alt="../../../_images/image4.png" src="../../../_images/image4.png" />
+<p>Anstatt direkt in die Karte zu klicken, zieht der Anwender die Bubble an die gewünschte Stelle. Die Spitze der Bubble markiert den genauen Punkt für die Aktion. Lässt man die Bubble los, kehrt sie automatisch in die obere rechte Ecke zurück und führt die gewünschte Aktion aus (z. B. <em>Identify</em>).</p>
+<p>Klickt der Anwender auf die Bubble (ohne sie zu ziehen), öffnet sich eine Beschreibung zur Bedienung.</p>
+</section>
+<section id="kontextmenu-bubble">
+<h2>Kontextmenü-Bubble<a class="headerlink" href="#kontextmenu-bubble" title="Link to this heading">¶</a></h2>
+<p>Einige Werkzeuge erfordern eine rechte Maustaste (z. B. das Kontextmenü für das Messen oder Editieren eines Sketches). Dafür kann eine zusätzliche <em>ContextMenu Bubble</em> aktiviert werden.
+Der Anwender kann diese anklicken, um das Kontextmenü zu öffnen, oder an eine bestimmte Position ziehen, um genau dort eine Aktion auszuführen (z. B. einen bestimmten <em>Vertex</em> verschieben oder löschen, rechtwinklig zur Kante konstruieren etc.).</p>
+<img alt="../../../_images/image51.png" src="../../../_images/image51.png" />
+<p>Diese Funktion ermöglicht auch auf mobilen Geräten eine präzise Steuerung von Konstruktionen mit <em>Snapping</em>.</p>
+</section>
+<section id="aktivierung-in-custom-js">
+<h2>Aktivierung in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code><a class="headerlink" href="#aktivierung-in-custom-js" title="Link to this heading">¶</a></h2>
+<p>Diese Funktionen sind standardmäßig deaktiviert und müssen explizit in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> aktiviert werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// ClickBubble aktivieren</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">clickBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="c1">// ContextMenu Bubble aktivieren</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">contextMenuBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Da diese Funktionen nur auf Touch-Geräten sinnvoll sind, kann die Methode <code class="docutils literal notranslate"><span class="pre">isTouchDevice()</span></code> genutzt werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">clickBubble</span><span class="w"> </span><span class="o">=</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">contextMenuBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">isTouchDevice</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="sketch-optimierungen">
+<h2>Sketch-Optimierungen<a class="headerlink" href="#sketch-optimierungen" title="Link to this heading">¶</a></h2>
+<p>Standardmäßig kann der Anwender bei einem <em>Sketch</em> auf einen <em>Vertex</em> klicken, um ein Popup-Menü zu öffnen:</p>
+<img alt="../../../_images/image61.png" src="../../../_images/image61.png" />
+<p>Falls die rechte Maustaste oder die <em>ContextMenu Bubble</em> verfügbar ist, wird dieses Menü nicht mehr benötigt. Es kann jedoch weiterhin explizit aktiviert werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">sketchMarkerPopup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// Empfehlung: false!!</span>
+</pre></div>
+</div>
+</section>
+<section id="konstruktionswerkzeuge-einschranken">
+<h2>Konstruktionswerkzeuge einschränken<a class="headerlink" href="#konstruktionswerkzeuge-einschranken" title="Link to this heading">¶</a></h2>
+<p>In manchen Anwendungen sind nicht alle Konstruktionswerkzeuge erforderlich. Insbesondere die erweiterten Konstruktionsoptionen richten sich an versierte Anwender und können in bestimmten Karten deaktiviert werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">constructionTools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="komplettes-kontextmenu-deaktivieren">
+<h2>Komplettes Kontextmenü deaktivieren<a class="headerlink" href="#komplettes-kontextmenu-deaktivieren" title="Link to this heading">¶</a></h2>
+<p>Falls das Kontextmenü beim Zeichnen nicht benötigt wird, kann es mit folgendem Code deaktiviert werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">sketchContextMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="tastatur-shortcuts-fur-sketch">
+<h2>Tastatur-Shortcuts für Sketch<a class="headerlink" href="#tastatur-shortcuts-fur-sketch" title="Link to this heading">¶</a></h2>
+<p>Beim Konstruieren eines <em>Sketches</em> können verschiedene <strong>Tastatur-Shortcuts</strong> genutzt werden:</p>
+<ul class="simple">
+<li><p><strong>A</strong>: Fügt einen <em>Vertex</em> auf einer Kante hinzu.</p></li>
+<li><p><strong>D</strong>: Löscht einen <em>Vertex</em>.</p></li>
+<li><p><strong>Strg</strong>: Ermöglicht das Aufziehen eines Fensters zur Mehrfachselektion von <em>Vertices</em>, die dann gemeinsam verschoben oder gelöscht werden können.</p></li>
+</ul>
+<p>Diese Funktionalität kann über folgende Schalter gesteuert werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">allowSketchShortcuts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">allowSelectSketchVertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="inhaltsverzeichnis">
+<h2>Inhaltsverzeichnis<a class="headerlink" href="#inhaltsverzeichnis" title="Link to this heading">¶</a></h2>
+<p>Um das Verhalten des Inhaltsverzeichnis anzupassen gibt es folgende Settings:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">makePresentationTocGroupCheckboxes</span></code> (<strong>``true``</strong> / <code class="docutils literal notranslate"><span class="pre">false</span></code>)):
+ist diese Option auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt, werden bei aufklappbaren Gruppen-Layern im
+Inhaltsverzeichnis automatisch Checkboxes angeboten, wenn alle darunter liegenden
+Layer/Darstellungsvarianten ebenfalls eine Checkbox aufweisen.
+Mit dieser Checkbox können dann alle darunter liegenden Layer mit einem Klick sichtbar
+oder unsichtbar geschalten werden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">orderPresentationTocContainsByServiceOrder</span></code> (<code class="docutils literal notranslate"><span class="pre">true</span></code>/ <strong>``false``</strong>):
+Damit wird festgelegt, das im Inhaltsverzeichnis die Container nach der Zeichenreihenfolge
+der Dienste sortiert werden. Ansonsten gilt die Sortierung aus dem CMS, wie sie
+unter <code class="docutils literal notranslate"><span class="pre">Viewer/Darstellungsvarianten</span></code> definiert ist.
+Verwendet man keine Darstellungsvarianten sondern dynamische Inhaltsverzeichnisse,
+würde die Container ohne diese Option alphabetisch sortiert.</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">makePresentationTocGroupCheckboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">orderPresentationTocContainsByServiceOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: false</span>
+</pre></div>
+</div>
+</section>
+<section id="toolbox">
+<h2>Toolbox<a class="headerlink" href="#toolbox" title="Link to this heading">¶</a></h2>
+<p>Mit diesen Einstellungen können die Werkzeuge in der <em>Toolbox</em> konfiguriert werden.
+Die Einstellungen erfolgen pro Werkzeug, die Syntax ist wie folgt:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;{tool-id}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom container for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom name for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom tooltip for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="c1">// optional, default: 0</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Die <code class="docutils literal notranslate"><span class="pre">{tool-id}</span></code> ist die ID des Werkzeugs. Man bekommt die <strong>Ids</strong> der einzelnen Werkzeuge
+über die WebGIS API <code class="docutils literal notranslate"><span class="pre">/rest/tools</span></code></p>
+<p>Ein Anwendungsbeispiel ist beispielsweise, wenn Werkzeuge in einem anderen Container (Reiter),
+verschoben werden sollten, zB:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.fullextent&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span>
+<span class="p">};</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.identify&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span><span class="s1">&#39;Abfragen&#39;</span><span class="p">],</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span>
+<span class="p">};</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.boxzoomin&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Hier wird das Werkzeug <em>Vollausdehnung</em> in den Reiter <em>Start</em> verschoben und das Werkzeug
+<em>Abfragen</em> in den Reiter <em>Start</em> und <em>Abfragen</em>. Sollte ein Werkzeug also in mehreren Reitern
+sichtbar sein, muss der Container als Array angegeben werden.
+Das Werkzeug <em>Box-Zoom</em> erhält eine höhere Priorität und landet damit im Reiter (Container)
+weiter vorne (Mit <code class="docutils literal notranslate"><span class="pre">priority</span></code> kann die Reihenfolge der Werkzeuge innerhalb eines Containers beeinflusst werden).</p>
+<p>Des weiteren kann die Reihenfolger der Container bestimmt werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolContainerOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s1">&#39;Start&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Abfragen&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Messwerkzeuge&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Zeichnen&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Navigation&#39;</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>Wird hier nichts angegeben, entspricht die Reihenfolge der Container jener Reihenfolge, mit der die
+Werkzeuge in die Karte eingefügt wurden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Ändert man die <code class="docutils literal notranslate"><span class="pre">toolProperties</span></code> der Werkzeuge, sollte immer auch die Container Reihenfolge
+definiert werden, da sonst die Reihenfolge der Container eher zufällig vergeben wird.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Es müssen bei der Reihenfolge nicht alle Container angegeben werden. Gibt es einen Container,
+der nicht in der Liste ist, wird dieser immer am Ende angezeigt.</p>
+</div>
+</section>
+<section id="tastatur-shortcuts">
+<h2>Tastatur-Shortcuts<a class="headerlink" href="#tastatur-shortcuts" title="Link to this heading">¶</a></h2>
+<p>Die WebGIS API bietet die Möglichkeit, Tastatur-Shortcuts für verschiedene Aktionen zu verwenden.
+Diese Shortcuts können in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> aktiviert werden, um die Benutzerfreundlichkeit
+zu verbessern.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">useAdvancedKeyShortcutHandling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Der Standardwert ist <code class="docutils literal notranslate"><span class="pre">false</span></code>, was bedeutet, dass die erweiterten Tastatur-Shortcuts für WebGIS API Anwendungen
+nicht aktiviert sind. Verwendet man den WebGIS Viewer, wird standardmäßig auch die <code class="docutils literal notranslate"><span class="pre">custom-recommendations.js</span></code> geladen,
+die diesen Wert auf <code class="docutils literal notranslate"><span class="pre">true</span></code> setzt. Im Viewer sind die Shortcuts also standardmäßig aktiviert.</p>
+<p>Sind die erweiterten Tastatur-Shortcuts aktiviert, können folgende Aktionen durchgeführt werden:</p>
+<p><strong>Bearbeiten-Selektionswerkzeug</strong></p>
+<ul class="simple">
+<li><p><strong>Leertaste</strong>: Nur ein Objekt selektieren. Es wird das Objekt ausgewählt, dass dem geklickten Punkt am nächsten ist.</p></li>
+<li><p><strong>E</strong>: Wie oben, nur dass sofort die Bearbeiten Maske geöffnet wird.</p></li>
+<li><p><strong>D</strong>: Wie oben, nur dass sofort die Löschen Maske geöffnet wird.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><strong>Voraussetzung</strong>: das Selektionswerkzeug muss aktiv sein (Punkt Selektion) und ein Thema aus der Liste muss ausgewählt sein.</p>
+</div>
+</section>
+<section id="auswahllisten-pro-verhalten">
+<span id="customjs-domain-pro-behaviour"></span><h2>Auswahllisten Pro Verhalten<a class="headerlink" href="#auswahllisten-pro-verhalten" title="Link to this heading">¶</a></h2>
+<p>Parametriert man im CMS Editmasken Felder als Auswahlliste (Typ <code class="docutils literal notranslate"><span class="pre">Domain</span></code>), kann in der
+CMS Dialog unter <code class="docutils literal notranslate"><span class="pre">optional:</span> <span class="pre">Domain</span> <span class="pre">Behaviour</span> <span class="pre">(experimental)</span></code> das Verhalten der Auswahlliste
+auf <code class="docutils literal notranslate"><span class="pre">Pro</span></code> gesetzt werden. Damit wird die Auswahlliste als <em>select2</em> dargestellt,
+was eine bessere Benutzererfahrung bietet.</p>
+<p>Voraussetzung ist, dass die <em>select2</em> Bibliothek für diesen Zweck verwendet soll.
+Standardmäßig, ändert sich das <code class="docutils literal notranslate"><span class="pre">Pro</span></code> Verhalten der Auswahllisten erst dann, wenn die
+<code class="docutils literal notranslate"><span class="pre">webgis.usability.select_pro_behaviour</span></code> Konstante in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> gesetzt wird.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">select_pro_behaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;select2&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Derzeit ist der einzig mögliche Werte für diese Konstante <code class="docutils literal notranslate"><span class="pre">select2</span></code>.
+Alle anderen Werte werden ignoriert und das Verhalten der Auswahllisten bleibt unverändert.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Ein Beschreibung des <code class="docutils literal notranslate"><span class="pre">Pro</span></code> Verhaltens der Auswahllisten findet sich in der
+<a class="reference internal" href="../../cms/editing/fields_domain_behaviour.html#cms-fields-domain-behaviour"><span class="std std-ref">CMS Domain Verhalten ändern</span></a>.</p>
+</div>
+</section>
+<section id="schnellsuche">
+<h2>Schnellsuche<a class="headerlink" href="#schnellsuche" title="Link to this heading">¶</a></h2>
+<p>Für die Schnellsuche können über die <cite>webgis.usability.quickSearch</cite>-Konfiguration verschiedene Einstellungen vorgenommen werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// allows enter geocodes in quicksearch</span>
+<span class="c1">//    default is false, but set to true for the view in custom-recommendations.js</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">displayMetadata</span><span class="p">.</span><span class="nx">geocodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// select first result on enter</span>
+<span class="c1">//    default is false, but set to true for the view in custom-recommendations.js</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">selectFirstOnEnter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">//</span>
+</pre></div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">selectFirstOnEnter</span></code> wird automatisch der erste Vorschlagswert ausgewählt, wenn der
+Benutzer die Eingabetaste drückt. Ansonsten bewirkt Enter, eine komplette Suche mit dem
+bisher eingegeben Suchbegriff (ident mit Klick auf das Lupensymbol).</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Hat der Anwender die Vorschläge durch die Eingabe auf einen Vorschlag eingeschränkt,
+entspricht <code class="docutils literal notranslate"><span class="pre">ENTER</span></code> immer einem Selektieren dieses Vorschlagwertes, egal was
+hier eingestellt wird.</p>
+</div>
+</section>
+<section id="nachbarschaft-berechnen">
+<h2>Nachbarschaft Berechnen<a class="headerlink" href="#nachbarschaft-berechnen" title="Link to this heading">¶</a></h2>
+<p>Für die Nachbarschaft Berechnen Funktion können über die <cite>webgis.usability.defaultBufferDistance</cite> die Standard Pufferdistanz in Metern festgelegt werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// default buffer distance in meters</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">defaultBufferDistance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">15</span><span class="p">;</span><span class="w"> </span><span class="c1">// default is 30 meters</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Ab Version 8.x</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Usability</a><ul>
+<li><a class="reference internal" href="#clickbubble">ClickBubble</a></li>
+<li><a class="reference internal" href="#kontextmenu-bubble">Kontextmenü-Bubble</a></li>
+<li><a class="reference internal" href="#aktivierung-in-custom-js">Aktivierung in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code></a></li>
+<li><a class="reference internal" href="#sketch-optimierungen">Sketch-Optimierungen</a></li>
+<li><a class="reference internal" href="#konstruktionswerkzeuge-einschranken">Konstruktionswerkzeuge einschränken</a></li>
+<li><a class="reference internal" href="#komplettes-kontextmenu-deaktivieren">Komplettes Kontextmenü deaktivieren</a></li>
+<li><a class="reference internal" href="#tastatur-shortcuts-fur-sketch">Tastatur-Shortcuts für Sketch</a></li>
+<li><a class="reference internal" href="#inhaltsverzeichnis">Inhaltsverzeichnis</a></li>
+<li><a class="reference internal" href="#toolbox">Toolbox</a></li>
+<li><a class="reference internal" href="#tastatur-shortcuts">Tastatur-Shortcuts</a></li>
+<li><a class="reference internal" href="#auswahllisten-pro-verhalten">Auswahllisten Pro Verhalten</a></li>
+<li><a class="reference internal" href="#schnellsuche">Schnellsuche</a></li>
+<li><a class="reference internal" href="#nachbarschaft-berechnen">Nachbarschaft Berechnen</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="customtools.html">
+                    <span class="icon">&lt;</span><span>Benutzerdefinierte Werkzeuge</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="defaults.html"><span>Defaults</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

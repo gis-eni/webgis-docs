@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Konfiguration der CMS Applikation &#8212; WebGIS 2025 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="Konfiguration der API-Applikation" href="../api/index.html" />
+    <link rel="prev" title="Konfiguration (Postinstallation)" href="../index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">WebGIS 2025 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">WebGIS Anwendungen Ausführen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Konfiguration (Postinstallation)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Konfiguration der CMS Applikation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html">Konfiguration der API-Applikation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Konfiguration der Portal Applikation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">Authentifizierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Sicherheitsmaßnahmen (Hardening)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">WebGIS Applikationen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Erweiterte Werkzeugkonfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex/index.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="konfiguration-der-cms-applikation">
+<h1>Konfiguration der CMS Applikation<a class="headerlink" href="#konfiguration-der-cms-applikation" title="Link to this heading">¶</a></h1>
+<section id="datei-config-cms-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code><a class="headerlink" href="#datei-config-cms-config" title="Link to this heading">¶</a></h2>
+<p>Die Konfiguration der CMS-Anwendung erfolgt über die Datei <code class="docutils literal notranslate"><span class="pre">webgis-cms/_config/cms.config</span></code>.</p>
+<p>Dabei handelt es sich um eine JSON-Datei (<strong>JavaScript Object Notation</strong>), ein strukturiertes Datenformat, das unabhängig von JavaScript ist. Beim Bearbeiten der Datei ist darauf zu achten, dass sie weiterhin gültiges JSON bleibt. Insbesondere dürfen keine Kommentare eingefügt und Schlüssel müssen als Strings in Anführungszeichen geschrieben werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Hinweis zur JSON-Syntax</p>
+<ul class="simple">
+<li><p>Attribute und Werte werden durch <code class="docutils literal notranslate"><span class="pre">:</span></code> getrennt, z. B.: <code class="docutils literal notranslate"><span class="pre">&quot;force-https&quot;:</span> <span class="pre">false</span></code></p></li>
+<li><p>Objekte (mit mehreren Attributen) werden in geschweifte Klammern gesetzt: <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">…</span> <span class="pre">}</span></code></p></li>
+<li><p>Arrays werden durch eckige Klammern gekennzeichnet: <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">…</span> <span class="pre">]</span></code>. Die einzelnen Werte werden durch Kommas getrennt.</p></li>
+<li><p>In einem Array können Objekte aufgelistet werden (z. B. <code class="docutils literal notranslate"><span class="pre">cms-items</span></code>): <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">{</span> <span class="pre">&quot;object1&quot;:</span> <span class="pre">...</span> <span class="pre">},</span> <span class="pre">{</span> <span class="pre">&quot;object2&quot;:</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">]</span></code></p></li>
+<li><p>In einem Array können einzelne Werte (Strings, Zahlen) aufgelistet werden (z. B. <code class="docutils literal notranslate"><span class="pre">http-get</span></code>): <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">&quot;url1&quot;,</span> <span class="pre">&quot;url2&quot;</span> <span class="pre">]</span></code></p></li>
+<li><p>Ein Backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> ist in einer Zeichenkette in JSON ein besonderes Zeichen. Um tatsächlich einen Backslash anzugeben, muss ein doppelter <code class="docutils literal notranslate"><span class="pre">\\</span></code> verwendet werden (z. B. in Pfaden). Andernfalls ist die Konfigurationsdatei kein gültiges JSON mehr!</p></li>
+</ul>
+</div>
+<p>Die Vorlage hat folgendes Format:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;shared-crypto-keys-path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/security/keys&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;company&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;elasticsearch-endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;force-https&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;services-default-url-scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;webgis-portal-instance&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:5002&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cms-display-url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myserver.com/cms&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cms-items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis-release-default&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WebGIS Release Default&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-release-default&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;deployments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/publish/cms-default.xml&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;replacement-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;postEvents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;http-get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;http://localhost:5001/cache/clear&quot;</span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis-custom&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WebGIS Custom&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-custom&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;deployments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/publish/cms-custom.xml&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;replacement-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;postEvents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;http-get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;http://localhost:5001/cache/clear&quot;</span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Im Folgenden findet sich eine Übersicht der wichtigsten Konfigurationsparameter.</p>
+<section id="abschnitt-root-element">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Root-Element</span></code><a class="headerlink" href="#abschnitt-root-element" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">webgis-portal-instance</span></code></p></td>
+<td><p>Die interne URL zum <strong>WebGIS-Portal</strong>. Dieser Parameter wird benötigt, wenn CMS-Knoten autorisiert werden sollen. Über diese URL ruft die CMS-Applikation die verfügbaren <strong>Benutzer und Gruppen</strong> ab (z. B. <strong>AD-Benutzer/Gruppen</strong>). Da diese Abfrage direkt von Server zu Server erfolgt, kann hier auch eine <strong>interne URL</strong> verwendet werden. Befinden sich beide Applikationen auf demselben Server, kann beispielsweise auch <code class="docutils literal notranslate"><span class="pre">http://localhost/webgis-portal</span></code> genutzt werden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cms-display-url</span></code> <em>(optional)</em></p></td>
+<td><p>Dieser optionale Parameter ist hilfreich, wenn das CMS hinter einem <strong>Reverse-Proxy-Server</strong> betrieben wird und die Applikation nicht automatisch ermitteln kann, welche URL für den Anwender sichtbar ist. In diesem Fall kann hier die gewünschte <strong>externe URL</strong> angegeben werden.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Mit einem <strong>Web-CMS</strong> können mehrere Bäume verwaltet werden. Für jeden Baum wird ein Objekt im <code class="docutils literal notranslate"><span class="pre">cms-items</span></code>-Array angelegt. Der Wert von <code class="docutils literal notranslate"><span class="pre">cms-items</span></code> muss ein <strong>Array</strong> sein, das einzelne <code class="docutils literal notranslate"><span class="pre">cms-item</span></code>-Objekte enthält.</p>
+<p>Ein <code class="docutils literal notranslate"><span class="pre">cms-item</span></code>-Objekt besitzt verschiedene Attribute. Die beiden hervorgehobenen Werte (<code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">target</span></code>) geben beispielsweise an:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code>: Wo sich die Wurzel des CMS-Baums befindet.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: Wohin ein CMS veröffentlicht wird.</p></li>
+</ul>
+</section>
+<section id="abschnitt-cms-item">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">cms-item</span></code><a class="headerlink" href="#abschnitt-cms-item" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>Eine eindeutige ID für das CMS. Sie sollte nur aus Kleinbuchstaben und Zahlen bestehen (keine Umlaute).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>Ein sprechender Name für das CMS.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p>Pfad zum Wurzelverzeichnis des CMS-Baums.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scheme</span></code></p></td>
+<td><p>Muss immer auf <code class="docutils literal notranslate"><span class="pre">webgis</span></code> gesetzt werden.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">secrets-password</span></code> <em>(optional)</em></p></td>
+<td><p>Wenn in diesem CMS auf Secrets zugegriffen werden soll, erscheint ein Passwortdialog. Hier kann das Passwort festgelegt werden, das für den Zugriff erforderlich ist. Dieser Wert kann auch weggelassen oder leer gelassen werden – der Dialog erscheint dann trotzdem im CMS, muss jedoch ohne Eingabe bestätigt werden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">deployments</span></code></p></td>
+<td><p>Ein Array von Deployment-Objekten. Pro Baum können mehrere Deployments (1:n) angelegt werden. Das Ergebnis eines Deployments ist eine <code class="docutils literal notranslate"><span class="pre">cms.xml</span></code>-Datei, die ins WebGIS eingebunden werden kann.</p>
+<p><strong>Beispiel für Deployments:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;deployment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deployment 1&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;deployment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deployment 2&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Mehrere Deployments können hilfreich sein, um für Test-, Ausfall-, Schulungs- und Produktivsysteme unterschiedliche XML-Dateien zu erzeugen.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="abschnitt-deployments">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">deployments</span></code><a class="headerlink" href="#abschnitt-deployments" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>Ein sprechender Name für das Deployment (z. B. <em>localhost</em>, <em>Entwicklung</em>, <em>Schulung</em>, <em>Test</em>, <em>Produktion</em>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">target</span></code></p></td>
+<td><p>Der Pfad für die CMS-Datei. Das CMS erstellt im gleichen Ordner ein Verzeichnis <code class="docutils literal notranslate"><span class="pre">_archive</span></code>, in dem bestehende XML-Dateien vor dem Überschreiben gesichert werden. Falls diese Sicherungen nicht mehr benötigt werden, kann der Ordner manuell gelöscht werden. Hier kann auch eine URL zur API angegeben werden, z. B.: <code class="docutils literal notranslate"><span class="pre">https://localhost/api/cache/upload/{cms-name}</span></code>. <code class="docutils literal notranslate"><span class="pre">{cms-name}</span></code> entspricht dem CMS-Namen, wie er in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> definiert ist, z. B.:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;cms_my_cms&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{path-to-cms.xml}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Ergibt die URL: <code class="docutils literal notranslate"><span class="pre">https://.../cache/upload/my-cms</span></code></p>
+<p>Der Upload von CMS XML-Dateien hat den Vorteil, dass <strong>WebGIS-CMS</strong> keinen direkten Zugriff auf das Dateisystem der <strong>WebGIS API</strong>-Anwendung benötigt.</p>
+<div class="admonition danger">
+<p class="admonition-title">Gefahr</p>
+<p>In diesem Fall müssen jedoch ein <strong>Client</strong> und ein <strong>Secret</strong> definiert werden, um sicherzustellen, dass der Upload nur von einer autorisierten CMS-Instanz durchgeführt wird.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">client</span></code> und <code class="docutils literal notranslate"><span class="pre">secret</span></code> <em>(erforderlich, wenn ``target`` eine API-URL ist)</em></p></td>
+<td><p>Hier kann ein beliebiger <em>Client</em> und ein beliebiges <em>Secret</em> definiert werden. Das <em>Secret</em> sollte ein sicheres Passwort mit mindestens <strong>24 Zeichen</strong> sein. Damit die <strong>WebGIS API</strong> den Upload akzeptiert, muss in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> ein Abschnitt <code class="docutils literal notranslate"><span class="pre">&lt;section</span> <span class="pre">name='cms-upload-{cms-name}'&gt;</span></code> vorhanden sein, in dem derselbe <em>Client</em> und dasselbe <em>Secret</em> hinterlegt ist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">replacement-file</span></code> <em>(optional)</em></p></td>
+<td><p>Pfad zu einer <strong>Ersatzdatei</strong> (<em>Replacement File</em> aus einem alten CMS), die für dieses Deployment verwendet werden soll.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ignoreAuthentication</span></code> <em>(optional)</em></p></td>
+<td><p>Wenn dieser Wert auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt ist, werden Berechtigungen im CMS ignoriert. Dies kann für <strong>Schulungs- oder Testsysteme</strong> nützlich sein, in denen alle Benutzer uneingeschränkten Zugriff haben sollen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">postEvents</span></code> <em>(optional)</em></p></td>
+<td><p>Ein Array von Ereignissen, die nach erfolgreicher Erstellung ausgeführt werden sollen.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">environment</span></code> <em>(optional)</em></p></td>
+<td><p>Gibt die Umgebung für das Deployment an. Dies ist z. B. für <code class="docutils literal notranslate"><span class="pre">Secrets</span></code> relevant, da für jede Umgebung ein eigener Wert hinterlegt werden kann (z. B. unterschiedliche <em>ConnectionStrings</em> für Test- und Produktivsysteme). <strong>Mögliche Werte:</strong> <code class="docutils literal notranslate"><span class="pre">Default</span></code>, <code class="docutils literal notranslate"><span class="pre">Test</span></code>, <code class="docutils literal notranslate"><span class="pre">Staging</span></code>, <code class="docutils literal notranslate"><span class="pre">Production</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="abschnitt-postevents">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">postEvents</span></code><a class="headerlink" href="#abschnitt-postevents" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">commands</span></code> <em>(optional, Array von Strings)</em></p></td>
+<td><p>Eine Liste von Kommandozeilen-Befehlen, die nach der Erstellung des CMS ausgeführt werden. Dies kann nützlich sein, wenn die erzeugte CMS-Datei an einen anderen Speicherort kopiert werden soll.</p>
+<p><strong>Anwendungsfall:</strong>
+Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann das XML-File so automatisch auf alle Instanzen verteilt werden.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">http-get</span></code> <em>(optional)</em></p></td>
+<td><p>Eine Liste von <strong>HTTP-GET-Anfragen</strong>, die nach der Erstellung des CMS ausgeführt werden. Dies kann z. B. genutzt werden, um nach einem Deployment ein <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> einer WebGIS-Instanz auszulösen. Dadurch wird sichergestellt, dass das neue XML-File direkt in den Cache geladen wird.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Wird die <strong>CMS.xml</strong> per Upload an die <strong>WebGIS API</strong> übertragen, kann auf einen manuellen <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code>-Aufruf verzichtet werden, da dies von der WebGIS API automatisch ausgeführt wird.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="weitere-attribute">
+<h3>Weitere Attribute<a class="headerlink" href="#weitere-attribute" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">company</span></code></p></td>
+<td><p>Ein Kürzel für die Firma. Optional kann später eine <code class="docutils literal notranslate"><span class="pre">wwwroot/css/{company}/site.css</span></code> Datei angelegt werden, um CSS-Stile für das CMS zu überschreiben. Dadurch lassen sich Farben und weitere Design-Elemente anpassen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">force-https</span></code></p></td>
+<td><p>Sollte für <strong>Kundeninstallationen</strong> immer auf <code class="docutils literal notranslate"><span class="pre">false</span></code> gesetzt werden.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">service-default-url-scheme</span></code></p></td>
+<td><p>Gibt an, welches <strong>Protokoll</strong> (<code class="docutils literal notranslate"><span class="pre">http://</span></code> oder <code class="docutils literal notranslate"><span class="pre">https://</span></code>) verwendet wird,wenn Karten-Dienste eingebunden werden. In der Erstellungsmaske wird oft nur der <strong>Servername</strong> eingegeben. Dieses Attribut steuert, ob die vollständige URL zum Karten-Dienst mit
+<code class="docutils literal notranslate"><span class="pre">http://</span></code> oder <code class="docutils literal notranslate"><span class="pre">https://</span></code> generiert wird.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">webgis-portal-instance</span></code> <em>(optional)</em></p></td>
+<td><p>Falls im CMS <strong>Berechtigungen</strong> konfiguriert werden, muss das CMS im Hintergrund eine WebGIS-Portal-Instanz abfragen, um verfügbare <strong>Anmeldemöglichkeiten und Benutzer</strong> zu ermitteln.</p>
+<p>Diese Abfrage kann auch direkt im Web-CMS erfolgen, indem die Instanz manuell angegeben wird. Wird der Wert hier vordefiniert, erhöht sich der <strong>Eingabekomfort</strong>, da die Information nicht jedes Mal erneut eingegeben werden muss.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="datei-config-datalinq-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code><a class="headerlink" href="#datei-config-datalinq-config" title="Link to this heading">¶</a></h2>
+<p>Die CMS-Applikation enthält auch <strong>DataLinq.Code</strong> zum Bearbeiten von <strong>DataLinq-Endpoints</strong>, <strong>Queries</strong> und <strong>Views</strong>. Die eigentliche <strong>DataLinq-Engine</strong> läuft innerhalb einer <strong>WebGIS-API-Instanz</strong>.</p>
+<p>Welche Instanzen über die CMS-Startseite zum Editieren angezeigt werden, kann über die Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code> gesteuert werden:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;instances&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Local WebGIS API&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My local WebGIS test and development API&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://my-server/webgis-api&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">],</span>
+<span class="w">   </span><span class="nt">&quot;useAppPrefixFilters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;autoLogin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;author&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="ubersicht-der-wichtigsten-konfigurationsparameter">
+<h3>Übersicht der wichtigsten Konfigurationsparameter<a class="headerlink" href="#ubersicht-der-wichtigsten-konfigurationsparameter" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">instances</span></code></p></td>
+<td><p>Ein <strong>Array</strong>, in dem mehrere <strong>DataLinq-API-Instanzen</strong> definiert werden können. Wird eine dieser Instanzen über die <strong>CMS-Startseite</strong> aufgerufen, erscheint ein Anmeldefenster. Dort muss man sich mit einem <strong>Subscriber</strong> für die jeweilige API-Instanz anmelden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die jeweilige <strong>API-Instanz</strong> kann in der Konfiguration (<code class="docutils literal notranslate"><span class="pre">api.config</span></code>) unter <code class="docutils literal notranslate"><span class="pre">datalinq</span> <span class="pre">=&gt;</span> <span class="pre">allowed-code-api-clients</span></code> festlegen, <strong>von welchen URLs DataLinq.Code-Editing erlaubt ist</strong>. Ist die entsprechende <strong>CMS-Instanz</strong> dort nicht eingetragen, erscheint eine Fehlermeldung (<em>Invalid Client</em>).</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">useAppPrefixFilters</span></code></p></td>
+<td><p>Wird diese Option auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt, können die einzelnen <strong>Endpoints</strong> beim Start der <strong>DataLinq.Code</strong>-Anwendung gefiltert werden.</p>
+<p><strong>Namenskonvention für Endpoints:</strong></p>
+<p>Die Endpoints sind nach folgendem Schema organisiert:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">APPLICATION</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">db</span><span class="o">/</span><span class="n">lov</span><span class="o">/...</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">etc</span><span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Vor dem ersten <code class="docutils literal notranslate"><span class="pre">-</span></code> steht der <strong>Name der Applikation</strong>. Dahinter folgen optional weitere Beschreibungen zur Unterscheidung der <strong>Endpoints</strong>.</p>
+<p><strong>Typische Endpoint-Struktur:</strong></p>
+<p>Eine Applikation hat in der Regel mehrere Endpoints, darunter:</p>
+<ul class="simple">
+<li><p><strong>ein</strong> Endpoint für <strong>lesende Datenbankzugriffe</strong></p></li>
+<li><p><strong>ein</strong> Endpoint für <strong>schreibende Datenbankzugriffe</strong></p></li>
+<li><p><strong>PlainText-Endpoints</strong> für Auswahllisten</p></li>
+</ul>
+<p>Wird beim Start der Anwendung eine oder mehrere Applikationen ausgewählt, werden nur deren Endpoints im Baum dargestellt. Dies verbessert die Performance und erhöht die Übersichtlichkeit, insbesondere wenn viele Applikationen existieren. Der Filter kann jederzeit neu gesetzt werden, indem auf die Überschrift <strong>„DataLinq.Code“ über dem Baum</strong> geklickt wird.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="datei-config-settings-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code><a class="headerlink" href="#datei-config-settings-config" title="Link to this heading">¶</a></h2>
+<p>In dieser optionalen Datei können allgemeine Einstellungen für die WebGIS-CMS-Applikation hinterlegt werden. Ein Anwendungsfall ist die Konfiguration eines <strong>Logging-Files</strong> oder die Einrichtung eines <strong>Proxy-Servers</strong>.</p>
+<p>Wenn externe Dienste eingebunden werden, kann für den Zugriff ein <strong>Proxy-Server</strong> erforderlich sein. Mit den folgenden Einstellungen kann über diese Datei ein Proxy-Server definiert werden, der für sämtliche Internetzugriffe genutzt wird:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;logging_connection_string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\cms\\cms-logging.csv&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;proxy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;use&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webproxy.mydomain.com&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">            </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">        </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">&quot;domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">          </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">&quot;ignore&quot;</span><span class="p">:</span><span class="s2">&quot;localhost;my-intranet.com;.my-domain.com$;&quot;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3>Übersicht der wichtigsten Konfigurationsparameter<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging_connection_string</span></code></p></td>
+<td><p>Pfad zur <strong>Logging-Datei</strong>.
+Damit kann nachverfolgt werden, welche Benutzer Änderungen im CMS vorgenommen haben bzw. wann und von wem ein CMS zuletzt veröffentlicht wurde.</p>
+<p>Falls die Datei die Endung <code class="docutils literal notranslate"><span class="pre">.csv</span></code> hat, wird eine <strong>CSV-Datei</strong> mit <code class="docutils literal notranslate"><span class="pre">;</span></code> als Trennzeichen erstellt. Andernfalls werden die Logs als <strong>Textdatei</strong> gespeichert, wobei jede Zeile einen Eintrag darstellt.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Datei kann über <strong>DataLinq</strong> (Endpoint mit Connection Type <em>TextFile</em>) eingelesen werden, um die Logs im Browser verfügbar zu machen.</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">proxy</span></code></p></td>
+<td><p>Ermöglicht die Konfiguration eines <strong>Proxy-Servers</strong> für Internetzugriffe.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">password</span></code> und <code class="docutils literal notranslate"><span class="pre">domain</span></code> sind optional.</p></li>
+<li><p>Im Feld <code class="docutils literal notranslate"><span class="pre">ignore</span></code> können mehrere Regeln durch <code class="docutils literal notranslate"><span class="pre">;</span></code> getrennt angegeben werden. Wenn der aufgerufene Server mit einer dieser Zeichenketten beginnt, wird der Proxy ignoriert.</p></li>
+<li><p>Auch <strong>reguläre Ausdrücke</strong> können hier verwendet werden.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="datei-config-application-security-config">
+<h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code><a class="headerlink" href="#datei-config-application-security-config" title="Link to this heading">¶</a></h2>
+<p>Standardmäßig ist das Web-CMS für alle Benutzer zugänglich, die die URL kennen. Um den Zugriff mit <strong>Benutzername und Passwort</strong> einzuschränken, kann diese Datei verwendet werden.</p>
+<p>Existiert die Datei <strong>nicht</strong>, ist das CMS <strong>frei zugänglich</strong>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Gefahr</p>
+<p><strong>Sicherheitsrisiko bei Nutzung im Internet!</strong></p>
+<p>Dieser Mechanismus bietet lediglich einen <strong>einfachen Schutz</strong> über Benutzername und Passwort. Er ist <strong>nicht für den Einsatz im Internet</strong> geeignet, da er mit böswilligen Methoden umgangen werden kann.</p>
+<p>Falls das Web-CMS auf einem <strong>öffentlichen Server</strong> installiert werden muss, sollte es <strong>nicht direkt in IIS eingebunden und nicht über das Internet freigegeben</strong> werden.</p>
+<p><strong>Empfohlene Sicherheitsmaßnahmen:</strong></p>
+<ul class="simple">
+<li><p>Das CMS sollte <strong>nur im Intranet</strong> betrieben werden, da hier ein einfacher Schutz in der Regel ausreichend ist.</p></li>
+<li><p>Falls <strong>ein Fernzugriff erforderlich ist</strong>, sollte das CMS <strong>nicht</strong> als klassische Web-Anwendung in IIS laufen. Stattdessen sollte es als <strong>lokale Desktop-Anwendung</strong> auf einem <strong>Jumphost</strong> ausgeführt werden.</p></li>
+<li><p>Für eine <strong>sichere Authentifizierung</strong> sollten <strong>Windows-Authentifizierung</strong> oder <strong>OpenID Connect</strong> genutzt werden. Diese Methoden werden weiter unten beschrieben.</p></li>
+</ul>
+</div>
+<section id="gesicherter-benutzerzugang">
+<h3>Gesicherter Benutzerzugang<a class="headerlink" href="#gesicherter-benutzerzugang" title="Link to this heading">¶</a></h3>
+<section id="passwortgeschutzten-zugriff-auf-das-cms-einrichten">
+<h4>Passwortgeschützten Zugriff auf das CMS einrichten<a class="headerlink" href="#passwortgeschutzten-zugriff-auf-das-cms-einrichten" title="Link to this heading">¶</a></h4>
+<p>Um den Zugriff auf das CMS mit einem <strong>Benutzername-Passwort-Schutz</strong> zu versehen,
+gehen Sie folgendermaßen vor:</p>
+<ol class="arabic">
+<li><p>Das CMS im Browser mit der URL <code class="docutils literal notranslate"><span class="pre">/admin/CreateLogin</span></code> aufrufen.</p>
+<img alt="../../_images/config-security1.png" src="../../_images/config-security1.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Diese URL kann nur aufgerufen werden, wenn noch <strong>keine</strong> <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> Datei existiert. Falls die Datei bereits vorhanden ist, muss eine Anmeldung erfolgen, um auf diese Seite zuzugreifen.</p>
+</div>
+</li>
+<li><p>Benutzername und Passwort in das Formular eingeben und auf <code class="docutils literal notranslate"><span class="pre">Create</span></code> klicken.</p></li>
+</ol>
+<img alt="../../_images/config-security2.png" src="../../_images/config-security2.png" />
+<ol class="arabic" start="3">
+<li><p>Das generierte Code-Snippet kopieren und in die Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code> einfügen:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcwXYZ55...&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das Feld <code class="docutils literal notranslate"><span class="pre">users</span></code> ist ein <strong>Array</strong>. Es können mehrere Benutzer angelegt
+und durch Kommas getrennt hinzugefügt werden:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcwXYZ55...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin2&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dA8NR...&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</li>
+</ol>
+<p>Beim nächsten Aufruf des Web-CMS ist eine Anmeldung mit Benutzername und Passwort erforderlich.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Falls der Zugriff weiterhin ungeschützt ist, muss möglicherweise der <strong>Application Pool</strong> im IIS neu gestartet werden.</p>
+</div>
+<p>Neben der klassischen Anmeldung über ein Login-Formular kann das CMS auch über <strong>Windows-Authentifizierung</strong> oder <strong>OpenID Connect</strong> abgesichert werden.</p>
+</section>
+<section id="windows-authentifizierung">
+<h4>Windows-Authentifizierung<a class="headerlink" href="#windows-authentifizierung" title="Link to this heading">¶</a></h4>
+<p>Für eine <strong>Windows-basierte Anmeldung</strong> kann die <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> folgendermaßen konfiguriert werden:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;domain\\user1&quot;</span>
+<span class="w">     </span><span class="p">},</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;domain\\user2&quot;</span>
+<span class="w">     </span><span class="p">},</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;domain\\admin123&quot;</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">   </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Diese Konfiguration erlaubt es drei <strong>Windows-Domänenbenutzern</strong>, auf das CMS zuzugreifen.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Damit diese Methode funktioniert, muss die Web-Applikation im <strong>IIS</strong> so konfiguriert werden, dass <strong>Windows-Authentifizierung aktiviert</strong> und <strong>anonyme Anmeldung deaktiviert</strong> ist.</p>
+</div>
+</section>
+<section id="anmeldung-uber-openid-connect">
+<h4>Anmeldung über OpenID Connect<a class="headerlink" href="#anmeldung-uber-openid-connect" title="Link to this heading">¶</a></h4>
+<p>Möchte man eine <strong>OpenID-Connect-konforme Authentifizierung</strong> nutzen, kann die <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> folgendermaßen aussehen:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oidc&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;oidc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://server.com/identity&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cms-local-oidc&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret123&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;requiredRole&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gis-admin-webgis-cms&quot;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Mit dieser Konfiguration dürfen <strong>nur Benutzer mit der Rolle</strong> <code class="docutils literal notranslate"><span class="pre">gis-admin-webgis-cms</span></code> auf das CMS zugreifen.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Damit diese Methode funktioniert, müssen folgende Voraussetzungen erfüllt sein:</p>
+<ul class="simple">
+<li><p>Die <strong>Client-ID</strong> und das <strong>Client-Secret</strong> müssen am <strong>OpenID-Server</strong> registriert sein.</p></li>
+<li><p>Als <strong>Scopes</strong> müssen mindestens <code class="docutils literal notranslate"><span class="pre">openid</span></code>, <code class="docutils literal notranslate"><span class="pre">profile</span></code> und <code class="docutils literal notranslate"><span class="pre">role</span></code> aktiviert werden.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Konfiguration der CMS Applikation</a><ul>
+<li><a class="reference internal" href="#datei-config-cms-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code></a><ul>
+<li><a class="reference internal" href="#abschnitt-root-element">Abschnitt <code class="docutils literal notranslate"><span class="pre">Root-Element</span></code></a></li>
+<li><a class="reference internal" href="#abschnitt-cms-item">Abschnitt <code class="docutils literal notranslate"><span class="pre">cms-item</span></code></a></li>
+<li><a class="reference internal" href="#abschnitt-deployments">Abschnitt <code class="docutils literal notranslate"><span class="pre">deployments</span></code></a></li>
+<li><a class="reference internal" href="#abschnitt-postevents">Abschnitt <code class="docutils literal notranslate"><span class="pre">postEvents</span></code></a></li>
+<li><a class="reference internal" href="#weitere-attribute">Weitere Attribute</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#datei-config-datalinq-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code></a><ul>
+<li><a class="reference internal" href="#ubersicht-der-wichtigsten-konfigurationsparameter">Übersicht der wichtigsten Konfigurationsparameter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#datei-config-settings-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code></a><ul>
+<li><a class="reference internal" href="#id1">Übersicht der wichtigsten Konfigurationsparameter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#datei-config-application-security-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code></a><ul>
+<li><a class="reference internal" href="#gesicherter-benutzerzugang">Gesicherter Benutzerzugang</a><ul>
+<li><a class="reference internal" href="#passwortgeschutzten-zugriff-auf-das-cms-einrichten">Passwortgeschützten Zugriff auf das CMS einrichten</a></li>
+<li><a class="reference internal" href="#windows-authentifizierung">Windows-Authentifizierung</a></li>
+<li><a class="reference internal" href="#anmeldung-uber-openid-connect">Anmeldung über OpenID Connect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../index.html">
+                    <span class="icon">&lt;</span><span>Konfiguration (Postinstallation)</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../api/index.html"><span>Konfiguration der API-Applikation</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
