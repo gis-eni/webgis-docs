@@ -18,12 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = "WebGIS"
-copyright = "2025, ENIE"
+copyright = "2026, ENIE"
 author = "ENIE"
 
 # The full version, including alpha/beta/rc tags
-release = "2025"
-
+release = "2026"
 
 # -- General configuration ---------------------------------------------------
 

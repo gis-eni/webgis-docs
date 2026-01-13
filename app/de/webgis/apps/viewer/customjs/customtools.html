@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Benutzerdefinierte Werkzeuge &#8212; WebGIS 2025 Dokumentation</title>
+    <title>Benutzerdefinierte Werkzeuge &#8212; WebGIS 2026 Dokumentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
-    <script src="../../../_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="../../../_static/documentation_options.js?v=81100d21"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/translations.js?v=70a09b52"></script>
@@ -33,7 +33,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2025 Dokumentation</a></h1>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2026 Dokumentation</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -284,6 +284,23 @@
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
 <td><p>Beschreibung des Werkzeugs. Wird angezeigt, falls eine Benutzerinteraktion erforderlich ist.</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">modify_event</span></code> (optional ab Build 8.26.302)</p></td>
+<td><p>hier kann optional eine Funktion angegeben werden, die vor dem Aufruf des <code class="docutils literal notranslate"><span class="pre">command</span></code>
+ausgeführt wird. Diese Funktion erhält als Parameter das <code class="docutils literal notranslate"><span class="pre">map</span></code> und das <code class="docutils literal notranslate"><span class="pre">event</span></code>-Objekt
+und kann diese verändern (z. B. World Koordinaten verändern). Beispiel:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">modify_event</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// set the world coordinates to a different value (lng/lat multiplied by 100)</span>
+<span class="w">    </span><span class="c1">// this coordinate will be used in the command URL placeholders {X} and {Y}</span>
+<span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">lng</span><span class="o">*</span><span class="mf">100</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">lat</span><span class="o">*</span><span class="mf">100</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;modified Event&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Die Methode kann beispielsweise dazu verwendet werden, um die Koordinaten in ein anderes Koordinatensystem
+umzurechnen, bevor sie an die Ziel-URL übergeben werden.</p>
+</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -485,7 +502,7 @@ Ein Werkzeug für Höhenprofile, bei dem der Benutzer vor der Ausführung Parame
 
 
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2025, ENIE.
+    &#169; Copyright 2026, ENIE.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 

@@ -120,6 +120,24 @@ Der Übergabeparameter ist ein Objekt, das das Werkzeug beschreibt und mindesten
      - Text, der als Tooltip erscheint, wenn man mit der Maus über den Button fährt.
    * - ``description``
      - Beschreibung des Werkzeugs. Wird angezeigt, falls eine Benutzerinteraktion erforderlich ist.
+   * - ``modify_event`` (optional ab Build 8.26.302)
+     - hier kann optional eine Funktion angegeben werden, die vor dem Aufruf des ``command`` 
+       ausgeführt wird. Diese Funktion erhält als Parameter das ``map`` und das ``event``-Objekt 
+       und kann diese verändern (z. B. World Koordinaten verändern). Beispiel:
+
+       .. code-block:: javascript
+
+          modify_event: function(map, e) {
+              // set the world coordinates to a different value (lng/lat multiplied by 100)
+              // this coordinate will be used in the command URL placeholders {X} and {Y}
+              e.world.X = e.world.lng*100;
+              e.world.Y = e.world.lat*100;
+              console.log('modified Event', e);
+          }
+
+       Die Methode kann beispielsweise dazu verwendet werden, um die Koordinaten in ein anderes Koordinatensystem 
+       umzurechnen, bevor sie an die Ziel-URL übergeben werden.
+
 
 Platzhalter für ``command``
 ===========================
