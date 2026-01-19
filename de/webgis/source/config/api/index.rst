@@ -553,7 +553,8 @@ In der Konfiguration kann festgelegt werden, ob **CMS.xml**-Dateien von einer **
   
 .. code-block:: xml
 
-  <add key="cms_my_cms" value="{path-to-cms.xml}" />
+  <!-- hier ist {cms-name} gleich my-cms -->
+  <add key="cmspath_my-cms" value="{path-to-cms.xml}" />
 
 .. list-table::
    :widths: 30 70

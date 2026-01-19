@@ -307,10 +307,10 @@
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">target</span></code></p></td>
 <td><p>Der Pfad für die CMS-Datei. Das CMS erstellt im gleichen Ordner ein Verzeichnis <code class="docutils literal notranslate"><span class="pre">_archive</span></code>, in dem bestehende XML-Dateien vor dem Überschreiben gesichert werden. Falls diese Sicherungen nicht mehr benötigt werden, kann der Ordner manuell gelöscht werden. Hier kann auch eine URL zur API angegeben werden, z. B.: <code class="docutils literal notranslate"><span class="pre">https://localhost/api/cache/upload/{cms-name}</span></code>. <code class="docutils literal notranslate"><span class="pre">{cms-name}</span></code> entspricht dem CMS-Namen, wie er in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> definiert ist, z. B.:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;cms_my_cms&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{path-to-cms.xml}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;cmspath_my-cms&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{path-to-cms.xml}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>Ergibt die URL: <code class="docutils literal notranslate"><span class="pre">https://.../cache/upload/my-cms</span></code></p>
+<p>Ergibt die URL: <code class="docutils literal notranslate"><span class="pre">https://{webgis-api-url}/cache/upload/my-cms</span></code></p>
 <p>Der Upload von CMS XML-Dateien hat den Vorteil, dass <strong>WebGIS-CMS</strong> keinen direkten Zugriff auf das Dateisystem der <strong>WebGIS API</strong>-Anwendung benötigt.</p>
 <div class="admonition danger">
 <p class="admonition-title">Gefahr</p>

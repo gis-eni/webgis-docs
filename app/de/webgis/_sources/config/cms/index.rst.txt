@@ -144,9 +144,9 @@ Abschnitt ``deployments``
       
        .. code-block:: xml
 
-           <add key="cms_my_cms" value="{path-to-cms.xml}" />
+           <add key="cmspath_my-cms" value="{path-to-cms.xml}" />
 
-       Ergibt die URL: ``https://.../cache/upload/my-cms``
+       Ergibt die URL: ``https://{webgis-api-url}/cache/upload/my-cms``
 
        Der Upload von CMS XML-Dateien hat den Vorteil, dass **WebGIS-CMS** keinen direkten Zugriff auf das Dateisystem der **WebGIS API**-Anwendung benötigt.
 

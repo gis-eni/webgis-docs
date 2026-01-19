@@ -166,15 +166,17 @@ Hier werden die Eigenschaften (Authority, ClientId, etc) für die <strong>OpenID
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oidc&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;oidc&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// example for Keycloak</span>
-<span class="w">    </span><span class="nt">&quot;authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8080/realms/webgisrealm&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="s2">&quot;webgis-portal&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8080/realms/webgisrealm&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="s2">&quot;webgis-portal&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="w"> </span><span class="p">],</span>
 
-<span class="w">    </span><span class="c1">// claims</span>
-<span class="w">    </span><span class="nt">&quot;claimsFromUserInfoEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;nameClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;preferred_username&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;roleClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;role&quot;</span>
+<span class="w">      </span><span class="c1">// claims</span>
+<span class="w">      </span><span class="nt">&quot;claimsFromUserInfoEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;nameClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;preferred_username&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">// optional (roles)</span>
+<span class="w">      </span><span class="nt">&quot;roleClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
+<span class="w">      </span><span class="nt">&quot;roleClaimValueSeparator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -191,7 +193,12 @@ ist allerdings zu modifizieren:</p>
 <span class="w">      </span><span class="nt">&quot;Domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-domain}.onmicrosoft.com&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;TenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-tenant-id}&quot;</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;ClientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-client-id}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;extended-roles-from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen aus lokalem AD kommen sollten!!</span>
+
+<span class="w">      </span><span class="c1">// optional (roles)</span>
+<span class="w">      </span><span class="nt">&quot;extended-roles-from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen aus lokalem AD kommen sollten</span>
+<span class="w">      </span><span class="c1">// or</span>
+<span class="w">      </span><span class="nt">&quot;roleClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
+<span class="w">      </span><span class="nt">&quot;roleClaimValueSeparator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -199,6 +206,11 @@ ist allerdings zu modifizieren:</p>
 <p>Der Parameter <code class="docutils literal notranslate"><span class="pre">etendet-roles-from</span> <span class="pre">=</span> <span class="pre">windows</span></code> ist optional. Hier wird nur der Username aus
 der Azure Anmeldung übernommen, die Gruppen für diesen User werden hier allerdings aus dem
 Windows AD (LDAP) ausgelesen.</p>
+<p>Wenn die Rollen/Gruppen direkt im Azure Token vorhanden sind, können diese mit den Parametern
+<code class="docutils literal notranslate"><span class="pre">roleClaimType</span></code> und <code class="docutils literal notranslate"><span class="pre">roleClaimValueSeparator</span></code> ausgelesen werden.
+Es können dabei mehrere Claims mit dem <code class="docutils literal notranslate"><span class="pre">roleClaimType</span></code> im Token vorhanden sein, oder
+mehrere Rollen in einzelnen Claim, die durch ein Trennzeichen
+(z.B. Komma <code class="docutils literal notranslate"><span class="pre">roleClaimValueSeparator</span></code>) getrennt sind.</p>
 </section>
 <section id="anmeldekachel-openid-connect">
 <h2>Anmeldekachel OpenId Connect<a class="headerlink" href="#anmeldekachel-openid-connect" title="Link to this heading">¶</a></h2>
