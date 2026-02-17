@@ -233,6 +233,59 @@ Das Logging kann in Dateien erfolgen (``logging-type = files``).
        .. important::
           **Wichtig:** Die Requests werden nur geloggt, wenn zusätzlich ``trace=true`` gesetzt ist.
 
+Abschnitt ``Query Results``
+---------------------------
+
+(ab Version 8.26.801)
+
+In dieser Sektion kann eingestellt werden, wie die Ergebnisse von 
+**Identify- oder Suchanfragen** in der Karte angezeigt werden.
+
+.. code:: xml
+
+  <section name="query-results">
+    <add key="selection-color" value="#0ff" />  <!-- optional, default: Cyan -->
+    <add key="selection-fill-color" value="#10ff" /> <!-- option, if differs from color -->
+		
+    <add key="highlight-color" value="#0f0" />	<!-- optional, default: Yello -->
+    <add key="highlight-fill-color" value="#cf00" /> <!-- option, if differs from color -->
+
+    <add key="buffer-color" value="#f00" /> <!-- optional, default: Gray -->
+    <add key="buffer-fill-color" value="#300f" /> 	<!-- option, if differs from color -->
+  </section>
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``selection-color``
+     - Legt die Farbe für die Auswahl von Features fest.
+   * - ``selection-fill-color``
+     - Legt die Füllfarbe für die Auswahl von Features fest.
+   * - ``highlight-color``
+     - Legt die Farbe für die Hervorhebung von Features fest.
+   * - ``highlight-fill-color``
+     - Legt die Füllfarbe für die Hervorhebung von Features fest.
+   * - ``buffer-color``
+     - Legt die Farbe für Pufferzonen fest.
+   * - ``buffer-fill-color``
+     - Legt die Füllfarbe für Pufferzonen fest.
+
+Die ``fill-color`` ist jeweils optional muss nur angegeben werden, wenn sie nicht ident mit 
+der entsprechenden ``color`` ist. Per Default wird die Füllfarbe automatisch aus der entsprechenden
+Farbe abgeleitet, indem die Transparenz erhöht wird (z. B. aus Cyan wird ein transparentes Cyan).
+Möchte man eine andere Farbe für die Füllung, bzw die Transparenz selber definieren,
+kann dies über die ``fill-color`` erfolgen.
+
+Als Werte können **Hex-Farbcodes** angegeben werden, z. B. ``#0ff``, ``#00ffff`` für Cyan
+oder ``#f00``, ``#ff0000`` für Rot.
+Gibt man vier oder acht Zeichen an, kann zusätzlich die Transparenz definiert werden, 
+z. B. ``#300f`` für ein transparentes Rot (20% Deckkraft) oder ``#300000ff`` für ein 
+transparentes Blau (20% Deckkraft). Der erste Teil des Hex-Codes definiert die Transparenz 
+(00 = vollständig transparent, ff = vollständig deckend), während der zweite Teil die Farbe definiert.
+
 Werkzeug Konfiguration
 ----------------------
 
