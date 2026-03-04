@@ -243,7 +243,7 @@ Folgende vordefinierte Variablen stehen zur Verfügung:
      - Datum mit benutzerdefinierter Formatierung (z. B.: ``dd.MM.yyyy``, ``dd.MMMM yyyy``, ``yyyy``)
    * - ``[MAP_SRS_NAME]``
      - Name des Koordinatensystems der Karte
-   * - ``[MAP_EPSG]``
+   * - ``[EPSG]``
      - EPSG-Code des Koordinatensystems der Karte
    * - ``[COORD_LEFT_0]``
      - Linke Koordinate mit 0 Dezimalstellen
@@ -275,6 +275,10 @@ Folgende vordefinierte Variablen stehen zur Verfügung:
      - Mittelpunkt-Koordinate mit 1 Dezimalstelle
    * - ``[COORD_CENTER_2]``
      - Mittelpunkt-Koordinate mit 2 Dezimalstellen
+   * - ``[PAGE_SIZE]``
+     - Seitengröße des Ausdrucks (z. B.: ``A4``)
+   * - ``[PAGE_NAME]``
+     - Name/Nummer der Seite, wenn Kartenserie (Seriendruck) erstellt wird (z. B.: ``001``, ``002`` usw.)   
 
 Im folgenden XML-Beispiel werden mehrere dieser vordefinierten Variablen in das zweitunterste Panel auf der rechten Seite eingefügt:
 
