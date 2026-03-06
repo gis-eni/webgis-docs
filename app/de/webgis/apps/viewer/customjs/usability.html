@@ -276,7 +276,7 @@ verschoben werden sollten, zB:</p>
 sichtbar sein, muss der Container als Array angegeben werden.
 Das Werkzeug <em>Box-Zoom</em> erhält eine höhere Priorität und landet damit im Reiter (Container)
 weiter vorne (Mit <code class="docutils literal notranslate"><span class="pre">priority</span></code> kann die Reihenfolge der Werkzeuge innerhalb eines Containers beeinflusst werden).</p>
-<p>Des weiteren kann die Reihenfolger der Container bestimmt werden:</p>
+<p>Des weiteren kann die Reihenfolge der Container bestimmt werden:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolContainerOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="s1">&#39;Start&#39;</span><span class="p">,</span>
 <span class="w">    </span><span class="s1">&#39;Abfragen&#39;</span><span class="p">,</span>
@@ -297,6 +297,38 @@ definiert werden, da sonst die Reihenfolge der Container eher zufällig vergeben
 <p class="admonition-title">Bemerkung</p>
 <p>Es müssen bei der Reihenfolge nicht alle Container angegeben werden. Gibt es einen Container,
 der nicht in der Liste ist, wird dieser immer am Ende angezeigt.</p>
+</div>
+<p>Solle ein Werkzeug nicht in der UI angezeigt werden, obwohl es beispielsweise im MapBuilder
+eingefügt wurde, kann dies daran liegen, dass es in der <code class="docutils literal notranslate"><span class="pre">toolProperties</span></code> Konfiguration nicht definiert ist. In diesem Fall muss es mit einem leeren Objekt definiert werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;{tool-id}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="c1">// optional, default: &#39;visible&#39;, other possible value: &#39;hidden&#39;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das macht Sinn, wenn ein Werkzeug nur für angemeldete Benutzer sichtbar sein soll.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">hmac</span><span class="p">.</span><span class="nx">userName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.loadmap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.savemap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Hier sollte auch gleichzeit der Anonyme Zugriff auf die entsprechenden REST Endpunkte
+deaktiviert werden, damit die Werkzeuge nicht über die URL aufgerufen werden können. Dazu ist in der
+entsprechenden Tool-Section in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> eine Eintrag <code class="docutils literal notranslate"><span class="pre">allow-anonymous-access</span></code>
+mit dem Wert <code class="docutils literal notranslate"><span class="pre">false</span></code> notwendig, z.B.:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="cm">&lt;!-- other settings --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-loadmap&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="cm">&lt;!-- other settings --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
 </div>
 </section>
 <section id="tastatur-shortcuts">

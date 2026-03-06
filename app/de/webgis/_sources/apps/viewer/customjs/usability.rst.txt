@@ -154,7 +154,7 @@ sichtbar sein, muss der Container als Array angegeben werden.
 Das Werkzeug *Box-Zoom* erhält eine höhere Priorität und landet damit im Reiter (Container) 
 weiter vorne (Mit ``priority`` kann die Reihenfolge der Werkzeuge innerhalb eines Containers beeinflusst werden).   
 
-Des weiteren kann die Reihenfolger der Container bestimmt werden:
+Des weiteren kann die Reihenfolge der Container bestimmt werden:
 
 .. code:: javascript
 
@@ -178,6 +178,44 @@ Werkzeuge in die Karte eingefügt wurden.
 
     Es müssen bei der Reihenfolge nicht alle Container angegeben werden. Gibt es einen Container,
     der nicht in der Liste ist, wird dieser immer am Ende angezeigt.
+
+Solle ein Werkzeug nicht in der UI angezeigt werden, obwohl es beispielsweise im MapBuilder
+eingefügt wurde, kann dies daran liegen, dass es in der ``toolProperties`` Konfiguration nicht definiert ist. In diesem Fall muss es mit einem leeren Objekt definiert werden:
+
+.. code:: javascript
+
+    webgis.usability.toolProperties['{tool-id}'] = { 
+        visibility: 'hidden' // optional, default: 'visible', other possible value: 'hidden'
+    };
+
+.. note::
+  
+   Das macht Sinn, wenn ein Werkzeug nur für angemeldete Benutzer sichtbar sein soll. 
+   
+   .. code:: javascript
+
+       if(!webgis.hmac.userName()) {
+          webgis.usability.toolProperties['webgis.tools.serialization.loadmap'] = { visibility: 'hidden' };
+          webgis.usability.toolProperties['webgis.tools.serialization.savemap'] = { visibility: 'hidden' };
+       }
+
+   Hier sollte auch gleichzeit der Anonyme Zugriff auf die entsprechenden REST Endpunkte 
+   deaktiviert werden, damit die Werkzeuge nicht über die URL aufgerufen werden können. Dazu ist in der 
+   entsprechenden Tool-Section in der ``api.config`` eine Eintrag ``allow-anonymous-access`` 
+   mit dem Wert ``false`` notwendig, z.B.:
+
+   .. code:: xml
+
+       	<section name="tool-savemap">
+           <add key="allow-anoymous-access" value="false" />
+           <!-- other settings -->
+        </section>
+	
+        <section name="tool-loadmap">
+           <add key="allow-anoymous-access" value="false" />
+           <!-- other settings -->
+        </section>
+
 
 Tastatur-Shortcuts
 ==================

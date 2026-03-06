@@ -514,6 +514,36 @@ transparentes Blau (20% Deckkraft). Der erste Teil des Hex-Codes definiert die T
 <h3>Werkzeug Konfiguration<a class="headerlink" href="#werkzeug-konfiguration" title="Link to this heading">¶</a></h3>
 <p>Einige Werkzeuge, die im <strong>WebGIS Viewer</strong> angeboten werden, benötigen eigene Konfigurationseinträge. Diese befinden sich in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code>. Damit die <code class="docutils literal notranslate"><span class="pre">api.config</span></code> übersichtlich bleibt, werden die Einträge über <em>Sections</em> gruppiert.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;section&gt;</span></code>-Tags müssen sich innerhalb des <code class="docutils literal notranslate"><span class="pre">&lt;appSettings&gt;</span></code>-Tags befinden.</p>
+<p>In allen Sections für Werkzeuge können folgende Attribute definiert werden:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-...&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: true --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">allow-anonymous-access</span></code> (ab 8.26.1001): Gibt an, ob das Werkzeug auch von <strong>anonymen Benutzern</strong> genutzt werden darf.
+Standardmäßig ist dies erlaubt (<code class="docutils literal notranslate"><span class="pre">true</span></code>), aber für bestimmte Werkzeuge,
+die sensible Funktionen bieten, sollte dies auf <code class="docutils literal notranslate"><span class="pre">false</span></code> gesetzt werden,
+damit nur angemeldete Benutzer Zugriff haben.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das Werkzeug ist immer im Viewer sichtbar, wenn es über den <strong>MapBuilder</strong> eingebunden wurde.
+Klickt ein anonymer Benutzer darauf, erhält er eine Fehlermeldung
+(z.B. <em>Anonymous access is not allowed for this tool</em>).</p>
+<p>Um ein Werkzeug bei anonymen Benutzern aus dem Viewer auszublenden, muss das zusätzlich
+in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> eingestellt werden, z. B. für das <strong>Laden/Speichern</strong>-Werkzeug:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">hmac</span><span class="p">.</span><span class="nx">userName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.loadmap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.savemap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In diesem Fall wird das Werkzeug für anonyme Benutzer komplett ausgeblendet, während es für angemeldete Benutzer sichtbar bleibt.</p>
+</div>
+</div></blockquote>
+</li>
+</ul>
 <p>Hier die Werkzeuge, für die eine eigene Konfiguration notwendig ist:</p>
 <section id="werkzeug-mapmarkup">
 <h4>Werkzeug <code class="docutils literal notranslate"><span class="pre">MapMarkup</span></code><a class="headerlink" href="#werkzeug-mapmarkup" title="Link to this heading">¶</a></h4>

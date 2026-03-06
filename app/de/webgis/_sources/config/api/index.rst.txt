@@ -293,6 +293,37 @@ Einige Werkzeuge, die im **WebGIS Viewer** angeboten werden, benötigen eigene K
 
 ``<section>``-Tags müssen sich innerhalb des ``<appSettings>``-Tags befinden.
 
+In allen Sections für Werkzeuge können folgende Attribute definiert werden:
+
+.. code:: xml
+
+    <section name="tool-...">
+      <add key="allow-anoymous-access" value="false" />  <!-- optional, default: true -->
+    </section>
+
+* ``allow-anonymous-access`` (ab 8.26.1001): Gibt an, ob das Werkzeug auch von **anonymen Benutzern** genutzt werden darf.
+  Standardmäßig ist dies erlaubt (``true``), aber für bestimmte Werkzeuge, 
+  die sensible Funktionen bieten, sollte dies auf ``false`` gesetzt werden, 
+  damit nur angemeldete Benutzer Zugriff haben. 
+
+    .. note:: 
+
+      Das Werkzeug ist immer im Viewer sichtbar, wenn es über den **MapBuilder** eingebunden wurde.
+      Klickt ein anonymer Benutzer darauf, erhält er eine Fehlermeldung 
+      (z.B. *Anonymous access is not allowed for this tool*).
+
+      Um ein Werkzeug bei anonymen Benutzern aus dem Viewer auszublenden, muss das zusätzlich 
+      in der ``custom.js`` eingestellt werden, z. B. für das **Laden/Speichern**-Werkzeug: 
+
+      .. code:: javascript
+
+        if(!webgis.hmac.userName()) {
+          webgis.usability.toolProperties['webgis.tools.serialization.loadmap'] = { visibility: 'hidden' };
+          webgis.usability.toolProperties['webgis.tools.serialization.savemap'] = { visibility: 'hidden' };
+        }
+
+      In diesem Fall wird das Werkzeug für anonyme Benutzer komplett ausgeblendet, während es für angemeldete Benutzer sichtbar bleibt.
+
 Hier die Werkzeuge, für die eine eigene Konfiguration notwendig ist:
 
 Werkzeug ``MapMarkup``
