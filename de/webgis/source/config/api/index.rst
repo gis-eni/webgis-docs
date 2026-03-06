@@ -339,6 +339,7 @@ Die Konfiguration für das **MapMarkup-Werkzeug** sieht folgendermaßen aus:
       <add key="allow-add-from-selection-max-vertices" value="10000" />
       <add key="allow-download-from-selection" value="true" />
       <add key="default-download-epsg" value="4326" />
+      <add key="save-name-maxlength" value="20" /> <!-- default: 40 -->
     </section>
 
 .. important::
