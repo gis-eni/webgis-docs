@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Konfiguration (Postinstallation) &#8212; WebGIS 2026 Dokumentation</title>
+    <title>Datei appsettings.json &#8212; WebGIS 2026 Dokumentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=d882a67f" />
@@ -18,8 +18,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Datei appsettings.json" href="appsettings-json.html" />
-    <link rel="prev" title="Im Internet Information Server (IIS) ausführen" href="../run/run-iis.html" /> 
+    <link rel="next" title="Konfiguration der CMS Applikation" href="cms/index.html" />
+    <link rel="prev" title="Konfiguration (Postinstallation)" href="index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -125,8 +125,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../run/index.html">WebGIS Anwendungen Ausführen</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Konfiguration (Postinstallation)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appsettings-json.html">Datei <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Konfiguration (Postinstallation)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Datei <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="cms/index.html">Konfiguration der CMS Applikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/index.html">Konfiguration der API-Applikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="portal/index.html">Konfiguration der Portal Applikation</a></li>
@@ -148,52 +148,62 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="konfiguration-postinstallation">
-<h1>Konfiguration (Postinstallation)<a class="headerlink" href="#konfiguration-postinstallation" title="Link to this heading">¶</a></h1>
-<p>Über Konfiguration können die Webgis Applikationen zusätzlich den eigenen Bedürfnissen angepasst werden.</p>
-<p>Die Konfiguration der Web Applikationen erfolgt in <code class="docutils literal notranslate"><span class="pre">*.config</span></code> Dateien, die bei der jeweiligen Applikation im Ordner <code class="docutils literal notranslate"><span class="pre">_config</span></code> liegen.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="appsettings-json.html">Datei <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="cms/index.html">Konfiguration der CMS Applikation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cms/index.html#datei-config-cms-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cms/index.html#datei-config-datalinq-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cms/index.html#datei-config-settings-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="cms/index.html#datei-config-application-security-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">Konfiguration der API-Applikation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/index.html#datei-config-api-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="portal/index.html">Konfiguration der Portal Applikation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#datei-config-portal-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-allgemein">Abschnitt <code class="docutils literal notranslate"><span class="pre">Allgemein</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-security">Abschnitt <code class="docutils literal notranslate"><span class="pre">Security</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-auswahllisten">Abschnitt <code class="docutils literal notranslate"><span class="pre">Auswahllisten</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-cache-datenbank">Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Datenbank</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-cache-aside-optional">Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code> (optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-subscriber-datenbank">Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-urls">Abschnitt <code class="docutils literal notranslate"><span class="pre">Urls</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-advanced-security">Abschnitt <code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">Security</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html#abschnitt-logging">Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="authentication/index.html">Authentifizierung</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authentication/windows-auth.html">Windows-Authentifizierung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authentication/openid.html">OpenID Connect Authentifizierung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authentication/header-auth.html">Headerbasierte Authentifizierung</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hardening/index.html">Sicherheitsmaßnahmen (Hardening)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hardening/index.html#standardpassworter-andern">Standardpasswörter ändern</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardening/index.html#selbstregistrierung-fur-subscriber-deaktivieren">Selbstregistrierung für Subscriber deaktivieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardening/index.html#anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren">Anmeldemöglichkeiten in öffentlich zugänglichen Instanzen deaktivieren</a></li>
-</ul>
-</li>
-</ul>
+  <section id="datei-appsettings-json">
+<h1>Datei <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code><a class="headerlink" href="#datei-appsettings-json" title="Link to this heading">¶</a></h1>
+<p>Die Datei <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code> enthält die Konfigurationseinstellungen für die Web-Anwendung.
+Sie befindet sich im Hauptverzeichnis der Anwendung und wird beim Starten der Anwendung geladen.
+Die Einstellungen in dieser Datei beziehen sich weniger auf die WebGIS Spezifischen Funktionen,
+sondern eher auf allgemeine Anwendungsparameter, wie z.B. Logging aus ASP.NET Core Ebene,
+Localization/Culture, etc.</p>
+<p>Die Datei ist im JSON-Format strukturiert und enthält verschiedene Abschnitte,
+die unterschiedliche Konfigurationsparameter definieren.
+Hier sind einige der wichtigsten Abschnitte und ihre Funktionen:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LogLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span><span class="p">,</span><span class="w">  </span><span class="cm">/* default: Warning */</span>
+<span class="w">      </span><span class="nt">&quot;Microsoft&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Warning&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Microsoft.Hosting.Lifetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Localization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;DefaultCulture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
+<ul>
+<li><p><strong>Logging</strong>: Dieser Abschnitt definiert die Einstellungen für das Logging der Anwendung aus ASP.NET Core Ebene,
+einschließlich der Log-Level und der Log-Ausgabeziele.</p></li>
+<li><p><strong>Localization</strong>: Hier werden die Einstellungen für die Lokalisierung der Anwendung festgelegt,
+einschließlich der Standardkultur, die für die Anwendung verwendet wird.</p>
+<p>Normalerweise wird die Applikation im der Culture des Betriebssystems gestartet,
+aber hier kann eine explizite Culture definiert werden, die dann für die gesamte Anwendung gilt.
+Damit kann beispielsweise bestimmt werden, wie Datums- und Zeitangaben formatiert werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Alle WebGIS Web-Anwendungen haben einen Endpoint <code class="docutils literal notranslate"><span class="pre">/instance/_culture</span></code>, über den die aktuelle Culture
+der Anwendung abgefragt werden kann.
+Dieser Endpoint gibt die aktuelle Culture zurück, die von der Anwendung verwendet wird,
+und kann nützlich sein, um sicherzustellen, dass die Anwendung die erwartete Culture verwendet:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/instance/_culture</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;culture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cultureDisplayName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deutsch (Österreich)&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cultureEnglishName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;German (Austria)&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cultureUI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;currentTimeString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.03.2026 07:42:40&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In diesem Beispiel zeigt die Antwort, dass die aktuelle Culture der Anwendung
+„de-AT“ (Deutsch - Österreich) ist,
+und gibt auch die aktuelle Zeit im entsprechenden Format zurück.</p>
+</div>
+</li>
+</ul>
 </section>
 
 
@@ -209,14 +219,14 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../run/run-iis.html">
-                    <span class="icon">&lt;</span><span>Im Internet Information Server (IIS) ausführen</span></a>
+                <a href="index.html">
+                    <span class="icon">&lt;</span><span>Konfiguration (Postinstallation)</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="appsettings-json.html"><span>Datei <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></span><span class="icon">&gt;</span></a>
+                    <a href="cms/index.html"><span>Konfiguration der CMS Applikation</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

@@ -205,12 +205,29 @@ Die Konfiguration kann mit dem folgenden Befehl gestartet werden:</p>
 </section>
 <section id="konfiguration">
 <h2>Konfiguration<a class="headerlink" href="#konfiguration" title="Link to this heading">¶</a></h2>
-<p>Die Konfiguration der WebGIS Anwendungen erfolgt über Umgebungsvariablen.
-Die jeweiligen <code class="docutils literal notranslate"><span class="pre">_config</span></code> Verheichnisse für die Anwendungen wurde auf eigene Volumes gemappt.
+<p>Die jeweiligen <code class="docutils literal notranslate"><span class="pre">_config</span></code> Verzeichnisse für die Anwendungen wurde auf eigene Volumes gemappt.
 Dort können die Konfigurationsdateien angepasst werden.
 Die Konfigurationsdateien sind im Verzeichnis <code class="docutils literal notranslate"><span class="pre">_config</span></code> der jeweiligen Anwendung zu finden.</p>
 <p>Das <code class="docutils literal notranslate"><span class="pre">webgis-repository</span></code> Verzeichnis wurde ebenfalls auf ein eigenes Volume gemappt.
 Dieses Verzeichnis sollten sich alle drei Anwendungen teilen.</p>
+<p>Zusätzlich können auch die Umgebungsvariablen in der <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>
+bzw. in den <code class="docutils literal notranslate"><span class="pre">.env</span></code>, <code class="docutils literal notranslate"><span class="pre">api.env</span></code>, <code class="docutils literal notranslate"><span class="pre">portal.env</span></code>, <code class="docutils literal notranslate"><span class="pre">cms.env</span></code> angepasst werden.</p>
+<p>Um Beispielsweise die Culture der Anwendungen zu ändern kann die Umgebungsvariable
+<code class="docutils literal notranslate"><span class="pre">Localization__DefaultCulture</span></code> angepasst werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Alle WebGIS Web-Anwendungen haben einen Endpoint <code class="docutils literal notranslate"><span class="pre">/instance/_culture</span></code>, über den die aktuelle Culture
+der Anwendung abgefragt werden kann,
+und damit auch, ob die Anpassung der Umgebungsvariable erfolgreich war.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># .env</span>
+
+<span class="c1"># Beispiel: Setzen der Standard Culture auf Englisch (USA)</span>
+<span class="c1"># überschreiben der Standard Culture aus appsettings.json</span>
+
+<span class="n">Localization__DefaultCulture</span><span class="o">=</span><span class="n">en</span><span class="o">-</span><span class="n">US</span>
+</pre></div>
+</div>
 </section>
 </section>
 

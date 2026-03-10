@@ -72,11 +72,34 @@ Die Container können mit dem folgenden Befehl gestoppt werden:
 Konfiguration
 --------------
 
-Die Konfiguration der WebGIS Anwendungen erfolgt über Umgebungsvariablen.
-Die jeweiligen ``_config`` Verheichnisse für die Anwendungen wurde auf eigene Volumes gemappt.
+Die jeweiligen ``_config`` Verzeichnisse für die Anwendungen wurde auf eigene Volumes gemappt.
 Dort können die Konfigurationsdateien angepasst werden.
 Die Konfigurationsdateien sind im Verzeichnis ``_config`` der jeweiligen Anwendung zu finden.
 
 Das ``webgis-repository`` Verzeichnis wurde ebenfalls auf ein eigenes Volume gemappt.
 Dieses Verzeichnis sollten sich alle drei Anwendungen teilen.
+
+Zusätzlich können auch die Umgebungsvariablen in der ``docker-compose.yml``
+bzw. in den ``.env``, ``api.env``, ``portal.env``, ``cms.env`` angepasst werden.
+
+Um Beispielsweise die Culture der Anwendungen zu ändern kann die Umgebungsvariable 
+``Localization__DefaultCulture`` angepasst werden.
+
+.. note:: 
+
+    Alle WebGIS Web-Anwendungen haben einen Endpoint ``/instance/_culture``, über den die aktuelle Culture 
+    der Anwendung abgefragt werden kann, 
+    und damit auch, ob die Anpassung der Umgebungsvariable erfolgreich war.
+
+.. code::
+
+   # .env
+
+   # Beispiel: Setzen der Standard Culture auf Englisch (USA)
+   # überschreiben der Standard Culture aus appsettings.json  
+   
+   Localization__DefaultCulture=en-US
+
+
+
 
