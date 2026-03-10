@@ -93,7 +93,7 @@ Um Beispielsweise die Culture der Anwendungen zu ändern kann die Umgebungsvaria
 
 .. code::
 
-   # .env
+   # api.env
 
    # Beispiel: Setzen der Standard Culture auf Englisch (USA)
    # überschreiben der Standard Culture aus appsettings.json  
