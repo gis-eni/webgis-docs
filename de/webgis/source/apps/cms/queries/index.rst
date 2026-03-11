@@ -254,6 +254,21 @@ Tabelle angezeigt wird.
 ``1:n`` gibt an, ob der Link für alle Zeilen einer Tabelle aufgerufen werden kann. Dabei kann auch ein 
 Trennzeichen angegeben werden, mit dem die einzelnen Werte in der URL getrennt werden.
 
+**Einstellungen zum Öffnen des Hotlinks**
+
+In den Hotlink-Einstellungen gibt es ein Dropdown-Feld „Ziel bei neuem Browserfenster“. Hier kann ausgewählt werden, wie der Hotlink geöffnet wird:
+
+- **_blank**: Öffnet den Hotlink in einem neuen Tab.
+- **dialog**: Öffnet den Hotlink in einem modalen Dialogfenster.
+- **datalinq_pdf_report**: Lädt einen Datalinq PDF-Report im Hintergrund herunter.
+- **_self**: Öffnet den Link im gleichen Tab/Fenster (Standardverhalten).
+- **_parent**: Öffnet den Link im übergeordneten Frame (Eltern-Frame), wenn sich die Seite in einem Frame oder ``iframe`` befindet.
+- **_top**: Öffnet den Link im gesamten Browserfenster und beendet alle Frames/iframes.
+
+.. image:: img/queries13.png
+
+Durch diese Auswahl kann gesteuert werden, wie und wo der Benutzer nach Klick auf den Hotlink weitergeleitet wird.
+
 Weitere Spalten-Typen sind beispielsweise:
 
 * **Expression:**  
