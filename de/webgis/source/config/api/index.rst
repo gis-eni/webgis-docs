@@ -834,6 +834,37 @@ Die Konfiguration erfolgt in der optionalen *Section* ``proxy`` in der ``api.con
    * - ``ignore`` *(optional)*
      - Liste von **Regeln**, anhand derer bestimmte Server vom Proxy **ausgenommen** werden. Mehrere Regeln können mit ``;`` getrennt angegeben werden. Es sind auch **reguläre Ausdrücke** möglich.
 
+Security
+--------
+
+.. code-block:: xml
+
+  <section name="security">
+      <add key="disable-anti-forgery" value="true" /> <!-- default: false. true is not recommended for production -->
+  </section>
+
+Für spezielle Zenarien, z. B. wenn die WebGIS API ausschließlich als **Backend für eine andere Anwendung**
+dient oder ein Reverse Proxy die Überprüfung verhindert, kann es notwendig sein, die **Anti-Forgery-Token-Validierung** zu deaktivieren. 
+Dies kann über die folgende Einstellung ``disable-anti-forgery`` in der ``api.config`` erfolgen.
+
+Middleware
+----------
+
+In der **WebGIS API** können über die **Middleware** zusätzliche Funktionen implementiert werden, 
+z. B. **Logging**, **Forwarding** oder **Sicherheitsprüfungen**.
+
+.. code-block:: xml
+
+  <section name="middleware">
+      <!-- optional: Forwarded Headers Middleware, default: false -->
+      <!-- can be helpfull when WebGIS API is behind a reverse proxy and the original client IP and protocol information is needed -->
+      <add key="use-x-forwarded-headers" value="true" />
+      <!-- optional: log forwarded headers, default: false, only for debugging purposes -->
+      <!-- logs the original client IP and protocol information in the API logs (information level) -->
+      <!-- should only be enabled if use-x-forwarded-headers is true and the API is behind a reverse proxy -->
+      <add key="use-x-forwarded-headers-logging" value="true" />
+  </section>
+
 HttpClient
 ----------
 

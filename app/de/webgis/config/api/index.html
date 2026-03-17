@@ -1111,6 +1111,33 @@ Die Konfiguration erfolgt in der optionalen <em>Section</em> <code class="docuti
 </tbody>
 </table>
 </section>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;security&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;disable-anti-forgery&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: false. true is not recommended for production --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p>Für spezielle Zenarien, z. B. wenn die WebGIS API ausschließlich als <strong>Backend für eine andere Anwendung</strong>
+dient oder ein Reverse Proxy die Überprüfung verhindert, kann es notwendig sein, die <strong>Anti-Forgery-Token-Validierung</strong> zu deaktivieren.
+Dies kann über die folgende Einstellung <code class="docutils literal notranslate"><span class="pre">disable-anti-forgery</span></code> in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> erfolgen.</p>
+</section>
+<section id="middleware">
+<h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>
+<p>In der <strong>WebGIS API</strong> können über die <strong>Middleware</strong> zusätzliche Funktionen implementiert werden,
+z. B. <strong>Logging</strong>, <strong>Forwarding</strong> oder <strong>Sicherheitsprüfungen</strong>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;middleware&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- optional: Forwarded Headers Middleware, default: false --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- can be helpfull when WebGIS API is behind a reverse proxy and the original client IP and protocol information is needed --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-x-forwarded-headers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- optional: log forwarded headers, default: false, only for debugging purposes --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- logs the original client IP and protocol information in the API logs (information level) --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- should only be enabled if use-x-forwarded-headers is true and the API is behind a reverse proxy --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-x-forwarded-headers-logging&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+</section>
 <section id="httpclient">
 <h3>HttpClient<a class="headerlink" href="#httpclient" title="Link to this heading">¶</a></h3>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpclient&quot;</span><span class="nt">&gt;</span>
@@ -1325,6 +1352,8 @@ Um zu prüfen, ob die <strong>DataLinq-Einstellungen</strong> korrekt gesetzt si
 </ul>
 </li>
 <li><a class="reference internal" href="#proxy-server">Proxy Server</a></li>
+<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#middleware">Middleware</a></li>
 <li><a class="reference internal" href="#httpclient">HttpClient</a></li>
 <li><a class="reference internal" href="#datalinq">DataLinq</a></li>
 </ul>
