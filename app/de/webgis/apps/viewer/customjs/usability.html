@@ -411,6 +411,25 @@ hier eingestellt wird.</p>
 <p>Ab Version 8.x</p>
 </div>
 </section>
+<section id="ergebnisliste">
+<h2>Ergebnisliste<a class="headerlink" href="#ergebnisliste" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p><cite>webgis.usability.showQueryLayerNotVisbleNotification</cite>: Mit diesem Schalter kann eine Benachrichtigung
+aktiviert werden, wenn der Ergebnis-Layer eines Abfragewerkzeugs nicht sichtbar ist. Die Benachrichtigung
+informiert den Anwender darüber, dass die Ergebnisse möglicherweise nicht angezeigt werden, weil der Layer
+ausgeblendet ist. Es wird empfohlen, diese Benachrichtigung zu aktivieren, um die
+Benutzerfreundlichkeit zu verbessern und Missverständnisse zu vermeiden. Die Benachrichtigung erscheint
+als roter Balken über den Ergebnissen. Ein Klick auf die Benachrichtigung schaltet den Layer sichtbar.
+Standardmäßig ist diese Benachrichtigung aktiviert.</p>
+<p>Zum Deaktivieren der Benachrichtigung kann folgender Code in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> verwendet werden:</p>
+<blockquote>
+<div><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">showQueryLayerNotVisbleNotification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// default is true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
 </section>
 
 
@@ -441,6 +460,7 @@ hier eingestellt wird.</p>
 <li><a class="reference internal" href="#auswahllisten-pro-verhalten">Auswahllisten Pro Verhalten</a></li>
 <li><a class="reference internal" href="#schnellsuche">Schnellsuche</a></li>
 <li><a class="reference internal" href="#nachbarschaft-berechnen">Nachbarschaft Berechnen</a></li>
+<li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a></li>
 </ul>
 </li>
 </ul>

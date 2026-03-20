@@ -311,3 +311,21 @@ Für die Nachbarschaft Berechnen Funktion können über die `webgis.usability.de
 .. note::
     
     Ab Version 8.x
+
+Ergebnisliste
+================
+
+*  `webgis.usability.showQueryLayerNotVisbleNotification`: Mit diesem Schalter kann eine Benachrichtigung 
+   aktiviert werden, wenn der Ergebnis-Layer eines Abfragewerkzeugs nicht sichtbar ist. Die Benachrichtigung
+   informiert den Anwender darüber, dass die Ergebnisse möglicherweise nicht angezeigt werden, weil der Layer
+   ausgeblendet ist. Es wird empfohlen, diese Benachrichtigung zu aktivieren, um die 
+   Benutzerfreundlichkeit zu verbessern und Missverständnisse zu vermeiden. Die Benachrichtigung erscheint
+   als roter Balken über den Ergebnissen. Ein Klick auf die Benachrichtigung schaltet den Layer sichtbar.
+   Standardmäßig ist diese Benachrichtigung aktiviert.
+
+   Zum Deaktivieren der Benachrichtigung kann folgender Code in der ``custom.js`` verwendet werden:
+
+    .. code:: javascript
+    
+        webgis.usability.showQueryLayerNotVisbleNotification = false; // default is true
+        
