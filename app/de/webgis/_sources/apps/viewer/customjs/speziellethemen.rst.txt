@@ -2,6 +2,19 @@
 Spezielle Themen
 ================
 
+Vector Tile Caches
+===================
+
+Vector Tiles Caches werden Client-seitig über die ``mapLibreGL`` Javascript-Bibliothek eingebunden. 
+Damit die Library geladen wird, muss in der ``custom.js`` folgender Eintrag vorhanden sein:
+
+.. code-block:: javascript
+
+    webgis.options.load_vtc = true;
+
+Der Wert ist standardmäßig auf ``false`` gesetzt, da die Einbindung von Vector Tile Caches in der Regel nicht notwendig ist und das Laden der Library zusätzliche Ladezeit verursacht. 
+Sobald die Option aktiviert ist, wird die ``mapLibreGL``-Bibliothek automatisch geladen, sobald eine Karte mit einem Vector Tile Cache eingebunden wird.
+
 Spatial Reference System
 ========================
 

@@ -155,6 +155,16 @@
             
   <section id="spezielle-themen">
 <h1>Spezielle Themen<a class="headerlink" href="#spezielle-themen" title="Link to this heading">¶</a></h1>
+<section id="vector-tile-caches">
+<h2>Vector Tile Caches<a class="headerlink" href="#vector-tile-caches" title="Link to this heading">¶</a></h2>
+<p>Vector Tiles Caches werden Client-seitig über die <code class="docutils literal notranslate"><span class="pre">mapLibreGL</span></code> Javascript-Bibliothek eingebunden.
+Damit die Library geladen wird, muss in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> folgender Eintrag vorhanden sein:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">load_vtc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Der Wert ist standardmäßig auf <code class="docutils literal notranslate"><span class="pre">false</span></code> gesetzt, da die Einbindung von Vector Tile Caches in der Regel nicht notwendig ist und das Laden der Library zusätzliche Ladezeit verursacht.
+Sobald die Option aktiviert ist, wird die <code class="docutils literal notranslate"><span class="pre">mapLibreGL</span></code>-Bibliothek automatisch geladen, sobald eine Karte mit einem Vector Tile Cache eingebunden wird.</p>
+</section>
 <section id="spatial-reference-system">
 <h2>Spatial Reference System<a class="headerlink" href="#spatial-reference-system" title="Link to this heading">¶</a></h2>
 <p>Für eine WebGIS-Karte können verschiedene Koordinatensysteme verwendet werden. Bestimmte Berechnungen, wie das Messen einer Strecke, werden im jeweiligen Karten-Koordinatensystem <em>kartesisch</em> durchgeführt. <em>Kartesisch</em> bedeutet in diesem Zusammenhang, dass für die Berechnung direkt die <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">Y)</span></code>-Werte des aktuellen Koordinatensystems genutzt werden.</p>
@@ -234,6 +244,7 @@ Gemessene Längen und Flächen in dieser Projektion sind daher immer größer al
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Spezielle Themen</a><ul>
+<li><a class="reference internal" href="#vector-tile-caches">Vector Tile Caches</a></li>
 <li><a class="reference internal" href="#spatial-reference-system">Spatial Reference System</a></li>
 <li><a class="reference internal" href="#webgis-und-gnss">WebGIS und GNSS</a></li>
 <li><a class="reference internal" href="#helmert-transformation-2d">Helmert-Transformation (2D)</a><ul>
