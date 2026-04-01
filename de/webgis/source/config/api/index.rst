@@ -924,6 +924,9 @@ DataLinq
       <add key="SelectEngines:TextFileEngine:AllowedPaths:1" value="C:\webgis\data\" />
       <add key="SelectEngines:TextFileEngine:AllowedExtensions:1" value=".txt" />
       <add key="SelectEngines:TextFileEngine:AllowedExtensions:0" value=".csv" />
+
+      <!-- optional: experimentell -->
+      <add key="use-cache-token-for-one-2-n-links" value="true" />  <!-- default: false -->
    </section>
 
 .. list-table::
@@ -1010,6 +1013,13 @@ DataLinq
        Ein Beispiel ist die **TextFileEngine**, die es erlaubt Textfiles vom Server 
        auszugeben. Hier kann angeführt werden, auf welche Verzeichnisse und 
        Dateierweiterungen zugegriffen werden darf.
+
+   * - ``use-cache-token-for-one-2-n-links``
+     - **Experimentelles Feature!** Für 1:n links aus der Ergebnisliste werden an die *integrierte* DataLinq API (die, die in der 
+       aktuellen WebGIS API integrierte ist) bei Reports nicht mehr die Parameter per ``HTTP-GET`` übergeben, sondern beim Klick vorab 
+       gepostet. Beim Aufruf wird dann nur mehr ein ``datalinqCacheToken`` übergeben, der intern auf die die Parameter verweist.
+       Dadurch kann das Problem gelöst werden, dass Url-Parameter zu lang werden.
+
 
 **Überprüfung der DataLinq-Konfiguration**
 Um zu prüfen, ob die **DataLinq-Einstellungen** korrekt gesetzt sind, kann die **API** mit folgendem Pfad aufgerufen werden:

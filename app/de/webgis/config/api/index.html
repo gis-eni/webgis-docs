@@ -1193,11 +1193,14 @@ konfiguriert ist. Ist im CMS ein höher Wert konfiguriert, muss dieser auch hier
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-css&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-/content/styles/my-company/default.css?{version}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-js&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-/scripts/api/three_d.js?{version}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="w">   </span><span class="cp">&lt;!-- optional: SelectEngines&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;SelectEngines:TextFileEngine:AllowedPaths:0&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;C:\datalinq\data\&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;SelectEngines:TextFileEngine:AllowedPaths:1&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;C:\webgis\data\&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;SelectEngines:TextFileEngine:AllowedExtensions:1&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;.txt&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;SelectEngines:TextFileEngine:AllowedExtensions:0&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;.csv&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="cm">&lt;!-- optional: SelectEngines&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedPaths:0&quot; value=&quot;C:\datalinq\data\&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedPaths:1&quot; value=&quot;C:\webgis\data\&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:1&quot; value=&quot;.txt&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:0&quot; value=&quot;.csv&quot; /&gt;</span>
+
+<span class="cm">   &lt;!-- optional: experimentell --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-cache-token-for-one-2-n-links&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1298,6 +1301,12 @@ Auf Produktionssystemen sollte dieser Wert auf <code class="docutils literal not
 auszugeben. Hier kann angeführt werden, auf welche Verzeichnisse und
 Dateierweiterungen zugegriffen werden darf.</p>
 </td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">use-cache-token-for-one-2-n-links</span></code></p></td>
+<td><p><strong>Experimentelles Feature!</strong> Für 1:n links aus der Ergebnisliste werden an die <em>integrierte</em> DataLinq API (die, die in der
+aktuellen WebGIS API integrierte ist) bei Reports nicht mehr die Parameter per <code class="docutils literal notranslate"><span class="pre">HTTP-GET</span></code> übergeben, sondern beim Klick vorab
+gepostet. Beim Aufruf wird dann nur mehr ein <code class="docutils literal notranslate"><span class="pre">datalinqCacheToken</span></code> übergeben, der intern auf die die Parameter verweist.
+Dadurch kann das Problem gelöst werden, dass Url-Parameter zu lang werden.</p></td>
 </tr>
 </tbody>
 </table>
