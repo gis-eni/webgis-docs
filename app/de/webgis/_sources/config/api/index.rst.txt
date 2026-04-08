@@ -46,8 +46,8 @@ Abschnitt ``CMS``
    * - ``server-side-configuration-path``
      - Pfad zur serverseitigen Konfiguration der API. In diesem Verzeichnis befinden sich Konfigurationsdateien für die komplette Instanz, einschließlich ``etc`` (z. B. Drucklayouts) und ``config``.
 
-Abschnitt ``Proj4 Database``
-----------------------------
+Abschnitt ``Proj4 Database/GeoCodes``
+--------------------------------------
 
 .. list-table::
    :widths: 20 80
@@ -57,6 +57,11 @@ Abschnitt ``Proj4 Database``
      - **Beschreibung**
    * - ``p4database``
      - Connection-String zu einer Datenbank, die Projektionsinformationen enthält (Tabelle ``P4``). Hier kann die gleiche Datenbank angegeben werden, die auch von WebGIS genutzt wird. Dieser Schlüssel wird nur aus Kompatibilitätsgründen zu WebGIS bereitgestellt. Möchte man die Standard-Projektionsinformationen verwenden, reicht es, ``value="#"`` anzugeben.
+   * - ``quick-search-allowed-geocodes``
+     - Liste der GeoCodes, die in der Schnellsuche erkannt werden sollen, durch Komma getrennt
+       (z. B. ``mrgs,pluscode,geohash``). Es können alle GeoCodes aktiviert werden, 
+       die auf https://docs.webgiscloud.com/de/webgis/annex/geocodes.html angeführt sind.
+       ``*`` aktiviert alle verfügbaren GeoCodes.  
 
 Abschnitt ``Cache Datenbank``
 -----------------------------

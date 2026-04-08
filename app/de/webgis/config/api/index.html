@@ -199,8 +199,8 @@
 </tbody>
 </table>
 </section>
-<section id="abschnitt-proj4-database">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Proj4</span> <span class="pre">Database</span></code><a class="headerlink" href="#abschnitt-proj4-database" title="Link to this heading">¶</a></h3>
+<section id="abschnitt-proj4-database-geocodes">
+<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Proj4</span> <span class="pre">Database/GeoCodes</span></code><a class="headerlink" href="#abschnitt-proj4-database-geocodes" title="Link to this heading">¶</a></h3>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -214,6 +214,12 @@
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p4database</span></code></p></td>
 <td><p>Connection-String zu einer Datenbank, die Projektionsinformationen enthält (Tabelle <code class="docutils literal notranslate"><span class="pre">P4</span></code>). Hier kann die gleiche Datenbank angegeben werden, die auch von WebGIS genutzt wird. Dieser Schlüssel wird nur aus Kompatibilitätsgründen zu WebGIS bereitgestellt. Möchte man die Standard-Projektionsinformationen verwenden, reicht es, <code class="docutils literal notranslate"><span class="pre">value=&quot;#&quot;</span></code> anzugeben.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">quick-search-allowed-geocodes</span></code></p></td>
+<td><p>Liste der GeoCodes, die in der Schnellsuche erkannt werden sollen, durch Komma getrennt
+(z. B. <code class="docutils literal notranslate"><span class="pre">mrgs,pluscode,geohash</span></code>). Es können alle GeoCodes aktiviert werden,
+die auf <a class="reference external" href="https://docs.webgiscloud.com/de/webgis/annex/geocodes.html">https://docs.webgiscloud.com/de/webgis/annex/geocodes.html</a> angeführt sind.
+<code class="docutils literal notranslate"><span class="pre">*</span></code> aktiviert alle verfügbaren GeoCodes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1334,7 +1340,7 @@ Um zu prüfen, ob die <strong>DataLinq-Einstellungen</strong> korrekt gesetzt si
 <li><a class="reference internal" href="#">Konfiguration der API-Applikation</a><ul>
 <li><a class="reference internal" href="#datei-config-api-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code></a><ul>
 <li><a class="reference internal" href="#abschnitt-cms">Abschnitt <code class="docutils literal notranslate"><span class="pre">CMS</span></code></a></li>
-<li><a class="reference internal" href="#abschnitt-proj4-database">Abschnitt <code class="docutils literal notranslate"><span class="pre">Proj4</span> <span class="pre">Database</span></code></a></li>
+<li><a class="reference internal" href="#abschnitt-proj4-database-geocodes">Abschnitt <code class="docutils literal notranslate"><span class="pre">Proj4</span> <span class="pre">Database/GeoCodes</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-cache-datenbank">Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Datenbank</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-cache-aside">Abschnitt <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-subscriber-datenbank">Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code></a></li>

@@ -157,11 +157,83 @@
 Ordner <code class="docutils literal notranslate"><span class="pre">system/proj</span></code>, in dem Projektionen definiert wurden. Diese Konfiguration wurde
 nun in das Verzeichnis <code class="docutils literal notranslate"><span class="pre">etc/coordinates/proj</span></code> verschoben.</p>
 </div>
+<section id="h-xml">
+<h2>h.xml<a class="headerlink" href="#h-xml" title="Link to this heading">¶</a></h2>
 <p>Zusätzlich zu diesem <code class="docutils literal notranslate"><span class="pre">proj</span></code>-Ordner kann im Verzeichnis <code class="docutils literal notranslate"><span class="pre">etc/coordinates</span></code> nun optional
 eine Datei <code class="docutils literal notranslate"><span class="pre">h.xml</span></code> erstellt werden. In dieser Datei wird festgelegt, welche <strong>Höhenwerte</strong>
 zusätzlich zu den Koordinaten ermittelt werden.</p>
 <p>Die Struktur von <code class="docutils literal notranslate"><span class="pre">h.xml</span></code> entspricht der Konfigurationsdatei des Höhenabfragetools
 (<code class="docutils literal notranslate"><span class="pre">etc/heightabovedatum</span></code>).</p>
+</section>
+<section id="default-xml">
+<h2>default.xml<a class="headerlink" href="#default-xml" title="Link to this heading">¶</a></h2>
+<p>In der Datei <code class="docutils literal notranslate"><span class="pre">proj/xy/default.xml</span></code> kann definiert werden, welche Koordinatensysteme mit dem
+XYZ Werkzeug abgefragt werden können. Es können sowohl <strong>Koordinaten</strong> als auch <strong>Höhenwerte</strong> zurückgegeben werden,
+wenn die entsprechenden Einstellungen in <code class="docutils literal notranslate"><span class="pre">h.xml</span></code> vorgenommen wurden.</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;projections&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;31254&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;GK M28&quot;</span><span class="w"> </span><span class="na">minx=</span><span class="s">&quot;-200000&quot;</span><span class="w"> </span><span class="na">maxx=</span><span class="s">&quot;200000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;31255&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;GK M31&quot;</span><span class="w"> </span><span class="na">minx=</span><span class="s">&quot;-200000&quot;</span><span class="w"> </span><span class="na">maxx=</span><span class="s">&quot;200000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;31256&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;GK M34&quot;</span><span class="w"> </span><span class="na">minx=</span><span class="s">&quot;-200000&quot;</span><span class="w"> </span><span class="na">maxx=</span><span class="s">&quot;200000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;31287&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;Lambert (neu)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;31257&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;BMN M28&quot;</span><span class="w"> </span><span class="na">maxx=</span><span class="s">&quot;300000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;31258&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;BMN M31&quot;</span><span class="w"> </span><span class="na">minx=</span><span class="s">&quot;300000&quot;</span><span class="w"> </span><span class="na">maxx=</span><span class="s">&quot;600000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;31259&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;BMN M34&quot;</span><span class="w"> </span><span class="na">minx=</span><span class="s">&quot;600000&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;4326&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;WGS84&quot;</span><span class="w"> </span><span class="na">digits=</span><span class="s">&quot;6&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;4326&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;WGS84(GM)&quot;</span><span class="w"> </span><span class="na">displaystyle=</span><span class="s">&quot;dm&quot;</span><span class="w"> </span><span class="na">digits=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;4326&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;WGS84(GMS)&quot;</span><span class="w"> </span><span class="na">displaystyle=</span><span class="s">&quot;dms&quot;</span><span class="w"> </span><span class="na">digits=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;32632&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;UTM 32N&quot;</span><span class="w"> </span><span class="na">minx=</span><span class="s">&quot;-150000&quot;</span><span class="w"> </span><span class="na">maxx=</span><span class="s">&quot;850000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;32633&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;UTM 33N&quot;</span><span class="w"> </span><span class="na">minx=</span><span class="s">&quot;-150000&quot;</span><span class="w"> </span><span class="na">maxx=</span><span class="s">&quot;850000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;3857&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;web&quot;</span><span class="w">  </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;projection</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;4326&quot;</span><span class="w"> </span><span class="na">displayname=</span><span class="s">&quot;UTMRef&quot;</span><span class="w"> </span><span class="na">displaystyle=</span><span class="s">&quot;mrgs&quot;</span><span class="w"> </span><span class="na">digits=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/projections&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>id</strong>: EPSG-Code des Koordinatensystems</p></li>
+<li><p><strong>displayname</strong>: Anzeigename im XYZ Werkzeug</p></li>
+<li><dl class="simple">
+<dt><strong>minx/maxx</strong>: Optional können hier die minimalen und maximalen X-Koordinaten angegeben werden,</dt><dd><p>um die Anzeige der Projektion im XYZ Werkzeug einzuschränken.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>digits</strong>: Anzahl der Nachkommastellen, die im XYZ Werkzeug angezeigt werden sollen</p></li>
+<li><dl class="simple">
+<dt><strong>displaystyle</strong>: Optional kann hier die Darstellungsweise der Koordinaten im XYZ Werkzeug</dt><dd><p>festgelegt werden. Mögliche Werte sind:
+* <strong>dm</strong>: Grad und Dezimalminuten (z. B. 47°04,69‘)
+* <strong>dms</strong>: Grad, Minuten und Sekunden (z. B. 47°04’41,4‘‘)
+* <strong>&lt;geo-code-name&gt;</strong>: Name eines GeoCoders (<a class="reference external" href="https://docs.webgiscloud.com/de/webgis/annex/geocodes.html">https://docs.webgiscloud.com/de/webgis/annex/geocodes.html</a>)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Mit dem XYZ Tool können auch <strong>GeoCodes</strong> abgefragt werden (siehe Anhang).
+Diese Beziehen sich in der Regel auf die <strong>geographischen Koordinaten (EPSG:4326)</strong>,
+welche GeoCoder verwendet wird, kann über den Displaystyle festgelegt werden.</p>
+<p>Geographische Koordinaten (EPSG:4326) können auch mit einem benutzerdefinierten
+Displaystyle angezeigt werden, z. B. als Grad und Dezimalminuten (47°04,69‘) <code class="docutils literal notranslate"><span class="pre">dm</span></code> oder
+Grad, Minuten und Sekunden (47°04’41,4‘‘) <code class="docutils literal notranslate"><span class="pre">dms</span></code>.</p>
+</div>
+</section>
+<section id="tip-txt">
+<h2>tip.txt<a class="headerlink" href="#tip-txt" title="Link to this heading">¶</a></h2>
+<p>In der Benutzeroberfläche des XYZ Werkzeugs werden <strong>Eingabe Tipps</strong> angezeigt,
+die angeben, wie Koordinaten eingegeben werden können. Der Inhalt dieses Tooltips kann
+in der Datei <code class="docutils literal notranslate"><span class="pre">tip.txt</span></code> angepasst werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Dateien <code class="docutils literal notranslate"><span class="pre">default.xml</span></code> und <code class="docutils literal notranslate"><span class="pre">tip.txt</span></code> müssen nicht zwingend vorhanden sein.
+Wenn sie nicht vorhanden sind, greift WebGIS auf die Standardkonfiguration zurück,
+diese liegen in den Dateien <code class="docutils literal notranslate"><span class="pre">default_.xml</span></code> und <code class="docutils literal notranslate"><span class="pre">tip_.txt</span></code>.</p>
+</div>
+</section>
 </section>
 
 
@@ -169,6 +241,25 @@ zusätzlich zu den Koordinaten ermittelt werden.</p>
           </div>
         </div>
       </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Werkzeug <code class="docutils literal notranslate"><span class="pre">XZ</span> <span class="pre">(Koordinaten/Höhen)</span></code></a><ul>
+<li><a class="reference internal" href="#h-xml">h.xml</a></li>
+<li><a class="reference internal" href="#default-xml">default.xml</a></li>
+<li><a class="reference internal" href="#tip-txt">tip.txt</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
     
 
       <div class="clearer"></div>
