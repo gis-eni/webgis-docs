@@ -328,4 +328,23 @@ Ergebnisliste
     .. code:: javascript
     
         webgis.usability.showQueryLayerNotVisbleNotification = false; // default is true
-        
+
+Übersichtskarte (Minimap)
+=========================
+
+Die Übersichtskarte (Minimap) zeigt standardmäßig die aktuelle Ausdehnung der Hauptkarte an.
+Die Minimap wird über das `Leaflet.Minimap <https://github.com/Norkart/Leaflet-MiniMap>`__ 
+Plugin realisiert. Die Optionen für die Minimap können über die `webgis.usability.miniMapOptions`
+Konfiguration angepasst werden.
+
+.. code:: javascript
+
+   // default options for the minimap
+   webgis.usability.miniMapOptions = {
+        zoomLevelOffset: -5,
+        position: 'bottomleft',
+        toggleDisplay: true,
+        minimized: true
+    };
+
+Die verfügbaren Optionen sind in der Plugin Dokumentation beschrieben.

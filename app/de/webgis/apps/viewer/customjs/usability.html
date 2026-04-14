@@ -430,6 +430,23 @@ Standardmäßig ist diese Benachrichtigung aktiviert.</p>
 </li>
 </ul>
 </section>
+<section id="ubersichtskarte-minimap">
+<h2>Übersichtskarte (Minimap)<a class="headerlink" href="#ubersichtskarte-minimap" title="Link to this heading">¶</a></h2>
+<p>Die Übersichtskarte (Minimap) zeigt standardmäßig die aktuelle Ausdehnung der Hauptkarte an.
+Die Minimap wird über das <a class="reference external" href="https://github.com/Norkart/Leaflet-MiniMap">Leaflet.Minimap</a>
+Plugin realisiert. Die Optionen für die Minimap können über die <cite>webgis.usability.miniMapOptions</cite>
+Konfiguration angepasst werden.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// default options for the minimap</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">miniMapOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">zoomLevelOffset</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">5</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottomleft&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">toggleDisplay</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">minimized</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Die verfügbaren Optionen sind in der Plugin Dokumentation beschrieben.</p>
+</section>
 </section>
 
 
@@ -461,6 +478,7 @@ Standardmäßig ist diese Benachrichtigung aktiviert.</p>
 <li><a class="reference internal" href="#schnellsuche">Schnellsuche</a></li>
 <li><a class="reference internal" href="#nachbarschaft-berechnen">Nachbarschaft Berechnen</a></li>
 <li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a></li>
+<li><a class="reference internal" href="#ubersichtskarte-minimap">Übersichtskarte (Minimap)</a></li>
 </ul>
 </li>
 </ul>
