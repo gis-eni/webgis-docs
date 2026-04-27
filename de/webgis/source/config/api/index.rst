@@ -291,6 +291,29 @@ z. B. ``#300f`` für ein transparentes Rot (20% Deckkraft) oder ``#300000ff`` f�
 transparentes Blau (20% Deckkraft). Der erste Teil des Hex-Codes definiert die Transparenz 
 (00 = vollständig transparent, ff = vollständig deckend), während der zweite Teil die Farbe definiert.
 
+Abschnitt ``Schnellsuche``
+---------------------------
+
+In diesem Abschnitt legen Sie fest, welche Ergebnisse in der Schnellsuche angezeigt werden und welche Suchkriterien dafür genutzt werden können.
+
+.. code:: xml
+
+  <section name="quick-search">
+    <add key="max-result-items" value="3" />
+    <add key="allowed-geocodes" value="*" />
+  </section>
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``max-result-items``
+     - Legt die maximale Anzahl an Ergebnissen fest, die in der Schnellsuche angezeigt werden (z. B. 3). Es wird empfohlen, diesen Wert nicht zu hoch zu setzen, um die Übersichtlichkeit der Ergebnisse zu gewährleisten.
+   * - ``allowed-geocodes``
+     - Legt fest, welche GeoCodes in der Schnellsuche erkannt werden sollen, durch Komma getrennt (z. B. ``mrgs,pluscode,geohash``). Es können alle GeoCodes aktiviert werden, die auf https://docs.webgiscloud.com/de/webgis/annex/geocodes.html angeführt sind. ``*`` aktiviert alle verfügbaren GeoCodes.
+
 Werkzeug Konfiguration
 ----------------------
 
