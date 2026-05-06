@@ -460,6 +460,7 @@ Die Konfiguration für das **Seriendruck-Werkzeug** sieht folgendermaßen aus:
       <add key="scales" value="50000,25000,10000,5000,3000,2000,1000,500,250,100" />
       <add key="default-format" value="A4.Landscape" />
       <add key="max-pages" value="10"/>
+      <add key="max-intersection-iterations" value="5000" />  <!-- default: max-pages * 50 -->
       <add key="overview-page-layout" value="" />  <!-- default: layout_map_services_overview.xml  -->
       <add key="overview-page-format" value="A4.Portrait" />  <!-- default: empty => use same format as series pages -->
    </section>
@@ -478,6 +479,11 @@ Zusätzlich können folgende Parameter konfiguriert werden:
    * - ``max-pages``
      - Legt die maximale Anzahl an Seiten fest, die im **Seriendruck** erzeugt werden dürfen.  
        Dies dient dazu, eine **übermäßige Serverlast** zu vermeiden, wenn sehr große Gebiete ausgewählt werden.
+   * - ``max-intersection-iterations``
+     - Legt die maximale Anzahl an Iterationen für die Berechnung der Schnittmengen fest.  
+       Dies dient dazu, eine **übermäßige Serverlast** zu vermeiden, wenn sehr komplexe Geometrien verarbeitet werden.
+       Der Wert wird derzeit beim der Creation Methode **Schnitt Raster** verwendet. Ist der default Wert von 50*[max-pages] zu niedrig, 
+       kann er hier erhöht werden.  
    * - ``overview-page-layout``
      - Definiert das **Layout-File** für die **Übersichtsseite** im Seriendruck.  
        Wird kein Wert angegeben, wird das Standardlayout ``layout_map_services_overview.xml`` verwendet.

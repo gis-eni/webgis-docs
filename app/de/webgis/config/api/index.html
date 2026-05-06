@@ -675,6 +675,7 @@ in der <code class="docutils literal notranslate"><span class="pre">custom.js</s
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;scales&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;50000,25000,10000,5000,3000,2000,1000,500,250,100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Landscape&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-pages&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-intersection-iterations&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: max-pages * 50 --&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;overview-page-layout&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: layout_map_services_overview.xml  --&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;overview-page-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Portrait&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: empty =&gt; use same format as series pages --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
@@ -698,11 +699,17 @@ normalen <strong>Druck-Werkzeug</strong> (siehe oben).</p>
 <td><p>Legt die maximale Anzahl an Seiten fest, die im <strong>Seriendruck</strong> erzeugt werden dürfen.
 Dies dient dazu, eine <strong>übermäßige Serverlast</strong> zu vermeiden, wenn sehr große Gebiete ausgewählt werden.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">overview-page-layout</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max-intersection-iterations</span></code></p></td>
+<td><p>Legt die maximale Anzahl an Iterationen für die Berechnung der Schnittmengen fest.
+Dies dient dazu, eine <strong>übermäßige Serverlast</strong> zu vermeiden, wenn sehr komplexe Geometrien verarbeitet werden.
+Der Wert wird derzeit beim der Creation Methode <strong>Schnitt Raster</strong> verwendet. Ist der default Wert von 50*[max-pages] zu niedrig,
+kann er hier erhöht werden.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">overview-page-layout</span></code></p></td>
 <td><p>Definiert das <strong>Layout-File</strong> für die <strong>Übersichtsseite</strong> im Seriendruck.
 Wird kein Wert angegeben, wird das Standardlayout <code class="docutils literal notranslate"><span class="pre">layout_map_services_overview.xml</span></code> verwendet.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">overview-page-format</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">overview-page-format</span></code></p></td>
 <td><p>Legt das <strong>Papierformat</strong> für die <strong>Übersichtsseite</strong> fest (z. B. <code class="docutils literal notranslate"><span class="pre">A4.Portrait</span></code>).
 Wird kein Wert angegeben, wird dasselbe Format wie für die Seriendruckseiten verwendet.</p></td>
 </tr>
