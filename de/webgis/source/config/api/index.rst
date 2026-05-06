@@ -299,7 +299,7 @@ In diesem Abschnitt legen Sie fest, welche Ergebnisse in der Schnellsuche angeze
 .. code:: xml
 
   <section name="quick-search">
-    <add key="max-result-items" value="3" />
+    <add key="max-result-items" value="10" />  <!-- default: 5 -->
     <add key="allowed-geocodes" value="*" />
   </section>
 
