@@ -277,6 +277,17 @@
 </tr>
 </tbody>
 </table>
+<p>Zusätzlich können hier optionale Anmeldeinformationen für gesicherte Endpunkte definiert werden,
+z. B. für das Löschen des (User) Caches. Diese Endpunkte sollten mit einem Passwort geschützt werden, um unbefugten Zugriff zu verhindern.
+Die folgenden Schlüssel ermöglichen die Konfiguration dieser Anmeldeinformationen:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;security&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- optional: credentials for secured endpoints, e.g. cache/clear --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-url-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;****************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-username&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;admin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;**************************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
 </section>
 <section id="abschnitt-auswahllisten">
 <h2>Abschnitt <code class="docutils literal notranslate"><span class="pre">Auswahllisten</span></code><a class="headerlink" href="#abschnitt-auswahllisten" title="Link to this heading">¶</a></h2>

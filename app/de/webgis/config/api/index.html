@@ -1157,12 +1157,34 @@ Die Konfiguration erfolgt in der optionalen <em>Section</em> <code class="docuti
 <h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;security&quot;</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;disable-anti-forgery&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: false. true is not recommended for production --&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- optional: credentials for secured endpoints, e.g. cache/clear --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-url-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;****************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-username&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;admin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;**************************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
-<p>Für spezielle Zenarien, z. B. wenn die WebGIS API ausschließlich als <strong>Backend für eine andere Anwendung</strong>
+<p>Für spezielle Szenarien, z. B. wenn die WebGIS API ausschließlich als <strong>Backend für eine andere Anwendung</strong>
 dient oder ein Reverse Proxy die Überprüfung verhindert, kann es notwendig sein, die <strong>Anti-Forgery-Token-Validierung</strong> zu deaktivieren.
 Dies kann über die folgende Einstellung <code class="docutils literal notranslate"><span class="pre">disable-anti-forgery</span></code> in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> erfolgen.</p>
+<p>Weiters können hier auch <strong>Zugangsdaten</strong> für geschützte Endpunkte (z. B. zum <strong>Leeren des Caches</strong>) hinterlegt werden.</p>
+<ul class="simple">
+<li><p><strong>``secure-endpoint-url-password``</strong>: Ein <strong>URL-Passwort</strong>, das als <strong>Query-Parameter ``pww=***``</strong> in der URL übergeben werden muss, um Zugriff auf den geschützten Endpunkt zu erhalten.</p></li>
+<li><p><strong>``secure-endpoint-basicauth-username``</strong> und <strong>``secure-endpoint-basicauth-password``</strong>: Ein <strong>Benutzername</strong> und <strong>Passwort</strong> für die <strong>HTTP Basic Authentication</strong>, die für den Zugriff auf den geschützten Endpunkt erforderlich ist.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Da <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> elementar für die Wartung der WebGIS API ist, ist der Endpunkt standardmäßig auch ohne Authentifizierung erreichbar.
+Es wird jedoch dringend empfohlen, diesen Endpunkt zu schützen, um Missbrauch zu verhindern. Sobald Zugangsdaten in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> hinterlegt sind,
+ist der Endpunkt nur mehr mit gültigen Credentials erreichbar.</p>
+<p>Ruft man <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> Beispielsweise nach einem CMS Deployment auf (siehe <code class="docutils literal notranslate"><span class="pre">cms.config</span></code>), muss das <em>Url-Passwort</em> im Link mitübergeben werden:
+<code class="docutils literal notranslate"><span class="pre">https://my-webgis-api/cache/clear?pwd=****************************</span></code></p>
+<p>Für Instanzen, die öffentlich zugänglich sind, sollte die Authentifizierung für diesen Endpunkt unbedingt aktiviert werden, um Missbrauch zu verhindern.</p>
+<p>Veröffentlicht man das CMS über einen CMS Upload (siehe Abschnitt <code class="docutils literal notranslate"><span class="pre">CMS</span> <span class="pre">Upload</span></code>), sind zusätzliche Sicherheitsmaßnahmen erforderlich (Client, Secret), um unbefugten Zugriff zu verhindern.
+Nach einem Upload erfolgt automatisch ein neu Laden des Caches, ein Aurfug von <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> ist in diesem Fall nicht notwendig. Trotzdem sollten der Endpunkt in öffentlich
+zugänglichen Instanzen unbedingt geschützt werden, um Missbrauch zu verhindern.</p>
+</div>
 </section>
 <section id="middleware">
 <h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>

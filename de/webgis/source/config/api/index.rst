@@ -875,11 +875,36 @@ Security
 
   <section name="security">
       <add key="disable-anti-forgery" value="true" /> <!-- default: false. true is not recommended for production -->
+
+      <!-- optional: credentials for secured endpoints, e.g. cache/clear -->
+      <add key="secure-endpoint-url-password" value="****************************" />
+      <add key="secure-endpoint-basicauth-username" value="admin" />
+      <add key="secure-endpoint-basicauth-password" value="**************************************" />
   </section>
 
-Für spezielle Zenarien, z. B. wenn die WebGIS API ausschließlich als **Backend für eine andere Anwendung**
+Für spezielle Szenarien, z. B. wenn die WebGIS API ausschließlich als **Backend für eine andere Anwendung**
 dient oder ein Reverse Proxy die Überprüfung verhindert, kann es notwendig sein, die **Anti-Forgery-Token-Validierung** zu deaktivieren. 
 Dies kann über die folgende Einstellung ``disable-anti-forgery`` in der ``api.config`` erfolgen.
+
+Weiters können hier auch **Zugangsdaten** für geschützte Endpunkte (z. B. zum **Leeren des Caches**) hinterlegt werden.
+
+* **``secure-endpoint-url-password``**: Ein **URL-Passwort**, das als **Query-Parameter ``pww=***``** in der URL übergeben werden muss, um Zugriff auf den geschützten Endpunkt zu erhalten.
+* **``secure-endpoint-basicauth-username``** und **``secure-endpoint-basicauth-password``**: Ein **Benutzername** und **Passwort** für die **HTTP Basic Authentication**, die für den Zugriff auf den geschützten Endpunkt erforderlich ist.
+
+.. note::
+
+  Da ``cache/clear`` elementar für die Wartung der WebGIS API ist, ist der Endpunkt standardmäßig auch ohne Authentifizierung erreichbar. 
+  Es wird jedoch dringend empfohlen, diesen Endpunkt zu schützen, um Missbrauch zu verhindern. Sobald Zugangsdaten in der ``api.config`` hinterlegt sind, 
+  ist der Endpunkt nur mehr mit gültigen Credentials erreichbar. 
+
+  Ruft man ``cache/clear`` Beispielsweise nach einem CMS Deployment auf (siehe ``cms.config``), muss das *Url-Passwort* im Link mitübergeben werden:
+  ``https://my-webgis-api/cache/clear?pwd=****************************``
+
+  Für Instanzen, die öffentlich zugänglich sind, sollte die Authentifizierung für diesen Endpunkt unbedingt aktiviert werden, um Missbrauch zu verhindern.
+
+  Veröffentlicht man das CMS über einen CMS Upload (siehe Abschnitt ``CMS Upload``), sind zusätzliche Sicherheitsmaßnahmen erforderlich (Client, Secret), um unbefugten Zugriff zu verhindern.
+  Nach einem Upload erfolgt automatisch ein neu Laden des Caches, ein Aurfug von ``cache/clear`` ist in diesem Fall nicht notwendig. Trotzdem sollten der Endpunkt in öffentlich 
+  zugänglichen Instanzen unbedingt geschützt werden, um Missbrauch zu verhindern.
 
 Middleware
 ----------

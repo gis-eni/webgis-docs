@@ -114,6 +114,20 @@ Abschnitt ``Security``
        .. danger::  
           Dieser Wert sollte nur in lokalen oder Offline-Umgebungen (z. B. für Testzwecke) auf ``true`` gesetzt werden. Auch für Intranetanwendungen wird heute eine verschlüsselte Verbindung über SSL empfohlen.
 
+Zusätzlich können hier optionale Anmeldeinformationen für gesicherte Endpunkte definiert werden, 
+z. B. für das Löschen des (User) Caches. Diese Endpunkte sollten mit einem Passwort geschützt werden, um unbefugten Zugriff zu verhindern. 
+Die folgenden Schlüssel ermöglichen die Konfiguration dieser Anmeldeinformationen:
+
+.. code-block:: xml
+
+  <section name="security">
+      <!-- optional: credentials for secured endpoints, e.g. cache/clear -->
+      <add key="secure-endpoint-url-password" value="****************************" />
+      <add key="secure-endpoint-basicauth-username" value="admin" />
+      <add key="secure-endpoint-basicauth-password" value="**************************************" />
+  </section>
+
+
 Abschnitt ``Auswahllisten``
 ===========================
 
