@@ -287,6 +287,16 @@ Für die Schnellsuche können über die `webgis.usability.quickSearch`-Konfigura
    //    default is false, but set to true for the view in custom-recommendations.js
    webgis.usability.quickSearch.selectFirstOnEnter = true;  // 
 
+   // minimum length of search term to trigger quick search
+   //  default is 0, if larger than 0, qick search will not show info item, when
+   //  user clicks in the search field
+   webgis.usability.quickSearch.minLength = 0;
+
+   // delay in ms before quick search is triggered after user stops typing
+   //  default is 0, but set to 300 for the view in custom-recommendations.js
+   //  0 means no delay, but that can lead to performance issues if the search is triggered on every keystroke
+   webgis.usability.quickSearch.debounceDelay = 300
+
 
 Mit ``selectFirstOnEnter`` wird automatisch der erste Vorschlagswert ausgewählt, wenn der 
 Benutzer die Eingabetaste drückt. Ansonsten bewirkt Enter, eine komplette Suche mit dem 

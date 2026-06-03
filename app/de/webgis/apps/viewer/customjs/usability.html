@@ -387,6 +387,16 @@ Alle anderen Werte werden ignoriert und das Verhalten der Auswahllisten bleibt u
 <span class="c1">// select first result on enter</span>
 <span class="c1">//    default is false, but set to true for the view in custom-recommendations.js</span>
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">selectFirstOnEnter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">//</span>
+
+<span class="c1">// minimum length of search term to trigger quick search</span>
+<span class="c1">//  default is 0, if larger than 0, qick search will not show info item, when</span>
+<span class="c1">//  user clicks in the search field</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">minLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="c1">// delay in ms before quick search is triggered after user stops typing</span>
+<span class="c1">//  default is 0, but set to 300 for the view in custom-recommendations.js</span>
+<span class="c1">//  0 means no delay, but that can lead to performance issues if the search is triggered on every keystroke</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">debounceDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">300</span>
 </pre></div>
 </div>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">selectFirstOnEnter</span></code> wird automatisch der erste Vorschlagswert ausgewählt, wenn der
