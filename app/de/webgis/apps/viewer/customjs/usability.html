@@ -457,6 +457,31 @@ Konfiguration angepasst werden.</p>
 </div>
 <p>Die verfügbaren Optionen sind in der Plugin Dokumentation beschrieben.</p>
 </section>
+<section id="metadaten">
+<h2>Metadaten<a class="headerlink" href="#metadaten" title="Link to this heading">¶</a></h2>
+<p>Metadaten für Darstellungsvarianten (Themen) werden in der Regel im Inhaltsverzeichnis angezeigt.
+Dabei gibt es die Möglichkeit, die Metadaten als i-Button oder als Link-Button anzuzeigen.</p>
+<p>Auf Touchdisplays (Handy) kommt es hier oft zu verwechslungen beim klicken auf die Checkboxen bei
+den Darastellungsvarianten, da dabei oft der i-Button für die Metadaten geklickt wird.
+Darum gibt es jetzt folgende Optionen:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Zeigt die Metadaten Links auch in Copyright bereich der Karte</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_presentation_metadata_in_copyright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Zeigt i-Buttons im TOC</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_metadata_i_button_toc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Zeigt link-Buttons im TOC</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_link_button_in_toc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Um die oben beschriebene Verwechslung beim Klicken zu vermeiden, wird die
+<code class="docutils literal notranslate"><span class="pre">custom-recommendation.js</span></code> folgendermaßen erweitert:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_metadata_i_button_toc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">isMobileDevice</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In diesem Fall, wird der i-Button im TOC nicht mehr auf Handys angezeigt.
+Die Metadaten Link findet man hier nur mehr im Copyright Bereich der Karte.</p>
+</section>
 </section>
 
 
@@ -489,6 +514,7 @@ Konfiguration angepasst werden.</p>
 <li><a class="reference internal" href="#nachbarschaft-berechnen">Nachbarschaft Berechnen</a></li>
 <li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a></li>
 <li><a class="reference internal" href="#ubersichtskarte-minimap">Übersichtskarte (Minimap)</a></li>
+<li><a class="reference internal" href="#metadaten">Metadaten</a></li>
 </ul>
 </li>
 </ul>

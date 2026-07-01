@@ -358,3 +358,36 @@ Konfiguration angepasst werden.
     };
 
 Die verfügbaren Optionen sind in der Plugin Dokumentation beschrieben.
+
+Metadaten
+=========
+
+Metadaten für Darstellungsvarianten (Themen) werden in der Regel im Inhaltsverzeichnis angezeigt.
+Dabei gibt es die Möglichkeit, die Metadaten als i-Button oder als Link-Button anzuzeigen.
+
+Auf Touchdisplays (Handy) kommt es hier oft zu verwechslungen beim klicken auf die Checkboxen bei
+den Darastellungsvarianten, da dabei oft der i-Button für die Metadaten geklickt wird.
+Darum gibt es jetzt folgende Optionen:
+
+.. code:: javascript
+
+   // Zeigt die Metadaten Links auch in Copyright bereich der Karte
+   webgis.usability.show_presentation_metadata_in_copyright = true;
+
+   // Zeigt i-Buttons im TOC
+   webgis.usability.show_metadata_i_button_toc = true;
+
+   // Zeigt link-Buttons im TOC
+   webgis.usability.show_link_button_in_toc = true;
+
+Um die oben beschriebene Verwechslung beim Klicken zu vermeiden, wird die 
+``custom-recommendation.js`` folgendermaßen erweitert:
+
+.. code:: javascript
+
+   webgis.usability.show_metadata_i_button_toc = webgis.isMobileDevice() !== true;
+
+In diesem Fall, wird der i-Button im TOC nicht mehr auf Handys angezeigt.
+Die Metadaten Link findet man hier nur mehr im Copyright Bereich der Karte.
+
+
