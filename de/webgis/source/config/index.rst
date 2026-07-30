@@ -13,5 +13,6 @@ Die Konfiguration der Web Applikationen erfolgt in ``*.config`` Dateien, die bei
    cms/index.rst
    api/index.rst
    portal/index.rst
+   css-styling/index.rst
    authentication/index.rst
    hardening/index.rst

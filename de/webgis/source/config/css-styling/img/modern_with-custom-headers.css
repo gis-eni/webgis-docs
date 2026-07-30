@@ -1,0 +1,14 @@
+body, .webgis-container {
+    --webgis-brand-primary:       #e60000;
+    --webgis-brand-primary-light: #ddd/*#aaa*/;
+    
+    /* Text */
+    --webgis-ui-text-selected: #000;
+    
+    /* Border */
+    --webgis-ui-border-width-item-selected: 2px;
+	
+	/* optional: headers of dialogs */
+	--webgis-ui-surface-header: var(--webgis-brand-primary-light);
+    --webgis-ui-text-header: #333;
+}
