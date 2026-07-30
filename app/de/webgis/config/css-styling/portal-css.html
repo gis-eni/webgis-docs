@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>OpenID Connect Authentifizierung &#8212; WebGIS 2026 Dokumentation</title>
+    <title>portal.css – Logo und Navbar (Portal) &#8212; WebGIS 2026 Dokumentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
@@ -18,8 +18,8 @@
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="Headerbasierte Authentifizierung" href="header-auth.html" />
-    <link rel="prev" title="Windows-Authentifizierung" href="windows-auth.html" /> 
+    <link rel="next" title="cms.css – Styling der CMS-Oberfläche" href="cms-css.html" />
+    <link rel="prev" title="default.css – Farben und Größen" href="default-css.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -130,13 +130,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../cms/index.html">Konfiguration der CMS Applikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/index.html">Konfiguration der API-Applikation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Konfiguration der Portal Applikation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../css-styling/index.html">Styling und CSS-Anpassungen</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Authentifizierung</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="windows-auth.html">Windows-Authentifizierung</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">OpenID Connect Authentifizierung</a></li>
-<li class="toctree-l3"><a class="reference internal" href="header-auth.html">Headerbasierte Authentifizierung</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Styling und CSS-Anpassungen</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> – Farben und Größen</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">portal.css</span></code> – Logo und Navbar (Portal)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cms-css.html"><code class="docutils literal notranslate"><span class="pre">cms.css</span></code> – Styling der CMS-Oberfläche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples-default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> – Beispiele</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">Authentifizierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Sicherheitsmaßnahmen (Hardening)</a></li>
 </ul>
 </li>
@@ -154,75 +155,48 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="openid-connect-authentifizierung">
-<h1>OpenID Connect Authentifizierung<a class="headerlink" href="#openid-connect-authentifizierung" title="Link to this heading">¶</a></h1>
-<p>Mit sich Anwender im <em>WebGIS Portal</em> über <em>Open ID Connect</em> anmelden können, muss in der
-<code class="docutils literal notranslate"><span class="pre">portal.config</span></code> folgendes definiert werden:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Security --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;security&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;oidc&quot;</span><span class="nt">/&gt;</span><span class="w">                  </span><span class="cm">&lt;!-- windows, token, clientid, forms, anonym (url) --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;security_allowed_methods&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;oidc&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- erlaubte Methoden mit Beistrich getrennt, keine Leerzeichen !! --&gt;</span>
+  <section id="portal-css-logo-und-navbar-portal">
+<span id="css-portal"></span><h1><code class="docutils literal notranslate"><span class="pre">portal.css</span></code> – Logo und Navbar (Portal)<a class="headerlink" href="#portal-css-logo-und-navbar-portal" title="Link to this heading">¶</a></h1>
+<p>Die Datei <code class="docutils literal notranslate"><span class="pre">portal.css</span></code> ist ausschließlich für das <em>WebGIS Portal</em> relevant und ergänzt die
+<a class="reference internal" href="default-css.html"><span class="doc">default.css – Farben und Größen</span></a>. Sie wird hauptsächlich verwendet, um ein <strong>Unternehmenslogo in der
+Navigationsleiste</strong> einzubinden.</p>
+<section id="ablageort">
+<h2>Ablageort<a class="headerlink" href="#ablageort" title="Link to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>portal/
+└── wwwroot/
+    └── content/
+        └── companies/
+             └── &lt;company&gt;/
+                ├── portal.css
+                └── img/
+                    └── logo.png    ← Logo-Bild (optional hier ablegen)
 </pre></div>
 </div>
-<p>Weiters muss die Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.json</span></code> angepasst werden.
-Hier werden die Eigenschaften (Authority, ClientId, etc) für die <strong>OpenID Connect</strong> Anmeldung angeführt:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oidc&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;oidc&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// example for Keycloak</span>
-<span class="w">      </span><span class="nt">&quot;authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8080/realms/webgisrealm&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="s2">&quot;webgis-portal&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="w"> </span><span class="p">],</span>
-
-<span class="w">      </span><span class="c1">// claims</span>
-<span class="w">      </span><span class="nt">&quot;claimsFromUserInfoEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;nameClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;preferred_username&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="c1">// optional (roles)</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimValueSeparator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;company&gt;</span></code> entspricht dem Wert des <code class="docutils literal notranslate"><span class="pre">company</span></code>-Schlüssels aus der <code class="docutils literal notranslate"><span class="pre">portal.config</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das Verzeichnis <code class="docutils literal notranslate"><span class="pre">/&lt;company&gt;/</span></code> wird bei einem Update <strong>nicht</strong> überschrieben.
+Alle Anpassungen darin bleiben erhalten.</p>
+</div>
+<p>Ist in der <code class="docutils literal notranslate"><span class="pre">`portal.config</span></code> folgender Key gesetzt, kann eine Karten Author den Inhalt der <code class="docutils literal notranslate"><span class="pre">default.css</span></code>
+auf dem Portal direkt eingeben, ohne dass die Datei physisch im Repository abgelegt werden muss:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;portal-custom-content-rootpath&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;..../webgis-repository/portal-page-content&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<section id="windows-azure-id">
-<h2>Windows Azure ID<a class="headerlink" href="#windows-azure-id" title="Link to this heading">¶</a></h2>
-<p>Eine Anmeldung über Windows Azure wird ebenfalls angeboten. Dabei handelt sich ebenfalls um
-eine <strong>OpenID Connect</strong> Anmeldung. Die Konfiguration in der <code class="docutils literal notranslate"><span class="pre">_config/application-security.json</span></code>
-ist allerdings zu modifizieren:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;azure-ad&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;azure-ad&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Instance&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://login.microsoftonline.com/&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-domain}.onmicrosoft.com&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;TenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-tenant-id}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ClientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-client-id}&quot;</span><span class="p">,</span>
-
-<span class="w">      </span><span class="c1">// optional (roles)</span>
-<span class="w">      </span><span class="nt">&quot;extended-roles-from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen aus lokalem AD kommen sollten</span>
-<span class="w">      </span><span class="c1">// or</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimValueSeparator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Der Parameter <code class="docutils literal notranslate"><span class="pre">etendet-roles-from</span> <span class="pre">=</span> <span class="pre">windows</span></code> ist optional. Hier wird nur der Username aus
-der Azure Anmeldung übernommen, die Gruppen für diesen User werden hier allerdings aus dem
-Windows AD (LDAP) ausgelesen.</p>
-<p>Wenn die Rollen/Gruppen direkt im Azure Token vorhanden sind, können diese mit den Parametern
-<code class="docutils literal notranslate"><span class="pre">roleClaimType</span></code> und <code class="docutils literal notranslate"><span class="pre">roleClaimValueSeparator</span></code> ausgelesen werden.
-Es können dabei mehrere Claims mit dem <code class="docutils literal notranslate"><span class="pre">roleClaimType</span></code> im Token vorhanden sein, oder
-mehrere Rollen in einzelnen Claim, die durch ein Trennzeichen
-(z.B. Komma <code class="docutils literal notranslate"><span class="pre">roleClaimValueSeparator</span></code>) getrennt sind.</p>
 </section>
-<section id="anmeldekachel-openid-connect">
-<h2>Anmeldekachel OpenId Connect<a class="headerlink" href="#anmeldekachel-openid-connect" title="Link to this heading">¶</a></h2>
-<p>Damit sich Anwender über <strong>OpenID Connect</strong> auf einer <em>WebGIS Portal Seite</em> anmelden können,
-muss noch die <em>Security</em> für die Seite angepasst werden (bei der WebGIS API als Subscriber anmelden
-→ Pages → entsprechende Seite auswählen)</p>
-<img alt="../../_images/openid1.png" src="../../_images/openid1.png" />
-<p>Mit diese Einstellung erscheint dann auf der <em>WebGIS Portal</em> Startseite die Option
-<code class="docutils literal notranslate"><span class="pre">Mit</span> <span class="pre">OpenId</span> <span class="pre">Connect</span> <span class="pre">anmelden</span></code>:</p>
-<img alt="../../_images/openid2.png" src="../../_images/openid2.png" />
+<section id="logo-in-der-navbar-einbinden">
+<h2>Logo in der Navbar einbinden<a class="headerlink" href="#logo-in-der-navbar-einbinden" title="Link to this heading">¶</a></h2>
+<p>Das Logo in der Navigationsleiste des Portals kann über den CSS-Selektor
+<code class="docutils literal notranslate"><span class="pre">.webgis-portal-navbar-logo</span></code> ersetzt werden:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">navbar-brand</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-image</span><span class="p">:</span><span class="w"> </span><span class="nb">url</span><span class="p">(</span><span class="s1">&#39;../img/logo.png&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">background-size</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Das Logo-Bild wird am besten im selben Unternehmensverzeichnis abgelegt, z. B. unter
+<code class="docutils literal notranslate"><span class="pre">wwwroot/custom/&lt;company&gt;/img/logo.png</span></code>. Der relative Pfad <code class="docutils literal notranslate"><span class="pre">../img/logo.png</span></code> bezieht
+sich dabei auf den Speicherort der <code class="docutils literal notranslate"><span class="pre">portal.css</span></code>.</p>
 </section>
 </section>
 
@@ -240,9 +214,9 @@ muss noch die <em>Security</em> für die Seite angepasst werden (bei der WebGIS 
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">OpenID Connect Authentifizierung</a><ul>
-<li><a class="reference internal" href="#windows-azure-id">Windows Azure ID</a></li>
-<li><a class="reference internal" href="#anmeldekachel-openid-connect">Anmeldekachel OpenId Connect</a></li>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">portal.css</span></code> – Logo und Navbar (Portal)</a><ul>
+<li><a class="reference internal" href="#ablageort">Ablageort</a></li>
+<li><a class="reference internal" href="#logo-in-der-navbar-einbinden">Logo in der Navbar einbinden</a></li>
 </ul>
 </li>
 </ul>
@@ -257,14 +231,14 @@ muss noch die <em>Security</em> für die Seite angepasst werden (bei der WebGIS 
         <div class="button_nav">
             <div class="left">
                 
-                <a href="windows-auth.html">
-                    <span class="icon">&lt;</span><span>Windows-Authentifizierung</span></a>
+                <a href="default-css.html">
+                    <span class="icon">&lt;</span><span><code class="docutils literal notranslate"><span class="pre">default.css</span></code> – Farben und Größen</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="header-auth.html"><span>Headerbasierte Authentifizierung</span><span class="icon">&gt;</span></a>
+                    <a href="cms-css.html"><span><code class="docutils literal notranslate"><span class="pre">cms.css</span></code> – Styling der CMS-Oberfläche</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>
