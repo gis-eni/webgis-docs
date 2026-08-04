@@ -26,6 +26,11 @@ Um eine möglichst universelle Einsetzbarkeit von **DataLinq** in verschiedenen 
 - **Erweiterte Analysemöglichkeiten**  
   - **Statistische Auswertung** und Analyse von Daten  
   - **Visualisierung** von Datensätzen und Analyseergebnissen in Diagrammform  
+  - **Export** von Daten in verschiedene Formate (z. B. CSV, PDF)
+
+- **Erstellung von PDF Templates**
+  - Bereitstellung von **PDF-Templates** zur Generierung von Berichten und Dokumenten aus den Abfrageergebnissen
+  - Parametrisierung der Templates zur individuellen Anpassung an die jeweiligen Anforderungen
 
 ===============
 
@@ -39,6 +44,8 @@ Datenquellen
 - **GeoJson**  
 - **GeoRss**  
 - **Plain Text**  
+- **Cypher**-Abfragen für Graph-Datenbanken
+- **JsonApi**-Abfragen für REST-APIs
   - Listen von Werten als Text – ideal für Auswahl- und Dropdown-Listen  
 - **Weitere WebGIS DataLinq-Anwendungen**  
 

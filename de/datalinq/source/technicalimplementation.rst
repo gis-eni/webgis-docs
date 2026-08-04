@@ -42,7 +42,6 @@ Die **Ansicht (View)** dient der **Visualisierung und Präsentation** der Abfrag
 - Die formatierte Darstellung der Daten in einer lesbaren Form  
 - Die Umsetzung von Diagrammen oder strukturierten Reports  
 - Eine nutzerfreundliche Präsentation von Analyseergebnissen  
+- Die Erstellung von **PDF-Templates** zur Generierung von Berichten und Dokumenten aus den Abfrageergebnissen
 
 Falls nur eine **Rohdatenausgabe (JSON)** benötigt wird, kann auf die Erstellung einer Ansicht verzichtet werden.
-
-

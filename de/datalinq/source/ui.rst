@@ -49,6 +49,20 @@ Ein aufgeklappter Baum sieht beispielsweise so aus:
 - Die **Füllung der Dreiecke** zeigt an, ob weitere untergeordnete Elemente existieren.  
 - Dies erleichtert insbesondere die Suche nach **Views**.
 
+Ordner
+~~~~~~
+
+- Über einen **Rechtsklick** auf das **Icon** kann der **Ordner-Modus** aktiviert werden.
+
+- Wenn man sich im Ordner-Modus befindet:
+- **Rechtsklick** speichert und beendet den Ordner-Modus.
+- **Linksklick** erstellt einen neuen Ordner.
+- Durch **Linksklick** auf einen neuen Ordner kann dieser umbenannt werden.
+- **Rechtsklick** auf einen Ordner löscht ihn.
+- **Endpoints** können per **Drag and Drop** in Ordner gezogen werden.
+
+- Die **Ordnerstruktur** wird nur angezeigt, wenn alle **Endpoints** geöffnet werden; andernfalls bleibt die alte Struktur bestehen.
+
 ===============
 
 Erstellen eines neuen Endpoints, einer Query oder einer View
@@ -121,6 +135,25 @@ Vor dem Speichern wird automatisch überprüft, ob **Fehler in einer View** vorh
 
 ===============
 
+Secrets & Constants
+-------------------
+
+- In der **Toolbar** öffnet sich über das **Icon** der **Secrets Manager**.
+
+.. image:: img/secrets_icon.png
+   :alt: Icon zum Öffnen des Secrets Managers
+   :align: center
+
+-- Hier können **Secrets** (werden verschlüsselt abgelegt) und **Konstanten** hinterlegt werden.
+
+.. image:: img/secrets_manager.png
+   :alt: Placeholder fuer Secrets und Konstanten
+   :align: center
+
+-- Auf diese Werte kann anschließend im Code über einen **Helper** zugegriffen werden.
+
+===============
+
 Toolbar (Rechts oben)
 ----------------------
 
@@ -145,3 +178,15 @@ Der Editor ermöglicht das **Bearbeiten von Code und Einstellungen**.
    :align: center
 
 **Weitere Details zur Konfiguration der Einstellungen** finden sich im Kapitel **Parametrierung**.
+
+===============
+
+Split Screen
+------------
+
+Durch Gedrückthalten von `Shift` und Klicken auf mehrere Endpunkte/Abfragen/Ansichten ist es möglich, bis zu 3 Fenster gleichzeitig im Split-Screen zu öffnen.
+
+.. image:: img/split_screen.png
+   :alt: Placeholder for image
+   :align: center
+
