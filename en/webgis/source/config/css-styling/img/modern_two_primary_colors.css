@@ -1,0 +1,26 @@
+body, .webgis-container {
+    --webgis-brand-primary:       #ffd500;
+	--webgis-brand-primary2:      #005a9a;
+    --webgis-brand-primary-light: #eee;
+    
+    /* Text */
+    --webgis-ui-text-selected: #000;
+    --webgis-ui-text-header: var(--webgis-brand-primary2);
+
+    /* Border */
+    --webgis-ui-border-width-item-selected: 3px;
+}
+
+.webgis-tabs-tab-selected,
+.webgis-ui-option-selected,
+.webgis-toolbar-tabs .webgis-toolbar-tab.selected,
+.webgis-toolbox-tool-item.selected {
+    border-color: var(--webgis-brand-primary2);
+}
+
+.webgis-modal-title, 
+.webgis-modal-title, 
+.webgis-dockpanel-title, 
+.webgis-dockpanel-title {
+   border-color: var(--webgis-brand-primary2);
+}
