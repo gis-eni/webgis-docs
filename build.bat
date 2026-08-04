@@ -29,7 +29,7 @@ robocopy /MIR .\build\html .\..\..\app\cloud
 @echo on
 cd .\..\webgis-dev
 call .\make.bat html
-robocopy /MIR .\build\html .\..\..\app\dev
+robocopy /MIR .\build\html .\..\..\app\de\dev
 
 @echo on
 cd .\..\webgis-manual
@@ -40,4 +40,9 @@ robocopy /MIR .\build\html .\..\..\app\de\manual
 cd .\..\..\en\webgis-manual
 call .\make.bat html
 robocopy /MIR .\build\html .\..\..\app\en\manual
+
+@echo on
+cd .\..\webgis-dev
+call .\make.bat html
+robocopy /MIR .\build\html .\..\..\app\en\dev
 

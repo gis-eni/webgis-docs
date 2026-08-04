@@ -4,7 +4,7 @@ Find documentation source changes that need to be mirrored between the
 German (de/) and English (en/) trees of a paired Sphinx project, before
 running the repo's build.bat.
 
-For each paired project (webgis, datalinq, webgis-manual), this diffs
+For each paired project (webgis, datalinq, webgis-manual, webgis-dev), this diffs
 uncommitted changes (git status: staged + unstaged + untracked) restricted
 to de/<project>/source and en/<project>/source, matches files by their
 path relative to source/, and reports:
@@ -31,7 +31,7 @@ import os
 import subprocess
 import sys
 
-PROJECTS = ["webgis", "datalinq", "webgis-manual"]
+PROJECTS = ["webgis", "datalinq", "webgis-manual", "webgis-dev"]
 LANGS = ["de", "en"]
 NEVER_AUTO_COPY = {"conf.py", "Makefile", "make.bat"}
 
@@ -39,7 +39,7 @@ NEVER_AUTO_COPY = {"conf.py", "Makefile", "make.bat"}
 def git_status(root):
     paths = [f"{lang}/{proj}/source" for lang in LANGS for proj in PROJECTS]
     result = subprocess.run(
-        ["git", "status", "--porcelain=v1", "--no-renames", "--"] + paths,
+        ["git", "status", "--porcelain=v1", "--no-renames", "--untracked-files=all", "--"] + paths,
         cwd=root,
         capture_output=True,
         text=True,

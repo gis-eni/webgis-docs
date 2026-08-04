@@ -8,8 +8,9 @@ description: Before running this repo's build.bat to deploy the Sphinx documenta
 ## What this is for
 
 This repo publishes documentation in paired language trees: `de/webgis`,
-`de/datalinq`, `de/webgis-manual` and their English counterparts
-`en/webgis`, `en/datalinq`, `en/webgis-manual`. Both sides must stay a
+`de/datalinq`, `de/webgis-manual`, `de/webgis-dev` and their English
+counterparts `en/webgis`, `en/datalinq`, `en/webgis-manual`,
+`en/webgis-dev`. Both sides must stay a
 structural mirror of each other (same files, same relative paths) so that
 published URLs only differ by the `/de/`/`/en/` segment — see the
 `translate-sphinx-docs` skill for the full rationale and the rules for
@@ -168,6 +169,14 @@ deploy) is the user's call, every time.
 
 ## Common pitfalls
 
+- **A brand new project's entire tree looks like one line of `git status`
+  output.** Plain `git status` doesn't recurse into a directory that's
+  100% untracked — it reports the directory itself, not the dozens of
+  files inside it. The bundled script passes `--untracked-files=all` to
+  avoid this (safe here since it's scoped to a handful of known
+  `source/` paths, not the whole repo), but if you ever query `git
+  status` yourself while syncing, remember plain `git status` will
+  undercount a wholesale-new project the same way.
 - **Diffing the whole file instead of the actual change.** Re-translating
   a modified file from scratch instead of localizing just the diff
   produces a huge, hard-to-review change and risks silently altering

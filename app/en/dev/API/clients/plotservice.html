@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Plot Service &#8212; webgis 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=bfd86df6" />
+    <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plugins" href="../../plugins/index.html" />
+    <link rel="prev" title="WebGIS API Clients" href="index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">webgis 1.0 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../API_JavaScript/index.html">JavaScript</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">C# Clients</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Plot Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../embedded/index.html">Embedded Maps</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="plot-service">
+<h1>Plot Service<a class="headerlink" href="#plot-service" title="Link to this heading">¶</a></h1>
+<p>With the help of the <em>PlotService</em> API, printouts can be fetched in PDF format. For this,</p>
+<ul class="simple">
+<li><p>the name (plus category and portal page) of the map</p></li>
+<li><p>a print layout</p></li>
+<li><p>a scale</p></li>
+<li><p>and a bounding box (plus EPSG code, if not WGS 84)</p></li>
+</ul>
+<p>are passed.</p>
+<section id="layout-xml-files">
+<h2>Layout Xml Files<a class="headerlink" href="#layout-xml-files" title="Link to this heading">¶</a></h2>
+<p>The API tries to fit the given area into the map layout, provided that this is possible for the given scale.
+For this, the API tries different paper sizes (A4, A3, …) and orientations (portrait, landscape). As soon as a paper size is found, a PDF file is created for this paper size.</p>
+<p>Which paper sizes and orientations are possible can be defined in the respective layout.xml file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;layout</span><span class="w"> </span><span class="na">to-jpg-if-greater=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="na">image-format=</span><span class="s">&quot;jpg&quot;</span>
+<span class="w">   </span><span class="na">plot_service_page_sizes=</span><span class="s">&quot;A4,A3,A2&quot;</span>
+<span class="w">   </span><span class="na">plot_service_page_orientations=</span><span class="s">&quot;Landscape,Portrait&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>The attributes for the <em>PlotService</em> start with <code class="docutils literal notranslate"><span class="pre">plot_service_</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">page_sizes</span></code>: paper sizes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_orientations</span></code>: orientations</p></li>
+</ul>
+<p>The order of the values given here also corresponds to the order in which it is tested whether the desired view can be printed at the given scale.
+In the example shown here, the following would be tested, for example:</p>
+<ol class="arabic simple">
+<li><p>A4.Portrait</p></li>
+<li><p>A4.Landscape</p></li>
+<li><p>A3.Portrait</p></li>
+<li><p>A3.Landscape</p></li>
+<li><p>…</p></li>
+</ol>
+<p>If no possible paper size/orientation combination is found by the end, the API returns an error.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The two XML attributes <code class="docutils literal notranslate"><span class="pre">plot_service_page_sizes</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_service_page_orientations</span></code> are the prerequisite for a printout to be created. The print service
+generally works for all maps, but only for layouts for which both attributes have been set.
+In addition, a <code class="docutils literal notranslate"><span class="pre">ClientId</span></code> and <code class="docutils literal notranslate"><span class="pre">ClientSecret</span></code> (see below) must/can be passed when calling the API. Creating PDFs is only possible for maps that are visible to the
+current client. Likewise, all services in the map must be authorized for the client. Otherwise, the API returns an error.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When calling the <em>PlotService</em>, a map is passed. The map passed must contain the print tool and the corresponding layout!
+If the layout has not been defined in the MapBuilder for this map, the <em>PlotService</em> returns an error message.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some layouts are only permitted for certain scales via <code class="docutils literal notranslate"><span class="pre">&lt;layout</span> <span class="pre">scales=&quot;5000,2500,1000&quot;</span> <span class="pre">&gt;</span></code>. This also applies when this layout is used with the <em>PlotService</em>. If a different scale is passed, the <em>PlotService</em> returns an error message.</p>
+</div>
+</section>
+<section id="rest-call">
+<h2>REST Call<a class="headerlink" href="#rest-call" title="Link to this heading">¶</a></h2>
+<p>The <em>PlotService</em> can be called via the REST interface of the WebGIS API at <code class="docutils literal notranslate"><span class="pre">https://{api-url}/rest/plotservice</span></code>. The call must be made via an <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">POST</span></code> request.
+The mandatory parameters listed above are passed as parameters (as HTTP form):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapName</span><span class="o">=</span><span class="n">Basiskarte</span><span class="o">&amp;</span><span class="n">mapCategory</span><span class="o">=</span><span class="n">Allgemein</span><span class="o">&amp;</span><span class="n">mapPortal</span><span class="o">=</span><span class="n">dev</span><span class="o">&amp;</span><span class="n">layout</span><span class="o">=</span><span class="n">lkmyzkjugleodsjpu</span><span class="o">-</span><span class="mi">75</span><span class="n">pdg</span><span class="nd">@ccgis_default</span><span class="o">&amp;</span><span class="n">scale</span><span class="o">=</span><span class="mi">1000</span><span class="o">&amp;</span><span class="n">bbox</span><span class="o">=-</span><span class="mf">68310.17</span><span class="p">,</span><span class="mf">215052.83</span><span class="p">,</span><span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span><span class="mf">216004.68</span><span class="o">&amp;</span><span class="n">bbox_srs</span><span class="o">=</span><span class="mi">31256</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mapPortal</span></code>, <code class="docutils literal notranslate"><span class="pre">mapName</span></code>, <code class="docutils literal notranslate"><span class="pre">mapCategory</span></code>: These define the map that should be printed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: Specifies the layout that should be printed. This layout must contain the attributes <code class="docutils literal notranslate"><span class="pre">plot_service_page_sizes</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_service_page_orientations</span></code> mentioned above.
+Either the CMS id of the layout (see above) or the CMS name of the layout can be given as the value, e.g. <code class="docutils literal notranslate"><span class="pre">layout=strom-standard</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale</span></code>: The target scale for the plot. A list of scales can also be passed here, <code class="docutils literal notranslate"><span class="pre">scale=1000,2000,5000</span></code>. The plot service tries, in sorted order (smallest value first), whether a printout is possible.
+As soon as a scale/paper size combination is found, the printout is created with this combination. Procedure: the first scale is tested with all possible paper formats. If no combination is possible,
+the next scale is used. If the layout is only permitted for certain scales (see above), all passed scales must be permitted. Otherwise, an error is returned.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bbox</span></code>: The area (bounding box) that should be printed. If the coordinates here are not passed in <em>WGS84</em> (=EPSG code 4326), the coordinate system must be passed as an EPSG code via the <code class="docutils literal notranslate"><span class="pre">bbox_srs</span></code> parameter.</p></li>
+</ul>
+<p>The response of a <em>PlotService</em> call comes as JSON in the following form:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;print_0a0d0ccb44f54ad7b9dce8f328052ae2.pdf&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;base64&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;JVBERi0xLjQKJdP0zOEKMSAwIG9iago8PAovQ3JlYXRpb25EYXRlKEQ6MjAyMDEyMTQwODQyNDYrMDEnMDAnKQovQ3JlYXRvcihQ....&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;page_format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;A4.Landscape&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;scale_dominator&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;success&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;exception&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: A name for the output file (suggestion)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64</span></code>: The actual PDF file (base64 encoded)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_format</span></code>: The paper format chosen for the plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale_dominator</span></code>: The scale used</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">success</span></code>: Indicates whether the printout was created without error (<code class="docutils literal notranslate"><span class="pre">true</span></code>). If <code class="docutils literal notranslate"><span class="pre">false</span></code> is returned here, an error occurred during printing. A more detailed description of the error is given under <code class="docutils literal notranslate"><span class="pre">exception</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exception</span></code>: Errors during the printout are returned here as a <code class="docutils literal notranslate"><span class="pre">string</span></code>. An error can be, for example, that the given view is not possible with any paper format. Errors can also occur in the underlying services.
+It can also happen here that a PDF is returned in which data/services are missing. To make sure that all services were available during the printout, it is therefore essential to evaluate the <code class="docutils literal notranslate"><span class="pre">success</span></code> and <code class="docutils literal notranslate"><span class="pre">exception</span></code>
+values.</p></li>
+</ul>
+<p>Further optional parameters are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dpi</span></code>: The resolution at which to print, default <code class="docutils literal notranslate"><span class="pre">dpi=120</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filters</span></code>: Passing of presentation filters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">presentations</span></code>: Presentation variants</p></li>
+</ul>
+</section>
+<section id="api-client-net-standard">
+<h2>API Client (.NET Standard)<a class="headerlink" href="#api-client-net-standard" title="Link to this heading">¶</a></h2>
+<p>If the <em>PlotService</em> is called from a .NET program, it is recommended to use the library <code class="docutils literal notranslate"><span class="pre">E.Standard.WebGIS.Api.Client</span></code>. This contains a service <code class="docutils literal notranslate"><span class="pre">E.Standard.WebGIS.Api.Client.Services.WebGISPlotService</span></code>,
+which abstracts the call. This especially simplifies passing more complex parameters (<code class="docutils literal notranslate"><span class="pre">filters</span></code>, <code class="docutils literal notranslate"><span class="pre">presentations</span></code>).</p>
+<p>An example project that shows the procedure is the .NET Core console application <code class="docutils literal notranslate"><span class="pre">WebGIS.Api.Test.Client</span></code>.</p>
+<p>To be able to use the service, it must be registered via <em>DependencyInjection</em>. In addition,
+<code class="docutils literal notranslate"><span class="pre">IHttpClientFactory</span></code> must also be added for the <em>DependencyInjection</em>, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">services</span><span class="o">.</span><span class="n">AddHttpClient</span><span class="p">(</span><span class="s2">&quot;plostservice&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+      <span class="o">.</span><span class="n">ConfigurePrimaryHttpMessageHandler</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="n">new</span> <span class="n">HttpClientHandler</span><span class="p">()</span>
+       <span class="p">{</span>
+          <span class="n">ServerCertificateCustomValidationCallback</span> <span class="o">=</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">cert</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">sslPolicyErrors</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">true</span><span class="p">;</span> <span class="p">}</span>
+       <span class="p">});</span>
+
+<span class="n">services</span><span class="o">.</span><span class="n">AddWebGISPlotService</span><span class="p">(</span><span class="n">o</span><span class="o">=&gt;</span>
+<span class="p">{</span>
+   <span class="n">o</span><span class="o">.</span><span class="n">HttpClientName</span> <span class="o">=</span> <span class="s2">&quot;plotservice&quot;</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>After that, <code class="docutils literal notranslate"><span class="pre">WebGISPlotService</span></code> can be injected via <em>DependencyInjection</em>. The <code class="docutils literal notranslate"><span class="pre">RunAsync</span></code> method
+performs a call to the PlotService:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
+   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;layout-standard&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
+      <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
+   <span class="p">});</span>
+
+<span class="o">//</span> <span class="n">alternatively</span><span class="p">,</span> <span class="n">passing</span> <span class="n">several</span> <span class="n">possible</span> <span class="n">scales</span>
+<span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
+   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;layout-standard&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="nb">int</span><span class="p">[]{</span> <span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2880</span> <span class="p">})</span>
+   <span class="p">{</span>
+      <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
+      <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
+   <span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All further possible parameters can be found in <code class="docutils literal notranslate"><span class="pre">WebGISPlotServiceRequestOptions</span></code>.</p>
+</div>
+<p>The return value is of type <code class="docutils literal notranslate"><span class="pre">WebGISPlotServiceResponse</span></code>. Here too, it is important to check
+whether the plot was successful (<code class="docutils literal notranslate"><span class="pre">response.Success</span> <span class="pre">=</span> <span class="pre">true</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Console.WriteLine($&quot;Request Succeeded: { response.Success }&quot;);
+if (!response.Success)
+{
+   Console.WriteLine($&quot;Response Message: { response.ExceptionMessage  }&quot;);
+}
+else
+{
+   string fileName = $@&quot;c:\temp\{ response.Name }&quot;;
+   Console.WriteLine($&quot;Write file: { fileName }&quot;);
+
+   await System.IO.File.WriteAllBytesAsync(fileName, response.BinaryResult);
+}
+</pre></div>
+</div>
+</section>
+<section id="presentation-variants">
+<h2>Presentation Variants<a class="headerlink" href="#presentation-variants" title="Link to this heading">¶</a></h2>
+<p>Presentation variants can be passed via the <code class="docutils literal notranslate"><span class="pre">presentations</span></code> parameter. The parameter must be a JSON string.
+Only how presentation variants are passed via the API client library is described here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Presentations</span> <span class="o">=</span> <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">[]</span>
+<span class="p">{</span>
+   <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">Id</span><span class="o">=</span><span class="s2">&quot;dv_overviewmap_off&quot;</span><span class="p">,</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;overviewmap_ags@my_cms&quot;</span>
+   <span class="p">},</span>
+   <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">Id</span><span class="o">=</span><span class="s2">&quot;dv_streets_and_addresses&quot;</span><span class="p">,</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;basemap_ags@my_cms&quot;</span><span class="p">,</span>
+      <span class="n">Check</span> <span class="o">=</span> <span class="n">true</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The presentation variants passed here correspond to the <em>layer configurations</em> from the CMS at the service level (not the ones under <em>Map Viewer/Presentation Variants</em>).
+For this, the <em>id</em> of the presentation variant and the <em>id</em> of the service must be passed for each presentation variant that should be applied.
+The presentation variants passed are executed in the order in which they are listed here.</p>
+<p>The value for <code class="docutils literal notranslate"><span class="pre">Check</span></code> (default = null) indicates how the presentation variant is applied:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">null</span></code> (default): the presentation variant is treated like a <em>button presentation variant</em>. All layers of the service, except those listed in the layer configuration, are made invisible. All layers from the <em>layer configuration</em> are made visible.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>: the layers listed in the <em>layer configuration</em> are made visible (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or invisible (<code class="docutils literal notranslate"><span class="pre">false</span></code>). The visibility of all other layers remains unaffected (corresponds to a <em>checkbox presentation variant</em>)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a service, presentation variant, or layer listed here is not found, the API returns an error message and no printout is created.</p>
+</div>
+</section>
+<section id="layer-visibility">
+<h2>Layer Visibility<a class="headerlink" href="#layer-visibility" title="Link to this heading">¶</a></h2>
+<p>Similar to presentation variants, individual layers can also be made visible or invisible via the <code class="docutils literal notranslate"><span class="pre">layers</span></code> parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Layers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">[]</span>
+<span class="p">{</span>
+   <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;tor_tiles_gray@my-cms&quot;</span><span class="p">,</span>
+      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">&quot;0&quot;</span> <span class="p">},</span>
+      <span class="n">Visible</span><span class="o">=</span><span class="n">true</span>
+   <span class="p">},</span>
+   <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;strassen_tiles_default@my-cms&quot;</span><span class="p">,</span>
+      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">&quot;0&quot;</span> <span class="p">},</span>
+      <span class="n">Visible</span><span class="o">=</span><span class="n">true</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, the <em>id</em> of the service and a list of <em>layer ids</em> (or layer names) must be passed. The value for <code class="docutils literal notranslate"><span class="pre">Visible</span></code> indicates whether the layers are made visible (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or invisible (<code class="docutils literal notranslate"><span class="pre">false</span></code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a layer listed here is not found, the API returns an error message and no printout is created.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to switch background services, the <em>layer id</em> for the <em>TileCache</em> is always <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>. If a background service is switched with this method, all other background services are automatically made invisible.</p>
+</div>
+</section>
+<section id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">¶</a></h2>
+<p>Maps, services, etc. can be authorized via the WebGIS CMS. If you want to print non-public services,
+corresponding <em>credentials</em> must be passed when calling the API. Authentication for API calls is generally done via <em>clients</em>.</p>
+<p>A <em>client</em> can be created by a <em>subscriber</em> via the API administration interface:</p>
+<img alt="../../_images/plotservice1.png" src="../../_images/plotservice1.png" />
+<p>Important for the call are the <code class="docutils literal notranslate"><span class="pre">ClientId</span></code> and the <code class="docutils literal notranslate"><span class="pre">ClientSecret</span></code>:</p>
+<img alt="../../_images/plotService2.png" src="../../_images/plotService2.png" />
+<p>In the CMS, all necessary services must now be authorized for this client. The name that must be given in the CMS is <code class="docutils literal notranslate"><span class="pre">{subscriber}&#64;{client-name}</span></code>.
+If the client shown above was created by the subscriber <code class="docutils literal notranslate"><span class="pre">subscriber::gis-admim</span></code>, <code class="docutils literal notranslate"><span class="pre">subscriber::gis-admin&#64;plot-service</span></code> must be given in the CMS.</p>
+<p>When calling the API, the <em>ClientId</em> and the <em>ClientSecret</em> must be passed with the following parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">client_id</span><span class="o">=....&amp;</span><span class="n">client_secret</span><span class="o">=...</span>
+</pre></div>
+</div>
+<p>If you use the .NET Standard API client library, the client can be passed as follows when calling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">RunAsync</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
+         <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;strom-standard&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+         <span class="p">{</span>
+             <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
+             <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
+         <span class="p">},</span>
+         <span class="n">new</span> <span class="n">WebGISApiClient</span><span class="p">(</span><span class="s2">&quot;0e4....&quot;</span><span class="p">,</span> <span class="s2">&quot;8337f.....&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Plot Service</a><ul>
+<li><a class="reference internal" href="#layout-xml-files">Layout Xml Files</a></li>
+<li><a class="reference internal" href="#rest-call">REST Call</a></li>
+<li><a class="reference internal" href="#api-client-net-standard">API Client (.NET Standard)</a></li>
+<li><a class="reference internal" href="#presentation-variants">Presentation Variants</a></li>
+<li><a class="reference internal" href="#layer-visibility">Layer Visibility</a></li>
+<li><a class="reference internal" href="#authentication">Authentication</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="index.html">
+                    <span class="icon">&lt;</span><span>WebGIS API Clients</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../../plugins/index.html"><span>Plugins</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

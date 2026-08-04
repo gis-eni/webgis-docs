@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>WebGIS 5.0 API: service &#8212; webgis 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=bfd86df6" />
+    <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="WebGIS 5.0 API: sketch" href="sketch.html" />
+    <link rel="prev" title="WebGIS 5.0 API: map" href="map.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">webgis 1.0 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">JavaScript</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="graphics.html">graphics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="map.html">map</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sketch.html">sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui.html">ui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webgis.html">webgis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../clients/index.html">C# Clients</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../embedded/index.html">Embedded Maps</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="webgis-5-0-api-service">
+<h1>WebGIS 5.0 API: service<a class="headerlink" href="#webgis-5-0-api-service" title="Link to this heading">¶</a></h1>
+<section id="members">
+<h2>Members<a class="headerlink" href="#members" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#getlayeranchor"><span class="std std-ref">getLayer (id)</span></a></p></td>
+<td><p>Returns a layer based on its id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#getlayerfromnameanchor"><span class="std std-ref">getLayerFromName (name)</span></a></p></td>
+<td><p>Returns a layer based on its name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#getlayeridsanchor"><span class="std std-ref">getLayerIds ()</span></a></p></td>
+<td><p>Returns a list of all layer ids in a service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#getlayeridsfromnamesanchor"><span class="std std-ref">getLayerIdsFromNames (layernames)</span></a></p></td>
+<td><p>Returns an array with the ids of the given layers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#getlegendurlanchor"><span class="std std-ref">getLegendUrl ()</span></a></p></td>
+<td><p>Creates a link for fetching the current legend image for the service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#getpreviewurlanchor"><span class="std std-ref">getPreviewUrl (r)</span></a></p></td>
+<td><p>With this method, a preview image of a service can be fetched at a certain size.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#layerinscaleanchor"><span class="std std-ref">layerInScale (id)</span></a></p></td>
+<td><p>Checks whether a layer is visible at the current map scale.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#refreshanchor"><span class="std std-ref">refresh ()</span></a></p></td>
+<td><p>Forces the service to be redrawn on the map.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#removeanchor"><span class="std std-ref">remove ()</span></a></p></td>
+<td><p>Removes a service from a map.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#setlayervisibilityanchor"><span class="std std-ref">setLayerVisibility (layerids, visible)</span></a></p></td>
+<td><p>Sets the visibility of layers via their id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#setopacityanchor"><span class="std std-ref">setOpacity (opacity)</span></a></p></td>
+<td><p>Sets the transparency for a service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#setservicevisibilityanchor"><span class="std std-ref">setServiceVisibility (layerids)</span></a></p></td>
+<td><p>Sets all layers with a corresponding id visible and all remaining layers invisible.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#idpropertyanchor"><span class="std std-ref">id</span></a></p></td>
+<td><p>The id of the service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#isbasemappropertyanchor"><span class="std std-ref">isBasemap</span></a></p></td>
+<td><p>Indicates whether this service is a background service.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#layerspropertyanchor"><span class="std std-ref">layers</span></a></p></td>
+<td><p>An array of the service’s layers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mappropertyanchor"><span class="std std-ref">map</span></a></p></td>
+<td><p>The map object in which the service is included.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#namepropertyanchor"><span class="std std-ref">name</span></a></p></td>
+<td><p>The name of the service.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#opacitypropertyanchor"><span class="std std-ref">opacity</span></a></p></td>
+<td><p>Indicates the transparency of the service.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="member-details">
+<h2>Member Details<a class="headerlink" href="#member-details" title="Link to this heading">¶</a></h2>
+<section id="getlayer-id">
+<span id="getlayeranchor"></span><h3>getLayer (id)<a class="headerlink" href="#getlayer-id" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Returns a layer based on its id. If the layer is not found in the service, the return value is <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayer</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">layer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// do something</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="getlayerfromname-name">
+<span id="getlayerfromnameanchor"></span><h3>getLayerFromName (name)<a class="headerlink" href="#getlayerfromname-name" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Returns a layer based on its name. If the layer is not found in the service, the return value is <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getLayerFromName</span><span class="p">(</span><span class="s1">&#39;AdministrativeData\\ZIP-Areas&#39;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">layer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="c1">// do something</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="getlayerids">
+<span id="getlayeridsanchor"></span><h3>getLayerIds ()<a class="headerlink" href="#getlayerids" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Returns a list of all layer ids in a service. The return value is an array, which can then, for example, be passed back to the <code class="docutils literal notranslate"><span class="pre">setLayerVisibility([],true/false)</span></code> method, to switch all layers in a service on or off.</p>
+<p><em>Example</em></p>
+<p>Sets all layers in a service invisible. The same effect can also be achieved more elegantly with the <code class="docutils literal notranslate"><span class="pre">setServiceVisibility();</span></code> method.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">layerIds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayerIds</span><span class="p">();</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setLayerVisibility</span><span class="p">(</span><span class="nx">layerIds</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="c1">//</span>
+<span class="c1">// Set all layers visible again</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setLayerVisibility</span><span class="p">(</span><span class="nx">layerIds</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">// or</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setServiceVisibliity</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayerIds</span><span class="p">());</span>
+</pre></div>
+</div>
+</section>
+<section id="getlayeridsfromnames-layernames">
+<span id="getlayeridsfromnamesanchor"></span><h3>getLayerIdsFromNames (layernames)<a class="headerlink" href="#getlayeridsfromnames-layernames" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Returns an array with the ids of the given layers. An array of strings with the layer names is passed.</p>
+<p>The function is useful because the ids are needed, for example, for setting the visibility of layers. If the ids for a layer can change (e.g. for AGS services, by reordering the layers), it is recommended to fetch the current ids from the name.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">layerIds</span><span class="o">=</span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayerIdsFromNames</span><span class="p">([</span><span class="s1">&#39;AdministrativeData\\ZIP-Areas&#39;</span><span class="p">]);</span>
+<span class="c1">//console.log(layerIds);</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setLayerVisibility</span><span class="p">(</span><span class="nx">layerIds</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="getlegendurl">
+<span id="getlegendurlanchor"></span><h3>getLegendUrl ()<a class="headerlink" href="#getlegendurl" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Creates a link for fetching the current legend image for the service. The legend depends on the current layer visibility and the map scale. The URL can be used, for example, to fetch the legend via an AJAX request and pass the result to an image element. The return value is a JSON object with a <code class="docutils literal notranslate"><span class="pre">url</span></code> property. This URL is a link to the actual legend image (png or jpg).</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getLegendUrl</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;get&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;img&gt;&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="getpreviewurl-r">
+<span id="getpreviewurlanchor"></span><h3>getPreviewUrl (r)<a class="headerlink" href="#getpreviewurl-r" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>With this method, a preview image of a service can be fetched at a certain size. The return value is a URL pointing to an image (png or jpg). This preview depends on the current map scale. Applications for this method include, for example, the preview images for the background maps in the TOC.</p>
+<p>The parameter must be an object with the values <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>, and specifies the size of the preview image.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;background&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;url(&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getPreviewUrl</span><span class="p">({</span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">})</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="layerinscale-id">
+<span id="layerinscaleanchor"></span><h3>layerInScale (id)<a class="headerlink" href="#layerinscale-id" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Checks whether a layer is visible at the current map scale. Certain layers in a service can be scale-dependent. For example, it makes little sense to show parcel boundaries at very small scales. This method can be used to query whether a layer is visible in the current scale range. The parameter is the id of the corresponding layer. The function’s return value is either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">layerInScale</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// layer with id 1</span>
+<span class="w">    </span><span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="refresh">
+<span id="refreshanchor"></span><h3>refresh ()<a class="headerlink" href="#refresh" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Forces the service to be redrawn on the map. This command fetches the map image for this service from the map server again. This method generally should not need to be called. After changes to the map or the visibility of layers in this service, the method is automatically executed by the webGIS framework.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">service</span><span class="p">.</span><span class="nx">refresh</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="remove">
+<span id="removeanchor"></span><h3>remove ()<a class="headerlink" href="#remove" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Removes a service from a map.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">service</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="setlayervisibility-layerids-visible">
+<span id="setlayervisibilityanchor"></span><h3>setLayerVisibility (layerids, visible)<a class="headerlink" href="#setlayervisibility-layerids-visible" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Sets the visibility of layers via their id. The corresponding ids are passed as an array, along with the boolean value for visibility: true=visible, false=invisible.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setLayerVisibility</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="kc">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="setopacity-opacity">
+<span id="setopacityanchor"></span><h3>setOpacity (opacity)<a class="headerlink" href="#setopacity-opacity" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Sets the transparency for a service. The value must be between 0.0 and 1.0:</p>
+<p>0.0 … fully transparent</p>
+<p>1.0 … not transparent</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setOpacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="setservicevisibility-layerids">
+<span id="setservicevisibilityanchor"></span><h3>setServiceVisibility (layerids)<a class="headerlink" href="#setservicevisibility-layerids" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Sets all layers with a corresponding id visible and all remaining layers invisible. The parameter is an array with the layer ids. If an empty array or nothing is passed, all layers in a service are set invisible.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// set only layers 1,2,3 visible</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setServiceVisibility</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">]);</span>
+
+<span class="c1">// set all layers in a service invisible</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setServiceVisibility</span><span class="p">();</span>
+
+<span class="c1">// set all layers visible</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setServiceVisibility</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayerIds</span><span class="p">());</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="property-details">
+<h2>Property Details<a class="headerlink" href="#property-details" title="Link to this heading">¶</a></h2>
+<section id="idpropertyanchor">
+<span id="id"></span><h3>id<a class="headerlink" href="#idpropertyanchor" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>The id of the service. This id can also be used to find a service via a <code class="docutils literal notranslate"><span class="pre">map</span></code> object with the <code class="docutils literal notranslate"><span class="pre">getService(id)</span></code> method.</p>
+<p><em>Example</em></p>
+<p>The following example shows the relationship between service id and map object.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// get service id</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">serviceId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">id</span>
+
+<span class="c1">// get service map</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">map</span><span class="p">;</span>
+
+<span class="c1">// get service with id from map</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">service_with_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="isbasemap">
+<span id="isbasemappropertyanchor"></span><h3>isBasemap<a class="headerlink" href="#isbasemap" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Indicates whether this service is a background service.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">isBasemap</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="layers">
+<span id="layerspropertyanchor"></span><h3>layers<a class="headerlink" href="#layers" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>An array of the service’s layers. The individual values in turn have properties such as <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p><em>Example</em></p>
+<p>For finding layers, there are actually the methods <code class="docutils literal notranslate"><span class="pre">getLayer()</span></code>, <code class="docutils literal notranslate"><span class="pre">getLayerFromName()</span></code>, and <code class="docutils literal notranslate"><span class="pre">getLayerIdsFromNames()</span></code>, which should be used. In exceptional cases, however, it can also be important to list the individual layers</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">l</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">l</span><span class="p">];</span>
+
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">id</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">layer</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="map">
+<span id="mappropertyanchor"></span><h3>map<a class="headerlink" href="#map" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>The map object in which the service is included.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">serviceMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">map</span><span class="p">;</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">zoomTo</span><span class="p">([</span><span class="mf">10</span><span class="p">,</span><span class="mf">40</span><span class="p">,</span><span class="mf">20</span><span class="p">,</span><span class="mf">50</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="name">
+<span id="namepropertyanchor"></span><h3>name<a class="headerlink" href="#name" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>The name of the service.</p>
+</section>
+<section id="opacity">
+<span id="opacitypropertyanchor"></span><h3>opacity<a class="headerlink" href="#opacity" title="Link to this heading">¶</a></h3>
+<p><em>Description</em></p>
+<p>Indicates the transparency of the service. The value can be between 0.0 (fully transparent) and 1.0 (not transparent).</p>
+<p>The value should not be changed. To set the transparency, the <a class="reference internal" href="#setopacityanchor"><span class="std std-ref">setOpacity (opacity)</span></a> method should be used.</p>
+<p><em>Example</em></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">currentOpacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">opacity</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">WebGIS 5.0 API: service</a><ul>
+<li><a class="reference internal" href="#members">Members</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#member-details">Member Details</a><ul>
+<li><a class="reference internal" href="#getlayer-id">getLayer (id)</a></li>
+<li><a class="reference internal" href="#getlayerfromname-name">getLayerFromName (name)</a></li>
+<li><a class="reference internal" href="#getlayerids">getLayerIds ()</a></li>
+<li><a class="reference internal" href="#getlayeridsfromnames-layernames">getLayerIdsFromNames (layernames)</a></li>
+<li><a class="reference internal" href="#getlegendurl">getLegendUrl ()</a></li>
+<li><a class="reference internal" href="#getpreviewurl-r">getPreviewUrl (r)</a></li>
+<li><a class="reference internal" href="#layerinscale-id">layerInScale (id)</a></li>
+<li><a class="reference internal" href="#refresh">refresh ()</a></li>
+<li><a class="reference internal" href="#remove">remove ()</a></li>
+<li><a class="reference internal" href="#setlayervisibility-layerids-visible">setLayerVisibility (layerids, visible)</a></li>
+<li><a class="reference internal" href="#setopacity-opacity">setOpacity (opacity)</a></li>
+<li><a class="reference internal" href="#setservicevisibility-layerids">setServiceVisibility (layerids)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#property-details">Property Details</a><ul>
+<li><a class="reference internal" href="#idpropertyanchor">id</a></li>
+<li><a class="reference internal" href="#isbasemap">isBasemap</a></li>
+<li><a class="reference internal" href="#layers">layers</a></li>
+<li><a class="reference internal" href="#map">map</a></li>
+<li><a class="reference internal" href="#name">name</a></li>
+<li><a class="reference internal" href="#opacity">opacity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="map.html">
+                    <span class="icon">&lt;</span><span>WebGIS 5.0 API: map</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="sketch.html"><span>WebGIS 5.0 API: sketch</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
