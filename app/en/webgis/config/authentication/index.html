@@ -8,17 +8,17 @@
     <title>Authentication &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
     <script src="../../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Hardening" href="../hardening/index.html" />
-    <link rel="prev" title="Styling and CSS Customization" href="../css-styling/index.html" /> 
+    <link rel="next" title="Windows Authentication" href="windows-auth.html" />
+    <link rel="prev" title="default.css - Examples" href="../css-styling/examples-default-css.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -123,19 +123,25 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">appsettings.json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">CMS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/index.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration (post-installation)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">Configuration of the CMS application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html">Configuration of the API application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../css-styling/index.html">Styling and CSS Customization</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Hardening</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="windows-auth.html">Windows Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openid.html">OpenID Connect Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="header-auth.html">Header-based Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="header-auth.html#configuration-values">Configuration values</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Security measures (hardening)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -150,7 +156,17 @@
             
   <section id="authentication">
 <h1>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">¶</a></h1>
-<p>This section will explain the available authentication options for WebGIS.</p>
+<p>This section describes how user authentication for the WebGIS Portal can be configured.</p>
+<p>Authentication happens through the WebGIS Portal application, so the settings are made in <code class="docutils literal notranslate"><span class="pre">portal.config</span></code>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="windows-auth.html">Windows Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openid.html">OpenID Connect Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header-auth.html">Header-based Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header-auth.html#configuration-values">Configuration values</a></li>
+</ul>
+</div>
 </section>
 
 
@@ -166,14 +182,14 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../css-styling/index.html">
-                    <span class="icon">&lt;</span><span>Styling and CSS Customization</span></a>
+                <a href="../css-styling/examples-default-css.html">
+                    <span class="icon">&lt;</span><span><code class="docutils literal notranslate"><span class="pre">default.css</span></code> - Examples</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../hardening/index.html"><span>Hardening</span><span class="icon">&gt;</span></a>
+                    <a href="windows-auth.html"><span>Windows Authentication</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

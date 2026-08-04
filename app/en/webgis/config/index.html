@@ -5,20 +5,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Configuration &#8212; WebGIS 2026 documentation</title>
+    <title>Configuration (post-installation) &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=d882a67f" />
     <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/js/eni.js"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="appsettings.json" href="appsettings-json.html" />
-    <link rel="prev" title="Docker" href="../installation/docker.html" /> 
+    <link rel="next" title="File appsettings.json" href="appsettings-json.html" />
+    <link rel="prev" title="Running in Internet Information Services (IIS)" href="../run/run-iis.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -123,19 +123,19 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appsettings-json.html">appsettings.json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cms/index.html">CMS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/index.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html">Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration (post-installation)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="appsettings-json.html">File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/index.html">Configuration of the CMS application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html">Configuration of the API application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html">Portal Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="css-styling/index.html">Styling and CSS Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authentication/index.html">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardening/index.html">Hardening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardening/index.html">Security measures (hardening)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -148,19 +148,60 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="configuration">
-<h1>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h1>
-<p>WebGIS applications can be adapted to local needs through configuration.</p>
+  <section id="configuration-post-installation">
+<h1>Configuration (post-installation)<a class="headerlink" href="#configuration-post-installation" title="Link to this heading">¶</a></h1>
+<p>WebGIS applications can be adapted to local requirements through configuration.</p>
+<p>The configuration of the web applications is stored in <code class="docutils literal notranslate"><span class="pre">*.config</span></code> files in each application’s <code class="docutils literal notranslate"><span class="pre">_config</span></code> folder.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="appsettings-json.html">appsettings.json</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cms/index.html">CMS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/index.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="portal/index.html">Portal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="css-styling/index.html">Styling and CSS Customization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authentication/index.html">Authentication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hardening/index.html">Hardening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appsettings-json.html">File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cms/index.html">Configuration of the CMS application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cms/index.html#file-config-cms-config">File <code class="docutils literal notranslate"><span class="pre">_config/cms.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/index.html#file-config-datalinq-config">File <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/index.html#file-config-settings-config">File <code class="docutils literal notranslate"><span class="pre">_config/settings.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/index.html#file-config-application-security-config">File <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Configuration of the API application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#file-config-api-config">File <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="portal/index.html">Portal Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#file-config-portal-config">File <code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-general">Section <code class="docutils literal notranslate"><span class="pre">General</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-security">Section <code class="docutils literal notranslate"><span class="pre">Security</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-selection-lists">Section <code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">lists</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-cache-database">Section <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">database</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-cache-aside-optional">Section <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code> (optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-subscriber-database">Section <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">database</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-urls">Section <code class="docutils literal notranslate"><span class="pre">Urls</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-advanced-security">Section <code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">Security</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html#section-logging">Section <code class="docutils literal notranslate"><span class="pre">Logging</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="css-styling/index.html">Styling and CSS Customization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="css-styling/scope.html">Scope and layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css-styling/default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> - Colors and sizes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css-styling/portal-css.html"><code class="docutils literal notranslate"><span class="pre">portal.css</span></code> - Logo and navbar for the portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css-styling/cms-css.html"><code class="docutils literal notranslate"><span class="pre">cms.css</span></code> - Styling the CMS interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css-styling/site-css.html"><code class="docutils literal notranslate"><span class="pre">site.css</span></code> - Logo and navbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="css-styling/examples-default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> - Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authentication/index.html">Authentication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authentication/windows-auth.html">Windows Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/openid.html">OpenID Connect Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/header-auth.html">Header-based Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authentication/header-auth.html#configuration-values">Configuration values</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardening/index.html">Security measures (hardening)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardening/index.html#change-default-passwords">Change default passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardening/index.html#disable-self-registration-for-subscribers">Disable self-registration for subscribers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardening/index.html#disable-login-options-in-publicly-accessible-instances">Disable login options in publicly accessible instances</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -178,14 +219,14 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../installation/docker.html">
-                    <span class="icon">&lt;</span><span>Docker</span></a>
+                <a href="../run/run-iis.html">
+                    <span class="icon">&lt;</span><span>Running in Internet Information Services (IIS)</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="appsettings-json.html"><span>appsettings.json</span><span class="icon">&gt;</span></a>
+                    <a href="appsettings-json.html"><span>File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

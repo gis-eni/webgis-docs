@@ -8,17 +8,17 @@
     <title>Styling and CSS Customization &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
     <script src="../../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Authentication" href="../authentication/index.html" />
-    <link rel="prev" title="Portal" href="../portal/index.html" /> 
+    <link rel="next" title="Scope and layers" href="scope.html" />
+    <link rel="prev" title="Portal Configuration" href="../portal/index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -123,19 +123,27 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">appsettings.json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">CMS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/index.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Styling and CSS Customization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Hardening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration (post-installation)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">Configuration of the CMS application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html">Configuration of the API application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Styling and CSS Customization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scope.html">Scope and layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> - Colors and sizes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="portal-css.html"><code class="docutils literal notranslate"><span class="pre">portal.css</span></code> - Logo and navbar for the portal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cms-css.html"><code class="docutils literal notranslate"><span class="pre">cms.css</span></code> - Styling the CMS interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="site-css.html"><code class="docutils literal notranslate"><span class="pre">site.css</span></code> - Logo and navbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples-default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> - Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Security measures (hardening)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -150,7 +158,50 @@
             
   <section id="styling-and-css-customization">
 <h1>Styling and CSS Customization<a class="headerlink" href="#styling-and-css-customization" title="Link to this heading">¶</a></h1>
-<p>This section will document how the look and feel of WebGIS Portal, WebGIS API, and WebGIS CMS can be customized.</p>
+<p>The appearance of <em>WebGIS Portal</em>, <em>WebGIS API</em>, and <em>WebGIS CMS</em> can be customized with your own CSS files without losing changes during an update.</p>
+<p>Depending on the application, different files are available:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 25.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Application</p></th>
+<th class="head"><p>CSS file(s)</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WebGIS Portal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">default.css</span></code>, <code class="docutils literal notranslate"><span class="pre">portal.css</span></code>, <code class="docutils literal notranslate"><span class="pre">site.css</span></code></p></td>
+<td><p>Colors, sizes, logo, and navbar styling</p></td>
+</tr>
+<tr class="row-odd"><td><p>WebGIS API</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">default.css</span></code>, <code class="docutils literal notranslate"><span class="pre">site.css</span></code></p></td>
+<td><p>Colors and sizes in the viewer</p></td>
+</tr>
+<tr class="row-even"><td><p>WebGIS CMS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cms.css</span></code>, <code class="docutils literal notranslate"><span class="pre">site.css</span></code></p></td>
+<td><p>Primary color of the CMS user interface</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The most important file is <code class="docutils literal notranslate"><span class="pre">default.css</span></code>, because it determines the appearance of the <strong>viewer</strong> and the <strong>portal pages</strong>.</p>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope and layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> - Colors and sizes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portal-css.html"><code class="docutils literal notranslate"><span class="pre">portal.css</span></code> - Logo and navbar for the portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cms-css.html"><code class="docutils literal notranslate"><span class="pre">cms.css</span></code> - Styling the CMS interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="site-css.html"><code class="docutils literal notranslate"><span class="pre">site.css</span></code> - Logo and navbar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples-default-css.html"><code class="docutils literal notranslate"><span class="pre">default.css</span></code> - Examples</a></li>
+</ul>
+</div>
 </section>
 
 
@@ -167,13 +218,13 @@
             <div class="left">
                 
                 <a href="../portal/index.html">
-                    <span class="icon">&lt;</span><span>Portal</span></a>
+                    <span class="icon">&lt;</span><span>Portal Configuration</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../authentication/index.html"><span>Authentication</span><span class="icon">&gt;</span></a>
+                    <a href="scope.html"><span>Scope and layers</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

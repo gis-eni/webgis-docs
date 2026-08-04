@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elemente aus Selektion ins Map-Markup übernehmen &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../../search.html" />
+    <link rel="next" title="Bearbeiten (Edit)" href="../editing/index.html" />
+    <link rel="prev" title="Zeichnungen Verwalten" href="manage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../identify/index.html">Abfrage Werkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Allgemeine Werkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../measure-line.html">Strecke messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-area.html">Fläche messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../circle.html">Umgebungskreis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../profile.html">Höhenprofil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../redlining/index.html">Zeichnen (Redlining)</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Zeichnen (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Bearbeiten (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georeference.html">Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georef-image.html">Bilder Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-3d.html">3D messen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sketch/index.html">Sketch/Entwurfswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Allgemeine Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Zeichnen (Map Markup &amp; Annotations)</a></li>
+      <li class="breadcrumb-item active">Elemente aus Selektion ins Map-Markup übernehmen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/mapviewer/tools/general/mapmarkup/selection.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="elemente-aus-selektion-ins-map-markup-ubernehmen">
+<h1>Elemente aus Selektion ins Map-Markup übernehmen<a class="headerlink" href="#elemente-aus-selektion-ins-map-markup-ubernehmen" title="Link to this heading"></a></h1>
+<p>Je nach Berechtigung ist es möglich, die Geometrie für Map-Markup Elemente aus einer bestehenden Abfrage/Selektion zu übernehmen.
+Anwendungsfälle hierfür sind beispielsweise:</p>
+<ul class="simple">
+<li><p>Selektion von mehreren Abfragen gleichzeitig darstellen, individuell einzufärben und auszudrucken</p></li>
+<li><p>Vereinfachung beim Nachzeichnen bereits bestehender Geometrien aus einer Abfrage</p></li>
+<li><p>Text aus abgefragten Objekten in die Karte übernehmen</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Ob diese Funktion zur Verfügung steht, bestimmt der Betreiber des Kartenviewers. Eventuell wird diese Funktion auch nur eingeschränkt angeboten.
+Beispielsweise kann beschränkt werden, wie viele Objekte übernommen werden dürfen oder ob ein Download dieser Elemente möglich ist.</p>
+</div>
+<section id="vorgehensweise">
+<h2>Vorgehensweise<a class="headerlink" href="#vorgehensweise" title="Link to this heading"></a></h2>
+<p>Damit diese Funktion angeboten wird, müssen zuerst Objekte abgefragt werden. Dies erfolgt wie im Abschnitt <em>Suchen und Abfragen</em> beschrieben oder mit dem <em>Identifizieren/Auswählen</em> Werkzeug.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Abfrageergebnisse müssen <strong>ausgewählt</strong> in der Karte erscheinen (<em>cyan</em> hinterlegt). Ansonsten werden sie vom <em>Zeichnen (Map-Markup)</em> Werkzeug nicht erkannt.
+Abfrageergebnisse werden ausgewählt (selektiert), wenn in der Ergebnisliste die entsprechende Option gesetzt wurde:</p>
+<img alt="../../../../_images/selection1.png" src="../../../../_images/selection1.png" />
+</div>
+<p>Wechselt man zum <em>Zeichnen (Map-Markup)</em> Werkzeug, kann man diese Objekte übernehmen. Dabei ist zuerst darauf zu achten, welchen Geometrietyp (Punktförmig, Linienförmig, Flächenförmig) die ausgewählten Abfrageergebnisse aufweisen.
+Punkte lassen sich beispielsweise <em>nicht</em> als Linien oder Flächen übernehmen.</p>
+<p>Hat man beispielsweise Grundstücksflächen ausgewählt, kann man im <em>Zeichnen (Map-Markup)</em> Werkzeug ebenfalls das Sub-Werkzeug <em>Flächen</em> auswählen. Im Werkzeug Dialog sollte jetzt folgender Button erscheinen:</p>
+<img alt="../../../../_images/selection2.png" src="../../../../_images/selection2.png" />
+<p>Klickt man auf diesen Button erscheint folgender Dialog:</p>
+<img alt="../../../../_images/selection3.png" src="../../../../_images/selection3.png" />
+<p>Hier kann ein Attribut aus den Abfrageergebnissen gewählt werden, dessen Werte beim Einfügen der Objekte ins Map-Markup als Beschreibung verwendet werden sollten. Das erleichtert es später, die Graphik-Elemente
+in der Liste zu identifizieren. Die möglichen Attributwerte sind vom Abfragethema abhängig.
+Bei Grundstücksflächen bietet sich dafür beispielsweise die <em>Grundstücksnummer</em> an.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Darstellung (Farben, …) der eingefügten Elemente hängt von den aktuellen Darstellungsoptionen ab. Diese können zwar nachträglich geändert werden, dazu muss allerdings jedes Element extra bearbeitet werden.
+Es empfiehlt sich daher, schon vor dem Übernehmen die richtigen Darstellungsoptionen zu setzen.</p>
+</div>
+<p>Sind alle Einstellung korrekt, können die Objekte mit dem Button <em>Aus Selektion übernehmen</em> in Zeichenelemente umgewandelt werden.</p>
+</section>
+<section id="formen-der-ubernahme">
+<h2>Formen der Übernahme<a class="headerlink" href="#formen-der-ubernahme" title="Link to this heading"></a></h2>
+<p>Wie bereits gezeigt, können flächenhafte Objekte in <em>Flächen</em> Zeichenelemente umgewandelt werden. Das Gleiche gilt für Linien und Punkte (können als Symbole übernommen werden).
+Zusätzlich können alle Objekte als Texte übernommen werden. Die folgende Auflistung zeigt, welche Objekt Geometrien in welche Zeichenelemente umgewandelt werden können.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Objekt Geometrie</strong></p></td>
+<td><p><strong>Zeichnen (Map-Markup) Geometrie</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Punkte</p></td>
+<td><ul class="simple">
+<li><p>Symbole</p></li>
+<li><p>Texte</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Linien</p></td>
+<td><ul class="simple">
+<li><p>Symbole</p></li>
+<li><p>Texte</p></li>
+<li><p>Linien</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Flächen</p></td>
+<td><ul class="simple">
+<li><p>Symbole</p></li>
+<li><p>Texte</p></li>
+<li><p>Flächen</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Es scheint verständlich zu sein, dass Punkte sowohl in Symbole aus auch Texte umgewandelt werden können (der Einfügepunkt ist immer die Lage es Objektpunktes).
+Trotzdem kann es auch Sinn machen, Linie und Fächen in Symbole oder Texte umzuwandeln. Beim Umwandeln von Linien und Flächen in Symbole oder Texte wird der Einfügepunkt automatisch so berechnet,
+dass er auf dem jeweiligen Objekte zu liegen kommt.</p>
+<p>Ein Anwendungsfall kann beispielsweise sein, wenn für einen Ausdruck die Grundstücksnummer für die ausgewählten Abfrageergebnisse in einer bestimmten Form dargestellt werden sollten.
+Dazu wäre die Vorgehensweise folgende:</p>
+<ul class="simple">
+<li><p>Grundstücksflächen mit Suchen oder Abfragen auswählen</p></li>
+<li><p>Zum <em>Zeichnen (Map-Markup)</em> Werkzeug wechseln</p></li>
+<li><p>Auf das Sub-Werkzeug Text klicken</p></li>
+<li><p>Darstellungsoptionen (Schriftgröße und Farbe) einstellen</p></li>
+<li><p>Auf Button <em>Texte aus Selection Grundstücksflächen übernehmen…</em> klicken.</p></li>
+<li><p>Im Dialog als Beschreibungsfeld <em>Grundsnummern</em> auswählen und mit Button <em>Aus Selektion übernehmen</em> bestätigen</p></li>
+<li><p>Die einzeln entstandenen Texte optional noch verändern oder an eine passende Position verschieben</p></li>
+<li><p>Optional können die ausgewählten Abfrageergebnisse aus der Karte entfernt werden, die Zeichenelemente bleiben bestehen</p></li>
+</ul>
+<p>Das Ergebnis könnte damit etwa so aussehen (rote Texte sind Zeichenelemente und kommen aus einer Abfrage).</p>
+<img alt="../../../../_images/selection5.png" src="../../../../_images/selection5.png" />
+<p>Auf die gleiche Weise könnte man die gewählten Grundstücke auch mit einem Marker versehen. Dazu ist beim <em>Zeichnen (Redining)</em> Werkzeug das Sub-Werkzeug <em>Symbol</em> anstelle von <em>Text</em> zu wählen und
+auf den Button <em>Symbole aus Selektion Grundstücksflächen übernehmen…</em> zu klicken</p>
+<img alt="../../../../_images/selection6.png" src="../../../../_images/selection6.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="manage.html" class="btn btn-neutral float-left" title="Zeichnungen Verwalten" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="../editing/index.html" class="btn btn-neutral float-right" title="Bearbeiten (Edit)" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

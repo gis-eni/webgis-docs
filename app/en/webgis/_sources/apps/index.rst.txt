@@ -1,4 +1,14 @@
-Applications
-============
+====================
+WebGIS Applications
+====================
 
-This section will summarize the WebGIS applications and their responsibilities.
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   cms/index
+   api/index
+   portal/index
+   map_builder/index
+   app_builder/index
+   viewer/index

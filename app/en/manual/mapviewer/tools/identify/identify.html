@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identify/Select &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Coordinates" href="coords.html" />
+    <link rel="prev" title="Query Tools" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Presentation and Map Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Map Tools</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Query Tools</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Identify/Select</a></li>
+<li class="toctree-l4"><a class="reference internal" href="coords.html">Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rasterinfo.html">Query Elevation Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stat.html">Chainage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="table.html">Query Results (Table)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Presentation Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sketch/index.html">Sketch/Drafting Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Map Viewer User Manual</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Tools</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Query Tools</a></li>
+      <li class="breadcrumb-item active">Identify/Select</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/identify/identify.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="identify-select">
+<h1>Identify/Select<a class="headerlink" href="#identify-select" title="Link to this heading"></a></h1>
+<p>The <em>Search and Query</em> section already covered how geodata can be queried with the map viewer
+and how the results should be interpreted and handled.
+The <em>Standard</em> tool was used there as the query tool, which allows geo-objects to be queried simply by
+clicking on the map. For certain use cases, however, further query options are
+needed, which this tool provides.</p>
+<img alt="../../../_images/identify1.png" src="../../../_images/identify1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The difference from querying with the <em>Standard</em> tool is that with this tool, the
+queried objects are immediately <strong>selected</strong> (shown with a cyan background).</p>
+</div>
+<p>Another difference from the <em>Standard</em> tool is that here you can select in advance in the selection list
+which topic should be queried. If you do not want to commit to a specific topic, you can also
+choose the option <code class="docutils literal notranslate"><span class="pre">Visible</span> <span class="pre">Topics</span></code> (all topic layers currently switched on) or <code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">Topics</span></code> (additionally all
+topics that could theoretically be switched on and made visible at the current map scale).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a map contains a very large number of topic layers, querying across all topics may take a few
+moments. In addition, in this case, in the event of ambiguity, you must decide on the
+desired topic in an intermediate step (see the <em>Search and Query</em> section).
+Querying a specific topic usually returns a result immediately.</p>
+</div>
+<p>The <em>Identify/Select</em> tool offers the following sub-tools:</p>
+<section id="point-selection">
+<h2>Point Selection<a class="headerlink" href="#point-selection" title="Link to this heading"></a></h2>
+<p>This allows objects to be queried by simply clicking on the map. Apart from the difference
+that the queried objects are immediately selected, this tool corresponds to querying with
+the <em>Standard</em> tool.</p>
+</section>
+<section id="rectangle-selection">
+<h2>Rectangle Selection<a class="headerlink" href="#rectangle-selection" title="Link to this heading"></a></h2>
+<p>This sub-tool is selected by default as soon as the <em>Identify/Select</em> tool is selected from the
+toolbox.</p>
+<p>With this, a rectangular window can be dragged open on the map while holding down the mouse button. The query
+is applied to all objects located within the window.</p>
+</section>
+<section id="circle-selection">
+<h2>Circle Selection<a class="headerlink" href="#circle-selection" title="Link to this heading"></a></h2>
+<p>With this sub-tool, a circle can be drawn, within which the query should take place.
+To do this, you must first click on the map to define the center point of the circle. If you then
+move the mouse, a preview for the circle is already shown, including the radius value.
+A further click is needed to set the radius. If the radius is not optimal, the circle can still be changed by
+another click.</p>
+<p>The entire circle can be removed with the <em>Remove Sketch</em> button.
+If the query circle fits, the query can be carried out with the <em>Apply</em> button:</p>
+<img alt="../../../_images/identify2.png" src="../../../_images/identify2.png" />
+<p>If a query is done via a circle, there are two special features in the results:</p>
+<ul class="simple">
+<li><p>The <strong>sorting</strong> of the results is done by the distance of the queried object from the center of the circle.</p></li>
+<li><p>The <strong>distance</strong> to the center of the circle is shown in the results.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/identify3.png"><img alt="../../../_images/identify3.png" src="../../../_images/identify3.png" style="width: 350px; height: 200px;" /></a>
+</section>
+<section id="line-selection">
+<h2>Line Selection<a class="headerlink" href="#line-selection" title="Link to this heading"></a></h2>
+<p>Here a line can be drawn. Once the line is finished, the query can be started with the <em>Apply</em>
+button, just as with <em>Circle Selection</em>. All objects that intersect the
+drawn line are queried here.</p>
+</section>
+<section id="area-selection">
+<h2>Area Selection<a class="headerlink" href="#area-selection" title="Link to this heading"></a></h2>
+<p>The function of this sub-tool corresponds to that of the <em>Line Selection</em> tool. However, an
+area is drawn here, and the objects under this area are queried.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Query Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coords.html" class="btn btn-neutral float-right" title="Coordinates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

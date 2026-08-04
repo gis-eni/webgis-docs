@@ -9,5 +9,7 @@ Anwendung von DataLinq und DataLinq.Code
    ui
    parameterization
    requestsandexamples
+   pdfreporting
+   versioncontrol
    tippsandtricks
    examples/index

@@ -5,20 +5,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Applications &#8212; WebGIS 2026 documentation</title>
+    <title>WebGIS Applications &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=d882a67f" />
     <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/js/eni.js"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Extended Configuration" href="../extended_config/index.html" />
-    <link rel="prev" title="Run" href="../run/index.html" /> 
+    <link rel="next" title="WebGIS CMS" href="cms/index.html" />
+    <link rel="prev" title="Security measures (hardening)" href="../config/hardening/index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -123,10 +123,18 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Run</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WebGIS Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cms/index.html">WebGIS CMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="viewer/index.html">WebGIS Viewer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -139,9 +147,57 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="applications">
-<h1>Applications<a class="headerlink" href="#applications" title="Link to this heading">¶</a></h1>
-<p>This section will summarize the WebGIS applications and their responsibilities.</p>
+  <section id="webgis-applications">
+<h1>WebGIS Applications<a class="headerlink" href="#webgis-applications" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cms/index.html">WebGIS CMS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cms/ui.html">CMS Web Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/add_wmts_service.html">Integrating a WMTS Tilecache Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/add_ags_service.html">Integrating an ArcGIS Server Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/queries/index.html">Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/queries/index.html#general-query-properties">General Query Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/queries/index.html#search-fields">Search Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/queries/index.html#selection-lists">Selection Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/queries/index.html#table">Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/layers.html">Layer Toggles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/presentations.html">Presentation Variants (Providing Layer Toggles for the Viewer)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/editing/index.html">Editing (Editing Geo-Objects)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/secrets/index.html">Secrets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/secrets/index.html#creating-a-secret">Creating a Secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/security/index.html">Permissions (Security)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/deploy.html">Publishing the CMS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">WebGIS API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#main-functions-of-the-webgis-api">Main Functions of the WebGIS API:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#using-the-webgis-api">Using the WebGIS API:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html#contents">Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="portal/index.html">WebGIS Portal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="portal/admin/index.html">Managing Pages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="map_builder/index.html">WebGIS MapBuilder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map_builder/index.html#redlining">Redlining</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app_builder/index.html">WebGIS AppBuilder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="app_builder/redirect/index.html">App Template: Redirect App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_builder/service-side-by-side/index.html">App Template: Service Side-by-Side</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_builder/publish.html">Publishing an App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_builder/edit.html">Editing / Deleting an App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_builder/invoke.html">Calling / Opening an App</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="viewer/index.html">WebGIS Viewer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="viewer/index.html#functions-of-the-webgis-viewer">Functions of the WebGIS Viewer</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
@@ -157,14 +213,14 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../run/index.html">
-                    <span class="icon">&lt;</span><span>Run</span></a>
+                <a href="../config/hardening/index.html">
+                    <span class="icon">&lt;</span><span>Security measures (hardening)</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../extended_config/index.html"><span>Extended Configuration</span><span class="icon">&gt;</span></a>
+                    <a href="cms/index.html"><span>WebGIS CMS</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

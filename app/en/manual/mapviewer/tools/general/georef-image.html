@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Georeferencing Images &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3D Measurement" href="measure-3d.html" />
+    <link rel="prev" title="Georeferencing" href="georeference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Presentation and Map Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Map Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../identify/index.html">Query Tools</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">General Tools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="measure-line.html">Measure Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="measure-area.html">Measure Area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="circle.html">Buffer Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="profile.html">Elevation Profile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="redlining/index.html">Drawing (Redlining)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapmarkup/index.html">Drawing (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="editing/index.html">Editing (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="georeference.html">Georeferencing</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Georeferencing Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="measure-3d.html">3D Measurement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Presentation Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sketch/index.html">Sketch/Drafting Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Map Viewer User Manual</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Tools</a></li>
+          <li class="breadcrumb-item"><a href="index.html">General Tools</a></li>
+      <li class="breadcrumb-item active">Georeferencing Images</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/general/georef-image.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="georeferencing-images">
+<h1>Georeferencing Images<a class="headerlink" href="#georeferencing-images" title="Link to this heading"></a></h1>
+<p>With the <em>georeference image</em> tool, images in PNG, JPG, or PDF format can be uploaded and geolocated.</p>
+<a class="reference internal image-reference" href="../../../_images/georef-image1.png"><img alt="../../../_images/georef-image1.png" src="../../../_images/georef-image1.png" style="width: 250px; height: 150px;" /></a>
+<section id="adding-an-image">
+<h2>Adding an Image<a class="headerlink" href="#adding-an-image" title="Link to this heading"></a></h2>
+<p>To do this, an image must first be added via <em>Add image</em>.</p>
+<img alt="../../../_images/georef-image2.png" src="../../../_images/georef-image2.png" />
+<p>You can either use images that already exist, if images were already uploaded previously, or upload new images.
+Uploaded images are stored for the user indefinitely.</p>
+</section>
+<section id="georeferencing-an-image">
+<h2>Georeferencing an Image<a class="headerlink" href="#georeferencing-an-image" title="Link to this heading"></a></h2>
+<p>To georeference the added image, the image must be set as active (green side bar).</p>
+<p>A control point is set by simply clicking on the map. The <em>pin</em> icon shows the control point on the image, and the marker shows the control point on the map. The icons can be moved and adjusted as often as desired.</p>
+<img alt="../../../_images/georef-image9.png" src="../../../_images/georef-image9.png" />
+<p>Clicking on a pin allows that control point to be deleted again with <strong>Remove control point</strong>.</p>
+<img alt="../../../_images/georef-image10.png" src="../../../_images/georef-image10.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Georeferencing works best when control points are set at the edge of the image.
+For example, you can start by setting the most distinctive points of the image in the middle, then work iteratively outward, removing the inner control points again.</p>
+</div>
+</section>
+<section id="changing-transparency">
+<h2>Changing Transparency<a class="headerlink" href="#changing-transparency" title="Link to this heading"></a></h2>
+<p>The transparency of the image can be changed with the water drop icons on the side. This makes it easier to identify distinctive points on the map or in the image.</p>
+<a class="reference internal image-reference" href="../../../_images/georef-image3.png"><img alt="../../../_images/georef-image3.png" src="../../../_images/georef-image3.png" style="width: 250px; height: 150px;" /></a>
+</section>
+<section id="changing-image-order">
+<h2>Changing Image Order<a class="headerlink" href="#changing-image-order" title="Link to this heading"></a></h2>
+<p>The following button can be used to move the corresponding image to the very top. This is helpful when several images have been loaded at one location.</p>
+<a class="reference internal image-reference" href="../../../_images/georef-image4.png"><img alt="../../../_images/georef-image4.png" src="../../../_images/georef-image4.png" style="width: 250px; height: 200px;" /></a>
+</section>
+<section id="deleting-images">
+<h2>Deleting Images<a class="headerlink" href="#deleting-images" title="Link to this heading"></a></h2>
+<p>The <em>X</em> icon can be used to remove images from the map. The <em>trash can</em> icon permanently deletes the image for the user.</p>
+<a class="reference internal image-reference" href="../../../_images/georef-image5.png"><img alt="../../../_images/georef-image5.png" src="../../../_images/georef-image5.png" style="width: 250px; height: 200px;" /></a>
+</section>
+<section id="zooming-to-an-image">
+<h2>Zooming to an Image<a class="headerlink" href="#zooming-to-an-image" title="Link to this heading"></a></h2>
+<p>The <em>magnifying glass</em> icon can be used to zoom to the corresponding image.</p>
+<a class="reference internal image-reference" href="../../../_images/georef-image6.png"><img alt="../../../_images/georef-image6.png" src="../../../_images/georef-image6.png" style="width: 250px; height: 200px;" /></a>
+</section>
+<section id="downloading-an-image">
+<h2>Downloading an Image<a class="headerlink" href="#downloading-an-image" title="Link to this heading"></a></h2>
+<p>The <em>download</em> icon can be used to download the image with a world file in the desired coordinate system as a ZIP folder. Optionally, the world file can also be downloaded with control points.
+The control points can then be loaded back into WebGIS.</p>
+<a class="reference internal image-reference" href="../../../_images/georef-image7.png"><img alt="../../../_images/georef-image7.png" src="../../../_images/georef-image7.png" style="width: 250px; height: 200px;" /></a>
+</section>
+<section id="setting-an-image-active">
+<h2>Setting an Image Active<a class="headerlink" href="#setting-an-image-active" title="Link to this heading"></a></h2>
+<p>Clicking on the side bar lets you set images as active. The control points that are set always relate to the active image.</p>
+<img alt="../../../_images/georef-image8.png" src="../../../_images/georef-image8.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="georeference.html" class="btn btn-neutral float-left" title="Georeferencing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="measure-3d.html" class="btn btn-neutral float-right" title="3D Measurement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

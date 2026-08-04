@@ -129,6 +129,19 @@
 <li class="toctree-l2"><a class="reference internal" href="ui.html">DataLinq.Code Oberfläche</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Parametrierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="requestsandexamples.html">Aufruf und Beispiele</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html">PDF Reporting in DataLinq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#funktionsumfang">Funktionsumfang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erstellung-von-pdf-templates">Erstellung von PDF-Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#aktivierung-des-pdf-reporting-modes">Aktivierung des PDF Reporting Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erstellung-eines-pdf-templates">Erstellung eines PDF-Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erklaerung-der-pdf-helper-funktionen">Erklaerung der &#64;PDF-Helper-Funktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html">DataLinq Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#ziele-und-vorteile">Ziele und Vorteile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#empfehlung-fuer-den-betrieb">Empfehlung fuer den Betrieb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#beispiel-in-dieser-dokumentation">Beispiel in dieser Dokumentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#erstellung-eines-repositories">Erstellung eines Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#initialisierung-in-datalinq-snapshot">Initialisierung in DataLinq (Snapshot)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#commit-workflow-im-datalinq-code-editor">Commit-Workflow im DataLinq Code Editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tippsandtricks.html">Tipps und Tricks für Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/index.html">Beispiele</a></li>
 </ul>
@@ -198,6 +211,8 @@ Sonderzeichen sollten vermieden werden, da die Namen später Teil der <strong>Au
 <li><p>DataLinq</p></li>
 <li><p>PlainText</p></li>
 <li><p>TextFile</p></li>
+<li><p>Cypher</p></li>
+<li><p>JsonApi</p></li>
 </ul>
 </td>
 </tr>
@@ -230,6 +245,24 @@ Sonderzeichen sollten vermieden werden, da die Namen später Teil der <strong>Au
 <li><p><strong>PlainText</strong>:</p>
 <p>Daten werden als <strong>zeilenweise Texte</strong> abgefragt, kann leer gelassen werden.</p>
 </li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p><strong>Cypher</strong>:</p>
+<p>Beispiel für eine <code class="docutils literal notranslate"><span class="pre">Neo4j</span></code> Verbindung:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>url=neo4j://urltodb:7687;username=userName;password=super_secret
+</pre></div>
+</div>
+</li>
+<li><p><strong>JsonApi</strong>:</p>
+<p>Beispiel für eine <code class="docutils literal notranslate"><span class="pre">JsonApi</span></code> Verbindung:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://urltomyapi.com/
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ul>
 <li><p><strong>TextFile</strong>:</p>
 <p>Datenquellen sind lose Textdateien (<cite>*.txt</cite>, <cite>*.log</cite>, <cite>*.csv</cite>).</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\logs
@@ -407,13 +440,22 @@ filter=xxx      # Filterbedingung (optional)
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p><strong>Security</strong></p></td>
+<tr class="row-even"><td><p><strong>Http Header</strong></p></td>
+<td><p>Wenn beim zugehörigen <strong>Endpoint</strong> unter <code class="docutils literal notranslate"><span class="pre">EndPoint</span> <span class="pre">Connection</span> <span class="pre">Type</span></code> der Typ <strong>JsonApi</strong> gewählt wurde, können in den Query-Einstellungen <strong>HTTP Header</strong> mitgegeben werden.</p>
+<ul class="simple">
+<li><p>Es können bis zu <strong>10 Key-Value-Paare</strong> definiert werden.</p></li>
+<li><p>Mit <code class="docutils literal notranslate"><span class="pre">{$key}</span></code> wird auf ein <strong>Secret</strong> aus dem Secrets Manager zugegriffen.</p></li>
+<li><p>Mit <code class="docutils literal notranslate"><span class="pre">{&amp;key}</span></code> wird auf eine <strong>Konstante</strong> zugegriffen.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Security</strong></p></td>
 <td><p>Berechtigungen für Nutzer und Rollen setzen (siehe <strong>Berechtigungen</strong>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Domains</strong></p></td>
+<tr class="row-even"><td><p><strong>Domains</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Domains</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Domains</span></code></p></td>
 <td><p>Query-Domains werden verwendet, um kodierte Werte in einer Tabelle durch verständliche Namen zu ersetzen, indem eine Lookup-Tabelle genutzt wird, die die kodierten Werte und deren Übersetzungen enthält.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Field</span></code>: Bezeichnung der Spalte, die die kodierten Werte enthält.</p></li>
@@ -421,19 +463,18 @@ filter=xxx      # Filterbedingung (optional)
 <li><p><code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">Field</span></code>: Spaltenname in der Lookup-Tabelle, der die kodierten Werte enthält.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Name</span> <span class="pre">Field</span></code>: Spaltenname in der Lookup-Tabelle, der die Übersetzungen enthält.</p></li>
 </ul>
-<p>Siehe auch <a class="reference internal" href="tippsandtricks.html#anchor57"><span class="std std-ref">Queries mit Domain-Übersetzung</span></a>.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><strong>Info</strong></p></td>
+<tr class="row-even"><td><p><strong>Info</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
 <td><p>Erstelldatum der Abfrage</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Delete</strong></p></td>
+<tr class="row-even"><td><p><strong>Delete</strong></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
 <td><p>Löschen des Endpoints</p></td>
 </tr>
 </tbody>
@@ -492,6 +533,12 @@ filter=xxx      # Filterbedingung (optional)
 </tr>
 <tr class="row-even"><td><p><strong>JS Libraries</strong></p></td>
 <td><p>Hier können die derzeit verfügbaren JS-Bibliotheken für die View hinzugefügt werden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PDF Report mode</strong></p></td>
+<td><p>Einstellungen für einen PDF-Report. Mehr dazu unter <a class="reference external" href="pdfreporting.rst">pdfreporting.rst</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DataLinq Cache Token</strong></p></td>
+<td><p>Einstellungen für den DataLinq Cache Token. Mehr dazu unter <a class="reference external" href="https://docs.webgiscloud.com/de/webgis/config/api/index.html#datalinq">use-cache-token-for-one-2-n-links</a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Info</strong></p></td>
 <td></td>

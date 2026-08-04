@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sketch Tools &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Snapping" href="snapping.html" />
+    <link rel="prev" title="Segment Creation Mode" href="segmentmodus.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Presentation and Map Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Map Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../identify/index.html">Query Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Presentation Tools</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sketch/Drafting Tools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="index.html#undo">Undo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#editing-vertices">Editing Vertices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#shortcuts">Shortcuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#selecting-vertices">Selecting Vertices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#removing-the-sketch">Removing the Sketch</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html#closing-section-starting-new">Closing Section/Starting New</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Map Viewer User Manual</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Tools</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Sketch/Drafting Tools</a></li>
+      <li class="breadcrumb-item active">Sketch Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/sketch/sketchtools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sketch-tools">
+<h1>Sketch Tools<a class="headerlink" href="#sketch-tools" title="Link to this heading"></a></h1>
+<blockquote>
+<div><img alt="../../../_images/sketch0.png" src="../../../_images/sketch0.png" />
+</div></blockquote>
+<section id="reversing-vertex-order">
+<h2>Reversing Vertex Order<a class="headerlink" href="#reversing-vertex-order" title="Link to this heading"></a></h2>
+<p>With Reverse Vertex Order, the end point and start point of a line sketch can be swapped. This allows you to continue drawing from the other end of the line.</p>
+</section>
+<section id="moving-the-sketch">
+<h2>Moving the Sketch<a class="headerlink" href="#moving-the-sketch" title="Link to this heading"></a></h2>
+<p>If you right-click on a vertex of the sketch, you can move the entire sketch with <em>Move Sketch</em>.
+An icon then appears, which lets you move the sketch while holding down the mouse button.</p>
+<img alt="../../../_images/sketch2.png" src="../../../_images/sketch2.png" />
+</section>
+<section id="rotating-the-sketch">
+<h2>Rotating the Sketch<a class="headerlink" href="#rotating-the-sketch" title="Link to this heading"></a></h2>
+<p>With <em>Rotate Sketch</em>, there are two options: you can either right-click on a vertex or on an edge of the sketch.</p>
+<ul>
+<li><p><strong>Vertex:</strong> Here, the reference direction of the rotation angle is set to the coordinate axis pointing east, and the selected vertex becomes the pivot point. This allows the sketch to be rotated by an absolute value.</p>
+<blockquote>
+<div><img alt="../../../_images/sketch9.png" src="../../../_images/sketch9.png" />
+</div></blockquote>
+</li>
+<li><p><strong>Edge:</strong> Here, the selected edge is assigned to the zero direction pointing east. This allows the sketch to be rotated based on the edge, with the start point of the edge corresponding to the pivot point.</p>
+<blockquote>
+<div><img alt="../../../_images/sketch8.png" src="../../../_images/sketch8.png" />
+</div></blockquote>
+</li>
+</ul>
+<p>In both cases, an angle value in degrees can also be entered directly via a right-click on the map.</p>
+<a class="reference internal image-reference" href="../../../_images/sketch6.png"><img alt="../../../_images/sketch6.png" src="../../../_images/sketch6.png" style="width: 250px; height: 200px;" /></a>
+</section>
+<section id="offsetting-the-sketch-in-parallel">
+<h2>Offsetting the Sketch in Parallel…<a class="headerlink" href="#offsetting-the-sketch-in-parallel" title="Link to this heading"></a></h2>
+<p>Using <em>Offset Sketch in Parallel…</em>, a sketch line can be offset in parallel.
+To do this, after a sketch line has been drawn, right-click on the side of the sketch toward which the sketch should be offset in parallel.
+A window then opens in which the distance can also be manually adjusted. The distance of the click from the sketch is already entered as the default value in the field.</p>
+<p>If certain vertices should not be moved, i.e. should be fixed, the previously described <em>Fix/Anchor Vertex</em> function comes into play.
+Fixed vertices are not moved.</p>
+<p>The functionality is illustrated using the following example (disregarding whether it makes practical sense).
+Here, a line sketch was drawn along these parcel boundaries (previously set to snappable).</p>
+<img alt="../../../_images/snapping7.png" src="../../../_images/snapping7.png" />
+<p>Then, the <em>Offset Sketch in Parallel…</em> command was executed on the right side of the line (as seen from the line).</p>
+<img alt="../../../_images/snapping9.png" src="../../../_images/snapping9.png" />
+<p>To illustrate the fixed points, in the following figure two points were first fixed (marked in blue), and then the same <em>Offset Sketch in Parallel…</em> command was executed again.</p>
+<img alt="../../../_images/snapping8.png" src="../../../_images/snapping8.png" />
+<p>The same principle works analogously for area sketches as well.</p>
+</section>
+<section id="extending-a-sketch-line">
+<h2>Extending a Sketch (Line)<a class="headerlink" href="#extending-a-sketch-line" title="Link to this heading"></a></h2>
+<p>With <em>Extend Sketch (Line)</em>, the sketch can be extended at the start, end, or at both the start and end. This tool is only available for lines.</p>
+<img alt="../../../_images/sketch12.png" src="../../../_images/sketch12.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="segmentmodus.html" class="btn btn-neutral float-left" title="Segment Creation Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="snapping.html" class="btn btn-neutral float-right" title="Snapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

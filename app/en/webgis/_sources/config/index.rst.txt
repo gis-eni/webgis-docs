@@ -1,7 +1,9 @@
-Configuration
-=============
+Configuration (post-installation)
+==================================
 
-WebGIS applications can be adapted to local needs through configuration.
+WebGIS applications can be adapted to local requirements through configuration.
+
+The configuration of the web applications is stored in ``*.config`` files in each application's ``_config`` folder.
 
 .. toctree::
    :maxdepth: 2

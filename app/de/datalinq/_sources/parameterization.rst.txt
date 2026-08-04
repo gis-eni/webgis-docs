@@ -53,6 +53,8 @@ In der unteren Übersicht werden alle Sektionen des **Eigenschaften-Dialogs** mi
        - DataLinq
        - PlainText
        - TextFile
+       - Cypher
+       - JsonApi
 
    * - ``ConnectionString``
      - Je nach Verbindungstyp variiert die Konfiguration.
@@ -91,6 +93,22 @@ In der unteren Übersicht werden alle Sektionen des **Eigenschaften-Dialogs** mi
          
          Daten werden als **zeilenweise Texte** abgefragt, kann leer gelassen werden.
        
+        - **Cypher**:
+          
+          Beispiel für eine ``Neo4j`` Verbindung:
+  
+          .. code-block:: text
+  
+              url=neo4j://urltodb:7687;username=userName;password=super_secret
+
+        - **JsonApi**:
+          
+          Beispiel für eine ``JsonApi`` Verbindung:
+  
+          .. code-block:: text
+  
+              https://urltomyapi.com/
+
        - **TextFile**:
          
          Datenquellen sind lose Textdateien (`*.txt`, `*.log`, `*.csv`).
@@ -254,6 +272,12 @@ Zu den Einstellungen für die jeweilige Abfrage gelangt man über einen Klick au
        .. hint::
        
           Die Testparameter sollten so gewählt werden, dass **Testabfragen jederzeit ausführbar** sind.
+   * - **Http Header**
+     - Wenn beim zugehörigen **Endpoint** unter ``EndPoint Connection Type`` der Typ **JsonApi** gewählt wurde, können in den Query-Einstellungen **HTTP Header** mitgegeben werden.
+
+       - Es können bis zu **10 Key-Value-Paare** definiert werden.
+       - Mit ``{$key}`` wird auf ein **Secret** aus dem Secrets Manager zugegriffen.
+       - Mit ``{&key}`` wird auf eine **Konstante** zugegriffen.
    * - **Security**
      - Berechtigungen für Nutzer und Rollen setzen (siehe **Berechtigungen**).
    * - **Domains**
@@ -266,7 +290,6 @@ Zu den Einstellungen für die jeweilige Abfrage gelangt man über einen Klick au
        - ``Value Field``: Spaltenname in der Lookup-Tabelle, der die kodierten Werte enthält.
        - ``Name Field``: Spaltenname in der Lookup-Tabelle, der die Übersetzungen enthält.
 
-       Siehe auch :ref:`Queries mit Domain-Übersetzung <Anchor57>`.
    * - **Info**
      -
    * - ``Created``
@@ -328,6 +351,10 @@ Zu den Einstellungen für die jeweilige Abfrage gelangt man über einen Klick au
           Die Testparameter sollten so gewählt werden, dass **Testabfragen jederzeit ausführbar** sind.
    * - **JS Libraries**
      - Hier können die derzeit verfügbaren JS-Bibliotheken für die View hinzugefügt werden.
+   * - **PDF Report mode**
+     - Einstellungen für einen PDF-Report. Mehr dazu unter `pdfreporting.rst <pdfreporting.rst>`_.
+   * - **DataLinq Cache Token**
+     - Einstellungen für den DataLinq Cache Token. Mehr dazu unter `use-cache-token-for-one-2-n-links <https://docs.webgiscloud.com/de/webgis/config/api/index.html#datalinq>`_.
    * - **Info**
      -
    * - ``Created``

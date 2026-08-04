@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Custom Layouts &#8212; WebGIS 2026 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Extended Tool Configuration" href="../../../extended_config/index.html" />
+    <link rel="prev" title="Special Topics" href="../customjs/speziellethemen.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2026 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../cms/index.html">WebGIS CMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">WebGIS Viewer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../url-parameters/index.html">Parameterized Invocation of the Map Viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../customjs/index.html">custom.js</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Custom Layouts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extended_config/index.html">Extended Tool Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex/index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="custom-layouts">
+<h1>Custom Layouts<a class="headerlink" href="#custom-layouts" title="Link to this heading">¶</a></h1>
+<p>WebGIS is API-based, and in theory you can develop applications with HTML and JavaScript. To save yourself this effort for every map application (you would have to create an HTML document each time and also host it somewhere via a web server), there is the WebGIS Portal, in which you can create map applications from the services parameterized in the CMS via a simple web interface (MapBuilder). These map applications are then hosted directly in the portal. The general approach for creating them can be found in the subscriber documentation.</p>
+<p>The default layout of the map viewer for the portal is optimized for phones. In addition to the screen-filling map, all elements such as the layer switcher, toolbox, and quick search are placed sparingly and semi-transparently:</p>
+<img alt="../../../_images/image_1.png" src="../../../_images/image_1.png" />
+<p>Since WebGIS is a web application, it can also be called from any end device. The only requirement is a modern browser. On larger displays or screens, operating the map viewer is possible, but for more complex applications, clearer layouts would help save many clicks and scrolling.</p>
+<p>So that WebGIS can also cover the desktop area in the future, a way was created to define layouts for larger displays.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>The mechanism for using different layouts must first be enabled via the <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> file. The following key is responsible for this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;query-custom-map-layout&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>If this value is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, after the map viewer is called, the client sends an additional Ajax request with the current browser window size to the server. The server then decides which layout is ideal for the client and, if applicable, returns a custom layout as an HTML fragment. Only once the custom layout has been inserted into the map viewer does the initialization of the map start.</p>
+<p>If you generally don’t want to offer custom layouts, you can delete this key or set it to <code class="docutils literal notranslate"><span class="pre">false</span></code> and save yourself this intermediate step/request.</p>
+</section>
+<section id="parameterizing-the-layouts">
+<h2>Parameterizing the Layouts<a class="headerlink" href="#parameterizing-the-layouts" title="Link to this heading">¶</a></h2>
+<p>Custom layouts are text files that contain HTML fragments. You can define these layouts per portal page, i.e. you can offer different layouts (different logo, styles, etc.) for each portal page.</p>
+<p>These files are stored in the directory:</p>
+<p><code class="docutils literal notranslate"><span class="pre">portal/ViewerLayouts/{url-of-the-portal-page}</span></code></p>
+<p>For our portal, for example, this would be under:</p>
+<p><code class="docutils literal notranslate"><span class="pre">portal/ViewerLayouts/eni</span></code></p>
+<p>The name of the individual files must be as follows:</p>
+<p><code class="docutils literal notranslate"><span class="pre">w{browser-window-width}.html</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">browser</span> <span class="pre">window</span> <span class="pre">width</span></code> must be an <code class="docutils literal notranslate"><span class="pre">integer</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>, so for example <code class="docutils literal notranslate"><span class="pre">w1024.html</span></code>, <code class="docutils literal notranslate"><span class="pre">w1200.html</span></code>, etc. The <code class="docutils literal notranslate"><span class="pre">w</span></code> at the beginning stands for <code class="docutils literal notranslate"><span class="pre">width</span></code>.</p>
+<p>If these files exist for a portal page, WebGIS checks, using the mechanism described above, which layout is ideal. The window size must be at least as large as the number in the file name. Of all possible candidates, the layout with the largest number always wins.</p>
+<p>The two layouts described here as examples are also included in releases and can therefore be used as a template for your own layouts. The individual sections are briefly covered here.</p>
+<section id="w1024-html">
+<h3>w1024.html<a class="headerlink" href="#w1024-html" title="Link to this heading">¶</a></h3>
+<p>The idea for this layout was to achieve an optimized display for somewhat larger displays, such as tablets. In principle, all UI elements except the toolbox should stay the same as in the phone layout. However, the toolbox should appear larger and more easily accessible next to the “+/-” zoom buttons, transparently over the map. As soon as you focus the toolbox, the transparency changes to fully visible.</p>
+<img alt="../../../_images/image_2.png" src="../../../_images/image_2.png" />
+<p>Regardless of whether you only want to change the toolbox – in a custom layout, all UI elements must always be listed:</p>
+<ul class="simple">
+<li><p><strong>Map</strong></p></li>
+<li><p><strong>Tabs</strong> (the menu with the layer switcher)</p></li>
+<li><p><strong>Topbar</strong> (quick search with queries and map switcher)</p></li>
+<li><p><strong>Toolbar</strong> (no longer located with the tabs)</p></li>
+</ul>
+<p>The first section lists styles for the toolbox:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">#</span><span class="nn">toolbar</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+<span class="w">        </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">        </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">        </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
+<span class="w">        </span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">white</span><span class="p">;</span>
+<span class="w">        </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">        </span><span class="k">box-shadow</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.65</span><span class="p">);</span>
+<span class="w">        </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#aaa</span><span class="p">;</span>
+<span class="w">        </span><span class="k">overflow</span><span class="p">:</span><span class="w"> </span><span class="kc">hidden</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The toolbox should essentially float transparently over the map. To achieve this effect, the toolbox should get a (3D) shadow with these styles.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;map&#39;</span>
+    <span class="na">style</span><span class="o">=</span><span class="s">&#39;position: absolute;</span>
+<span class="s">           top: 0px;</span>
+<span class="s">           left: 0px;</span>
+<span class="s">           bottom: 0px;</span>
+<span class="s">           right: 0px;</span>
+<span class="s">           opacity: 0;</span>
+<span class="s">           border-top: 1px solid #62b851;</span>
+<span class="s">           border-left: 1px solid #62b851;</span>
+<span class="s">           box-sizing: border-box&#39;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Here, the map is inserted into the layout. The UI elements are always <code class="docutils literal notranslate"><span class="pre">div</span></code> tags. The <code class="docutils literal notranslate"><span class="pre">id</span></code> is important, so that the viewer knows which element it is. <code class="docutils literal notranslate"><span class="pre">id=&quot;map&quot;</span></code> corresponds, for example, to the map. The styles are used to position the map absolutely, filling the browser window.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">opacity</span></code> value is initially set to <code class="docutils literal notranslate"><span class="pre">0</span></code> here, i.e. the map is fully transparent. This can be used to achieve a “nicer” loading process for the viewer. As soon as the map has been fully initialized, the API automatically sets this value to <code class="docutils literal notranslate"><span class="pre">1</span></code>, causing the map to appear with a fade-in effect.</p>
+<p>Since the map is sometimes still being zoomed during initialization, which can cause a certain amount of “jitter,” the user does not notice this. The map thus only appears, optionally, once everything is ready.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;tabs&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tabs-layout-container-options&quot;</span>
+     <span class="na">data-option-add_tools</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
+     <span class="na">data-option-add_tool_content</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
+     <span class="na">data-option-selected</span><span class="o">=</span><span class="s">&quot;presentations&quot;</span>
+     <span class="na">style</span><span class="o">=</span><span class="s">&#39;display: none&#39;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The tabs do not need to be positioned separately and appear at the bottom left. Specifying the class <code class="docutils literal notranslate"><span class="pre">tabs-layout-container-options</span></code> determines that some options for the tabs control are overridden here.</p>
+<p>The tabs do not need to be positioned separately and appear at the bottom left. Specifying the class <code class="docutils literal notranslate"><span class="pre">tabs-layout-container-options</span></code> determines that some options for the tabs control are overridden here.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Options for the Tabs Control</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Option</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data-option-add_tools</span></code></p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> here, because the tools are shown in their own area.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">data-option-add_tool_content</span></code></p></td>
+<td><p>When a tool is selected, the tool dialog must be shown somewhere. This option must be set here so that this happens in the tab control, even though the toolbox is shown elsewhere.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data-option-selected</span></code></p></td>
+<td><p>This specifies that the layer switcher (tab <code class="docutils literal notranslate"><span class="pre">presentations</span></code>) is selected and expanded. This is more a matter of taste and is only meant to show the possibilities.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The next block describes where the hourglass (the small gray strip that shows which services are currently being loaded) is shown. It is usually located below the tab control.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index:9998;</span>
+<span class="s">            position:absolute;</span>
+<span class="s">            right:0px;</span>
+<span class="s">            width:320px;</span>
+<span class="s">            bottom:0px;</span>
+<span class="s">            height:24px;</span>
+<span class="s">            background:#aaa&quot;</span><span class="p">&gt;</span>
+    …
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The <strong>topbar</strong> (quick search, etc.) is positioned similarly. It appears at the top right:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;topbar&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute;</span>
+<span class="s">                        right:0px;</span>
+<span class="s">                        top:0px;</span>
+<span class="s">                        text-align:right;</span>
+<span class="s">                        background-color:#fff;</span>
+<span class="s">                        z-index:1000&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The actual difference from the original layout is the <strong>toolbox</strong>. It is integrated into the layout via the following line:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;toolbar&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;webgis-ui-trans&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Again, the <code class="docutils literal notranslate"><span class="pre">id=&quot;toolbar&quot;</span></code> is important. The class <code class="docutils literal notranslate"><span class="pre">webgis-ui-trans</span></code> makes the toolbar transparent and only fully visible once it has focus (mouseover or touch).</p>
+<p>Positioning can likewise be done via inline styles. In this example, however, the position is already defined in the first section, in the styles.</p>
+</section>
+<section id="w1200-html">
+<h3>w1200.html<a class="headerlink" href="#w1200-html" title="Link to this heading">¶</a></h3>
+<p>For larger displays, the idea was to design a layout similar to the usual web map atlas. The presentation variants should be on the left and the toolbox at the top. There is also still enough space at the top left for a logo.</p>
+<img alt="../../../_images/image_3.png" src="../../../_images/image_3.png" />
+<p>In this layout too, the necessary styles resulting from the layout are defined at the top. The next section contains a script part:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;~&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>This indicates that a different GDI schema is used in this layout. For example, in this layout the user can see different (more) presentation variants in the TOC than on a small display. There is a further whitepaper on this topic (<em>GDI schemes and presentation variants</em>).</p>
+<p>Next comes a block in which the logo and the logo text are placed at the top right:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-logo&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:0px; top:0px; width:320px; height:81px;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://ines.esn.at/_layouts/15/images/.../79x83.png&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:78px;&quot;</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:2.5em;</span>
+<span class="s">                       color:#62B851;</span>
+<span class="s">                       font-weight:bold;</span>
+<span class="s">                       vertical-align:top;</span>
+<span class="s">                       padding:0px 12px;&quot;</span><span class="p">&gt;</span>
+                WebGIS Fluent
+            <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Next comes the area for the map. This time it is no longer window-filling; instead, an area for tools and the TOC is left free on the left and top:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute;</span>
+<span class="s">                     top:82px;</span>
+<span class="s">                     left:320px;</span>
+<span class="s">                     bottom:0px;</span>
+<span class="s">                     right:0px;</span>
+<span class="s">                     opacity:0;</span>
+<span class="s">                     border-top:1px solid #62b851;</span>
+<span class="s">                     border-left:1px solid #62b851;</span>
+<span class="s">                     box-sizing:border-box;&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>After that, the left frame with the contained tabs and the hourglass is defined:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; top:82px; left:0px; bottom:0px; width:320px; box-sizing:border-box;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;tabs&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tabs-layout-container&quot;</span>
+         <span class="na">data-option-top</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
+         <span class="na">data-option-right</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
+         <span class="na">data-option-bottom</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
+         <span class="na">data-option-left</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
+         <span class="na">data-option-add_tools</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
+         <span class="na">data-option-add_tool_content</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
+         <span class="na">data-option-content_size</span><span class="o">=</span><span class="s">&quot;fill&quot;</span>
+         <span class="na">data-option-selected</span><span class="o">=</span><span class="s">&quot;presentations&quot;</span>
+         <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:0px; top:0px; right:0px; bottom:24px;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index:9998;</span>
+<span class="s">                position:absolute;</span>
+<span class="s">                right:0px;</span>
+<span class="s">                width:320px;</span>
+<span class="s">                bottom:0px;</span>
+<span class="s">                height:24px;</span>
+<span class="s">                background:#aaa;&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute;</span>
+<span class="s">                    left:0px;</span>
+<span class="s">                    top:0px;</span>
+<span class="s">                    width:24px;</span>
+<span class="s">                    height:24px;</span>
+<span class="s">                    cursor:pointer;</span>
+<span class="s">                    background-image:url();&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-info&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:24px; top:0px; bottom:0px; right:0px;&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;hourglass&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>In addition to the options described above for the tabs, this also adds the positioning of the controls and the setting that the control may fill the entire area. The hourglass is pinned to the bottom of the frame.</p>
+<p>The last section describes the top frame with the toolbox and quick search:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; top:0px; left:0px; right:0px; height:82px; z-index:999; overflow:visible;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;toolbar&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:320px; top:0px; z-index:0;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;topbar&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; right:0px; top:0px; text-align:right; background-color:#fff;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>There are practically no limits to your imagination when it comes to layouts. However, in our opinion, you should stay roughly within the variants shown here (especially for the desktop layout). The reason is that users should be able to recognize the application and how to use it across different installations.</p>
+<p>This description is meant to show the possibilities, so that anyone can adapt their own logos, texts, and background colors.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Custom Layouts</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#parameterizing-the-layouts">Parameterizing the Layouts</a><ul>
+<li><a class="reference internal" href="#w1024-html">w1024.html</a></li>
+<li><a class="reference internal" href="#w1200-html">w1200.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../customjs/speziellethemen.html">
+                    <span class="icon">&lt;</span><span>Special Topics</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../../../extended_config/index.html"><span>Extended Tool Configuration</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

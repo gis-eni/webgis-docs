@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map Portal (Map Collections) &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="User Interface" href="ui.html" />
+    <link rel="prev" title="Maps and Services" href="maps_services.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html"><span class="sectnum">1 </span>General</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="maps_services.html">Maps and Services</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Map Portal (Map Collections)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ui.html">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../presentation/index.html"><span class="sectnum">3 </span>Presentation and Map Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/index.html"><span class="sectnum">6 </span>Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Map Viewer User Manual</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="sectnum">1 </span>General</a></li>
+      <li class="breadcrumb-item active">Map Portal (Map Collections)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/mapviewer/general/portal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="map-portal-map-collections">
+<h1>Map Portal (Map Collections)<a class="headerlink" href="#map-portal-map-collections" title="Link to this heading"></a></h1>
+<p>Since there can be several maps for different use cases, the entry point for WebGIS is a map portal (or a map collection).
+This portal lists all maps (organized into categories):</p>
+<img alt="../../_images/portal1.png" src="../../_images/portal1.png" />
+<ol class="arabic">
+<li><p>Maps can be organized into different categories. All categories are listed in the <em>sidebar</em> (on the left).
+Clicking on a category lists the corresponding maps.</p></li>
+<li><p>If many maps are offered, there is the option to search for maps:</p>
+<img alt="../../_images/portal2.png" src="../../_images/portal2.png" />
+<p>Clicking in the search field initially lists all maps alphabetically. If you enter search terms, only those maps matching the current search term are shown. This search covers not only the map title, but also any
+existing map description, as well as <em>keywords</em>, which can also help find maps more easily (e.g. a map <em>Cadastre</em> can also be found via the keyword <em>Parcels</em>).
+Clicking on one of the tiles opens the <em>map viewer</em> with the corresponding map.</p>
+</li>
+<li><p>Some maps are optimized for specific target platforms (desktop, phone). Depending on which end device you use to start, different maps
+are shown. Which maps are preferentially shown on which platform is determined by the <em>map author/administrator</em>. If you still want to use the
+maps for a specific platform despite the recommendation (e.g. desktop maps on a phone), the view can be changed with the <em>platform buttons</em>:
+(desktop maps, phone maps, maps for all platforms)</p></li>
+<li><p>The <em>tiles</em> are the entry point to the map applications. Clicking on a tile opens the corresponding map.
+Moving the mouse (without clicking) over the map title (gray area) shows additional information about this map (if available).</p></li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="maps_services.html" class="btn btn-neutral float-left" title="Maps and Services" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ui.html" class="btn btn-neutral float-right" title="User Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

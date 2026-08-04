@@ -1,4 +1,10 @@
-Extended Configuration
-======================
+================================
+Extended Tool Configuration
+================================
 
-This section will cover advanced and extended configuration topics.
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   etc/index
+   roles/index

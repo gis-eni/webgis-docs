@@ -34,5 +34,10 @@ robocopy /MIR .\build\html .\..\..\app\dev
 @echo on
 cd .\..\webgis-manual
 call .\make.bat html
-robocopy /MIR .\build\html .\..\..\app\manual
+robocopy /MIR .\build\html .\..\..\app\de\manual
+
+@echo on
+cd .\..\..\en\webgis-manual
+call .\make.bat html
+robocopy /MIR .\build\html .\..\..\app\en\manual
 

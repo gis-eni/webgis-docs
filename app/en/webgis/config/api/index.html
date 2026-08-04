@@ -5,20 +5,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>API &#8212; WebGIS 2026 documentation</title>
+    <title>Configuration of the API application &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
     <script src="../../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Portal" href="../portal/index.html" />
-    <link rel="prev" title="CMS" href="../cms/index.html" /> 
+    <link rel="next" title="Portal Configuration" href="../portal/index.html" />
+    <link rel="prev" title="Configuration of the CMS application" href="../cms/index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -123,19 +123,19 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">appsettings.json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">CMS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration (post-installation)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">Configuration of the CMS application</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration of the API application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../css-styling/index.html">Styling and CSS Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Hardening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardening/index.html">Security measures (hardening)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -148,9 +148,1230 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="api">
-<h1>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
-<p>This section will cover WebGIS API configuration and the service behavior controlled by CMS data.</p>
+  <section id="configuration-of-the-api-application">
+<h1>Configuration of the API application<a class="headerlink" href="#configuration-of-the-api-application" title="Link to this heading">¶</a></h1>
+<section id="file-config-api-config">
+<h2>File <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code><a class="headerlink" href="#file-config-api-config" title="Link to this heading">¶</a></h2>
+<p>If this file does not exist, it is automatically created with default values the first time the API starts. This section shows how it can be adapted for <strong>production use</strong>.</p>
+<p>The file is an <strong>XML configuration file</strong> that contains various <strong>key-value pairs</strong>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+<span class="w">    </span><span class="nt">&lt;appSettings&gt;</span>
+
+<span class="w">        </span><span class="cm">&lt;!-- App Roles --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;app-roles&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;all&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">        </span>...
+
+<span class="w">    </span><span class="nt">&lt;/appSettings&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>Below is an overview of the most important configuration parameters.</p>
+<section id="section-cms">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">CMS</span></code><a class="headerlink" href="#section-cms" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cmspath_default</span></code>, <code class="docutils literal notranslate"><span class="pre">cmspath_custom</span></code></p></td>
+<td><p>Paths to the CMS files that are integrated into the API. The names of the CMS files should not be changed afterwards, since they are used to uniquely identify maps when they are created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cmsgdischema_default</span></code></p></td>
+<td><p>Default GDI schema used from the CMS. If empty, no specific schema is enforced.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">outputPath</span></code></p></td>
+<td><p>Path to the output directory where images and generated files are stored. The web application should be able to access it and have write permissions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">outputUrl</span></code></p></td>
+<td><p>URL of the output directory that must be reachable for the user. This can be a virtual directory, but it should not be listable via the browser.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">server-side-configuration-path</span></code></p></td>
+<td><p>Path to the server-side configuration of the API. This directory contains configuration files for the entire instance, including <code class="docutils literal notranslate"><span class="pre">etc</span></code> (e.g. print layouts) and <code class="docutils literal notranslate"><span class="pre">config</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-proj4-database">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Proj4</span> <span class="pre">Database</span></code><a class="headerlink" href="#section-proj4-database" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p4database</span></code></p></td>
+<td><p>Connection string to a database containing projection information (table <code class="docutils literal notranslate"><span class="pre">P4</span></code>). The same database used by WebGIS can be specified here. This key is provided only for compatibility reasons with WebGIS. If you want to use the default projection information, it is sufficient to specify <code class="docutils literal notranslate"><span class="pre">value=&quot;#&quot;</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-cache-database">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Database</span></code><a class="headerlink" href="#section-cache-database" title="Link to this heading">¶</a></h3>
+<p>The <strong>sessions</strong> are stored in this database. It must contain the <code class="docutils literal notranslate"><span class="pre">webgis_cache</span></code> table (see below). If the <strong>Portal application</strong> is also used, both systems must use the same <strong>session cache</strong>. Alternatively, the cache can be stored in the <strong>file system</strong>, which means no database table is required.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cache-provider</span></code></p></td>
+<td><p>Determines whether the cache database is stored as a <strong>database</strong> (<code class="docutils literal notranslate"><span class="pre">db</span></code>) or in the <strong>file system</strong> (<code class="docutils literal notranslate"><span class="pre">fs</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cache-connectionstring</span></code></p></td>
+<td><p>Connection string to the database or path in the file system.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-cache-aside">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code><a class="headerlink" href="#section-cache-aside" title="Link to this heading">¶</a></h3>
+<p>To reduce the number of accesses to the <strong>cache database</strong> (since it is accessed on every API request), it is recommended for <strong>heavily used instances</strong> to set up an <strong>additional cache</strong> alongside the database. This enables fast access.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cache-aside-provider</span></code></p></td>
+<td><p>Defines the <strong>side cache</strong> used:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">redis</span></code>: use Redis cache (allows sharing across multiple instances).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">InApp</span></code>: use InApp cache (data is kept directly in the application’s memory).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>: no cache-aside active.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cache-aside-connectionstring</span></code></p></td>
+<td><p>The corresponding <strong>connection string</strong>.</p>
+<ul class="simple">
+<li><p>For <strong>Redis</strong>, e.g. <code class="docutils literal notranslate"><span class="pre">localhost:6379</span></code>.</p></li>
+<li><p>For <strong>InApp</strong>, this specifies the time in seconds for which a value should be kept in the side cache (e.g. <code class="docutils literal notranslate"><span class="pre">3600</span></code> for one hour).</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-subscriber-database">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Database</span></code><a class="headerlink" href="#section-subscriber-database" title="Link to this heading">¶</a></h3>
+<p>Subscribers are users who can log in to the <strong>WebGIS Portal</strong> to create maps. The information for these users can be stored either in a <strong>database</strong> or, in a simplified way, in the <strong>file system</strong>.
+For storage in the file system, the connection string can be specified as follows:
+<code class="docutils literal notranslate"><span class="pre">value=&quot;fs:C:\webgis\webgis-repository\...&quot;</span></code></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subscriber-db-connectionstring</span></code></p></td>
+<td><p>Connection string to the <strong>subscriber database</strong> or to the storage location in the file system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subscriber-admins</span></code></p></td>
+<td><p>List of <strong>administrator subscriber names</strong>, separated by commas (e.g. <code class="docutils literal notranslate"><span class="pre">admin</span></code>). These users can manage other profiles (delete, change, etc.).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-subscriber-registration">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Registration</span></code><a class="headerlink" href="#section-subscriber-registration" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code></p></td>
+<td><p>Specifies whether subscribers can log in to this instance (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>).
+This option is useful for closed instances that are managed exclusively by an administrator. This prevents malicious access to the configuration.</p>
+<p>Example: An <strong>intranet instance</strong> could be used for configuration, while the <strong>internet instance</strong> is locked for access. Both instances can share the <strong>storage</strong>, or it can be copied between them.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code></p></td>
+<td><p>Specifies whether new subscribers may register themselves for the API (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p>
+<ul class="simple">
+<li><p>During the <strong>initial installation</strong>, this value should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that at least one administrator subscriber can be created.</p></li>
+<li><p>Afterwards, the value can be set to <code class="docutils literal notranslate"><span class="pre">false</span></code>. It is then recommended to provide a separate <strong>intranet or test instance</strong> of the API, to which only the administrator has access and through which new subscribers can be created as needed. This instance must access the same <strong>database</strong>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subscription-tools</span></code></p></td>
+<td><p>Determines which functions a subscriber is allowed to create in the <strong>Portal</strong>.</p>
+<p>Possible values:
+- <code class="docutils literal notranslate"><span class="pre">clients</span></code>: allows creating clients.
+- <code class="docutils literal notranslate"><span class="pre">portal-pages</span></code>: allows creating portal pages.
+- <code class="docutils literal notranslate"><span class="pre">dataLinq-endpoints</span></code>: allows creating DataLinq endpoints.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-api-portal-url">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Api/Portal</span> <span class="pre">Url</span></code><a class="headerlink" href="#section-api-portal-url" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">api-url</span></code></p></td>
+<td><p>URL of the API as visible to the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">portal-url</span></code></p></td>
+<td><p>URL of the portal as visible to the user.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">portal-internal-url</span></code></p></td>
+<td><p>The API must be able to communicate with the portal, e.g. to populate selection lists for authentication. An <strong>internal URL</strong> is recommended here if both applications are installed on the same server (e.g. <code class="docutils literal notranslate"><span class="pre">http://localhost/webgis-portal</span></code>). If this value is not set, the API automatically uses <code class="docutils literal notranslate"><span class="pre">portal-url</span></code> for internal requests.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-storage">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Storage</span></code><a class="headerlink" href="#section-storage" title="Link to this heading">¶</a></h3>
+<p>User projects, portal page content, etc. are stored here. This is <strong>not</strong> a classic database, but a <strong>file-system-based storage</strong> (blobs).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">storage-rootpath</span></code></p></td>
+<td><p>Path to a directory used as <strong>storage</strong>. The directory can be changed at any time by copying the content to another storage location.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The API application requires <strong>read and write permissions</strong> for this directory!</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-marker">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Marker</span></code><a class="headerlink" href="#section-marker" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">default-marker-colors</span></code>
+If you use dynamic markers (recommended), the default color values for the markers can be defined here. The value must consist of three hex values separated by commas for fill color, border color and text color, e.g.: <code class="docutils literal notranslate"><span class="pre">82C828,b5dbad,fff</span></code>.</p>
+<p>How dynamic markers are integrated into the viewer is shown in the <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> description:</p>
+<p><a class="reference external" href="https://docs.webgiscloud.com/de/webgis/apps/viewer/customjs/benutzerdefmarker.html">https://docs.webgiscloud.com/de/webgis/apps/viewer/customjs/benutzerdefmarker.html</a></p>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">custom-recommendtion.js</span></code>, dynamic markers are automatically used for search results.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changes to this value are not necessarily visible immediately, because markers are cached on the client =&gt; clear the browser cache!</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default-text-download-encoding</span></code>
+If, for example, users download CSV files, the encoding must be set so that all special characters contained are correctly encoded. The name of the <em>encoding</em> can be set here. The default value is <code class="docutils literal notranslate"><span class="pre">iso-8859-1</span></code> and should cover all German special characters. Which values are possible can be seen by calling the <code class="docutils literal notranslate"><span class="pre">/admin/info</span></code> page for the API. It also shows which <em>encoding</em> is currently in use.</p></li>
+</ul>
+</section>
+<section id="section-logging">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Logging</span></code><a class="headerlink" href="#section-logging" title="Link to this heading">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Logging (optional) --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-type&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;files&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="cm">&lt;!-- Path for logging: the directory must have write permissions for WebGIS --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Log_Path&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;C:\\apps\\webgis\\local\\webgis-repository\\logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-performance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Log_Performance_Columns&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;SESSIONID;MAPREQUESTID;CLIENTIP;DATE;TIME;MAPNAME;USERNAME;X;Y;SCALE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-exceptions&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;trace&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="cm">&lt;!-- For debugging only, do not use in production --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-service-requests&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Logging can be done to files (<code class="docutils literal notranslate"><span class="pre">logging-type</span> <span class="pre">=</span> <span class="pre">files</span></code>).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging-log-performance</span></code></p></td>
+<td><p>Stores <strong>map requests</strong> and their access times in a <strong>CSV log file</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logging-log-exceptions</span></code></p></td>
+<td><p>Logs <strong>exceptions</strong> that occur during the runtime of the <strong>WebGIS API</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging-log-service-requests</span></code></p></td>
+<td><p>Stores <strong>requests to the map server</strong> as well as their responses.</p>
+<p>This setting should be used <strong>only for debugging</strong>, since it generates a <strong>large amount of data</strong> and can negatively affect <strong>performance</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Important:</strong> Requests are only logged if <code class="docutils literal notranslate"><span class="pre">trace=true</span></code> is also set.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-query-results">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Results</span></code><a class="headerlink" href="#section-query-results" title="Link to this heading">¶</a></h3>
+<p>(from version 8.26.801)</p>
+<p>This section allows you to set how the results of
+<strong>identify or search queries</strong> are displayed on the map.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;query-results&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;selection-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#0ff&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: Cyan --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;selection-fill-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#10ff&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;highlight-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#0f0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: Yello --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;highlight-fill-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#cf00&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;buffer-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#f00&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- optional, default: Gray --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;buffer-fill-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#300f&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">       </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">selection-color</span></code></p></td>
+<td><p>Sets the color for the selection of features.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">selection-fill-color</span></code></p></td>
+<td><p>Sets the fill color for the selection of features.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">highlight-color</span></code></p></td>
+<td><p>Sets the color for highlighting features.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">highlight-fill-color</span></code></p></td>
+<td><p>Sets the fill color for highlighting features.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">buffer-color</span></code></p></td>
+<td><p>Sets the color for buffer zones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">buffer-fill-color</span></code></p></td>
+<td><p>Sets the fill color for buffer zones.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">fill-color</span></code> is optional in each case and only needs to be specified if it is not
+identical to the corresponding <code class="docutils literal notranslate"><span class="pre">color</span></code>. By default, the fill color is automatically derived
+from the corresponding color by increasing the transparency (e.g. cyan becomes a transparent cyan).
+If you want a different color for the fill, or want to define the transparency yourself,
+this can be done via <code class="docutils literal notranslate"><span class="pre">fill-color</span></code>.</p>
+<p><strong>Hex color codes</strong> can be specified as values, e.g. <code class="docutils literal notranslate"><span class="pre">#0ff</span></code>, <code class="docutils literal notranslate"><span class="pre">#00ffff</span></code> for cyan
+or <code class="docutils literal notranslate"><span class="pre">#f00</span></code>, <code class="docutils literal notranslate"><span class="pre">#ff0000</span></code> for red.
+If you specify four or eight characters, the transparency can also be defined,
+e.g. <code class="docutils literal notranslate"><span class="pre">#300f</span></code> for a transparent red (20% opacity) or <code class="docutils literal notranslate"><span class="pre">#300000ff</span></code> for a
+transparent blue (20% opacity). The first part of the hex code defines the transparency
+(00 = fully transparent, ff = fully opaque), while the second part defines the color.</p>
+</section>
+<section id="section-quick-search">
+<h3>Section <code class="docutils literal notranslate"><span class="pre">Quick</span> <span class="pre">Search</span></code><a class="headerlink" href="#section-quick-search" title="Link to this heading">¶</a></h3>
+<p>In this section you define which results are shown in the quick search and which search criteria can be used for it.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;quick-search&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-result-items&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: 5 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allowed-geocodes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;*&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max-result-items</span></code></p></td>
+<td><p>Sets the maximum number of results shown in the quick search (e.g. 3). It is recommended not to set this value too high, to keep the results clear.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allowed-geocodes</span></code></p></td>
+<td><p>Specifies which GeoCodes should be recognized in the quick search, separated by commas (e.g. <code class="docutils literal notranslate"><span class="pre">mrgs,pluscode,geohash</span></code>). All GeoCodes listed at <a class="reference external" href="https://docs.webgiscloud.com/de/webgis/annex/geocodes.html">https://docs.webgiscloud.com/de/webgis/annex/geocodes.html</a> can be activated. <code class="docutils literal notranslate"><span class="pre">*</span></code> activates all available GeoCodes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-configuration">
+<h3>Tool configuration<a class="headerlink" href="#tool-configuration" title="Link to this heading">¶</a></h3>
+<p>Some tools offered in the <strong>WebGIS Viewer</strong> require their own configuration entries. These are located in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>. To keep <code class="docutils literal notranslate"><span class="pre">api.config</span></code> clear, the entries are grouped by <em>sections</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;section&gt;</span></code> tags must be located inside the <code class="docutils literal notranslate"><span class="pre">&lt;appSettings&gt;</span></code> tag.</p>
+<p>The following attributes can be defined in all sections for tools:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-...&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: true --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">allow-anonymous-access</span></code> (from 8.26.1001): Specifies whether the tool may also be used by <strong>anonymous users</strong>.
+By default this is allowed (<code class="docutils literal notranslate"><span class="pre">true</span></code>), but for certain tools
+that offer sensitive functions, this should be set to <code class="docutils literal notranslate"><span class="pre">false</span></code>,
+so that only logged-in users have access.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tool is always visible in the viewer if it was integrated via the <strong>MapBuilder</strong>.
+If an anonymous user clicks it, they receive an error message
+(e.g. <em>Anonymous access is not allowed for this tool</em>).</p>
+<p>To hide a tool from anonymous users in the viewer, this must additionally
+be set in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>, for example for the <strong>load/save</strong> tool:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">hmac</span><span class="p">.</span><span class="nx">userName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.loadmap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.savemap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this case, the tool is completely hidden for anonymous users, while it remains visible for logged-in users.</p>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>Here are the tools that require their own configuration:</p>
+<section id="tool-mapmarkup">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">MapMarkup</span></code><a class="headerlink" href="#tool-mapmarkup" title="Link to this heading">¶</a></h4>
+<p>The configuration for the <strong>MapMarkup tool</strong> looks as follows:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-mapmarkup&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection-max-features&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection-max-vertices&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-download-from-selection&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-download-epsg&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4326&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;save-name-maxlength&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: 40 --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For <strong>MapMarkup (drawing)</strong>, all objects must be rendered directly in the <strong>client (browser)</strong>. Therefore, a <strong>very high number of objects</strong> or <strong>objects with many vertices</strong> (e.g. <strong>cadastrally accurate district boundaries</strong>) can lead to <strong>performance problems</strong>.</p>
+<p>Restrictions on the max values should therefore be applied depending on the use case. This is especially important for (freely accessible) internet applications.</p>
+</div>
+</section>
+<section id="tool-coordinates-xy">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Coordinates</span> <span class="pre">(XY)</span></code><a class="headerlink" href="#tool-coordinates-xy" title="Link to this heading">¶</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-coordinates&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-upload-max-rows&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p>The <strong>XY tool</strong> allows the <strong>upload of coordinate lists</strong>. It can be used for <strong>visualization</strong> or for <strong>projection</strong>, when the coordinates are downloaded again after processing.</p>
+<p>In addition, <strong>elevation values are automatically determined</strong> for the coordinates:</p>
+<ol class="arabic simple">
+<li><p>Coordinates are uploaded.</p></li>
+<li><p>Depending on the configuration in the <code class="docutils literal notranslate"><span class="pre">etc</span></code> directory (see below), <strong>elevation values</strong> are calculated and added as attributes.</p></li>
+<li><p>When <strong>downloading</strong>, these elevation values are also included in the output.</p></li>
+</ol>
+<p>The <strong>number of coordinates that can be uploaded</strong> can be limited via the following parameter:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-upload-max-rows</span></code></p></td>
+<td><p>Sets the maximum number of rows that may be uploaded via the <strong>XY tool</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-printing">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Printing</span></code><a class="headerlink" href="#tool-printing" title="Link to this heading">¶</a></h4>
+<p>The configuration allows you to define the available <strong>print qualities (DPI)</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A higher DPI improves <strong>readability</strong>, especially of text, but also increases the <strong>file size</strong> of the generated PDFs and the <strong>server load</strong>. In <strong>public internet applications</strong>, a <strong>print resolution above 150 DPI</strong> should be avoided, since it can put a heavy load on the server for large paper formats.</p>
+</div>
+<p>The configuration in <code class="docutils literal notranslate"><span class="pre">api.config</span></code> looks as follows:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-print&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;qualities-dpi&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;150:Hoch (150 dpi),120:Mittel (120 dpi),225:Sehr hoch (225 dpi)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;scales&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000000,500000,250000,100000,50000,25000,10000,5000,3000,2000,1000,500,250,100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Landscape&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;scale-wysiwyg&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p><strong>Print qualities and scales</strong></p>
+<p>The individual values are separated by <strong>commas</strong>. Each entry consists of a <strong>DPI number (integer)</strong> and a <strong>description</strong>, separated by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. In the <strong>viewer</strong>, the DPI values are shown <strong>sorted</strong> (e.g. 120, 150, 225). The first value in the list serves as the <strong>default value</strong> and is preselected when the print tool is first opened.</p>
+<p>Optionally, the print scales can also be defined. If no values are specified, the system uses the available <strong>map zoom levels</strong>.</p>
+<p>An alternative way to define print scales is to set them directly in the <strong>print layout file</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; ?&gt;</span>
+<span class="nt">&lt;layout</span><span class="w"> </span><span class="na">scales=</span><span class="s">&quot;5000,2500,1000,500&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span>...
+<span class="nt">&lt;/layout&gt;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The settings in the <strong>layout file</strong> take precedence over the values in <code class="docutils literal notranslate"><span class="pre">api.config</span></code> and the map scales. It is recommended to define the scales directly in the layout file, since this way suitable scales are predefined for each layout, which the user then has to use.</p>
+</div>
+</section>
+<section id="tool-series-printing">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Series</span> <span class="pre">Printing</span></code><a class="headerlink" href="#tool-series-printing" title="Link to this heading">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From version 8.X</p>
+</div>
+<p>The configuration for the <strong>series printing tool</strong> looks as follows:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-map-series-print&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;qualities-dpi&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;150:Hoch (150 dpi),120:Mittel (120 dpi),225:Sehr hoch (225 dpi)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;scales&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;50000,25000,10000,5000,3000,2000,1000,500,250,100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Landscape&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-pages&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-intersection-iterations&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: max-pages * 50 --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;overview-page-layout&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: layout_map_services_overview.xml  --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;overview-page-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Portrait&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: empty =&gt; use same format as series pages --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p>The settings for <strong>print qualities</strong>, <strong>format</strong> and <strong>scales</strong> work in the same way as for the
+normal <strong>print tool</strong> (see above).</p>
+<p>In addition, the following parameters can be configured:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max-pages</span></code></p></td>
+<td><p>Sets the maximum number of pages that may be generated in the <strong>series print</strong>.
+This is used to avoid an <strong>excessive server load</strong> when very large areas are selected.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max-intersection-iterations</span></code></p></td>
+<td><p>Sets the maximum number of iterations for calculating the intersections.
+This is used to avoid an <strong>excessive server load</strong> when very complex geometries are processed.
+The value is currently used for the <strong>Intersect Raster</strong> creation method. If the default value of 50*[max-pages] is too low,
+it can be increased here.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">overview-page-layout</span></code></p></td>
+<td><p>Defines the <strong>layout file</strong> for the <strong>overview page</strong> in the series print.
+If no value is specified, the default layout <code class="docutils literal notranslate"><span class="pre">layout_map_services_overview.xml</span></code> is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">overview-page-format</span></code></p></td>
+<td><p>Sets the <strong>paper format</strong> for the <strong>overview page</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">A4.Portrait</span></code>).
+If no value is specified, the same format as for the series print pages is used.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-display-filter">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Filter</span></code><a class="headerlink" href="#tool-display-filter" title="Link to this heading">¶</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-visfilter&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-visfilter&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p>From version 8.x, a <strong>display filter</strong> can be defined for each layer in the <strong>table of contents (TOC)</strong>.
+For this to be usable, the following parameter must be set in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-toc-visfilter</span></code></p></td>
+<td><p>Must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that a <strong>display filter</strong> can be defined for layers in the <strong>table of contents (TOC)</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The behavior then is such that, for topics in the <strong>table of contents (TOC)</strong>, a
+small <strong>filter icon</strong> is displayed that opens a <strong>query builder</strong>, with which the user
+can define a <strong>display filter</strong> in SQL style.
+Which fields are offered for this can be defined in the CMS for the service under <strong>QueryBuilder</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function should only be used in <strong>protected environments</strong> (intranet, never internet),
+since users can cause <strong>performance problems</strong> through improper filtering
+or exploit <strong>security vulnerabilities</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since this function must additionally be enabled
+via <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>: <code class="docutils literal notranslate"><span class="pre">webgis.usability.allowTocVisFilters=true;</span></code> (default: <code class="docutils literal notranslate"><span class="pre">false</span></code>).
+This allows the function to be enabled only for specific maps.</p>
+</div>
+</section>
+<section id="tool-liveshare">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">LiveShare</span></code><a class="headerlink" href="#tool-liveshare" title="Link to this heading">¶</a></h4>
+<p>For <strong>LiveShare</strong> to be usable, the URL of the <strong>hub</strong> must be specified in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-liveshare&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;simplify-session-ids&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;hub&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://liveshare.webgiscloud.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;clientId&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;gültige client Id&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;clientSecret&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;gültiges client secret&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">simplify-session-ids</span></code></p></td>
+<td><p>Converts the <strong>session IDs</strong> into a <strong>simplified 9-digit number</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hub</span></code></p></td>
+<td><p>URL of the <strong>LiveShare hub</strong> through which the real-time sessions are managed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">clientId</span></code></p></td>
+<td><p>Unique <strong>client ID</strong>, required if the hub is not publicly accessible.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clientSecret</span></code></p></td>
+<td><p>Secret <strong>client token</strong>, required if the hub is not publicly accessible.</p></td>
+</tr>
+</tbody>
+</table>
+<p>If the <strong>hub is not publicly accessible</strong>, a <strong>client ID</strong> and a <strong>client secret</strong> must be provided. These credentials are provided by the operator of the hub.</p>
+</section>
+<section id="tool-3d-measurement">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Measurement</span></code><a class="headerlink" href="#tool-3d-measurement" title="Link to this heading">¶</a></h4>
+<p>For <strong>3D measurements</strong> to work, the following values must be configured in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-threed&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;min-resolution&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-resolution&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-model-size&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1500&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-scale&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;texture-ortho-service&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;geoland_bm_of@default:0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="cm">&lt;!-- serviceId:layerId --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;texture-streets-overlay-service&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;geoland_bm_ov@default:0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="cm">&lt;!-- serviceId:layerId --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">min-resolution</span></code></p></td>
+<td><p>Minimum <strong>resolution</strong> of the 3D model in <strong>meters</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max-resolution</span></code></p></td>
+<td><p>Maximum <strong>resolution</strong> of the 3D model in <strong>meters</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max-model-size</span></code></p></td>
+<td><p>Maximum <strong>model size</strong> in <strong>pixels</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">1500</span> <span class="pre">x</span> <span class="pre">1500</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max-scale</span></code></p></td>
+<td><p><strong>Maximum scale</strong>, above which no 3D model is created any more.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">texture-ortho-service</span></code></p></td>
+<td><p>Defines the <strong>service for aerial imagery textures</strong>, consisting of the <strong>service CMS ID</strong> and <strong>layer ID</strong> in the format <code class="docutils literal notranslate"><span class="pre">Dienst-CMS-Id</span> <span class="pre">:</span> <span class="pre">Layer-Id</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">texture-streets-overlay-service</span></code></p></td>
+<td><p>Defines the <strong>service for street map textures</strong>, consisting of the <strong>service CMS ID</strong> and <strong>layer ID</strong> in the format <code class="docutils literal notranslate"><span class="pre">Dienst-CMS-Id</span> <span class="pre">:</span> <span class="pre">Layer-Id</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-save-map">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Map</span></code><a class="headerlink" href="#tool-save-map" title="Link to this heading">¶</a></h4>
+<p>With the <strong>Save Map</strong> tool, users can save the current map (services, visibility, redlining) as a <strong>project</strong>. The following settings can be configured for this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;name-maxlength&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name-maxlength</span></code></p></td>
+<td><p>Specifies how many characters the <strong>project name</strong> may contain at most.
+The project is stored <strong>on the server in the file system</strong> (including encryption).
+This setting prevents the <strong>file names</strong> from becoming too long.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-load-map">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Map</span></code><a class="headerlink" href="#tool-load-map" title="Link to this heading">¶</a></h4>
+<p>With the <strong>Load Map</strong> tool, saved maps can be reopened by the user.</p>
+<p>If a saved map is opened via the <strong>portal page (My Projects)</strong>, a <strong>link</strong> is generated through which the map can be called. This link is shown in the <strong>browser’s address bar</strong> and can thus be copied and shared.</p>
+<p>The following settings determine who is allowed to open saved maps. By default, maps can only be opened by the user who saved them.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-loadmap&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-collaboration&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anonymous-collaboration&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-collaboration</span></code></p></td>
+<td><p>By default, saved maps can <strong>only be opened by their creator</strong>.
+If another user tries to open the map via a link, they receive an error message (<em>Collaboration of projects is not allowed</em>).
+To enable the <strong>sharing of saved maps</strong>, this option must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-anonymous-collaboration</span></code></p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">allow-collaboration</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, only <strong>logged-in users</strong> can open shared links.
+If <strong>anonymous users</strong> should also have access to the maps, this option must also be set to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>For data protection reasons, sharing saved links should not be allowed. Via a link, the current state of the map, including <strong>redlining</strong>, can be accessed at any time!</p>
+<p>The recommended way to share a map is the <strong>Share Map</strong> tool. This creates and shares a <strong>snapshot</strong> of the current map. Later changes, in particular to <strong>redlining</strong>, are no longer visible in the shared version.</p>
+</div>
+</section>
+<section id="tool-cms-upload">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">CMS</span> <span class="pre">Upload</span></code><a class="headerlink" href="#tool-cms-upload" title="Link to this heading">¶</a></h4>
+<p>The configuration allows you to define whether <strong>CMS.xml</strong> files may be uploaded from a <strong>WebGIS CMS</strong> instance.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;cms-upload-{cms-name}&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;client&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;cms-upload-client&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secret&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;my-super-secret-with-min-length-24&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">{cms-name}</span></code> is the <strong>CMS name</strong> as defined in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>. Example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- here {cms-name} equals my-cms --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;cmspath_my-cms&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{path-to-cms.xml}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow</span></code></p></td>
+<td><p>Must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> for an <strong>upload</strong> to be allowed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">client</span></code></p></td>
+<td><p>Defines an arbitrary <strong>client name</strong> that is authorized for the upload. This value must match the one in the <code class="docutils literal notranslate"><span class="pre">deployment</span></code> section of <code class="docutils literal notranslate"><span class="pre">cms.config</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">secret</span></code></p></td>
+<td><p>Secure <strong>password</strong> with at least <strong>24 characters</strong> to authenticate the upload. The value must match the one in the <code class="docutils literal notranslate"><span class="pre">deployment</span></code> section of <code class="docutils literal notranslate"><span class="pre">cms.config</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-share-map">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Share</span> <span class="pre">Map</span></code><a class="headerlink" href="#tool-share-map" title="Link to this heading">¶</a></h4>
+<p>Maps can be shared via a <strong>hyperlink</strong>. This saves the current map, including <strong>redlining</strong> and <strong>layer visibility</strong>, <strong>on the server</strong>.</p>
+<p>To avoid unnecessary storage of maps in the <strong>WebGIS storage</strong>, these links have an <strong>expiration date</strong>. The user can specify how long a link should remain valid.</p>
+<p>Default values: <strong>one day, one week, or one month</strong>.</p>
+<img alt="../../_images/config-tools7.png" src="../../_images/config-tools7.png" />
+<p>If other values should be selectable, this can be configured via <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-share&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;duration&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1:1 Tag, 7:1 Woche, 31:1 Monat, 365: 1 Jahr, 36500:Für immer&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></td>
+<td><p>Defines the <strong>validity period</strong> for shared maps. The value consists of a <strong>number of days</strong> (integer) and a <strong>label</strong>, separated by <code class="docutils literal notranslate"><span class="pre">:</span></code>.  Multiple values can be specified separated by <strong>commas</strong>.</p>
+<p>The syntax for <code class="docutils literal notranslate"><span class="pre">duration</span></code> is: <code class="docutils literal notranslate"><span class="pre">[number</span> <span class="pre">of</span> <span class="pre">days</span> <span class="pre">(integer)]:[display</span> <span class="pre">text],</span> <span class="pre">[additional</span> <span class="pre">values]…</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-identify">
+<h4>Tool <code class="docutils literal notranslate"><span class="pre">Identify</span></code><a class="headerlink" href="#tool-identify" title="Link to this heading">¶</a></h4>
+<p>The <strong>Identify tool</strong> allows you to query <strong>geo-objects</strong>. When the user clicks on the map (<strong>point identify</strong>), the system searches for objects within a certain <strong>pixel tolerance</strong>.
+This tolerance determines how large the area around the click point is, within which objects are captured.
+It is necessary because it can be difficult to click exactly on a desired <strong>point- or line-shaped</strong> object.</p>
+<p>By default, a search is performed with a <strong>tolerance of ±20 pixels</strong> around the mouse cursor.
+For <strong>area-shaped objects</strong>, this can be undesirable. Therefore, the <strong>tolerance per geometry type</strong> can be adjusted in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-identify&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance-for-point-layers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance-for-line-layers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance-for-polygon-layers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;show-layer-visibility-checkboxes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-vertices-for-hover-highlighting&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-date-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-time-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;HH.mm&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-date-time-culture&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;de-AT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tolerance</span></code></p></td>
+<td><p>General <strong>tolerance</strong> in <strong>pixels</strong>, within which objects are searched for.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tolerance-for-point-layers</span></code> <em>(optional)</em></p></td>
+<td><p>Specific <strong>tolerance</strong> for <strong>point-shaped objects</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tolerance-for-line-layers</span></code> <em>(optional)</em></p></td>
+<td><p>Specific <strong>tolerance</strong> for <strong>line-shaped objects</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tolerance-for-polygon-layers</span></code> <em>(optional)</em></p></td>
+<td><p>Specific <strong>tolerance</strong> for <strong>area-shaped objects</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Often set to <code class="docutils literal notranslate"><span class="pre">0</span></code> to ensure an exact selection.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">show-layer-visibility-checkboxes</span></code> <em>(optional)</em></p></td>
+<td><p>Specifies whether a checkbox is also displayed in the list of found topics,
+with which the affected layer can be shown or hidden on the map.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max-vertices-for-hover-highlighting</span></code> <em>(optional)</em></p></td>
+<td><p>Sets the maximum number of <strong>vertices</strong> used for the <strong>hover highlighting</strong>
+of objects. <strong>Hover highlighting</strong> takes effect when the
+user moves the mouse cursor over the row in the result table.
+Since the geometry of the object is sent to the client during the query,
+a maximum value should be set here so as not to impair performance.
+The default value is <code class="docutils literal notranslate"><span class="pre">1000</span></code>. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> disables <strong>hover highlighting</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If at least one feature in a query has more vertices than the specified number,
+hover highlighting is disabled for all features in that query, since it would otherwise
+be confusing for the user why only certain features are highlighted. In this
+case, the user must click on a row in the table to highlight a feature.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">result-date-format</span></code> <em>(optional)</em></p></td>
+<td><p>Sets the <strong>date format</strong> for the results. The default value is <code class="docutils literal notranslate"><span class="pre">dd.MM.yyyy</span></code>.
+This value is used for all <strong>date fields</strong> in the results.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">result-time-format</span></code> <em>(optional)</em></p></td>
+<td><p>Sets the <strong>time format</strong> for the results. The default value is <code class="docutils literal notranslate"><span class="pre">HH.mm:ss</span></code>.
+This value is used for all <strong>time fields</strong> in the results.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">result-date-time-culture</span></code> <em>(optional)</em></p></td>
+<td><p>Sets the <strong>culture</strong> for the date and time formats.
+The default is the culture under which the application is run (server operating system).
+This value affects the formatting of date and time values in the results.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The values for date format, time format and <strong>culture</strong> follow the <code class="docutils literal notranslate"><span class="pre">C#</span></code>/<code class="docutils literal notranslate"><span class="pre">dotnet</span></code>
+naming conventions (<a class="reference external" href="https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings">https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings</a>).</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-secured-tiles">
+<h4>Section <code class="docutils literal notranslate"><span class="pre">Secured</span> <span class="pre">Tiles</span></code><a class="headerlink" href="#section-secured-tiles" title="Link to this heading">¶</a></h4>
+<p>Map tiles are always fetched by the client (WMTS services). However, if the services are protected, this has the disadvantage that the client also needs information about the credentials (user, password or token). These credentials, however, should never be passed on to the client.</p>
+<p>A workaround is the <strong>secured tiles redirect API</strong>. With this, the tiles are fetched via a call to the WebGIS API. The WebGIS API acts here as a reverse proxy to the protected WMTS service. The credentials thus remain on the server.</p>
+<p><strong>Client</strong> =&gt; TileRequest =&gt; <strong>WebGIS API</strong> =&gt; TileRequest+Credentials =&gt; <strong>WMTS Server</strong></p>
+<p>The <strong>secured tiles redirect API</strong> must be explicitly enabled via <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;secured-tiles-redirect&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-with-ogc-wmts&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;referers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;www.server1.com,www.server2.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use-with-ogc-wmts</span></code></p></td>
+<td><p>Only once this value is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> is the <strong>secured tiles redirect API</strong> used for protected WMTS services. Without this entry, protected WMTS services do not work.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">referers</span></code> <em>(optional)</em></p></td>
+<td><p>Restricts access to the <strong>secured tiles redirect API</strong> to specific <strong>referers</strong>. The <strong>domains</strong> of the servers on which the <em>WebGIS Viewer</em> runs can be entered here. If no value is specified, <strong>any client</strong> can access the API.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="proxy-server">
+<h3>Proxy Server<a class="headerlink" href="#proxy-server" title="Link to this heading">¶</a></h3>
+<p>If <strong>services from the internet</strong> are integrated, a <strong>proxy server</strong> may be required.
+The configuration is done in the optional <em>section</em> <code class="docutils literal notranslate"><span class="pre">proxy</span></code> in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;proxy&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;server&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;webproxy.mydomain.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;port&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;8080&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;user&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;pwd&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;domain&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ignore&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;localhost;localhost:8080;.my-domain.com$;^8\.;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use</span></code></p></td>
+<td><p>Specifies whether the <strong>proxy server</strong> should be used.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">server</span></code></p></td>
+<td><p>Host name or IP address of the <strong>proxy server</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">port</span></code></p></td>
+<td><p>Port through which the <strong>proxy server</strong> can be reached.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user</span></code> <em>(optional)</em></p></td>
+<td><p><strong>User name</strong> for the proxy server.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code> <em>(optional)</em></p></td>
+<td><p><strong>Password</strong> for the proxy server.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">domain</span></code> <em>(optional)</em></p></td>
+<td><p><strong>Domain name</strong> for logging in to the proxy.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ignore</span></code> <em>(optional)</em></p></td>
+<td><p>List of <strong>rules</strong> used to <strong>exclude</strong> certain servers from the proxy. Multiple rules can be specified separated by <code class="docutils literal notranslate"><span class="pre">;</span></code>. <strong>Regular expressions</strong> are also possible.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;security&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;disable-anti-forgery&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: false. true is not recommended for production --&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- optional: credentials for secured endpoints, e.g. cache/clear --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-url-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;****************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-username&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;admin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;**************************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p>For special scenarios, e.g. when the WebGIS API serves exclusively as a <strong>backend for another application</strong>
+or a reverse proxy prevents validation, it may be necessary to disable <strong>anti-forgery token validation</strong>.
+This can be done via the following setting <code class="docutils literal notranslate"><span class="pre">disable-anti-forgery</span></code> in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>.</p>
+<p>Furthermore, <strong>credentials</strong> for protected endpoints (e.g. for <strong>clearing the cache</strong>) can also be stored here.</p>
+<ul class="simple">
+<li><p><strong>``secure-endpoint-url-password``</strong>: A <strong>URL password</strong> that must be passed as the <strong>query parameter ``pww=***``</strong> in the URL to gain access to the protected endpoint.</p></li>
+<li><p><strong>``secure-endpoint-basicauth-username``</strong> and <strong>``secure-endpoint-basicauth-password``</strong>: A <strong>user name</strong> and <strong>password</strong> for <strong>HTTP Basic Authentication</strong>, required for access to the protected endpoint.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> is essential for the maintenance of the WebGIS API, the endpoint is reachable by default even without authentication.
+However, it is strongly recommended to protect this endpoint to prevent misuse. Once credentials are stored in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>,
+the endpoint can only be reached with valid credentials.</p>
+<p>If, for example, you call <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> after a CMS deployment (see <code class="docutils literal notranslate"><span class="pre">cms.config</span></code>), the <em>URL password</em> must be passed along in the link:
+<code class="docutils literal notranslate"><span class="pre">https://my-webgis-api/cache/clear?pwd=****************************</span></code></p>
+<p>For instances that are publicly accessible, authentication for this endpoint should absolutely be enabled to prevent misuse.</p>
+<p>If you publish the CMS via a CMS upload (see section <code class="docutils literal notranslate"><span class="pre">CMS</span> <span class="pre">Upload</span></code>), additional security measures are required (client, secret) to prevent unauthorized access.
+After an upload, the cache is automatically reloaded, so calling <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> is not necessary in this case. Nevertheless, the endpoint should absolutely
+be protected in publicly accessible instances, to prevent misuse.</p>
+</div>
+</section>
+<section id="middleware">
+<h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>
+<p>Additional functions can be implemented in the <strong>WebGIS API</strong> via the <strong>middleware</strong>,
+e.g. <strong>logging</strong>, <strong>forwarding</strong> or <strong>security checks</strong>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;middleware&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- optional: Forwarded Headers Middleware, default: false --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- can be helpfull when WebGIS API is behind a reverse proxy and the original client IP and protocol information is needed --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-x-forwarded-headers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- optional: log forwarded headers, default: false, only for debugging purposes --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- logs the original client IP and protocol information in the API logs (information level) --&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- should only be enabled if use-x-forwarded-headers is true and the API is behind a reverse proxy --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-x-forwarded-headers-logging&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="httpclient">
+<h3>HttpClient<a class="headerlink" href="#httpclient" title="Link to this heading">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpclient&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-timeout-seconds&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;300&quot;</span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default:0 = 100 secs --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">default-timeout-seconds</span></code></p></td>
+<td><p>Specifies the maximum wait time for an HTTP request (e.g. waiting on a map service).
+If the value is <code class="docutils literal notranslate"><span class="pre">0</span></code> or not set,
+the default value of <strong>100 seconds</strong> is used.</p>
+<p>The value for how long to wait for a map server service is actually configured separately
+in the CMS for each service. Values higher than the value set here
+are ignored. The value specified here is the <strong>maximum timeout</strong> for all requests.</p>
+<p>Increasing or setting this value only makes sense if there are map services that,
+when printing large paper formats and resolutions, take longer than 100 seconds.
+When printing, WebGIS always waits a maximum of 100 seconds for a service, regardless of what is
+configured in the CMS. If a higher value is configured in the CMS, it must also be set here.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="datalinq">
+<h3>DataLinq<a class="headerlink" href="#datalinq" title="Link to this heading">¶</a></h3>
+<p>This section specifies whether <strong>DataLinq</strong> is offered by a <strong>WebGIS API instance</strong>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;datalinq&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;include&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-code-editing&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="cm">&lt;!-- optional: Engine &amp; Serverside Encryption --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;razor-engine&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;default&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default, legacy --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;api-encryption-level&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;DefaultStaticEncryption&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- DefaultStaticEncryption, None, RandomSaltedPasswordEncryption --&gt;</span>
+
+<span class="w">   </span><span class="cm">&lt;!-- optional --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allowed-code-api-clients&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://my-server/cms&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;initialize-sandbox-on-startup&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;environment&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;production&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default, production, development, test --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-namespaces&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-razor-whitelist&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;DXImageTransform.Microsoft.&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-razor-blacklist&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;ForbiddenNamespace.&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-css&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-/content/styles/my-company/default.css?{version}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-js&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-/scripts/api/three_d.js?{version}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="cm">&lt;!-- optional: SelectEngines&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedPaths:0&quot; value=&quot;C:\datalinq\data\&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedPaths:1&quot; value=&quot;C:\webgis\data\&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:1&quot; value=&quot;.txt&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:0&quot; value=&quot;.csv&quot; /&gt;</span>
+
+<span class="cm">   &lt;!-- optional: experimentell --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-cache-token-for-one-2-n-links&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">include</span></code></p></td>
+<td><p>Specifies whether <strong>DataLinq</strong> is offered via this instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-code-editing</span></code></p></td>
+<td><p>Controls whether <strong>DataLinq objects</strong> (endpoints, queries, views) can be edited via a <strong>DataLinq.Code instance</strong>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>For <strong>security reasons</strong>, this should only be enabled for <strong>local or intranet instances</strong>. On <strong>production systems</strong>, DataLinq should only be used as <strong>read-only</strong>.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">razor-engine</span></code></p></td>
+<td><p>Specifies which <strong>Razor engine</strong> is used. By default this is the <strong>DataLinqLanguageEngineRazor</strong> (<code class="docutils literal notranslate"><span class="pre">default</span></code>).
+The <strong>LegacyEngine</strong> (<code class="docutils literal notranslate"><span class="pre">legacy</span></code>) is an older version that is no longer being developed further.
+It should only be used if, after migrating from an older WebGIS version (6.x),
+problems occur when rendering existing <em>views</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">api-encryption-level</span></code></p></td>
+<td><p>The DataLinq endpoints and queries may contain partly sensitive data such as connection strings and
+SQL statements. This value specifies at which encryption level
+<em>connection strings</em> and <em>query statements</em> stored <strong>server-side</strong> are stored.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DefaultStaticEncryption</span></code> (default): data is encrypted in storage with a fixed password</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: sensitive data is stored unencrypted in storage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RandomSaltedPasswordEncryption</span></code>: data is encrypted with a password randomly generated
+for the instance and a randomly generated salt.</p></li>
+</ul>
+<p>The last variant is the most secure; however, it can happen that different
+instances can no longer read the DataLinq objects, since they were encrypted with a different
+password. The <code class="docutils literal notranslate"><span class="pre">DefaultStaticEncryption</span></code> variant is therefore recommended; here
+the data is encrypted, but can be read by all instances.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When using <strong>DataLinq</strong>, it is important that the <strong>encryption</strong> is the same for all instances.
+Otherwise, <strong>DataLinq objects</strong> can no longer be read.
+This applies in particular to <strong>WebGIS instances</strong> that are distributed across different <strong>servers</strong>.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allowed-code-api-clients</span></code></p></td>
+<td><p>If <strong>code editing</strong> is allowed, the <strong>URLs</strong> of the <strong>authorized DataLinq.Code instances</strong> can be specified here (separated by commas). In a WebGIS environment, this is usually the URL to the <strong>WebGIS CMS</strong>. If an unauthorized DataLinq.Code instance attempts to make changes, an error message is returned.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">initialize-sandbox-on-startup</span></code></p></td>
+<td><p>Specifies whether the <strong>DataLinq sandbox</strong> should be initialized or updated when the <strong>API starts</strong>.
+Since the sandbox is only a development aid, it should only be initialized on <strong>development or test systems</strong>.
+On production systems, this value should be set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">environment</span></code></p></td>
+<td><p>Specifies which <strong>environment</strong> is used for the instance. This affects, for example, which <strong>connection string</strong> is used for endpoints.
+<strong>Possible values:</strong> <code class="docutils literal notranslate"><span class="pre">production</span></code>, <code class="docutils literal notranslate"><span class="pre">development</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">add-namespaces</span></code></p></td>
+<td><p>List of additional <strong>namespaces</strong> that may be used in <strong>views</strong> (separated by commas).</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Every additional namespace can pose a <strong>security risk</strong>. By default, <code class="docutils literal notranslate"><span class="pre">System</span></code>, <code class="docutils literal notranslate"><span class="pre">System.Linq</span></code> and <code class="docutils literal notranslate"><span class="pre">System.Text</span></code> are included.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">add-razor-whitelist</span></code></p></td>
+<td><p>List of <strong>exceptions</strong> that are ignored during the <strong>validation of Razor views</strong>. This can be used to explicitly allow certain values from the <strong>blacklist</strong>.</p>
+<p>Example: styles with <code class="docutils literal notranslate"><span class="pre">DXImageTransform.Microsoft...</span></code> are blocked by default, since <code class="docutils literal notranslate"><span class="pre">Microsoft.</span></code> is contained in the <strong>blacklist</strong>.</p>
+<p>To allow <strong>specific exceptions</strong>, only the <strong>necessary specific value</strong> should be entered here.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">add-razor-blacklist</span></code></p></td>
+<td><p>List of additional terms that are <strong>blocked</strong> in Razor views.  By default, the <strong>blacklist</strong> already contains: <code class="docutils literal notranslate"><span class="pre">System.</span></code>, <code class="docutils literal notranslate"><span class="pre">Microsoft.</span></code>.  Additional terms can be added here to avoid potential <strong>security vulnerabilities</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">add-css</span></code></p></td>
+<td><p>List of <strong>custom CSS files</strong> that are loaded in <strong>all report views</strong>.</p>
+<p><strong>Syntax:</strong> absolute paths (<code class="docutils literal notranslate"><span class="pre">https://...</span></code>) or <strong>relative paths</strong> (<code class="docutils literal notranslate"><span class="pre">-/...</span></code>).</p>
+<p>The placeholder <code class="docutils literal notranslate"><span class="pre">{version}</span></code> ensures that outdated CSS files are not loaded from the <strong>cache</strong> after an API update.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">add-js</span></code></p></td>
+<td><p>List of <strong>custom JavaScript files</strong> that are included in <strong>all report views</strong>. Works analogously to <code class="docutils literal notranslate"><span class="pre">add-css</span></code> and allows you to <strong>include your own scripts</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SelectEngines</span></code></p></td>
+<td><p>Some <strong>SelectEngines</strong> require extended settings</p>
+<p>(see <a class="reference external" href="https://docs.webgiscloud.com/de/datalinq/configuration-api.html#datalinq-api">https://docs.webgiscloud.com/de/datalinq/configuration-api.html#datalinq-api</a>)</p>
+<p>Settings for the individual <strong>SelectEngines</strong> can be specified as shown in the example above</p>
+<p>(<code class="docutils literal notranslate"><span class="pre">dotnet-config</span></code> convention: <code class="docutils literal notranslate"><span class="pre">:</span></code> separates <em>sections</em>, arrays with index values, …).</p>
+<p>An example is the <strong>TextFileEngine</strong>, which allows text files to be served from the server.
+Here you can specify which directories and
+file extensions may be accessed.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">use-cache-token-for-one-2-n-links</span></code></p></td>
+<td><p><strong>Experimental feature!</strong> For 1:n links from the result list, the parameters are no longer passed via <code class="docutils literal notranslate"><span class="pre">HTTP-GET</span></code> to the <em>integrated</em> DataLinq API (the one integrated into the
+current WebGIS API) for reports, but are posted in advance when clicked. When called, only a <code class="docutils literal notranslate"><span class="pre">datalinqCacheToken</span></code> is then passed, which internally references the parameters.
+This can solve the problem of URL parameters becoming too long.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Checking the DataLinq configuration</strong>
+To check whether the <strong>DataLinq settings</strong> are set correctly, the <strong>API</strong> can be called with the following path:</p>
+<img alt="../../_images/config-tools9.png" src="../../_images/config-tools9.png" />
+</section>
+</section>
 </section>
 
 
@@ -158,6 +1379,58 @@
           </div>
         </div>
       </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Configuration of the API application</a><ul>
+<li><a class="reference internal" href="#file-config-api-config">File <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code></a><ul>
+<li><a class="reference internal" href="#section-cms">Section <code class="docutils literal notranslate"><span class="pre">CMS</span></code></a></li>
+<li><a class="reference internal" href="#section-proj4-database">Section <code class="docutils literal notranslate"><span class="pre">Proj4</span> <span class="pre">Database</span></code></a></li>
+<li><a class="reference internal" href="#section-cache-database">Section <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Database</span></code></a></li>
+<li><a class="reference internal" href="#section-cache-aside">Section <code class="docutils literal notranslate"><span class="pre">Cache</span> <span class="pre">Aside</span></code></a></li>
+<li><a class="reference internal" href="#section-subscriber-database">Section <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Database</span></code></a></li>
+<li><a class="reference internal" href="#section-subscriber-registration">Section <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Registration</span></code></a></li>
+<li><a class="reference internal" href="#section-api-portal-url">Section <code class="docutils literal notranslate"><span class="pre">Api/Portal</span> <span class="pre">Url</span></code></a></li>
+<li><a class="reference internal" href="#section-storage">Section <code class="docutils literal notranslate"><span class="pre">Storage</span></code></a></li>
+<li><a class="reference internal" href="#section-marker">Section <code class="docutils literal notranslate"><span class="pre">Marker</span></code></a></li>
+<li><a class="reference internal" href="#section-logging">Section <code class="docutils literal notranslate"><span class="pre">Logging</span></code></a></li>
+<li><a class="reference internal" href="#section-query-results">Section <code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Results</span></code></a></li>
+<li><a class="reference internal" href="#section-quick-search">Section <code class="docutils literal notranslate"><span class="pre">Quick</span> <span class="pre">Search</span></code></a></li>
+<li><a class="reference internal" href="#tool-configuration">Tool configuration</a><ul>
+<li><a class="reference internal" href="#tool-mapmarkup">Tool <code class="docutils literal notranslate"><span class="pre">MapMarkup</span></code></a></li>
+<li><a class="reference internal" href="#tool-coordinates-xy">Tool <code class="docutils literal notranslate"><span class="pre">Coordinates</span> <span class="pre">(XY)</span></code></a></li>
+<li><a class="reference internal" href="#tool-printing">Tool <code class="docutils literal notranslate"><span class="pre">Printing</span></code></a></li>
+<li><a class="reference internal" href="#tool-series-printing">Tool <code class="docutils literal notranslate"><span class="pre">Series</span> <span class="pre">Printing</span></code></a></li>
+<li><a class="reference internal" href="#tool-display-filter">Tool <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Filter</span></code></a></li>
+<li><a class="reference internal" href="#tool-liveshare">Tool <code class="docutils literal notranslate"><span class="pre">LiveShare</span></code></a></li>
+<li><a class="reference internal" href="#tool-3d-measurement">Tool <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Measurement</span></code></a></li>
+<li><a class="reference internal" href="#tool-save-map">Tool <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Map</span></code></a></li>
+<li><a class="reference internal" href="#tool-load-map">Tool <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Map</span></code></a></li>
+<li><a class="reference internal" href="#tool-cms-upload">Tool <code class="docutils literal notranslate"><span class="pre">CMS</span> <span class="pre">Upload</span></code></a></li>
+<li><a class="reference internal" href="#tool-share-map">Tool <code class="docutils literal notranslate"><span class="pre">Share</span> <span class="pre">Map</span></code></a></li>
+<li><a class="reference internal" href="#tool-identify">Tool <code class="docutils literal notranslate"><span class="pre">Identify</span></code></a></li>
+<li><a class="reference internal" href="#section-secured-tiles">Section <code class="docutils literal notranslate"><span class="pre">Secured</span> <span class="pre">Tiles</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#proxy-server">Proxy Server</a></li>
+<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#middleware">Middleware</a></li>
+<li><a class="reference internal" href="#httpclient">HttpClient</a></li>
+<li><a class="reference internal" href="#datalinq">DataLinq</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
     
 
       <div class="clearer"></div>
@@ -167,13 +1440,13 @@
             <div class="left">
                 
                 <a href="../cms/index.html">
-                    <span class="icon">&lt;</span><span>CMS</span></a>
+                    <span class="icon">&lt;</span><span>Configuration of the CMS application</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../portal/index.html"><span>Portal</span><span class="icon">&gt;</span></a>
+                    <a href="../portal/index.html"><span>Portal Configuration</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

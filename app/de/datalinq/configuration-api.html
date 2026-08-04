@@ -144,8 +144,8 @@
 <h1>Konfiguration DataLinq.API und DataLinq.CodeApi<a class="headerlink" href="#konfiguration-datalinq-api-und-datalinq-codeapi" title="Link to this heading">¶</a></h1>
 <p>Die Konfiguration von <strong>DataLinq.API</strong> und <strong>DataLinq.CodeAPI</strong> erfolgt über zwei Dateien:</p>
 <ol class="arabic simple">
-<li><p><strong>datalinq.api.json</strong> – Verwaltung von Clients und Dateispeicherpfad, etc</p></li>
-<li><p><strong>datalinq.config</strong> – Definiert globale Konstanten und Code-Instanzen</p></li>
+<li><p><strong>datalinq.api.json</strong> - Verwaltung von Clients und Dateispeicherpfad, etc</p></li>
+<li><p><strong>datalinq.config</strong> - Definiert globale Konstanten und Code-Instanzen</p></li>
 </ol>
 <p>Die Konfigurationsdateien ermöglichen eine flexible Anpassung der Anwendung an
 verschiedene Einsatzszenarien.</p>
@@ -163,11 +163,14 @@ verschiedene Einsatzszenarien.</p>
 <span class="w">      </span><span class="nt">&quot;Engine&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w">  </span><span class="c1">// default or legacy (old engine)</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;Crypto&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;SecureStringEncryptionLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optinal</span>
+<span class="w">      </span><span class="nt">&quot;SecureStringEncryptionLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
 <span class="w">      </span><span class="nt">&quot;DefaultPasswort&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{a-secure-password}&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
 <span class="w">      </span><span class="nt">&quot;SaltBytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{8byte-base64-encoded}&quot;</span><span class="w">  </span><span class="c1">//optional</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ImageRequestWhiteList&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;https://upload.wikimedia.org/&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;https://raw.githubusercontent.com/&quot;</span>
+<span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="nt">&quot;SelectEngines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;TextFileEngine&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;AllowedExtensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -181,6 +184,7 @@ verschiedene Einsatzszenarien.</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;DataLinq.CodeApi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;InitializeSandboxOnStartup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;ClientEndpoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="s2">&quot;http://localhost&quot;</span>
 <span class="w">    </span><span class="p">],</span>
@@ -192,6 +196,48 @@ verschiedene Einsatzszenarien.</p>
 <span class="w">        </span><span class="nt">&quot;EndPointParameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*,_*&quot;</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;AiService&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;UseAzure&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;AzureOpenAi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;DeploymentName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ApiKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;OpenAi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;ModelId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ApiKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;ServiceUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;DataLinqQueryAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqQueryPrompt.txt&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DataLinqCodeAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqCodePrompt.txt&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DataLinqEndpointAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqEndpointPrompt.txt&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DataLinqGeneralAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqGeneralPrompt.txt&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;UserHistorySummarizerAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/UserHistorySummarizerPrompt.txt&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;TokenCache&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;StorageType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;RedisConnectionString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost:6379&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;FilePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\temp\\datalinq\\Tokens\\&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DefaultTTL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00:05:00&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DefaultMaxUsage&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;EnableBackgroundCleanup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;CleanupIntervalMinutes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;24:00:00&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;VersionControl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;UseVersionControl&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;LocalRepositoryPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\temp\\datalinq\\repo&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;RemoteUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000/admin/datalinq-repo.git&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DefaultBranch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;CredentialType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;PersonalAccessToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DefaultAuthorName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DataLinq Bot&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;DefaultAuthorEmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bot@datalinq.com&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;AutoCreateRepository&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -203,22 +249,25 @@ verschiedene Einsatzszenarien.</p>
 <li><p><strong>StoragePath</strong>
 Definiert das Wurzelverzeichnis im Dateisystem für Endpoints, Queries und Views.</p></li>
 <li><p><strong>Razor</strong>
-- <strong>Engine</strong> – Legt die Razor-Rendering-Engine fest (<cite>default</cite>, <cite>legacy</cite>).</p></li>
+- <strong>Engine</strong> - Legt die Razor-Rendering-Engine fest (<cite>default</cite>, <cite>legacy</cite>).</p></li>
 <li><p><strong>Crypto</strong>
-- <strong>SecureStringEncryptionLevel</strong> – Stellt die Verschlüsselungsebene für gespeicherte Verbindungsdaten und Abfrage ein.</p>
+- <strong>SecureStringEncryptionLevel</strong> - Stellt die Verschlüsselungsebene für gespeicherte Verbindungsdaten und Abfrage ein.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>None</strong>: – Sensible Daten werden im Storage Unverschlüsselt abgelegt</p></li>
-<li><p><strong>DefaultStaticEncryption</strong>: – (Default) Daten werden im Storage mit einem fixen Password verschlüsselt</p></li>
-<li><p><strong>RandomSaltedPasswordEncryption</strong>: – Daten werden mit einem hier definieren Password und Salz verschlüsselt.
+<li><p><strong>None</strong>: - Sensible Daten werden im Storage Unverschlüsselt abgelegt</p></li>
+<li><p><strong>DefaultStaticEncryption</strong>: - (Default) Daten werden im Storage mit einem fixen Password verschlüsselt</p></li>
+<li><p><strong>RandomSaltedPasswordEncryption</strong>: - Daten werden mit einem hier definieren Password und Salz verschlüsselt.
 Wird diese Wert gewählt müssen die beiden Werte <strong>DefaultPasswort</strong> und <strong>SaltBytes</strong> angeführt werden.</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>DefaultPasswort</strong> – Standardpasswort für die Verschlüsselung (bei RandomSaltedPasswordEncryption).</p></li>
-<li><p><strong>SaltBytes</strong> – Base64-kodierte Salt-Werte für zusätzliche Sicherheit (bei RandomSaltedPasswordEncryption).</p></li>
+<li><p><strong>DefaultPasswort</strong> - Standardpasswort für die Verschlüsselung (bei RandomSaltedPasswordEncryption).</p></li>
+<li><p><strong>SaltBytes</strong> - Base64-kodierte Salt-Werte für zusätzliche Sicherheit (bei RandomSaltedPasswordEncryption).</p></li>
 </ul>
 </li>
+<li><p><strong>ImageRequestWhiteList</strong> <em>(optional)</em>
+Liste erlaubter URL-Präfixe, von denen externe Bilder geladen werden dürfen.
+Wird der Abschnitt nicht angeführt, sind keine externen Bildquellen freigegeben.</p></li>
 <li><p><strong>SelectEngines</strong>
 DataLinq bietet unterschiedliche <strong>Engines</strong> an, um auf Daten zuzugreifen:</p>
 <blockquote>
@@ -235,7 +284,7 @@ noch weiter <strong>Engines</strong> angeboten werden, zB GeoJSON, …</p></li>
 Die oben angeführten Einstellungen sind die Standardwerte und gelten auch wenn unter Dateisystem
 Abschnitt nichts angeführt wird.</p>
 <ul class="simple">
-<li><p><strong>TextFileEngine</strong> – Hier muss angeben werden, auf welche Verzeichnisse und Dateiendungen
+<li><p><strong>TextFileEngine</strong> - Hier muss angeben werden, auf welche Verzeichnisse und Dateiendungen
 mit der <strong>TextFileEngine</strong> zugegriffen werden darf.</p></li>
 </ul>
 </li>
@@ -254,6 +303,10 @@ aber nicht verändert werden.</p>
 Verbindungen erfolgen, die nicht über das Internet laufen (zB nur Intranet!)</p>
 </div>
 <ul class="simple">
+<li><p><strong>InitializeSandboxOnStartup</strong> <em>(optional)</em>
+Legt fest, ob die Code-Sandbox bereits beim Start der Instanz initialisiert wird
+(Standard: <code class="docutils literal notranslate"><span class="pre">true</span></code>). Bei <code class="docutils literal notranslate"><span class="pre">false</span></code> wird die Sandbox erst bei der ersten Verwendung
+initialisiert, was die Startzeit verkürzt.</p></li>
 <li><p><strong>ClientEndpoints</strong>
 Definiert erlaubte Client-Verbindungen zur <em>DataLinq.Code API</em>.
 Hier wird die Url der <em>DataLinq.Code</em> Anwendung angegeben.</p></li>
@@ -266,7 +319,99 @@ Clients mit sicheren Passwörtern anzuführen!</p>
 </div>
 <ul class="simple">
 <li><p><strong>Clients</strong>
-Definiert Benutzer mit Anmeldeinformationen und Berechtigungen.</p></li>
+Definiert Benutzer mit Anmeldeinformationen und Berechtigungen.</p>
+<ul>
+<li><p><strong>Id</strong> - Eindeutige Kennung des Clients.</p></li>
+<li><p><strong>Name</strong> - Anzeigename bzw. Benutzername des Clients.</p></li>
+<li><p><strong>Password</strong> - Passwort für die Anmeldung des Clients.</p></li>
+<li><p><strong>EndPointParameters</strong> - Einschränkung der zugänglichen Endpoint-Parameter (z.B. <code class="docutils literal notranslate"><span class="pre">*,_*</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="aiservice-optional">
+<h3>AiService <em>(optional)</em><a class="headerlink" href="#aiservice-optional" title="Link to this heading">¶</a></h3>
+<p>Konfiguriert die KI-Unterstützung (z.B. für Abfrage-, Code- und Endpoint-Assistenten).
+Der Abschnitt ist optional. Die KI-Dienste werden nur aktiviert, wenn entweder ein
+Azure-OpenAI-Endpoint (<strong>AzureOpenAi:Endpoint</strong>) oder eine OpenAI-Service-URL
+(<strong>OpenAi:ServiceUrl</strong>) angegeben ist. Ohne diese Werte bleiben die KI-Funktionen deaktiviert.</p>
+<ul class="simple">
+<li><p><strong>UseAzure</strong> - Legt fest, ob Azure OpenAI (<code class="docutils literal notranslate"><span class="pre">true</span></code>) oder OpenAI (<code class="docutils literal notranslate"><span class="pre">false</span></code>) verwendet wird.</p></li>
+<li><p><strong>AzureOpenAi</strong> - Einstellungen für Azure OpenAI.</p>
+<ul>
+<li><p><strong>DeploymentName</strong> - Name des bereitgestellten Modells (Deployment).</p></li>
+<li><p><strong>Endpoint</strong> - URL des Azure-OpenAI-Endpoints.</p></li>
+<li><p><strong>ApiKey</strong> - Zugriffsschlüssel für den Azure-OpenAI-Dienst.</p></li>
+</ul>
+</li>
+<li><p><strong>OpenAi</strong> - Einstellungen für OpenAI (oder kompatible Dienste).</p>
+<ul>
+<li><p><strong>ModelId</strong> - Kennung des zu verwendenden Modells.</p></li>
+<li><p><strong>ApiKey</strong> - Zugriffsschlüssel für den OpenAI-Dienst.</p></li>
+<li><p><strong>ServiceUrl</strong> - URL des OpenAI-kompatiblen Dienstes.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><strong>ApiKey</strong>-Werte sollten nicht im Klartext in der Konfigurationsdatei abgelegt,
+sondern über <em>User Secrets</em> oder Umgebungsvariablen bereitgestellt werden.</p>
+</div>
+</section>
+<section id="agent-optional">
+<h3>Agent <em>(optional)</em><a class="headerlink" href="#agent-optional" title="Link to this heading">¶</a></h3>
+<p>Definiert die Pfade zu den Prompt-Dateien der einzelnen KI-Agenten. Der Abschnitt ist
+nur in Verbindung mit einem konfigurierten <strong>AiService</strong> relevant.</p>
+<ul class="simple">
+<li><p><strong>DataLinqQueryAgent</strong> - Prompt-Datei für den Abfrage-Assistenten.</p></li>
+<li><p><strong>DataLinqCodeAgent</strong> - Prompt-Datei für den Code-Assistenten.</p></li>
+<li><p><strong>DataLinqEndpointAgent</strong> - Prompt-Datei für den Endpoint-Assistenten.</p></li>
+<li><p><strong>DataLinqGeneralAgent</strong> - Prompt-Datei für den allgemeinen Assistenten.</p></li>
+<li><p><strong>UserHistorySummarizerAgent</strong> - Prompt-Datei zur Zusammenfassung des Verlaufs.</p></li>
+</ul>
+</section>
+<section id="tokencache-optional">
+<h3>TokenCache <em>(optional)</em><a class="headerlink" href="#tokencache-optional" title="Link to this heading">¶</a></h3>
+<p>Konfiguriert die Zwischenspeicherung (Cache) von Tokens. Wird der Abschnitt nicht angeführt,
+gelten die Standardwerte.</p>
+<ul class="simple">
+<li><p><strong>StorageType</strong> - Art des Token-Speichers: <code class="docutils literal notranslate"><span class="pre">file</span></code> (Dateisystem) oder <code class="docutils literal notranslate"><span class="pre">redis</span></code>.</p></li>
+<li><p><strong>RedisConnectionString</strong> - Verbindungszeichenfolge zum Redis-Server (nur bei <code class="docutils literal notranslate"><span class="pre">redis</span></code>).</p></li>
+<li><p><strong>FilePath</strong> - Verzeichnis für die Token-Ablage (nur bei <code class="docutils literal notranslate"><span class="pre">file</span></code>).</p></li>
+<li><p><strong>DefaultTTL</strong> - Standard-Lebensdauer eines Tokens im Format <code class="docutils literal notranslate"><span class="pre">hh:mm:ss</span></code>.</p></li>
+<li><p><strong>DefaultMaxUsage</strong> - Maximale Anzahl an Verwendungen pro Token (<code class="docutils literal notranslate"><span class="pre">null</span></code> = unbegrenzt).</p></li>
+<li><p><strong>EnableBackgroundCleanup</strong> - Aktiviert die periodische Bereinigung abgelaufener Tokens.</p></li>
+<li><p><strong>CleanupIntervalMinutes</strong> - Intervall der Bereinigung im Format <code class="docutils literal notranslate"><span class="pre">hh:mm:ss</span></code>
+(nur wirksam bei aktiviertem <strong>EnableBackgroundCleanup</strong>).</p></li>
+</ul>
+</section>
+<section id="versioncontrol-optional">
+<h3>VersionControl <em>(optional)</em><a class="headerlink" href="#versioncontrol-optional" title="Link to this heading">¶</a></h3>
+<p>Konfiguriert die Anbindung des <strong>Storage</strong> an ein Git-Repository, um Änderungen an
+Endpoints, Queries und Views zu versionieren. Wird der Abschnitt nicht angeführt oder
+<strong>UseVersionControl</strong> auf <code class="docutils literal notranslate"><span class="pre">false</span></code> gesetzt, ist die Versionierung deaktiviert.</p>
+<ul class="simple">
+<li><p><strong>UseVersionControl</strong> - Aktiviert (<code class="docutils literal notranslate"><span class="pre">true</span></code>) bzw. deaktiviert (<code class="docutils literal notranslate"><span class="pre">false</span></code>) die Git-Versionierung.</p></li>
+<li><p><strong>LocalRepositoryPath</strong> - Lokaler Pfad des Git-Repositorys.
+Dieser Pfad wird auch als <strong>RepoPath</strong> des <strong>Storage</strong> verwendet.</p></li>
+<li><p><strong>RemoteUrl</strong> - URL des Remote-Repositorys (z.B. auf Gitea, GitHub oder GitLab).</p></li>
+<li><p><strong>DefaultBranch</strong> <em>(optional)</em> - Standard-Branch für Commits (Standard: <code class="docutils literal notranslate"><span class="pre">main</span></code>).</p></li>
+<li><p><strong>CredentialType</strong> - Art der Authentifizierung gegenüber dem Remote-Repository:</p>
+<ul>
+<li><p><strong>None</strong> - Keine Authentifizierung (z.B. bei rein lokalen Repositorys).</p></li>
+<li><p><strong>Token</strong> - (Default) Authentifizierung über einen <em>Personal Access Token</em>.</p></li>
+<li><p><strong>UsernamePassword</strong> - Authentifizierung über Benutzername und Passwort.</p></li>
+</ul>
+</li>
+<li><p><strong>Username</strong> - Benutzername (nur bei <strong>UsernamePassword</strong>).</p></li>
+<li><p><strong>Password</strong> - Passwort (nur bei <strong>UsernamePassword</strong>).</p></li>
+<li><p><strong>PersonalAccessToken</strong> - Zugriffstoken (nur bei <strong>Token</strong>).</p></li>
+<li><p><strong>DefaultAuthorName</strong> <em>(optional)</em> - Name des Autors für automatische Commits
+(Standard: <code class="docutils literal notranslate"><span class="pre">DataLinq</span> <span class="pre">Bot</span></code>).</p></li>
+<li><p><strong>DefaultAuthorEmail</strong> <em>(optional)</em> - E-Mail des Autors für automatische Commits
+(Standard: <code class="docutils literal notranslate"><span class="pre">bot&#64;datalinq.com</span></code>).</p></li>
+<li><p><strong>AutoCreateRepository</strong> <em>(optional)</em> - Legt fest, ob ein nicht vorhandenes Repository
+automatisch erstellt wird (Standard: <code class="docutils literal notranslate"><span class="pre">true</span></code>).</p></li>
 </ul>
 </section>
 </section>
@@ -295,7 +440,7 @@ Definiert Benutzer mit Anmeldeinformationen und Berechtigungen.</p></li>
 </div>
 <p>Erläuterung:</p>
 <ul class="simple">
-<li><p><strong>&lt;const&gt;</strong> – Hier können Konstanten definiert werden, die später im Code genutzt werden.</p></li>
+<li><p><strong>&lt;const&gt;</strong> - Hier können Konstanten definiert werden, die später im Code genutzt werden.</p></li>
 </ul>
 <p>Diese Werte können im Code ausgelesen werden, um die Anwendung entsprechend
 der Umgebung zu konfigurieren.</p>
@@ -322,6 +467,10 @@ Anforderungen angepasst werden.</p>
 <li><a class="reference internal" href="#datalinq-api-json"><cite>datalinq.api.json</cite></a><ul>
 <li><a class="reference internal" href="#datalinq-api">DataLinq.Api</a></li>
 <li><a class="reference internal" href="#datalinq-codeapi">DataLinq.CodeApi</a></li>
+<li><a class="reference internal" href="#aiservice-optional">AiService <em>(optional)</em></a></li>
+<li><a class="reference internal" href="#agent-optional">Agent <em>(optional)</em></a></li>
+<li><a class="reference internal" href="#tokencache-optional">TokenCache <em>(optional)</em></a></li>
+<li><a class="reference internal" href="#versioncontrol-optional">VersionControl <em>(optional)</em></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#datalinq-config"><cite>datalinq.config</cite></a></li>

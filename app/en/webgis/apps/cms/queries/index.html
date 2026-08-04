@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Queries &#8212; WebGIS 2026 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Layer Toggles" href="../layers.html" />
+    <link rel="prev" title="Integrating an ArcGIS Server Service" href="../add_ags_service.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2026 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">WebGIS CMS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ui.html">CMS Web Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../add_wmts_service.html">Integrating a WMTS Tilecache Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../add_ags_service.html">Integrating an ArcGIS Server Service</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-query-properties">General Query Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-fields">Search Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection-lists">Selection Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table">Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layers.html">Layer Toggles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentations.html">Presentation Variants (Providing Layer Toggles for the Viewer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../editing/index.html">Editing (Editing Geo-Objects)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secrets/index.html">Secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../secrets/index.html#creating-a-secret">Creating a Secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/index.html">Permissions (Security)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deploy.html">Publishing the CMS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../viewer/index.html">WebGIS Viewer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extended_config/index.html">Extended Tool Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex/index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="queries">
+<h1>Queries<a class="headerlink" href="#queries" title="Link to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section cannot be applied to <em>dynamic services</em> (see previous chapter). If a value other than <code class="docutils literal notranslate"><span class="pre">None</span></code> is set for the service’s properties in the CMS under <code class="docutils literal notranslate"><span class="pre">Dynamic</span> <span class="pre">Queries</span></code>, this section is not available in the CMS.</p>
+</div>
+<p>In addition to the cartographic display of <em>geo-objects</em> on a map, some map services offer the ability to search or query <em>geo-objects</em>. To do this, switch to the <code class="docutils literal notranslate"><span class="pre">Queries</span></code> section for the respective service in the CMS:</p>
+<img alt="../../../_images/queries1.png" src="../../../_images/queries1.png" />
+<p>There, the <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">query</span></code> button can be used to create a new query for this service. In the following dialog, you must first select the topic from the service that should be queried:</p>
+<img alt="../../../_images/queries2.png" src="../../../_images/queries2.png" />
+<p>Under <code class="docutils literal notranslate"><span class="pre">Table</span></code>, you can select which fields for this topic should be imported into the result table when it is created:</p>
+<ul class="simple">
+<li><p><strong>Import nothing:</strong> Nothing is imported when the query is created. The desired fields are defined at a later point in time.</p></li>
+<li><p><strong>Import fields dynamically - (*):</strong> A field with the “field name” <code class="docutils literal notranslate"><span class="pre">*</span></code> is created for the table. This means that all fields are shown in the table.
+The available fields are always read at runtime in the <em>map viewer</em>. If the data model behind the layer changes, the changes are automatically reflected in the map viewer.</p></li>
+<li><p><strong>Import individual fields:</strong> All fields that exist at the time the query is created are adopted for the table. Later changes to the data model must be applied manually afterwards. This option can be helpful for quickly creating queries. The imported fields can, if desired, be edited (field type, order, label) and supplemented in the CMS in the next step.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all service types provide information about the field names of the topics via the <em>capabilities</em>. For these service types (e.g. WMS), the last option may not be available.</p>
+</div>
+<p>Under <code class="docutils literal notranslate"><span class="pre">General</span> <span class="pre">properties</span></code>, a name and a unique <code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">(name)</span></code> must still be assigned for the service.
+The <code class="docutils literal notranslate"><span class="pre">URL</span> <span class="pre">(name)</span></code> can be used to pass a search via a parameterized call of the map (<code class="docutils literal notranslate"><span class="pre">...&amp;query=addresses&amp;...</span></code>).
+The query can then be created with <code class="docutils literal notranslate"><span class="pre">Apply</span></code>. The query should now appear in the list.</p>
+<p>Under the query, you will find the following items:</p>
+<img alt="../../../_images/queries3.png" src="../../../_images/queries3.png" />
+<ul class="simple">
+<li><p><strong>[Query Topic] (properties):</strong> Properties of the query.</p></li>
+<li><p><strong>Query topic:</strong> The topic of the service that is queried.</p></li>
+<li><p><strong>Exportable/Custom formats:</strong> Special rules can be defined here from which text files are generated based on the query results. These can then be downloaded by the user via the map viewer. If nothing is defined here, an export of the data as CSV is still available.</p></li>
+<li><p><strong>Search fields:</strong> If data should not only be queried, but the user should also be able to search within certain fields, these fields can be defined here.</p></li>
+<li><p><strong>Table:</strong> The individual columns that are shown in the result table are listed here. In addition to simple value columns, columns with <em>expressions</em> and <em>hotlinks</em> (composed of the values of one or more columns) can also be created.</p></li>
+<li><p><strong>TOC topic for this query:</strong> Topics from this or another service that the query relates to can optionally be specified here. If the user sets <code class="docutils literal notranslate"><span class="pre">visible</span> <span class="pre">topics</span></code> when querying, this query is included in the query process if the query topic or one of the topics listed here is within the visible map area.</p></li>
+</ul>
+</section>
+<section id="general-query-properties">
+<h1>General Query Properties<a class="headerlink" href="#general-query-properties" title="Link to this heading">¶</a></h1>
+<p>The following options can be set under the general properties of a query:</p>
+<img alt="../../../_images/queries4.png" src="../../../_images/queries4.png" />
+<p>Since a description of the individual properties is available via the <code class="docutils literal notranslate"><span class="pre">?</span></code> in the dialog, not all details are covered here.</p>
+<p><code class="docutils literal notranslate"><span class="pre">General</span></code></p>
+<ul class="simple">
+<li><p><strong>Minimum scale:</strong> After a search, the map viewer view switches to the search result. If this is only a single point, a scale can be specified here that should be zoomed to.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">properties</span></code></p>
+<ul class="simple">
+<li><p><strong>Distinct:</strong>
+If there are objects with identical geometry (e.g. the same point), and the attribute values retrieved by the query are also identical, an object is shown only once in the result list. The data is first retrieved by the WebGIS application from the map/feature service, and Distinct is then calculated from this (server-side).
+An example use case could be customer orders that are all delivered to the same address. If, for example, only the customer name and address are shown in the result table, identical points would be shown stacked on top of each other as markers for each order. With <code class="docutils literal notranslate"><span class="pre">Distinct</span></code>, these identical points would only appear as a single marker.</p></li>
+<li><p><strong>Union:</strong>
+Result markers that are located at the same place on the map (identical point) are combined into a single object. In the table view, the marker contains all affected ‘records’.
+The same example as for <code class="docutils literal notranslate"><span class="pre">Distinct</span></code> can be used here. If the order number is also included in the table, the individual points can no longer be combined via <code class="docutils literal notranslate"><span class="pre">Distinct</span></code>, because the order number will differ between the individual points (customer:orders = 1:n). So that multiple markers do not need to be shown at the same place on the map, markers with the same insertion point can be combined. If the user clicks on one of these markers, all affected orders are shown as the result. For each <em>record</em> (order), only the first column is shown. The user can expand the <em>record</em> by clicking the first attribute and thus see all values.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Map services always return only a maximum number of geo-objects during a query (e.g. ArcGIS Server services return a maximum of 1000 results by default). If the <code class="docutils literal notranslate"><span class="pre">Union</span></code> option is selected for a query and the maximum number of queryable geo-objects is exceeded, WebGIS returns a message stating that the query is not possible. The reason for this is that otherwise a non-existent completeness of the data would be concealed.
+If not all geo-objects can be queried, a point would still be shown, but it would not be guaranteed that the <em>records</em> shown under this marker are complete. Therefore, in this case, no result is shown at all, along with a note, so that incomplete data is not mistakenly interpreted as complete.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To mitigate the effect described above, a larger value can be specified under “Maximum number”. Even if the underlying service returns a maximum of only 1000 objects, multiple queries can be attempted in the background in order to retrieve all geo-objects. However, the value should also not be too large, since this can lead to a higher server load.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Another way to address this effect is to enable the <code class="docutils literal notranslate"><span class="pre">Apply</span> <span class="pre">layer</span> <span class="pre">zoom</span> <span class="pre">limits</span></code> option. The query can then only be performed if the user is within the scale limits of the query topic on the map. The zoom limits are defined in the map service. This value is also useful if this query is integrated as <em>dynamic content</em> via the MapBuilder or via a <em>Dynamic Content Marker</em> presentation variant.</p>
+</div>
+</section>
+<section id="search-fields">
+<h1>Search Fields<a class="headerlink" href="#search-fields" title="Link to this heading">¶</a></h1>
+<p>Search fields can optionally be parameterized for a query. If a query contains no search fields,
+the topic can <em>only</em> be queried (e.g. with the Identify tool).
+If search fields are defined, the query additionally appears in the <em>map viewer</em> under “Detailed search”.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all service types support searching within a topic, e.g. WMS.</p>
+</div>
+<p>To create a search field, switch to the <code class="docutils literal notranslate"><span class="pre">Search</span> <span class="pre">fields</span></code> area and click <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">search</span> <span class="pre">term</span></code>.</p>
+<p>In the dialog, you must first select the field to be searched.
+Under <code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">method</span></code>, you can set how the corresponding field should be searched.
+With <code class="docutils literal notranslate"><span class="pre">Exact</span></code>, for example, the user must enter the search term exactly as it appears in the
+database (useful for IDs, numbers). It is usually more user-friendly if the search
+is automatically performed with <em>wildcards</em>. With <code class="docutils literal notranslate"><span class="pre">EndingWildcard</span></code>, a wildcard (* or %) is automatically appended after the
+entered search term. This finds all geo-objects for which the
+corresponding attribute begins with the entered search term. The selection list
+shows further options, for example replacing all spaces with <em>wildcards</em>
+(<code class="docutils literal notranslate"><span class="pre">SpacesToWildcard</span></code>, <code class="docutils literal notranslate"><span class="pre">SpacesToWildcardWithEndingWildcard</span></code>, …).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To ensure the search performs well, make sure that the search fields
+are indexed accordingly in the database.</p>
+</div>
+<p>Finally, a name must be specified that is shown in the search mask for this field.
+Under <code class="docutils literal notranslate"><span class="pre">Url</span></code>, an ID that is unique for this query should be entered for the field.
+When the <em>map viewer</em> is called, parameters can be passed in the URL this way that already
+run a query on start. The corresponding parameters for the search fields correspond to
+what is entered here (<code class="docutils literal notranslate"><span class="pre">...&amp;query=addresses&amp;address=mainsquare...</span></code>).</p>
+<p>If you close the dialog with <code class="docutils literal notranslate"><span class="pre">Apply</span></code>, the search term should appear in the list.
+There, the properties can also be edited afterwards, and the order of the
+search terms can be changed. Via the properties, further options such as
+selection lists, whitelists, etc. can also be parameterized.</p>
+</section>
+<section id="selection-lists">
+<h1>Selection Lists<a class="headerlink" href="#selection-lists" title="Link to this heading">¶</a></h1>
+<p>To make it easier for the user to enter search terms, selection lists can be offered.
+When the user enters a character in a search field, the database is queried in the background
+and suggestions are offered to the user based on this.</p>
+<p>Selection lists also work in a cascading manner: search terms already entered can be taken into account.
+(Example: only parcels of a cadastral community are offered once the cadastral community number has already been entered.)</p>
+<p>Let’s assume a parcel search in which the user can enter a cadastral community number or a cadastral community name,
+and a parcel number:</p>
+<img alt="../../../_images/queries10.png" src="../../../_images/queries10.png" />
+<p>In the example, the database fields to be queried are called:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">KG</span></code>: input field ID - <code class="docutils literal notranslate"><span class="pre">kg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KG_NAME</span></code>: input field ID - <code class="docutils literal notranslate"><span class="pre">kgname</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GNR</span></code>: input field ID - <code class="docutils literal notranslate"><span class="pre">gnr</span></code></p></li>
+</ul>
+<p>For selection lists to work, this must be specified in the properties of the corresponding search field:</p>
+<img alt="../../../_images/queries11.png" src="../../../_images/queries11.png" />
+<p>The corresponding SQL statement can be defined via the selection-list editor:</p>
+<img alt="../../../_images/queries12.png" src="../../../_images/queries12.png" />
+<p>Under <em>ConnectionString</em>, the connection to the database to be queried can be specified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use <em>ArcGIS Server</em> or <em>gView</em> (via the GeoServices REST interface) as the server, no
+direct connection to the database needs to be specified. In this case, the selection-list values can be
+queried directly via the <em>MapServer</em> (recommended).
+In this case, simply specify the abbreviation <code class="docutils literal notranslate"><span class="pre">#</span></code> as the <em>ConnectionString</em>.</p>
+</div>
+<p>Under <em>SqlStatement</em>, the expression used for the search is now specified. For a database
+query with a <em>ConnectionString</em>, this is usually a complete <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FROM</span> <span class="pre">WHERE</span></code> statement.
+If you use the <em>MapServer</em> for the query (ConnectionString = <code class="docutils literal notranslate"><span class="pre">#</span></code>), only the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause is specified here (without WHERE).</p>
+<p>The names of the search terms can be entered as placeholders (e.g. <code class="docutils literal notranslate"><span class="pre">{{kg}}</span></code>, don’t forget wildcards).</p>
+<p>For our example, the <em>SqlStatements</em> could look as follows:</p>
+<p><strong>KG</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KG</span> <span class="n">like</span> <span class="s1">&#39;{{kg}}%&#39;</span>
+</pre></div>
+</div>
+<p><strong>KG Name</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">KG_NAME</span> <span class="n">like</span> <span class="s1">&#39;{{kgname}}%&#39;</span>
+</pre></div>
+</div>
+<p><strong>Parcel number</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GNR</span> <span class="n">like</span> <span class="s1">&#39;{{gnr}}%&#39;</span>
+
+<span class="c1">#if kg</span>
+  <span class="n">AND</span> <span class="n">KG</span><span class="o">=</span><span class="s1">&#39;{{kg}}&#39;</span>
+<span class="c1">#endif</span>
+
+<span class="c1">#if kgname</span>
+  <span class="n">AND</span> <span class="n">KG</span><span class="o">=</span><span class="s1">&#39;{{kgname}}&#39;</span>
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+<p>Here, the query is further restricted if a cadastral community number or a cadastral community name has already been entered.
+The <code class="docutils literal notranslate"><span class="pre">#if</span></code> directives can be used to enforce that the corresponding piece of code is only included in the statement
+if the user has entered a value for this field.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the example here, selection lists were defined for all three input fields.
+This is not strictly required. If it makes sense for the task, only
+one input field can offer selection lists.</p>
+</div>
+</section>
+<section id="table">
+<h1>Table<a class="headerlink" href="#table" title="Link to this heading">¶</a></h1>
+<p>This lists which fields are shown in the result list. For the query to
+work, values must be entered here. An exception here is WMS services,
+where the schema of the data is not known via the <em>capabilities</em>. Here, a table can generally
+not be defined.</p>
+<p>If, when creating the query (see above), you selected <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">fields</span> <span class="pre">dynamically</span></code> under Table,
+there is already a <em>column</em> under <code class="docutils literal notranslate"><span class="pre">Table</span></code>:</p>
+<img alt="../../../_images/queries6.png" src="../../../_images/queries6.png" />
+<p>This is a special case: <code class="docutils literal notranslate"><span class="pre">*</span></code> is specified here as the field, which
+means that the fields are determined automatically at runtime. All attributes that can be
+returned by a query from the <em>map service</em> are shown.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This option can also be used if, for a WMS service, <code class="docutils literal notranslate"><span class="pre">GetFeatures</span> <span class="pre">Type</span></code> is set to,
+for example, <code class="docutils literal notranslate"><span class="pre">application/geojson</span></code> or <code class="docutils literal notranslate"><span class="pre">txt/xml</span></code>. In that case, all fields are likewise
+adopted into the table here. Alternatively, the individual fields could also be
+created manually here.</p>
+</div>
+<p>If you want more control over the table, fields can also be specified individually here.
+For this, the <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">multiple</span> <span class="pre">columns</span></code> and <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">column</span></code> buttons can be used.
+The first option, however, only works if the underlying service also provides information
+about the data schema of the individual topics (AGS, IMS, …).</p>
+<p>Once columns have been added, the properties can be edited further:</p>
+<img alt="../../../_images/queries7.png" src="../../../_images/queries7.png" />
+<p>The <code class="docutils literal notranslate"><span class="pre">Column</span> <span class="pre">type</span></code> specifies what is shown in the table column. The default value
+here is <code class="docutils literal notranslate"><span class="pre">Field</span></code>, which means that the value of an attribute of the geo-object is shown in the
+column. For this type, a field from the query topic must be specified under <code class="docutils literal notranslate"><span class="pre">Definition</span> <span class="pre">/</span> <span class="pre">Source</span></code>:</p>
+<img alt="../../../_images/queries8.png" src="../../../_images/queries8.png" />
+<p>If, for example, you select <code class="docutils literal notranslate"><span class="pre">Hotlink</span></code> as the <code class="docutils literal notranslate"><span class="pre">Column</span> <span class="pre">type</span></code>, a <em>hotlink</em> appears in the table, via
+which the user can be redirected to a new page. Under <code class="docutils literal notranslate"><span class="pre">Definition</span> <span class="pre">/</span> <span class="pre">Source</span></code>,
+a <code class="docutils literal notranslate"><span class="pre">Hotlink</span> <span class="pre">URL</span></code> can be specified here. In this URL, fields from the
+corresponding geo-object can be specified as placeholders (in square brackets):</p>
+<img alt="../../../_images/queries9.png" src="../../../_images/queries9.png" />
+<p>Under <code class="docutils literal notranslate"><span class="pre">Name</span> <span class="pre">/</span> <span class="pre">Label</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">hotlink</span></code>, you can enter the text with which the hotlink is shown in the
+table.</p>
+<p><code class="docutils literal notranslate"><span class="pre">1:n</span></code> specifies whether the link can be invoked for all rows of a table. A
+delimiter can also be specified here, with which the individual values are separated in the URL.</p>
+<p><strong>Settings for opening the hotlink</strong></p>
+<p>In the hotlink settings, there is a dropdown field “Target for new browser window”. Here you can select how the hotlink is opened:</p>
+<ul class="simple">
+<li><p><strong>_blank</strong>: Opens the hotlink in a new tab.</p></li>
+<li><p><strong>dialog</strong>: Opens the hotlink in a modal dialog window.</p></li>
+<li><p><strong>datalinq_pdf_report</strong>: Downloads a DataLinq PDF report in the background.</p></li>
+<li><p><strong>_self</strong>: Opens the link in the same tab/window (default behavior).</p></li>
+<li><p><strong>_parent</strong>: Opens the link in the parent frame, if the page is located within a frame or <code class="docutils literal notranslate"><span class="pre">iframe</span></code>.</p></li>
+<li><p><strong>_top</strong>: Opens the link in the entire browser window and closes all frames/iframes.</p></li>
+</ul>
+<img alt="../../../_images/queries13.png" src="../../../_images/queries13.png" />
+<p>This selection controls how and where the user is redirected after clicking the hotlink.</p>
+<p>Further column types include, for example:</p>
+<ul class="simple">
+<li><p><strong>Expression:</strong>
+Here you can specify an <em>expression</em> consisting of (multiple) fields and free text.
+The placeholders for the fields are again specified in square brackets, e.g.: <code class="docutils literal notranslate"><span class="pre">Area:</span> <span class="pre">[THE_AREA_FIELD]m²</span></code>.
+Additionally, functions for calculating and formatting can also be used with Expression (see below).</p></li>
+<li><p><strong>ImageExpression:</strong>
+Like Hotlink, except the target URL must be an image file. The image is shown in the result table.
+The size can be adjusted.</p></li>
+<li><p><strong>EmailAddress, PhoneNumber:</strong>
+The result is shown in the table as a clickable email address or phone number.</p></li>
+<li><p><strong>DateTime:</strong>
+The result is shown as a date. Under Definition, you can set
+how the date should be formatted.</p></li>
+</ul>
+<section id="functions-within-expressions">
+<h2>Functions Within Expressions<a class="headerlink" href="#functions-within-expressions" title="Link to this heading">¶</a></h2>
+<p>For table columns of type <em>Expression</em>, in addition to the placeholders for fields shown above in square brackets,
+functions can also be inserted within the expression. These are used for special calculations and formatting of the field.</p>
+<p>Functions always begin with <code class="docutils literal notranslate"><span class="pre">$</span></code> followed by the function name. The argument is passed to the function in parentheses, e.g. <code class="docutils literal notranslate"><span class="pre">$eval(42*42)</span></code>.
+Attributes from the current object are again passed to the function as placeholders in square brackets, e.g. <code class="docutils literal notranslate"><span class="pre">$eval([THE_AREA_FIELD]*42)</span></code>.</p>
+<p>The following functions are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$eval()</span></code>: calculates a mathematical expression (addition, subtraction, multiplication, division), e.g. <code class="docutils literal notranslate"><span class="pre">$eval(11+1)</span></code>, <code class="docutils literal notranslate"><span class="pre">$eval([AREA]*[COST])</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">$cos()</span></code>, <code class="docutils literal notranslate"><span class="pre">$tan()</span></code>, <code class="docutils literal notranslate"><span class="pre">$asin()</span></code>, <code class="docutils literal notranslate"><span class="pre">$acos()</span></code>, <code class="docutils literal notranslate"><span class="pre">$atan()</span></code>: trigonometric functions. The calculation and result are always in radians.
+The function <code class="docutils literal notranslate"><span class="pre">$pi()</span></code> can be used for conversions, e.g. <code class="docutils literal notranslate"><span class="pre">$sin(45.0*$pi()/180.0)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$round0()</span></code> … <code class="docutils literal notranslate"><span class="pre">$round5()</span></code>: rounds the given value. The number specifies the number of decimal places, e.g. <code class="docutils literal notranslate"><span class="pre">$round0(100.123)</span></code>, <code class="docutils literal notranslate"><span class="pre">$round2([AREA])</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$n0()</span></code> … <code class="docutils literal notranslate"><span class="pre">$n5()</span></code>: converts a number into the <em>standard numeric format</em>. This format, for example, inserts thousands separators into a number (1000 =&gt; 1,000).
+The number specifies the number of decimal places. This function can therefore also be used as an alternative to <code class="docutils literal notranslate"><span class="pre">$round</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$n0_de()</span></code> … <code class="docutils literal notranslate"><span class="pre">$n5_de()</span></code>: with the function <code class="docutils literal notranslate"><span class="pre">$n()</span></code>, the display uses the server’s current <code class="docutils literal notranslate"><span class="pre">culture</span></code>. If the language on the server is English,
+the results may not be formatted correctly (1000,123 =&gt; 1,000.123). To avoid this, <code class="docutils literal notranslate"><span class="pre">$n0_de()</span></code> can be used to force German formatting.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The individual functions can also be nested:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$round2($eval([AREA]*[COST]))</span> <span class="pre">€</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$n2_de($eval([AREA]*[COST]))</span> <span class="pre">€</span></code></p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">$n0()</span></code> or <code class="docutils literal notranslate"><span class="pre">$n0_de()</span></code> should always be the outermost function. If you use the result to calculate further results,
+errors can occur, because calculation functions cannot handle thousands separators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$eval($n0([AREA])*$n2([COST]))</span> <span class="pre">€</span></code> =&gt; WRONG</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$eval($round0([AREA])*$round2([COST]))</span> <span class="pre">€</span></code> =&gt; CORRECT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$n2_de($eval($round0([AREA])*$round2([COST])))</span> <span class="pre">€</span></code> =&gt; CORRECT</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you make a syntax error (parameterization error) in the expression, this is shown as an exception in the result list (affects all rows in the table).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If an error occurs when calculating the value, for example because a field <code class="docutils literal notranslate"><span class="pre">COST</span></code> does not contain a valid numeric value, the result in the
+table is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (Not a Number). This then only affects the corresponding rows in the table.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Queries</a></li>
+<li><a class="reference internal" href="#general-query-properties">General Query Properties</a></li>
+<li><a class="reference internal" href="#search-fields">Search Fields</a></li>
+<li><a class="reference internal" href="#selection-lists">Selection Lists</a></li>
+<li><a class="reference internal" href="#table">Table</a><ul>
+<li><a class="reference internal" href="#functions-within-expressions">Functions Within Expressions</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../add_ags_service.html">
+                    <span class="icon">&lt;</span><span>Integrating an ArcGIS Server Service</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../layers.html"><span>Layer Toggles</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

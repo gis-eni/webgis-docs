@@ -5,20 +5,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>appsettings.json &#8212; WebGIS 2026 documentation</title>
+    <title>File appsettings.json &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=d882a67f" />
     <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/js/eni.js"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CMS" href="cms/index.html" />
-    <link rel="prev" title="Configuration" href="index.html" /> 
+    <link rel="next" title="Configuration of the CMS application" href="cms/index.html" />
+    <link rel="prev" title="Configuration (post-installation)" href="index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -123,19 +123,19 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">appsettings.json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cms/index.html">CMS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/index.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portal/index.html">Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration (post-installation)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cms/index.html">Configuration of the CMS application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/index.html">Configuration of the API application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal/index.html">Portal Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="css-styling/index.html">Styling and CSS Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="authentication/index.html">Authentication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardening/index.html">Hardening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardening/index.html">Security measures (hardening)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -148,9 +148,62 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="appsettings-json">
-<h1>appsettings.json<a class="headerlink" href="#appsettings-json" title="Link to this heading">¶</a></h1>
-<p>This page will explain the application settings file and its role in the WebGIS configuration.</p>
+  <section id="file-appsettings-json">
+<h1>File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code><a class="headerlink" href="#file-appsettings-json" title="Link to this heading">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code> file contains the configuration settings for the web application.
+It is located in the application’s root directory and is loaded when the application starts.
+The settings in this file relate less to WebGIS-specific functionality
+and more to general application parameters, such as logging at the ASP.NET Core level,
+localization/culture, etc.</p>
+<p>The file is structured in JSON format and contains various sections
+that define different configuration parameters.
+Below are some of the most important sections and their functions:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LogLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span><span class="p">,</span><span class="w">  </span><span class="cm">/* default: Warning */</span>
+<span class="w">      </span><span class="nt">&quot;Microsoft&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Warning&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Microsoft.Hosting.Lifetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Localization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;DefaultCulture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul>
+<li><p><strong>Logging</strong>: This section defines the settings for the application’s logging at the ASP.NET Core level,
+including the log levels and the log output targets.</p></li>
+<li><p><strong>Localization</strong>: This defines the localization settings for the application,
+including the default culture used by the application.</p>
+<p>Normally the application starts in the operating system’s culture,
+but an explicit culture can be defined here that then applies to the entire application.
+This can be used, for example, to determine how dates and times are formatted.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All WebGIS web applications have an endpoint <code class="docutils literal notranslate"><span class="pre">/instance/_culture</span></code>, through which the current culture
+of the application can be queried.
+This endpoint returns the current culture used by the application,
+and can be helpful for verifying that the application is using the expected culture:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/instance/_culture</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;culture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cultureDisplayName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;German (Austria)&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cultureEnglishName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;German (Austria)&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;cultureUI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;currentTimeString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.03.2026 07:42:40&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the response shows that the current culture of the application
+is “de-AT” (German - Austria),
+and also returns the current time in the corresponding format.</p>
+</div>
+</li>
+</ul>
 </section>
 
 
@@ -167,13 +220,13 @@
             <div class="left">
                 
                 <a href="index.html">
-                    <span class="icon">&lt;</span><span>Configuration</span></a>
+                    <span class="icon">&lt;</span><span>Configuration (post-installation)</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="cms/index.html"><span>CMS</span><span class="icon">&gt;</span></a>
+                    <a href="cms/index.html"><span>Configuration of the CMS application</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

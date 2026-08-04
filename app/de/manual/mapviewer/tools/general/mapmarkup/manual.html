@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bedienung Werkzeug Zeichnen (Map-Markup) &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../../search.html" />
+    <link rel="next" title="Spezialwerkzeuge" href="advanced-tools.html" />
+    <link rel="prev" title="Zeichnen (Map Markup &amp; Annotations)" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../identify/index.html">Abfrage Werkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Allgemeine Werkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../measure-line.html">Strecke messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-area.html">Fläche messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../circle.html">Umgebungskreis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../profile.html">Höhenprofil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../redlining/index.html">Zeichnen (Redlining)</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Zeichnen (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Bearbeiten (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georeference.html">Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georef-image.html">Bilder Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-3d.html">3D messen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sketch/index.html">Sketch/Entwurfswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Allgemeine Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Zeichnen (Map Markup &amp; Annotations)</a></li>
+      <li class="breadcrumb-item active">Bedienung Werkzeug Zeichnen (Map-Markup)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/mapviewer/tools/general/mapmarkup/manual.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bedienung-werkzeug-zeichnen-map-markup">
+<h1>Bedienung Werkzeug Zeichnen (Map-Markup)<a class="headerlink" href="#bedienung-werkzeug-zeichnen-map-markup" title="Link to this heading"></a></h1>
+<section id="allgemeine-bedienung">
+<h2>Allgemeine Bedienung<a class="headerlink" href="#allgemeine-bedienung" title="Link to this heading"></a></h2>
+<p>Das Zeichnen (Map-Markup) Werkzeug ist eigentlich eine Sammlung von (Sub-) Werkzeugen, die es ermöglichen,
+den Inhalt der Karte graphisch zu ergänzen.
+Nach dem Öffnen des Werkzeugs wird der Zeichnen- (Map-Markup) Dialog angezeigt.
+Darin werden alle Möglichen Zeichenwerkzeuge angeboten.
+Zusätzlich gibt es noch Buttons zum Verwalten von Zeichnungen (Laden, Speichern, Teilen, Upload, Download).</p>
+<img alt="../../../../_images/mapmarkup1.png" src="../../../../_images/mapmarkup1.png" />
+<p>Die Buttons können je nach Endgerät variieren. In der Abbildung sind alle Werkzeuge zu sehen (Desktop).
+Unter den Buttons wird noch einmal der Name des gerade aktiven Zeichenwerkzeugs angezeigt, sowie <em>gelb</em> hinterlegt eine
+Beschreibung, wie dieses Werkzeug bedient wird (z.B. in die Karte klicken, auf bestehendes Zeichnungselement klicken, usw.).</p>
+<p>Aufgrund dieser Beschreibung wird hier nicht auf die genaue Klickabfolge für die einzelnen Zeichenwerkzeuge eingegangen,
+sondern es werden die Möglichkeiten und Unterschiede der Werkzeuge aufgezeigt.</p>
+</section>
+<section id="neues-element-zeichnen">
+<h2>Neues Element zeichnen<a class="headerlink" href="#neues-element-zeichnen" title="Link to this heading"></a></h2>
+<p>Legt man ein neues Element an (beispielsweise eine Linie), müssen durch Klicken in die Karte mindestens zwei Stützpunkte
+definiert werden. Wir die Linie als gültig erkannt (mindesten zwei Stützpunkte), kann sie in die Karte <em>übernommen</em> werden.
+Bis zum <em>Übernehmen</em> wird immer noch die Entwurfsskizze (Sketch) mit den Stützpunkten angezeigt. Solange die Entwurfsskizze angezeigt
+wird, kann die Linie auch noch verändert werden:</p>
+<ul class="simple">
+<li><p>Weitere Stützpunkte zeichnen</p></li>
+<li><p>Stützpunkte mit der Maus verschieben</p></li>
+<li><p>Arbeitsschritte über das Entwurfs-Kontextmenü (rechte Maustaste) rückgängig machen</p></li>
+<li><p>über die Darstellungsoptionen die Darstellung ändern</p></li>
+</ul>
+<p>Dass ein gezeichnetes Element <em>gültig</em> ist und in die Karte übernommen werden kann, ist über den Werkzeugdialog
+ersichtlich. Sobald bei einer Linie beispielsweise zwei Stützpunkte gesetzt wurden, erscheint im Werkzeugdialog
+folgender Button:</p>
+<img alt="../../../../_images/mapmarkup3.png" src="../../../../_images/mapmarkup3.png" />
+<p>In die Karte übernommen wird das Zeichenelement mit dem Button mit Häkchen-Symbol. Nach dem Übernehmen kann gleich eine weitere Linie gezeichnet werden.
+Bevor man ein Zeichenelement in die Karte übernimmt, kann optional noch eine Beschreibung angegeben werden.
+Wenn die Linie beispielsweise einen Weg beschreibt, könnte man hier <code class="docutils literal notranslate"><span class="pre">Wegbeschreibung</span> <span class="pre">nach</span> <span class="pre">...</span></code> eintragen.
+Beschreibungen für Zeichenelemente sind optional, helfen allerdings das Element später wieder zuzuordnen und zu interpretieren.</p>
+<p><strong>Tipp:</strong> Es gibt noch weitere Möglichkeiten, um ein Zeichenelement in die Karte zu übernehmen und ein weiteres zu
+zeichnen:</p>
+<ul class="simple">
+<li><p>Abschließen eines Entwurfes mit einem Doppelklick. Danach kann gleich mit dem Zeichnen eines Elementes gleichen Types fortgesetzt werden.</p></li>
+<li><p>Ändern des Zeichenwerkzeugs: Zeichnet man eine Linie und möchte danach beispielsweise mit dem Zeichnen einer Fläche fortfahren, reicht es, auf das <em>Fläche</em> Werkzeug zu klicken. Eine gültige Linie wird dann automatich übernommen.</p></li>
+<li><p>Beschriften eines Zeichenelements: Im oben gezeigten <em>Übernehmen</em> Dialog wird rechts neben dem Eingebefeld ein <em>T</em> (für Text) angezeigt. Damit wechselt man zum Text Werkzeug und kann das aktuelle Element beschriften (zB Länge einer Linie - siehe unten)</p></li>
+</ul>
+<p>Bereits übernommene Zeichenelement werden zusätzlicht zur Karte auch als Liste ganz unten im Werkzeugdialog angezeigt:</p>
+<img alt="../../../../_images/mapmarkup4.png" src="../../../../_images/mapmarkup4.png" />
+<p>Das Icon zeigt an, um welchen Typ es sich bei dem Element handelt (Linie, Fläche, Text, …). Zusätzlich gibt es noch
+einen <em>Löschen Button</em> (Mistkübel), einen <em>Berarbeitungs-Button</em> (Stift) und je nach Typ einen <em>T Button</em> (Text - Beschriften, siehe unten)</p>
+<section id="symbolik-andern">
+<h3>Symbolik ändern<a class="headerlink" href="#symbolik-andern" title="Link to this heading"></a></h3>
+<p>Um die Symbolik des jeweiligen Objektes zu ändern, ist links von der Beschreibung ein Symbol (je nach Objekt ist dieses ein anderes Symbol).</p>
+<img alt="../../../../_images/mapmarkup3_1.png" src="../../../../_images/mapmarkup3_1.png" />
+<p>Klickt man dieses an, gelangt man in das Menü, um Änderungen an der Symbolik zu treffen.
+Wählt man beispielsweise das Linien-Werkzeug aus, gibt es folgende Darstellungsoptionen:</p>
+<img alt="../../../../_images/mapmarkup2.png" src="../../../../_images/mapmarkup2.png" />
+<p>Im Regelfall sind die Optionsmenüs für Farbe, Linienstärke und Linienart bereits aufgeklappt. Möchte man zum Beispiel die Farbe einer Linie ändern, so muss diese nur ausgewählt werden.
+Gleiches gilt für Linienstärke und Linienart (durchgezogen, strichliert, …).</p>
+<p>Diese Optionen beziehen sich immer auf das gerade aktive Element. Ändert man eine Darstellungsoption, ändert sich die Darstellung
+sofort in der Karte.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Zeichnet man ein neues Objekt, erkennt man die Änderungen erst, wenn man in die Karte klickt um Stützpunkte für das Element
+zu erstellen.</p>
+</div>
+</section>
+</section>
+<section id="unterschiedliches-verhalten-von-elementtypen">
+<h2>Unterschiedliches Verhalten von Elementtypen<a class="headerlink" href="#unterschiedliches-verhalten-von-elementtypen" title="Link to this heading"></a></h2>
+<p>Das oben beschriebene Verhalten ist nicht bei allen Elementtypen gleich. Hier ein paar Unterschiede/Besonderheiten:</p>
+<p><strong>Symbol:</strong> Symbole benötigen nur einen Stützpunkt. Nach dem Setzen des Punktes muss nicht zwingend auf den
+<em>Übernehmen / Weiteres zeichnen</em> Button geklickt werden, sondern es reicht hier, noch einmal in die Karte zu klicken,
+um ein weiteres Symbol zu zeichnen. Dadurch ist ein schnelles Zeichnen von mehreren Symbolen durch einfaches Klicken
+in die Karte (pro Klick wird ein Symbol in die Karte gesetzt) möglich.</p>
+<p><strong>Freihand:</strong> Mit diesem Werkzeug kann mit gedrückter Maustaste eine „freihand“ Linie gezeichnet werden. Wird die
+Maustaste losgelassen, wird diese sofort in die Karte übernommen. Dadurch können sehr schnell und komfortabel mehrere
+Freihandlinien gezeichnet werden.</p>
+<p><strong>Text:</strong> Um einen Text in der Karte zu setzen, ist nach dem Auswählen des Text Werkzeugs in die Karte zu klicken,
+um die Position des Textes festzulegen. Dadurch wird die Position des Textes <em>gültig</em> und es kann der eigentliche
+Text über das Textfeld und über <em>Übernehmen / Weiteres zeichnen</em> geändert werden. Eine Änderung sollte gleich in der
+Karte ersichtlich werden. Sollte die Position noch einmal geändert werden, kann diese mit einem weiteren Klick
+in die Karte (oder Ziehen des Einfügepunktes) erfolgen. Mit klick auf das Häkchen wird der Text endgültig
+in die Karte übernommen.</p>
+</section>
+<section id="bestehendes-element-verandern">
+<h2>Bestehendes Element verändern<a class="headerlink" href="#bestehendes-element-verandern" title="Link to this heading"></a></h2>
+<p>Es gibt zwei Möglichkeiten, um ein bereits gezeichnetes Element zu verändern.</p>
+<ul class="simple">
+<li><p>Über das Zeichenwerkzeug <em>Auswählen</em> (Finger): Damit wird über einen Klick auf das Objekt in der Karte das Element markiert und kann verändert werden.</p></li>
+<li><p>Über die Liste der bereits bestehenden Elemente: Durch Klicken auf ein Element in der Liste wird dieses für die Bearbeitung markiert. Mit dem Stift-Symbol kann das Objekt dann editiert werden.</p></li>
+</ul>
+<p>Die zweite Methode ist praktisch, wenn mehrere Elemente übereinader liegen und ein geographisches Auswählen schwierig/unmöglich ist.</p>
+<p><strong>Tipp:</strong> Die Elemente in der Liste können leichter zugeordnet werden, wenn sie vor dem Übernehmen beschrieben wurden,
+da die Beschreibung in der Liste angezeigt wird.</p>
+<p>Wurde ein Element zum Ändern markiert, wird für das Element in der Karte der Entwurfs-<em>Sketch</em> angezeigt. Außerdem erscheint ein neues Symbol
+<em>Symbolik</em> oberhalb der Auflistung, über das man in das Menü zum Bearbeiten der Darstellung kommt.</p>
+<a class="reference internal image-reference" href="../../../../_images/mapmarkup5.png"><img alt="../../../../_images/mapmarkup5.png" src="../../../../_images/mapmarkup5.png" style="width: 200px; height: 80px;" /></a>
+<p>Durch den Entwurfs-<em>Sketch</em> lässt sich die Geometrie des Elements verändern. Ebenfalls kann die Darstellung über die
+Darstellungsoptionen angepasst werden. Zum Abschließen der Änderungen muss mit dem Häkchen-Button bestätigt werden, um diese zu übernehmen.</p>
+</section>
+<section id="bestehendes-element-loschen">
+<h2>Bestehendes Element löschen<a class="headerlink" href="#bestehendes-element-loschen" title="Link to this heading"></a></h2>
+<p>Zum Löschen eines Elements gibt es zwei Möglichkeiten:</p>
+<ul class="simple">
+<li><p>Element über das <em>Auswählen</em> (Finger) Werkzeug markieren und auf den <em>Löschen Button</em> (Mistkübel) rechts neben dem Beschreibungs Eingabefeld klicken.</p></li>
+<li><p>In der Liste mit den bestehenden Elementen auf das <em>Löschen Symbol</em> (Mistkübel) klicken.</p></li>
+</ul>
+<p>Der Vorteil bei der ersten Methode ist, dass zuerst erkennbar ist, welches Element wirklich gelöscht wird.
+Sind die Element nicht <em>beschrieben</em> worden, kann es beim Löschen aus der Liste zum Löschen des falschen Elementes kommen,
+weil der angezeigte Text nicht eindeutig ist.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Ein Löschen ist endgültig. Beim Zeichnen (Map-Markup) Werkzeug wird kein <strong>Undo</strong> angeboten!</p>
+</div>
+</section>
+<section id="elemente-beschriften">
+<h2>Elemente Beschriften<a class="headerlink" href="#elemente-beschriften" title="Link to this heading"></a></h2>
+<p>Einige Elementtypen bieten eine Beschriftung nach bestimmten Eigenschaften an:</p>
+<ul class="simple">
+<li><p><strong>Linien:</strong> Beschriften der Länge [m / km] der Linie</p></li>
+<li><p><strong>Flächen:</strong> Beschriften des Flächeninhaltes [m² / km²]</p></li>
+</ul>
+<p>Dabei erfolgt die Beschriftung halbautomatisch. Automatisch ermittelt wird nur der Textwert, die Positionierung des Textes
+in der Karte erfolgt vom Anwender.</p>
+<p>Die Vorgehensweise beim Beschriften ist folgende:</p>
+<ul class="simple">
+<li><p>Im Werkzeugdialog auf das <em>T Symbol</em> (Text) für das entsprechende Objekt klicken.</p></li>
+</ul>
+<p>Beim aktuellen Element befindet sich der Button rechts neben dem Textfeld für die optionale Beschreibung es Elements.
+Bereits in die Karte übernommene Element weisen dieses Symbol in der Liste der erstellten Elemente auf.</p>
+<ul class="simple">
+<li><p>In die Karte klicken, um den Punkte zu positionieren.</p></li>
+<li><p>Eventuell Darstellung (Schriftgröße) ändern oder den Text erweitern/verändern.</p></li>
+<li><p>Auf <em>Übernehmen / Weiteres zeichnen</em> klicken, um den Text in die Karte zu übernehmen.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Zeichnen (Map Markup &amp; Annotations)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="advanced-tools.html" class="btn btn-neutral float-right" title="Spezialwerkzeuge" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

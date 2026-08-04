@@ -5,19 +5,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>WebGIS Deploy &#8212; WebGIS 2026 documentation</title>
+    <title>Installation with webgis.deploy &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=d882a67f" />
     <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/js/eni.js"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Docker" href="docker.html" />
+    <link rel="next" title="Installation in Docker" href="docker.html" />
     <link rel="prev" title="Installation" href="index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
@@ -123,14 +123,14 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">WebGIS Deploy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation with webgis.deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Installation in Docker</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -143,10 +143,423 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="webgis-deploy">
-<h1>WebGIS Deploy<a class="headerlink" href="#webgis-deploy" title="Link to this heading">¶</a></h1>
-<p>This section will describe how the WebGIS deployment tool distributes generated configuration and style files.</p>
-<p>It is the English counterpart of the German deployment guide and will be filled with the same technical steps.</p>
+  <section id="installation-with-webgis-deploy">
+<span id="deploy"></span><h1>Installation with webgis.deploy<a class="headerlink" href="#installation-with-webgis-deploy" title="Link to this heading">¶</a></h1>
+<p>The installation is done using the command-line tool webgis.deploy. This tool handles the following tasks:</p>
+<ul class="simple">
+<li><p>Fresh installation of webgis-portal, webgis-api and webgis-cms</p></li>
+<li><p>Management of deploy profiles (e.g. local, test, staging, production)</p></li>
+<li><p>Distribution of configuration changes (e.g. api.config, cms.config, portal.config)</p></li>
+<li><p>Distribution of styling changes (default.css, portal.css)</p></li>
+</ul>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading">¶</a></h2>
+<p>The deployment tool as well as other packages can be downloaded under <em>Releases</em> from the GitHub repository <a class="reference external" href="https://github.com/e-netze/webgis/releases">https://github.com/e-netze/webgis/releases</a>.</p>
+<p>An installation of the .NET App Runtime 9.0.x is required.</p>
+<p>Microsoft offers two main runtime variants for running .NET applications:</p>
+<ol class="arabic simple">
+<li><p><strong>.NET Runtime (without IIS support):</strong>
+This version contains only the runtime environment needed to run .NET applications as standalone processes – for example as a Windows service or in containers. It is suitable for scenarios where IIS is not used.</p></li>
+<li><p><strong>.NET Hosting Bundle (with IIS support):</strong>
+This variant additionally contains the ASP.NET Core Module for integration with Internet Information Services (IIS). This allows ASP.NET Core applications to be deployed directly via IIS. This version is best suited for use in Windows server environments with IIS.</p></li>
+</ol>
+<p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0" target="_blank">Download .NET 8.0 Runtime</a></p><p><strong>Windows:</strong></p>
+<p>On Windows, the program can for example be copied to <code class="docutils literal notranslate"><span class="pre">C:\deploy\webgis</span></code>.
+After that, the EXE file can simply be run.</p>
+<p><strong>Linux:</strong></p>
+<p>Coming Soon …</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The description below is based on a Windows system. On Linux, the installation
+should work similarly by calling the <em>deploy tool</em>.</p>
+</div>
+</section>
+<section id="deploying-a-new-version">
+<h2>Deploying a New Version<a class="headerlink" href="#deploying-a-new-version" title="Link to this heading">¶</a></h2>
+<p>The first time you start the program, a profile must first be created.
+The profile can, for example, be <code class="docutils literal notranslate"><span class="pre">test</span></code>, <code class="docutils literal notranslate"><span class="pre">staging</span></code> or <code class="docutils literal notranslate"><span class="pre">production</span></code> and essentially
+corresponds to a WebGIS instance. Since we
+only want to test <em>WebGIS</em> locally in the first step, a profile with the name <code class="docutils literal notranslate"><span class="pre">local</span></code>
+is a good choice to start with:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="hll"> C:\deploy\webgis\&gt; .\webgis.deploy.exe
+</span>
+ ******************************************
+ *                                        *
+<span class="hll"> *      WebGIS.Deploy Tool 7.25.701      *
+</span> *                                        *
+ ******************************************
+ Work-Directory: C:\deploy\webgis
+ Directory C:\deploy\webgis\_deploy_repository exists: True
+ Try Write security keys: C:\deploy\webgis\_deploy_repository\keys.config
+ succeeded
+ Choose a profile or create a new by enter an unique name, eg. production, staging, test
+ Input profile index [0]: local
+</pre></div>
+</div>
+<p>In the next step, the program offers to download the current release from <em>GitHub</em>,
+if it is not already available.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Do you want to download latetest version from GitHub? Y/N [Y]
+</pre></div>
+</div>
+<p>If this is not possible, the latest release can also be downloaded manually.
+To do this, the ZIP files must be placed in the <code class="docutils literal notranslate"><span class="pre">download</span></code> directory.</p>
+<p>In the example, that would be here: <code class="docutils literal notranslate"><span class="pre">C:\deploy\webgis\download</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\deploy\webgis\&gt;
+.
+├── download
+│   └── webgis-win64-7.25.701.zip
+└── webgis.deploy.exe
+</pre></div>
+</div>
+<p>If ZIP files are present in the <code class="docutils literal notranslate"><span class="pre">download</span></code> directory, the different versions are displayed:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Choose a version
+0 ... 7.25.701
+Input version index [0]:
+</pre></div>
+</div>
+<p>The newest version gets the index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All values entered via <code class="docutils literal notranslate"><span class="pre">webgis.deploy</span></code> do not need to be entered again on
+subsequent calls. Instead, these values are shown with an index number. You then
+only need to enter the corresponding number, or it is enough to simply press
+<code class="docutils literal notranslate"><span class="pre">ENTER</span></code> if the desired index is the
+suggested value, e.g. <code class="docutils literal notranslate"><span class="pre">Input</span> <span class="pre">version</span> <span class="pre">index</span> <span class="pre">[0]</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">ENTER</span></code> =&gt; version with
+index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</div>
+<p>The deployment tool now asks once more whether the selected version should actually be deployed with the profile:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Deploy version 7.25.701 to profile local
+Do you want to continue? Y/N [Y]
+</pre></div>
+</div>
+<p>When a profile (here <code class="docutils literal notranslate"><span class="pre">local</span></code>) is published for the first time, a few more
+values must be specified. If you want to use the default value, it is enough to confirm the question
+with <code class="docutils literal notranslate"><span class="pre">ENTER</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Company [my-company]: foo
+Target installation path [C:\apps\webgis]:
+Repsitory path [C:\apps\webgis/local/webgis-repository]:
+Api online url [http://localhost:5001]:
+Api internal url [http://localhost:5001]:
+Portal online url [http://localhost:5002]:
+Portal internal url [http://localhost:5002]:
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Target path of the installation:</strong> The path where WebGIS should be installed.
+Under this directory, the deployment tool creates an additional folder with the profile name
+and the version. Here, the app would be
+installed under <code class="docutils literal notranslate"><span class="pre">C:\apps\webgis\local\7.25.701</span></code>.</p></li>
+<li><p><strong>Repository path:</strong> Various files required for the software to work are stored in the repository path,
+for example the CMS tree, print layouts, etc.
+The repository folder is normally created in the directory
+of the profile (here: <code class="docutils literal notranslate"><span class="pre">C:\apps\webgis\local</span></code>). Since the folder is not located in the <em>version</em>
+folder, it can be reused directly by a newly installed version. It is important
+that different profiles use their own repository directory.</p></li>
+<li><p><strong>WebGIS API Online URL:</strong> A URL under which the <em>webgis-api</em> will be accessible,
+e.g. <a class="reference external" href="https://my-server.com/webgis-api">https://my-server.com/webgis-api</a>.
+If you want to test the <code class="docutils literal notranslate"><span class="pre">local</span></code> profile and only run the programs locally, this is usually
+done via <a class="reference external" href="http://localhost:5001">http://localhost:5001</a>. If WebGIS is operated as an application in IIS, you must enter here
+the URL under which the WebGIS API is reachable via the browser.</p></li>
+<li><p><strong>WebGIS API Internal URL:</strong> <em>WebGIS API</em> and <em>WebGIS Portal</em> must be able to communicate with each other.
+For this, a URL must be specified here under which the <em>WebGIS Portal</em> application can access the API directly.
+This should happen without requiring authentication. The simplest way here is also,
+even in a production environment, to specify a <code class="docutils literal notranslate"><span class="pre">localhost</span></code> path, e.g. <a class="reference external" href="http://localhost/webgis-api">http://localhost/webgis-api</a> or,
+for the <code class="docutils literal notranslate"><span class="pre">local</span></code> profile, the suggested value <a class="reference external" href="http://localhost:5001">http://localhost:5001</a></p></li>
+<li><p><strong>WebGIS Portal Online URL:</strong> Here you must enter the URL under which the <em>WebGIS Portal</em> is called,
+e.g. <a class="reference external" href="https://my-server.com/webgis-api">https://my-server.com/webgis-api</a>.
+For the <code class="docutils literal notranslate"><span class="pre">local</span></code> profile, the suggested value <a class="reference external" href="http://localhost:5002">http://localhost:5002</a> can again be used.</p></li>
+<li><p><strong>WebGIS Portal Internal URL:</strong> As above for the <em>WebGIS API</em>, a URL must be specified here
+with which the <em>WebGIS API</em> application can directly access the <em>WebGIS Portal</em> application, e.g.
+<a class="reference external" href="http://localhost/webgis-api">http://localhost/webgis-api</a>. For the <code class="docutils literal notranslate"><span class="pre">local</span></code> profile, the suggested value can be used.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The values set here are stored in the <code class="docutils literal notranslate"><span class="pre">_deploy_repository\profiles\{profil}\deploy-model.json</span></code>
+file and can also be changed there afterwards.</p>
+</div>
+<p>In the last step, it must also be specified which components of WebGIS should be installed.
+In theory, all components (<em>WebGIS API</em>, <em>WebGIS Portal</em> and <em>WebGIS CMS</em>) can be installed separately.
+For the first installation, you can answer all options with YES [Y] here.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Do you want to deploy WebGIS API? Y/N [Y]
+Do you want to deploy WebGIS Portal? Y/N [Y]
+Do you want to deploy WebGIS CMS? Y/N [Y]
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to offer WebGIS on the internet, you generally need <em>WebGIS API</em> and <em>WebGIS Portal</em>.
+The <em>WebGIS CMS</em> is only needed for configuration by an administrator and should not be
+publicly accessible. Ideally, the <em>WebGIS CMS</em> is installed only <em>locally</em> or on the <em>intranet</em>
+for a <em>test instance</em>. Administration is done there by the administrator. The configuration is then
+distributed from this instance to all other instances.</p>
+</div>
+<p>The deployment process then starts:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>************************************************************************************************************************
+
+Create a new webgis repositiry C:\apps\webgis/local/webgis-repository
+
+************************************************************************************************************************
+
+...succeeded 71 items created
+...succeeded 0 items created
+...succeeded 167 items created
+
+Deploy version 7.25.701
+Deploy WebGIS API:
+...succeeded 6659 items created
+Deploy WebGIS Portal:
+...succeeded 951 items created
+Deploy WebGIS CMS:
+...succeeded 1670 items created
+Deploy WebGIS Scripts:
+...succeeded 4 items created
+Deploy WebGIS Scripts:
+...succeeded 4 items created
+Copy root files
+...succeeded 2 items created
+Append keys.config
+Overrides
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\api.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\application-security.config
+...succeeded 2 items created/overridden
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\application-security.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\portal.config
+...succeeded 2 items created/overridden
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\application-security.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\cms.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\datalinq.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\settings.config
+...succeeded 4 items created/overridden
+Create Custom CSS
+Build default.css css overrides...
+Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\default.css not exits
+Build portal.css css overrides...
+Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\portal.css not exits
+
+
+########################################################################################################################
+
+Deploy succeeded
+
+########################################################################################################################
+
+Press ENTER to quit...
+</pre></div>
+</div>
+<p>Both <em>webgis-portal</em>, <em>webgis-api</em> and <em>webgis-cms</em> are deployed. After unpacking the ZIP files,
+user-specific files from the directory <code class="docutils literal notranslate"><span class="pre">_deploy_repository\profiles\{profile}\webgis-[api|cms|portal]\override</span></code>
+are copied into the respective application directory.
+This overwrites the configuration from the installation package with the configuration from the
+current profile.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any files can be copied into the <em>override</em> directories that should additionally
+be copied into or overwrite files in the application directories, e.g. logos, etc.
+Configuration files should never be changed directly in the application directory,
+but always for the respective application in the
+<code class="docutils literal notranslate"><span class="pre">_deploy_repository\profiles\{profile}\webgis-[api|cms|portal]\override</span></code> directory.
+This ensures that changes
+to the configuration are copied again the next time a profile is updated.</p>
+</div>
+</section>
+<section id="changing-the-current-configuration">
+<h2>Changing the Current Configuration<a class="headerlink" href="#changing-the-current-configuration" title="Link to this heading">¶</a></h2>
+<p>If you make changes to the configuration (e.g. <code class="docutils literal notranslate"><span class="pre">api.config</span></code>), this is done in the <em>override</em>
+directory. Then run <code class="docutils literal notranslate"><span class="pre">webgis.deploy.exe</span></code> again and you will get the following message:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>******************************************
+*                                        *
+*      WebGIS.Deploy Tool 7.25.701      *
+*                                        *
+******************************************
+Work-Directory: C:\deploy\webgis
+Choose a profile or create a new by enter an unique name, eg. production, staging, test
+0 ... local
+Input profile index [0]:
+
+Do you want to download latetest version from GitHub? Y/N [Y]
+Download not implementet! Comming soon. Please download laytest Versions manually...
+
+Choose a version
+0 ... 7.25.701
+Input version index [0]:
+
+Deploy version 7.25.701 to profile local
+Do you want to continue? Y/N [Y]
+Company: foo
+Target installation path: C:\apps\webgis
+Repsitory path: C:\apps\webgis/local/webgis-repository
+Api online url: http://localhost:5001
+Api internal url: http://localhost:5001
+Portal online url: http://localhost:5002
+Portal internal url: http://localhost:5002
+
+Deploy version 7.25.701
+
+
+***********************************************************************************************************************************************************************************
+
+Warning: version already deployed
+
+***********************************************************************************************************************************************************************************
+
+Append keys.config
+Overrides
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\api.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\application-security.config
+...succeeded 2 items created/overridden
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\application-security.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\portal.config
+...succeeded 2 items created/overridden
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\application-security.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\cms.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\datalinq.config
+Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\settings.config
+...succeeded 4 items created/overridden
+Create Custom CSS
+Build default.css css overrides...
+Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\default.css not exits
+Build portal.css css overrides...
+Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\portal.css not exits
+
+
+###################################################################################################################################################################################
+
+Deploy succeeded
+
+###################################################################################################################################################################################
+
+Press ENTER to quit...
+</pre></div>
+</div>
+<p>The warning appears that this version has already been deployed. No data is copied from the ZIP files.
+Only the <em>overrides</em> and changes to the styles <code class="docutils literal notranslate"><span class="pre">default.css</span></code> and
+<code class="docutils literal notranslate"><span class="pre">portal.css</span></code> are applied.</p>
+</section>
+<section id="styling-the-applications">
+<h2>Styling the Applications<a class="headerlink" href="#styling-the-applications" title="Link to this heading">¶</a></h2>
+<p>Two <em>CSS files</em> are mainly responsible for styling the applications:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">default.css</span></code> is located in the <code class="docutils literal notranslate"><span class="pre">webgis-api/wwwroot/content/...</span></code> directory. All styles for
+the WebGIS map viewer are defined here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">portal.css</span></code> is located in the <code class="docutils literal notranslate"><span class="pre">webgis-portal/wwwroot/content/...</span></code> directory. The styles for
+the portal pages (landing page with the map collections) are defined here.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These files should never be changed directly. Since WebGIS is continuously developed further, these
+files change with every version. If you overwrite these files yourself, things can be lost
+and new features may not be accessible.</p>
+<p>If you want to change styles, this should always be done using the methods shown here.</p>
+</div>
+<p>To adjust styles (e.g. colors), the <code class="docutils literal notranslate"><span class="pre">webgis.deploy</span></code> tool creates a folder <code class="docutils literal notranslate"><span class="pre">css-modify</span></code> under
+<code class="docutils literal notranslate"><span class="pre">_deploy_repository\profiles\{profile}</span></code>. Below that, there are further subfolders and files for each
+of the two <em>CSS files</em>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\deploy\webgis\_deploy_repository\profiles\{profile}&gt;
+.
+├── css-modify
+    └── default.css
+    |   └── modify.json
+    |   └── append.css
+    └── portal.css
+    |   └── modify.json
+    |   └── append.css
+    └── site.css
+        └── modify.json
+        └── append.css
+</pre></div>
+</div>
+<ul>
+<li><p><strong>modify.json</strong> is a file in which styles can be changed by simple text replacement.
+Such replacements are especially well suited for changing the CI (Corporate Identity) colors:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shrink&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;modifiers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#82C828&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// --webgis-brand-primary (CI Color)</span>
+<span class="w">      </span><span class="nt">&quot;replace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ccc&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="cm">/*,{</span>
+<span class="cm">      &quot;pattern&quot;: &quot;#ccc&quot;,  // optional additional color codes</span>
+<span class="cm">      &quot;replace&quot;: &quot;#aaa&quot;</span>
+<span class="cm">    }*/</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><p>Here, a <code class="docutils literal notranslate"><span class="pre">pattern</span></code> (current CI colors of WebGIS) is each replaced by another value <code class="docutils literal notranslate"><span class="pre">replace</span></code>.
+With <code class="docutils literal notranslate"><span class="pre">mode=shrink</span></code> it is specified that the newly created file only includes the necessary properties
+of the changed styles (recommended).</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>append.css</strong> This is a <em>CSS file</em> with which any style classes from the
+original files can be overridden, for example other <code class="docutils literal notranslate"><span class="pre">root:</span></code> variables:</p></li>
+</ul>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="w"> </span><span class="nt">site</span><span class="p">.</span><span class="nc">css</span>
+<span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary</span><span class="p">:</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary-light</span><span class="p">:</span><span class="w"> </span><span class="mh">#eee</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary-light-text-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--webgis-brand-logo</span><span class="p">:</span><span class="w"> </span><span class="nb">url</span><span class="p">(</span><span class="sx">https://my-server.com/webgis-repository/content/companies/foo/img/logo.png</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">default</span><span class="p">.</span><span class="nc">css</span>
+<span class="p">.</span><span class="nc">webgis-container</span><span class="o">,</span><span class="w"> </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary</span><span class="p">:</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">    </span><span class="c">/* ... */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If changes are made to these files, the <code class="docutils literal notranslate"><span class="pre">webgis.deploy</span></code> tool can be applied again to an
+existing <em>WebGIS instance</em>. The updated <em>CSS files</em> are then distributed to the correct
+location.</p>
+<p>A more detailed description of the individual <em>CSS files</em> and their scope, variables, etc. can be found in the <a class="reference internal" href="../config/css-styling/index.html"><span class="doc">Styling and CSS Customization</span></a> documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The original <em>CSS files</em> are never overwritten. Instead, additional <em>CSS files</em> are
+created that are always loaded in the browser at a later point in time than the original.
+The styles are therefore <em>only</em> overridden. It is therefore important to only list, even in <strong>append.css</strong>, those
+properties of the desired classes that should actually be changed!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">default.css</span></code> is responsible for adjusting the styles (colors) of the viewer and portal pages.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Changes to the <code class="docutils literal notranslate"><span class="pre">site.css</span></code> affect the default values for all WebGIS applications. This is mainly
+about adjusting the CI colors for login and admin pages.</p>
+</div>
+</section>
+<section id="automating-updates">
+<h2>Automating Updates<a class="headerlink" href="#automating-updates" title="Link to this heading">¶</a></h2>
+<p>To automate updates, <code class="docutils literal notranslate"><span class="pre">webgis.deploy</span></code> can be called with parameters.
+The parameter <code class="docutils literal notranslate"><span class="pre">--help</span></code> shows which parameters are possible:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.\webgis.deploy.exe --help
+ ******************************************
+ *                                        *
+ *      WebGIS.Deploy Tool 7.25.1001      *
+ *                                        *
+ ******************************************
+ Work-Directory: C:\deploy\webgis
+ usage: webgis.deploy [options]
+
+ Options:
+   -h,       --help            Show this help message and exit
+   -p,       --profile         Choose a profile
+   -d,       --download-latest Download latest version
+   -v,       --version         Choose a version, --version latest ... latest version
+   -cms,     --deploy-cms      Deploy WebGis CMS
+   -portal,  --deploy-portal   Deploy WebGIS Portal
+   -api,     --deploy-api      Deploy WebGIS API
+
+ Examples:
+   webgis.deploy -p production -v latest --download-latest --deploy-cms --deploy-portal --deploy-api
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -154,6 +567,27 @@
           </div>
         </div>
       </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Installation with webgis.deploy</a><ul>
+<li><a class="reference internal" href="#preparation">Preparation</a></li>
+<li><a class="reference internal" href="#deploying-a-new-version">Deploying a New Version</a></li>
+<li><a class="reference internal" href="#changing-the-current-configuration">Changing the Current Configuration</a></li>
+<li><a class="reference internal" href="#styling-the-applications">Styling the Applications</a></li>
+<li><a class="reference internal" href="#automating-updates">Automating Updates</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
     
 
       <div class="clearer"></div>
@@ -169,7 +603,7 @@
 
             <div class="right">
                 
-                    <a href="docker.html"><span>Docker</span><span class="icon">&gt;</span></a>
+                    <a href="docker.html"><span>Installation in Docker</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

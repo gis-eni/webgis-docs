@@ -129,6 +129,19 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">DataLinq.Code Oberfläche</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parameterization.html">Parametrierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="requestsandexamples.html">Aufruf und Beispiele</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html">PDF Reporting in DataLinq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#funktionsumfang">Funktionsumfang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erstellung-von-pdf-templates">Erstellung von PDF-Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#aktivierung-des-pdf-reporting-modes">Aktivierung des PDF Reporting Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erstellung-eines-pdf-templates">Erstellung eines PDF-Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erklaerung-der-pdf-helper-funktionen">Erklaerung der &#64;PDF-Helper-Funktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html">DataLinq Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#ziele-und-vorteile">Ziele und Vorteile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#empfehlung-fuer-den-betrieb">Empfehlung fuer den Betrieb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#beispiel-in-dieser-dokumentation">Beispiel in dieser Dokumentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#erstellung-eines-repositories">Erstellung eines Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#initialisierung-in-datalinq-snapshot">Initialisierung in DataLinq (Snapshot)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#commit-workflow-im-datalinq-code-editor">Commit-Workflow im DataLinq Code Editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tippsandtricks.html">Tipps und Tricks für Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/index.html">Beispiele</a></li>
 </ul>
@@ -175,6 +188,19 @@
 <li><p>Die <strong>Füllung der Dreiecke</strong> zeigt an, ob weitere untergeordnete Elemente existieren.</p></li>
 <li><p>Dies erleichtert insbesondere die Suche nach <strong>Views</strong>.</p></li>
 </ul>
+<section id="ordner">
+<h3>Ordner<a class="headerlink" href="#ordner" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Über einen <strong>Rechtsklick</strong> auf das <strong>Icon</strong> kann der <strong>Ordner-Modus</strong> aktiviert werden.</p></li>
+<li><p>Wenn man sich im Ordner-Modus befindet:</p></li>
+<li><p><strong>Rechtsklick</strong> speichert und beendet den Ordner-Modus.</p></li>
+<li><p><strong>Linksklick</strong> erstellt einen neuen Ordner.</p></li>
+<li><p>Durch <strong>Linksklick</strong> auf einen neuen Ordner kann dieser umbenannt werden.</p></li>
+<li><p><strong>Rechtsklick</strong> auf einen Ordner löscht ihn.</p></li>
+<li><p><strong>Endpoints</strong> können per <strong>Drag and Drop</strong> in Ordner gezogen werden.</p></li>
+<li><p>Die <strong>Ordnerstruktur</strong> wird nur angezeigt, wenn alle <strong>Endpoints</strong> geöffnet werden; andernfalls bleibt die alte Struktur bestehen.</p></li>
+</ul>
+</section>
 </section>
 <hr class="docutils" />
 <section id="erstellen-eines-neuen-endpoints-einer-query-oder-einer-view">
@@ -233,6 +259,17 @@
 Vor dem Speichern wird automatisch überprüft, ob <strong>Fehler in einer View</strong> vorhanden sind. Falls Probleme erkannt werden, erscheinen entsprechende <strong>Fehlermeldungen im unteren Bereich</strong> des Editors.</p>
 </section>
 <hr class="docutils" />
+<section id="secrets-constants">
+<h2>Secrets &amp; Constants<a class="headerlink" href="#secrets-constants" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>In der <strong>Toolbar</strong> öffnet sich über das <strong>Icon</strong> der <strong>Secrets Manager</strong>.</p></li>
+</ul>
+<img alt="Icon zum Öffnen des Secrets Managers" class="align-center" src="_images/secrets_icon.png" />
+<p>– Hier können <strong>Secrets</strong> (werden verschlüsselt abgelegt) und <strong>Konstanten</strong> hinterlegt werden.</p>
+<img alt="Placeholder fuer Secrets und Konstanten" class="align-center" src="_images/secrets_manager.png" />
+<p>– Auf diese Werte kann anschließend im Code über einen <strong>Helper</strong> zugegriffen werden.</p>
+</section>
+<hr class="docutils" />
 <section id="toolbar-rechts-oben">
 <h2>Toolbar (Rechts oben)<a class="headerlink" href="#toolbar-rechts-oben" title="Link to this heading">¶</a></h2>
 <img alt="Toolbar oben rechts" class="align-center" src="_images/oberfl_toolbar2.png" />
@@ -250,6 +287,12 @@ Vor dem Speichern wird automatisch überprüft, ob <strong>Fehler in einer View<
 </ul>
 <img alt="Editor-Ansicht mit Code- und Einstellungsmodus" class="align-center" src="_images/oberfl_content1.png" />
 <p><strong>Weitere Details zur Konfiguration der Einstellungen</strong> finden sich im Kapitel <strong>Parametrierung</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="split-screen">
+<h2>Split Screen<a class="headerlink" href="#split-screen" title="Link to this heading">¶</a></h2>
+<p>Durch Gedrückthalten von <cite>Shift</cite> und Klicken auf mehrere Endpunkte/Abfragen/Ansichten ist es möglich, bis zu 3 Fenster gleichzeitig im Split-Screen zu öffnen.</p>
+<img alt="Placeholder for image" class="align-center" src="_images/split_screen.png" />
 </section>
 </section>
 
@@ -269,14 +312,19 @@ Vor dem Speichern wird automatisch überprüft, ob <strong>Fehler in einer View<
                 <ul>
 <li><a class="reference internal" href="#">DataLinq.Code Oberfläche</a><ul>
 <li><a class="reference internal" href="#startseite">Startseite</a></li>
-<li><a class="reference internal" href="#sidebar">Sidebar</a></li>
+<li><a class="reference internal" href="#sidebar">Sidebar</a><ul>
+<li><a class="reference internal" href="#ordner">Ordner</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#erstellen-eines-neuen-endpoints-einer-query-oder-einer-view">Erstellen eines neuen Endpoints, einer Query oder einer View</a></li>
 <li><a class="reference internal" href="#loschen-eines-endpoints-einer-query-oder-einer-view">Löschen eines Endpoints, einer Query oder einer View</a></li>
 <li><a class="reference internal" href="#bezeichnung-eines-endpoints-einer-query-oder-einer-view-kopieren">Bezeichnung eines Endpoints, einer Query oder einer View kopieren</a></li>
 <li><a class="reference internal" href="#tabs">Tabs</a></li>
 <li><a class="reference internal" href="#toolbar">Toolbar</a></li>
+<li><a class="reference internal" href="#secrets-constants">Secrets &amp; Constants</a></li>
 <li><a class="reference internal" href="#toolbar-rechts-oben">Toolbar (Rechts oben)</a></li>
 <li><a class="reference internal" href="#editor">Editor</a></li>
+<li><a class="reference internal" href="#split-screen">Split Screen</a></li>
 </ul>
 </li>
 </ul>

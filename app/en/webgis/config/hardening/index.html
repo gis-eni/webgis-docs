@@ -5,20 +5,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hardening &#8212; WebGIS 2026 documentation</title>
+    <title>Security measures (hardening) &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
     <script src="../../_static/documentation_options.js?v=fc6fd62b"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/js/eni.js"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Run" href="../../run/index.html" />
-    <link rel="prev" title="Authentication" href="../authentication/index.html" /> 
+    <link rel="next" title="WebGIS Applications" href="../../apps/index.html" />
+    <link rel="prev" title="Header-based Authentication" href="../authentication/header-auth.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -123,19 +123,19 @@
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">appsettings.json</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">CMS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../api/index.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration (post-installation)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../appsettings-json.html">File <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cms/index.html">Configuration of the CMS application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html">Configuration of the API application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">Portal Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../css-styling/index.html">Styling and CSS Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">Authentication</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardening</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Security measures (hardening)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../annex/index.html">Appendix</a></li>
 </ul>
 
@@ -148,9 +148,117 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="hardening">
-<h1>Hardening<a class="headerlink" href="#hardening" title="Link to this heading">¶</a></h1>
-<p>This section will collect security-related configuration and deployment guidance.</p>
+  <section id="security-measures-hardening">
+<h1>Security measures (hardening)<a class="headerlink" href="#security-measures-hardening" title="Link to this heading">¶</a></h1>
+<p>A secure configuration of the <em>WebGIS Portal</em> is essential to prevent <strong>data loss, unauthorized access, and manipulation</strong>. Even if the application is used only <strong>inside an intranet</strong>, additional protection is still required because <strong>the same sensitive data is transmitted and stored as in a publicly accessible installation</strong>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Web security is a complex topic that can have different requirements depending on the organization. This description is therefore only a starting point and represents a recommended minimum configuration. It is recommended to adapt further security measures individually to the specific characteristics of your own IT infrastructure.</p>
+</div>
+<p>This section describes recommended security measures to protect the system as well as possible. Further general information on the security of web applications can be found in the appendix under <a class="reference internal" href="../../annex/index.html"><span class="doc">Security measures for the WebGIS Portal</span></a>.</p>
+<section id="change-default-passwords">
+<h2>Change default passwords<a class="headerlink" href="#change-default-passwords" title="Link to this heading">¶</a></h2>
+<p>During the initial installation, the system contains predefined user accounts with default passwords that are generally known. These passwords should be changed <strong>immediately after installation</strong> to prevent unauthorized access.</p>
+<section id="author-account">
+<h3>Author account<a class="headerlink" href="#author-account" title="Link to this heading">¶</a></h3>
+<p>This account is used for <strong>editing and publishing content</strong>. If the default password is not changed, other people could log in without authorization and manipulate maps or other data.</p>
+</section>
+<section id="admin-account-in-the-api">
+<h3>Admin account in the API<a class="headerlink" href="#admin-account-in-the-api" title="Link to this heading">¶</a></h3>
+<p>The API administrator has <strong>extended permissions</strong> to change important application settings. An attacker with access to this account could control the entire application or even delete data. It is therefore essential to replace the default password.</p>
+<p>To create an <strong>admin user</strong> for the API, follow these steps:</p>
+<ol class="arabic">
+<li><p><strong>Open the registration page</strong></p>
+<p>Open the following URL in the browser: <code class="docutils literal notranslate"><span class="pre">http://hostname:5001/Subscribers/Login</span></code>. The host name and port must be adapted to the respective configuration.</p>
+<img alt="../../_images/create_admin_1.png" src="../../_images/create_admin_1.png" />
+</li>
+<li><p><strong>Start the registration</strong></p>
+<p>Click <strong>“Register as new subscriber”</strong>.</p>
+</li>
+<li><p><strong>Fill in the form</strong></p>
+<p>Enter the required information in the registration form.</p>
+<img alt="../../_images/create_admin_2.png" src="../../_images/create_admin_2.png" />
+<ul class="simple">
+<li><p>The password must be at least <strong>8 characters</strong> long.</p></li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p><strong>Make sure to use a strong password!</strong> The minimum length is a technical requirement, but based on the security notes above, you should choose a password that is as strong as possible.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The user name <strong>must</strong> be <code class="docutils literal notranslate"><span class="pre">admin</span></code> when using the default settings. The <em>WebGIS API</em> internally uses this <strong>fixed name</strong> to assign the user to the <strong>admin role</strong>. Without this name, the user will not receive administrator rights.</p>
+<p>Which user name is assigned the administrator role is defined in the API configuration file <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code></p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+<span class="w">  </span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">    </span>...
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;subscriber-admins&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;admin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span>...
+<span class="w">  </span><span class="nt">&lt;/appSettings&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="disable-self-registration-for-subscribers">
+<h2>Disable self-registration for subscribers<a class="headerlink" href="#disable-self-registration-for-subscribers" title="Link to this heading">¶</a></h2>
+<p>Once all necessary user accounts have been created, <strong>self-registration for subscribers</strong> should be disabled. Otherwise, any user could create an account on their own, which is undesirable in most cases.</p>
+<p>After disabling it, new user accounts can only be created manually via the <strong>admin account</strong>.</p>
+<p>Self-registration is disabled by setting <code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> in the API configuration file (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+<span class="w">   </span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">      </span>...
+<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-register-new-subscribers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span>...
+<span class="w">   </span><span class="nt">&lt;/appSettings&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>Once this setting has been made, <strong>self-registration for subscribers is disabled</strong>.</p>
+</section>
+<section id="disable-login-options-in-publicly-accessible-instances">
+<h2>Disable login options in publicly accessible instances<a class="headerlink" href="#disable-login-options-in-publicly-accessible-instances" title="Link to this heading">¶</a></h2>
+<p>To prevent users from logging in to a <strong>public installation</strong> of WebGIS, the login must be disabled in both the <strong>Portal</strong> and the <strong>API</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This setting is particularly useful when a configuration from an <strong>internal installation</strong> is transferred to a <strong>publicly accessible instance</strong>, as it must be ensured that <strong>no external users can log in</strong>.</p>
+</div>
+<p>The login is disabled by setting <code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> in the configuration files of the API (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>) and the Portal (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>):</p>
+<section id="api-configuration-file-config-api-config">
+<h3>API configuration file (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>)<a class="headerlink" href="#api-configuration-file-config-api-config" title="Link to this heading">¶</a></h3>
+<img alt="../../_images/disable_api_login.png" src="../../_images/disable_api_login.png" />
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+<span class="w">   </span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">      </span>...
+<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-subscriber-login&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span>...
+<span class="w">   </span><span class="nt">&lt;/appSettings&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="portal-configuration-file-config-portal-config">
+<h3>Portal configuration file (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>)<a class="headerlink" href="#portal-configuration-file-config-portal-config" title="Link to this heading">¶</a></h3>
+<img alt="../../_images/disable_portal_login.png" src="../../_images/disable_portal_login.png" />
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+<span class="w">   </span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">      </span>...
+<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-subscriber-login&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span>...
+<span class="w">   </span><span class="nt">&lt;/appSettings&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>Once this setting has been made in both configuration files, <strong>login for users in the public instance is disabled</strong>.</p>
+</section>
+</section>
 </section>
 
 
@@ -159,6 +267,33 @@
         </div>
       </div>
     
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Security measures (hardening)</a><ul>
+<li><a class="reference internal" href="#change-default-passwords">Change default passwords</a><ul>
+<li><a class="reference internal" href="#author-account">Author account</a></li>
+<li><a class="reference internal" href="#admin-account-in-the-api">Admin account in the API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#disable-self-registration-for-subscribers">Disable self-registration for subscribers</a></li>
+<li><a class="reference internal" href="#disable-login-options-in-publicly-accessible-instances">Disable login options in publicly accessible instances</a><ul>
+<li><a class="reference internal" href="#api-configuration-file-config-api-config">API configuration file (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>)</a></li>
+<li><a class="reference internal" href="#portal-configuration-file-config-portal-config">Portal configuration file (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
 
       <div class="clearer"></div>
     </div>
@@ -166,14 +301,14 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../authentication/index.html">
-                    <span class="icon">&lt;</span><span>Authentication</span></a>
+                <a href="../authentication/header-auth.html">
+                    <span class="icon">&lt;</span><span>Header-based Authentication</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../../run/index.html"><span>Run</span><span class="icon">&gt;</span></a>
+                    <a href="../../apps/index.html"><span>WebGIS Applications</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

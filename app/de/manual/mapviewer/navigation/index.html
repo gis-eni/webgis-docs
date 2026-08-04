@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2 Navigation in der Karte &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="3 Darstellung und Karteninhalte" href="../presentation/index.html" />
+    <link rel="prev" title="Benutzeroberfläche" href="../general/ui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><span class="sectnum">2 </span>Navigation in der Karte</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-mit-der-maus"><span class="sectnum">2.1 </span>Navigation mit der Maus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-mit-wischgesten"><span class="sectnum">2.2 </span>Navigation mit Wischgesten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#werkzeuge-zur-navigation"><span class="sectnum">2.3 </span>Werkzeuge zur Navigation:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Benutzerhandbuch Karten Viewer</a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">2 </span>Navigation in der Karte</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/mapviewer/navigation/index.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="navigation-in-der-karte">
+<h1><span class="sectnum">2 </span>Navigation in der Karte<a class="headerlink" href="#navigation-in-der-karte" title="Link to this heading"></a></h1>
+<p>Die Navigation in der Karte kann über die Maus (am Desktop), mit den entsprechenden Wischgesten (mobile Endgeräte)
+oder einer Kombination aus beiden erfolgen.</p>
+<section id="navigation-mit-der-maus">
+<h2><span class="sectnum">2.1 </span>Navigation mit der Maus<a class="headerlink" href="#navigation-mit-der-maus" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Kartenausschnitt verschieben:</strong> Dazu muss mit der linken Maustaste in die Karte geklickt und bei gedrückt</p></li>
+<li><p>gehaltener Maustaste die Karte verschoben werden. Durch das Loslassen der Maustaste wird der Vorgang beendet.</p></li>
+<li><p><strong>Kartenausschnitt vergrößern/verkleinern:</strong> Dies kann mithilfe des Mausrades erfolgen.  Das nach Vorne drehen</p></li>
+<li><p>des Mausrads verkleinert den Ausschnitt und umgekehrt.</p></li>
+</ul>
+</section>
+<section id="navigation-mit-wischgesten">
+<h2><span class="sectnum">2.2 </span>Navigation mit Wischgesten<a class="headerlink" href="#navigation-mit-wischgesten" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Kartenausschnitt verschieben:</strong> Mit einem Finger die Karte berühren und Ausschnitt verschieben.</p></li>
+<li><p><strong>Kartenausschnitt vergrößern/verkleinern:</strong> Mit zwei Fingern die Karte berühren und die Finger auseinander ziehen,</p></li>
+<li><p>bewirkt eine Verkleinerung des Ausschnittes. Die umgekehrte Geste bewirkt eine Vergrößerung des Ausschnittes.</p></li>
+</ul>
+</section>
+<section id="werkzeuge-zur-navigation">
+<h2><span class="sectnum">2.3 </span>Werkzeuge zur Navigation:<a class="headerlink" href="#werkzeuge-zur-navigation" title="Link to this heading"></a></h2>
+<p>In einer Karte stehen je nach Möglichkeiten diverse Navigationswerkzeuge im Werkzeugkasten oder bei den
+Schnellzugriffs-Werkzeugen zur Verfügung.</p>
+<p>Die Schnellzugriffs-Werkzeuge befinden sich in der Regel links oben direkt in der Karte (um das Kartenbild
+nicht zu stören, können diese leicht transparent dargestellt werden):</p>
+<img alt="../../_images/nav-tools1.png" src="../../_images/nav-tools1.png" />
+<p>Bei den Schnellzugriffs-Werkzeugen befinden sich in der Regel eine kleine Auswahl der Werkzeuge, die auch im
+Navigations-Werkzeugkasten zu finden sind. Der Vorteil ist hier, dass diese Werkzeuge
+immer sichtbar sind. Die Werkzeuge des Werkzeugkastens sind teilweise versteckt. Beispielsweise ist
+der Werkzeugkasten auf mobilen Geräten mit kleinerem Bildschirm beim Start zugeklappt.
+Die Schnellzugriffs-Werkzeuge bieten noch zusätzlich eine einfache Möglichkeit mit den +/- Buttons
+den Kartenausschnitt zu verkleinern bzw. zu vergrößern.</p>
+<p>Der Werkzeugkasten hat den Vorteil, dass hier mit dem Werkzeugsymbol auch eine Bezeichnung des Werkzeugs angezeigt wird.</p>
+<p>Folgende Werkzeuge stehen unter <em>Navigation</em> zur Verfügung (abhängig von den Einstellungen des Kartenautors):</p>
+<ul class="simple">
+<li><p><strong>Gesamter Kartenausschnitt:</strong> Mit diesem Werkzeug wird der Kartenausschnitt maximal vergrößert.</p></li>
+<li><p><strong>Zurück:</strong> Hiermit kann nach einem Verschieben oder Zoomen wieder zum letzten Kartenausschnitt zurückgekehrt werden.</p></li>
+<li><p><strong>Aktuelle Position:</strong> Es wird versucht, den Kartenausschnitt auf die aktuelle Position des Anwenders einzustellen.
+Dies ist abhängig von der Positionsgenauigkeit, die durch ein Endgerät bereitgestellt wird (GPS, …).</p></li>
+<li><p><strong>Position verfolgen:</strong> Auf mobilen Endgeräten ermöglicht dieses Werkzeug, dass der Kartenausschnitt
+mit der aktuellen Position des Anwenders mitwandert. Auf der aktuellen Position wird ein Pfeilsymbol mit der
+Bewegungsrichtung dargestellt. Im Werkzeugdialog wird die aktuelle Geschwindigkeit angezeigt.</p></li>
+<li><p><strong>Zoom In:</strong> Dieses Werkzeug ermöglicht es dem Anwender, den aktuellen Kartenausschnitt durch das Aufziehen eines
+„Fensters“ festzulegen. Wählt man dieses Werkzeug aus, kann im nächsten Schritt in die Karte geklickt und bei
+gedrückter Maustaste ein Fenster aufgezogen werden. Beim Loslassen der Maustaste versucht der Kartenviewer
+den aktuellen Kartenausschnitt bestmöglich an dieses Fenster anzupassen.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><strong>Profitipp:</strong> Auf Desktop Geräten mit Tastatur ist das Aufziehen eines Fensters auch immer ohne
+dieses Werkzeug möglich. Dazu muss mit gedrückter <code class="docutils literal notranslate"><span class="pre">Shift</span></code> Taste in der oben beschriebenen
+Art ein Fenster aufgezogen werden.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das Aufziehen eines Fensters mit der <code class="docutils literal notranslate"><span class="pre">Shift</span></code> Taste sollte nicht mit dem Aufziehen eines Fensters mit der <code class="docutils literal notranslate"><span class="pre">Strg/Ctrl</span></code>
+Taste verwechselt werden. Dabei wird nicht der Kartenausschnitt geändert, sondern die
+Kartenobjekte (Grundstücke, Adressen, …) im Fenster abgefragt (siehe Abschnitt <em>Suchen und Abfragen</em>)</p>
+</div>
+<ul class="simple">
+<li><p><strong>Aktueller Sketch:</strong> Bei diversen Werkzeugen, die später noch behandelt werden (Messen, Objekte erstellen/bearbeiten),
+kann ein sogenannter <em>Sketch</em> gezeichnet werden. Dabei handelt es sich um eine Art Umrisszeichnung eines Objektes.
+Befindet sich in der Karte ein solcher <em>Sketch</em>, wird der Kartenausschnitt mit diesem Werkzeug so eingestellt,
+dass der gesamte Sketch sichtbar dargestellt wird.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../general/ui.html" class="btn btn-neutral float-left" title="Benutzeroberfläche" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="../presentation/index.html" class="btn btn-neutral float-right" title="3 Darstellung und Karteninhalte" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

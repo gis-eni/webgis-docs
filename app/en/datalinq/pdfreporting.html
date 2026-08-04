@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PDF Reporting in DataLinq &#8212; DataLinq 2025 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
+    <script src="_static/documentation_options.js?v=cb975c41"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DataLinq Version Control" href="versioncontrol.html" />
+    <link rel="prev" title="Calling DataLinq and Examples" href="requestsandexamples.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">DataLinq 2025 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="provision.html">Provisioning DataLinq and DataLinq.Code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="operation.html">Using DataLinq and DataLinq.Code</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technicalimplementation.html">Technical Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.html">DataLinq.Code Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameterization.html">Parameterization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requestsandexamples.html">Calling DataLinq and Examples</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PDF Reporting in DataLinq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html">DataLinq Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tippsandtricks.html">Tips and Tricks for Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/index.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="pdf-reporting-in-datalinq">
+<h1>PDF Reporting in DataLinq<a class="headerlink" href="#pdf-reporting-in-datalinq" title="Link to this heading">¶</a></h1>
+<p>With <strong>PDF Reporting</strong> in <strong>DataLinq</strong>, reusable <strong>report templates</strong> can be created that are called with parameters and rendered as a PDF.
+Typical use cases include, among others:</p>
+<ul class="simple">
+<li><p>Invoices</p></li>
+<li><p>Letters</p></li>
+<li><p>Info sheets</p></li>
+<li><p>project-specific evaluations</p></li>
+</ul>
+<section id="feature-overview">
+<h2>Feature Overview<a class="headerlink" href="#feature-overview" title="Link to this heading">¶</a></h2>
+<p>PDF templates can be filled with parameters when called. This allows content to be generated dynamically per record, user context, or process step.</p>
+<p>Optionally, reports can also be supplemented via user input, for example via input fields for:</p>
+<ul class="simple">
+<li><p>Name</p></li>
+<li><p>Date</p></li>
+<li><p>other domain-specific parameters</p></li>
+</ul>
+<p>The generated PDF documents are available for download directly in the browser.
+The download can either:</p>
+<ul class="simple">
+<li><p>be triggered from the view of the PDF template itself, or</p></li>
+<li><p>be triggered from another view via a helper.</p></li>
+</ul>
+</section>
+<section id="creating-pdf-templates">
+<h2>Creating PDF Templates<a class="headerlink" href="#creating-pdf-templates" title="Link to this heading">¶</a></h2>
+<p>PDF templates are created, like other DataLinq views, in the <strong>DataLinq Code Editor</strong>.
+The following technologies can be combined:</p>
+<ul class="simple">
+<li><p>HTML</p></li>
+<li><p>CSS</p></li>
+<li><p>JavaScript</p></li>
+<li><p>Razor</p></li>
+<li><p>special <strong>&#64;PDF helpers</strong> for PDF reporting</p></li>
+</ul>
+<p>This allows layout, data binding, and output format to be flexibly controlled, from simple standard documents to complex, dynamic reports.</p>
+</section>
+<section id="enabling-pdf-reporting-mode">
+<h2>Enabling PDF Reporting Mode<a class="headerlink" href="#enabling-pdf-reporting-mode" title="Link to this heading">¶</a></h2>
+<p>To create a PDF template, a new view is first created.
+Then, in the view’s settings under <strong>PDF Reporting mode</strong>, the desired mode can be enabled.</p>
+<img alt="Settings for PDF Reporting mode" class="align-center" src="_images/pdf_reporting_settings.png" />
+<p>Three checkboxes are available in the <strong>PDF Reporting mode</strong> section:</p>
+<ol class="arabic">
+<li><p><strong>View report mode</strong></p>
+<blockquote>
+<div><p>Enables PDF report mode for the current view. The view is then treated as a PDF report.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Browser Compatibility Notice</strong></p>
+<blockquote>
+<div><p>Shows users a notice when the view is called, stating that a current browser should be used for optimal rendering.
+The user must confirm the notice.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Report editing mode</strong></p>
+<blockquote>
+<div><p>Enables editing mode for reports. This allows administrators to position elements via drag and drop, in addition to the DataLinq markup code.
+Detailed information on this follows in a further chapter.</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="creating-a-pdf-template">
+<h2>Creating a PDF Template<a class="headerlink" href="#creating-a-pdf-template" title="Link to this heading">¶</a></h2>
+<p>To create a report with one or more pages, the prebuilt <strong>&#64;PDF helpers</strong> are used.</p>
+<p>Additional support for using the helpers can be found in:</p>
+<ul class="simple">
+<li><p>the DataLinq help</p></li>
+<li><p>the DataLinq sandbox</p></li>
+</ul>
+<p>A simple report with exactly one page and no further additional functions can be created as follows:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@PDF.BeginReport()
+
+    @PDF.NewPage()
+
+        &lt;h1&gt;Simple Report&lt;/h1&gt;
+
+    @PDF.EndPage()
+
+@PDF.EndReport()
+</pre></div>
+</div>
+<p>In this example, a report is first started, and then a page with a heading is inserted.</p>
+<img alt="Simple PDF report with one page" class="align-center" src="_images/simple_report.png" />
+</section>
+<section id="explanation-of-the-pdf-helper-functions">
+<h2>Explanation of the &#64;PDF Helper Functions<a class="headerlink" href="#explanation-of-the-pdf-helper-functions" title="Link to this heading">¶</a></h2>
+<section id="pdf-beginreport">
+<h3>&#64;PDF.BeginReport()<a class="headerlink" href="#pdf-beginreport" title="Link to this heading">¶</a></h3>
+<p>The helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.BeginReport()</span></code> marks the beginning of a report.</p>
+<p>The following parameters are available:</p>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">pageNumberOptions</span></code>:</dt><dd><p>Settings for automatic page numbering.
+This can be used to specify:</p>
+<ul class="simple">
+<li><p>whether page numbers are used,</p></li>
+<li><p>the position (left, center, right),</p></li>
+<li><p>the display style (e.g. <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">1/X</span></code>),</p></li>
+<li><p>how many pages should be skipped at the start (e.g. for a cover page).</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">pageNumberOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;UsePageNumbers&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;Position&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;SkipPages&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">quality</span></code>:</dt><dd><p>Specifies the output quality for the download.
+Possible values are: <code class="docutils literal notranslate"><span class="pre">PdfQuality.Preview</span></code>, <code class="docutils literal notranslate"><span class="pre">PdfQuality.Low</span></code>, <code class="docutils literal notranslate"><span class="pre">PdfQuality.Medium</span></code>, <code class="docutils literal notranslate"><span class="pre">PdfQuality.High</span></code>, <code class="docutils literal notranslate"><span class="pre">PdfQuality.Best</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">download_button</span></code>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> value that controls whether a download button is shown directly to the user in the template view.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fileName</span></code>:</dt><dd><p>File name of the downloaded PDF file.
+The default value is <code class="docutils literal notranslate"><span class="pre">dataLinqPdfReport.pdf</span></code>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Complete example:</p>
+<blockquote>
+<div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">@DLH</span><span class="p">.</span><span class="n">BeginPdfReport</span><span class="p">(</span><span class="n">pageNumberOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">(){</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;UsePageNumbers&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;Position&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;SkipPages&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">}},</span>
+<span class="w">            </span><span class="n">download_button</span><span class="p">:</span><span class="k">true</span><span class="p">,</span>
+<span class="w">            </span><span class="n">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">$&quot;Example_{@Guid.NewGuid().ToString()}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">quality</span><span class="p">:</span><span class="w"> </span><span class="n">PdfQuality</span><span class="p">.</span><span class="n">Medium</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="pdf-newpage">
+<h3>&#64;PDF.NewPage()<a class="headerlink" href="#pdf-newpage" title="Link to this heading">¶</a></h3>
+<p>The helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.NewPage()</span></code> is used to start a new page.</p>
+<p>The following parameters are available:</p>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">pageTemplateOptions</span></code>:</dt><dd><p>Can be used if a page should access an existing template in addition to its own content.
+A typical use case is a central corporate-design template with a header and footer that is reused on all pages.
+This means the shared frame does not need to be redefined on every page.</p>
+<p>Example:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">pageTemplateOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;UsePageTemplate&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;TemplateId&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;datalinq-guide@pdf@pdf-template&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UsePageTemplate</span></code> (bool): enables the use of a template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TemplateId</span></code>: DataLinq ID of the template view to use.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For templates (e.g. headers and footers), the contained elements should always be <strong>positioned absolutely</strong>.
+Otherwise, the template elements can shift as soon as additional content is inserted into the page.</p>
+<p>Example:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position: absolute; top:150px; left:150px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="Example of using a PDF page template" class="align-center" src="_images/template_example.png" />
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">landscape</span></code>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">true</span></code> rotates the page to landscape orientation.
+The default is <code class="docutils literal notranslate"><span class="pre">false</span></code> (portrait).</p>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="Example of landscape orientation" class="align-center" src="_images/landscape_example.png" />
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">paperSize</span></code>:</dt><dd><p>Sets the page size via the <code class="docutils literal notranslate"><span class="pre">PaperSize</span></code> enum.
+The default is <code class="docutils literal notranslate"><span class="pre">A4</span></code>.
+<code class="docutils literal notranslate"><span class="pre">A1</span></code> through <code class="docutils literal notranslate"><span class="pre">A6</span></code> are possible.
+The paper sizes can be combined with <code class="docutils literal notranslate"><span class="pre">landscape</span></code> and used mixed within a report.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="Example of different paper sizes" class="align-center" src="_images/papersize_example.png" />
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">dynamicTableOptions</span></code>:</dt><dd><p>Used to automatically split content from tables and flat hierarchies across multiple pages
+when the space on the current page is not sufficient due to dynamic table content.</p>
+<p>Example:</p>
+<div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">dynamicTableOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;Dynamic&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;DynamicUseTemplate&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;DefaultMarginTop&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">220</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;DefaultMarginBottom&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">110</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">&quot;RepeatHeader&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> (bool): enables dynamic page splitting.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DynamicUseTemplate</span></code> (bool): specifies whether a template is also used for dynamically generated pages.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DefaultMarginTop</span></code> (int): default top margin for newly generated pages, e.g. for header areas from the template.</dt><dd><p>This value only applies to additionally generated pages.
+If a minimum top margin is needed on the first page, this can be implemented with
+<code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">style=&quot;height:XYZ</span> <span class="pre">px&quot;&gt;&lt;/div&gt;</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DefaultMarginBottom</span></code> (int): minimum bottom margin, e.g. for footer areas; also applies to the first page.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RepeatHeader</span></code> (bool, default <code class="docutils literal notranslate"><span class="pre">true</span></code>): if set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the table header row is not repeated on subsequent pages for split tables.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="Example of automatic splitting across multiple pages" class="align-center" src="_images/dynamic_example.png" />
+</section>
+<section id="notes-on-auto-splitting">
+<h3>Notes on Auto-Splitting<a class="headerlink" href="#notes-on-auto-splitting" title="Link to this heading">¶</a></h3>
+<p>With auto-splitting, table content is automatically distributed across subsequent pages when the space on a page is not sufficient.</p>
+<p>Important for the structure:</p>
+<ul class="simple">
+<li><p>Tables that should be automatically split must not be nested inside other containers (for example, inside a <code class="docutils literal notranslate"><span class="pre">div</span></code>).</p></li>
+<li><p>This rule also applies to tables that are included via <code class="docutils literal notranslate"><span class="pre">&#64;DLH.IncludeView</span></code>.</p></li>
+<li><p>When splitting, only the rows of a table are split.</p></li>
+</ul>
+<p>All other HTML elements are treated as a flat hierarchy and are not broken down into sub-sections.
+This means: elements such as <code class="docutils literal notranslate"><span class="pre">div</span></code>, <code class="docutils literal notranslate"><span class="pre">h1</span></code>, or <code class="docutils literal notranslate"><span class="pre">p</span></code> are always treated as a whole.
+If such an element no longer fits completely on the current page, it is positioned as a whole block on the next page.</p>
+</section>
+<section id="pdf-endpage">
+<h3>&#64;PDF.EndPage()<a class="headerlink" href="#pdf-endpage" title="Link to this heading">¶</a></h3>
+<p>The helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.EndPage()</span></code> marks the end of a PDF report page.
+Everything defined between <code class="docutils literal notranslate"><span class="pre">&#64;PDF.NewPage()</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;PDF.EndPage()</span></code> is rendered on this page.</p>
+<p>The helper has no further parameters.</p>
+</section>
+<section id="pdf-endreport">
+<h3>&#64;PDF.EndReport()<a class="headerlink" href="#pdf-endreport" title="Link to this heading">¶</a></h3>
+<p>The helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.EndReport()</span></code> marks the end of the PDF report.</p>
+<p>The helper has no further parameters.</p>
+</section>
+<section id="pdf-newdraggable-pdf-enddraggable">
+<h3>&#64;PDF.NewDraggable() / &#64;PDF.EndDraggable()<a class="headerlink" href="#pdf-newdraggable-pdf-enddraggable" title="Link to this heading">¶</a></h3>
+<p>The two helpers must always be used together:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;PDF.NewDraggable(...)</span></code> opens the draggable area.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;PDF.EndDraggable()</span></code> closes the draggable area.</p></li>
+</ul>
+<p>The content between these two helpers is treated as a single connected element and can be moved via drag and drop,
+if <strong>PDF Editing Mode</strong> is enabled in the view settings.</p>
+<p>Parameters of <code class="docutils literal notranslate"><span class="pre">&#64;PDF.NewDraggable(...)</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: X position of the element.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: Y position of the element.</p></li>
+</ul>
+<p>Notes on usage:</p>
+<ul class="simple">
+<li><p>Right-clicking the draggable element copies the current <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values to the clipboard.</p></li>
+<li><dl class="simple">
+<dt>Use is only recommended on <strong>fixed pages</strong>, i.e. without auto-splitting.</dt><dd><p>On dynamically split pages, the positioning may otherwise behave unpredictably.</p>
+</dd>
+</dl>
+</li>
+<li><p>On a PDF page, <code class="docutils literal notranslate"><span class="pre">Ctrl+M</span></code> can be used to show/hide a grid with center lines.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> is held down while moving an element, it can snap to the center lines.</p></li>
+<li><p>If the center lines are disabled (<code class="docutils literal notranslate"><span class="pre">Ctrl+M</span></code>), elements can instead snap to other elements (snapping).</p></li>
+</ul>
+</section>
+<section id="pdf-printpdfbutton">
+<h3>&#64;PDF.PrintPdfButton(…)<a class="headerlink" href="#pdf-printpdfbutton" title="Link to this heading">¶</a></h3>
+<p>The helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.PrintPdfButton(string</span> <span class="pre">id,</span> <span class="pre">string</span> <span class="pre">buttonText</span> <span class="pre">=</span> <span class="pre">&quot;Print&quot;,</span> <span class="pre">Dictionary&lt;string,</span> <span class="pre">string&gt;</span> <span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">null)</span></code>
+can be used to download a report with parameters from another view.</p>
+<p>This creates a button that starts the download directly,
+without having to show the user the actual template.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: unique ID of the button.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buttonText</span></code>: label of the button (default: <code class="docutils literal notranslate"><span class="pre">Print</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: optional parameters as a <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;string,</span> <span class="pre">string&gt;</span></code>, passed along when the report is called.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">PDF Reporting in DataLinq</a><ul>
+<li><a class="reference internal" href="#feature-overview">Feature Overview</a></li>
+<li><a class="reference internal" href="#creating-pdf-templates">Creating PDF Templates</a></li>
+<li><a class="reference internal" href="#enabling-pdf-reporting-mode">Enabling PDF Reporting Mode</a></li>
+<li><a class="reference internal" href="#creating-a-pdf-template">Creating a PDF Template</a></li>
+<li><a class="reference internal" href="#explanation-of-the-pdf-helper-functions">Explanation of the &#64;PDF Helper Functions</a><ul>
+<li><a class="reference internal" href="#pdf-beginreport">&#64;PDF.BeginReport()</a></li>
+<li><a class="reference internal" href="#pdf-newpage">&#64;PDF.NewPage()</a></li>
+<li><a class="reference internal" href="#notes-on-auto-splitting">Notes on Auto-Splitting</a></li>
+<li><a class="reference internal" href="#pdf-endpage">&#64;PDF.EndPage()</a></li>
+<li><a class="reference internal" href="#pdf-endreport">&#64;PDF.EndReport()</a></li>
+<li><a class="reference internal" href="#pdf-newdraggable-pdf-enddraggable">&#64;PDF.NewDraggable() / &#64;PDF.EndDraggable()</a></li>
+<li><a class="reference internal" href="#pdf-printpdfbutton">&#64;PDF.PrintPdfButton(…)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="requestsandexamples.html">
+                    <span class="icon">&lt;</span><span>Calling DataLinq and Examples</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="versioncontrol.html"><span>DataLinq Version Control</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
