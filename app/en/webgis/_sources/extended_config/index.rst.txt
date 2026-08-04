@@ -1,0 +1,4 @@
+Extended Configuration
+======================
+
+This section will cover advanced and extended configuration topics.

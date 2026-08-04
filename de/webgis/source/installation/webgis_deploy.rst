@@ -371,6 +371,9 @@ der beiden *CSS Dateien* weiter Unterordner und Dateien:
         |   └── modify.json
         |   └── append.css
         └── portal.css
+        |   └── modify.json
+        |   └── append.css
+        └── site.css
             └── modify.json
             └── append.css
 
@@ -383,13 +386,13 @@ der beiden *CSS Dateien* weiter Unterordner und Dateien:
       "mode": "shrink",
       "modifiers": [
         {
-          "pattern": "#b5dbad",  // CI Color 
+          "pattern": "#82C828",  // --webgis-brand-primary (CI Color)
           "replace": "#ccc"
-        },
-        {
-          "pattern": "#82C828",  // CI Color (Button Borders, etc) 
-          "replace": "#aaa"
         }
+        /*,{
+          "pattern": "#ccc",  // optional weitere Farb-Codes
+          "replace": "#aaa"
+        }*/
       ]
     }
 
@@ -398,11 +401,29 @@ der beiden *CSS Dateien* weiter Unterordner und Dateien:
  der geänderten Styles übernimmt (empfohlen).
 
 * **append.css** Hierbei handelt es sich um eine *CSS Datei*, mit der beliebige Styles Klassen aus den 
-  Original Dateien überschrieben werden, Beispielsweise eine andere Schriftart. 
+  Original Dateien überschrieben werden, Beispielsweise eine andere ``root:`` Variablen:
+
+.. code-block:: css
+
+    // site.css
+    :root {
+        --webgis-brand-primary: #ccc;
+        --webgis-brand-primary-light: #eee;
+        --webgis-brand-primary-light-text-color: #333;
+        --webgis-brand-logo: url(https://my-server.com/webgis-repository/content/companies/foo/img/logo.png);
+    } 
+
+    // default.css
+    .webgis-container, body {
+        --webgis-brand-primary: #ccc;
+        /* ... */
+    }
 
 Werden an diesen Dateien Änderungen vorgenommen, kann das ``webgis.deploy`` Tool wieder auf eine 
 bestehende *WebGIS Instanz* angewendet werden. Die aktualisierten *CSS Dateien* werden so an die richtige
 Stelle verteilt.
+
+Eine genauere Beschreibung der einzelnen *CSS Dateien* und deren Geltungsbereich, Variablen, etc. ist in der :doc:`../config/css-styling/index` Dokumentation zu finden.
 
 .. note::
 
@@ -410,6 +431,15 @@ Stelle verteilt.
   angelegt in im Browser immer zu einem späteren Zeitpunkt als das Original geladen werden.
   Die Styles werden damit *nur* überschrieben. Daher ist es wichtig auch in der **append.css** nur jene 
   Eigenschaften von den gewünschten Klassen anzuführen, die auch wirklich geändert werden sollten! 
+
+.. note::
+
+  Für die Anpassung der Styles (Farben) von Viewer und Portalseiten ist die ``default.css`` verantwortlich.
+
+.. note::
+
+  Anpassungen und der ``site.css`` betreffen die Standardwerte für alle WebGIS Anwendungen. Hier geht es hauptsächlich
+  um die Anpassung der CI Farben für Login und Admin Seiten.
 
 
 Update automatisieren

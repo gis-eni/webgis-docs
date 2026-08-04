@@ -1,0 +1,4 @@
+API
+===
+
+This section will cover WebGIS API configuration and the service behavior controlled by CMS data.

@@ -7,6 +7,12 @@ Die Datei ``portal.css`` ist ausschließlich für das *WebGIS Portal* relevant u
 :doc:`default-css`. Sie wird hauptsächlich verwendet, um ein **Unternehmenslogo in der
 Navigationsleiste** einzubinden.
 
+.. note::
+
+    Die für alle WebGIS-Anwendung Navbar und Logos über die ``site.css`` angepasst werden können,
+    siehe :doc:`site-css`, ist die Verwendung der ``portal.css`` mittlerweile obsolet und 
+    nur noch aus gründen der Abwärtskompatibilität vorhanden. 
+
 Ablageort
 ---------
 

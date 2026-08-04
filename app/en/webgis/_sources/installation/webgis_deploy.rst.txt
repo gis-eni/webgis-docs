@@ -1,0 +1,6 @@
+WebGIS Deploy
+=============
+
+This section will describe how the WebGIS deployment tool distributes generated configuration and style files.
+
+It is the English counterpart of the German deployment guide and will be filled with the same technical steps.

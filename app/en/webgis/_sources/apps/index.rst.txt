@@ -1,0 +1,4 @@
+Applications
+============
+
+This section will summarize the WebGIS applications and their responsibilities.

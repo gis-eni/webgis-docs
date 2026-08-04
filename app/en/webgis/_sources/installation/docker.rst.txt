@@ -1,0 +1,6 @@
+Docker
+======
+
+This page will document the Docker-based installation and runtime setup for WebGIS.
+
+It is intentionally short for now and will be expanded together with the full English translation.

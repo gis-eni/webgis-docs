@@ -1,0 +1,4 @@
+appsettings.json
+=================
+
+This page will explain the application settings file and its role in the WebGIS configuration.

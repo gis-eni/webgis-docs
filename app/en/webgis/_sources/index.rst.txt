@@ -1,0 +1,19 @@
+Welcome to WebGIS
+==================
+
+WebGIS is a flexible open-source framework for building and publishing interactive map and feature services.
+This English documentation starts as a structural mirror of the German WebGIS docs and will be expanded step by step.
+
+Documentation structure
+-----------------------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   installation/index
+   config/index
+   run/index
+   apps/index
+   extended_config/index
+   annex/index

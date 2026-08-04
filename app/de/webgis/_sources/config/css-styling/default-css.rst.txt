@@ -57,7 +57,7 @@ eigenen Unternehmensfarben erscheinen zu lassen. Alle anderen Farben leiten sich
 
     .webgis-container, body {
         /* Primärfarbe – der wichtigste Anpassungswert */
-        --webgis-brand-primary: #59c134;
+        --webgis-brand-primary: #82C828;
 
         /* Optional: helle Variante (wird sonst automatisch berechnet) */
         /* --webgis-brand-primary-light: #d9f0d0; */
@@ -95,7 +95,7 @@ Brand
      - Standardwert
      - Beschreibung
    * - ``--webgis-brand-primary``
-     - ``#59c134``
+     - ``#82C828``
      - Primärfarbe der Anwendung (Hauptakzentfarbe).
    * - ``--webgis-brand-primary-light``
      - *(berechnet)*

@@ -462,6 +462,9 @@ der beiden <em>CSS Dateien</em> weiter Unterordner und Dateien:</p>
     |   └── modify.json
     |   └── append.css
     └── portal.css
+    |   └── modify.json
+    |   └── append.css
+    └── site.css
         └── modify.json
         └── append.css
 </pre></div>
@@ -473,13 +476,13 @@ Solche Ersetzungen eigenen sich besonders gut für ändern der CI (Corporate Ide
 <span class="w">  </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shrink&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;modifiers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#b5dbad&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// CI Color</span>
+<span class="w">      </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#82C828&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// --webgis-brand-primary (CI Color)</span>
 <span class="w">      </span><span class="nt">&quot;replace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#ccc&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;pattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#82C828&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// CI Color (Button Borders, etc)</span>
-<span class="w">      </span><span class="nt">&quot;replace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#aaa&quot;</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="cm">/*,{</span>
+<span class="cm">      &quot;pattern&quot;: &quot;#ccc&quot;,  // optional weitere Farb-Codes</span>
+<span class="cm">      &quot;replace&quot;: &quot;#aaa&quot;</span>
+<span class="cm">    }*/</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -493,17 +496,42 @@ der geänderten Styles übernimmt (empfohlen).</p>
 </div></blockquote>
 <ul class="simple">
 <li><p><strong>append.css</strong> Hierbei handelt es sich um eine <em>CSS Datei</em>, mit der beliebige Styles Klassen aus den
-Original Dateien überschrieben werden, Beispielsweise eine andere Schriftart.</p></li>
+Original Dateien überschrieben werden, Beispielsweise eine andere <code class="docutils literal notranslate"><span class="pre">root:</span></code> Variablen:</p></li>
 </ul>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="w"> </span><span class="nt">site</span><span class="p">.</span><span class="nc">css</span>
+<span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary</span><span class="p">:</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary-light</span><span class="p">:</span><span class="w"> </span><span class="mh">#eee</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary-light-text-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#333</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--webgis-brand-logo</span><span class="p">:</span><span class="w"> </span><span class="nb">url</span><span class="p">(</span><span class="sx">https://my-server.com/webgis-repository/content/companies/foo/img/logo.png</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="w"> </span><span class="nt">default</span><span class="p">.</span><span class="nc">css</span>
+<span class="p">.</span><span class="nc">webgis-container</span><span class="o">,</span><span class="w"> </span><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">--webgis-brand-primary</span><span class="p">:</span><span class="w"> </span><span class="mh">#ccc</span><span class="p">;</span>
+<span class="w">    </span><span class="c">/* ... */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Werden an diesen Dateien Änderungen vorgenommen, kann das <code class="docutils literal notranslate"><span class="pre">webgis.deploy</span></code> Tool wieder auf eine
 bestehende <em>WebGIS Instanz</em> angewendet werden. Die aktualisierten <em>CSS Dateien</em> werden so an die richtige
 Stelle verteilt.</p>
+<p>Eine genauere Beschreibung der einzelnen <em>CSS Dateien</em> und deren Geltungsbereich, Variablen, etc. ist in der <a class="reference internal" href="../config/css-styling/index.html"><span class="doc">Styling und CSS-Anpassungen</span></a> Dokumentation zu finden.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Die originalen <em>CSS Dateien</em> werden nie überschrieben. Stattdessen werden zusätzlich <em>CSS Dateien</em>
 angelegt in im Browser immer zu einem späteren Zeitpunkt als das Original geladen werden.
 Die Styles werden damit <em>nur</em> überschrieben. Daher ist es wichtig auch in der <strong>append.css</strong> nur jene
 Eigenschaften von den gewünschten Klassen anzuführen, die auch wirklich geändert werden sollten!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Für die Anpassung der Styles (Farben) von Viewer und Portalseiten ist die <code class="docutils literal notranslate"><span class="pre">default.css</span></code> verantwortlich.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Anpassungen und der <code class="docutils literal notranslate"><span class="pre">site.css</span></code> betreffen die Standardwerte für alle WebGIS Anwendungen. Hier geht es hauptsächlich
+um die Anpassung der CI Farben für Login und Admin Seiten.</p>
 </div>
 </section>
 <section id="update-automatisieren">

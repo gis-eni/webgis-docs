@@ -1,0 +1,4 @@
+Styling and CSS Customization
+=============================
+
+This section will document how the look and feel of WebGIS Portal, WebGIS API, and WebGIS CMS can be customized.

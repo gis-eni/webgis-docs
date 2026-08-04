@@ -1,0 +1,4 @@
+Hardening
+=========
+
+This section will collect security-related configuration and deployment guidance.

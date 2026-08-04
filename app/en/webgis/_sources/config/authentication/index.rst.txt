@@ -1,0 +1,4 @@
+Authentication
+==============
+
+This section will explain the available authentication options for WebGIS.

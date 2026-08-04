@@ -1,0 +1,4 @@
+Run
+===
+
+This section will describe how to run WebGIS locally and in deployed environments.

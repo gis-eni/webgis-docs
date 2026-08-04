@@ -1,0 +1,16 @@
+Configuration
+=============
+
+WebGIS applications can be adapted to local needs through configuration.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   appsettings-json
+   cms/index
+   api/index
+   portal/index
+   css-styling/index
+   authentication/index
+   hardening/index

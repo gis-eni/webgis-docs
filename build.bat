@@ -9,6 +9,14 @@ call .\make.bat html
 robocopy /MIR .\build\html .\..\..\app\de\webgis
 
 @echo on
+cd .\..\..\en\webgis
+call .\make.bat html
+robocopy /MIR .\build\html .\..\..\app\en\webgis
+
+@echo on
+cd .\..\..\de\webgis
+
+@echo on
 cd ".\..\webgis-cloud"
 call .\make.bat html
 robocopy /MIR .\build\html .\..\..\app\cloud
