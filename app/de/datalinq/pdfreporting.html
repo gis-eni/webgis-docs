@@ -130,18 +130,7 @@
 <li class="toctree-l2"><a class="reference internal" href="parameterization.html">Parametrierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="requestsandexamples.html">Aufruf und Beispiele</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PDF Reporting in DataLinq</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#funktionsumfang">Funktionsumfang</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#erstellung-von-pdf-templates">Erstellung von PDF-Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#aktivierung-des-pdf-reporting-modes">Aktivierung des PDF Reporting Modes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#erstellung-eines-pdf-templates">Erstellung eines PDF-Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#erklaerung-der-pdf-helper-funktionen">Erklaerung der &#64;PDF-Helper-Funktionen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="versioncontrol.html">DataLinq Version Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#ziele-und-vorteile">Ziele und Vorteile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#empfehlung-fuer-den-betrieb">Empfehlung fuer den Betrieb</a></li>
-<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#beispiel-in-dieser-dokumentation">Beispiel in dieser Dokumentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#erstellung-eines-repositories">Erstellung eines Repositories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#initialisierung-in-datalinq-snapshot">Initialisierung in DataLinq (Snapshot)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html#commit-workflow-im-datalinq-code-editor">Commit-Workflow im DataLinq Code Editor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tippsandtricks.html">Tipps und Tricks für Views</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples/index.html">Beispiele</a></li>
 </ul>
@@ -167,9 +156,8 @@ Typische Anwendungsfälle sind unter anderem:</p>
 <li><p>Infoblätter</p></li>
 <li><p>projektspezifische Auswertungen</p></li>
 </ul>
-</section>
 <section id="funktionsumfang">
-<h1>Funktionsumfang<a class="headerlink" href="#funktionsumfang" title="Link to this heading">¶</a></h1>
+<h2>Funktionsumfang<a class="headerlink" href="#funktionsumfang" title="Link to this heading">¶</a></h2>
 <p>PDF-Templates können beim Aufruf mit Parametern befüllt werden. Dadurch lassen sich Inhalte dynamisch je Datensatz, Benutzerkontext oder Prozessschritt erzeugen.</p>
 <p>Optional können Reports zusätzlich über Benutzereingaben ergänzt werden, beispielsweise über Eingabefelder für:</p>
 <ul class="simple">
@@ -185,7 +173,7 @@ Der Download kann entweder:</p>
 </ul>
 </section>
 <section id="erstellung-von-pdf-templates">
-<h1>Erstellung von PDF-Templates<a class="headerlink" href="#erstellung-von-pdf-templates" title="Link to this heading">¶</a></h1>
+<h2>Erstellung von PDF-Templates<a class="headerlink" href="#erstellung-von-pdf-templates" title="Link to this heading">¶</a></h2>
 <p>Die Erstellung erfolgt wie bei anderen DataLinq-Views im <strong>DataLinq Code Editor</strong>.
 Dabei können folgende Technologien kombiniert werden:</p>
 <ul class="simple">
@@ -198,7 +186,7 @@ Dabei können folgende Technologien kombiniert werden:</p>
 <p>So lassen sich Layout, Datenbindung und Ausgabeformat flexibel steuern, von einfachen Standarddokumenten bis hin zu komplexen, dynamischen Berichten.</p>
 </section>
 <section id="aktivierung-des-pdf-reporting-modes">
-<h1>Aktivierung des PDF Reporting Modes<a class="headerlink" href="#aktivierung-des-pdf-reporting-modes" title="Link to this heading">¶</a></h1>
+<h2>Aktivierung des PDF Reporting Modes<a class="headerlink" href="#aktivierung-des-pdf-reporting-modes" title="Link to this heading">¶</a></h2>
 <p>Um ein PDF-Template zu erstellen, wird zuerst eine neue View angelegt.
 Anschließend kann in den Einstellungen der View unter <strong>PDF Reporting mode</strong> die gewünschte Betriebsart aktiviert werden.</p>
 <img alt="Einstellungen für PDF Reporting mode" class="align-center" src="_images/pdf_reporting_settings.png" />
@@ -224,7 +212,7 @@ Detaillierte Informationen dazu folgen in einem weiteren Kapitel.</p>
 </ol>
 </section>
 <section id="erstellung-eines-pdf-templates">
-<h1>Erstellung eines PDF-Templates<a class="headerlink" href="#erstellung-eines-pdf-templates" title="Link to this heading">¶</a></h1>
+<h2>Erstellung eines PDF-Templates<a class="headerlink" href="#erstellung-eines-pdf-templates" title="Link to this heading">¶</a></h2>
 <p>Um einen Report mit einer oder mehreren Seiten zu erstellen, werden die vorgefertigten <strong>&#64;PDF-Helper</strong> verwendet.</p>
 <p>Zusätzliche Unterstützung zur Anwendung der Helper finden Sie in:</p>
 <ul class="simple">
@@ -247,9 +235,9 @@ Detaillierte Informationen dazu folgen in einem weiteren Kapitel.</p>
 <img alt="Einfacher PDF-Report mit einer Seite" class="align-center" src="_images/simple_report.png" />
 </section>
 <section id="erklaerung-der-pdf-helper-funktionen">
-<h1>Erklaerung der &#64;PDF-Helper-Funktionen<a class="headerlink" href="#erklaerung-der-pdf-helper-funktionen" title="Link to this heading">¶</a></h1>
+<h2>Erklaerung der &#64;PDF-Helper-Funktionen<a class="headerlink" href="#erklaerung-der-pdf-helper-funktionen" title="Link to this heading">¶</a></h2>
 <section id="pdf-beginreport">
-<h2>&#64;PDF.BeginReport()<a class="headerlink" href="#pdf-beginreport" title="Link to this heading">¶</a></h2>
+<h3>&#64;PDF.BeginReport()<a class="headerlink" href="#pdf-beginreport" title="Link to this heading">¶</a></h3>
 <p>Der Helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.BeginReport()</span></code> markiert den Beginn eines Reports.</p>
 <p>Folgende Parameter stehen zur Verfuegung:</p>
 <ul>
@@ -308,7 +296,7 @@ Standardwert ist <code class="docutils literal notranslate"><span class="pre">da
 </div></blockquote>
 </section>
 <section id="pdf-newpage">
-<h2>&#64;PDF.NewPage()<a class="headerlink" href="#pdf-newpage" title="Link to this heading">¶</a></h2>
+<h3>&#64;PDF.NewPage()<a class="headerlink" href="#pdf-newpage" title="Link to this heading">¶</a></h3>
 <p>Der Helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.NewPage()</span></code> wird verwendet, um eine neue Seite zu beginnen.</p>
 <p>Folgende Parameter stehen zur Verfuegung:</p>
 <ul>
@@ -395,7 +383,7 @@ Falls auf der ersten Seite ein oberer Mindestabstand benoetigt wird, kann dies m
 <img alt="Beispiel fuer automatisches Splitten auf mehrere Seiten" class="align-center" src="_images/dynamic_example.png" />
 </section>
 <section id="hinweise-zum-auto-splitting">
-<h2>Hinweise zum Auto-Splitting<a class="headerlink" href="#hinweise-zum-auto-splitting" title="Link to this heading">¶</a></h2>
+<h3>Hinweise zum Auto-Splitting<a class="headerlink" href="#hinweise-zum-auto-splitting" title="Link to this heading">¶</a></h3>
 <p>Beim Auto-Splitting werden Tabelleninhalte automatisch auf Folgeseiten verteilt, wenn der Platz auf einer Seite nicht ausreicht.</p>
 <p>Wichtig fuer die Struktur:</p>
 <ul class="simple">
@@ -408,18 +396,18 @@ Das bedeutet: Elemente wie <code class="docutils literal notranslate"><span clas
 Wenn ein solches Element nicht mehr vollstaendig auf die aktuelle Seite passt, wird es als gesamter Block auf der naechsten Seite positioniert.</p>
 </section>
 <section id="pdf-endpage">
-<h2>&#64;PDF.EndPage()<a class="headerlink" href="#pdf-endpage" title="Link to this heading">¶</a></h2>
+<h3>&#64;PDF.EndPage()<a class="headerlink" href="#pdf-endpage" title="Link to this heading">¶</a></h3>
 <p>Der Helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.EndPage()</span></code> markiert das Ende einer PDF-Report-Seite.
 Alles, was zwischen <code class="docutils literal notranslate"><span class="pre">&#64;PDF.NewPage()</span></code> und <code class="docutils literal notranslate"><span class="pre">&#64;PDF.EndPage()</span></code> definiert ist, wird auf dieser Seite gerendert.</p>
 <p>Der Helper besitzt keine weiteren Parameter.</p>
 </section>
 <section id="pdf-endreport">
-<h2>&#64;PDF.EndReport()<a class="headerlink" href="#pdf-endreport" title="Link to this heading">¶</a></h2>
+<h3>&#64;PDF.EndReport()<a class="headerlink" href="#pdf-endreport" title="Link to this heading">¶</a></h3>
 <p>Der Helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.EndReport()</span></code> markiert das Ende des PDF-Reports.</p>
 <p>Der Helper besitzt keine weiteren Parameter.</p>
 </section>
 <section id="pdf-newdraggable-pdf-enddraggable">
-<h2>&#64;PDF.NewDraggable() / &#64;PDF.EndDraggable()<a class="headerlink" href="#pdf-newdraggable-pdf-enddraggable" title="Link to this heading">¶</a></h2>
+<h3>&#64;PDF.NewDraggable() / &#64;PDF.EndDraggable()<a class="headerlink" href="#pdf-newdraggable-pdf-enddraggable" title="Link to this heading">¶</a></h3>
 <p>Die beiden Helper muessen immer in Kombination verwendet werden:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&#64;PDF.NewDraggable(...)</span></code> oeffnet den verschiebbaren Bereich.</p></li>
@@ -446,7 +434,7 @@ wenn in den View-Einstellungen der <strong>PDF Editing Mode</strong> aktiviert i
 </ul>
 </section>
 <section id="pdf-printpdfbutton">
-<h2>&#64;PDF.PrintPdfButton(…)<a class="headerlink" href="#pdf-printpdfbutton" title="Link to this heading">¶</a></h2>
+<h3>&#64;PDF.PrintPdfButton(…)<a class="headerlink" href="#pdf-printpdfbutton" title="Link to this heading">¶</a></h3>
 <p>Der Helper <code class="docutils literal notranslate"><span class="pre">&#64;PDF.PrintPdfButton(string</span> <span class="pre">id,</span> <span class="pre">string</span> <span class="pre">buttonText</span> <span class="pre">=</span> <span class="pre">&quot;Print&quot;,</span> <span class="pre">Dictionary&lt;string,</span> <span class="pre">string&gt;</span> <span class="pre">parameters</span> <span class="pre">=</span> <span class="pre">null)</span></code>
 kann verwendet werden, um einen Report parametrisiert aus einer anderen View herunterzuladen.</p>
 <p>Dabei wird ein Button erzeugt, der den Download direkt startet,
@@ -457,6 +445,7 @@ ohne dem Benutzer das eigentliche Template anzeigen zu muessen.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">buttonText</span></code>: Beschriftung des Buttons (Standard: <code class="docutils literal notranslate"><span class="pre">Print</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code>: Optionale Parameter als <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;string,</span> <span class="pre">string&gt;</span></code>, die beim Report-Aufruf mitgegeben werden.</p></li>
 </ul>
+</section>
 </section>
 </section>
 
@@ -474,7 +463,7 @@ ohne dem Benutzer das eigentliche Template anzeigen zu muessen.</p>
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">PDF Reporting in DataLinq</a></li>
+<li><a class="reference internal" href="#">PDF Reporting in DataLinq</a><ul>
 <li><a class="reference internal" href="#funktionsumfang">Funktionsumfang</a></li>
 <li><a class="reference internal" href="#erstellung-von-pdf-templates">Erstellung von PDF-Templates</a></li>
 <li><a class="reference internal" href="#aktivierung-des-pdf-reporting-modes">Aktivierung des PDF Reporting Modes</a></li>
@@ -487,6 +476,8 @@ ohne dem Benutzer das eigentliche Template anzeigen zu muessen.</p>
 <li><a class="reference internal" href="#pdf-endreport">&#64;PDF.EndReport()</a></li>
 <li><a class="reference internal" href="#pdf-newdraggable-pdf-enddraggable">&#64;PDF.NewDraggable() / &#64;PDF.EndDraggable()</a></li>
 <li><a class="reference internal" href="#pdf-printpdfbutton">&#64;PDF.PrintPdfButton(…)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Plot Service &#8212; webgis 1.0 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=bfd86df6" />
+    <script src="../../_static/documentation_options.js?v=8fdbe8ab"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="Plugins" href="../../plugins/index.html" />
+    <link rel="prev" title="WebGIS API Clients" href="index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">webgis 1.0 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../API_JavaScript/index.html">JavaScript</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">C# Clients</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Plot Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../embedded/index.html">Eingebettete Karten</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="plot-service">
+<h1>Plot Service<a class="headerlink" href="#plot-service" title="Link to this heading">¶</a></h1>
+<p>Mithilfe des <em>PlotService</em> API können Ausdrucke im PDF Format abgeholt werden. Dazu wird</p>
+<ul class="simple">
+<li><p>der Name (plus Kategorie und Portalseite) der Karte</p></li>
+<li><p>ein Drucklayout</p></li>
+<li><p>ein Maßstab</p></li>
+<li><p>und eine Bounding-Box (plus EPSG-Code, falls nicht WGS 84)</p></li>
+</ul>
+<p>übergeben.</p>
+<section id="layout-xml-files">
+<h2>Layout Xml Files<a class="headerlink" href="#layout-xml-files" title="Link to this heading">¶</a></h2>
+<p>Die API versucht  den übergeben Bereich in das Kartenlayout einzupassen, unter der Voraussetzung, dass dies für den übergeben Maßstab möglich ist.
+Dazu probiert die API unterschiedliche Papiergrößen (A4, A3, …) und Ausrichtungen (Hoch-, Querformat) aus. Sobald eine Papiergröße gefunden wird, wir ein PDF File für diese Papiergröße erzeugt.</p>
+<p>Welche Papiergrößen und Ausrichtungen möglich sind, kann im jeweiligen Layout.xml File definiert werden:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;layout</span><span class="w"> </span><span class="na">to-jpg-if-greater=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="na">image-format=</span><span class="s">&quot;jpg&quot;</span>
+<span class="w">   </span><span class="na">plot_service_page_sizes=</span><span class="s">&quot;A4,A3,A2&quot;</span>
+<span class="w">   </span><span class="na">plot_service_page_orientations=</span><span class="s">&quot;Landscape,Portrait&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>Die Attribute für das <em>PlotService</em> beginnen mit <code class="docutils literal notranslate"><span class="pre">plot_service_</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">page_sizes</span></code>: Papiergrößen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_orientations</span></code>: Ausrichtungen</p></li>
+</ul>
+<p>Die Reihenfolge der hier angeführten Werte entspricht auch dir Reihenfolge, in der getestet wird, ob der gewünschte Ausschnitt mit dem übergeben Maßstab gedruckt werden kann.
+Im hier gezeigten Beispiel würde beispielsweise so getestet:</p>
+<ol class="arabic simple">
+<li><p>A4.Portrait</p></li>
+<li><p>A4.Landscape</p></li>
+<li><p>A3.Portrait</p></li>
+<li><p>A3.Landscape</p></li>
+<li><p>…</p></li>
+</ol>
+<p>Wird bis zum Schluss keine mögliche Papiergröße/Ausrichtung Kombination gefunden, gibt die API einen Fehler zurück.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die beiden Xml-Attribute <code class="docutils literal notranslate"><span class="pre">plot_service_page_sizes</span></code> und <code class="docutils literal notranslate"><span class="pre">plot_service_page_orientations</span></code> sind die Voraussetzung, damit ein Ausdruck erstellt werden kann. Das Druckservice
+funktioniert in der Regel für alle Karten, allerings nur für Layouts, für die die beiden Attribute gesetzt wurden.
+Zusätzlich muss/kann beim Aufruf der API eine <code class="docutils literal notranslate"><span class="pre">ClientId</span></code> und <code class="docutils literal notranslate"><span class="pre">ClientSecret</span></code> (siehe unten) übergeben werden. Das Erzeugen von PDFs ist nur für die Karten möglich, die für den
+aktuellen Client sichtbar sind. Ebenfalls müssen alle Dienste in der Karte für den Client berechtigt sein. Andernfalls liefert die API einen Fehler.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Beim Aufruf des <em>PlotService</em> wird eine Karte übergeben. Die übergeben Karte muss das Druckwerkzeug und dem entsprechenden Layout enthalten!
+Ist das Layout nicht im MapBuilder für diese Karte definiert worden, liefert das <em>PlotService</em> eine Fehlermeldung.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Manche Layout sind über <code class="docutils literal notranslate"><span class="pre">&lt;layout</span> <span class="pre">scales=&quot;5000,2500,1000&quot;</span> <span class="pre">&gt;</span></code> nur für bestimmte Maßstabe zugelassen. Das gibt auch wenn dieses Layout mit den <em>PlotService</em> verwendet wird. Wird ein anderer Maßstab übergeben, liefert das <em>PlotService</em> eine Fehlermeldung.</p>
+</div>
+</section>
+<section id="rest-aufruf">
+<h2>REST Aufruf<a class="headerlink" href="#rest-aufruf" title="Link to this heading">¶</a></h2>
+<p>Das <em>PlotService</em> lässt sich über die REST Schnittstelle der WebGIS API unter <code class="docutils literal notranslate"><span class="pre">https://{api-url}/rest/plotservice</span></code> aufrufen. Der Aufruf muss über einen <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">POST</span></code> Request erfolgen.
+Als Parameter werden die oben angeführten zwingenden Parameter übergeben (als Http Form):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapName</span><span class="o">=</span><span class="n">Basiskarte</span><span class="o">&amp;</span><span class="n">mapCategory</span><span class="o">=</span><span class="n">Allgemein</span><span class="o">&amp;</span><span class="n">mapPortal</span><span class="o">=</span><span class="n">dev</span><span class="o">&amp;</span><span class="n">layout</span><span class="o">=</span><span class="n">lkmyzkjugleodsjpu</span><span class="o">-</span><span class="mi">75</span><span class="n">pdg</span><span class="nd">@ccgis_default</span><span class="o">&amp;</span><span class="n">scale</span><span class="o">=</span><span class="mi">1000</span><span class="o">&amp;</span><span class="n">bbox</span><span class="o">=-</span><span class="mf">68310.17</span><span class="p">,</span><span class="mf">215052.83</span><span class="p">,</span><span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span><span class="mf">216004.68</span><span class="o">&amp;</span><span class="n">bbox_srs</span><span class="o">=</span><span class="mi">31256</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mapPortal</span></code>, <code class="docutils literal notranslate"><span class="pre">mapName</span></code>, <code class="docutils literal notranslate"><span class="pre">mapCategory</span></code>: Damit wird die Karte definiert, die gedruckt werden sollte.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout</span></code>: Gibt das Layout an, das gedruckt werden sollte. In diesem Layout müssen die oben angeführten Attribute <code class="docutils literal notranslate"><span class="pre">plot_service_page_sizes</span></code> und <code class="docutils literal notranslate"><span class="pre">plot_service_page_orientations</span></code> enthalten sein.
+Als Wert kann hier die CMS Id das Layouts (siehe oben) oder der CMS-Name des Layouts angeführt werden, zB <code class="docutils literal notranslate"><span class="pre">layout=strom-standard</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale</span></code>: Der Zielmaßstab für den Plot. Hier kann auch eine Liste von Maßstäben übergeben werden <code class="docutils literal notranslate"><span class="pre">scale=1000,2000,5000</span></code>. Das Plotservice probiert in sortierter Reihenfolge (kleinster Wert zuerst), ob ein Druck möglich ist.
+Sobald eine Maßstab/Papiergrößen Kombination gefunden wird, wird der Druck mit dieser Kombination erstellt. Vorgehensweise: Erster Maßstab wird mit allen möglichen Papierformaten getestet. Ist keine Kombination möglich,
+wird der nächste Maßstab verwendet. Ist das Layout nur für bestimmte Maßstäbe zugelassen (siehe oben), müssen alle Übergebenen Maßstäbe zugelassen sein. Ansonsten wir ein Fehler zurückgegeben.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bbox</span></code>: Der Bereich (Bounding-Box), der ausgedruckt werden sollte. Werden die Koordinaten hier nicht in <em>WGS84</em> (=EPSG Code 4326) übergeben, muss das Koordinatensystem über den Parameter <code class="docutils literal notranslate"><span class="pre">bbox_srs</span></code> als EPSG Code übergeben werden.</p></li>
+</ul>
+<p>Das Response eines <em>PlotService</em> Aufrufes kommt als JSON in folgender Form:</p>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;print_0a0d0ccb44f54ad7b9dce8f328052ae2.pdf&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;base64&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;JVBERi0xLjQKJdP0zOEKMSAwIG9iago8PAovQ3JlYXRpb25EYXRlKEQ6MjAyMDEyMTQwODQyNDYrMDEnMDAnKQovQ3JlYXRvcihQ....&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;page_format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;A4.Landscape&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;scale_dominator&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;success&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;exception&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: Eine Name für die Ausgabedatei (Vorschlag)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64</span></code>: Das eigentliche PDF File (Base64 kodiert)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_format</span></code>: Das für den Plot gewählte Papierformat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale_dominator</span></code>: Der verwendete Maßstab</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">success</span></code>: Gibt an, ober der Ausdruck ohne Fehler erfolgt ist (<code class="docutils literal notranslate"><span class="pre">true</span></code>). Wird hier <code class="docutils literal notranslate"><span class="pre">false</span></code> zurück gegeben, ist während des Druckes ein Fehler aufgetreten. Eine genauere Beschreibung des Fehlers wird unter <code class="docutils literal notranslate"><span class="pre">exception</span></code> angeführt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">excepiton</span></code>: Hier werden Fehler wärendend des Ausdrucks als <code class="docutils literal notranslate"><span class="pre">String</span></code> zurück gegeben. Ein Fehler kann zB sein, dass der übergebene Ausschnitt mit keinem Papierformat möglich ist. Fehler können aber auch in den zugrundeliegenden Diensten
+auftreten. Hier kann es auch vorkommen, dass ein PDF zurückgeliefert wird, in dem Daten/Dienste fehlen können. Um sicher zu gehen, dass während des Ausdrucks alle Dienste verfügbar waren, ist daher unbedingt der <code class="docutils literal notranslate"><span class="pre">success</span></code> und <code class="docutils literal notranslate"><span class="pre">excepiton</span></code>
+Wert auszuwerten.</p></li>
+</ul>
+<p>Weiter optionale Übergabeparameter sind:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dpi</span></code>: Die Auflösung, in der gedruckt werden sollte, default <code class="docutils literal notranslate"><span class="pre">dpi=120</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filters</span></code>: Übergabe von Darstellungsfiltern</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">presentations</span></code>: Darstellungsvarianten</p></li>
+</ul>
+</section>
+<section id="api-client-net-standard">
+<h2>API Client (.NET Standard)<a class="headerlink" href="#api-client-net-standard" title="Link to this heading">¶</a></h2>
+<p>Wird das <em>PlotService</em> von einem .NET Programm aufgerufen, wird empfohlen, die Library <code class="docutils literal notranslate"><span class="pre">E.Standard.WebGIS.Api.Client</span></code> zu verwendet. Darin ist ein Service <code class="docutils literal notranslate"><span class="pre">E.Standard.WebGIS.Api.Client.Services.WebGISPlotService</span></code> enthalten,
+das den Aufruf abstrahiert. Damit wird vor allem die Übergaben von komplexeren Parametern (<code class="docutils literal notranslate"><span class="pre">filters</span></code>, <code class="docutils literal notranslate"><span class="pre">presentations</span></code>) vereinfacht.</p>
+<p>Ein Beispielprojekte, das die Vorgehensweise zeigt, ist die .NET Core Konsolenanwendung <code class="docutils literal notranslate"><span class="pre">WebGIS.Api.Test.Client</span></code>.</p>
+<p>Um das Service verwenden zu können, muss es über <em>DependencyInjection</em> eingebunden werden. Zusätzlich muss auch
+<code class="docutils literal notranslate"><span class="pre">IHttpClientFactory</span></code> für die <em>DependencyInjection</em> hinzugefügt werden, zB:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">services</span><span class="o">.</span><span class="n">AddHttpClient</span><span class="p">(</span><span class="s2">&quot;plostservice&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+      <span class="o">.</span><span class="n">ConfigurePrimaryHttpMessageHandler</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="n">new</span> <span class="n">HttpClientHandler</span><span class="p">()</span>
+       <span class="p">{</span>
+          <span class="n">ServerCertificateCustomValidationCallback</span> <span class="o">=</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">cert</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">sslPolicyErrors</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">true</span><span class="p">;</span> <span class="p">}</span>
+       <span class="p">});</span>
+
+<span class="n">services</span><span class="o">.</span><span class="n">AddWebGISPlotService</span><span class="p">(</span><span class="n">o</span><span class="o">=&gt;</span>
+<span class="p">{</span>
+   <span class="n">o</span><span class="o">.</span><span class="n">HttpClientName</span> <span class="o">=</span> <span class="s2">&quot;plotservice&quot;</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Danach kann <code class="docutils literal notranslate"><span class="pre">WebGISPlotService</span></code> über <em>DependencyInjection</em> eingebund werden. Die Methode <code class="docutils literal notranslate"><span class="pre">RunAsync</span></code>
+führt einen Aufruf zum PlotService aus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
+   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;layout-standard&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
+      <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
+   <span class="p">});</span>
+
+<span class="o">//</span> <span class="n">alternativ</span> <span class="n">mit</span> <span class="n">übergaben</span> <span class="n">von</span> <span class="n">mehrere</span> <span class="n">möglichen</span> <span class="n">Maßstäben</span>
+<span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
+   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;layout-standard&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="nb">int</span><span class="p">[]{</span> <span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2880</span> <span class="p">})</span>
+   <span class="p">{</span>
+      <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
+      <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
+   <span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Alle weiteren möglichen Übergabeparameter können dem <code class="docutils literal notranslate"><span class="pre">WebGISPlotServiceRequestOptions</span></code> entnommen werden.</p>
+</div>
+<p>Der Rückgabewert ist vom Type <code class="docutils literal notranslate"><span class="pre">WebGISPlotServiceResponse</span></code>. Auch hier ist es wieder wichtig zu überprüfen,
+ober der Plot erfolgreich war (<code class="docutils literal notranslate"><span class="pre">response.Success</span> <span class="pre">=</span> <span class="pre">true</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Console.WriteLine($&quot;Request Succeeded: { response.Success }&quot;);
+if (!response.Success)
+{
+   Console.WriteLine($&quot;Response Message: { response.ExceptionMessage  }&quot;);
+}
+else
+{
+   string fileName = $@&quot;c:\temp\{ response.Name }&quot;;
+   Console.WriteLine($&quot;Write file: { fileName }&quot;);
+
+   await System.IO.File.WriteAllBytesAsync(fileName, response.BinaryResult);
+}
+</pre></div>
+</div>
+</section>
+<section id="darstellungsvarianten">
+<h2>Darstellungsvarianten<a class="headerlink" href="#darstellungsvarianten" title="Link to this heading">¶</a></h2>
+<p>Darstellungsvarianten können über den Parameter <code class="docutils literal notranslate"><span class="pre">presentations</span></code> übergeben werden. Der Parameter muss ein JSON String sein.
+Hier wird nur beschrieben, wie Darstellungsvarianten über die API Client Library übergeben werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Presentations</span> <span class="o">=</span> <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">[]</span>
+<span class="p">{</span>
+   <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">Id</span><span class="o">=</span><span class="s2">&quot;dv_overviewmap_off&quot;</span><span class="p">,</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;overviewmap_ags@my_cms&quot;</span>
+   <span class="p">},</span>
+   <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">Id</span><span class="o">=</span><span class="s2">&quot;dv_streets_and_addresses&quot;</span><span class="p">,</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;basemap_ags@my_cms&quot;</span><span class="p">,</span>
+      <span class="n">Check</span> <span class="o">=</span> <span class="n">true</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Die hier übergebenen Darstellungsvarianten entsprechend den <em>Layerschaltungen</em> aus dem CMS auf Dienstebene (Nicht die unter <em>Karten Viewer/Darstellungsvarianten</em>).
+Dazu muss für jede Darstellungsvariante, die geschalten werden sollte die <em>Id</em> Der Darstellungsvariante und die <em>Id</em> des Dienstes übergeben werden.
+Die Übergebenen Darstellungsvarianten werden in der Reihenfolge ausgeführt, in der sie hier angeführt werden.</p>
+<p>Der Wert für <code class="docutils literal notranslate"><span class="pre">Check</span></code> (default = null) gibt an, wie die Darstellungsvariante angewendet wird:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">null</span></code> (default): Darstellungsvariante wird wie eine <em>Button-Darstellungsvariante</em> behandelt. Alle Layer des Dienstes, außer die in der Layerschaltung angeführten, werden unsichtbar. Alle Layer aus der <em>Layerschaltung</em> werden sichtbar geschalten.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>: Die Layer, die in <em>Layerschaltung</em> angeführt sind, werden sichtbar (<code class="docutils literal notranslate"><span class="pre">true</span></code>) oder unsichtbar (<code class="docutils literal notranslate"><span class="pre">false</span></code>) geschalten. Die Sichtbarkeit aller anderen Layer bleibt unberührt (entspricht einer <em>Checkbox-Darstellungsvariante</em>)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Wird ein hier angeführter Dienste, Darstellungsvariante oder Layer nicht gefunden, liefert die API eine Fehlermeldung und keine Druck wird erzeugt.</p>
+</div>
+</section>
+<section id="layer-sichtbarkeit">
+<h2>Layer Sichtbarkeit<a class="headerlink" href="#layer-sichtbarkeit" title="Link to this heading">¶</a></h2>
+<p>Ähnlich wie bei Darstellungsvarianten, können auch einzelne Layer über den Parameter <code class="docutils literal notranslate"><span class="pre">layers</span></code> sichtbar bzw. unsichtbar geschalten werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Layers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">[]</span>
+<span class="p">{</span>
+   <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;tor_tiles_gray@my-cms&quot;</span><span class="p">,</span>
+      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">&quot;0&quot;</span> <span class="p">},</span>
+      <span class="n">Visible</span><span class="o">=</span><span class="n">true</span>
+   <span class="p">},</span>
+   <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">()</span>
+   <span class="p">{</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;strassen_tiles_default@my-cms&quot;</span><span class="p">,</span>
+      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">&quot;0&quot;</span> <span class="p">},</span>
+      <span class="n">Visible</span><span class="o">=</span><span class="n">true</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Hier muss die <em>Id</em> des Dienstes und eine Liste von <em>Layer-Ids</em> (oder Layer Namen) übergeben werden. Der Wert für <code class="docutils literal notranslate"><span class="pre">Visible</span></code> gibt an, ob die Layer sichtbar (<code class="docutils literal notranslate"><span class="pre">true</span></code>) oder unsichtbar (<code class="docutils literal notranslate"><span class="pre">false</span></code>) geschalten werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Wird ein hier angeführter Layer nicht gefunden, liefert die API eine Fehlermeldung und keine Druck wird erzeugt.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Möchte man Hintergrunddienste schalten, ist die <em>Layer-Id</em> für den <em>TileCache</em> immer <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code>. Schaltet man einen Hintergrunddienst mit dieser Methode, werden alle anderen Hintergrunddienste automatisch unsichtbar geschalten.</p>
+</div>
+</section>
+<section id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">¶</a></h2>
+<p>Karten, Dienste usw. können über das WebGIS CMS berechtigt werden. Möchte man nicht öffentliche Dienste ausdrucken,
+müssen entsprechende <em>Credentials</em> beim API Aufrufen übergeben werden. Die Authenfikation erfolgt für API Aufrufe in der Regel über <em>Clients</em>.</p>
+<p>Eine <em>Client</em> kann von einem <em>Subscriber</em> über die API Administrations Oberfläche angelegt werden:</p>
+<img alt="../../_images/plotservice1.png" src="../../_images/plotservice1.png" />
+<p>Wichtig für den Aufruf sind die <code class="docutils literal notranslate"><span class="pre">ClientId</span></code> und das <code class="docutils literal notranslate"><span class="pre">ClientSecret</span></code>:</p>
+<img alt="../../_images/plotService2.png" src="../../_images/plotService2.png" />
+<p>Im CMS müssen jetzt alle notwendigen Dienste für diesen Client berechtigt werden. Der Name, der im CMS angegeben werden muss ist <code class="docutils literal notranslate"><span class="pre">{subscriber}&#64;{client-name}</span></code>.
+Wurde der oben gezeigte Client vom Subscriber <code class="docutils literal notranslate"><span class="pre">subscriber::gis-admim</span></code> angelegt, muss im CMS <code class="docutils literal notranslate"><span class="pre">subscriber::gis-admin&#64;plot-service</span></code> angeben werden.</p>
+<p>Beim Aufruf der API muss die <em>ClientId</em> und das <em>ClientSecret</em> mit folgenden Parameter übergeben werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">client_id</span><span class="o">=....&amp;</span><span class="n">client_secret</span><span class="o">=...</span>
+</pre></div>
+</div>
+<p>Verwendet man die .NET Standard API Client Library, kann der Client beim Aufruf folgendermaßen übergeben werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">RunAsync</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
+         <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;strom-standard&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+         <span class="p">{</span>
+             <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
+             <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
+         <span class="p">},</span>
+         <span class="n">new</span> <span class="n">WebGISApiClient</span><span class="p">(</span><span class="s2">&quot;0e4....&quot;</span><span class="p">,</span> <span class="s2">&quot;8337f.....&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Plot Service</a><ul>
+<li><a class="reference internal" href="#layout-xml-files">Layout Xml Files</a></li>
+<li><a class="reference internal" href="#rest-aufruf">REST Aufruf</a></li>
+<li><a class="reference internal" href="#api-client-net-standard">API Client (.NET Standard)</a></li>
+<li><a class="reference internal" href="#darstellungsvarianten">Darstellungsvarianten</a></li>
+<li><a class="reference internal" href="#layer-sichtbarkeit">Layer Sichtbarkeit</a></li>
+<li><a class="reference internal" href="#authentication">Authentication</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="index.html">
+                    <span class="icon">&lt;</span><span>WebGIS API Clients</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../../plugins/index.html"><span>Plugins</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022, ENI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
