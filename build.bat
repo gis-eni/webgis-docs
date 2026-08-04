@@ -14,6 +14,11 @@ call .\make.bat html
 robocopy /MIR .\build\html .\..\..\app\en\webgis
 
 @echo on
+cd .\..\datalinq
+call .\make.bat html
+robocopy /MIR .\build\html .\..\..\app\en\datalinq
+
+@echo on
 cd .\..\..\de\webgis
 
 @echo on
