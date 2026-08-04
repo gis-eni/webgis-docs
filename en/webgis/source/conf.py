@@ -17,3 +17,9 @@ html_static_path = ["_static"]
 
 html_js_files = ["js/eni.js"]
 html_css_files = ["css/eni.css"]
+
+# Short title shown in the top navigation bar (matches the tile on the docs landing page)
+html_short_title = "WebGIS for Admins"
+
+# Used by _templates/layout.html to build the home link and the DE/EN language switch
+html_context = {"doc_root_folder": "webgis"}

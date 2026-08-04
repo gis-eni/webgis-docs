@@ -1,56 +1,138 @@
-.wy-side-nav-search {
-      background-color: #b5dbad;
-      color:#000;
-  }
-  
-  .wy-nav-top {
-      background-color: #b5dbad;
-      color:#000
-  }
-  
-  /*
-  span.caption-text {
-      color: #80C826;
-    }
-  */
-  .wy-table-responsive table td, 
-  .wy-table-responsive table th {
-        white-space: normal !important;
-  }
-    
-  .rst-content section ul {
-        list-style: disc;
-        line-height: 24px;
-        margin-bottom: 24px;
-  }
-    
-  .rst-content section ul li {
-        list-style: disc;
-        margin-left: 24px;
-  }
-    
-  .rst-content section ul li p:last-child {
-        margin-bottom: 0;
-  }
-  
-  div#top_nav nav {
-        background-color:#80C826 !important;
-  }
-  
+/* ============================================================
+   ENI / ESTMK brand skin for piccolo_theme
+   Green #82c828 · Black #222222 · White #ffffff
+   ============================================================ */
+
+:root {
+  --mainNavColor: #82c828;
+  --linkColor: #4f7d17;
+  --notificationBannerColor: #4f7d17;
+  --navContrast: #222222;
+  --brandGreenTint: #e6f4d4;
+}
+
+:root[data-mode=dark],
+:root[data-mode=darkest] {
+  --linkColor: #97d84a;
+  --navContrast: #222222;
+  --brandGreenTint: #33421c;
+}
+
+/* Top navigation ------------------------------------------------- */
+div#top_nav nav {
+  background-color: var(--mainNavColor);
+}
+div#top_nav nav h1 a,
+div#top_nav nav p#toggle_sidebar a,
+div#top_nav nav p.mobile_search_link a,
+div#top_nav nav div.searchbox_wrapper div#searchbox p.highlight-link a {
+  color: var(--navContrast);
+}
+div#top_nav nav div.searchbox_wrapper div#searchbox p.highlight-link a:hover {
+  color: var(--navContrast);
+  opacity: 0.7;
+}
+div#top_nav nav a#mode_toggle svg path,
+div#top_nav nav a#source_link svg path {
+  fill: var(--navContrast);
+}
+div#top_nav nav a#eni_home_link {
+  display: flex;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 0.6rem;
+  color: var(--navContrast);
+}
+div#top_nav nav a#eni_home_link svg {
+  height: 1.3rem;
+  width: 1.3rem;
+  fill: currentColor;
+}
+div#top_nav nav a#eni_lang_switch {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  padding: 0.2rem 0.6rem;
+  border: 1.5px solid var(--navContrast);
+  border-radius: 999px;
+  color: var(--navContrast);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02rem;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+div#top_nav nav a#eni_lang_switch:hover {
+  background-color: var(--navContrast);
+  color: var(--mainNavColor);
+}
+div#searchbox form.search input[type=submit] {
+  color: var(--linkColor);
+  border-radius: 0.3rem;
+}
+div#searchbox form.search input[type=text] {
+  border-radius: 0.3rem;
+}
+
+/* Layout / sidebar width (kept wide for deep navigation trees) --- */
+div.sphinxsidebar {
+  width: 22rem;
+}
+div.document {
+  margin-left: 22rem;
+  margin-right: 15rem;
+}
+@media (max-width: 75rem) {
   div.sphinxsidebar {
-        width: 25rem;
+    display: none;
   }
-  
   div.document {
-        margin-left: 25rem;
-    }
-  
-  @media (max-width: 75rem) {
-    div.sphinxsidebar {
-        display: none;
-    }
-  
-    div.document {
-        margin-left: 0rem;
-    }
+    margin-left: 0;
+    margin-right: 0;
   }
+}
+
+/* Sidebar polish --------------------------------------------------*/
+div.sphinxsidebar ul li a {
+  border-radius: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+div.sphinxsidebar ul li a:hover {
+  background-color: var(--brandGreenTint);
+}
+div.sphinxsidebar ul li a.current {
+  background-color: var(--brandGreenTint);
+  font-weight: 600;
+}
+
+/* Content polish ---------------------------------------------------*/
+div.document div.highlight,
+div.document dl.py dt.sig,
+div.document dl.cpp dt.sig,
+div.document dl.c dt.sig {
+  border-radius: 0.5rem;
+}
+div.document div.admonition {
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--dividerColor);
+}
+div.document table.docutils {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+div.document table.docutils thead th {
+  background-color: var(--brandGreenTint);
+}
+div.document section ul,
+div.document div.section ul {
+  line-height: 1.6;
+}
+
+/* Responsive table cell wrapping (kept from previous skin) ------- */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+  white-space: normal !important;
+}
