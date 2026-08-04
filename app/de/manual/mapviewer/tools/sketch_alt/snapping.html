@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snapping &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Snapping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/sketch_alt/snapping.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="snapping">
+<h1>Snapping<a class="headerlink" href="#snapping" title="Link to this heading"></a></h1>
+<p>Über rechte Maustaste (egal ob in Karte oder auf Sketch) und <em>Snapping …</em> kann ausgewählt werden, auf welche Schema der Objektfang (Snapping) aktiviert werden soll.
+Des weiteren kann festgelegt werden, ob nur Kanten, Knoten oder Endpunkt snapbar sind. Snapbare Linien werden dann in gelb dargestellt, wenn man mit der Maus in deren Nähe fährt.</p>
+<img alt="../../../_images/snapping12.png" src="../../../_images/snapping12.png" />
+<p>Bei aktiviertem Snapping scheinen dann unter Konstruieren noch weitere Optionen auf, welche hier genauer erläutert werden.</p>
+<img alt="../../../_images/snapping21.png" src="../../../_images/snapping21.png" />
+<section id="trace-modus-starten">
+<h2>Trace-Modus starten<a class="headerlink" href="#trace-modus-starten" title="Link to this heading"></a></h2>
+<p>Mit dem <em>Trace-Modus</em> können snapbare Kanten verfolgt werden.
+Dafür muss mit der rechten Maustaste in die Karte geklickt werden und dann <em>Trace-Modus starten</em> gewählt werden.
+Nachdem der erste Knoten auf einen Endpunkt der Kante gesetzt wurde, kann mit der Maus über Knoten des selben Themas gefahren werden. Es wird dann der kürzeste Weg über die Linien des Themas angezeigt.</p>
+<p>Im folgendem Beispiel wurde so eine Linie entlang der Grundstücksgrenze gezeichnet.</p>
+<img alt="../../../_images/snapping101.png" src="../../../_images/snapping101.png" />
+<p>Über rechte Maustaste in die Karte und <em>Trace-Modus beenden</em> kann der Trace-Modus wieder beendet werden.</p>
+</section>
+<section id="richtung-fixieren-parallel">
+<h2>Richtung fixieren, parallel<a class="headerlink" href="#richtung-fixieren-parallel" title="Link to this heading"></a></h2>
+<p>Mit dieser Option können zB Linien verlängert werden.
+Dafür muss mit der rechten Maustaste auf die zu verlängernde Linie geklickt werden und dann <em>Richtung fixieren, parallel</em> gewählt werden.
+Dadurch wird die Verlängerung der Linie in grün dargestellt.</p>
+<img alt="../../../_images/snapping31.png" src="../../../_images/snapping31.png" />
+<p>Zudem kann man hierbei auch mit einem weiteren rechten Mausklick in die Karte eine gewünschte Distanz für die Länge der neuen parallelen Kante eingeben.</p>
+<img alt="../../../_images/snapping111.png" src="../../../_images/snapping111.png" />
+</section>
+<section id="richtung-fixieren-rechtwinklig">
+<h2>Richtung fixieren, Rechtwinklig<a class="headerlink" href="#richtung-fixieren-rechtwinklig" title="Link to this heading"></a></h2>
+<p>Mit dieser Option kann ähnlich wie beim <em>Richtung fixieren, parallel</em> der neue Vertex rechtwinklig auf die zuvor gesetzte Kante positioniert werden.</p>
+<img alt="../../../_images/snapping41.png" src="../../../_images/snapping41.png" />
+</section>
+<section id="orthogonalmodus">
+<h2>Orthogonalmodus<a class="headerlink" href="#orthogonalmodus" title="Link to this heading"></a></h2>
+<p>Eine weitere Möglichkeit rechtwinklige/orthogonale Kanten zu zeichnen, bietet der Orthogonalmodus. Im Orthogonalmodus können beliebig viele orthogonale Kanten gezeichnet werden.</p>
+<img alt="../../../_images/orthomodus21.png" src="../../../_images/orthomodus21.png" />
+<p>Klickt man im Orthogonalmodus mit rechter Maustaste in die Karte erscheint folgendes Fenster, mit welchem man eine bestimmte Distanz für den nächsten Punkt im Bezug auf den zuletzt gesetzten Punkt eingeben kann.</p>
+<img alt="../../../_images/orthomodus11.png" src="../../../_images/orthomodus11.png" />
+<p>Beendet wird der Orthogonalmodus mittels rechter Mausklick in die Karte und <em>Orthogonal-Modus beenden</em>.</p>
+</section>
+<section id="mittelpunkt-kante">
+<h2>Mittelpunkt Kante<a class="headerlink" href="#mittelpunkt-kante" title="Link to this heading"></a></h2>
+<p>Mit dieser Option kann der Mittelpunkt einer snapbaren Kante gewählt werden.
+Dazu muss mit der rechten Maustaste auf die dementsprechende Kante geklickt werden und dann <em>Mittelpunkt Kante</em> gewählt werden.</p>
+</section>
+<section id="distanz-fixieren">
+<h2>Distanz fixieren<a class="headerlink" href="#distanz-fixieren" title="Link to this heading"></a></h2>
+<p>Mit <em>Distanz fixieren</em> lässt sich die Distanz zwischen dem zuletzt gesetztem Vertex und einem snapbaren Objekt fixieren. Mit Hilfe einer grünen Hilfslinie kann der nächste
+Vertex in der fixierten Distanz platziert werden.
+Diese Funktion lässt sich über einen erneuten rechten Mausklick und anschließendem <em>Distanz fixieren: aus</em> wieder beenden.</p>
+</section>
+<section id="sketch-parallel-versetzen">
+<h2>Sketch parallel versetzen …<a class="headerlink" href="#sketch-parallel-versetzen" title="Link to this heading"></a></h2>
+<p>Mittels <em>Sketch parallel versetzen …</em> kann eine Sketch Linie parallel versetzt werden.
+Dazu muss, nachdem eine Sketch Linie gezeichnet wurde, mit der rechten Maustaste auf die Seite des Sketches geklick werden, in welche Richtung der Sketch parallel versetzt werden soll.
+Es öffnet sich dann ein Fenster, in welchem sich die Distanz auch noch manuell einstellen lassen würde. Als Defaultwert steht die Distanz des Klickes zum Sketch bereits im Feld.</p>
+<p>Falls gewisse Vertices nicht verschoben werden sollen, also fixiert werden sollen, kommt die bereits beschriebene Funktion <em>Vertex fixieren/anschließen</em> ins Spiel.
+Fixierte Vertices werden nämlich nicht bewegt.</p>
+<p>Die Funktionalität soll anhand des folgenden Beispiels verdeutlicht werden (die Sinnhaftigkeit ist dabei außer Acht gelassen).
+Hier wurde ein Linien-Sketch entlang dieser Grundstückgrenzen (zuvor auf snapbar gestellt) gezeichnet.</p>
+<img alt="../../../_images/snapping71.png" src="../../../_images/snapping71.png" />
+<p>Danach wurde auf der rechten Seite der Linie (von der Linie aus gesehen) der <em>Sketch parallel versetzen …</em> Befehl ausgeführt.</p>
+<img alt="../../../_images/snapping91.png" src="../../../_images/snapping91.png" />
+<p>Zur Veranschaulichung der fixierten Punkte wurden in der folgenden Abbildung zuerst zwei Punkte fixiert (blau gekennzeichnet) und danach wieder derselbe <em>Sketch parallel versetzen …</em> Befehl ausgeführt.</p>
+<img alt="../../../_images/snapping81.png" src="../../../_images/snapping81.png" />
+<p>Dasselbe Prinzip funktioniert analog auch bei Flächen-Sketches.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

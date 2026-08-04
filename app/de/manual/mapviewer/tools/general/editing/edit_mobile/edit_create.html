@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neues Objekt anlegen &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../../../search.html" />
+    <link rel="next" title="Bestehendes Objekt bearbeiten" href="edit_update.html" />
+    <link rel="prev" title="Edit im Mobile-Layout" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../identify/index.html">Abfrage Werkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Allgemeine Werkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../measure-line.html">Strecke messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../measure-area.html">Fläche messen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../circle.html">Umgebungskreis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../profile.html">Höhenprofil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../redlining/index.html">Zeichnen (Redlining)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../mapmarkup/index.html">Zeichnen (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Bearbeiten (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../georeference.html">Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../georef-image.html">Bilder Georeferenzieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../measure-3d.html">3D messen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sketch/index.html">Sketch/Entwurfswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Allgemeine Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Bearbeiten (Edit)</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Edit im Mobile-Layout</a></li>
+      <li class="breadcrumb-item active">Neues Objekt anlegen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/mapviewer/tools/general/editing/edit_mobile/edit_create.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="neues-objekt-anlegen">
+<h1>Neues Objekt anlegen<a class="headerlink" href="#neues-objekt-anlegen" title="Link to this heading"></a></h1>
+<p>Klickt man auf dieses (Sub)Werkzeug, öffnet sich ein neuer Dialog mit einer Erstellungsmaske.
+Mit der ersten Auswahlliste im Dialog muss das Thema gewählt werden, für welches ein Geo-Objekte erstellt werden sollte:</p>
+<a class="reference internal image-reference" href="../../../../../_images/edit2.png"><img alt="../../../../../_images/edit2.png" src="../../../../../_images/edit2.png" style="width: 220px; height: 420px;" /></a>
+<p>Ändert man hier das Thema, ändern sich in der Regel auch die Sachdaten, die für dieses Thema einzutragen sind.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Um bestehende Objekte eines Themas beim Bearbeiten berücksichtigen zu können, sollten die entsprechenden Layer
+sichtbar geschalten sein.
+Es besteht die Möglichkeit, dass der Layer für das gewünschte Thema in der Karte noch nicht sichtbar geschalten
+wurde. Wenn das so ist, wird die oben gezeigte Meldung angezeigt. Mit einem Klick auf <code class="docutils literal notranslate"><span class="pre">Betroffenen</span> <span class="pre">Layer</span> <span class="pre">sichtbar</span> <span class="pre">schalten</span></code>
+werden bestehende Objekte aus diesem Thema in der Karte angezeigt.
+Ebenfalls kann es möglich sein, dass der Layer nicht im aktuellen Kartenmaßstab sichtbar ist. Auch darauf wird
+hier als Warnung hingewiesen. Das kann behoben werden, wenn auf den richtigen Maßstab gezoomt wird (in der Regel
+muss hier der Kartenausschnitt verkleinert werden).</p>
+</div>
+<p>Ist das gewünschte Thema ausgewählt, kann mit dem Erstellen begonnen werden. Je nach Thema muss eine Punkt-, Linien-
+oder Flächengeometrie gezeichnet/konstruiert werden. Um welchen Geometrie Type es sich handelt, ist in der
+<em>Sketch Info</em> unter der <em>Objekt erstellen Maske</em> ersichtlich:</p>
+<img alt="../../../../../_images/edit3.png" src="../../../../../_images/edit3.png" />
+<p>Zusätzlich müssen auch die Sachdaten in der Maske ausgefüllte werden (Pflichtfelder haben in der Regel ein gelbes
+Eingabefeld):</p>
+<img alt="../../../../../_images/edit4.png" src="../../../../../_images/edit4.png" />
+<p>Sind alle Werte richtig eingetragen und ist die Geometrie gültig, dann kann das Objekt mit dem <code class="docutils literal notranslate"><span class="pre">Speichern</span></code> Button
+in die Geo-Datenbank übernommen werden. Nach dem Speichern sollte das neue Objekte in der Karte erscheinen
+und eine neues Objekte angelegt werden können:</p>
+<img alt="../../../../../_images/edit5.png" src="../../../../../_images/edit5.png" />
+<p>Je nach Editthema kann es unterschiedliche Methoden zum Speichern eines neuen Objektes geben. Neben dem <code class="docutils literal notranslate"><span class="pre">Speichern</span></code>
+kann es beispielsweise auch noch <code class="docutils literal notranslate"><span class="pre">Speichern</span> <span class="pre">und</span> <span class="pre">Auswählen</span></code> geben:</p>
+<a class="reference internal image-reference" href="../../../../../_images/edit6.png"><img alt="../../../../../_images/edit6.png" src="../../../../../_images/edit6.png" style="width: 250px; height: 100px;" /></a>
+<p>Dabei wird die Editierumgebung verlassen und das neu erstellte Objekte wie nach einer Abfrage ausgewählt (selektiert) in der Karte
+angezeigt. Das kann hilfreich sein, wenn das neu erstellte Objekt beispielsweise für eine Nachbarschaftsberechnung weiterverwendet werden sollte.</p>
+<p>Je nach Anwendung kann der Kartenautor auch noch weitere Möglichkeiten anbieten, zB <code class="docutils literal notranslate"><span class="pre">Speichern</span> <span class="pre">und</span> <span class="pre">alle</span> <span class="pre">Eingabefelder</span> <span class="pre">beibehalten</span></code> (im
+Normfall werden nach dem Speichern alle Eingabefelder auf den Standard zurückgesetzt).</p>
+<p>Das Erstellen von Objekten kann mit dem <code class="docutils literal notranslate"><span class="pre">Beenden</span></code> Button oder durch Schließen des Werkzeugdialogs beendet werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Auf Endgeräten kann sich der hier beschriebene Ablauf leicht ändern. Hier muss zuerst die Geometrie erfasst werden. Danach kann man
+über einen Button <code class="docutils literal notranslate"><span class="pre">Sachdaten</span> <span class="pre">bearbeiten</span></code> zur Eingabemaske für die Sachdaten wechseln. Darin befindet sich dann auch der <code class="docutils literal notranslate"><span class="pre">Speichern</span></code> Button.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Edit im Mobile-Layout" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="edit_update.html" class="btn btn-neutral float-right" title="Bestehendes Objekt bearbeiten" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

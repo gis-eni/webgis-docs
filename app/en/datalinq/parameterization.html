@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Parameterization &#8212; DataLinq 2025 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
+    <script src="_static/documentation_options.js?v=cb975c41"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Calling DataLinq and Examples" href="requestsandexamples.html" />
+    <link rel="prev" title="DataLinq.Code Interface" href="ui.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">DataLinq 2025 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="provision.html">Provisioning DataLinq and DataLinq.Code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="operation.html">Using DataLinq and DataLinq.Code</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technicalimplementation.html">Technical Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.html">DataLinq.Code Interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parameterization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requestsandexamples.html">Calling DataLinq and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html">PDF Reporting in DataLinq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="versioncontrol.html">DataLinq Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tippsandtricks.html">Tips and Tricks for Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/index.html">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="parameterization">
+<h1>Parameterization<a class="headerlink" href="#parameterization" title="Link to this heading">¶</a></h1>
+<p>The <strong>navigation tree</strong> on the left shows the structure of the <strong>endpoints, queries, and views</strong>.
+Simply clicking an element allows it to be quickly selected and edited.</p>
+<section id="endpoint">
+<h2>Endpoint<a class="headerlink" href="#endpoint" title="Link to this heading">¶</a></h2>
+<p>A new <strong>endpoint</strong> can be created directly in the <strong>sidebar</strong>.
+The top input field allows you to <strong>assign a name</strong>, which is confirmed with <strong>Enter</strong>.</p>
+<img alt="Create endpoint" class="align-center" src="_images/hello_world11.png" />
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Endpoint names may <strong>only contain lowercase letters, numbers, and the hyphen (`-`)</strong>.
+Special characters should be avoided, since the names later become part of the <strong>call URL</strong>.</p>
+</div>
+<p>Clicking on an <strong>endpoint</strong> opens the <strong>properties dialog</strong>, in which the following settings can be made:</p>
+<section id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Link to this heading">¶</a></h3>
+<p>The following overview lists all sections of the <strong>properties dialog</strong> with their respective fields:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EndPoint</span> <span class="pre">Id</span></code></p></td>
+<td><p>Unique name of the endpoint for the URL call</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Name</span></code></p></td>
+<td><p>Name of the endpoint</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>Optional description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Connection</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EndPoint</span> <span class="pre">Connection</span> <span class="pre">Type</span></code></p></td>
+<td><p>The following <strong>connection types</strong> are possible:</p>
+<ul class="simple">
+<li><p>Database</p></li>
+<li><p>API (REST interface)</p></li>
+<li><p>GeoRss</p></li>
+<li><p>GeoJson</p></li>
+<li><p>DataLinq</p></li>
+<li><p>PlainText</p></li>
+<li><p>TextFile</p></li>
+<li><p>Cypher</p></li>
+<li><p>JsonApi</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ConnectionString</span></code></p></td>
+<td><p>The configuration varies depending on the connection type.</p>
+<ul>
+<li><p><strong>Database</strong>:</p>
+<p>Example of an <code class="docutils literal notranslate"><span class="pre">SQL</span> <span class="pre">Server</span></code> connection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SQL:Server=db123.firma.at\instanz;Database=ssg;User Id=user1;Password=pwd1;
+</pre></div>
+</div>
+</li>
+<li><p><strong>API (REST interface)</strong>:</p>
+<p>Example of a <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">API</span> <span class="pre">REST</span></code> connection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>service=http://server123.at/api5test;user=username;pwd=12345
+</pre></div>
+</div>
+</li>
+<li><p><strong>GeoRss</strong>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>service=https//some.georss.com;user=username;pwd=12345
+</pre></div>
+</div>
+</li>
+<li><p><strong>GeoJson</strong>:</p>
+<p>See <strong>GeoRss</strong>.</p>
+</li>
+<li><p><strong>DataLinq</strong>:</p>
+<p>Another <code class="docutils literal notranslate"><span class="pre">WebGIS</span> <span class="pre">DataLinq</span> <span class="pre">service</span></code>; the connection string is the URL of the application.</p>
+</li>
+<li><p><strong>PlainText</strong>:</p>
+<p>Data is queried as <strong>line-based text</strong>; can be left empty.</p>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p><strong>Cypher</strong>:</p>
+<p>Example of a <code class="docutils literal notranslate"><span class="pre">Neo4j</span></code> connection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>url=neo4j://urltodb:7687;username=userName;password=super_secret
+</pre></div>
+</div>
+</li>
+<li><p><strong>JsonApi</strong>:</p>
+<p>Example of a <code class="docutils literal notranslate"><span class="pre">JsonApi</span></code> connection:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://urltomyapi.com/
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><strong>TextFile</strong>:</p>
+<p>Data sources are loose text files (<cite>*.txt</cite>, <cite>*.log</cite>, <cite>*.csv</cite>).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\logs
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specifies the <strong>directory</strong> in which the text files are located. Multiple text files can be located in one directory, which are then addressed via the query.</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Security</strong></p></td>
+<td><p>Set permissions for users and roles (see <strong>Permissions</strong>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Info</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
+<td><p>Creation date of the endpoint</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Styling</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">EndPoint</span> <span class="pre">CSS</span> <span class="pre">Button</span></code></p></td>
+<td><p>Editing the CSS document for all associated <strong>views</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Scripting</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">EndPoint</span> <span class="pre">Javascript</span> <span class="pre">Button</span></code></p></td>
+<td><p>Editing the script document for all associated <strong>views</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Delete</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
+<td><p>Deleting the endpoint</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="query">
+<h2>Query<a class="headerlink" href="#query" title="Link to this heading">¶</a></h2>
+<p>After selecting an <strong>endpoint</strong>, <strong>queries</strong> can be created for it.
+The queries enable access to the associated <strong>data</strong>.</p>
+<p>A new <strong>query node</strong> can be created directly in the <strong>sidebar</strong>, below the desired endpoint:</p>
+<img alt="Create query" class="align-center" src="_images/hello_world31.png" />
+<p>Clicking on the new <strong>query</strong> opens an <strong>editor window</strong> in the <strong>content area</strong>, in which the query can be formulated.</p>
+<p>The options and syntax for the query differ depending on the <strong>EndPoint Connection Type</strong>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>EndPoint Connection Type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Database (SQL)</strong></p></td>
+<td><p>Query with a set filter value</p>
+<ul class="simple">
+<li><p>With color filter: <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/endpoint&#64;query?GebaeudeArt=Einfamilienhaus&amp;Dachfarbe=rot</span></code></p></li>
+<li><p>Without color filter: <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/endpoint&#64;query?GebaeudeArt=Einfamilienhaus</span></code></p></li>
+</ul>
+<p>SQL query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<span class="w">    </span><span class="p">[</span><span class="n">NAME</span><span class="p">],</span>
+<span class="w">    </span><span class="p">[</span><span class="n">FARBE</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">projekt_gebaeude</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">gebaeudeart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">GebaeudeArt</span>
+<span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">Dachfarbe</span>
+<span class="w">    </span><span class="k">AND</span><span class="w"> </span><span class="n">FARBE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Dachfarbe</span>
+<span class="o">#</span><span class="n">endif</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>REST</strong></p></td>
+<td><p>Here too, URL parameters passed along with the query URL can be forwarded to the REST API being queried.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/endpoint&#64;query?parameter1=wert1&amp;parameter2=wert2</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://server123.at/api?p1=parameter1
+
+#if parameter2
+    &amp;p2 = @parameter2
+#endif
+</pre></div>
+</div>
+<p>The resulting URL of the REST API being queried would be (if <code class="docutils literal notranslate"><span class="pre">parameter2</span></code> is set) <code class="docutils literal notranslate"><span class="pre">https://server123.at/api?p1=parameter1&amp;p2=parameter2</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">https://server123.at/api?p1=parameter1</span></code></p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Text files (CSV)</strong></p></td>
+<td><div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<ul class="simple">
+<li><p>Columns in CSV files must be separated with <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p></li>
+<li><p>If a header row is present, it must be removed. The individual columns can be addressed as <cite>column1</cite>, <cite>column2</cite>, <cite>column3</cite>, …</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The file must be located in the endpoint’s <strong>directory</strong>. This directory is specified in the endpoint’s connection type.</p>
+</div>
+<p>The following parameters can be defined in the query:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my-datafile.csv # Die Quelldatei, welche die Datensätze enthält
+
+maxlines=10     # Maximale Anzahl der Zeilen (optional)
+from=bottom     # Von unten lesen (optional)
+filter=xxx      # Filterbedingung (optional)
+</pre></div>
+</div>
+<p>A filter can be used to extract only the data rows that contain the text defined in the filter (case-insensitive). This can be helpful for searching large amounts of data and extracting only relevant information.</p>
+<p><strong>Example of a URL with a filter:</strong></p>
+<p>In this example, the URL <code class="docutils literal notranslate"><span class="pre">DATALINQ-URL-PFAD/select/dh-form&#64;get?_pjson=true&amp;GebaeudeArt=Einfamilienhaus</span></code> filters only the records where the respective row in the CSV file contains the value <code class="docutils literal notranslate"><span class="pre">Einfamilienhaus</span></code>.</p>
+<p>Filter condition in the query:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my-datafile.csv
+
+...
+
+#if GebaeudeArt
+   filter={{GebaeudeArt}}
+#endif
+</pre></div>
+</div>
+<p>This ensures that the filter is only applied if the value <cite>GebaeudeArt</cite> is defined. Otherwise, the filter is not applied, and all rows of the text file are included in the query.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="id1">
+<h3>Settings<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>The settings for the respective query can be accessed by clicking the <strong>gear icon</strong> in the bottom-right corner of the editor window.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Link</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Route</span></code></p></td>
+<td><p>URL route for the query (<code class="docutils literal notranslate"><span class="pre">endpoint_id&#64;query_id</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Id</span></code></p></td>
+<td><p>Unique name of the query (used in the URL)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Name</span></code></p></td>
+<td><p>Name of the query</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>Optional description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Debug</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">Url</span> <span class="pre">Parameters</span></code></p></td>
+<td><p><strong>Test parameters</strong> for the query can be defined and executed here.</p>
+<img alt="Set test parameters" class="align-center" src="_images/ad3_3.png" />
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The test parameters should be chosen so that <strong>test queries can always be executed</strong>.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Http Header</strong></p></td>
+<td><p>If <strong>JsonApi</strong> was chosen as the type under <code class="docutils literal notranslate"><span class="pre">EndPoint</span> <span class="pre">Connection</span> <span class="pre">Type</span></code> for the associated <strong>endpoint</strong>, <strong>HTTP headers</strong> can be passed along in the query settings.</p>
+<ul class="simple">
+<li><p>Up to <strong>10 key-value pairs</strong> can be defined.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{$key}</span></code> accesses a <strong>secret</strong> from the secrets manager.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{&amp;key}</span></code> accesses a <strong>constant</strong>.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Security</strong></p></td>
+<td><p>Set permissions for users and roles (see <strong>Permissions</strong>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Domains</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Domains</span></code></p></td>
+<td><p>Query domains are used to replace encoded values in a table with understandable names, by using a lookup table that contains the encoded values and their translations.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Destination</span> <span class="pre">Field</span></code>: name of the column that contains the encoded values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Id</span></code>: lookup table that contains encoded values and their translations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Value</span> <span class="pre">Field</span></code>: column name in the lookup table that contains the encoded values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span> <span class="pre">Field</span></code>: column name in the lookup table that contains the translations.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Info</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
+<td><p>Creation date of the query</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Delete</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
+<td><p>Deleting the endpoint</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="views">
+<h2>Views<a class="headerlink" href="#views" title="Link to this heading">¶</a></h2>
+<p><strong>One or more views</strong> can be created to <strong>display</strong> the results of a query.</p>
+<img alt="Create view" class="align-center" src="_images/hello_world71.png" />
+<p>Views use <strong>HTML with ASP.NET Razor markup</strong>.</p>
+<img alt="Razor code editor" class="align-center" src="_images/param_editor.png" />
+<section id="id2">
+<h3>Settings<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>The settings for the respective query can be accessed by clicking the <strong>gear icon</strong> in the bottom-right corner of the editor window.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Link</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Route</span></code></p></td>
+<td><p>URL route for the view (<code class="docutils literal notranslate"><span class="pre">endpoint_id&#64;query_id&#64;view_id</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">View</span> <span class="pre">Id</span></code></p></td>
+<td><p>Unique name of the view (used in the URL)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Name</span></code></p></td>
+<td><p>Name of the view</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>Optional description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Debug</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">Url</span> <span class="pre">Parameters</span></code></p></td>
+<td><p><strong>Test parameters</strong> for the query can be defined and executed here.</p>
+<img alt="Set test parameters" class="align-center" src="_images/ad3_3.png" />
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The test parameters should be chosen so that <strong>test queries can always be executed</strong>.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>JS Libraries</strong></p></td>
+<td><p>The currently available JS libraries for the view can be added here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PDF Report mode</strong></p></td>
+<td><p>Settings for a PDF report. More on this under <a class="reference external" href="pdfreporting.rst">pdfreporting.rst</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DataLinq Cache Token</strong></p></td>
+<td><p>Settings for the DataLinq cache token. More on this under <a class="reference external" href="https://docs.webgiscloud.com/de/webgis/config/api/index.html#datalinq">use-cache-token-for-one-2-n-links</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Info</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Created</span></code></p></td>
+<td><p>Creation date of the view</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Changed</span></code></p></td>
+<td><p>Modification date of the view</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Delete</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Button</span></code></p></td>
+<td><p>Deleting the endpoint</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="permissions">
+<h2>Permissions<a class="headerlink" href="#permissions" title="Link to this heading">¶</a></h2>
+<p>Permissions can be set in the settings for <strong>endpoints and queries</strong>, which are inherited hierarchically.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hierarchically means: anyone who <strong>does not have access to an endpoint</strong> also <strong>cannot execute its queries</strong>.</p>
+</div>
+<ul class="simple">
+<li><p>Permissions can be set for <strong>individual users, roles, or groups</strong>.</p></li>
+<li><p><strong>Token and portal authentication</strong> are also possible.</p></li>
+</ul>
+<p>Permissions are managed via the <strong>“+” icon</strong> or by pressing <strong>Enter</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Wildcards can also be assigned here using the string <cite>“*”</cite>. This string means <strong>unrestricted access for all users</strong>.</p>
+</div>
+<img alt="Set permissions" class="align-center" src="_images/param_berechtigung.png" />
+</section>
+<section id="styles-css">
+<h2>Styles (CSS)<a class="headerlink" href="#styles-css" title="Link to this heading">¶</a></h2>
+<p>CSS styles can be defined <strong>at two levels</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Global styles for the entire endpoint</strong>.</p></li>
+<li><p><strong>Inline styles directly in a view</strong> via <cite>&lt;style&gt;</cite> tags or <cite>style</cite> attributes.</p></li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Parameterization</a><ul>
+<li><a class="reference internal" href="#endpoint">Endpoint</a><ul>
+<li><a class="reference internal" href="#settings">Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#query">Query</a><ul>
+<li><a class="reference internal" href="#id1">Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#views">Views</a><ul>
+<li><a class="reference internal" href="#id2">Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#permissions">Permissions</a></li>
+<li><a class="reference internal" href="#styles-css">Styles (CSS)</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="ui.html">
+                    <span class="icon">&lt;</span><span>DataLinq.Code Interface</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="requestsandexamples.html"><span>Calling DataLinq and Examples</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

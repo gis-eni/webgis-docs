@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sketch/Drafting Tools &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Segment Creation Mode" href="segmentmodus.html" />
+    <link rel="prev" title="Visibility Filter" href="../presentation/visfilter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Presentation and Map Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Map Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../identify/index.html">Query Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">General Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Presentation Tools</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sketch/Drafting Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#undo">Undo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-vertices">Editing Vertices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortcuts">Shortcuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-vertices">Selecting Vertices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-the-sketch">Removing the Sketch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#closing-section-starting-new">Closing Section/Starting New</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Map Viewer User Manual</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Tools</a></li>
+      <li class="breadcrumb-item active">Sketch/Drafting Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/sketch/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sketch-drafting-tools">
+<h1>Sketch/Drafting Tools<a class="headerlink" href="#sketch-drafting-tools" title="Link to this heading"></a></h1>
+<p>When drawing a sketch (e.g. when redlining, editing, creating an elevation profile, …), several options are available that can be very helpful depending on the application.</p>
+<p>To access them, right-click on the sketch or on the map while drawing. Depending on the type of the sketch (line, polygon), the following options are offered:</p>
+<img alt="../../../_images/sketch1.png" src="../../../_images/sketch1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On (mobile) devices with touch operation, clicking on the map works via the <em>Click Bubble</em> tool (see the <em>Click Bubble</em> section under Tools).
+The advantage of <em>Click Bubble</em> is that it avoids accidental clicks while navigating and offers higher precision when clicking.</p>
+</div>
+<section id="undo">
+<h2>Undo<a class="headerlink" href="#undo" title="Link to this heading"></a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">Undo</span></code>, the last commands, which are shown in gray under <em>Undo</em>, can be undone.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no <em>Redo</em>.</p>
+</div>
+</section>
+<section id="editing-vertices">
+<h2>Editing Vertices<a class="headerlink" href="#editing-vertices" title="Link to this heading"></a></h2>
+<p>Vertices are the so-called support points of the line, which can be edited afterward in various ways.</p>
+<ul class="simple">
+<li><p><strong>Move vertex:</strong> Click on the vertex and drag it to the desired position while holding down the mouse button.</p></li>
+<li><p><strong>Add vertex:</strong> There are several ways to do this: click on the map, use <em>Direction/Distance</em> (see below), or use <em>Coordinates (absolute)</em> (see Construct).</p></li>
+<li><p><strong>Add vertex on an existing line:</strong> Right-click on the line and then select <em>Add Vertex</em>.</p></li>
+<li><p><strong>Remove vertex:</strong> Right-click on the vertex and then select <em>Remove Vertex</em>.</p></li>
+<li><p><strong>Fix/anchor vertex:</strong> Right-click on the vertex and then select <em>Fix/Anchor Vertex</em>. These vertices then remain fixed when moving and shifting, and are shown as larger blue points. With a right-click and then <em>Remove Fixing</em>, the vertex’s fixing can be removed again.</p></li>
+</ul>
+</section>
+<section id="shortcuts">
+<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">A</span></code></p></td>
+<td><p>Set a new vertex on a line segment</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D</span></code></p></td>
+<td><p>Delete vertex: hold down the <code class="docutils literal notranslate"><span class="pre">D</span></code> key and select vertices to delete</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">O</span></code></p></td>
+<td><p>Activates/deactivates orthogonal mode</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">T</span></code></p></td>
+<td><p>Activates/deactivates trace mode</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S</span></code></p></td>
+<td><p>Show snapping dialog</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl+Z</span></code></p></td>
+<td><p>Undo</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span></code></p></td>
+<td><p>While held down, vertices can be selected (see below)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="selecting-vertices">
+<h2>Selecting Vertices<a class="headerlink" href="#selecting-vertices" title="Link to this heading"></a></h2>
+<p>With <strong>Ctrl</strong>, several vertices can be selected. To do this, while holding down the <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> key, you can either select several vertices by clicking on them, or drag a rectangle with the mouse, which selects all vertices located within the rectangle.</p>
+<img alt="../../../_images/sketch11.png" src="../../../_images/sketch11.png" />
+<p>The following new options then appear in the right-click menu:</p>
+<img alt="../../../_images/sketch10.png" src="../../../_images/sketch10.png" />
+<ul class="simple">
+<li><p><strong>Clear:</strong> Clears the selection.</p></li>
+<li><p><strong>Invert:</strong> Inverts the selection of vertices.</p></li>
+<li><p><strong>Remove:</strong> Removes all selected vertices.</p></li>
+</ul>
+</section>
+<section id="removing-the-sketch">
+<h2>Removing the Sketch<a class="headerlink" href="#removing-the-sketch" title="Link to this heading"></a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">Remove</span> <span class="pre">Sketch</span></code>, the drawn sketches are removed. If this command was executed unintentionally, the sketches can be restored using <code class="docutils literal notranslate"><span class="pre">Undo</span></code>.
+In most tools, the sketch can also be removed via the <code class="docutils literal notranslate"><span class="pre">Remove</span> <span class="pre">Sketch</span></code> button on the left side of the menu.</p>
+</section>
+<section id="closing-section-starting-new">
+<h2>Closing Section/Starting New<a class="headerlink" href="#closing-section-starting-new" title="Link to this heading"></a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">Close</span> <span class="pre">Section/Start</span> <span class="pre">New</span></code>, the current sketch is finished and a new sketch can be started.
+This allows several lines/polygons to be drawn.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="segmentmodus.html">Segment Creation Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="segmentmodus.html#straight">Straight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentmodus.html#orthogonal-mode">Orthogonal Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="segmentmodus.html#trace-mode">Trace Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sketchtools.html">Sketch Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sketchtools.html#reversing-vertex-order">Reversing Vertex Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchtools.html#moving-the-sketch">Moving the Sketch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchtools.html#rotating-the-sketch">Rotating the Sketch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchtools.html#offsetting-the-sketch-in-parallel">Offsetting the Sketch in Parallel…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sketchtools.html#extending-a-sketch-line">Extending a Sketch (Line)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snapping.html">Snapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="snapping.html#intersect-with-edge">Intersect with Edge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapping.html#edge-midpoint">Edge Midpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapping.html#fix-direction-parallel">Fix Direction: Parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapping.html#fix-direction-perpendicular">Fix Direction: Perpendicular</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapping.html#fix-distance">Fix Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="construct.html">Constructing Vertices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#coordinates">Coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#direction-distance">Direction/Distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#arc-intersection">Arc Intersection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#line-circle-intersection">Line-Circle Intersection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#intersection-of-two-lines">Intersection of Two Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#line-midpoint">Line Midpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#arc-3-points">Arc (3 Points)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#arc-2-tangents">Arc (2 Tangents)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#constructing-a-circle">Constructing a Circle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="construct.html#constructing-a-rectangle">Constructing a Rectangle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="presentation.html">Presentation</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../presentation/visfilter.html" class="btn btn-neutral float-left" title="Visibility Filter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="segmentmodus.html" class="btn btn-neutral float-right" title="Segment Creation Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

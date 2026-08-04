@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DataLinq Version Control &#8212; DataLinq 2025 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=d882a67f" />
+    <script src="_static/documentation_options.js?v=b6e8874b"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=70a09b52"></script>
+    <script src="_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="Tipps und Tricks für Views" href="tippsandtricks.html" />
+    <link rel="prev" title="PDF Reporting in DataLinq" href="pdfreporting.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">DataLinq 2025 Dokumentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="provision.html">Bereitstellung von DataLinq und DataLinq.Code</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="operation.html">Anwendung von DataLinq und DataLinq.Code</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="technicalimplementation.html">Technische Umsetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.html">DataLinq.Code Oberfläche</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parameterization.html">Parametrierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requestsandexamples.html">Aufruf und Beispiele</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html">PDF Reporting in DataLinq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#funktionsumfang">Funktionsumfang</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erstellung-von-pdf-templates">Erstellung von PDF-Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#aktivierung-des-pdf-reporting-modes">Aktivierung des PDF Reporting Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erstellung-eines-pdf-templates">Erstellung eines PDF-Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdfreporting.html#erklaerung-der-pdf-helper-funktionen">Erklaerung der &#64;PDF-Helper-Funktionen</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DataLinq Version Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ziele-und-vorteile">Ziele und Vorteile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#empfehlung-fuer-den-betrieb">Empfehlung fuer den Betrieb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beispiel-in-dieser-dokumentation">Beispiel in dieser Dokumentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#erstellung-eines-repositories">Erstellung eines Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialisierung-in-datalinq-snapshot">Initialisierung in DataLinq (Snapshot)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commit-workflow-im-datalinq-code-editor">Commit-Workflow im DataLinq Code Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tippsandtricks.html">Tipps und Tricks für Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/index.html">Beispiele</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="datalinq-version-control">
+<h1>DataLinq Version Control<a class="headerlink" href="#datalinq-version-control" title="Link to this heading">¶</a></h1>
+<p>Mit <strong>DataLinq Version Control</strong> koennen der Code von <strong>Views</strong> und <strong>Queries</strong> in ein externes
+Versionsverwaltungssystem (Git) gesichert werden, zum Beispiel in <strong>Gitea</strong>, <strong>GitHub</strong> oder vergleichbare Plattformen.</p>
+</section>
+<section id="ziele-und-vorteile">
+<h1>Ziele und Vorteile<a class="headerlink" href="#ziele-und-vorteile" title="Link to this heading">¶</a></h1>
+<p>Durch die Anbindung an Git ergeben sich mehrere wichtige Vorteile:</p>
+<ul class="simple">
+<li><p><strong>Ausfallssicherheit</strong>: Relevante Aenderungen liegen zusaetzlich ausserhalb der laufenden DataLinq-Instanz vor.</p></li>
+<li><p><strong>Nachvollziehbarkeit</strong>: Aenderungen lassen sich strukturiert verfolgen.</p></li>
+<li><p><strong>Transparenz im Team</strong>: Jede Aenderung kann mit Autor und Aenderungsgrund dokumentiert werden.</p></li>
+</ul>
+<p>Bei Aenderungen koennen in DataLinq Commits mit <strong>Namen</strong> und <strong>Aenderungsmeldung</strong> erstellt werden.
+Dadurch ist spaeter klar erkennbar, <strong>wer</strong> etwas geaendert hat, <strong>wann</strong> die Aenderung erfolgte
+und <strong>welcher Zweck</strong> mit der Aenderung verbunden war.</p>
+</section>
+<section id="empfehlung-fuer-den-betrieb">
+<h1>Empfehlung fuer den Betrieb<a class="headerlink" href="#empfehlung-fuer-den-betrieb" title="Link to this heading">¶</a></h1>
+<p>Fuer produktive Umgebungen wird empfohlen, ein <strong>internes Git-Repository</strong> zu verwenden
+und keine oeffentlich zugaengliche Repository-Instanz.</p>
+<p>Auf diese Weise bleiben Inhalte und Aenderungshistorie in einer kontrollierten Infrastruktur.</p>
+</section>
+<section id="beispiel-in-dieser-dokumentation">
+<h1>Beispiel in dieser Dokumentation<a class="headerlink" href="#beispiel-in-dieser-dokumentation" title="Link to this heading">¶</a></h1>
+<p>In dieser Dokumentation wird die Einrichtung exemplarisch mit einer <strong>lokalen Gitea-Instanz</strong> gezeigt.</p>
+<p>Die Konfiguration erfolgt in der API-Anwendung unter dem Bereich <strong>Configuration</strong>.
+Dort muessen die Zugangsdaten fuer das Ziel-Repository hinterlegt werden,
+zum Beispiel <strong>Benutzername und Passwort</strong> oder alternativ ein <strong>Access-Token</strong>.</p>
+</section>
+<section id="erstellung-eines-repositories">
+<h1>Erstellung eines Repositories<a class="headerlink" href="#erstellung-eines-repositories" title="Link to this heading">¶</a></h1>
+<p>Fuer die Nutzung mit DataLinq wird zunaechst ein Repository im gewuenschten Git-System erstellt.</p>
+<ol class="arabic simple">
+<li><p>Im eigenen Git-System anmelden.</p></li>
+<li><p>Ein neues Repository erstellen.</p></li>
+</ol>
+<img alt="Neues Repository erstellen" class="align-center" src="_images/repo_new.png" />
+<ol class="arabic" start="3">
+<li><p>Repository-Details eintragen.</p>
+<blockquote>
+<div><p>Dabei ist wichtig, dass <strong>Branch-Name</strong> und <strong>Repository-Name</strong> mit den Angaben in der
+<strong>DataLinq API Configuration</strong> uebereinstimmen.</p>
+</div></blockquote>
+</li>
+</ol>
+<img alt="Repository-Details und Branch-Konfiguration" class="align-center" src="_images/repo_new_1.png" />
+<ol class="arabic simple" start="4">
+<li><p>Nach der Erstellung die Repository-URL kopieren und in den DataLinq-Einstellungen hinterlegen.</p></li>
+<li><dl class="simple">
+<dt>Anschliessend kann entschieden werden, ob das Repository lokal selbst initialisiert wird</dt><dd><p>oder ob DataLinq die Initialisierung uebernehmen soll.</p>
+</dd>
+</dl>
+</li>
+</ol>
+<img alt="Leeres Repository nach der Erstellung" class="align-center" src="_images/repo_new_2.png" />
+</section>
+<section id="initialisierung-in-datalinq-snapshot">
+<h1>Initialisierung in DataLinq (Snapshot)<a class="headerlink" href="#initialisierung-in-datalinq-snapshot" title="Link to this heading">¶</a></h1>
+<p>Nach der Repository-Konfiguration werden in DataLinq auf der Startseite zusaetzliche Buttons angezeigt:</p>
+<ul class="simple">
+<li><p><strong>Init Snapshot</strong></p></li>
+<li><p><strong>Snapshot Status</strong></p></li>
+</ul>
+<img alt="Neue Snapshot-Buttons auf der DataLinq-Startseite" class="align-center" src="_images/snapshot_1.png" />
+<section id="snapshot-status">
+<h2>Snapshot Status<a class="headerlink" href="#snapshot-status" title="Link to this heading">¶</a></h2>
+<p>Direkt nach der Einrichtung zeigt <strong>Snapshot Status</strong> in der Regel an, dass noch nichts aktuell ist,
+da noch keine Inhalte in die Versionskontrolle uebergeben wurden.</p>
+<img alt="Snapshot Status zeigt nicht aktuelle Inhalte" class="align-center" src="_images/snapshot_2.png" />
+</section>
+<section id="init-snapshot">
+<h2>Init Snapshot<a class="headerlink" href="#init-snapshot" title="Link to this heading">¶</a></h2>
+<p>Mit <strong>Init Snapshot</strong> wird der Initialisierungsprozess gestartet.
+DataLinq fragt davor zur Bestaetigung nach.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Der Init-Prozess sollte nur <strong>einmal</strong> ganz zu Beginn durchgefuehrt werden,
+da dabei alle bestehenden Inhalte in einem gemeinsamen <strong>Initial-Commit</strong> zusammengefuehrt werden.</p>
+</div>
+<img alt="Bestaetigungsdialog fuer Init Snapshot" class="align-center" src="_images/snapshot_3.png" />
+<p>Nach erfolgreicher Initialisierung wird eine Erfolgsmeldung angezeigt.</p>
+<img alt="Erfolgreiche Initialisierung des Snapshots" class="align-center" src="_images/snapshot_4.png" />
+</section>
+<section id="status-nach-der-initialisierung">
+<h2>Status nach der Initialisierung<a class="headerlink" href="#status-nach-der-initialisierung" title="Link to this heading">¶</a></h2>
+<p>Anschliessend zeigt <strong>Snapshot Status</strong>, dass alle Dateien mit der Versionskontrolle synchron sind.</p>
+<img alt="Snapshot Status zeigt alle Dateien als aktuell" class="align-center" src="_images/snapshot_5.png" />
+</section>
+<section id="kontrolle-im-git-repository">
+<h2>Kontrolle im Git-Repository<a class="headerlink" href="#kontrolle-im-git-repository" title="Link to this heading">¶</a></h2>
+<p>Auch im Git-Repository ist danach die automatische Initialisierung sichtbar,
+inklusive des ersten Initial-Commits sowie der uebernommenen Query- und Endpoint-Dateien.</p>
+<img alt="Initialisiertes Repository mit erstem Commit und DataLinq-Dateien" class="align-center" src="_images/snapshot_6.png" />
+<p>Files:</p>
+<img alt="Initialisiertes Repository mit erstem Commit und DataLinq-Dateien" class="align-center" src="_images/snapshot_7.png" />
+</section>
+</section>
+<section id="commit-workflow-im-datalinq-code-editor">
+<h1>Commit-Workflow im DataLinq Code Editor<a class="headerlink" href="#commit-workflow-im-datalinq-code-editor" title="Link to this heading">¶</a></h1>
+<p>Wenn im DataLinq Code Editor eine neue Query oder View erstellt wird,
+oder eine bestehende Query/View geaendert wird, signalisiert das Git-Symbol in der Toolbar den Status.</p>
+<p>Ist das Symbol <strong>rot</strong>, sind lokale Aenderungen vorhanden und der Stand ist noch nicht synchronisiert.</p>
+<img alt="Rotes Git-Symbol zeigt nicht synchronisierte Aenderungen" class="align-center" src="_images/git_1.png" />
+<p>Nach Klick auf das Git-Symbol kann ein Commit erstellt werden.
+Dabei werden <strong>Name</strong> und <strong>Message</strong> erfasst.</p>
+<img alt="Commit-Dialog mit Name und Message" class="align-center" src="_images/git_2.png" />
+<p>Nach erfolgreichem Commit wird eine Erfolgsmeldung angezeigt.</p>
+<img alt="Erfolgreicher Commit im DataLinq Code Editor" class="align-center" src="_images/git_3.png" />
+<p>Anschliessend wird das Git-Symbol <strong>gruen</strong> und zeigt den synchronen Status an.</p>
+<img alt="Gruenes Git-Symbol zeigt synchronen Status" class="align-center" src="_images/git_4.png" />
+<p>Werden danach weitere Aenderungen vorgenommen (zum Beispiel durch einen anderen Benutzer),
+wechselt das Symbol erneut auf <strong>rot</strong>.</p>
+<img alt="Git-Symbol nach weiteren Aenderungen erneut rot" class="align-center" src="_images/git_5.png" />
+<p>Nach erneutem Commit wird der aktuelle Stand wieder synchronisiert.</p>
+<img alt="Weiterer Commit nach neuen Aenderungen" class="align-center" src="_images/git_6.png" />
+<p>Im Git-Repository sind anschliessend die neuen Commits inklusive Commit-Messages sichtbar.</p>
+<img alt="Neue Commits und Messages im Git-Repository" class="align-center" src="_images/git_7.png" />
+<p>Die genauen Änderungen nachvollziehbar.</p>
+<img alt="Neue Commits und Messages im Git-Repository" class="align-center" src="_images/git_8.png" />
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">DataLinq Version Control</a></li>
+<li><a class="reference internal" href="#ziele-und-vorteile">Ziele und Vorteile</a></li>
+<li><a class="reference internal" href="#empfehlung-fuer-den-betrieb">Empfehlung fuer den Betrieb</a></li>
+<li><a class="reference internal" href="#beispiel-in-dieser-dokumentation">Beispiel in dieser Dokumentation</a></li>
+<li><a class="reference internal" href="#erstellung-eines-repositories">Erstellung eines Repositories</a></li>
+<li><a class="reference internal" href="#initialisierung-in-datalinq-snapshot">Initialisierung in DataLinq (Snapshot)</a><ul>
+<li><a class="reference internal" href="#snapshot-status">Snapshot Status</a></li>
+<li><a class="reference internal" href="#init-snapshot">Init Snapshot</a></li>
+<li><a class="reference internal" href="#status-nach-der-initialisierung">Status nach der Initialisierung</a></li>
+<li><a class="reference internal" href="#kontrolle-im-git-repository">Kontrolle im Git-Repository</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#commit-workflow-im-datalinq-code-editor">Commit-Workflow im DataLinq Code Editor</a></li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="pdfreporting.html">
+                    <span class="icon">&lt;</span><span>PDF Reporting in DataLinq</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="tippsandtricks.html"><span>Tipps und Tricks für Views</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

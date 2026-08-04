@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stützpunkt(e) konstruieren &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Darstellung" href="presentation.html" />
+    <link rel="prev" title="Snapping" href="snapping.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../identify/index.html">Abfrage Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">Allgemeine Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Sketch/Entwurfswerkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="index.html#ruckgangig-undo">Rückgängig/Undo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#vertex-bearbeiten">Vertex Bearbeiten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#shortcuts">Shortcuts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#vertices-selektieren">Vertices selektieren</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#sketch-entfernen">Sketch entfernen</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html#abschnitt-schlieszen-neuen-beginnen">Abschnitt schließen/neuen beginnen</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Sketch/Entwurfswerkzeuge</a></li>
+      <li class="breadcrumb-item active">Stützpunkt(e) konstruieren</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/sketch/construct.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="stutzpunkt-e-konstruieren">
+<h1>Stützpunkt(e) konstruieren<a class="headerlink" href="#stutzpunkt-e-konstruieren" title="Link to this heading"></a></h1>
+<p>Neue Stützpunkte können auch über folgende Methoden konstruiert werden. Zum Menü kommt man, indem man mit der rechten Maustaste in die Karte oder auf einen Vertex klickt.</p>
+<img alt="../../../_images/construct9.png" src="../../../_images/construct9.png" />
+<p>Mit einem erneuten rechten Mausklick kann der Konstruktionsmodus jederzeit abgebrochen werden.</p>
+<section id="koordinaten">
+<h2>Koordinaten<a class="headerlink" href="#koordinaten" title="Link to this heading"></a></h2>
+<p>Mit der Option <em>Koordinaten (absolut)</em> kann der nächste Vertex mit absoluten Koordinaten festgelegt werden.
+Wählt man diese Funktion öffnet sich folgendes Fenster:</p>
+<img alt="../../../_images/coordinates1.png" src="../../../_images/coordinates1.png" />
+<p>Hier kann zuerst das dementsprechende Koordinatensystem ausgewählt und danach der Rechtswert und Hochwert eingetragen werden.
+Im Feld sind bereits die Koordinaten der Stelle, an welcher der rechte Mausklick getätigt wurden, im Koordinatensystem der Karte eingetragen.
+Mit <code class="docutils literal notranslate"><span class="pre">Koordinate</span> <span class="pre">übernehmen</span></code> wird der neue Vertex gesetzt.</p>
+</section>
+<section id="richtung-entfernung">
+<h2>Richtung/Entfernung<a class="headerlink" href="#richtung-entfernung" title="Link to this heading"></a></h2>
+<p>Mit <em>Richtung/Entfernung</em> kann der nächste Vertex über die Richtung und die Entfernung im Bezug auf den vorigen Vertex bestimmt werden.</p>
+<img alt="../../../_images/sketch3.png" src="../../../_images/sketch3.png" />
+<p>Die bereits in den Feldern eingetragenen Werte bezieht sich auf die Position des rechten Mausklicks und können manuell beliebig geändert werden.</p>
+</section>
+<section id="bogenschnitt">
+<h2>Bogenschnitt<a class="headerlink" href="#bogenschnitt" title="Link to this heading"></a></h2>
+<p>Mit einem <em>Bogenschnitt</em> können 2 Hilfskreise mit beliebigen Radius gezeichnet werden und eignet sich daher vor allem für Anwendungsfälle, wo 2 Distanzen bekannt sind. Dazu muss zuerst in die Karte geklickt werden um den Mittelpunkt des ersten Kreises zu definieren. Dann kann entweder der Kreis mit der Maus aufgezogen werden oder über einen Klick mit der rechten Maustaste der Radius exakt eingegeben werden.
+Die Erstellung des zweiten Kreises erfolgt analog. Anschließend werden die beiden Schnittpunkte der Kreise rot markiert und sind zum Setzen des neuen Vertex auswählbar.</p>
+<img alt="../../../_images/construct2.png" src="../../../_images/construct2.png" />
+</section>
+<section id="schnittpunkt-linie-mit-kreis">
+<h2>Schnittpunkt Linie mit Kreis<a class="headerlink" href="#schnittpunkt-linie-mit-kreis" title="Link to this heading"></a></h2>
+<p>Mit <em>Schnittpunkt Linie mit Kreis</em> kann der neue Vertex mit Hilfe einer Linie und eines Kreises erstellt werden. Das ist vor allem für Fälle, wo eine Richtung und eine Distanz bekannt sind, hilfreich. Dafür muss zuerst  die Linie mit 2 Stützpunkten gezeichnet werden. Anschließend wird der Kreis konstruiert, indem zuerst für den Mittelpunkt in die Karte geklickt wird und dann entweder der Kreis mit der Maus aufgezogen wird oder bei fix bekanntem Radius der Wert auch über die rechte Maustaste direkt eingegeben werden kann.
+Schlussendlich kann dann der neue Vertex aus den in der Regel beiden entstandenen Schnittpunkten gewählt werden.</p>
+<img alt="../../../_images/construct3.png" src="../../../_images/construct3.png" />
+</section>
+<section id="schnittpunkt-zweier-linien">
+<h2>Schnittpunkt zweier Linien<a class="headerlink" href="#schnittpunkt-zweier-linien" title="Link to this heading"></a></h2>
+<p>Mit <em>Schnittpunkt zweier Linien</em> können zwei Hilfslinien gezeichnet werden. Der dadruch enstehende Schnittpunkt kann dann als neuer Vertex ausgewählt werden.</p>
+<img alt="../../../_images/construct4.png" src="../../../_images/construct4.png" />
+</section>
+<section id="mittelpunkt-linie">
+<h2>Mittelpunkt Linie<a class="headerlink" href="#mittelpunkt-linie" title="Link to this heading"></a></h2>
+<p>Mit <em>Mittelpunkt Linie</em> kann ein Vertex auf den Mittelpunkt einer neu konstruierten Linie gezeichnet werden. Dafür müssen lediglich Start- und Endpunkt der Hilfslinie gezeichnet werden. Der dadruch entstandene Mittelpunkt ist dann als Vertex auswählbar.</p>
+<img alt="../../../_images/construct1.png" src="../../../_images/construct1.png" />
+</section>
+<section id="kreisbogen-3-punkte">
+<h2>Kreisbogen (3 Punkte)<a class="headerlink" href="#kreisbogen-3-punkte" title="Link to this heading"></a></h2>
+<p><em>Kreisbogen (3 Punkte)</em> ermöglicht das Erstellen eines Kreisbogens mit 3 Punkten, wofür die folgenden 3 Schritte notwendig sind.</p>
+<ol class="arabic simple">
+<li><p>Setzen des Startpunktes des Kreisbogens</p></li>
+<li><p>Setzen des Endpunktes des Kreisbogens</p></li>
+<li><p>Setzen des 3. Punktes, welcher die Größe des Kreisbogens bestimmt</p></li>
+</ol>
+<p>Dadurch entsteht ein Kreis, an welchem der gewünschte Kreisbogen (blau oder rot) gewählt werden muss.</p>
+<img alt="../../../_images/construct5_1.png" src="../../../_images/construct5_1.png" />
+<p>Der erstellte Kreisbogen (in diesem Fall der rote Teil) besteht dann aus mehreren Segmenten.</p>
+<img alt="../../../_images/construct6.png" src="../../../_images/construct6.png" />
+</section>
+<section id="kreisbogen-2-tangenten">
+<h2>Kreisbogen (2 Tangenten)<a class="headerlink" href="#kreisbogen-2-tangenten" title="Link to this heading"></a></h2>
+<p>Bei der Funktion <em>Kreisbogen (2 Tangenten)</em> kann ein Kreisbogen mit 2 Tangenten definiert werden. Die erste Tangente stellt die Verlängerung des zuletzt gesetzten Liniensegmentes dar. Deshalb muss für dieses Tool schon ein Liniensegment vorhanden sein.
+Die zweite Tangente kann dann über das Setzen von 2 Punkten platziert werden, wobei der 2. Punkt dann auch dem Ende des neuen Segmentes entspricht.</p>
+<img alt="../../../_images/construct7_1.png" src="../../../_images/construct7_1.png" />
+<img alt="../../../_images/construct8.png" src="../../../_images/construct8.png" />
+</section>
+<section id="kreis-konstruieren">
+<h2>Kreis konstruieren<a class="headerlink" href="#kreis-konstruieren" title="Link to this heading"></a></h2>
+<p>Um einen Kreis im Flächenwerkzeug zu konstruieren, muss man zuerst den Mittelpunkt setzen. Dann kann man im Menü über die rechte Maustaste <em>Kreis konstruieren</em> auswählen. Damit lässt sich ein Kreis aufziehen beziehungsweise über erneuten Mausklick eine fixe Distanz als Radius des Kreises eingeben.</p>
+<img alt="../../../_images/construct10.png" src="../../../_images/construct10.png" />
+</section>
+<section id="rechteck-konstruieren">
+<h2>Rechteck konstruieren<a class="headerlink" href="#rechteck-konstruieren" title="Link to this heading"></a></h2>
+<p>Ähnlich zum Kreis kann auch ein Rechteck konstruiert werden, indem nach dem Setzen des ersten Eckpunktes über rechte Maustaste <em>Rechteck konstruieren</em> ausgewählt wird. Damit kann dann ein Rechteck aufgezogen oder über rechte Maustaste Länge und Breite eingegeben werden.</p>
+<p>Das erstellte Rechteck kann danach noch gedreht oder verschoben werden.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="snapping.html" class="btn btn-neutral float-left" title="Snapping" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="presentation.html" class="btn btn-neutral float-right" title="Darstellung" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

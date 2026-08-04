@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using the Drawing (Redlining) Tool &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Special Tools" href="advanced-tools.html" />
+    <link rel="prev" title="Drawing (Redlining)" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html"><span class="sectnum">1 </span>General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../presentation/index.html"><span class="sectnum">3 </span>Presentation and Map Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><span class="sectnum">6 </span>Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../map/index.html">Map Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../identify/index.html">Query Tools</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">General Tools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../measure-line.html">Measure Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-area.html">Measure Area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../circle.html">Buffer Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../profile.html">Elevation Profile</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Drawing (Redlining)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapmarkup/index.html">Drawing (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Editing (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georeference.html">Georeferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georef-image.html">Georeferencing Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-3d.html">3D Measurement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../presentation/index.html">Presentation Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sketch/index.html">Sketch/Drafting Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Map Viewer User Manual</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="sectnum">6 </span>Tools</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General Tools</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Drawing (Redlining)</a></li>
+      <li class="breadcrumb-item active">Using the Drawing (Redlining) Tool</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/mapviewer/tools/general/redlining/manual.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-the-drawing-redlining-tool">
+<h1>Using the Drawing (Redlining) Tool<a class="headerlink" href="#using-the-drawing-redlining-tool" title="Link to this heading"></a></h1>
+<section id="general-usage">
+<h2>General Usage<a class="headerlink" href="#general-usage" title="Link to this heading"></a></h2>
+<p>The drawing (redlining) tool is actually a collection of (sub-)tools that make it possible
+to graphically augment the content of the map.
+After opening the tool, the drawing (redlining) dialog is shown.
+It offers all possible drawing tools.
+In addition, there are buttons for managing drawings (load, save, share, upload, download).</p>
+<img alt="../../../../_images/redlining1.png" src="../../../../_images/redlining1.png" />
+<p>The buttons may vary depending on the end device. The figure shows all tools (desktop).
+Below the buttons, the name of the currently active drawing tool is shown again, along with a <em>yellow</em>-highlighted
+description of how to use this tool (e.g. click on the map, click on an existing drawing element, etc.).</p>
+<p>Because of this description, the exact click sequence for the individual drawing tools is not covered here in detail;
+instead, the options and differences between the tools are shown.</p>
+</section>
+<section id="drawing-a-new-element">
+<h2>Drawing a New Element<a class="headerlink" href="#drawing-a-new-element" title="Link to this heading"></a></h2>
+<p>If you create a new element (for example, a line), you must define at least two vertices by clicking on the map.
+Once the line is recognized as valid (at least two vertices), it can be <em>applied</em> to the map.
+Until it is <em>applied</em>, the draft sketch with the vertices is still shown. As long as the draft sketch is shown,
+the line can still be changed:</p>
+<ul class="simple">
+<li><p>Draw further vertices</p></li>
+<li><p>Move vertices with the mouse</p></li>
+<li><p>Undo steps via the draft context menu (right mouse button)</p></li>
+<li><p>Change the presentation via the presentation options</p></li>
+</ul>
+<p>That a drawn element is <em>valid</em> and can be applied to the map can be seen in the tool dialog.
+As soon as, for example, two vertices have been set for a line, the following button appears in the tool
+dialog:</p>
+<img alt="../../../../_images/redlining3.png" src="../../../../_images/redlining3.png" />
+<p>The drawing element is applied to the map with the button showing a checkmark icon. After applying, another line can be drawn right away.
+Before applying a drawing element to the map, a description can optionally be specified.
+For example, if the line describes a route, you could enter <code class="docutils literal notranslate"><span class="pre">Directions</span> <span class="pre">to</span> <span class="pre">...</span></code> here.
+Descriptions for drawing elements are optional, but help to identify and interpret the element later.</p>
+<p><strong>Tip:</strong> there are further ways to apply a drawing element to the map and draw another one:</p>
+<ul class="simple">
+<li><p>Finishing a draft with a double-click. Afterwards, you can immediately continue drawing an element of the same type.</p></li>
+<li><p>Changing the drawing tool: if you draw a line and then want to continue, for example, by drawing a polygon, it is enough to click on the <em>polygon</em> tool. A valid line is then automatically applied.</p></li>
+<li><p>Labeling a drawing element: in the <em>Apply</em> dialog shown above, a <em>T</em> (for text) is shown to the right of the input field. This switches to the text tool and allows the current element to be labeled (e.g. length of a line - see below)</p></li>
+</ul>
+<p>Drawing elements already applied are shown not only on the map, but also as a list at the very bottom of the tool dialog:</p>
+<img alt="../../../../_images/redlining4.png" src="../../../../_images/redlining4.png" />
+<p>The icon indicates what type of element it is (line, polygon, text, …). In addition, there is
+a <em>delete button</em> (trash can), an <em>edit button</em> (pencil), and, depending on the type, a <em>T button</em> (text - label, see below).</p>
+<section id="changing-symbology">
+<h3>Changing Symbology<a class="headerlink" href="#changing-symbology" title="Link to this heading"></a></h3>
+<p>To change the symbology of the respective object, there is an icon to the left of the description (this icon differs depending on the object).</p>
+<img alt="../../../../_images/redlining3_1.png" src="../../../../_images/redlining3_1.png" />
+<p>Clicking it takes you to the menu for making changes to the symbology.
+If you select the line tool, for example, the following presentation options are available:</p>
+<img alt="../../../../_images/redlining2.png" src="../../../../_images/redlining2.png" />
+<p>Normally, the option menus for color, line thickness, and line style are already expanded. To change the color of a line, for example, you just need to select it.
+The same applies to line thickness and line style (solid, dashed, …).</p>
+<p>These options always relate to the currently active element. If you change a presentation option, the presentation on the map
+changes immediately.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are drawing a new object, you will only notice the changes once you click on the map to create vertices
+for the element.</p>
+</div>
+</section>
+</section>
+<section id="different-behavior-of-element-types">
+<h2>Different Behavior of Element Types<a class="headerlink" href="#different-behavior-of-element-types" title="Link to this heading"></a></h2>
+<p>The behavior described above is not the same for all element types. Here are a few differences/special cases:</p>
+<p><strong>Symbol:</strong> symbols only require one vertex. After placing the point, it is not necessary to click the
+<em>Apply / Draw another</em> button; instead, it is enough to click on the map again
+to draw another symbol. This allows several symbols to be drawn quickly by simply clicking
+on the map (one symbol is placed on the map per click).</p>
+<p><strong>Freehand:</strong> with this tool, a “freehand” line can be drawn while holding down the mouse button. When the
+mouse button is released, it is immediately applied to the map. This allows several
+freehand lines to be drawn very quickly and conveniently.</p>
+<p><strong>Text:</strong> to place text on the map, after selecting the text tool, click on the map
+to set the position of the text. This makes the text position <em>valid</em>, and the actual
+text can be changed via the text field and via <em>Apply / Draw another</em>. A change should be visible on the
+map right away. If the position needs to be changed again, this can be done with another click
+on the map (or by dragging the insertion point). Clicking the checkmark permanently applies the text
+to the map.</p>
+</section>
+<section id="changing-an-existing-element">
+<h2>Changing an Existing Element<a class="headerlink" href="#changing-an-existing-element" title="Link to this heading"></a></h2>
+<p>There are two ways to change an already drawn element.</p>
+<ul class="simple">
+<li><p>Via the <em>Select</em> drawing tool (finger): clicking on the object on the map marks the element, which can then be changed.</p></li>
+<li><p>Via the list of already existing elements: clicking on an element in the list marks it for editing. The pencil icon can then be used to edit the object.</p></li>
+</ul>
+<p>The second method is practical when several elements overlap and a geographic selection is difficult/impossible.</p>
+<p><strong>Tip:</strong> elements in the list can be identified more easily if they were described before being applied,
+since the description is shown in the list.</p>
+<p>Once an element has been marked for changing, the draft <em>sketch</em> for the element is shown on the map. In addition, a new
+<em>symbology</em> icon appears above the list, taking you to the menu for editing the presentation.</p>
+<a class="reference internal image-reference" href="../../../../_images/redlining5.png"><img alt="../../../../_images/redlining5.png" src="../../../../_images/redlining5.png" style="width: 200px; height: 80px;" /></a>
+<p>The draft <em>sketch</em> can be used to change the geometry of the element. The presentation can likewise be adjusted via the
+presentation options. To finish the changes, you must confirm with the checkmark button to apply them.</p>
+</section>
+<section id="deleting-an-existing-element">
+<h2>Deleting an Existing Element<a class="headerlink" href="#deleting-an-existing-element" title="Link to this heading"></a></h2>
+<p>There are two ways to delete an element:</p>
+<ul class="simple">
+<li><p>Mark the element via the <em>Select</em> (finger) tool and click the <em>delete button</em> (trash can) to the right of the description input field.</p></li>
+<li><p>Click the <em>delete icon</em> (trash can) in the list of existing elements.</p></li>
+</ul>
+<p>The advantage of the first method is that you can first see which element is actually being deleted.
+If the elements have not been <em>described</em>, deleting from the list can result in deleting the wrong element,
+because the text shown is not unambiguous.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deletion is permanent. The drawing (redlining) tool does not offer an <strong>undo</strong>!</p>
+</div>
+</section>
+<section id="labeling-elements">
+<h2>Labeling Elements<a class="headerlink" href="#labeling-elements" title="Link to this heading"></a></h2>
+<p>Some element types offer labeling based on certain properties:</p>
+<ul class="simple">
+<li><p><strong>Lines:</strong> label with the length [m / km] of the line</p></li>
+<li><p><strong>Polygons:</strong> label with the area [m² / km²]</p></li>
+</ul>
+<p>Labeling is done semi-automatically. Only the text value is determined automatically; the positioning of the text
+on the map is done by the user.</p>
+<p>The procedure for labeling is as follows:</p>
+<ul class="simple">
+<li><p>Click the <em>T icon</em> (text) for the corresponding object in the tool dialog.</p></li>
+</ul>
+<p>For the current element, the button is located to the right of the text field for the element’s optional description.
+Elements already applied to the map show this icon in the list of created elements.</p>
+<ul class="simple">
+<li><p>Click on the map to position the point.</p></li>
+<li><p>Optionally change the presentation (font size) or extend/change the text.</p></li>
+<li><p>Click <em>Apply / Draw another</em> to apply the text to the map.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Drawing (Redlining)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="advanced-tools.html" class="btn btn-neutral float-right" title="Special Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

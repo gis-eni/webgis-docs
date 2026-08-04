@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Special Topics &#8212; WebGIS 2026 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Custom Layouts" href="../layouts/index.html" />
+    <link rel="prev" title="Defaults" href="defaults.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2026 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../cms/index.html">WebGIS CMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">WebGIS Viewer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../url-parameters/index.html">Parameterized Invocation of the Map Viewer</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">custom.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layouts/index.html">Custom Layouts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extended_config/index.html">Extended Tool Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex/index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="special-topics">
+<h1>Special Topics<a class="headerlink" href="#special-topics" title="Link to this heading">¶</a></h1>
+<section id="vector-tile-caches">
+<h2>Vector Tile Caches<a class="headerlink" href="#vector-tile-caches" title="Link to this heading">¶</a></h2>
+<p>Vector tile caches are integrated client-side via the <code class="docutils literal notranslate"><span class="pre">mapLibreGL</span></code> JavaScript library.
+For the library to be loaded, the following entry must be present in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">load_vtc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The value is set to <code class="docutils literal notranslate"><span class="pre">false</span></code> by default, since integrating vector tile caches is generally not necessary and loading the library causes additional load time.
+As soon as the option is enabled, the <code class="docutils literal notranslate"><span class="pre">mapLibreGL</span></code> library is automatically loaded once a map with a vector tile cache is integrated.</p>
+</section>
+<section id="spatial-reference-system">
+<h2>Spatial Reference System<a class="headerlink" href="#spatial-reference-system" title="Link to this heading">¶</a></h2>
+<p>Various coordinate systems can be used for a WebGIS map. Certain calculations, such as measuring a distance, are performed <em>cartesian</em> in the respective map coordinate system. <em>Cartesian</em> in this context means that the <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">Y)</span></code> values of the current coordinate system are used directly for the calculation.</p>
+<p>This can cause problems if the coordinate system has strong distortions, since then the <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">Y)</span></code> values are no longer true to scale either. A typical example is the <strong>WebMercator projection</strong>, which shows strong distortion in the <strong>north-south direction</strong> at our latitudes.
+Measured lengths and areas in this projection are therefore always larger than in reality.</p>
+<p>To solve this problem, the variable <code class="docutils literal notranslate"><span class="pre">calcCrs</span></code> can be used. This lets you specify the <strong>EPSG code</strong> of a coordinate system in which calculations are performed:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mapUrlName</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Basemap_at&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">calcCrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">31287</span><span class="p">;</span><span class="w">  </span><span class="c1">// Lambert</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, calculations are performed in the Austria-wide <strong>Lambert coordinate system</strong>. All coordinates relevant to the calculation are automatically converted internally to <strong>Lambert</strong> before the calculation is performed.</p>
+<p><strong>Further examples:</strong></p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">calcCrs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">31256</span><span class="p">;</span><span class="w">    </span><span class="c1">// Berechnungen im GK-M34</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">calcCrs</span></code> is not set, the calculation is performed by default in the respective <strong>map coordinate system</strong>. If this is <strong>geographic</strong> (longitude and latitude) or <strong>WebMercator</strong>, it is recommended to explicitly set <code class="docutils literal notranslate"><span class="pre">calcCrs</span></code>!</p>
+</section>
+<section id="webgis-and-gnss">
+<h2>WebGIS and GNSS<a class="headerlink" href="#webgis-and-gnss" title="Link to this heading">¶</a></h2>
+<p>WebGIS can be used with an external <strong>GNSS antenna</strong> (GPS) for surveying. Since this is a specialized application, only a basic description is given here. More detailed documentation is available on request.</p>
+<p>The relevant settings for the <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> entry are:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">currentPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">currentPosition_watch</span><span class="p">;</span>
+
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">currentPosition</span><span class="p">.</span><span class="nx">minAcc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span><span class="w">   </span><span class="c1">// Mindestgenauigkeit in Metern</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">currentPosition</span><span class="p">.</span><span class="nx">maxAgeSeconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">;</span><span class="w">  </span><span class="c1">// Maximales Alter der Positionsdaten in Sekunden</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">currentPosition</span><span class="p">.</span><span class="nx">useWithSketchTool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The last setting enables the use of GPS with all <strong>sketch tools</strong>. For this, the user gets an additional <em>GPS bubble</em>. This is <strong>disabled</strong> (gray) by default. If you drag the bubble out of the <strong>inactive area</strong>, it changes color from <strong>red</strong> to <strong>green</strong> once the configured <strong>accuracy</strong> is reached.</p>
+<p>As soon as both the <em>bubble</em> and the displayed <strong>crosshair</strong> are green, the user can click the <em>bubble</em> to adopt a <strong>vertex</strong> for the sketch. This process can be repeated as often as needed, as long as the bubble stays active (the map follows the crosshair as it moves). If the bubble is pushed back into the <strong>inactive area</strong>, GNSS capture ends.</p>
+<img alt="../../../_images/image71.png" src="../../../_images/image71.png" />
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As long as the <em>GPS bubble</em> is active, a <strong>vertex can only be set via this tool</strong>!</p>
+</div>
+</section>
+<section id="helmert-transformation-2d">
+<h2>Helmert Transformation (2D)<a class="headerlink" href="#helmert-transformation-2d" title="Link to this heading">¶</a></h2>
+<p>If an additional <strong>Helmert transformation (2D)</strong> is needed to compensate for tensions in the <strong>control point network</strong>, it can be defined as follows:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">continuousPosition</span><span class="p">.</span><span class="nx">helmert2d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">srs</span><span class="o">:</span><span class="w"> </span><span class="mf">31256</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">Cx</span><span class="o">:</span><span class="w">  </span><span class="mf">0.600</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">Cy</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.234</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">Rx</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">67946.151</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">Ry</span><span class="o">:</span><span class="w"> </span><span class="mf">215079.498</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">r</span><span class="o">:</span><span class="w"> </span><span class="mf">399.9992</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mf">6.576</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<section id="transformations-via-a-webgis-service">
+<h3>Transformations via a WebGIS Service<a class="headerlink" href="#transformations-via-a-webgis-service" title="Link to this heading">¶</a></h3>
+<p>If different transformations are needed for different regions, these can be automatically retrieved via a <strong>transformation info service</strong>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">continuousPosition</span><span class="p">.</span><span class="nx">useTransformationService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This <strong>transformation info service</strong> is a WebGIS service that provides the definitions of the respective transformations. The information for the individual transformations must be stored in the directory <code class="docutils literal notranslate"><span class="pre">etc/trafo</span></code> in the file <strong>helmert.json</strong>.</p>
+<p>The structure of this file looks, for example, as follows:</p>
+<img alt="../../../_images/image81.png" src="../../../_images/image81.png" />
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Special Topics</a><ul>
+<li><a class="reference internal" href="#vector-tile-caches">Vector Tile Caches</a></li>
+<li><a class="reference internal" href="#spatial-reference-system">Spatial Reference System</a></li>
+<li><a class="reference internal" href="#webgis-and-gnss">WebGIS and GNSS</a></li>
+<li><a class="reference internal" href="#helmert-transformation-2d">Helmert Transformation (2D)</a><ul>
+<li><a class="reference internal" href="#transformations-via-a-webgis-service">Transformations via a WebGIS Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="defaults.html">
+                    <span class="icon">&lt;</span><span>Defaults</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../layouts/index.html"><span>Custom Layouts</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

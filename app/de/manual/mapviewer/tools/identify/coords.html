@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="de" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koordinaten &mdash; WebGIS Manual 2022 Dokumentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=7d611786"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/translations.js?v=70a09b52"></script>
+        <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Höhenmodell abfragen" href="rasterinfo.html" />
+    <link rel="prev" title="Identifizieren/Auswählen" href="identify.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Dokumentation durchsuchen" aria-label="Dokumentation durchsuchen" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../general/index.html"><span class="sectnum">1 </span>Allgemeines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../navigation/index.html"><span class="sectnum">2 </span>Navigation in der Karte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../presentation/index.html"><span class="sectnum">3 </span>Darstellung und Karteninhalte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../legend/index.html"><span class="sectnum">4 </span>Legende und Themen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../search_identify/index.html"><span class="sectnum">5 </span>Suchen und Abfragen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../map/index.html">Karten Werkzeuge</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Abfrage Werkzeuge</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="identify.html">Identifizieren/Auswählen</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Koordinaten</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rasterinfo.html">Höhenmodell abfragen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stat.html">Stationierung</a></li>
+<li class="toctree-l4"><a class="reference internal" href="table.html">Abfrageergebnisse (Tabelle)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../general/index.html">Allgemeine Werkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../presentation/index.html">Darstellungswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sketch/index.html">Sketch/Entwurfswerkzeuge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../news/info.html"><span class="sectnum">7 </span>Neuerungen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips/index.html"><span class="sectnum">8 </span>Tipps und Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Benutzerhandbuch Karten Viewer</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="sectnum">6 </span>Werkzeuge</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Abfrage Werkzeuge</a></li>
+      <li class="breadcrumb-item active">Koordinaten</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/mapviewer/tools/identify/coords.rst.txt" rel="nofollow"> Quelltext anzeigen</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="koordinaten">
+<h1>Koordinaten<a class="headerlink" href="#koordinaten" title="Link to this heading"></a></h1>
+<section id="koordinaten-eingeben-und-abfragen">
+<h2>Koordinaten eingeben und abfragen<a class="headerlink" href="#koordinaten-eingeben-und-abfragen" title="Link to this heading"></a></h2>
+<p>Mit dem <em>Koordinaten Abfragen</em> Werkzeug können einerseits Koordinaten durch Klicken in die Karte abgefragt
+als auch Koordinaten eingegeben und angezeigt werden.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><strong>Tip:</strong> Das Werkzeug kann nicht nur über den Werkzeugkasten aufgerufen werden, sondern öffnet sich auch,
+wenn man auf die mitlaufenden Koordinaten im Kartenviewer klickt:</p>
+<img alt="../../../_images/coords1.png" src="../../../_images/coords1.png" />
+</div>
+<p>Möchte man zu einer bestimmten Koordinate springen, erfolgt dies über das Sub-Werkzeug <em>Koordinaten eingeben</em>.
+Zuvor empfiehlt es sich auch einmal die <em>Eingabe Tipps</em> aufzuklappen, wo unterschiedliche Eingabemöglichkeiten
+für geographische und projizierte Koordinaten gezeigt werden.</p>
+<p>Koordinaten werden in folgendem Dialog eingegeben:</p>
+<img alt="../../../_images/coords2.png" src="../../../_images/coords2.png" />
+<p>In der Auswahlliste muss zuerst ein Koordinatensystem ausgewählt und danach in den Eingabefeldern Rechts- und
+Hochwert eingetragen werden. Durch Bestätigen des Dialogs mit <em>Koordinate anzeigen</em> wechselt der Kartenausschnitt
+zur gewünschten Position und es wird ein Marker angezeigt.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><strong>Tipp:</strong> Will man nur zu einem Punkt mit bekannten geographischen Koordinaten springen, besteht auch die
+Möglichkeit, die Koordinaten in die Schnellsuche einzutragen (siehe Abschnitt <em>Suchen und Abfragen</em>).</p>
+</div>
+<p>Marker können ebenfalls durch einen Klick in die Karte erzeugt werden. Wird der Kartenviewer am Desktop
+verwendet, werden die Koordinaten in einer Listenansicht im Werkzeugdialog angezeigt:</p>
+<img alt="../../../_images/coords3.png" src="../../../_images/coords3.png" />
+<p>In der Auswahlliste über der Koordinatenliste kann ein Koordinatensystem gewählt werden. In dem hier
+gewählten Koordinatensystem werden die Koordinaten in der Liste angezeigt.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Mit dem Koordinaten Werkzeug werden neben XY Koordinaten auch Höhen angezeigt.</p>
+</div>
+<p>Mit dem Button <em>Marker entfernen</em> verschwinden alle Marker aus der Karte und Einträge aus der Liste.</p>
+</section>
+<section id="koordinaten-herunterladen">
+<h2>Koordinaten herunterladen<a class="headerlink" href="#koordinaten-herunterladen" title="Link to this heading"></a></h2>
+<p>Die Liste der Koordinaten kann als CSV Datei herunter geladen werden. Dazu dient das Sub-Werkzeug
+<em>Koordinaten herunterladen (CSV)</em>. Heruntergeladen werden die Koordinaten in dem Koordinatensystem,
+das aktuell für die Koordinatenliste ausgewählt ist. Es wird also die Liste so herunter geladen, wie sie im
+Werkzeugdialog angezeigt wird (inklusive Höhenwerte).</p>
+<p>Bei CSV handelt es sich um eine Text Datei, die in jedem Texteditor geöffnet werden kann. Auch
+Tabellenkalkulationsprogramme wie MS-Excel können mit dieser Datei in der Regel umgehen:</p>
+<img alt="../../../_images/coords4.png" src="../../../_images/coords4.png" />
+</section>
+<section id="koordinaten-hochladen">
+<h2>Koordinaten hochladen<a class="headerlink" href="#koordinaten-hochladen" title="Link to this heading"></a></h2>
+<p>Eine Koordinatenliste kann ebenfalls hochgeladen werden. Die Daten müssen hier ebenfalls in einer CSV
+Datei vorliegen (Trennzeichen muss ein Strickpunkt sein, als Komma wird Beistrich oder Punkt akzeptiert):</p>
+<img alt="../../../_images/coords5.png" src="../../../_images/coords5.png" />
+<p>Beim Hochladen muss in einem Dialog zuerst das Koordinatensystem angegeben werden, in dem die Koordinaten vorliegen.
+Danach kann die Datei hochgeladen werden.</p>
+<p>Ist der Upload erfolgreich, werden die Koordinaten durch Marker in der Karte markiert und als Koordinatenliste
+im Werkzeugdialog angezeigt.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Für jede Koordinate werden auch die Höhen immer wieder neu ermittelt.</p>
+</div>
+</section>
+<section id="koordinaten-projizieren-umwandeln">
+<h2>Koordinaten projizieren (umwandeln)<a class="headerlink" href="#koordinaten-projizieren-umwandeln" title="Link to this heading"></a></h2>
+<p>Mit den oben gezeigten Methoden ist es auch möglich, Koordinatenlisten von einem Koordinatensystem in ein anderes
+zu überführen. Voraussetzung ist dabei, dass die gewünschten Koordinatensysteme vom Kartenviewer angeboten werden.</p>
+<p>Die Vorgehensweise ist dabei folgende:</p>
+<ul class="simple">
+<li><p>Koordinatenliste als CSV hochladen</p></li>
+<li><p>In der Karte kontrollieren, ob alle Koordinaten korrekt hochgeladen wurden. Falls die Lage dort nicht richtig ist, wurde beim Hochladen wahrscheinlich ein falsches Koordinatensystem angegeben.</p></li>
+<li><p>Im Werkzeugdialog für die Koordinatenliste das gewünschte Ziel-Koordinatensystem auswählen</p></li>
+<li><p>Koordinaten im CSV Format herunterladen</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="identify.html" class="btn btn-neutral float-left" title="Identifizieren/Auswählen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
+        <a href="rasterinfo.html" class="btn btn-neutral float-right" title="Höhenmodell abfragen" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Erstellt mit <a href="https://www.sphinx-doc.org/">Sphinx</a> mit einem
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    bereitgestellt von <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

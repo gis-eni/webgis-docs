@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Usability &#8212; WebGIS 2026 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
+    <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Defaults" href="defaults.html" />
+    <link rel="prev" title="Custom Tools" href="customtools.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage">WebGIS 2026 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">WebGIS Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../cms/index.html">WebGIS CMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">WebGIS Viewer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../url-parameters/index.html">Parameterized Invocation of the Map Viewer</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">custom.js</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layouts/index.html">Custom Layouts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../extended_config/index.html">Extended Tool Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../annex/index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="usability">
+<h1>Usability<a class="headerlink" href="#usability" title="Link to this heading">¶</a></h1>
+<p>Some functions of the API can be controlled via so-called <em>usability constants</em>. These can be set in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> for individual maps or entire portal pages.</p>
+<section id="clickbubble">
+<h2>ClickBubble<a class="headerlink" href="#clickbubble" title="Link to this heading">¶</a></h2>
+<p>The <em>ClickBubble</em> improves the usability of the viewer on touch devices. Tools that require a click on the map (e.g. <em>Identify</em>) are often difficult to use on touchscreens, since a finger tap can be imprecise.
+When the <em>ClickBubble</em> is enabled, it appears for all tools that require a click interaction:</p>
+<img alt="../../../_images/image4.png" src="../../../_images/image4.png" />
+<p>Instead of clicking directly on the map, the user drags the bubble to the desired location. The tip of the bubble marks the exact point for the action. Releasing the bubble automatically returns it to the top-right corner and performs the desired action (e.g. <em>Identify</em>).</p>
+<p>If the user clicks on the bubble (without dragging it), a description of how to use it opens.</p>
+</section>
+<section id="context-menu-bubble">
+<h2>Context Menu Bubble<a class="headerlink" href="#context-menu-bubble" title="Link to this heading">¶</a></h2>
+<p>Some tools require a right mouse click (e.g. the context menu for measuring or editing a sketch). For this, an additional <em>ContextMenu Bubble</em> can be enabled.
+The user can click it to open the context menu, or drag it to a specific position to perform an action exactly there (e.g. move or delete a specific <em>vertex</em>, construct at a right angle to the edge, etc.).</p>
+<img alt="../../../_images/image51.png" src="../../../_images/image51.png" />
+<p>This function also enables precise control of constructions with <em>snapping</em> on mobile devices.</p>
+</section>
+<section id="enabling-in-custom-js">
+<h2>Enabling in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code><a class="headerlink" href="#enabling-in-custom-js" title="Link to this heading">¶</a></h2>
+<p>These functions are disabled by default and must be explicitly enabled in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Enable ClickBubble</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">clickBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="c1">// Enable ContextMenu Bubble</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">contextMenuBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Since these functions only make sense on touch devices, the <code class="docutils literal notranslate"><span class="pre">isTouchDevice()</span></code> method can be used:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">clickBubble</span><span class="w"> </span><span class="o">=</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">contextMenuBubble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">isTouchDevice</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="sketch-optimizations">
+<h2>Sketch Optimizations<a class="headerlink" href="#sketch-optimizations" title="Link to this heading">¶</a></h2>
+<p>By default, the user can click on a <em>vertex</em> of a <em>sketch</em> to open a popup menu:</p>
+<img alt="../../../_images/image61.png" src="../../../_images/image61.png" />
+<p>If the right mouse button or the <em>ContextMenu Bubble</em> is available, this menu is no longer needed. However, it can still be explicitly enabled:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">sketchMarkerPopup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// Empfehlung: false!!</span>
+</pre></div>
+</div>
+</section>
+<section id="restricting-construction-tools">
+<h2>Restricting Construction Tools<a class="headerlink" href="#restricting-construction-tools" title="Link to this heading">¶</a></h2>
+<p>In some applications, not all construction tools are needed. In particular, the advanced construction options are aimed at experienced users and can be disabled in specific maps:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">constructionTools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="disabling-the-complete-context-menu">
+<h2>Disabling the Complete Context Menu<a class="headerlink" href="#disabling-the-complete-context-menu" title="Link to this heading">¶</a></h2>
+<p>If the context menu is not needed while drawing, it can be disabled with the following code:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">sketchContextMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="keyboard-shortcuts-for-sketches">
+<h2>Keyboard Shortcuts for Sketches<a class="headerlink" href="#keyboard-shortcuts-for-sketches" title="Link to this heading">¶</a></h2>
+<p>Various <strong>keyboard shortcuts</strong> can be used when constructing a <em>sketch</em>:</p>
+<ul class="simple">
+<li><p><strong>A</strong>: adds a <em>vertex</em> on an edge.</p></li>
+<li><p><strong>D</strong>: deletes a <em>vertex</em>.</p></li>
+<li><p><strong>Ctrl</strong>: allows dragging a window to select multiple <em>vertices</em>, which can then be moved or deleted together.</p></li>
+</ul>
+<p>This functionality can be controlled via the following switches:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">allowSketchShortcuts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">allowSelectSketchVertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">¶</a></h2>
+<p>The following settings are available to customize the behavior of the table of contents:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">makePresentationTocGroupCheckboxes</span></code> (<strong>``true``</strong> / <code class="docutils literal notranslate"><span class="pre">false</span></code>)):
+if this option is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, checkboxes are automatically offered for expandable group layers
+in the table of contents, if all the layers/presentation variants below them also have a checkbox.
+This checkbox can then be used to show or hide all the layers below it with a single
+click.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">orderPresentationTocContainsByServiceOrder</span></code> (<code class="docutils literal notranslate"><span class="pre">true</span></code>/ <strong>``false``</strong>):
+this specifies that the containers in the table of contents are sorted according to the drawing order
+of the services. Otherwise, the sort order from the CMS applies, as defined
+under <code class="docutils literal notranslate"><span class="pre">Viewer/Presentation</span> <span class="pre">Variants</span></code>.
+If you do not use presentation variants but dynamic tables of contents,
+the containers would be sorted alphabetically without this option.</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">makePresentationTocGroupCheckboxes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">orderPresentationTocContainsByServiceOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: false</span>
+</pre></div>
+</div>
+</section>
+<section id="toolbox">
+<h2>Toolbox<a class="headerlink" href="#toolbox" title="Link to this heading">¶</a></h2>
+<p>These settings can be used to configure the tools in the <em>toolbox</em>.
+The settings are made per tool; the syntax is as follows:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;{tool-id}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom container for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom name for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom tooltip for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="c1">// optional, default: 0</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">{tool-id}</span></code> is the ID of the tool. You can get the <strong>IDs</strong> of the individual tools
+via the WebGIS API <code class="docutils literal notranslate"><span class="pre">/rest/tools</span></code></p>
+<p>One example use case is when tools should be moved to a different container (tab),
+e.g.:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.fullextent&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span>
+<span class="p">};</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.identify&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span><span class="s1">&#39;Abfragen&#39;</span><span class="p">],</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span>
+<span class="p">};</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.boxzoomin&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Here, the <em>Full Extent</em> tool is moved to the <em>Start</em> tab, and the <em>Query</em>
+tool to the <em>Start</em> and <em>Abfragen</em> tabs. So if a tool should be visible in
+multiple tabs, the container must be specified as an array.
+The <em>Box Zoom</em> tool gets a higher priority and thus ends up further forward in the tab
+(container) (<code class="docutils literal notranslate"><span class="pre">priority</span></code> can be used to influence the order of tools within a container).</p>
+<p>Furthermore, the order of the containers can be determined:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolContainerOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s1">&#39;Start&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Abfragen&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Messwerkzeuge&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Zeichnen&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Navigation&#39;</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>If nothing is specified here, the order of the containers corresponds to the order in which the
+tools were added to the map.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you change the <code class="docutils literal notranslate"><span class="pre">toolProperties</span></code> of the tools, the container order should always
+also be defined, since otherwise the order of the containers is assigned more or less randomly.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all containers need to be specified in the order. If there is a container
+that is not in the list, it is always shown at the end.</p>
+</div>
+<p>If a tool is not shown in the UI, even though it was, for example, added in the MapBuilder,
+this may be because it is not defined in the <code class="docutils literal notranslate"><span class="pre">toolProperties</span></code> configuration. In this case, it must be defined with an empty object:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;{tool-id}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="c1">// optional, default: &#39;visible&#39;, other possible value: &#39;hidden&#39;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This makes sense if a tool should only be visible to logged-in users.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">hmac</span><span class="p">.</span><span class="nx">userName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.loadmap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.savemap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, anonymous access to the corresponding REST endpoints should also be disabled
+at the same time, so that the tools cannot be called via the URL. To do this, an entry <code class="docutils literal notranslate"><span class="pre">allow-anonymous-access</span></code>
+with the value <code class="docutils literal notranslate"><span class="pre">false</span></code> is required in the corresponding tool section in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>, e.g.:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="cm">&lt;!-- other settings --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-loadmap&quot;</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="cm">&lt;!-- other settings --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading">¶</a></h2>
+<p>The WebGIS API offers the ability to use keyboard shortcuts for various actions.
+These shortcuts can be enabled in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> to improve usability.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">useAdvancedKeyShortcutHandling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">false</span></code>, which means that the advanced keyboard shortcuts are not enabled for WebGIS API applications
+by default. If you use the WebGIS Viewer, <code class="docutils literal notranslate"><span class="pre">custom-recommendations.js</span></code> is also loaded by default,
+which sets this value to <code class="docutils literal notranslate"><span class="pre">true</span></code>. In the viewer, the shortcuts are therefore enabled by default.</p>
+<p>If the advanced keyboard shortcuts are enabled, the following actions can be performed:</p>
+<p><strong>Editing selection tool</strong></p>
+<ul class="simple">
+<li><p><strong>Space bar</strong>: select only one object. The object closest to the clicked point is selected.</p></li>
+<li><p><strong>E</strong>: as above, except that the edit form is opened immediately.</p></li>
+<li><p><strong>D</strong>: as above, except that the delete form is opened immediately.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Requirement</strong>: the selection tool must be active (point selection), and a topic from the list must be selected.</p>
+</div>
+</section>
+<section id="selection-lists-pro-behavior">
+<span id="customjs-domain-pro-behaviour"></span><h2>Selection Lists Pro Behavior<a class="headerlink" href="#selection-lists-pro-behavior" title="Link to this heading">¶</a></h2>
+<p>If you parameterize edit-form fields in the CMS as a selection list (type <code class="docutils literal notranslate"><span class="pre">Domain</span></code>), the behavior of the
+selection list can be set to <code class="docutils literal notranslate"><span class="pre">Pro</span></code> in the CMS dialog under <code class="docutils literal notranslate"><span class="pre">optional:</span> <span class="pre">Domain</span> <span class="pre">Behaviour</span> <span class="pre">(experimental)</span></code>.
+This shows the selection list as <em>select2</em>, which offers a better user experience.</p>
+<p>This requires that the <em>select2</em> library be used for this purpose.
+By default, the <code class="docutils literal notranslate"><span class="pre">Pro</span></code> behavior of the selection lists only changes once the
+<code class="docutils literal notranslate"><span class="pre">webgis.usability.select_pro_behaviour</span></code> constant is set in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">select_pro_behaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;select2&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, the only possible value for this constant is <code class="docutils literal notranslate"><span class="pre">select2</span></code>.
+All other values are ignored, and the behavior of the selection lists remains unchanged.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A description of the <code class="docutils literal notranslate"><span class="pre">Pro</span></code> behavior of the selection lists can be found in
+<a class="reference internal" href="../../cms/editing/fields_domain_behaviour.html#cms-fields-domain-behaviour"><span class="std std-ref">CMS Changing Domain Behavior</span></a>.</p>
+</div>
+</section>
+<section id="quick-search">
+<h2>Quick Search<a class="headerlink" href="#quick-search" title="Link to this heading">¶</a></h2>
+<p>For the quick search, various settings can be made via the <cite>webgis.usability.quickSearch</cite> configuration:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// allows enter geocodes in quicksearch</span>
+<span class="c1">//    default is false, but set to true for the view in custom-recommendations.js</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">displayMetadata</span><span class="p">.</span><span class="nx">geocodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// select first result on enter</span>
+<span class="c1">//    default is false, but set to true for the view in custom-recommendations.js</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">selectFirstOnEnter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">//</span>
+
+<span class="c1">// minimum length of search term to trigger quick search</span>
+<span class="c1">//  default is 0, if larger than 0, qick search will not show info item, when</span>
+<span class="c1">//  user clicks in the search field</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">minLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="c1">// delay in ms before quick search is triggered after user stops typing</span>
+<span class="c1">//  default is 0, but set to 300 for the view in custom-recommendations.js</span>
+<span class="c1">//  0 means no delay, but that can lead to performance issues if the search is triggered on every keystroke</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">quickSearch</span><span class="p">.</span><span class="nx">debounceDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">300</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">selectFirstOnEnter</span></code>, the first suggested value is automatically selected when the
+user presses Enter. Otherwise, Enter triggers a complete search using the
+search term entered so far (same as clicking the magnifying glass icon).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the user has narrowed down the suggestions to a single suggestion by typing,
+<code class="docutils literal notranslate"><span class="pre">ENTER</span></code> always selects that suggested value, regardless of what
+is set here.</p>
+</div>
+</section>
+<section id="calculate-proximity">
+<h2>Calculate Proximity<a class="headerlink" href="#calculate-proximity" title="Link to this heading">¶</a></h2>
+<p>For the calculate proximity function, the default buffer distance in meters can be set via <cite>webgis.usability.defaultBufferDistance</cite>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// default buffer distance in meters</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">defaultBufferDistance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">15</span><span class="p">;</span><span class="w"> </span><span class="c1">// default is 30 meters</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From version 8.x</p>
+</div>
+</section>
+<section id="result-list">
+<h2>Result List<a class="headerlink" href="#result-list" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p><cite>webgis.usability.showQueryLayerNotVisbleNotification</cite>: this switch can be used to enable a notification
+when the result layer of a query tool is not visible. The notification
+informs the user that the results may not be shown because the layer
+is hidden. It is recommended to enable this notification to improve
+usability and avoid misunderstandings. The notification appears
+as a red bar above the results. Clicking the notification makes the layer visible.
+This notification is enabled by default.</p>
+<p>To disable the notification, the following code can be used in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<blockquote>
+<div><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">showQueryLayerNotVisbleNotification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// default is true</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="overview-map-minimap">
+<h2>Overview Map (Minimap)<a class="headerlink" href="#overview-map-minimap" title="Link to this heading">¶</a></h2>
+<p>The overview map (minimap) shows the current extent of the main map by default.
+The minimap is implemented via the <a class="reference external" href="https://github.com/Norkart/Leaflet-MiniMap">Leaflet.Minimap</a>
+plugin. The options for the minimap can be customized via the <cite>webgis.usability.miniMapOptions</cite>
+configuration.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// default options for the minimap</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">miniMapOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">zoomLevelOffset</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">5</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottomleft&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">toggleDisplay</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">minimized</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>The available options are described in the plugin documentation.</p>
+</section>
+<section id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">¶</a></h2>
+<p>Metadata for presentation variants (topics) is usually shown in the table of contents.
+There is the option to show the metadata as an i-button or as a link button.</p>
+<p>On touch displays (phones), clicking on the checkboxes for the presentation variants often leads to
+confusion, since the i-button for the metadata is often clicked instead.
+For this reason, the following options are now available:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Also shows the metadata links in the map&#39;s copyright area</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_presentation_metadata_in_copyright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Shows i-buttons in the TOC</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_metadata_i_button_toc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// Shows link buttons in the TOC</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_link_button_in_toc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To avoid the confusion when clicking described above, <code class="docutils literal notranslate"><span class="pre">custom-recommendation.js</span></code>
+is extended as follows:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_metadata_i_button_toc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">isMobileDevice</span><span class="p">()</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this case, the i-button is no longer shown in the TOC on phones.
+The metadata link can then only be found in the map’s copyright area.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Usability</a><ul>
+<li><a class="reference internal" href="#clickbubble">ClickBubble</a></li>
+<li><a class="reference internal" href="#context-menu-bubble">Context Menu Bubble</a></li>
+<li><a class="reference internal" href="#enabling-in-custom-js">Enabling in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code></a></li>
+<li><a class="reference internal" href="#sketch-optimizations">Sketch Optimizations</a></li>
+<li><a class="reference internal" href="#restricting-construction-tools">Restricting Construction Tools</a></li>
+<li><a class="reference internal" href="#disabling-the-complete-context-menu">Disabling the Complete Context Menu</a></li>
+<li><a class="reference internal" href="#keyboard-shortcuts-for-sketches">Keyboard Shortcuts for Sketches</a></li>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li><a class="reference internal" href="#toolbox">Toolbox</a></li>
+<li><a class="reference internal" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li><a class="reference internal" href="#selection-lists-pro-behavior">Selection Lists Pro Behavior</a></li>
+<li><a class="reference internal" href="#quick-search">Quick Search</a></li>
+<li><a class="reference internal" href="#calculate-proximity">Calculate Proximity</a></li>
+<li><a class="reference internal" href="#result-list">Result List</a></li>
+<li><a class="reference internal" href="#overview-map-minimap">Overview Map (Minimap)</a></li>
+<li><a class="reference internal" href="#metadata">Metadata</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="customtools.html">
+                    <span class="icon">&lt;</span><span>Custom Tools</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="defaults.html"><span>Defaults</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

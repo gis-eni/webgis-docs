@@ -1,0 +1,22 @@
+Build 6.24.3901 (2024)
+======================
+
+In this release, there are two major changes, which are briefly described here.
+
+New Redlining
+---------------
+
+Redlining was completely reworked and offers a new way of handling object creation. More details can be found in the :ref:`redlining` chapter.
+
+Changes to Display and Design
+----------------------------------
+
+Under *Settings* - *Display/Design*, you have the option to change the *color scheme*, the *layout template*, and/or the *styling*.
+
+.. image:: img/einstellungen.png
+
+.. image:: img/umstellung_stand_prof.png
+
+If you change the *layout template*, you can choose between *Mobile (Standard)* and *Desktop (Professional)* layout.
+These layouts differ largely in a different table output of results and a special editing interface in the desktop layout.
+More details can be found in the :ref:`results` and :ref:`edit` chapters.

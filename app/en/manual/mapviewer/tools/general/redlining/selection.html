@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transferring Elements from a Selection into Redlining &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Drawing (Map Markup &amp; Annotations)" href="../mapmarkup/index.html" />
+    <link rel="prev" title="Managing Drawings" href="manage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../general/index.html"><span class="sectnum">1 </span>General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../presentation/index.html"><span class="sectnum">3 </span>Presentation and Map Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><span class="sectnum">6 </span>Tools</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../map/index.html">Map Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../identify/index.html">Query Tools</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">General Tools</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../measure-line.html">Measure Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-area.html">Measure Area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../circle.html">Buffer Circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../profile.html">Elevation Profile</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Drawing (Redlining)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mapmarkup/index.html">Drawing (Map Markup &amp; Annotations)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Editing (Edit)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georeference.html">Georeferencing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../georef-image.html">Georeferencing Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../measure-3d.html">3D Measurement</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../presentation/index.html">Presentation Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sketch/index.html">Sketch/Drafting Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clickbubble/index.html">Click Bubble</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Map Viewer User Manual</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="sectnum">6 </span>Tools</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">General Tools</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Drawing (Redlining)</a></li>
+      <li class="breadcrumb-item active">Transferring Elements from a Selection into Redlining</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/mapviewer/tools/general/redlining/selection.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transferring-elements-from-a-selection-into-redlining">
+<h1>Transferring Elements from a Selection into Redlining<a class="headerlink" href="#transferring-elements-from-a-selection-into-redlining" title="Link to this heading"></a></h1>
+<p>Depending on permissions, it is possible to take the geometry for redlining elements from an existing query/selection.
+Use cases for this include, for example:</p>
+<ul class="simple">
+<li><p>Showing the selection of several queries at the same time, coloring them individually, and printing them</p></li>
+<li><p>Simplifying the retracing of already existing geometries from a query</p></li>
+<li><p>Transferring text from queried objects to the map</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whether this function is available is determined by the operator of the map viewer. It may also only be offered in a restricted form.
+For example, it can be restricted how many objects may be transferred, or whether a download of these elements is possible.</p>
+</div>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h2>
+<p>For this function to be offered, objects must first be queried. This is done as described in the <em>Search and Query</em> section, or with the <em>Identify/Select</em> tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The query results must appear <strong>selected</strong> on the map (with a <em>cyan</em> background). Otherwise, they will not be recognized by the <em>drawing (redlining)</em> tool.
+Query results are selected when the corresponding option has been set in the result list:</p>
+<img alt="../../../../_images/selection11.png" src="../../../../_images/selection11.png" />
+</div>
+<p>Switching to the <em>drawing (redlining)</em> tool allows you to transfer these objects. First, note the geometry type (point, line, polygon) of the selected query results.
+Points, for example, <em>cannot</em> be transferred as lines or polygons.</p>
+<p>For example, if you have selected parcel areas, you can also select the <em>polygons</em> sub-tool in the <em>drawing (redlining)</em> tool. The following button should now appear in the tool dialog:</p>
+<img alt="../../../../_images/selection21.png" src="../../../../_images/selection21.png" />
+<p>Clicking this button shows the following dialog:</p>
+<img alt="../../../../_images/selection31.png" src="../../../../_images/selection31.png" />
+<p>Here you can select an attribute from the query results, whose values should be used as a description when inserting the objects into the redlining. This makes it easier later to identify the graphic elements
+in the list. The possible attribute values depend on the query topic.
+For parcel areas, for example, the <em>parcel number</em> is a good choice.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The presentation (colors, …) of the inserted elements depends on the current presentation options. These can be changed afterwards, but each element must then be edited separately.
+It is therefore recommended to set the correct presentation options before transferring.</p>
+</div>
+<p>Once all settings are correct, the objects can be converted into drawing elements with the <em>Transfer from selection</em> button.</p>
+</section>
+<section id="forms-of-transfer">
+<h2>Forms of Transfer<a class="headerlink" href="#forms-of-transfer" title="Link to this heading"></a></h2>
+<p>As already shown, polygon objects can be converted into <em>polygon</em> drawing elements. The same applies to lines and points (which can be transferred as symbols).
+In addition, all objects can be transferred as text. The following list shows which object geometries can be converted into which drawing elements.</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Object Geometry</strong></p></td>
+<td><p><strong>Drawing (Redlining) Geometry</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Points</p></td>
+<td><ul class="simple">
+<li><p>Symbols</p></li>
+<li><p>Text</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Lines</p></td>
+<td><ul class="simple">
+<li><p>Symbols</p></li>
+<li><p>Text</p></li>
+<li><p>Lines</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Polygons</p></td>
+<td><ul class="simple">
+<li><p>Symbols</p></li>
+<li><p>Text</p></li>
+<li><p>Polygons</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>It seems understandable that points can be converted into both symbols and text (the insertion point is always the location of the object point).
+Nevertheless, it can also make sense to convert lines and polygons into symbols or text. When converting lines and polygons into symbols or text, the insertion point is automatically calculated
+so that it lies on the respective object.</p>
+<p>One use case might be, for example, if the parcel number for the selected query results should be shown in a specific form for a printout.
+The procedure for this would be as follows:</p>
+<ul class="simple">
+<li><p>Select parcel areas via search or query</p></li>
+<li><p>Switch to the <em>drawing (redlining)</em> tool</p></li>
+<li><p>Click on the text sub-tool</p></li>
+<li><p>Set presentation options (font size and color)</p></li>
+<li><p>Click the <em>Transfer texts from selection of parcel areas…</em> button.</p></li>
+<li><p>In the dialog, select <em>parcel numbers</em> as the description field, and confirm with the <em>Transfer from selection</em> button</p></li>
+<li><p>Optionally further adjust or reposition the individual resulting text elements</p></li>
+<li><p>Optionally, the selected query results can be removed from the map; the drawing elements remain</p></li>
+</ul>
+<p>The result could then look something like this (red text elements are drawing elements and come from a query).</p>
+<img alt="../../../../_images/selection51.png" src="../../../../_images/selection51.png" />
+<p>In the same way, you could also add a marker to the selected parcels. To do this, in the <em>drawing (redlining)</em> tool, select the <em>symbol</em> sub-tool instead of <em>text</em>, and
+click the <em>Transfer symbols from selection of parcel areas…</em> button.</p>
+<img alt="../../../../_images/selection61.png" src="../../../../_images/selection61.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="manage.html" class="btn btn-neutral float-left" title="Managing Drawings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../mapmarkup/index.html" class="btn btn-neutral float-right" title="Drawing (Map Markup &amp; Annotations)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

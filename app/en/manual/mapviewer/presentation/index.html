@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3 Presentation and Map Content &mdash; WebGIS Manual 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/eni-gray.css?v=9afab3ce" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=001ecc8c"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4 Legend and Topics" href="../legend/index.html" />
+    <link rel="prev" title="2 Navigating the Map" href="../navigation/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            WebGIS Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Map Viewer User Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../general/index.html"><span class="sectnum">1 </span>General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../navigation/index.html"><span class="sectnum">2 </span>Navigating the Map</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><span class="sectnum">3 </span>Presentation and Map Content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-content"><span class="sectnum">3.1 </span>Dynamic Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#background-basemaps"><span class="sectnum">3.2 </span>Background (Basemaps)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#presentation-variants-thematic-data"><span class="sectnum">3.3 </span>Presentation Variants (Thematic Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tips-and-tricks"><span class="sectnum">3.4 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../legend/index.html"><span class="sectnum">4 </span>Legend and Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../search_identify/index.html"><span class="sectnum">5 </span>Search and Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/index.html"><span class="sectnum">6 </span>Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../news/info.html"><span class="sectnum">7 </span>New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips/index.html"><span class="sectnum">8 </span>Tips and Tricks</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">WebGIS Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Map Viewer User Manual</a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">3 </span>Presentation and Map Content</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/mapviewer/presentation/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="presentation-and-map-content">
+<h1><span class="sectnum">3 </span>Presentation and Map Content<a class="headerlink" href="#presentation-and-map-content" title="Link to this heading"></a></h1>
+<p>Different maps have different content. For example, a map with cadastre data and another with data from zoning are both conceivable.
+Of course, a map could also cover both topic areas. The map author determines what content is in a map. Only the general
+concepts of how the presentation of map content can be organized, and how the user can influence it, are described here.</p>
+<p>The map content is mainly set in the map viewer in the <strong>Presentation</strong> area (usually in the left <em>frame</em> on desktop, at the bottom of the screen on mobile devices - see overview).</p>
+<p>There are generally different types of geodata that can also be handled in different ways in the map viewer:</p>
+<section id="dynamic-content">
+<h2><span class="sectnum">3.1 </span>Dynamic Content<a class="headerlink" href="#dynamic-content" title="Link to this heading"></a></h2>
+<p>Dynamic content is usually very specific data and is not present in every map. It is usually shown at the very top of the list of presentation content and can be shown or hidden separately.
+Dynamic content is shown on the map as clickable markers. Only one of these topics can be shown on the map at any given time.</p>
+<img alt="../../_images/dyn_inhalte1.png" src="../../_images/dyn_inhalte1.png" />
+<p>Dynamic content usually serves to provide very dynamic topics (which can change quickly) on a map.
+Since it is shown on the map as markers, it behaves like the results of a query/search, and can therefore also be understood as a predefined query.
+Queries/searches will be covered in more detail in a later section.</p>
+</section>
+<section id="background-basemaps">
+<h2><span class="sectnum">3.2 </span>Background (Basemaps)<a class="headerlink" href="#background-basemaps" title="Link to this heading"></a></h2>
+<p>This data is more static and mainly serves for orientation on the map. It is usually located below all other data on the map (background).
+This background data is usually aerial imagery or town and street maps. The data is usually area-filling, so only one
+background can be shown at a time.</p>
+<p>In the presentation area of the map viewer, the background maps appear roughly as follows:</p>
+<img alt="../../_images/basemap1.png" src="../../_images/basemap1.png" />
+<p>Clicking on one of the tiles switches the background. The <em>No background</em> button sets all background maps to <em>invisible</em>.
+If there are more than three possible background maps, the tile view can be expanded with the arrow icon (down arrow below the tiles).</p>
+<p>The <em>xx% buttons</em> indicate the transparency of the displayed background.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The transparency makes the background appear “lighter,” which can lead to better contrast for some applications when overlaid with thematic data.</p>
+</div>
+<p>Optional background maps (so-called <em>overlay</em> maps) can, if available, be placed over the actual background map (here <em>Street Colors</em>).
+This makes sense, for example, if streets and street names should be placed over an aerial imagery map for orientation:</p>
+<img alt="../../_images/basemap2.png" src="../../_images/basemap2.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since background maps usually contain static data, they are available as so-called map tiles. These tiles already exist pre-calculated on the server for all scales,
+which makes the display particularly performant and provides <em>smooth</em> transitions when navigating the map.</p>
+</div>
+</section>
+<section id="presentation-variants-thematic-data">
+<h2><span class="sectnum">3.3 </span>Presentation Variants (Thematic Data)<a class="headerlink" href="#presentation-variants-thematic-data" title="Link to this heading"></a></h2>
+<p>This is the data that is actually decisive for a map application. Unlike background maps, this data is generally not pre-processed for all scales, but
+is generated individually for each map extent based on the user’s requirements. This data is therefore more similar to <em>dynamic content</em> (see above), with the difference that here on the map
+not only <em>clickable</em> map markers are shown. Instead, this data appears as a cartographically processed map image that is placed over the background maps.</p>
+<p>As a result of this, this data is naturally not shown as <em>smoothly</em> as, for example, the pre-calculated background map tiles. In return, however, the user
+can have significantly more influence on the content and presentation of this data. The user can decide which data layers should be shown and which should not. A wide variety of data layers can be combined as desired using
+presentation variants.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because the <em>thematic data</em> map images are generated dynamically and individually for each user request, it can happen that the display takes
+a few moments after the map extent is changed. The performance of these services depends on the amount of data shown and the cartographic complexity of the maps. The map viewer therefore shows
+a progress indicator in a status bar (bottom left):</p>
+<img alt="../../_images/hourglass1.png" src="../../_images/hourglass1.png" />
+<p>Once all data has loaded, the progress indicator disappears and the current scale and the scale bar are shown in its place:</p>
+<img alt="../../_images/scale11.png" src="../../_images/scale11.png" />
+<p><strong>Tip:</strong> clicking on the scale opens a dialog in which the current map scale can be set.</p>
+</div>
+<p>In the map viewer, the presentation variants are organized in expandable containers in the <em>presentation frame</em>. Which presentation variants are available depends on the content of the map and the
+respective permissions.</p>
+<img alt="../../_images/presentations1.png" src="../../_images/presentations1.png" />
+<p>The containers contain the <em>toggleable</em> presentation variants for each topic group. The figure also shows that these presentation variants can be further subdivided into groups within a container (Base Data),
+(Cadastre, Administrative Data). Once this group is expanded, the <em>clickable</em> presentation variants appear:</p>
+<img alt="../../_images/presentations2.png" src="../../_images/presentations2.png" />
+<p>The presentation variants can be shown with different icons:</p>
+<ul class="simple">
+<li><p><strong>Layer stack icon:</strong> clicking on the presentation variant makes the corresponding layers visible. Clicking on a layer stack usually affects several layers. Other layers that do not make sense for this view are hidden. In the example here, for instance, the cadastre is hidden in gray colors when you click on the presentation variant with the cadastre in “magenta” colors.</p></li>
+<li><p><strong>Checkbox icon:</strong> the <em>checkmark</em> icon can be used to show or hide optional presentation variants. Several data layers can also be behind this presentation variant, logically grouped into one presentation variant.</p></li>
+<li><p><strong>Option box icon:</strong> a <em>radio button</em> icon can be used (just like the <em>checkmark</em> icon) to optionally show topics. The difference here is that these topics are mutually exclusive. Only one <em>option box</em> can be active within a group.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>How the presentation variants are organized, and which data layers they show, is defined by the map author. The presentation variants should help the user reach their goal as easily as possible,
+without needing exact knowledge of the underlying data structure. For example, the user may only want the option to show the cadastre. However, it doesn’t matter to them
+whether that involves the topics parcel boundaries, usage boundaries, building boundaries, usage symbols, parcel numbers, …</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some presentation variants are listed in <em>gray</em>. This means that the topic layers that can be shown with them are not visible at the current scale (a click will not immediately show the
+desired topics on the map). If you zoom further into the map, these topics will eventually become visible, and the presentation variant will no longer appear <em>gray</em>.</p>
+</div>
+<p>The reason for the scale-dependent display is usually that not all topics make sense at every scale. Parcel boundaries, for example, don’t make sense at a very small scale (e.g. an entire federal state)
+and would only slow down the map build-up.</p>
+</section>
+<section id="tips-and-tricks">
+<h2><span class="sectnum">3.4 </span>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Link to this heading"></a></h2>
+<p>Maps with a lot of thematic data can have quite extensive presentation-variant trees. Depending on experience, several clicks may be needed to find a presentation variant.
+To speed up this process, you can search for presentation variants in the tree. For this, there is a small input field directly above the topmost container (desktop only), labeled <em>Search content…</em></p>
+<p>If you enter a value here, all irrelevant presentation variants and <em>containers</em> disappear, and all relevant groups are shown expanded.</p>
+<img alt="../../_images/presentations3.png" src="../../_images/presentations3.png" />
+<p>Clicking on the found presentation variant activates it, and the presentation-variant tree is shown again in its original form.
+You can also click on a relevant group to open it in the original tree and show the presentation variants below it.</p>
+<p>If you want to show the presentation-variant tree in its original form again, the content must be deleted from the <em>Search content</em> input field.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../navigation/index.html" class="btn btn-neutral float-left" title="2 Navigating the Map" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../legend/index.html" class="btn btn-neutral float-right" title="4 Legend and Topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, ENI.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
