@@ -98,7 +98,7 @@ Dieser Link muss so auch ins CMS übertragen werden.
    ein störungsfreier Wechsel von Tokens möglich ist.
 
 Auswahlliste im CMS einbinden 
-------------------------------
+-----------------------------
 
 Hier wird beim jeweiligen *Domain Feld* (Edit Maske) unter *ConnectionString* der Link zur Abfrage eingetragen:
 

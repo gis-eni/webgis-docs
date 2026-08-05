@@ -124,7 +124,7 @@ Dynamische Darstellungsvarianten
    werden.
 
 Dynamische Abfragen 
-++++++++++++++++++++
++++++++++++++++++++
 
 * **None:** Die Abfrage müssen für den Dienst im Abschnitt ``Abfragen`` parametriert werden.
   Dieser Vorgang wird im nächsten Abschnitt beschrieben.
