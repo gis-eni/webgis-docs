@@ -1,7 +1,7 @@
 Build 3.21.2403 (2021-06-16)
 ============================
 
-New redlining tools were introduced with this build. With redlining, simple graphics (lines, areas) and text can generally be added to a map and printed.
+New map markup tools were introduced with this build. With map markup, simple graphics (lines, areas) and text can generally be added to a map and printed.
 
 The following new graphic types were introduced:
 

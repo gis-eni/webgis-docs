@@ -94,7 +94,7 @@ The result could then look something like this (red text elements are drawing el
 
 .. image:: img/selection5.png
 
-In the same way, you could also add a marker to the selected parcels. To do this, in the *drawing (redlining)* tool, select the *symbol* sub-tool instead of *text*, and
+In the same way, you could also add a marker to the selected parcels. To do this, in the *drawing (map markup)* tool, select the *symbol* sub-tool instead of *text*, and
 click the *Transfer symbols from selection of parcel areas...* button.
 
 .. image:: img/selection6.png

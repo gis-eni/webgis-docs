@@ -1,16 +1,16 @@
 (Karten) Projekte 
-=================
+==================
 
 Über den Button ``Speichern`` unter ``Karte`` kann die aktuelle geöffnet Karte
 gespeichert werden. Gespeichert wird der aktuelle Ausschnitt, die aktuelle Sichtbarkeit der 
-Datenschichten und das Redlining.
+Datenschichten und das Map-Markup.
 
 Wurden der Karte zusätzliche (Karten) Dienste hinzugefügt, werden diese beim Öffnen des Projektes wieder
 in die Karte eingefügt.
 
 Vorteile:
 
-* Gesamte Karte, inklusive zusätzlich hinzugefügter (Karten) Dienste, Redlining, aktueller geographischer Ausschnitt und Schaltung der Datenschichten (Layer) wird in ein Projekt gespeichert.
+* Gesamte Karte, inklusive zusätzlich hinzugefügter (Karten) Dienste, Map-Markup, aktueller geographischer Ausschnitt und Schaltung der Datenschichten (Layer) wird in ein Projekt gespeichert.
 * Wird direkt auf der Portalseite (Startseite) unter **Meine Projekte** gelistet und kann von dort geöffnet werden.
 
 Einschränkungen:

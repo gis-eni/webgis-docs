@@ -1,7 +1,7 @@
 Build 3.21.2403 (16.06.2021)
 ============================
 
-Mit diesem Build wurden neue Redlining Werkzeug eingeführt. Mit Redlining können in der Regel einfache Grafiken (Linien, Flächen) und Texten einer Karte hinzugefügt und ausgedruckt werden.
+Mit diesem Build wurden neue Map-Markup Werkzeug eingeführt. Mit Map-Markup können in der Regel einfache Grafiken (Linien, Flächen) und Texten einer Karte hinzugefügt und ausgedruckt werden.
 
 Als neue Grafiktypen wurden eingeführt:
 

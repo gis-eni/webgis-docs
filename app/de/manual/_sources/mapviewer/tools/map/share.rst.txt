@@ -10,7 +10,7 @@ Geteilt werden:
 
 * Sichtbare Themenebenen
 
-* Mit dem *Zeichnen (Redlining)* Werkzeug erstellte Zeichnungen
+* Mit dem *Zeichnen (Map-Markup)* Werkzeug erstellte Zeichnungen
 
 Nach dem Öffnen des Werkzeugs erscheint ein Dialog, in dem angegeben werden kann, wie lange das Teilen der Karte
 gültig sein sollte. Das Teilen von Karten sollte nur temporär sein und nicht dem Zweck dienen, Karten dauerhaft 

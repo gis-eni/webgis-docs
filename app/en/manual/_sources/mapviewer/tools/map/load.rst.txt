@@ -7,7 +7,7 @@ With this tool, you can load saved maps again. The following are generally loade
 
 * Visible topic layers
 
-* Drawings created with the *Drawing (Redlining)* tool
+* Drawings created with the *Drawing (Map Markup)* tool
 
 .. note::
    **Note:** as already explained for the *Save Map* tool, the presentation of a map

@@ -32,10 +32,10 @@ Unter Benutzeroberfläche (UI) stellen nur Darstellungsvarianten, Abfrageergebni
 Damit ist unsere erste Karte einmal fertig. 
 
 
-Redlining
----------
+Map-Markup
+----------
 
-Unter Redlining können unter anderem Punkte gesetzt und mit einem Kommentar versehen werden.
+Unter Map-Markup können unter anderem Punkte gesetzt und mit einem Kommentar versehen werden.
 
 .. image:: img/image7.png
 

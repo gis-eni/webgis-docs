@@ -1,7 +1,7 @@
 Sketch/Drafting Tools
 ========================
 
-When drawing a sketch (e.g. when redlining, editing, creating an elevation profile, ...), several options are available that can be very helpful depending on the application.
+When drawing a sketch (e.g. when using map markup, editing, creating an elevation profile, ...), several options are available that can be very helpful depending on the application.
 
 To access them, right-click on the sketch or on the map while drawing. Depending on the type of the sketch (line, polygon), the following options are offered:
 

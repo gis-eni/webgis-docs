@@ -596,7 +596,7 @@ For **3D measurements** to work, the following values must be configured in ``ap
 Tool ``Save Map``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With the **Save Map** tool, users can save the current map (services, visibility, redlining) as a **project**. The following settings can be configured for this:
+With the **Save Map** tool, users can save the current map (services, visibility, map markup) as a **project**. The following settings can be configured for this:
 
 .. code-block:: xml
 
@@ -647,9 +647,9 @@ The following settings determine who is allowed to open saved maps. By default, 
 
 .. danger::
 
-  For data protection reasons, sharing saved links should not be allowed. Via a link, the current state of the map, including **redlining**, can be accessed at any time!
+  For data protection reasons, sharing saved links should not be allowed. Via a link, the current state of the map, including **map markup**, can be accessed at any time!
 
-  The recommended way to share a map is the **Share Map** tool. This creates and shares a **snapshot** of the current map. Later changes, in particular to **redlining**, are no longer visible in the shared version.
+  The recommended way to share a map is the **Share Map** tool. This creates and shares a **snapshot** of the current map. Later changes, in particular to **map markup**, are no longer visible in the shared version.
 
 Tool ``CMS Upload``
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -687,7 +687,7 @@ The configuration allows you to define whether **CMS.xml** files may be uploaded
 Tool ``Share Map``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Maps can be shared via a **hyperlink**. This saves the current map, including **redlining** and **layer visibility**, **on the server**.
+Maps can be shared via a **hyperlink**. This saves the current map, including **map markup** and **layer visibility**, **on the server**.
 
 To avoid unnecessary storage of maps in the **WebGIS storage**, these links have an **expiration date**. The user can specify how long a link should remain valid.
 

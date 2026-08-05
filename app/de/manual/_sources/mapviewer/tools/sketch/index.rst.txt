@@ -1,7 +1,7 @@
 Sketch/Entwurfswerkzeuge
 ========================
 
-Beim Zeichnen eines Sketches (z.B. beim Redlining, Editieren, Höhenprofil erstellen, ...) stehen mehrere Optionen zur Verfügung, die je nach Anwendung sehr hilfreich sein können.
+Beim Zeichnen eines Sketches (z.B. beim Map-Markup, Editieren, Höhenprofil erstellen, ...) stehen mehrere Optionen zur Verfügung, die je nach Anwendung sehr hilfreich sein können.
 
 Dazu muss während des Zeichnens mit der rechten Maustaste auf den Sketch oder in die Karte geklickt werden. Je nach Typ des Sketches (Linie, Polygon) werden folgende Optionen angeboten:
 

@@ -33,10 +33,10 @@ Under User Interface (UI), only presentation variants, query results, toolbox, q
 With that, our first map is complete.
 
 
-Redlining
----------
+Map Markup
+----------
 
-Under Redlining, points can, among other things, be placed and annotated with a comment.
+Under Map Markup, points can, among other things, be placed and annotated with a comment.
 
 .. image:: img/image7.png
 

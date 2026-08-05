@@ -3,10 +3,10 @@ Build 6.24.3901 (2024)
 
 In this release, there are two major changes, which are briefly described here.
 
-New Redlining
----------------
+New Map Markup
+-----------------
 
-Redlining was completely reworked and offers a new way of handling object creation. More details can be found in the :ref:`redlining` chapter.
+Map markup was completely reworked and offers a new way of handling object creation. More details can be found in the :ref:`mapmarkup` chapter.
 
 Changes to Display and Design
 ----------------------------------

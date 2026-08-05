@@ -42,7 +42,7 @@ The following tools are always present:
 .. note::
    The **Select objects** item refers to all results of a query, not just the one currently shown.
    Selecting results is necessary for further processing of the results, for example when editing
-   geo-objects or when transferring query results to redlining (see later, in the description of results).
+   geo-objects or when transferring query results to map markup (see later, in the description of results).
    In addition, the selection is also visible in the printout.
 
 

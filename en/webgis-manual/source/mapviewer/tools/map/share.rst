@@ -10,7 +10,7 @@ The following are shared:
 
 * Visible topic layers
 
-* Drawings created with the *Drawing (Redlining)* tool
+* Drawings created with the *Drawing (Map Markup)* tool
 
 After opening the tool, a dialog appears in which you can specify how long the sharing of the map
 should be valid. Sharing maps should only be temporary and not serve the purpose of permanently

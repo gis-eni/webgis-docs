@@ -80,7 +80,7 @@ The *WebGIS Portal* already offers a fully functional map viewer that already fu
 * Legend
 * Querying and searching within the integrated map services
 * Scale-accurate printing of maps in PDF format
-* various map tools (measuring, 3D model, redlining, editing geodata, queries, search, coordinates, ...)
+* various map tools (measuring, 3D model, map markup, editing geodata, queries, search, coordinates, ...)
 
 As an example, you can look at a simple map (background maps only):
 https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at

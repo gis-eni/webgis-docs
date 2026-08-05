@@ -13,7 +13,7 @@ einfach abzuschätzen:
 
 .. image:: img/circle2.png
 
-Weitere Möglichkeiten bietet der *Umgebungskreis*, der mit dem *Zeichnen (Redlining)* Werkzeug erstellt werden kann (zB individueller Radius, Beschriftung, Ausdrucken).
+Weitere Möglichkeiten bietet der *Umgebungskreis*, der mit dem *Zeichnen (Map-Markup)* Werkzeug erstellt werden kann (zB individueller Radius, Beschriftung, Ausdrucken).
 
 
 .. image:: img/circle3.png

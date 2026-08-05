@@ -7,7 +7,7 @@ Mit diesem Werkzeug können sie gespeicherte Karten wieder laden. Geladen werden
 
 * Sichtbare Themenebenen
 
-* Mit dem *Zeichnen (Redlining)* Werkzeug erstellte Zeichnungen
+* Mit dem *Zeichnen (Map-Markup)* Werkzeug erstellte Zeichnungen
 
 .. note::
    **Achtung:** wie beim *Karte Speichern* Werkzeug schon ausgeführt, kann sich die Darstellung einer Karte

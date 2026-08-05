@@ -847,7 +847,7 @@ This allows the function to be enabled only for specific maps.</p>
 </section>
 <section id="tool-save-map">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Map</span></code><a class="headerlink" href="#tool-save-map" title="Link to this heading">¶</a></h4>
-<p>With the <strong>Save Map</strong> tool, users can save the current map (services, visibility, redlining) as a <strong>project</strong>. The following settings can be configured for this:</p>
+<p>With the <strong>Save Map</strong> tool, users can save the current map (services, visibility, map markup) as a <strong>project</strong>. The following settings can be configured for this:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;name-maxlength&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
@@ -907,8 +907,8 @@ If <strong>anonymous users</strong> should also have access to the maps, this op
 </table>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>For data protection reasons, sharing saved links should not be allowed. Via a link, the current state of the map, including <strong>redlining</strong>, can be accessed at any time!</p>
-<p>The recommended way to share a map is the <strong>Share Map</strong> tool. This creates and shares a <strong>snapshot</strong> of the current map. Later changes, in particular to <strong>redlining</strong>, are no longer visible in the shared version.</p>
+<p>For data protection reasons, sharing saved links should not be allowed. Via a link, the current state of the map, including <strong>map markup</strong>, can be accessed at any time!</p>
+<p>The recommended way to share a map is the <strong>Share Map</strong> tool. This creates and shares a <strong>snapshot</strong> of the current map. Later changes, in particular to <strong>map markup</strong>, are no longer visible in the shared version.</p>
 </div>
 </section>
 <section id="tool-cms-upload">
@@ -951,7 +951,7 @@ If <strong>anonymous users</strong> should also have access to the maps, this op
 </section>
 <section id="tool-share-map">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">Share</span> <span class="pre">Map</span></code><a class="headerlink" href="#tool-share-map" title="Link to this heading">¶</a></h4>
-<p>Maps can be shared via a <strong>hyperlink</strong>. This saves the current map, including <strong>redlining</strong> and <strong>layer visibility</strong>, <strong>on the server</strong>.</p>
+<p>Maps can be shared via a <strong>hyperlink</strong>. This saves the current map, including <strong>map markup</strong> and <strong>layer visibility</strong>, <strong>on the server</strong>.</p>
 <p>To avoid unnecessary storage of maps in the <strong>WebGIS storage</strong>, these links have an <strong>expiration date</strong>. The user can specify how long a link should remain valid.</p>
 <p>Default values: <strong>one day, one week, or one month</strong>.</p>
 <img alt="../../_images/config-tools7.png" src="../../_images/config-tools7.png" />

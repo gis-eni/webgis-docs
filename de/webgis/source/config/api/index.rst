@@ -596,7 +596,7 @@ Damit **3D-Messungen** funktionieren, müssen folgende Werte in der ``api.config
 Werkzeug ``Karte speichern``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mit dem Werkzeug **Karte speichern** können Anwender die aktuelle Karte (Dienste, Sichtbarkeit, Redlining) als **Projekt** speichern. Dabei können folgende Einstellungen konfiguriert werden:
+Mit dem Werkzeug **Karte speichern** können Anwender die aktuelle Karte (Dienste, Sichtbarkeit, Map-Markup) als **Projekt** speichern. Dabei können folgende Einstellungen konfiguriert werden:
 
 .. code-block:: xml
 
@@ -647,9 +647,9 @@ Mit den folgenden Einstellungen kann festgelegt werden, wer gespeicherte Karten 
 
 .. danger:: 
 
-  Aus Datenschutzgründen sollte das Weitergeben gespeicherter Links nicht erlaubt werden. Über einen Link kann jederzeit auf den aktuellen Stand der Karte, einschließlich **Redlining**, zugegriffen werden!
+  Aus Datenschutzgründen sollte das Weitergeben gespeicherter Links nicht erlaubt werden. Über einen Link kann jederzeit auf den aktuellen Stand der Karte, einschließlich **Map-Markup**, zugegriffen werden!
 
-  Der empfohlene Weg zum Teilen einer Karte ist das Werkzeug **Karte teilen**. Dabei wird ein **Snapshot** der aktuellen Karte erstellt und weitergegeben. Spätere Änderungen, insbesondere am **Redlining**, sind in der geteilten Version nicht mehr sichtbar.
+  Der empfohlene Weg zum Teilen einer Karte ist das Werkzeug **Karte teilen**. Dabei wird ein **Snapshot** der aktuellen Karte erstellt und weitergegeben. Spätere Änderungen, insbesondere am **Map-Markup**, sind in der geteilten Version nicht mehr sichtbar.
 
 Werkzeug ``CMS Upload``
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -687,7 +687,7 @@ In der Konfiguration kann festgelegt werden, ob **CMS.xml**-Dateien von einer **
 Werkzeug ``Karte teilen``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Karten können über einen **Hyperlink** geteilt werden. Dabei wird die aktuelle Karte, einschließlich **Redlining** und **Layerschaltung**, auf dem **Server gespeichert**.
+Karten können über einen **Hyperlink** geteilt werden. Dabei wird die aktuelle Karte, einschließlich **Map-Markup** und **Layerschaltung**, auf dem **Server gespeichert**.
 
 Um eine unnötige Speicherung von Karten im **WebGIS Storage** zu vermeiden, haben diese Links ein **Ablaufdatum**. Der Anwender kann festlegen, wie lange ein Link gültig sein soll.  
 

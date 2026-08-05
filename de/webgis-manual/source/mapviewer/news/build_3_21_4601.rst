@@ -16,7 +16,7 @@ Karten Kontextmenü
 Das Kontextmenü einer Karte erscheint, wenn mit der rechten Maustaste in die Karte geklickt wird.
 
 .. note::
-   Das Kontextmenü der Karte steht nicht zur Verfügung, wenn das aktuelle Werkzeug ein Zeichenwerkzeug (Sketch-Werkzeug, z.B. Redlining, Messen, Bearbeiten, ...) ist.
+   Das Kontextmenü der Karte steht nicht zur Verfügung, wenn das aktuelle Werkzeug ein Zeichenwerkzeug (Sketch-Werkzeug, z.B. Map-Markup, Messen, Bearbeiten, ...) ist.
    Dort ist die rechte Maustaste bereits für das Kontextmenü des Sketch reserviert (Konstruktionswerkzeuge).
 
 .. image:: img/map_contextmenu1.png 

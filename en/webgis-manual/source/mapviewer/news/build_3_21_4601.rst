@@ -16,7 +16,7 @@ Map Context Menu
 The context menu for a map appears when you right-click on the map.
 
 .. note::
-   The map's context menu is not available when the current tool is a drawing tool (sketch tool, e.g. redlining, measuring, editing, ...).
+   The map's context menu is not available when the current tool is a drawing tool (sketch tool, e.g. map markup, measuring, editing, ...).
    There, the right mouse button is already reserved for the sketch's context menu (construction tools).
 
 .. image:: img/map_contextmenu1.png

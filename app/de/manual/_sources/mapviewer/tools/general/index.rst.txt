@@ -13,7 +13,6 @@ Unter *Werkzeuge* befinden sich folgende Werkzeuge (abhängig von den Einstellun
    measure-area
    circle
    profile
-   redlining/index
    mapmarkup/index
    editing/index
    georeference

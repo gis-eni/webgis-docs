@@ -8,7 +8,7 @@ Gespeichert werden dabei folgende Kartenmarkmale:
 
 * Sichtbare Themenebenen
 
-* Zeichnungen, die mit dem *Zeichnen (Redlining)* Werkzeug erstellt wurden.
+* Zeichnungen, die mit dem *Zeichnen (Map-Markup)* Werkzeug erstellt wurden.
 
 .. note::
    Das Speichern Werkzeug garantiert nicht, dass die Karte 1:1 auf ewig wieder abrufbar ist.

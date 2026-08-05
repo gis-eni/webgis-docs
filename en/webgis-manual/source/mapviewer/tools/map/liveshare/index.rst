@@ -15,13 +15,13 @@ The following are shared:
 * Map view
 * Position marker (each participant can place a marker on the map that is visible to all others, e.g. their own position)
 * Presentation/topic layers
-* Drawings (Redlining): All participants can see/edit/add to the session owner's drawings.
+* Drawings (Map Markup): All participants can see/edit/add to the session owner's drawings.
 
 .. note::
    If the *session owner* distributes a link to the session, all participants generally join the session with the same map. This also means that all owners (depending on permissions) see the same topic layers.
    For LiveShare, however, it is not necessary for all participants to join the same map. It can happen that not all participants have access to the session owner's map (for example, it might only be
    accessible via an intranet). Participants can still join any WebGIS map accessible to them (e.g. at https://maps.webgiscloud.com) and take part in the *Live Share session* there
-   with the corresponding session ID. In this case, only the view, position marker, and drawings (redlining) can be shared (no topic layers).
+   with the corresponding session ID. In this case, only the view, position marker, and drawings (map markup) can be shared (no topic layers).
 
 .. note::
    LiveShare is not only usable by different participants. Sometimes it also makes sense to create a session just for your own use. If you work with multiple screens, for example, you can open

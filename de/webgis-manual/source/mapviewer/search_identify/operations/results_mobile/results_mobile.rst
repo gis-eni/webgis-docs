@@ -42,7 +42,7 @@ Immer dabei sind die folgenden Werkzeuge:
 .. note::
    Der Punkt **Objekte selektieren** bezieht sich auf alle Ergebnisse einer Abfrage und nicht nur auf  das gerade angezeigte.
    Eine Selektion von Ergebnissen ist für die Weiterverarbeitung der Ergebnisse notwendig, beispielsweise beim Editieren von
-   Geo-Objekten oder bei der Übernahme von Abfrageergebnissen ins Redlining (siehe später bei der Beschreibung der Ergebnisse).
+   Geo-Objekten oder bei der Übernahme von Abfrageergebnissen ins Map-Markup (siehe später bei der Beschreibung der Ergebnisse).
    Außerdem ist die Selektion auch im Ausdruck sichtbar.
 
 

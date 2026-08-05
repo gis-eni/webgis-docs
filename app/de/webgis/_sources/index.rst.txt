@@ -82,7 +82,7 @@ Das *WebGIS Portal* bietet bereits einen voll funktionsfähigen Kartenviewer, de
 * Legende
 * Abfragen und Suchen in den eingebundenen Kartendiensten
 * Maßstäbliches Drucken von Karten im PDF Format
-* diverse Kartenwerkzeuge (Messen, 3D Modell, Redlining, Editieren von Geodaten, Abfragen, Suchen, Koordinaten, ...)
+* diverse Kartenwerkzeuge (Messen, 3D Modell, Map-Markup, Editieren von Geodaten, Abfragen, Suchen, Koordinaten, ...)
 
 Als Beispiel kann hier auf eine einfache Karte (nur Hintergrundkarten) verwiesen werden:
 https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at

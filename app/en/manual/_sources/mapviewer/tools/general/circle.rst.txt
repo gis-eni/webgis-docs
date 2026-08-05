@@ -13,7 +13,7 @@ easily estimate distances on the map:
 
 .. image:: img/circle2.png
 
-Further options are offered by the *buffer circle* that can be created with the *drawing (redlining)* tool (e.g. custom radius, labeling, printing).
+Further options are offered by the *buffer circle* that can be created with the *drawing (map markup)* tool (e.g. custom radius, labeling, printing).
 
 
 .. image:: img/circle3.png

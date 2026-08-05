@@ -848,7 +848,7 @@ Damit kann diese Funktion auch nur für bestimmte Karten freigeschalten werden.<
 </section>
 <section id="werkzeug-karte-speichern">
 <h4>Werkzeug <code class="docutils literal notranslate"><span class="pre">Karte</span> <span class="pre">speichern</span></code><a class="headerlink" href="#werkzeug-karte-speichern" title="Link to this heading">¶</a></h4>
-<p>Mit dem Werkzeug <strong>Karte speichern</strong> können Anwender die aktuelle Karte (Dienste, Sichtbarkeit, Redlining) als <strong>Projekt</strong> speichern. Dabei können folgende Einstellungen konfiguriert werden:</p>
+<p>Mit dem Werkzeug <strong>Karte speichern</strong> können Anwender die aktuelle Karte (Dienste, Sichtbarkeit, Map-Markup) als <strong>Projekt</strong> speichern. Dabei können folgende Einstellungen konfiguriert werden:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;name-maxlength&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
@@ -908,8 +908,8 @@ Sollten auch <strong>anonyme Benutzer</strong> Zugriff auf die Karten erhalten, 
 </table>
 <div class="admonition danger">
 <p class="admonition-title">Gefahr</p>
-<p>Aus Datenschutzgründen sollte das Weitergeben gespeicherter Links nicht erlaubt werden. Über einen Link kann jederzeit auf den aktuellen Stand der Karte, einschließlich <strong>Redlining</strong>, zugegriffen werden!</p>
-<p>Der empfohlene Weg zum Teilen einer Karte ist das Werkzeug <strong>Karte teilen</strong>. Dabei wird ein <strong>Snapshot</strong> der aktuellen Karte erstellt und weitergegeben. Spätere Änderungen, insbesondere am <strong>Redlining</strong>, sind in der geteilten Version nicht mehr sichtbar.</p>
+<p>Aus Datenschutzgründen sollte das Weitergeben gespeicherter Links nicht erlaubt werden. Über einen Link kann jederzeit auf den aktuellen Stand der Karte, einschließlich <strong>Map-Markup</strong>, zugegriffen werden!</p>
+<p>Der empfohlene Weg zum Teilen einer Karte ist das Werkzeug <strong>Karte teilen</strong>. Dabei wird ein <strong>Snapshot</strong> der aktuellen Karte erstellt und weitergegeben. Spätere Änderungen, insbesondere am <strong>Map-Markup</strong>, sind in der geteilten Version nicht mehr sichtbar.</p>
 </div>
 </section>
 <section id="werkzeug-cms-upload">
@@ -952,7 +952,7 @@ Sollten auch <strong>anonyme Benutzer</strong> Zugriff auf die Karten erhalten, 
 </section>
 <section id="werkzeug-karte-teilen">
 <h4>Werkzeug <code class="docutils literal notranslate"><span class="pre">Karte</span> <span class="pre">teilen</span></code><a class="headerlink" href="#werkzeug-karte-teilen" title="Link to this heading">¶</a></h4>
-<p>Karten können über einen <strong>Hyperlink</strong> geteilt werden. Dabei wird die aktuelle Karte, einschließlich <strong>Redlining</strong> und <strong>Layerschaltung</strong>, auf dem <strong>Server gespeichert</strong>.</p>
+<p>Karten können über einen <strong>Hyperlink</strong> geteilt werden. Dabei wird die aktuelle Karte, einschließlich <strong>Map-Markup</strong> und <strong>Layerschaltung</strong>, auf dem <strong>Server gespeichert</strong>.</p>
 <p>Um eine unnötige Speicherung von Karten im <strong>WebGIS Storage</strong> zu vermeiden, haben diese Links ein <strong>Ablaufdatum</strong>. Der Anwender kann festlegen, wie lange ein Link gültig sein soll.</p>
 <p>Standardwerte: <strong>ein Tag, eine Woche oder ein Monat</strong>.</p>
 <img alt="../../_images/config-tools7.png" src="../../_images/config-tools7.png" />

@@ -1,5 +1,5 @@
 Suchfelder 
-----------
+-----------
 
 Suchfelder können für eine Abfrage optional parametriert werden. Enthält eine Abfrage keine Suchfelder, 
 kann das Thema *nur* abgefragt werden (z.B. mit dem Identify-Werkzeug).

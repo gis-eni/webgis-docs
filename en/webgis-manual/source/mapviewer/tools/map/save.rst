@@ -8,7 +8,7 @@ The following map characteristics are saved:
 
 * Visible topic layers
 
-* Drawings created with the *Drawing (Redlining)* tool.
+* Drawings created with the *Drawing (Map Markup)* tool.
 
 .. note::
    The save tool does not guarantee that the map can be retrieved 1:1 forever.

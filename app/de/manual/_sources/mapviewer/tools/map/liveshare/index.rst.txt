@@ -15,13 +15,13 @@ Geteilt werden:
 * Kartenausschnitt
 * Positionsmarker (jeder Teilnehmer kann einen für alle anderen sichtbaren Marker in die Karte setzten, zB die eigene Position)
 * Darstellungs-/Themenebenen
-* Zeichnungen (Redlining): Alle Teilnehmer können die Zeichnungen des Session-Eigentümers sehen/bearbeiten/ergänzen.
+* Zeichnungen (Map-Markup): Alle Teilnehmer können die Zeichnungen des Session-Eigentümers sehen/bearbeiten/ergänzen.
 
 .. note::
    Verteilt der *Session Eigentümer* einen Link zur Session, steigen alle Teilnehmer in der Regel mit der gleichen Karte in die Session ein. Das bedeutet auch, dass alle Eigentümer (abhängig von der Berechtigung) die gleichen Themenebenen sehen.
    Für LiveShare ist es allerdings nicht notwendig, dass alle Teilnehmer in die gleiche Karte einsteigen. Es kann vorkommen, dass nicht alle Teilnehmer Zugriff auf die Karte des Session Eigentümers haben (diese kann beispielsweise nur über
    ein Intranet aufgerufen werden). Teilnehmer können dann trotzdem in eine beliebige, für sie zugängliche WebGIS Karte einsteigen (zB unter https://maps.webgiscloud.com) und dort mit der entsprechenden SessionId an der *Live Share Session*
-   teilnehmen. In diesem Fall kann dann nur noch der Ausschnitt, Positionsmarker und Zeichnungen (Redlining) geteilt werden (keine Themenebenen).
+   teilnehmen. In diesem Fall kann dann nur noch der Ausschnitt, Positionsmarker und Zeichnungen (Map-Markup) geteilt werden (keine Themenebenen).
 
 .. note::
    LiveShare kann nicht nur von unterschiedlichen Teilnehmern genutzt werden. Manchmal macht es auch Sinn, eine Session nur für den eigenen Gebrauch zu machen. Arbeitet man beispielsweise mit mehreren Bildschirmen, dann kann man auf jedem
