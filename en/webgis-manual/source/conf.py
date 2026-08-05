@@ -68,3 +68,6 @@ html_js_files = [
 html_css_files = [
     'css/eni-gray.css'
 ]
+
+# Used by _templates/layout.html to build the DE/EN language switch
+html_context = {'doc_root_folder': 'manual'}

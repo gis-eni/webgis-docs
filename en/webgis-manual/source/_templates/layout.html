@@ -1,0 +1,21 @@
+{% extends "!layout.html" %}
+
+{#
+  Adds a DE/EN language switch to the sidebar header and the mobile top bar.
+  No "back to landing page" link here on purpose: this manual is embedded
+  as a help frame inside the WebGIS Map Viewer, not browsed standalone.
+#}
+
+{% set lang_switch_href = '/' + ('en' if language == 'de' else 'de') + '/' + doc_root_folder + '/' + pagename + '.html' %}
+{% set lang_switch_label = 'EN' if language == 'de' else 'DE' %}
+{% set lang_switch_title = 'Switch to English' if language == 'de' else 'Auf Deutsch wechseln' %}
+
+{%- block sidebartitle %}
+  {{ super() }}
+  <a id="eni_lang_switch" href="{{ lang_switch_href }}" title="{{ lang_switch_title }}">{{ lang_switch_label }}</a>
+{%- endblock %}
+
+{%- block mobile_nav %}
+  {{ super() }}
+  <a id="eni_lang_switch" href="{{ lang_switch_href }}" title="{{ lang_switch_title }}">{{ lang_switch_label }}</a>
+{%- endblock %}
