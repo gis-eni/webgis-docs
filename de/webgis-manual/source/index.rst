@@ -1,8 +1,8 @@
-Welcome to WebGIS Manual's documentation!
-=========================================
+Willkommen zur Dokumentation des WebGIS Manuals
+================================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Inhalt:
 
    mapviewer/index.rst 
