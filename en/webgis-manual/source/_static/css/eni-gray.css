@@ -1,172 +1,128 @@
 /* ============================================================
-   Neutral gray skin for the WebGIS Manual (sphinx_rtd_theme)
+   Neutral gray skin for the WebGIS Manual (piccolo_theme)
 
    This doc is embedded as a help frame inside the WebGIS Map Viewer,
    whose colors are chosen per customer. So unlike the other docs it
    stays fully neutral/grayscale (no ESTMK green) to avoid clashing
    with anyone's branding. The only non-gray color is the ESTMK
    "Warning" utility red, used for warning/danger admonitions.
+
+   Uses piccolo_theme's default dark top nav / sidebar breakpoints —
+   no widened sidebar (the manual's TOC is shallow) so it stays
+   frame-friendly at narrower widths too.
    ============================================================ */
 
 :root {
-  --gray-darkest: #222222; /* ESTMK Black */
-  --gray-dark: #747474;    /* Grey Dark */
-  --gray-medium: #dadada;  /* Grey Medium */
-  --gray-light: #f6f6f6;   /* Grey Light */
-  --gray-white: #ffffff;
-  --alert-red: #cd2222;    /* ESTMK Warning (utility, not brand) */
+  --mainNavColor: #222222;   /* ESTMK Black, replaces piccolo's default blue */
+  --linkColor: #444444;
+  --notificationBannerColor: #747474;
+  --grayLight: #f6f6f6;
+  --grayMedium: #dadada;
+  --grayDark: #747474;
+  --alertRed: #cd2222;       /* ESTMK Warning (utility, not brand) */
 }
 
-/* Sidebar ----------------------------------------------------------*/
-.wy-nav-side {
-  background: var(--gray-darkest);
-}
-.wy-side-nav-search {
-  background-color: var(--gray-light);
-  color: var(--gray-darkest);
-  border-bottom: 1px solid var(--gray-medium);
-}
-.wy-side-nav-search > a,
-.wy-side-nav-search .wy-dropdown > a {
-  color: var(--gray-darkest);
-  text-decoration: none;
-}
-.wy-side-nav-search input[type=text] {
-  border-color: var(--gray-medium);
-}
-.wy-menu-vertical a {
-  color: var(--gray-medium);
-  text-decoration: none;
-}
-.wy-menu-vertical a:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-.wy-menu-vertical li.current {
-  background: var(--gray-medium);
-}
-.wy-menu-vertical li.current > a,
-.wy-menu-vertical li.on a {
-  background: var(--gray-white);
-  color: var(--gray-darkest);
-}
-.wy-menu-vertical li.current > a:hover,
-.wy-menu-vertical li.on a:hover {
-  background: var(--gray-medium);
-}
-span.caption-text {
-  color: var(--gray-medium);
+:root[data-mode=dark],
+:root[data-mode=darkest] {
+  --linkColor: #cccccc;
+  --grayLight: #2c2c2c;
+  --grayMedium: #3a3a3a;
 }
 
-/* Mobile top bar (also the compact layout used in narrow frames) --*/
-.wy-nav-top {
-  background-color: var(--gray-light);
-  color: var(--gray-darkest);
-}
-.wy-nav-top a,
-.wy-nav-top i {
-  color: var(--gray-darkest);
-  text-decoration: none;
+/* Top navigation: piccolo's own white text/icons already read fine
+   on this dark background, so no extra color overrides needed here. */
+div#top_nav nav {
+  background-color: var(--mainNavColor);
 }
 
-/* Language switch ---------------------------------------------------*/
-#eni_lang_switch {
-  display: inline-block;
-  margin: 0.6rem 0 0;
-  padding: 0.15rem 0.6rem;
-  border: 1.5px solid var(--gray-darkest);
+/* Language switch --------------------------------------------------*/
+div#top_nav nav a#eni_lang_switch {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  padding: 0.2rem 0.6rem;
+  border: 1.5px solid #ffffff;
   border-radius: 999px;
-  color: var(--gray-darkest) !important;
+  color: #ffffff;
   font-size: 0.8rem;
   font-weight: 700;
-  text-decoration: none !important;
+  letter-spacing: 0.02rem;
+  text-decoration: none;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
-#eni_lang_switch:hover {
-  background-color: var(--gray-darkest);
-  color: var(--gray-white) !important;
-}
-.wy-nav-top #eni_lang_switch {
-  position: absolute;
-  right: 0.8em;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0;
+div#top_nav nav a#eni_lang_switch:hover {
+  background-color: #ffffff;
+  color: var(--mainNavColor);
 }
 
-/* Links --------------------------------------------------------------*/
-a {
-  color: var(--gray-darkest);
+/* Sidebar polish -----------------------------------------------------*/
+div.sphinxsidebar ul li a {
+  border-radius: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
-a:hover {
-  color: var(--gray-dark);
+div.sphinxsidebar ul li a:hover {
+  background-color: var(--grayLight);
 }
-.rst-content a {
-  text-decoration: underline;
-}
-.wy-breadcrumbs a,
-.rst-content a.headerlink,
-.rst-content .btn,
-.rst-content dl dt a,
-.wy-menu-vertical a {
-  text-decoration: none;
+div.sphinxsidebar ul li a.current {
+  background-color: var(--grayMedium);
+  font-weight: 600;
 }
 
-/* Admonitions: neutral gray, red only for warning/danger ------------*/
-.rst-content .note, .rst-content .seealso,
-.rst-content .hint, .rst-content .important, .rst-content .tip,
-.wy-alert.wy-alert-info, .wy-alert.wy-alert-success {
-  background: var(--gray-light);
+/* Content polish -------------------------------------------------------*/
+div.document div.highlight,
+div.document dl.py dt.sig,
+div.document dl.cpp dt.sig,
+div.document dl.c dt.sig {
+  border-radius: 0.5rem;
 }
-.rst-content .note .admonition-title, .rst-content .seealso .admonition-title,
-.rst-content .hint .admonition-title, .rst-content .important .admonition-title,
-.rst-content .tip .admonition-title,
-.wy-alert.wy-alert-info .wy-alert-title, .wy-alert.wy-alert-success .wy-alert-title,
-.rst-content .wy-alert-info.admonition-todo .admonition-title,
-.rst-content .wy-alert-success.admonition-todo .admonition-title {
-  background: var(--gray-dark);
-  color: var(--gray-white);
+div.document div.admonition {
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--dividerColor);
 }
-.rst-content .warning, .rst-content .attention, .rst-content .caution,
-.rst-content .danger, .rst-content .error,
-.wy-alert.wy-alert-warning, .wy-alert.wy-alert-danger {
-  background: var(--gray-light);
+div.document table.docutils {
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
-.rst-content .warning .admonition-title, .rst-content .attention .admonition-title,
-.rst-content .caution .admonition-title, .rst-content .danger .admonition-title,
-.rst-content .error .admonition-title,
-.wy-alert.wy-alert-warning .wy-alert-title, .wy-alert.wy-alert-danger .wy-alert-title,
-.rst-content .wy-alert-warning.admonition-todo .admonition-title,
-.rst-content .wy-alert-danger.admonition-todo .admonition-title {
-  background: var(--alert-red);
-  color: var(--gray-white);
+div.document table.docutils thead th {
+  background-color: var(--grayMedium);
+}
+div.document section ul,
+div.document div.section ul {
+  line-height: 1.6;
 }
 
-/* Buttons (Next/Previous already use the neutral .btn-neutral class) */
-
-/* Frame-friendliness: reclaim horizontal space on narrow viewports --*/
-@media screen and (max-width: 900px) {
-  .wy-nav-content {
-    padding: 1.2em 1.4em;
-  }
+/* Admonitions: neutral gray, red only for warning/danger --------------*/
+div.document div.admonition.hint,
+div.document div.admonition.important,
+div.document div.admonition.tip,
+div.document div.admonition.note {
+  border-left: 5px solid var(--grayDark);
+}
+div.document div.admonition.hint p.admonition-title,
+div.document div.admonition.important p.admonition-title,
+div.document div.admonition.tip p.admonition-title,
+div.document div.admonition.note p.admonition-title {
+  color: var(--grayDark);
+}
+div.document div.admonition.danger,
+div.document div.admonition.error,
+div.document div.admonition.attention,
+div.document div.admonition.caution,
+div.document div.admonition.warning {
+  border-left: 5px solid var(--alertRed);
+}
+div.document div.admonition.danger p.admonition-title,
+div.document div.admonition.error p.admonition-title,
+div.document div.admonition.attention p.admonition-title,
+div.document div.admonition.caution p.admonition-title,
+div.document div.admonition.warning p.admonition-title {
+  color: var(--alertRed);
 }
 
-/* Kept from the previous skin ----------------------------------------*/
+/* Responsive table cell wrapping (kept from the previous skin) -------*/
 .wy-table-responsive table td,
 .wy-table-responsive table th {
   white-space: normal !important;
-}
-
-.rst-content section ul {
-  list-style: disc;
-  line-height: 24px;
-  margin-bottom: 24px;
-}
-
-.rst-content section ul li {
-  list-style: disc;
-  margin-left: 24px;
-}
-
-.rst-content section ul li p:last-child {
-  margin-bottom: 0;
 }
