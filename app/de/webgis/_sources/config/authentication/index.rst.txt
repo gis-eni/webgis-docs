@@ -1,6 +1,6 @@
-=================
+==================
 Authentifizierung 
-=================
+==================
 
 In diesem Abschnitt wird gezeigt, wie die die Authentifizierung von Anwendern für das *WebGIS Portal* 
 konfiguriert werden kann.

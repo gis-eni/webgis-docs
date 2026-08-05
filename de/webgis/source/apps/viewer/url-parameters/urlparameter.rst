@@ -318,7 +318,7 @@ Die möglichen **Werkzeug-IDs** können unter folgendem Link nachgeschlagen werd
 `https://api.webgiscloud.com/rest/tools <https://api.webgiscloud.com/rest/tools>`_
 
 Erweiterte Parameter für das **Edit-Werkzeug**  
-----------------------------------------------
+------------------------------------------------
 
 Für das Editwerkzeug ``&tool=webgis.tools.editing.edit`` können zusätzlich folgende Parameter übergeben werden:
 

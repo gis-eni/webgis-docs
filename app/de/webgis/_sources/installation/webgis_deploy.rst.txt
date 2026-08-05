@@ -1,7 +1,7 @@
 .. _deploy:
 
 Installation mit webgis.deploy 
-==============================
+===============================
 
 Die Installation erfolgt über das Kommandozeilenprogramm webgis.deploy. Dieses Tool erledigt folgende Aufgaben:
 
@@ -340,7 +340,7 @@ Daten kopiert. Durchgeführt werden nur die *Overrides* und Änderungen an den S
 ``portal.css``
 
 Styling der Anwendungen 
------------------------
+------------------------
 
 Für das Styling der Anwendungen sind hauptsächlich zwei *CSS Dateien* verantwortlich:
 

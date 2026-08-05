@@ -15,7 +15,7 @@ Themas in diesen Bereich/Knoten wird die Bearbeitung durch den Anwender ermögli
    kann die Berechtigung direkt für den Bereich/Knoten ``Editing`` festgelegt werden.
 
 Neues Editthema hinzufügen  
---------------------------
+----------------------------
 
 Zum Hinzufügen eines Themas auf den Button ``Neues Edit-Thema`` klicken.
 

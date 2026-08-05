@@ -950,7 +950,7 @@ HttpClient
        konfiguriert ist. Ist im CMS ein höher Wert konfiguriert, muss dieser auch hier gesetzt werden.
 
 DataLinq 
---------
+---------
 
 Über die *Section* kann angegeben werden, ob **DataLinq** von einer **WebGIS API Instanz** angeboten wird.
 

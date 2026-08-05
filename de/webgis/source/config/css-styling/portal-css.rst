@@ -10,9 +10,12 @@ Navigationsleiste** einzubinden.
 .. note::
 
     Die für alle WebGIS-Anwendung Navbar und Logos über die ``site.css`` angepasst werden können,
-    siehe :doc:`site-css`, ist die Verwendung der ``portal.css`` mittlerweile obsolet und 
-    nur noch aus gründen der Abwärtskompatibilität vorhanden. 
-
+    siehe :doc:`site-css`, ist die Verwendung der ``portal.css`` mittlerweile fast obsolet und 
+    nur noch aus gründen der Abwärtskompatibilität vorhanden. Einziger Anwendungsfall ist die Anpassung des Logos 
+    in der Navigationsleiste einer bestimmten Portal Seite (also wenn mehrere Portal Seiten existieren,
+    die ein unterschiedliches Logo benötigen).
+    Hier greift dann die ``portal.css`` auf Portal-Ebene und überschreibt die ``site.css`` auf globaler Ebene.
+    
 Ablageort
 ---------
 

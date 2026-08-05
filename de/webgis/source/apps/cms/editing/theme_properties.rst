@@ -79,7 +79,7 @@ Die beiden Standardbuttons ``Speichern`` und ``Speichern und Auswählen`` könne
 deaktiviert werden.
 
 Zusätzliche Speicheroptionen  
-----------------------------
+------------------------------
 
 Für spezielle Anforderungen gibt es weitere optionale Buttons zum Speichern von Geo-Objekten.  
 Über den Dialog können bis zu fünf zusätzliche Buttons definiert werden. Damit ein optionaler Button angezeigt wird,  
@@ -96,7 +96,7 @@ Folgende *Aktionen* stehen zur Verfügung:
 * **Speichern, mit letztem Vertex weiterzeichnen und Attribute behalten:** Eine Kombination aus den beiden vorherigen Aktionen.
 
 Anwendungsbeispiel  
-------------------
+--------------------
 
 Ein kurzes Beispiel, in dem die unterschiedlichen Speicheraktionen sinnvoll eingesetzt werden können:
 
@@ -111,14 +111,14 @@ Da es sich dabei um ein neues Geo-Objekt handelt, müssten im Standardfall alle 
 Zuständiger, usw.) erneut eingegeben werden.  
 
 Optimierung mit automatisierter Speicherung  
--------------------------------------------
+---------------------------------------------
 
 Eine erhebliche Erleichterung stellt die Aktion **„Speichern, mit letztem Vertex weiterzeichnen und Attribute behalten“** dar.  
 Mit einem Klick auf einen speziell konfigurierten Button könnte so ein neuer Abschnitt begonnen werden, wobei  
 sämtliche Attribute – mit Ausnahme des *Untergrunds* – übernommen werden.  
 
 Konfiguration der Aktionen (Insert)  
------------------------------------
+-------------------------------------
 
 Die *Aktionen (Insert)* können folgendermaßen parametriert werden:
 
@@ -135,7 +135,7 @@ Im Kartenviewer erscheinen die Buttons für dieses Editthema dann folgendermaße
 ==================
 
 Erweiterte Eigenschaften  
-------------------------
+--------------------------
 
 .. image:: img/editing14.png  
 

@@ -9,7 +9,10 @@ It is mainly used to add a **company logo to the navigation bar**.
 .. note::
 
     Since the portal navbar and logos can now also be adjusted through ``site.css`` for all WebGIS applications,
-    see :doc:`site-css`, the use of ``portal.css`` is largely obsolete and remains only for backward compatibility.
+    see :doc:`site-css`, the use of ``portal.css`` is now mostly obsolete and remains mainly for backward compatibility.
+    The one remaining use case is customizing the logo in the navigation bar for a specific portal page (i.e. when
+    several portal pages exist that each need a different logo).
+    In that case ``portal.css`` applies at the portal level and overrides ``site.css`` at the global level.
 
 Location
 --------

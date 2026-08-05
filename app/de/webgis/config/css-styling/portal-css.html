@@ -174,8 +174,11 @@ Navigationsleiste</strong> einzubinden.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Die für alle WebGIS-Anwendung Navbar und Logos über die <code class="docutils literal notranslate"><span class="pre">site.css</span></code> angepasst werden können,
-siehe <a class="reference internal" href="site-css.html"><span class="doc">site.css – Logo und Navbar</span></a>, ist die Verwendung der <code class="docutils literal notranslate"><span class="pre">portal.css</span></code> mittlerweile obsolet und
-nur noch aus gründen der Abwärtskompatibilität vorhanden.</p>
+siehe <a class="reference internal" href="site-css.html"><span class="doc">site.css – Logo und Navbar</span></a>, ist die Verwendung der <code class="docutils literal notranslate"><span class="pre">portal.css</span></code> mittlerweile fast obsolet und
+nur noch aus gründen der Abwärtskompatibilität vorhanden. Einziger Anwendungsfall ist die Anpassung des Logos
+in der Navigationsleiste einer bestimmten Portal Seite (also wenn mehrere Portal Seiten existieren,
+die ein unterschiedliches Logo benötigen).
+Hier greift dann die <code class="docutils literal notranslate"><span class="pre">portal.css</span></code> auf Portal-Ebene und überschreibt die <code class="docutils literal notranslate"><span class="pre">site.css</span></code> auf globaler Ebene.</p>
 </div>
 <section id="ablageort">
 <h2>Ablageort<a class="headerlink" href="#ablageort" title="Link to this heading">¶</a></h2>
