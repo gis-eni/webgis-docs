@@ -491,6 +491,25 @@ Darum gibt es jetzt folgende Optionen:</p>
 <p>In diesem Fall, wird der i-Button im TOC nicht mehr auf Handys angezeigt.
 Die Metadaten Link findet man hier nur mehr im Copyright Bereich der Karte.</p>
 </section>
+<section id="hintergrundkarten-basemaps">
+<h2>Hintergrundkarten (Basemaps)<a class="headerlink" href="#hintergrundkarten-basemaps" title="Link to this heading">¶</a></h2>
+<p>Im Container <em>Hintergrundkarten</em> (<em>Basemaps</em>) werden standardmäßig nur die ersten drei
+Kacheln angezeigt. Die restlichen Hintergrundkarten kann der Anwender über einen Pfeil
+manuell auf- bzw. wieder einklappen:</p>
+<img alt="../../../_images/image9.png" src="../../../_images/image9.png" />
+<p>Ausgeklappt sieht der Anwender alle verfügbaren Hintergrundkarten, inklusive
+zusätzlicher Basemaps wie z. B. Overlays, die dann über eigene Checkboxen ein- und
+ausgeblendet werden können:</p>
+<img alt="../../../_images/image10.png" src="../../../_images/image10.png" />
+<p>Mit folgendem Schalter kann festgelegt werden, ob dieser Container beim Hinzufügen von
+Diensten (z. B. wenn dadurch zusätzliche Hintergrundkarten/Overlays zur Karte kommen)
+automatisch vollständig aufgeklappt wird, anstatt nur die ersten drei Kacheln anzuzeigen:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">expandBasemapsOnAddServices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: false</span>
+</pre></div>
+</div>
+<p>Ist die Option aktiviert, sieht der Anwender sofort alle verfügbaren Hintergrundkarten,
+ohne den Container zuerst manuell aufklappen zu müssen.</p>
+</section>
 </section>
 
 
@@ -524,6 +543,7 @@ Die Metadaten Link findet man hier nur mehr im Copyright Bereich der Karte.</p>
 <li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a></li>
 <li><a class="reference internal" href="#ubersichtskarte-minimap">Übersichtskarte (Minimap)</a></li>
 <li><a class="reference internal" href="#metadaten">Metadaten</a></li>
+<li><a class="reference internal" href="#hintergrundkarten-basemaps">Hintergrundkarten (Basemaps)</a></li>
 </ul>
 </li>
 </ul>

@@ -390,4 +390,30 @@ Um die oben beschriebene Verwechslung beim Klicken zu vermeiden, wird die
 In diesem Fall, wird der i-Button im TOC nicht mehr auf Handys angezeigt.
 Die Metadaten Link findet man hier nur mehr im Copyright Bereich der Karte.
 
+Hintergrundkarten (Basemaps)
+=============================
+
+Im Container *Hintergrundkarten* (*Basemaps*) werden standardmäßig nur die ersten drei
+Kacheln angezeigt. Die restlichen Hintergrundkarten kann der Anwender über einen Pfeil
+manuell auf- bzw. wieder einklappen:
+
+.. image:: img/image9.png
+
+Ausgeklappt sieht der Anwender alle verfügbaren Hintergrundkarten, inklusive
+zusätzlicher Basemaps wie z. B. Overlays, die dann über eigene Checkboxen ein- und
+ausgeblendet werden können:
+
+.. image:: img/image10.png
+
+Mit folgendem Schalter kann festgelegt werden, ob dieser Container beim Hinzufügen von
+Diensten (z. B. wenn dadurch zusätzliche Hintergrundkarten/Overlays zur Karte kommen)
+automatisch vollständig aufgeklappt wird, anstatt nur die ersten drei Kacheln anzuzeigen:
+
+.. code:: javascript
+
+   webgis.usability.expandBasemapsOnAddServices = true;  // default: false
+
+Ist die Option aktiviert, sieht der Anwender sofort alle verfügbaren Hintergrundkarten,
+ohne den Container zuerst manuell aufklappen zu müssen.
+
 

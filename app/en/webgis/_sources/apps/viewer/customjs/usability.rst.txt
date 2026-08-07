@@ -386,4 +386,28 @@ is extended as follows:
 In this case, the i-button is no longer shown in the TOC on phones.
 The metadata link can then only be found in the map's copyright area.
 
+Basemaps
+=========================
+
+By default, only the first three tiles are shown in the *Basemaps* container.
+The user can manually expand or collapse the remaining basemaps via an arrow:
+
+.. image:: img/image9.png
+
+When expanded, the user sees all available basemaps, including additional basemaps
+such as overlays, which can then be shown or hidden via their own checkboxes:
+
+.. image:: img/image10.png
+
+The following switch controls whether this container is automatically expanded to show
+all available tiles when services are added to the map (e.g. when this adds further
+basemaps/overlays), instead of showing only the first three tiles:
+
+.. code:: javascript
+
+   webgis.usability.expandBasemapsOnAddServices = true;  // default: false
+
+If this option is enabled, the user immediately sees all available basemaps without
+having to manually expand the container first.
+
 

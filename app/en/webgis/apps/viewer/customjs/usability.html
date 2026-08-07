@@ -486,6 +486,23 @@ is extended as follows:</p>
 <p>In this case, the i-button is no longer shown in the TOC on phones.
 The metadata link can then only be found in the map’s copyright area.</p>
 </section>
+<section id="basemaps">
+<h2>Basemaps<a class="headerlink" href="#basemaps" title="Link to this heading">¶</a></h2>
+<p>By default, only the first three tiles are shown in the <em>Basemaps</em> container.
+The user can manually expand or collapse the remaining basemaps via an arrow:</p>
+<img alt="../../../_images/image9.png" src="../../../_images/image9.png" />
+<p>When expanded, the user sees all available basemaps, including additional basemaps
+such as overlays, which can then be shown or hidden via their own checkboxes:</p>
+<img alt="../../../_images/image10.png" src="../../../_images/image10.png" />
+<p>The following switch controls whether this container is automatically expanded to show
+all available tiles when services are added to the map (e.g. when this adds further
+basemaps/overlays), instead of showing only the first three tiles:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">expandBasemapsOnAddServices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: false</span>
+</pre></div>
+</div>
+<p>If this option is enabled, the user immediately sees all available basemaps without
+having to manually expand the container first.</p>
+</section>
 </section>
 
 
@@ -519,6 +536,7 @@ The metadata link can then only be found in the map’s copyright area.</p>
 <li><a class="reference internal" href="#result-list">Result List</a></li>
 <li><a class="reference internal" href="#overview-map-minimap">Overview Map (Minimap)</a></li>
 <li><a class="reference internal" href="#metadata">Metadata</a></li>
+<li><a class="reference internal" href="#basemaps">Basemaps</a></li>
 </ul>
 </li>
 </ul>
