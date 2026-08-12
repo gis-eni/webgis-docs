@@ -980,6 +980,10 @@ This section specifies whether **DataLinq** is offered by a **WebGIS API instanc
       <add key="SelectEngines:TextFileEngine:AllowedExtensions:1" value=".txt" />
       <add key="SelectEngines:TextFileEngine:AllowedExtensions:0" value=".csv" />
 
+      <add key="ImageRequestWhiteList:0" value="https://localhost/" />
+      <add key="ImageRequestWhiteList:1" value="https://gisserver1.com/" />
+      <add key="ImageRequestWhiteList:2" value="https://gisserver2.com/" />
+
       <!-- optional: experimentell -->
       <add key="use-cache-token-for-one-2-n-links" value="true" />  <!-- default: false -->
    </section>
@@ -1068,6 +1072,15 @@ This section specifies whether **DataLinq** is offered by a **WebGIS API instanc
        An example is the **TextFileEngine**, which allows text files to be served from the server.
        Here you can specify which directories and
        file extensions may be accessed.
+
+   * - ``ImageRequestWhiteList`` (optional)
+     - List of allowed URL prefixes from which external images may be loaded.
+       If this section is not specified, no external image sources are allowed.
+
+       .. note::
+
+          Used, for example, by @SECURITY.GetAgsImage(...) to check
+          whether the specified URL is contained in the whitelist and therefore allowed.
 
    * - ``use-cache-token-for-one-2-n-links``
      - **Experimental feature!** For 1:n links from the result list, the parameters are no longer passed via ``HTTP-GET`` to the *integrated* DataLinq API (the one integrated into the

@@ -1267,6 +1267,10 @@ konfiguriert ist. Ist im CMS ein höher Wert konfiguriert, muss dieser auch hier
 <span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:1&quot; value=&quot;.txt&quot; /&gt;</span>
 <span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:0&quot; value=&quot;.csv&quot; /&gt;</span>
 
+<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:0&quot; value=&quot;https://localhost/&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:1&quot; value=&quot;https://gisserver1.com/&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:2&quot; value=&quot;https://gisserver2.com/&quot; /&gt;</span>
+
 <span class="cm">   &lt;!-- optional: experimentell --&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-cache-token-for-one-2-n-links&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
@@ -1370,7 +1374,17 @@ auszugeben. Hier kann angeführt werden, auf welche Verzeichnisse und
 Dateierweiterungen zugegriffen werden darf.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">use-cache-token-for-one-2-n-links</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ImageRequestWhiteList</span></code> (optional)</p></td>
+<td><p>Liste erlaubter URL-Präfixe, von denen externe Bilder geladen werden dürfen.
+Wird der Abschnitt nicht angeführt, sind keine externen Bildquellen freigegeben.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Wird beispielsweise von &#64;SECURITY.GetAgsImage(…) genutzt zur Überprüfung,
+ob die angegebene URL in der Whitelist enthalten und daher erlaubt ist.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use-cache-token-for-one-2-n-links</span></code></p></td>
 <td><p><strong>Experimentelles Feature!</strong> Für 1:n links aus der Ergebnisliste werden an die <em>integrierte</em> DataLinq API (die, die in der
 aktuellen WebGIS API integrierte ist) bei Reports nicht mehr die Parameter per <code class="docutils literal notranslate"><span class="pre">HTTP-GET</span></code> übergeben, sondern beim Klick vorab
 gepostet. Beim Aufruf wird dann nur mehr ein <code class="docutils literal notranslate"><span class="pre">datalinqCacheToken</span></code> übergeben, der intern auf die die Parameter verweist.

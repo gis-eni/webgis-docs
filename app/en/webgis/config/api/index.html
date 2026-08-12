@@ -1266,6 +1266,10 @@ configured in the CMS. If a higher value is configured in the CMS, it must also 
 <span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:1&quot; value=&quot;.txt&quot; /&gt;</span>
 <span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:0&quot; value=&quot;.csv&quot; /&gt;</span>
 
+<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:0&quot; value=&quot;https://localhost/&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:1&quot; value=&quot;https://gisserver1.com/&quot; /&gt;</span>
+<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:2&quot; value=&quot;https://gisserver2.com/&quot; /&gt;</span>
+
 <span class="cm">   &lt;!-- optional: experimentell --&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-cache-token-for-one-2-n-links&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
@@ -1369,7 +1373,17 @@ Here you can specify which directories and
 file extensions may be accessed.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">use-cache-token-for-one-2-n-links</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ImageRequestWhiteList</span></code> (optional)</p></td>
+<td><p>List of allowed URL prefixes from which external images may be loaded.
+If this section is not specified, no external image sources are allowed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Used, for example, by &#64;SECURITY.GetAgsImage(…) to check
+whether the specified URL is contained in the whitelist and therefore allowed.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use-cache-token-for-one-2-n-links</span></code></p></td>
 <td><p><strong>Experimental feature!</strong> For 1:n links from the result list, the parameters are no longer passed via <code class="docutils literal notranslate"><span class="pre">HTTP-GET</span></code> to the <em>integrated</em> DataLinq API (the one integrated into the
 current WebGIS API) for reports, but are posted in advance when clicked. When called, only a <code class="docutils literal notranslate"><span class="pre">datalinqCacheToken</span></code> is then passed, which internally references the parameters.
 This can solve the problem of URL parameters becoming too long.</p></td>

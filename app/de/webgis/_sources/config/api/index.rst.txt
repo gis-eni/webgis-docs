@@ -979,7 +979,11 @@ DataLinq
       <add key="SelectEngines:TextFileEngine:AllowedPaths:1" value="C:\webgis\data\" />
       <add key="SelectEngines:TextFileEngine:AllowedExtensions:1" value=".txt" />
       <add key="SelectEngines:TextFileEngine:AllowedExtensions:0" value=".csv" />
-
+    
+      <add key="ImageRequestWhiteList:0" value="https://localhost/" />
+      <add key="ImageRequestWhiteList:1" value="https://gisserver1.com/" />
+      <add key="ImageRequestWhiteList:2" value="https://gisserver2.com/" />
+      
       <!-- optional: experimentell -->
       <add key="use-cache-token-for-one-2-n-links" value="true" />  <!-- default: false -->
    </section>
@@ -1068,6 +1072,15 @@ DataLinq
        Ein Beispiel ist die **TextFileEngine**, die es erlaubt Textfiles vom Server 
        auszugeben. Hier kann angeführt werden, auf welche Verzeichnisse und 
        Dateierweiterungen zugegriffen werden darf.
+
+   * - ``ImageRequestWhiteList`` (optional)
+     - Liste erlaubter URL-Präfixe, von denen externe Bilder geladen werden dürfen. 
+       Wird der Abschnitt nicht angeführt, sind keine externen Bildquellen freigegeben.
+       
+       .. note::
+
+          Wird beispielsweise von @SECURITY.GetAgsImage(...) genutzt zur Überprüfung,
+          ob die angegebene URL in der Whitelist enthalten und daher erlaubt ist.
 
    * - ``use-cache-token-for-one-2-n-links``
      - **Experimentelles Feature!** Für 1:n links aus der Ergebnisliste werden an die *integrierte* DataLinq API (die, die in der 
