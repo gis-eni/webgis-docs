@@ -796,6 +796,52 @@ For **area-shaped objects**, this can be undesirable. Therefore, the **tolerance
          The values for date format, time format and **culture** follow the ``C#``/``dotnet``
          naming conventions (https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings).
 
+**ArcGIS Server Spatial-Query Workaround**
+
+.. note::
+
+   Only affects map services of type **ArcGIS Server (REST)**.
+
+Under certain circumstances, the **ArcGIS Server** can return **fewer results than actually
+exist** for spatial queries (e.g. Identify by area, polygon selection), in extreme cases even
+**no results at all**, despite matching objects being present. To work around this, a
+multi-step **workaround** is applied internally.
+
+A detailed explanation of the problem and the workaround can be found in the appendix:
+:doc:`../../annex/ags-spatial-query`.
+
+The behavior of the workaround can be adjusted via the ``tool-identify`` *section* in
+``api.config``:
+
+.. code-block:: xml
+
+    <section name="tool-identify">
+      <!-- ArcGIS Server spatial-query bounding-box workaround (see AgsQuerySettings) -->
+      <add key="ags-spatial-query-max-result-cap" value="2000" />
+      <add key="ags-spatial-query-default-max-record-count-fallback" value="1000" />
+      <add key="ags-spatial-query-max-parallel-batch-requests" value="4" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``ags-spatial-query-max-result-cap``
+     - Upper bound for the total number of **object ids** collected while fetching ids in
+       chunks (see appendix), before the actual features are loaded. If this limit is reached
+       before all chunks have been fetched, collection is aborted and the result is flagged as
+       **incomplete** (``FeatureCollection.HasMore``), since further results may exist that were
+       not fetched. Default: ``2000``.
+   * - ``ags-spatial-query-default-max-record-count-fallback``
+     - Chunk size used to load features by their **object ids** if the **ArcGIS Server service**
+       does not provide a usable value for ``maxRecordCount`` (e.g. on older ArcGIS Server
+       versions whose service info does not expose it). Default: ``1000``.
+   * - ``ags-spatial-query-max-parallel-batch-requests``
+     - Maximum number of **concurrent** ``query by objectIds`` requests issued to the **ArcGIS
+       Server** while resolving a single spatial query. Default: ``4``.
+
 Section ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

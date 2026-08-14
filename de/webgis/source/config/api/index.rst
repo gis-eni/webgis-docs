@@ -796,6 +796,54 @@ Für **flächenhafte Objekte** kann dies unerwünscht sein. Daher kann die **Tol
          Die Werte für Datums-, Uhrzeitformat und **Kultur** entsprechenden der ``C#``/``dotnet`` 
          Nomenklatur (https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings).
 
+**ArcGIS Server Spatial-Query Workaround**
+
+.. note::
+
+   Betrifft nur Kartendienste vom Typ **ArcGIS Server (REST)**.
+
+Der **ArcGIS Server** kann bei räumlichen Abfragen (z. B. Identify per Fläche, Polygon-Selektion)
+unter bestimmten Umständen **weniger Ergebnisse liefern, als tatsächlich vorhanden sind**, im
+Extremfall sogar **keine Treffer**, obwohl passende Objekte existieren. Um dies zu umgehen, wird
+intern ein mehrstufiger **Workaround** angewendet.
+
+Eine ausführliche Erklärung des Problems und des Workarounds findet sich im Anhang:
+:doc:`../../annex/ags-spatial-query`.
+
+Das Verhalten des Workarounds kann über die *Section* ``tool-identify`` in der ``api.config`` parametriert werden:
+
+.. code-block:: xml
+
+    <section name="tool-identify">
+      <!-- ArcGIS Server spatial-query bounding-box workaround (see AgsQuerySettings) -->
+      <add key="ags-spatial-query-max-result-cap" value="2000" />
+      <add key="ags-spatial-query-default-max-record-count-fallback" value="1000" />
+      <add key="ags-spatial-query-max-parallel-batch-requests" value="4" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``ags-spatial-query-max-result-cap``
+     - Obergrenze für die Gesamtanzahl an **Objekt-IDs**, die beim blockweisen Abholen der IDs
+       (siehe Anhang) gesammelt werden, bevor die eigentlichen Features nachgeladen werden.
+       Wird diese Grenze erreicht, bevor alle Blöcke abgeholt sind, wird das Sammeln
+       abgebrochen und das Ergebnis als **unvollständig** markiert
+       (``FeatureCollection.HasMore``), da unter Umständen weitere Treffer existieren, die
+       nicht mehr abgeholt wurden. Standardwert: ``2000``.
+   * - ``ags-spatial-query-default-max-record-count-fallback``
+     - Blockgröße, mit der Features anhand ihrer **Objekt-IDs** nachgeladen werden, falls der
+       **ArcGIS-Server-Dienst** keinen brauchbaren Wert für ``maxRecordCount`` liefert (z. B. bei
+       älteren ArcGIS-Server-Versionen, deren Dienst-Info diesen Wert nicht enthält).
+       Standardwert: ``1000``.
+   * - ``ags-spatial-query-max-parallel-batch-requests``
+     - Maximale Anzahl **gleichzeitiger** ``query by objectIds``-Anfragen, die beim Auflösen
+       einer einzelnen räumlichen Abfrage parallel an den **ArcGIS Server** gestellt werden.
+       Standardwert: ``4``.
+
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

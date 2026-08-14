@@ -335,6 +335,43 @@ Result List
 
         webgis.usability.showQueryLayerNotVisbleNotification = false; // default is true
 
+Paging in the Results Table
+------------------------------
+
+For queries with a very large number of results (e.g. Identify, search), the results table in
+the viewer can become very long, which can affect clarity and rendering performance. Using the
+``webgis.usability.queryResultsTable`` configuration, **client-side paging** can be enabled for
+the results table:
+
+.. code:: javascript
+
+   webgis.usability.queryResultsTable = {
+        pageSize: 100,        // number of rows per page in the results table (client-side paging)
+        pagingThreshold: 1000 // paging only kicks in once there are more results than this
+                               // (e.g. 1000 = existing behavior stays unchanged for "classic"
+                               // AGS result sets, paging only starts beyond that)
+   };
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``pageSize``
+     - Number of rows shown per page in the results table once paging is active.
+   * - ``pagingThreshold``
+     - Sets the number of results above which paging kicks in at all. If a query's result count
+       is below this value, the results table is shown in full as before (without paging). This
+       keeps the familiar behavior unchanged for "classic", manageable result sets, and paging
+       only takes effect for correspondingly large result sets.
+
+.. note::
+
+   This setting only affects the **display** of results on the client (paging of the table that
+   has already been loaded). It does not affect how many results are determined server-side for
+   a query and delivered to the client in the first place.
+
 Overview Map (Minimap)
 =========================
 

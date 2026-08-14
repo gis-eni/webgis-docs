@@ -448,6 +448,51 @@ Standardmäßig ist diese Benachrichtigung aktiviert.</p>
 </div></blockquote>
 </li>
 </ul>
+<section id="paging-in-der-ergebnistabelle">
+<h3>Paging in der Ergebnistabelle<a class="headerlink" href="#paging-in-der-ergebnistabelle" title="Link to this heading">¶</a></h3>
+<p>Bei Abfragen mit sehr vielen Treffern (z. B. Identify, Suche) kann die Ergebnistabelle im
+Viewer sehr lang werden, was die Übersichtlichkeit und Performance beim Rendern beeinträchtigen
+kann. Über die Konfiguration <code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsTable</span></code> kann für die Ergebnistabelle
+ein <strong>client-seitiges Paging</strong> aktiviert werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">queryResultsTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">pageSize</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w">        </span><span class="c1">// Anzahl Zeilen pro Seite in der Ergebnistabelle (client-seitiges Paging)</span>
+<span class="w">     </span><span class="nx">pagingThreshold</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="c1">// Paging greift erst, wenn mehr als so viele Ergebnisse vorhanden sind</span>
+<span class="w">                            </span><span class="c1">// (z.B. 1000 = bisheriges Verhalten bleibt bei &quot;klassischen&quot; AGS-Ergebnismengen</span>
+<span class="w">                            </span><span class="c1">// unveraendert, Paging startet erst darueber hinaus)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pageSize</span></code></p></td>
+<td><p>Anzahl der Zeilen, die pro Seite in der Ergebnistabelle angezeigt werden, sobald das
+Paging aktiv ist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pagingThreshold</span></code></p></td>
+<td><p>Legt fest, ab wie vielen Ergebnissen das Paging überhaupt greift. Liegt die Anzahl der
+Treffer einer Abfrage unter diesem Wert, wird die Ergebnistabelle wie bisher komplett
+(ohne Paging) angezeigt. Damit bleibt das gewohnte Verhalten bei „klassischen“,
+überschaubaren Ergebnismengen unverändert, und das Paging kommt erst bei entsprechend
+großen Ergebnismengen zum Tragen.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Diese Einstellung betrifft ausschließlich die <strong>Darstellung</strong> der Ergebnisse im Client
+(Paging der bereits geladenen Tabelle). Wie viele Ergebnisse serverseitig überhaupt für eine
+Abfrage ermittelt und an den Client geliefert werden, wird davon nicht beeinflusst.</p>
+</div>
+</section>
 </section>
 <section id="ubersichtskarte-minimap">
 <h2>Übersichtskarte (Minimap)<a class="headerlink" href="#ubersichtskarte-minimap" title="Link to this heading">¶</a></h2>
@@ -540,7 +585,10 @@ ohne den Container zuerst manuell aufklappen zu müssen.</p>
 <li><a class="reference internal" href="#auswahllisten-pro-verhalten">Auswahllisten Pro Verhalten</a></li>
 <li><a class="reference internal" href="#schnellsuche">Schnellsuche</a></li>
 <li><a class="reference internal" href="#nachbarschaft-berechnen">Nachbarschaft Berechnen</a></li>
-<li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a></li>
+<li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a><ul>
+<li><a class="reference internal" href="#paging-in-der-ergebnistabelle">Paging in der Ergebnistabelle</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#ubersichtskarte-minimap">Übersichtskarte (Minimap)</a></li>
 <li><a class="reference internal" href="#metadaten">Metadaten</a></li>
 <li><a class="reference internal" href="#hintergrundkarten-basemaps">Hintergrundkarten (Basemaps)</a></li>
