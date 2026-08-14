@@ -443,6 +443,49 @@ This notification is enabled by default.</p>
 </div></blockquote>
 </li>
 </ul>
+<section id="paging-in-the-results-table">
+<h3>Paging in the Results Table<a class="headerlink" href="#paging-in-the-results-table" title="Link to this heading">¶</a></h3>
+<p>For queries with a very large number of results (e.g. Identify, search), the results table in
+the viewer can become very long, which can affect clarity and rendering performance. Using the
+<code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsTable</span></code> configuration, <strong>client-side paging</strong> can be enabled for
+the results table:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">queryResultsTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">pageSize</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w">        </span><span class="c1">// number of rows per page in the results table (client-side paging)</span>
+<span class="w">     </span><span class="nx">pagingThreshold</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="c1">// paging only kicks in once there are more results than this</span>
+<span class="w">                            </span><span class="c1">// (e.g. 1000 = existing behavior stays unchanged for &quot;classic&quot;</span>
+<span class="w">                            </span><span class="c1">// AGS result sets, paging only starts beyond that)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pageSize</span></code></p></td>
+<td><p>Number of rows shown per page in the results table once paging is active.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pagingThreshold</span></code></p></td>
+<td><p>Sets the number of results above which paging kicks in at all. If a query’s result count
+is below this value, the results table is shown in full as before (without paging). This
+keeps the familiar behavior unchanged for “classic”, manageable result sets, and paging
+only takes effect for correspondingly large result sets.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting only affects the <strong>display</strong> of results on the client (paging of the table that
+has already been loaded). It does not affect how many results are determined server-side for
+a query and delivered to the client in the first place.</p>
+</div>
+</section>
 </section>
 <section id="overview-map-minimap">
 <h2>Overview Map (Minimap)<a class="headerlink" href="#overview-map-minimap" title="Link to this heading">¶</a></h2>
@@ -533,7 +576,10 @@ having to manually expand the container first.</p>
 <li><a class="reference internal" href="#selection-lists-pro-behavior">Selection Lists Pro Behavior</a></li>
 <li><a class="reference internal" href="#quick-search">Quick Search</a></li>
 <li><a class="reference internal" href="#calculate-proximity">Calculate Proximity</a></li>
-<li><a class="reference internal" href="#result-list">Result List</a></li>
+<li><a class="reference internal" href="#result-list">Result List</a><ul>
+<li><a class="reference internal" href="#paging-in-the-results-table">Paging in the Results Table</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#overview-map-minimap">Overview Map (Minimap)</a></li>
 <li><a class="reference internal" href="#metadata">Metadata</a></li>
 <li><a class="reference internal" href="#basemaps">Basemaps</a></li>

@@ -336,8 +336,47 @@ Ergebnisliste
    Zum Deaktivieren der Benachrichtigung kann folgender Code in der ``custom.js`` verwendet werden:
 
     .. code:: javascript
-    
+
         webgis.usability.showQueryLayerNotVisbleNotification = false; // default is true
+
+Paging in der Ergebnistabelle
+------------------------------
+
+Bei Abfragen mit sehr vielen Treffern (z. B. Identify, Suche) kann die Ergebnistabelle im
+Viewer sehr lang werden, was die Übersichtlichkeit und Performance beim Rendern beeinträchtigen
+kann. Über die Konfiguration ``webgis.usability.queryResultsTable`` kann für die Ergebnistabelle
+ein **client-seitiges Paging** aktiviert werden:
+
+.. code:: javascript
+
+   webgis.usability.queryResultsTable = {
+        pageSize: 100,        // Anzahl Zeilen pro Seite in der Ergebnistabelle (client-seitiges Paging)
+        pagingThreshold: 1000 // Paging greift erst, wenn mehr als so viele Ergebnisse vorhanden sind
+                               // (z.B. 1000 = bisheriges Verhalten bleibt bei "klassischen" AGS-Ergebnismengen
+                               // unveraendert, Paging startet erst darueber hinaus)
+   };
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``pageSize``
+     - Anzahl der Zeilen, die pro Seite in der Ergebnistabelle angezeigt werden, sobald das
+       Paging aktiv ist.
+   * - ``pagingThreshold``
+     - Legt fest, ab wie vielen Ergebnissen das Paging überhaupt greift. Liegt die Anzahl der
+       Treffer einer Abfrage unter diesem Wert, wird die Ergebnistabelle wie bisher komplett
+       (ohne Paging) angezeigt. Damit bleibt das gewohnte Verhalten bei "klassischen",
+       überschaubaren Ergebnismengen unverändert, und das Paging kommt erst bei entsprechend
+       großen Ergebnismengen zum Tragen.
+
+.. note::
+
+   Diese Einstellung betrifft ausschließlich die **Darstellung** der Ergebnisse im Client
+   (Paging der bereits geladenen Tabelle). Wie viele Ergebnisse serverseitig überhaupt für eine
+   Abfrage ermittelt und an den Client geliefert werden, wird davon nicht beeinflusst.
 
 Übersichtskarte (Minimap)
 =========================
