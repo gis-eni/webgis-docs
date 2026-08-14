@@ -372,6 +372,35 @@ the results table:
    has already been loaded). It does not affect how many results are determined server-side for
    a query and delivered to the client in the first place.
 
+Limiting the Results List (Mobile View)
+------------------------------------------
+
+Besides the **results table** (``webgis.usability.queryResultsTable``, see above), there is also
+a **results list**, which is used e.g. in the mobile view instead of the table. This list has no
+paging and always renders all entries at once. With a very large number of results, this can
+affect rendering performance. The ``webgis.usability.queryResultsList`` configuration can
+therefore be used to set an **upper limit** for the number of rendered list entries:
+
+.. code:: javascript
+
+   webgis.usability.queryResultsList = {
+        maxItems: 1000 // results list (e.g. mobile view, no paging) renders at most this many entries.
+                        // if there are more results, a notice is shown that all results are
+                        // available in the table view (webgis_queryResultsTable).
+   };
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``maxItems``
+     - Maximum number of entries rendered in the results list. If the number of results exceeds
+       this value, only the first ``maxItems`` entries are shown, and the user is presented with
+       a notice that all results are available in the **table view**
+       (``webgis.usability.queryResultsTable``).
+
 Overview Map (Minimap)
 =========================
 

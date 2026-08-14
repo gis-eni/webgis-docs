@@ -486,6 +486,40 @@ has already been loaded). It does not affect how many results are determined ser
 a query and delivered to the client in the first place.</p>
 </div>
 </section>
+<section id="limiting-the-results-list-mobile-view">
+<h3>Limiting the Results List (Mobile View)<a class="headerlink" href="#limiting-the-results-list-mobile-view" title="Link to this heading">¶</a></h3>
+<p>Besides the <strong>results table</strong> (<code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsTable</span></code>, see above), there is also
+a <strong>results list</strong>, which is used e.g. in the mobile view instead of the table. This list has no
+paging and always renders all entries at once. With a very large number of results, this can
+affect rendering performance. The <code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsList</span></code> configuration can
+therefore be used to set an <strong>upper limit</strong> for the number of rendered list entries:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">queryResultsList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">maxItems</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="c1">// results list (e.g. mobile view, no paging) renders at most this many entries.</span>
+<span class="w">                     </span><span class="c1">// if there are more results, a notice is shown that all results are</span>
+<span class="w">                     </span><span class="c1">// available in the table view (webgis_queryResultsTable).</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">maxItems</span></code></p></td>
+<td><p>Maximum number of entries rendered in the results list. If the number of results exceeds
+this value, only the first <code class="docutils literal notranslate"><span class="pre">maxItems</span></code> entries are shown, and the user is presented with
+a notice that all results are available in the <strong>table view</strong>
+(<code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsTable</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="overview-map-minimap">
 <h2>Overview Map (Minimap)<a class="headerlink" href="#overview-map-minimap" title="Link to this heading">¶</a></h2>
@@ -578,6 +612,7 @@ having to manually expand the container first.</p>
 <li><a class="reference internal" href="#calculate-proximity">Calculate Proximity</a></li>
 <li><a class="reference internal" href="#result-list">Result List</a><ul>
 <li><a class="reference internal" href="#paging-in-the-results-table">Paging in the Results Table</a></li>
+<li><a class="reference internal" href="#limiting-the-results-list-mobile-view">Limiting the Results List (Mobile View)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#overview-map-minimap">Overview Map (Minimap)</a></li>

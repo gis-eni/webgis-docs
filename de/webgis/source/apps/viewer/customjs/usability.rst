@@ -378,6 +378,36 @@ ein **client-seitiges Paging** aktiviert werden:
    (Paging der bereits geladenen Tabelle). Wie viele Ergebnisse serverseitig überhaupt für eine
    Abfrage ermittelt und an den Client geliefert werden, wird davon nicht beeinflusst.
 
+Begrenzung der Ergebnisliste (mobile Ansicht)
+------------------------------------------------
+
+Neben der **Ergebnistabelle** (``webgis.usability.queryResultsTable``, siehe oben) gibt es auch
+eine **Ergebnisliste**, die z. B. in der mobilen Ansicht anstelle der Tabelle verwendet wird.
+Diese Liste kennt kein Paging, sondern rendert immer alle Einträge auf einmal. Bei sehr vielen
+Treffern kann das die Performance beim Rendern beeinträchtigen. Über die Konfiguration
+``webgis.usability.queryResultsList`` kann daher eine **Obergrenze** für die Anzahl der
+gerenderten Listeneinträge festgelegt werden:
+
+.. code:: javascript
+
+   webgis.usability.queryResultsList = {
+        maxItems: 1000 // Ergebnisliste (zB mobile Ansicht, kein Paging) rendert maximal so viele Eintraege.
+                        // Bei mehr Ergebnissen wird ein Hinweis angezeigt, dass alle Ergebnisse in der
+                        // Tabellenansicht (webgis_queryResultsTable) verfuegbar sind.
+   };
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``maxItems``
+     - Maximale Anzahl an Einträgen, die in der Ergebnisliste gerendert werden. Übersteigt die
+       Trefferanzahl diesen Wert, werden nur die ersten ``maxItems`` Einträge angezeigt und dem
+       Anwender wird ein Hinweis eingeblendet, dass alle Ergebnisse in der **Tabellenansicht**
+       (``webgis.usability.queryResultsTable``) verfügbar sind.
+
 Übersichtskarte (Minimap)
 =========================
 

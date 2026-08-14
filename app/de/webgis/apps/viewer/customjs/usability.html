@@ -493,6 +493,41 @@ großen Ergebnismengen zum Tragen.</p></td>
 Abfrage ermittelt und an den Client geliefert werden, wird davon nicht beeinflusst.</p>
 </div>
 </section>
+<section id="begrenzung-der-ergebnisliste-mobile-ansicht">
+<h3>Begrenzung der Ergebnisliste (mobile Ansicht)<a class="headerlink" href="#begrenzung-der-ergebnisliste-mobile-ansicht" title="Link to this heading">¶</a></h3>
+<p>Neben der <strong>Ergebnistabelle</strong> (<code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsTable</span></code>, siehe oben) gibt es auch
+eine <strong>Ergebnisliste</strong>, die z. B. in der mobilen Ansicht anstelle der Tabelle verwendet wird.
+Diese Liste kennt kein Paging, sondern rendert immer alle Einträge auf einmal. Bei sehr vielen
+Treffern kann das die Performance beim Rendern beeinträchtigen. Über die Konfiguration
+<code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsList</span></code> kann daher eine <strong>Obergrenze</strong> für die Anzahl der
+gerenderten Listeneinträge festgelegt werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">queryResultsList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">maxItems</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="c1">// Ergebnisliste (zB mobile Ansicht, kein Paging) rendert maximal so viele Eintraege.</span>
+<span class="w">                     </span><span class="c1">// Bei mehr Ergebnissen wird ein Hinweis angezeigt, dass alle Ergebnisse in der</span>
+<span class="w">                     </span><span class="c1">// Tabellenansicht (webgis_queryResultsTable) verfuegbar sind.</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">maxItems</span></code></p></td>
+<td><p>Maximale Anzahl an Einträgen, die in der Ergebnisliste gerendert werden. Übersteigt die
+Trefferanzahl diesen Wert, werden nur die ersten <code class="docutils literal notranslate"><span class="pre">maxItems</span></code> Einträge angezeigt und dem
+Anwender wird ein Hinweis eingeblendet, dass alle Ergebnisse in der <strong>Tabellenansicht</strong>
+(<code class="docutils literal notranslate"><span class="pre">webgis.usability.queryResultsTable</span></code>) verfügbar sind.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="ubersichtskarte-minimap">
 <h2>Übersichtskarte (Minimap)<a class="headerlink" href="#ubersichtskarte-minimap" title="Link to this heading">¶</a></h2>
@@ -587,6 +622,7 @@ ohne den Container zuerst manuell aufklappen zu müssen.</p>
 <li><a class="reference internal" href="#nachbarschaft-berechnen">Nachbarschaft Berechnen</a></li>
 <li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a><ul>
 <li><a class="reference internal" href="#paging-in-der-ergebnistabelle">Paging in der Ergebnistabelle</a></li>
+<li><a class="reference internal" href="#begrenzung-der-ergebnisliste-mobile-ansicht">Begrenzung der Ergebnisliste (mobile Ansicht)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#ubersichtskarte-minimap">Übersichtskarte (Minimap)</a></li>
