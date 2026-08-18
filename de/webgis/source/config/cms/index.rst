@@ -158,7 +158,7 @@ Abschnitt ``deployments``
      - Hier kann ein beliebiger *Client* und ein beliebiges *Secret* definiert werden. Das *Secret* sollte ein sicheres Passwort mit mindestens **32 Zeichen** sein. Damit die **WebGIS API** den Upload akzeptiert, muss in der ``api.config`` ein Abschnitt ``<section name='cms-upload-{cms-name}'>`` vorhanden sein, in dem derselbe *Client* und dasselbe *Secret* hinterlegt ist.
    * - ``replacement-file`` *(optional)*
      - Pfad zu einer **Ersatzdatei** (*Replacement File* aus einem alten CMS), die für dieses Deployment verwendet werden soll.
-   * - ``ignoreAuthentication`` *(optional)*
+   * - ``ignoreAuthentification`` *(optional)*
      - Wenn dieser Wert auf ``true`` gesetzt ist, werden Berechtigungen im CMS ignoriert. Dies kann für **Schulungs- oder Testsysteme** nützlich sein, in denen alle Benutzer uneingeschränkten Zugriff haben sollen.
    * - ``postEvents`` *(optional)*
      - Ein Array von Ereignissen, die nach erfolgreicher Erstellung ausgeführt werden sollen.
