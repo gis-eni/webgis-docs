@@ -164,6 +164,14 @@ Section ``deployments``
      - An array of events that should be executed after a successful build.
    * - ``environment`` *(optional)*
      - Specifies the environment for the deployment. This is relevant, for example, for ``Secrets``, since a separate value can be stored for each environment (e.g. different *connection strings* for test and production systems). **Possible values:** ``Default``, ``Test``, ``Staging``, ``Production``.
+   * - ``services`` *(optional)*
+     - An **allow-list** (array of strings) that can be used to restrict which services (**ArcGIS Server**, **ImageServer**, **WMS**, **WMTS**, …) are actually included in the exported target XML.
+
+       Services are matched by their **url-name** (folder name). Only in the rare case that the same folder name occurs multiple times across different service types must the full **relative path** be specified instead.
+
+       Services not listed are skipped during export.
+
+       If the list is left empty or unset, the previous behavior is retained: **all services** continue to be exported.
 
 Section ``postEvents``
 ------------------------

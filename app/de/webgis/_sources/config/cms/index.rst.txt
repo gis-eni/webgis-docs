@@ -164,6 +164,14 @@ Abschnitt ``deployments``
      - Ein Array von Ereignissen, die nach erfolgreicher Erstellung ausgeführt werden sollen.
    * - ``environment`` *(optional)*
      - Gibt die Umgebung für das Deployment an. Dies ist z. B. für ``Secrets`` relevant, da für jede Umgebung ein eigener Wert hinterlegt werden kann (z. B. unterschiedliche *ConnectionStrings* für Test- und Produktivsysteme). **Mögliche Werte:** ``Default``, ``Test``, ``Staging``, ``Production``.
+   * - ``services`` *(optional)*
+     - Eine **Allow-List** (Array von Zeichenketten), mit der eingeschränkt werden kann, welche Dienste (**ArcGIS Server**, **ImageServer**, **WMS**, **WMTS**, …) tatsächlich in die exportierte Ziel-XML aufgenommen werden.
+
+       Die Dienste werden anhand ihres **Url-Namens** (Ordnername) abgeglichen. Nur im seltenen Fall, dass derselbe Ordnername bei unterschiedlichen Diensttypen mehrfach vorkommt, muss stattdessen der **vollständige relative Pfad** angegeben werden.
+
+       Dienste, die nicht in der Liste enthalten sind, werden beim Export übersprungen.
+
+       Bleibt die Liste leer oder wird sie weggelassen, bleibt das bisherige Verhalten erhalten: Es werden weiterhin **alle Dienste** exportiert.
 
 Abschnitt ``postEvents``
 ------------------------

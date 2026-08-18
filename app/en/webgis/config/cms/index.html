@@ -343,6 +343,13 @@
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">environment</span></code> <em>(optional)</em></p></td>
 <td><p>Specifies the environment for the deployment. This is relevant, for example, for <code class="docutils literal notranslate"><span class="pre">Secrets</span></code>, since a separate value can be stored for each environment (e.g. different <em>connection strings</em> for test and production systems). <strong>Possible values:</strong> <code class="docutils literal notranslate"><span class="pre">Default</span></code>, <code class="docutils literal notranslate"><span class="pre">Test</span></code>, <code class="docutils literal notranslate"><span class="pre">Staging</span></code>, <code class="docutils literal notranslate"><span class="pre">Production</span></code>.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">services</span></code> <em>(optional)</em></p></td>
+<td><p>An <strong>allow-list</strong> (array of strings) that can be used to restrict which services (<strong>ArcGIS Server</strong>, <strong>ImageServer</strong>, <strong>WMS</strong>, <strong>WMTS</strong>, …) are actually included in the exported target XML.</p>
+<p>Services are matched by their <strong>url-name</strong> (folder name). Only in the rare case that the same folder name occurs multiple times across different service types must the full <strong>relative path</strong> be specified instead.</p>
+<p>Services not listed are skipped during export.</p>
+<p>If the list is left empty or unset, the previous behavior is retained: <strong>all services</strong> continue to be exported.</p>
+</td>
+</tr>
 </tbody>
 </table>
 </section>

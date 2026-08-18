@@ -344,6 +344,13 @@
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">environment</span></code> <em>(optional)</em></p></td>
 <td><p>Gibt die Umgebung für das Deployment an. Dies ist z. B. für <code class="docutils literal notranslate"><span class="pre">Secrets</span></code> relevant, da für jede Umgebung ein eigener Wert hinterlegt werden kann (z. B. unterschiedliche <em>ConnectionStrings</em> für Test- und Produktivsysteme). <strong>Mögliche Werte:</strong> <code class="docutils literal notranslate"><span class="pre">Default</span></code>, <code class="docutils literal notranslate"><span class="pre">Test</span></code>, <code class="docutils literal notranslate"><span class="pre">Staging</span></code>, <code class="docutils literal notranslate"><span class="pre">Production</span></code>.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">services</span></code> <em>(optional)</em></p></td>
+<td><p>Eine <strong>Allow-List</strong> (Array von Zeichenketten), mit der eingeschränkt werden kann, welche Dienste (<strong>ArcGIS Server</strong>, <strong>ImageServer</strong>, <strong>WMS</strong>, <strong>WMTS</strong>, …) tatsächlich in die exportierte Ziel-XML aufgenommen werden.</p>
+<p>Die Dienste werden anhand ihres <strong>Url-Namens</strong> (Ordnername) abgeglichen. Nur im seltenen Fall, dass derselbe Ordnername bei unterschiedlichen Diensttypen mehrfach vorkommt, muss stattdessen der <strong>vollständige relative Pfad</strong> angegeben werden.</p>
+<p>Dienste, die nicht in der Liste enthalten sind, werden beim Export übersprungen.</p>
+<p>Bleibt die Liste leer oder wird sie weggelassen, bleibt das bisherige Verhalten erhalten: Es werden weiterhin <strong>alle Dienste</strong> exportiert.</p>
+</td>
+</tr>
 </tbody>
 </table>
 </section>
