@@ -186,6 +186,11 @@ default values can be set with <code class="docutils literal notranslate"><span 
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">defaults</span><span class="p">[</span><span class="s2">&quot;user.preferences.select-new-query-results&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span><span class="p">;</span>
 <span class="c1">// do not show markers automatically after query/identify</span>
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">defaults</span><span class="p">[</span><span class="s2">&quot;user.preferences.show-markers-on-new-queries&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;no&quot;</span><span class="p">;</span>
+<span class="c1">// sets the default display mode of the sketch info overlay</span>
+<span class="c1">// &quot;default&quot;  =&gt; full display (geometry, segment, snapping, construction) - default</span>
+<span class="c1">// &quot;hidden&quot;   =&gt; overlay is never shown</span>
+<span class="c1">// &quot;minimal&quot;  =&gt; only snapping / construction tool info</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">defaults</span><span class="p">[</span><span class="s2">&quot;user.preferences.sketch-info-display-mode&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;minimal&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>If you want these default values to always be set, regardless of what the user

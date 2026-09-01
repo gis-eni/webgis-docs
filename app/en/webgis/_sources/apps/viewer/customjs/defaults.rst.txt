@@ -31,6 +31,11 @@ default values can be set with ``webgis.defaults``:
     webgis.defaults["user.preferences.select-new-query-results"] = "yes";
     // do not show markers automatically after query/identify
     webgis.defaults["user.preferences.show-markers-on-new-queries"] = "no";
+    // sets the default display mode of the sketch info overlay
+    // "default"  => full display (geometry, segment, snapping, construction) - default
+    // "hidden"   => overlay is never shown
+    // "minimal"  => only snapping / construction tool info
+    webgis.defaults["user.preferences.sketch-info-display-mode"] = "minimal";
 
 
 If you want these default values to always be set, regardless of what the user
