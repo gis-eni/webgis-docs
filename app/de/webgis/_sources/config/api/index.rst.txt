@@ -819,6 +819,8 @@ Das Verhalten des Workarounds kann über die *Section* ``tool-identify`` in der 
       <add key="ags-spatial-query-max-result-cap" value="2000" />
       <add key="ags-spatial-query-default-max-record-count-fallback" value="1000" />
       <add key="ags-spatial-query-max-parallel-batch-requests" value="4" />
+      <add key="ags-spatial-query-ids-timeout-seconds" value="20" />
+      <add key="ags-spatial-query-ids-paging-threshold" value="50000" />
     </section>
 
 .. list-table::
@@ -828,21 +830,42 @@ Das Verhalten des Workarounds kann über die *Section* ``tool-identify`` in der 
    * - **Attribut**
      - **Beschreibung**
    * - ``ags-spatial-query-max-result-cap``
-     - Obergrenze für die Gesamtanzahl an **Objekt-IDs**, die beim blockweisen Abholen der IDs
-       (siehe Anhang) gesammelt werden, bevor die eigentlichen Features nachgeladen werden.
-       Wird diese Grenze erreicht, bevor alle Blöcke abgeholt sind, wird das Sammeln
-       abgebrochen und das Ergebnis als **unvollständig** markiert
-       (``FeatureCollection.HasMore``), da unter Umständen weitere Treffer existieren, die
-       nicht mehr abgeholt wurden. Standardwert: ``2000``.
+     - Obergrenze für die Anzahl an **Objekt-IDs**, die beim Ids-first-Workaround verwendet
+       werden. Es werden zwar immer alle IDs vom **ArcGIS Server** abgeholt, aber client-seitig
+       auf diesen Wert gekappt. Werden mehr Objekte gefunden, wird das Ergebnis als
+       **unvollständig** markiert (``FeatureCollection.HasMore``). Standardwert: ``2000``.
    * - ``ags-spatial-query-default-max-record-count-fallback``
-     - Blockgröße, mit der Features anhand ihrer **Objekt-IDs** nachgeladen werden, falls der
-       **ArcGIS-Server-Dienst** keinen brauchbaren Wert für ``maxRecordCount`` liefert (z. B. bei
-       älteren ArcGIS-Server-Versionen, deren Dienst-Info diesen Wert nicht enthält).
-       Standardwert: ``1000``.
+     - Blockgröße für **"Query by ObjectIds"**-Anfragen, mit denen die eigentlichen Features
+       anhand ihrer Objekt-IDs nachgeladen werden, falls der **ArcGIS-Server-Dienst** keinen
+       brauchbaren Wert für ``maxRecordCount`` liefert (z. B. bei älteren
+       ArcGIS-Server-Versionen, deren Dienst-Info diesen Wert nicht enthält). Standardwert:
+       ``1000``.
    * - ``ags-spatial-query-max-parallel-batch-requests``
-     - Maximale Anzahl **gleichzeitiger** ``query by objectIds``-Anfragen, die beim Auflösen
-       einer einzelnen räumlichen Abfrage parallel an den **ArcGIS Server** gestellt werden.
-       Standardwert: ``4``.
+     - Maximale Anzahl **gleichzeitiger** ``"Query by ObjectIds"``-Batch-Anfragen, die beim
+       Auflösen einer einzelnen räumlichen Abfrage parallel an den **ArcGIS Server** gestellt
+       werden. Standardwert: ``4``.
+   * - ``ags-spatial-query-ids-timeout-seconds``
+     - Zeitbudget in **Sekunden** für die vollständige Auflösung aller Objekt-IDs. Schützt vor
+       **ArcGIS-Server-Instanzen**, die dauerhaft mit vielen fast leeren bzw. gekappten Seiten
+       antworten – jede einzelne Anfrage ist für sich genommen günstig, in Summe kann das aber
+       zu lange dauern. Wird das Zeitbudget überschritten, wird die Ermittlung der IDs
+       abgebrochen und das Ergebnis als **unvollständig** markiert
+       (``FeatureCollection.HasMore``). Standardwert: ``20``.
+   * - ``ags-spatial-query-ids-paging-threshold``
+     - Schwellwert für die Anzahl an **Kandidaten**, unterhalb dessen keine seitenweise
+       (paging) Ermittlung der Objekt-IDs erfolgt, sondern eine einzige, unbegrenzte
+       ``returnIdsOnly``-Abfrage genügt. Die Anzahl der Kandidaten wird vorab kostengünstig per
+       ``returnCountOnly`` gegen die tatsächliche Abfragegeometrie ermittelt. Standardwert:
+       ``50000``.
+
+.. note::
+
+   Zusätzlich zu diesen ``api.config``-Einstellungen gibt es im **CMS** auf dem jeweiligen
+   **ArcServerService** die Eigenschaft **QueryStrategy** (``Default`` / ``BoundingBoxProblem``).
+   Damit wird pro AGS-Dienst festgelegt, ob dieser Workaround überhaupt aktiv ist. Das Problem
+   tritt nur auf, wenn die Daten des Dienstes in einem **SQL Server** oder einer **Oracle**-
+   Datenbank liegen; bei **PostGIS** als Datenquelle ist bisher kein Auftreten bekannt. Details
+   zur Entscheidungskaskade finden sich im Anhang: :doc:`../../annex/ags-spatial-query`.
 
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

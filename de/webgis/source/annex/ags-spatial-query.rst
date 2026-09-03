@@ -3,108 +3,138 @@ ArcGIS Server Spatial-Query Workaround
 
 .. note::
 
-   Betrifft nur Kartendienste vom Typ **ArcGIS Server (REST)**, die gegen einen **SQL Server**
-   als Datenquelle arbeiten.
+   Betrifft nur Kartendienste vom Typ **ArcGIS Server (REST)**, deren Daten in einem
+   **SQL Server** oder einer **Oracle**-Datenbank liegen (siehe unten).
 
 Das Problem
 -----------
 
 Bei einer **räumlichen Abfrage** (z. B. Identify per Fläche, Polygon-Selektion, Umringsuche)
-wertet der **ArcGIS Server** die Anfrage gegen den **SQL Server** in zwei Schritten aus:
+wertet der **ArcGIS Server** die Anfrage intern in zwei Schritten aus:
 
-1. Zuerst wird ausschließlich anhand der **Bounding-Box** (dem rechteckigen Umkreis) der
-   Abfragegeometrie gefiltert. Auf dieser Stufe wendet der ArcGIS Server bereits ein
-   **Zeilenlimit** an.
-2. Erst danach werden die so gefundenen Kandidaten gegen die **tatsächliche Abfragegeometrie**
-   (z. B. das exakte Polygon) geschnitten, um die endgültigen Treffer zu bestimmen.
+1. Zuerst wird nur die **Bounding-Box** (der rechteckige Umkreis) der Abfragegeometrie an die
+   Datenbank geschickt – inklusive des dort geltenden **Zeilenlimits** (``maxRecordCount``).
+2. Erst danach wird das so ermittelte Ergebnis gegen die **tatsächliche Abfragegeometrie**
+   (z. B. das exakte Polygon) verschnitten (*geclippt*), um die endgültigen Treffer zu
+   bestimmen.
 
 Das Problem dabei: Das Zeilenlimit aus Schritt 1 wird **vor** dem eigentlichen räumlichen
-Schnitt angewendet. Bei Geometrien, deren Bounding-Box deutlich größer ist als die Geometrie
-selbst (z. B. schmale, lang gestreckte oder diagonal verlaufende Polygone, große Ringe mit
-kleiner Kernfläche, etc.), können daher viele der über die Bounding-Box gefundenen Zeilen
-außerhalb der eigentlichen Abfragegeometrie liegen. Diese "unnötigen" Treffer verbrauchen das
-Zeilenlimit aus Schritt 1, obwohl sie später in Schritt 2 ohnehin verworfen werden.
+Verschnitt angewendet. Bei großen bzw. schmalen Geometrien (z. B. lang gestreckte Linien oder
+Polygone) kann es daher passieren, dass unter den ersten über die Bounding-Box gefundenen
+Kandidaten **zu wenige oder gar keine echten Treffer** sind, obwohl in Wirklichkeit deutlich
+mehr Objekte innerhalb der Abfragegeometrie liegen. Das Ergebnis einer Abfrage kann dadurch
+**weniger Treffer liefern als tatsächlich vorhanden sind**, im Extremfall sogar **null Treffer**.
 
-In der Praxis führt das dazu, dass eine Abfrage **weniger Ergebnisse liefert, als tatsächlich
-innerhalb der Abfragegeometrie liegen** – im Extremfall sogar **gar keine Treffer**, obwohl
-passende Objekte vorhanden wären. Der Effekt tritt umso eher auf, je dichter die Daten sind
-und je ungünstiger das Verhältnis zwischen Bounding-Box und tatsächlicher Geometrie ist.
+**ESRI bestätigt** dieses Verhalten, stuft es jedoch als **"as designed"** ein – es ist also nicht
+mit einem Fix seitens ArcGIS Server zu rechnen.
 
-Der Workaround
----------------
+Nicht betroffen von diesem Problem sind reine **Zählungen** (``returnCountOnly``) sowie Abfragen,
+die **nur die Objekt-IDs** liefern (``returnIdsOnly``): Bei diesen beiden Abfragearten wird nach
+Beobachtung tatsächlich die reale Abfragegeometrie an die Datenbank übergeben, nicht nur deren
+Bounding-Box. Genau darauf baut der weiter unten beschriebene Workaround auf.
 
-Um dieses Verhalten zu umgehen, wird eine räumliche Abfrage nicht mehr in einem einzigen
-Request an den ArcGIS Server gestellt, sondern in mehreren Schritten aufgelöst:
+.. important::
 
-1. **Nur Objekt-IDs abfragen** (``returnIdsOnly``)
+   Das Problem tritt nur auf, wenn die Daten des ArcGIS-Server-Dienstes in einem **SQL Server**
+   oder einer **Oracle**-Datenbank liegen. Bei **PostGIS** als Datenquelle tritt dieses Verhalten
+   nach bisheriger Beobachtung **nicht** auf.
 
-   Zunächst wird eine Abfrage ausgeführt, die für die Abfragegeometrie **nur die Objekt-IDs**
-   liefert, nicht aber die eigentlichen Feature-Daten (Geometrie und Attribute). Diese Variante
-   der Abfrage ist von dem oben beschriebenen Bounding-Box-Problem **nicht betroffen**, da der
-   ArcGIS Server hier den räumlichen Schnitt korrekt und vollständig durchführt.
+Konfigurierbar pro Dienst: ``QueryStrategy`` (CMS)
+----------------------------------------------------
 
-2. **Objekt-IDs in Blöcken abholen**
+Da sich unterschiedliche ArcGIS-Server-Instanzen bzw. die dahinterliegenden Datenbanken
+unterschiedlich verhalten (siehe oben, PostGIS ist z. B. nicht betroffen), wird der Workaround
+**nicht global**, sondern **pro Dienst** aktiviert. Dazu gibt es im **CMS** auf dem jeweiligen
+**ArcServerService** die Eigenschaft **``QueryStrategy``**:
 
-   Auch bei einer ``returnIdsOnly``-Abfrage muss verhindert werden, dass im schlechtesten Fall
-   Millionen von IDs auf einmal zurückgegeben werden (z. B. wenn die Abfragegeometrie sehr viele
-   Objekte umfasst). Der ArcGIS-Server-REST-Parameter dafür heißt ``resultRecordCount`` und
-   existiert grundsätzlich in **allen** ArcGIS-Server-Versionen.
+* **``Default``** – normale Abfrage (Feature-Query mit Geometrie/Where-Klausel direkt an den
+  ArcGIS Server), ohne zusätzliche Requests. Dies ist immer die **schnellste Variante** und wird
+  überall dort verwendet, wo sie sicher korrekte Ergebnisse liefert.
+* **``BoundingBoxProblem``** – aktiviert den weiter unten beschriebenen **Ids-first-Workaround**
+  für Dienste, bei denen das Bounding-Box-Problem tatsächlich auftritt.
 
-   Das eigentliche Problem: Bei ``returnIdsOnly``-Abfragen wird ``resultRecordCount`` erst ab
-   **ArcGIS Server 11.5** tatsächlich berücksichtigt. Bei älteren Versionen (**AGS < 11.5**)
-   wird der Parameter bei dieser Abfrageart schlicht **ignoriert** – der ArcGIS Server liefert
-   dann unabhängig von der Anfrage maximal **1000 IDs** zurück, und zwar **ohne jeden Hinweis**
-   darauf, dass es eigentlich mehr Treffer gäbe (kein ``exceededTransferLimit``-Flag oder
-   Ähnliches, wie man es von normalen Feature-Abfragen kennt). Ob die 1000 gelieferten IDs
-   bereits alle Treffer sind oder ob in Wirklichkeit noch weitere existieren, lässt sich aus der
-   Antwort selbst also **nicht erkennen**. Genau das macht den Workaround notwendig und relativ
-   aufwendig: Es muss aktiv weitergeblättert und geprüft werden, ob noch neue IDs dazukommen,
-   statt sich auf ein Abbruch-Flag des Servers verlassen zu können.
+Ablauf bei ``BoundingBoxProblem`` (Entscheidungskaskade)
+-----------------------------------------------------------
 
-   Für diesen Fallback-Fall (AGS < 11.5, unwirksames ``resultRecordCount`` bei
-   ``returnIdsOnly``) wird die anzunehmende Blockgröße über den konfigurierbaren
-   **Fallback-Wert** gesteuert (siehe ``ags-spatial-query-default-max-record-count-fallback``
-   weiter unten), standardmäßig **1000 IDs** pro Anfrage.
+Auch wenn ein Dienst auf ``BoundingBoxProblem`` konfiguriert ist, wird nicht blind der
+aufwendigere Workaround verwendet. Vor dessen Einsatz gibt es mehrere **Vorprüfungen**, die auf
+``Default`` zurückfallen, wenn das Problem für die konkrete Abfrage gar nicht auftreten kann bzw.
+unschädlich wäre:
 
-   Um trotz dieser Begrenzung **alle** IDs zu erhalten, werden die IDs seitenweise abgeholt:
+1. **Geometrie-Check**
 
-   - Die erste Anfrage liefert bis zu **[Blockgröße]** IDs, sortiert nach ``ORDER BY OBJECTID``.
-   - Aus dem Ergebnis wird die **höchste gelieferte OBJECTID** ermittelt.
-   - Die nächste Anfrage ergänzt die ursprüngliche Abfragegeometrie um die zusätzliche
-     Bedingung ``AND OBJECTID > [höchste bisher gefundene ID]`` und liefert so den
-     **nächsten Block** von IDs.
-   - Dieser Vorgang wird so lange wiederholt, bis entweder
+   Reine **Attributabfragen** (ohne Geometrie), Abfragen mit einer **Envelope-Geometrie**
+   (die Bounding-Box entspricht hier bereits der Abfragegeometrie, es gibt also keinen
+   Unterschied) oder mit einem **Punkt** (die Bounding-Box eines Punktes ist der Punkt selbst)
+   können das Problem prinzipiell nicht auslösen → es wird ``Default`` verwendet.
 
-     - ein Request **keine weiteren IDs** mehr liefert (d. h. alle Treffer wurden gefunden),
-       oder
-     - die Gesamtzahl der gesammelten IDs das konfigurierte Limit
-       ``ags-spatial-query-max-result-cap`` erreicht. In diesem Fall wird das Sammeln
-       abgebrochen und das Ergebnis als **unvollständig** markiert
-       (``FeatureCollection.HasMore``), da theoretisch weitere Treffer existieren könnten,
-       die nicht mehr abgeholt wurden.
+2. **Bbox-Kandidaten-Check**
 
-   Da bei diesem Vorgehen für jeden Block eine eigene ``returnIdsOnly``-Abfrage mit dem
-   zusätzlichen ``OBJECTID >``-Filter an den ArcGIS Server gestellt wird, ist dieser Schritt
-   ebenfalls nicht vom eingangs beschriebenen Bounding-Box-Problem betroffen: Jede einzelne
-   dieser Teilabfragen wird vom ArcGIS Server korrekt gegen die tatsächliche Geometrie
-   ausgewertet, nur eben in mehreren kleineren Portionen statt in einer einzigen.
+   Für alle anderen Geometrietypen (Linie, Polygon, Multipoint) wird zunächst kostengünstig
+   gezählt, wie viele Objekte in der **Bounding-Box** der Abfragegeometrie liegen
+   (``returnCountOnly``, selbst nicht vom Problem betroffen). Liegt dieser Wert **unter** dem
+   serverseitigen Zeilenlimit (``maxRecordCount``), kann im internen Bbox-Schritt nichts
+   abgeschnitten worden sein, bevor der eigentliche Verschnitt passiert → auch hier reicht
+   ``Default``.
 
-3. **Features anhand der gesammelten IDs nachladen**
+3. **Ids-first-Workaround**
 
-   Erst nachdem die vollständige (oder auf das Limit begrenzte) Liste der Objekt-IDs ermittelt
-   wurde, werden die eigentlichen Feature-Daten (Geometrie und Attribute) über
-   ``query by objectIds`` nachgeladen. Auch dieser Schritt erfolgt wieder **in Blöcken**, deren
-   Größe sich – wenn vom Dienst bekannt – nach dem ``maxRecordCount`` des ArcGIS-Server-Dienstes
-   richtet, andernfalls nach dem konfigurierten Fallback-Wert
-   (``ags-spatial-query-default-max-record-count-fallback``). Um die Gesamtdauer der Abfrage zu
-   verkürzen, können mehrere dieser Blöcke **parallel** angefragt werden (siehe
-   ``ags-spatial-query-max-parallel-batch-requests``).
+   Erst wenn keine der beiden Vorprüfungen zutrifft, kommt der eigentliche Workaround
+   (intern ``BoundingBoxProblemAgsQueryStrategy``) zum Einsatz. Er läuft in drei Schritten ab:
+
+   **Schritt A – Kandidatenzahl gegen die echte Geometrie**
+
+   Zunächst wird per ``returnCountOnly`` gegen die **tatsächliche** Abfragegeometrie bzw.
+   Where-Klausel gezählt (nicht gegen die Bounding-Box). Liegt dieser echte Treffer-Count
+   **unter** dem konfigurierbaren Schwellwert ``ags-spatial-query-ids-paging-threshold``
+   (Standardwert: ``50000``), genügt eine einzige, **unpaginierte** ``returnIdsOnly``-Abfrage:
+   Der ArcGIS Server liefert dabei zuverlässig **alle** IDs ohne Zeilenlimit, solange kein
+   ``resultRecordCount`` mitgegeben wird.
+
+   **Schritt B – Paging bei großen Ergebnismengen**
+
+   Liegt der echte Treffer-Count über dem Schwellwert (potenziell hunderttausende oder
+   Millionen Treffer), werden die IDs stattdessen **seitenweise per Keyset-Pagination**
+   abgeholt: Jede Anfrage ergänzt die Bedingung ``{ID-Feld} > {höchste bisher gefundene ID}``
+   (aufsteigend sortiert), die Seitengröße entspricht dabei dem ``maxRecordCount`` des Dienstes.
+   Dieser Vorgang wird abgebrochen, sobald eine der folgenden Bedingungen eintritt:
+
+   * Eine Seite liefert **keine** weiteren IDs mehr → alle Treffer wurden gefunden.
+   * Das konfigurierte **Zeitbudget** (``ags-spatial-query-ids-timeout-seconds``, Standardwert:
+     ``20`` Sekunden) wird überschritten → Abbruch, das Ergebnis wird als **unvollständig**
+     markiert.
+   * Es gibt **keinen Fortschritt** mehr (die höchste gefundene ID steigt nicht weiter) →
+     Abbruch, als Schutz vor Endlosschleifen bzw. Duplikaten.
+   * Es werden **mehr als 50 aufeinanderfolgende** Seiten empfangen, die zwar laut Server
+     abgeschnitten sind, aber fast leer ausfallen → Abbruch.
+
+   Unabhängig vom Abbruchgrund wird das Gesamtergebnis client-seitig zusätzlich auf
+   ``ags-spatial-query-max-result-cap`` (Standardwert: ``2000``) gekappt.
+
+   **Schritt C – Laden der eigentlichen Features**
+
+   Erst nachdem die Objekt-IDs auf eine der beiden Arten ermittelt wurden, werden die
+   eigentlichen Feature-Daten (Geometrie und Attribute) geladen. Dies geschieht in **Batches**
+   (Batchgröße: ``ags-spatial-query-default-max-record-count-fallback``), die parallel
+   angefragt werden können (siehe ``ags-spatial-query-max-parallel-batch-requests``), über
+   ``query by objectIds`` – ein Abfragetyp, der ebenfalls nicht vom Bounding-Box-Problem
+   betroffen ist.
+
+Kurz zusammengefasst
+---------------------
+
+``Default`` ist immer die bevorzugte, günstigste Strategie. ``BoundingBoxProblem`` wird nur für
+Dienste aktiviert, bei denen das Problem tatsächlich auftreten kann (SQL Server/Oracle als
+Datenquelle), und selbst dann wird mehrfach geprüft, ob der aufwendigere Ids-first-Umweg
+überhaupt nötig ist (Geometrietyp, Anzahl der Bbox-Kandidaten, Anzahl der echten Kandidaten).
+Nur im ungünstigsten Fall – viele echte Treffer bei einer problematischen Geometrie – kommt das
+vollständige Paging-Verfahren (Schritt B) zum Einsatz.
 
 Konfiguration
 -------------
 
-Das Verhalten des Workarounds kann über die *Section* ``tool-identify`` in der ``api.config``
-angepasst werden:
+Die Zahlenwerte des Ids-first-Workarounds (Schritte A bis C) können über die *Section*
+``tool-identify`` in der ``api.config`` angepasst werden:
 
 .. code-block:: xml
 
@@ -113,7 +143,12 @@ angepasst werden:
       <add key="ags-spatial-query-max-result-cap" value="2000" />
       <add key="ags-spatial-query-default-max-record-count-fallback" value="1000" />
       <add key="ags-spatial-query-max-parallel-batch-requests" value="4" />
+      <add key="ags-spatial-query-ids-timeout-seconds" value="20" />
+      <add key="ags-spatial-query-ids-paging-threshold" value="50000" />
     </section>
 
 Die Bedeutung der einzelnen Attribute ist im Kapitel
 :doc:`../config/api/index` beim Werkzeug **Identify** beschrieben.
+
+Die ``QueryStrategy`` selbst (``Default`` / ``BoundingBoxProblem``) ist **kein**
+``api.config``-Wert, sondern wird pro Dienst am **ArcServerService** im **CMS** eingestellt.

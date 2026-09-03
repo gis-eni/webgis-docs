@@ -157,112 +157,139 @@
 <h1>ArcGIS Server Spatial-Query Workaround<a class="headerlink" href="#arcgis-server-spatial-query-workaround" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
-<p>Betrifft nur Kartendienste vom Typ <strong>ArcGIS Server (REST)</strong>, die gegen einen <strong>SQL Server</strong>
-als Datenquelle arbeiten.</p>
+<p>Betrifft nur Kartendienste vom Typ <strong>ArcGIS Server (REST)</strong>, deren Daten in einem
+<strong>SQL Server</strong> oder einer <strong>Oracle</strong>-Datenbank liegen (siehe unten).</p>
 </div>
 <section id="das-problem">
 <h2>Das Problem<a class="headerlink" href="#das-problem" title="Link to this heading">¶</a></h2>
 <p>Bei einer <strong>räumlichen Abfrage</strong> (z. B. Identify per Fläche, Polygon-Selektion, Umringsuche)
-wertet der <strong>ArcGIS Server</strong> die Anfrage gegen den <strong>SQL Server</strong> in zwei Schritten aus:</p>
+wertet der <strong>ArcGIS Server</strong> die Anfrage intern in zwei Schritten aus:</p>
 <ol class="arabic simple">
-<li><p>Zuerst wird ausschließlich anhand der <strong>Bounding-Box</strong> (dem rechteckigen Umkreis) der
-Abfragegeometrie gefiltert. Auf dieser Stufe wendet der ArcGIS Server bereits ein
-<strong>Zeilenlimit</strong> an.</p></li>
-<li><p>Erst danach werden die so gefundenen Kandidaten gegen die <strong>tatsächliche Abfragegeometrie</strong>
-(z. B. das exakte Polygon) geschnitten, um die endgültigen Treffer zu bestimmen.</p></li>
+<li><p>Zuerst wird nur die <strong>Bounding-Box</strong> (der rechteckige Umkreis) der Abfragegeometrie an die
+Datenbank geschickt – inklusive des dort geltenden <strong>Zeilenlimits</strong> (<code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>).</p></li>
+<li><p>Erst danach wird das so ermittelte Ergebnis gegen die <strong>tatsächliche Abfragegeometrie</strong>
+(z. B. das exakte Polygon) verschnitten (<em>geclippt</em>), um die endgültigen Treffer zu
+bestimmen.</p></li>
 </ol>
 <p>Das Problem dabei: Das Zeilenlimit aus Schritt 1 wird <strong>vor</strong> dem eigentlichen räumlichen
-Schnitt angewendet. Bei Geometrien, deren Bounding-Box deutlich größer ist als die Geometrie
-selbst (z. B. schmale, lang gestreckte oder diagonal verlaufende Polygone, große Ringe mit
-kleiner Kernfläche, etc.), können daher viele der über die Bounding-Box gefundenen Zeilen
-außerhalb der eigentlichen Abfragegeometrie liegen. Diese „unnötigen“ Treffer verbrauchen das
-Zeilenlimit aus Schritt 1, obwohl sie später in Schritt 2 ohnehin verworfen werden.</p>
-<p>In der Praxis führt das dazu, dass eine Abfrage <strong>weniger Ergebnisse liefert, als tatsächlich
-innerhalb der Abfragegeometrie liegen</strong> – im Extremfall sogar <strong>gar keine Treffer</strong>, obwohl
-passende Objekte vorhanden wären. Der Effekt tritt umso eher auf, je dichter die Daten sind
-und je ungünstiger das Verhältnis zwischen Bounding-Box und tatsächlicher Geometrie ist.</p>
+Verschnitt angewendet. Bei großen bzw. schmalen Geometrien (z. B. lang gestreckte Linien oder
+Polygone) kann es daher passieren, dass unter den ersten über die Bounding-Box gefundenen
+Kandidaten <strong>zu wenige oder gar keine echten Treffer</strong> sind, obwohl in Wirklichkeit deutlich
+mehr Objekte innerhalb der Abfragegeometrie liegen. Das Ergebnis einer Abfrage kann dadurch
+<strong>weniger Treffer liefern als tatsächlich vorhanden sind</strong>, im Extremfall sogar <strong>null Treffer</strong>.</p>
+<p><strong>ESRI bestätigt</strong> dieses Verhalten, stuft es jedoch als <strong>„as designed“</strong> ein – es ist also nicht
+mit einem Fix seitens ArcGIS Server zu rechnen.</p>
+<p>Nicht betroffen von diesem Problem sind reine <strong>Zählungen</strong> (<code class="docutils literal notranslate"><span class="pre">returnCountOnly</span></code>) sowie Abfragen,
+die <strong>nur die Objekt-IDs</strong> liefern (<code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>): Bei diesen beiden Abfragearten wird nach
+Beobachtung tatsächlich die reale Abfragegeometrie an die Datenbank übergeben, nicht nur deren
+Bounding-Box. Genau darauf baut der weiter unten beschriebene Workaround auf.</p>
+<div class="admonition important">
+<p class="admonition-title">Wichtig</p>
+<p>Das Problem tritt nur auf, wenn die Daten des ArcGIS-Server-Dienstes in einem <strong>SQL Server</strong>
+oder einer <strong>Oracle</strong>-Datenbank liegen. Bei <strong>PostGIS</strong> als Datenquelle tritt dieses Verhalten
+nach bisheriger Beobachtung <strong>nicht</strong> auf.</p>
+</div>
 </section>
-<section id="der-workaround">
-<h2>Der Workaround<a class="headerlink" href="#der-workaround" title="Link to this heading">¶</a></h2>
-<p>Um dieses Verhalten zu umgehen, wird eine räumliche Abfrage nicht mehr in einem einzigen
-Request an den ArcGIS Server gestellt, sondern in mehreren Schritten aufgelöst:</p>
-<ol class="arabic">
-<li><p><strong>Nur Objekt-IDs abfragen</strong> (<code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>)</p>
-<p>Zunächst wird eine Abfrage ausgeführt, die für die Abfragegeometrie <strong>nur die Objekt-IDs</strong>
-liefert, nicht aber die eigentlichen Feature-Daten (Geometrie und Attribute). Diese Variante
-der Abfrage ist von dem oben beschriebenen Bounding-Box-Problem <strong>nicht betroffen</strong>, da der
-ArcGIS Server hier den räumlichen Schnitt korrekt und vollständig durchführt.</p>
-</li>
-<li><p><strong>Objekt-IDs in Blöcken abholen</strong></p>
-<p>Auch bei einer <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>-Abfrage muss verhindert werden, dass im schlechtesten Fall
-Millionen von IDs auf einmal zurückgegeben werden (z. B. wenn die Abfragegeometrie sehr viele
-Objekte umfasst). Der ArcGIS-Server-REST-Parameter dafür heißt <code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> und
-existiert grundsätzlich in <strong>allen</strong> ArcGIS-Server-Versionen.</p>
-<p>Das eigentliche Problem: Bei <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>-Abfragen wird <code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> erst ab
-<strong>ArcGIS Server 11.5</strong> tatsächlich berücksichtigt. Bei älteren Versionen (<strong>AGS &lt; 11.5</strong>)
-wird der Parameter bei dieser Abfrageart schlicht <strong>ignoriert</strong> – der ArcGIS Server liefert
-dann unabhängig von der Anfrage maximal <strong>1000 IDs</strong> zurück, und zwar <strong>ohne jeden Hinweis</strong>
-darauf, dass es eigentlich mehr Treffer gäbe (kein <code class="docutils literal notranslate"><span class="pre">exceededTransferLimit</span></code>-Flag oder
-Ähnliches, wie man es von normalen Feature-Abfragen kennt). Ob die 1000 gelieferten IDs
-bereits alle Treffer sind oder ob in Wirklichkeit noch weitere existieren, lässt sich aus der
-Antwort selbst also <strong>nicht erkennen</strong>. Genau das macht den Workaround notwendig und relativ
-aufwendig: Es muss aktiv weitergeblättert und geprüft werden, ob noch neue IDs dazukommen,
-statt sich auf ein Abbruch-Flag des Servers verlassen zu können.</p>
-<p>Für diesen Fallback-Fall (AGS &lt; 11.5, unwirksames <code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> bei
-<code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>) wird die anzunehmende Blockgröße über den konfigurierbaren
-<strong>Fallback-Wert</strong> gesteuert (siehe <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-default-max-record-count-fallback</span></code>
-weiter unten), standardmäßig <strong>1000 IDs</strong> pro Anfrage.</p>
-<p>Um trotz dieser Begrenzung <strong>alle</strong> IDs zu erhalten, werden die IDs seitenweise abgeholt:</p>
+<section id="konfigurierbar-pro-dienst-querystrategy-cms">
+<h2>Konfigurierbar pro Dienst: <code class="docutils literal notranslate"><span class="pre">QueryStrategy</span></code> (CMS)<a class="headerlink" href="#konfigurierbar-pro-dienst-querystrategy-cms" title="Link to this heading">¶</a></h2>
+<p>Da sich unterschiedliche ArcGIS-Server-Instanzen bzw. die dahinterliegenden Datenbanken
+unterschiedlich verhalten (siehe oben, PostGIS ist z. B. nicht betroffen), wird der Workaround
+<strong>nicht global</strong>, sondern <strong>pro Dienst</strong> aktiviert. Dazu gibt es im <strong>CMS</strong> auf dem jeweiligen
+<strong>ArcServerService</strong> die Eigenschaft <strong>``QueryStrategy``</strong>:</p>
 <ul class="simple">
-<li><p>Die erste Anfrage liefert bis zu <strong>[Blockgröße]</strong> IDs, sortiert nach <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">OBJECTID</span></code>.</p></li>
-<li><p>Aus dem Ergebnis wird die <strong>höchste gelieferte OBJECTID</strong> ermittelt.</p></li>
-<li><p>Die nächste Anfrage ergänzt die ursprüngliche Abfragegeometrie um die zusätzliche
-Bedingung <code class="docutils literal notranslate"><span class="pre">AND</span> <span class="pre">OBJECTID</span> <span class="pre">&gt;</span> <span class="pre">[höchste</span> <span class="pre">bisher</span> <span class="pre">gefundene</span> <span class="pre">ID]</span></code> und liefert so den
-<strong>nächsten Block</strong> von IDs.</p></li>
-<li><p>Dieser Vorgang wird so lange wiederholt, bis entweder</p>
-<ul>
-<li><p>ein Request <strong>keine weiteren IDs</strong> mehr liefert (d. h. alle Treffer wurden gefunden),
-oder</p></li>
-<li><p>die Gesamtzahl der gesammelten IDs das konfigurierte Limit
-<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-result-cap</span></code> erreicht. In diesem Fall wird das Sammeln
-abgebrochen und das Ergebnis als <strong>unvollständig</strong> markiert
-(<code class="docutils literal notranslate"><span class="pre">FeatureCollection.HasMore</span></code>), da theoretisch weitere Treffer existieren könnten,
-die nicht mehr abgeholt wurden.</p></li>
+<li><p><strong>``Default``</strong> – normale Abfrage (Feature-Query mit Geometrie/Where-Klausel direkt an den
+ArcGIS Server), ohne zusätzliche Requests. Dies ist immer die <strong>schnellste Variante</strong> und wird
+überall dort verwendet, wo sie sicher korrekte Ergebnisse liefert.</p></li>
+<li><p><strong>``BoundingBoxProblem``</strong> – aktiviert den weiter unten beschriebenen <strong>Ids-first-Workaround</strong>
+für Dienste, bei denen das Bounding-Box-Problem tatsächlich auftritt.</p></li>
 </ul>
+</section>
+<section id="ablauf-bei-boundingboxproblem-entscheidungskaskade">
+<h2>Ablauf bei <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code> (Entscheidungskaskade)<a class="headerlink" href="#ablauf-bei-boundingboxproblem-entscheidungskaskade" title="Link to this heading">¶</a></h2>
+<p>Auch wenn ein Dienst auf <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code> konfiguriert ist, wird nicht blind der
+aufwendigere Workaround verwendet. Vor dessen Einsatz gibt es mehrere <strong>Vorprüfungen</strong>, die auf
+<code class="docutils literal notranslate"><span class="pre">Default</span></code> zurückfallen, wenn das Problem für die konkrete Abfrage gar nicht auftreten kann bzw.
+unschädlich wäre:</p>
+<ol class="arabic">
+<li><p><strong>Geometrie-Check</strong></p>
+<p>Reine <strong>Attributabfragen</strong> (ohne Geometrie), Abfragen mit einer <strong>Envelope-Geometrie</strong>
+(die Bounding-Box entspricht hier bereits der Abfragegeometrie, es gibt also keinen
+Unterschied) oder mit einem <strong>Punkt</strong> (die Bounding-Box eines Punktes ist der Punkt selbst)
+können das Problem prinzipiell nicht auslösen → es wird <code class="docutils literal notranslate"><span class="pre">Default</span></code> verwendet.</p>
 </li>
+<li><p><strong>Bbox-Kandidaten-Check</strong></p>
+<p>Für alle anderen Geometrietypen (Linie, Polygon, Multipoint) wird zunächst kostengünstig
+gezählt, wie viele Objekte in der <strong>Bounding-Box</strong> der Abfragegeometrie liegen
+(<code class="docutils literal notranslate"><span class="pre">returnCountOnly</span></code>, selbst nicht vom Problem betroffen). Liegt dieser Wert <strong>unter</strong> dem
+serverseitigen Zeilenlimit (<code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>), kann im internen Bbox-Schritt nichts
+abgeschnitten worden sein, bevor der eigentliche Verschnitt passiert → auch hier reicht
+<code class="docutils literal notranslate"><span class="pre">Default</span></code>.</p>
+</li>
+<li><p><strong>Ids-first-Workaround</strong></p>
+<p>Erst wenn keine der beiden Vorprüfungen zutrifft, kommt der eigentliche Workaround
+(intern <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblemAgsQueryStrategy</span></code>) zum Einsatz. Er läuft in drei Schritten ab:</p>
+<p><strong>Schritt A – Kandidatenzahl gegen die echte Geometrie</strong></p>
+<p>Zunächst wird per <code class="docutils literal notranslate"><span class="pre">returnCountOnly</span></code> gegen die <strong>tatsächliche</strong> Abfragegeometrie bzw.
+Where-Klausel gezählt (nicht gegen die Bounding-Box). Liegt dieser echte Treffer-Count
+<strong>unter</strong> dem konfigurierbaren Schwellwert <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-ids-paging-threshold</span></code>
+(Standardwert: <code class="docutils literal notranslate"><span class="pre">50000</span></code>), genügt eine einzige, <strong>unpaginierte</strong> <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>-Abfrage:
+Der ArcGIS Server liefert dabei zuverlässig <strong>alle</strong> IDs ohne Zeilenlimit, solange kein
+<code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> mitgegeben wird.</p>
+<p><strong>Schritt B – Paging bei großen Ergebnismengen</strong></p>
+<p>Liegt der echte Treffer-Count über dem Schwellwert (potenziell hunderttausende oder
+Millionen Treffer), werden die IDs stattdessen <strong>seitenweise per Keyset-Pagination</strong>
+abgeholt: Jede Anfrage ergänzt die Bedingung <code class="docutils literal notranslate"><span class="pre">{ID-Feld}</span> <span class="pre">&gt;</span> <span class="pre">{höchste</span> <span class="pre">bisher</span> <span class="pre">gefundene</span> <span class="pre">ID}</span></code>
+(aufsteigend sortiert), die Seitengröße entspricht dabei dem <code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code> des Dienstes.
+Dieser Vorgang wird abgebrochen, sobald eine der folgenden Bedingungen eintritt:</p>
+<ul class="simple">
+<li><p>Eine Seite liefert <strong>keine</strong> weiteren IDs mehr → alle Treffer wurden gefunden.</p></li>
+<li><p>Das konfigurierte <strong>Zeitbudget</strong> (<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-ids-timeout-seconds</span></code>, Standardwert:
+<code class="docutils literal notranslate"><span class="pre">20</span></code> Sekunden) wird überschritten → Abbruch, das Ergebnis wird als <strong>unvollständig</strong>
+markiert.</p></li>
+<li><p>Es gibt <strong>keinen Fortschritt</strong> mehr (die höchste gefundene ID steigt nicht weiter) →
+Abbruch, als Schutz vor Endlosschleifen bzw. Duplikaten.</p></li>
+<li><p>Es werden <strong>mehr als 50 aufeinanderfolgende</strong> Seiten empfangen, die zwar laut Server
+abgeschnitten sind, aber fast leer ausfallen → Abbruch.</p></li>
 </ul>
-<p>Da bei diesem Vorgehen für jeden Block eine eigene <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>-Abfrage mit dem
-zusätzlichen <code class="docutils literal notranslate"><span class="pre">OBJECTID</span> <span class="pre">&gt;</span></code>-Filter an den ArcGIS Server gestellt wird, ist dieser Schritt
-ebenfalls nicht vom eingangs beschriebenen Bounding-Box-Problem betroffen: Jede einzelne
-dieser Teilabfragen wird vom ArcGIS Server korrekt gegen die tatsächliche Geometrie
-ausgewertet, nur eben in mehreren kleineren Portionen statt in einer einzigen.</p>
-</li>
-<li><p><strong>Features anhand der gesammelten IDs nachladen</strong></p>
-<p>Erst nachdem die vollständige (oder auf das Limit begrenzte) Liste der Objekt-IDs ermittelt
-wurde, werden die eigentlichen Feature-Daten (Geometrie und Attribute) über
-<code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">by</span> <span class="pre">objectIds</span></code> nachgeladen. Auch dieser Schritt erfolgt wieder <strong>in Blöcken</strong>, deren
-Größe sich – wenn vom Dienst bekannt – nach dem <code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code> des ArcGIS-Server-Dienstes
-richtet, andernfalls nach dem konfigurierten Fallback-Wert
-(<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-default-max-record-count-fallback</span></code>). Um die Gesamtdauer der Abfrage zu
-verkürzen, können mehrere dieser Blöcke <strong>parallel</strong> angefragt werden (siehe
-<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-parallel-batch-requests</span></code>).</p>
+<p>Unabhängig vom Abbruchgrund wird das Gesamtergebnis client-seitig zusätzlich auf
+<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-result-cap</span></code> (Standardwert: <code class="docutils literal notranslate"><span class="pre">2000</span></code>) gekappt.</p>
+<p><strong>Schritt C – Laden der eigentlichen Features</strong></p>
+<p>Erst nachdem die Objekt-IDs auf eine der beiden Arten ermittelt wurden, werden die
+eigentlichen Feature-Daten (Geometrie und Attribute) geladen. Dies geschieht in <strong>Batches</strong>
+(Batchgröße: <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-default-max-record-count-fallback</span></code>), die parallel
+angefragt werden können (siehe <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-parallel-batch-requests</span></code>), über
+<code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">by</span> <span class="pre">objectIds</span></code> – ein Abfragetyp, der ebenfalls nicht vom Bounding-Box-Problem
+betroffen ist.</p>
 </li>
 </ol>
+</section>
+<section id="kurz-zusammengefasst">
+<h2>Kurz zusammengefasst<a class="headerlink" href="#kurz-zusammengefasst" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Default</span></code> ist immer die bevorzugte, günstigste Strategie. <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code> wird nur für
+Dienste aktiviert, bei denen das Problem tatsächlich auftreten kann (SQL Server/Oracle als
+Datenquelle), und selbst dann wird mehrfach geprüft, ob der aufwendigere Ids-first-Umweg
+überhaupt nötig ist (Geometrietyp, Anzahl der Bbox-Kandidaten, Anzahl der echten Kandidaten).
+Nur im ungünstigsten Fall – viele echte Treffer bei einer problematischen Geometrie – kommt das
+vollständige Paging-Verfahren (Schritt B) zum Einsatz.</p>
 </section>
 <section id="konfiguration">
 <h2>Konfiguration<a class="headerlink" href="#konfiguration" title="Link to this heading">¶</a></h2>
-<p>Das Verhalten des Workarounds kann über die <em>Section</em> <code class="docutils literal notranslate"><span class="pre">tool-identify</span></code> in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code>
-angepasst werden:</p>
+<p>Die Zahlenwerte des Ids-first-Workarounds (Schritte A bis C) können über die <em>Section</em>
+<code class="docutils literal notranslate"><span class="pre">tool-identify</span></code> in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> angepasst werden:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-identify&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="cm">&lt;!-- ArcGIS Server spatial-query bounding-box workaround --&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-max-result-cap&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;2000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-default-max-record-count-fallback&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-max-parallel-batch-requests&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-ids-timeout-seconds&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-ids-paging-threshold&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;50000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
 <p>Die Bedeutung der einzelnen Attribute ist im Kapitel
 <a class="reference internal" href="../config/api/index.html"><span class="doc">Konfiguration der API-Applikation</span></a> beim Werkzeug <strong>Identify</strong> beschrieben.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">QueryStrategy</span></code> selbst (<code class="docutils literal notranslate"><span class="pre">Default</span></code> / <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code>) ist <strong>kein</strong>
+<code class="docutils literal notranslate"><span class="pre">api.config</span></code>-Wert, sondern wird pro Dienst am <strong>ArcServerService</strong> im <strong>CMS</strong> eingestellt.</p>
 </section>
 </section>
 
@@ -282,7 +309,9 @@ angepasst werden:</p>
                 <ul>
 <li><a class="reference internal" href="#">ArcGIS Server Spatial-Query Workaround</a><ul>
 <li><a class="reference internal" href="#das-problem">Das Problem</a></li>
-<li><a class="reference internal" href="#der-workaround">Der Workaround</a></li>
+<li><a class="reference internal" href="#konfigurierbar-pro-dienst-querystrategy-cms">Konfigurierbar pro Dienst: <code class="docutils literal notranslate"><span class="pre">QueryStrategy</span></code> (CMS)</a></li>
+<li><a class="reference internal" href="#ablauf-bei-boundingboxproblem-entscheidungskaskade">Ablauf bei <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code> (Entscheidungskaskade)</a></li>
+<li><a class="reference internal" href="#kurz-zusammengefasst">Kurz zusammengefasst</a></li>
 <li><a class="reference internal" href="#konfiguration">Konfiguration</a></li>
 </ul>
 </li>

@@ -156,107 +156,132 @@
 <h1>ArcGIS Server Spatial-Query Workaround<a class="headerlink" href="#arcgis-server-spatial-query-workaround" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only affects map services of type <strong>ArcGIS Server (REST)</strong> that work against a
-<strong>SQL Server</strong> as their data source.</p>
+<p>Only affects map services of type <strong>ArcGIS Server (REST)</strong> whose data resides in a
+<strong>SQL Server</strong> or <strong>Oracle</strong> database (see below).</p>
 </div>
 <section id="the-problem">
 <h2>The Problem<a class="headerlink" href="#the-problem" title="Link to this heading">¶</a></h2>
 <p>For a <strong>spatial query</strong> (e.g. Identify by area, polygon selection, buffer search), the
-<strong>ArcGIS Server</strong> evaluates the request against the <strong>SQL Server</strong> in two steps:</p>
+<strong>ArcGIS Server</strong> evaluates the request internally in two steps:</p>
 <ol class="arabic simple">
-<li><p>First, it filters purely by the <strong>bounding box</strong> (the rectangular envelope) of the query
-geometry. At this stage, the ArcGIS Server already applies a <strong>row limit</strong>.</p></li>
-<li><p>Only afterwards are the resulting candidates clipped against the <strong>actual query geometry</strong>
-(e.g. the exact polygon) to determine the final results.</p></li>
+<li><p>First, only the <strong>bounding box</strong> (the rectangular envelope) of the query geometry is sent to
+the database — including the <strong>row limit</strong> (<code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>) that applies there.</p></li>
+<li><p>Only afterwards is the resulting set clipped against the <strong>actual query geometry</strong> (e.g. the
+exact polygon) to determine the final results.</p></li>
 </ol>
-<p>The problem: the row limit from step 1 is applied <strong>before</strong> the actual spatial clip. For
-geometries whose bounding box is significantly larger than the geometry itself (e.g. narrow,
-elongated or diagonally oriented polygons, large rings with a small core area, etc.), many of
-the rows found via the bounding box can lie outside the actual query geometry. These
-“unnecessary” hits consume the row limit from step 1, even though they would be discarded in
-step 2 anyway.</p>
-<p>In practice this means a query can return <strong>fewer results than actually exist within the query
-shape</strong> — in extreme cases even <strong>zero results</strong>, despite matching objects being present. The
-effect is more likely the denser the data is and the less favorable the ratio between the
-bounding box and the actual geometry is.</p>
+<p>The problem: the row limit from step 1 is applied <strong>before</strong> the actual spatial clip. For large
+or narrow geometries (e.g. elongated lines or polygons), this can mean that too few — or no —
+real matches are among the first candidates found via the bounding box, even though
+significantly more objects actually lie within the query geometry. As a result, a query can
+return <strong>fewer results than actually exist</strong>, in extreme cases even <strong>zero results</strong>.</p>
+<p><strong>ESRI confirms</strong> this behavior, but classifies it as <strong>“as designed”</strong> — so no fix from the
+ArcGIS Server side is to be expected.</p>
+<p>Not affected by this problem are pure <strong>counts</strong> (<code class="docutils literal notranslate"><span class="pre">returnCountOnly</span></code>) and queries that return
+<strong>only object ids</strong> (<code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>): for both of these query types, observation shows that
+the actual query geometry is passed to the database, not just its bounding box. This is exactly
+what the workaround described below relies on.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The problem only occurs when the ArcGIS Server service’s data resides in a <strong>SQL Server</strong> or
+<strong>Oracle</strong> database. With <strong>PostGIS</strong> as the data source, no occurrence of this behavior has
+been observed so far.</p>
+</div>
 </section>
-<section id="the-workaround">
-<h2>The Workaround<a class="headerlink" href="#the-workaround" title="Link to this heading">¶</a></h2>
-<p>To work around this behavior, a spatial query is no longer issued to the ArcGIS Server as a
-single request, but resolved in several steps:</p>
-<ol class="arabic">
-<li><p><strong>Query object ids only</strong> (<code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>)</p>
-<p>First, a query is issued that returns <strong>only the object ids</strong> for the query geometry, not
-the actual feature data (geometry and attributes). This variant of the query is <strong>not
-affected</strong> by the bounding-box problem described above, since the ArcGIS Server correctly and
-completely performs the spatial clip here.</p>
-</li>
-<li><p><strong>Fetching object ids in chunks</strong></p>
-<p>Even for a <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code> query, it must be prevented that, in the worst case, millions of
-ids are returned at once (e.g. if the query geometry covers a very large number of objects).
-The ArcGIS Server REST parameter for this is called <code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> and exists, in
-principle, in <strong>all</strong> ArcGIS Server versions.</p>
-<p>The actual problem: for <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code> queries, <code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> is only actually
-honored starting with <strong>ArcGIS Server 11.5</strong>. On older versions (<strong>AGS &lt; 11.5</strong>), the
-parameter is simply <strong>ignored</strong> for this type of query — the ArcGIS Server then returns at
-most <strong>1000 ids</strong> regardless of what was requested, and does so <strong>without any indication</strong>
-that more results would actually exist (no <code class="docutils literal notranslate"><span class="pre">exceededTransferLimit</span></code> flag or similar, as
-known from regular feature queries). Whether the 1000 ids returned are already all the
-results, or whether more actually exist, therefore <strong>cannot be determined</strong> from the response
-itself. This is exactly what makes the workaround necessary and fairly elaborate: it has to
-actively keep paging and check whether new ids keep showing up, rather than being able to
-rely on a completion flag from the server.</p>
-<p>For this fallback case (AGS &lt; 11.5, <code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> ineffective for
-<code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code>), the assumed chunk size is controlled via the configurable <strong>fallback
-value</strong> (see <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-default-max-record-count-fallback</span></code> below), which defaults
-to <strong>1000 ids</strong> per request.</p>
-<p>To obtain <strong>all</strong> ids despite this limit, the ids are fetched page by page:</p>
+<section id="configurable-per-service-querystrategy-cms">
+<h2>Configurable per service: <code class="docutils literal notranslate"><span class="pre">QueryStrategy</span></code> (CMS)<a class="headerlink" href="#configurable-per-service-querystrategy-cms" title="Link to this heading">¶</a></h2>
+<p>Since different ArcGIS Server instances, or the databases behind them, behave differently (see
+above — PostGIS, for instance, is not affected), the workaround is enabled <strong>not globally, but
+per service</strong>. The <strong>CMS</strong> provides the <strong>``QueryStrategy``</strong> property on the respective
+<strong>ArcServerService</strong> for this:</p>
 <ul class="simple">
-<li><p>The first request returns up to <strong>[chunk size]</strong> ids, sorted by <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">OBJECTID</span></code>.</p></li>
-<li><p>The <strong>highest object id returned</strong> is determined from the result.</p></li>
-<li><p>The next request extends the original query geometry with the additional condition
-<code class="docutils literal notranslate"><span class="pre">AND</span> <span class="pre">OBJECTID</span> <span class="pre">&gt;</span> <span class="pre">[highest</span> <span class="pre">id</span> <span class="pre">found</span> <span class="pre">so</span> <span class="pre">far]</span></code>, returning the <strong>next chunk</strong> of ids.</p></li>
-<li><p>This is repeated until either</p>
-<ul>
-<li><p>a request returns <strong>no further ids</strong> (i.e. all results have been found), or</p></li>
-<li><p>the total number of collected ids reaches the configured
-<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-result-cap</span></code> limit. In this case, collection is aborted and the
-result is flagged as <strong>incomplete</strong> (<code class="docutils literal notranslate"><span class="pre">FeatureCollection.HasMore</span></code>), since further
-results may exist that were not fetched.</p></li>
+<li><p><strong>``Default``</strong> — a normal query (feature query with geometry/where clause sent directly to
+the ArcGIS Server), without any additional requests. This is always the <strong>fastest option</strong> and
+is used wherever it reliably produces correct results.</p></li>
+<li><p><strong>``BoundingBoxProblem``</strong> — enables the <strong>ids-first workaround</strong> described below, for
+services where the bounding-box problem actually occurs.</p></li>
 </ul>
+</section>
+<section id="behavior-with-boundingboxproblem-decision-cascade">
+<h2>Behavior with <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code> (decision cascade)<a class="headerlink" href="#behavior-with-boundingboxproblem-decision-cascade" title="Link to this heading">¶</a></h2>
+<p>Even when a service is configured for <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code>, the more expensive workaround is
+not applied blindly. Before it is used, several <strong>pre-checks</strong> fall back to <code class="docutils literal notranslate"><span class="pre">Default</span></code> whenever
+the problem cannot actually occur for the specific query, or would be harmless:</p>
+<ol class="arabic">
+<li><p><strong>Geometry check</strong></p>
+<p>Pure <strong>attribute queries</strong> (without geometry), queries with an <strong>envelope geometry</strong> (the
+bounding box already equals the query geometry here, so there is no difference), or with a
+<strong>point</strong> (a point’s bounding box is the point itself) cannot trigger the problem in
+principle → <code class="docutils literal notranslate"><span class="pre">Default</span></code> is used.</p>
 </li>
+<li><p><strong>Bbox candidate check</strong></p>
+<p>For all other geometry types (line, polygon, multipoint), a cheap count is performed first
+to determine how many objects lie within the <strong>bounding box</strong> of the query geometry
+(<code class="docutils literal notranslate"><span class="pre">returnCountOnly</span></code>, itself not affected by the problem). If this value is <strong>below</strong> the
+server-side row limit (<code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>), nothing could have been cut off in the internal
+bbox step before the actual clip happens → <code class="docutils literal notranslate"><span class="pre">Default</span></code> is sufficient here too.</p>
+</li>
+<li><p><strong>Ids-first workaround</strong></p>
+<p>Only when neither pre-check applies does the actual workaround (internally
+<code class="docutils literal notranslate"><span class="pre">BoundingBoxProblemAgsQueryStrategy</span></code>) come into play. It runs in three steps:</p>
+<p><strong>Step A — candidate count against the real geometry</strong></p>
+<p>First, a count is performed via <code class="docutils literal notranslate"><span class="pre">returnCountOnly</span></code> against the <strong>actual</strong> query geometry or
+where clause (not the bounding box). If this real result count is <strong>below</strong> the configurable
+threshold <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-ids-paging-threshold</span></code> (default: <code class="docutils literal notranslate"><span class="pre">50000</span></code>), a single,
+<strong>unpaginated</strong> <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code> query is sufficient: the ArcGIS Server reliably returns
+<strong>all</strong> ids without a row limit, as long as no <code class="docutils literal notranslate"><span class="pre">resultRecordCount</span></code> is passed.</p>
+<p><strong>Step B — paging for large result sets</strong></p>
+<p>If the real result count exceeds the threshold (potentially hundreds of thousands or millions
+of results), the ids are instead fetched <strong>page by page using keyset pagination</strong>: each
+request adds the condition <code class="docutils literal notranslate"><span class="pre">{id</span> <span class="pre">field}</span> <span class="pre">&gt;</span> <span class="pre">{highest</span> <span class="pre">id</span> <span class="pre">found</span> <span class="pre">so</span> <span class="pre">far}</span></code> (sorted ascending), with
+a page size equal to the service’s <code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>. This process is aborted as soon as one
+of the following conditions occurs:</p>
+<ul class="simple">
+<li><p>A page returns <strong>no further ids</strong> → all results have been found.</p></li>
+<li><p>The configured <strong>time budget</strong> (<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-ids-timeout-seconds</span></code>, default:
+<code class="docutils literal notranslate"><span class="pre">20</span></code> seconds) is exceeded → abort, the result is flagged as <strong>incomplete</strong>.</p></li>
+<li><p>There is <strong>no more progress</strong> (the highest id found stops increasing) → abort, as a
+safeguard against infinite loops or duplicates.</p></li>
+<li><p><strong>More than 50 consecutive</strong> pages are received that are marked as truncated by the server
+but come back nearly empty → abort.</p></li>
 </ul>
-<p>Since each chunk in this approach is a separate <code class="docutils literal notranslate"><span class="pre">returnIdsOnly</span></code> query with the additional
-<code class="docutils literal notranslate"><span class="pre">OBJECTID</span> <span class="pre">&gt;</span></code> filter sent to the ArcGIS Server, this step is also <strong>not affected</strong> by the
-bounding-box problem described above: each of these sub-queries is correctly evaluated by the
-ArcGIS Server against the actual geometry, just spread across several smaller portions
-instead of a single one.</p>
-</li>
-<li><p><strong>Loading features for the collected ids</strong></p>
-<p>Only once the complete (or cap-limited) list of object ids has been determined are the actual
-feature data (geometry and attributes) fetched via <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">by</span> <span class="pre">objectIds</span></code>. This step, too, is
-performed <strong>in chunks</strong>, whose size — if known from the service — follows the ArcGIS Server
-service’s <code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>, or otherwise the configured fallback value
-(<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-default-max-record-count-fallback</span></code>). To reduce the overall query
-duration, several of these chunks can be requested <strong>in parallel</strong> (see
-<code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-parallel-batch-requests</span></code>).</p>
+<p>Regardless of the reason for stopping, the overall result is additionally capped client-side
+to <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-result-cap</span></code> (default: <code class="docutils literal notranslate"><span class="pre">2000</span></code>).</p>
+<p><strong>Step C — loading the actual features</strong></p>
+<p>Only once the object ids have been determined via one of the two approaches above are the
+actual feature data (geometry and attributes) loaded. This is done in <strong>batches</strong> (batch
+size: <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-default-max-record-count-fallback</span></code>), which can be requested in
+parallel (see <code class="docutils literal notranslate"><span class="pre">ags-spatial-query-max-parallel-batch-requests</span></code>), via <code class="docutils literal notranslate"><span class="pre">query</span> <span class="pre">by</span> <span class="pre">objectIds</span></code>
+— a query type that is also not affected by the bounding-box problem.</p>
 </li>
 </ol>
+</section>
+<section id="in-short">
+<h2>In short<a class="headerlink" href="#in-short" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Default</span></code> is always the preferred, cheapest strategy. <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code> is only enabled
+for services where the problem can actually occur (SQL Server/Oracle as the data source), and
+even then it is checked repeatedly whether the more expensive ids-first detour is actually
+needed at all (geometry type, number of bbox candidates, number of real candidates). Only in the
+worst case — many real results combined with a problematic geometry — does the full paging
+procedure (step B) come into play.</p>
 </section>
 <section id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
-<p>The behavior of the workaround can be adjusted via the <code class="docutils literal notranslate"><span class="pre">tool-identify</span></code> <em>section</em> in
-<code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<p>The numeric values of the ids-first workaround (steps A through C) can be adjusted via the
+<code class="docutils literal notranslate"><span class="pre">tool-identify</span></code> <em>section</em> in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-identify&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="cm">&lt;!-- ArcGIS Server spatial-query bounding-box workaround --&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-max-result-cap&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;2000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-default-max-record-count-fallback&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-max-parallel-batch-requests&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-ids-timeout-seconds&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-ids-paging-threshold&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;50000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
 <p>The meaning of the individual attributes is described in the
 <a class="reference internal" href="../config/api/index.html"><span class="doc">Configuration of the API application</span></a> chapter, under the <strong>Identify</strong> tool.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">QueryStrategy</span></code> itself (<code class="docutils literal notranslate"><span class="pre">Default</span></code> / <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code>) is <strong>not</strong> an
+<code class="docutils literal notranslate"><span class="pre">api.config</span></code> value — it is set per service on the <strong>ArcServerService</strong> in the <strong>CMS</strong>.</p>
 </section>
 </section>
 
@@ -276,7 +301,9 @@ duration, several of these chunks can be requested <strong>in parallel</strong> 
                 <ul>
 <li><a class="reference internal" href="#">ArcGIS Server Spatial-Query Workaround</a><ul>
 <li><a class="reference internal" href="#the-problem">The Problem</a></li>
-<li><a class="reference internal" href="#the-workaround">The Workaround</a></li>
+<li><a class="reference internal" href="#configurable-per-service-querystrategy-cms">Configurable per service: <code class="docutils literal notranslate"><span class="pre">QueryStrategy</span></code> (CMS)</a></li>
+<li><a class="reference internal" href="#behavior-with-boundingboxproblem-decision-cascade">Behavior with <code class="docutils literal notranslate"><span class="pre">BoundingBoxProblem</span></code> (decision cascade)</a></li>
+<li><a class="reference internal" href="#in-short">In short</a></li>
 <li><a class="reference internal" href="#configuration">Configuration</a></li>
 </ul>
 </li>

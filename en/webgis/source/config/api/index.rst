@@ -820,6 +820,8 @@ The behavior of the workaround can be adjusted via the ``tool-identify`` *sectio
       <add key="ags-spatial-query-max-result-cap" value="2000" />
       <add key="ags-spatial-query-default-max-record-count-fallback" value="1000" />
       <add key="ags-spatial-query-max-parallel-batch-requests" value="4" />
+      <add key="ags-spatial-query-ids-timeout-seconds" value="20" />
+      <add key="ags-spatial-query-ids-paging-threshold" value="50000" />
     </section>
 
 .. list-table::
@@ -829,18 +831,38 @@ The behavior of the workaround can be adjusted via the ``tool-identify`` *sectio
    * - **Attribute**
      - **Description**
    * - ``ags-spatial-query-max-result-cap``
-     - Upper bound for the total number of **object ids** collected while fetching ids in
-       chunks (see appendix), before the actual features are loaded. If this limit is reached
-       before all chunks have been fetched, collection is aborted and the result is flagged as
-       **incomplete** (``FeatureCollection.HasMore``), since further results may exist that were
-       not fetched. Default: ``2000``.
+     - Upper bound for the number of **object ids** used by the ids-first workaround. All ids
+       are always fetched from the **ArcGIS Server**, but the result is capped to this value
+       client-side. If more objects are found, the result is flagged as **incomplete**
+       (``FeatureCollection.HasMore``). Default: ``2000``.
    * - ``ags-spatial-query-default-max-record-count-fallback``
-     - Chunk size used to load features by their **object ids** if the **ArcGIS Server service**
-       does not provide a usable value for ``maxRecordCount`` (e.g. on older ArcGIS Server
-       versions whose service info does not expose it). Default: ``1000``.
+     - Chunk size for **"Query by ObjectIds"** requests, used to load the actual features by
+       their object ids, if the **ArcGIS Server service** does not provide a usable value for
+       ``maxRecordCount`` (e.g. on older ArcGIS Server versions whose service info does not
+       expose it). Default: ``1000``.
    * - ``ags-spatial-query-max-parallel-batch-requests``
-     - Maximum number of **concurrent** ``query by objectIds`` requests issued to the **ArcGIS
-       Server** while resolving a single spatial query. Default: ``4``.
+     - Maximum number of **concurrent** ``"Query by ObjectIds"`` batch requests issued to the
+       **ArcGIS Server** while resolving a single spatial query. Default: ``4``.
+   * - ``ags-spatial-query-ids-timeout-seconds``
+     - Time budget, in **seconds**, for fully resolving all object ids. Protects against
+       **ArcGIS Server instances** that keep responding with many near-empty or capped pages —
+       each individual request is cheap on its own, but together they can take too long. If the
+       time budget is exceeded, resolving the ids is aborted and the result is flagged as
+       **incomplete** (``FeatureCollection.HasMore``). Default: ``20``.
+   * - ``ags-spatial-query-ids-paging-threshold``
+     - Threshold for the number of **candidates** below which object ids are resolved with a
+       single, unbounded ``returnIdsOnly`` query instead of paging. The candidate count is
+       determined upfront, cheaply, via a ``returnCountOnly`` query against the actual query
+       geometry. Default: ``50000``.
+
+.. note::
+
+   In addition to these ``api.config`` settings, the **CMS** offers a **QueryStrategy**
+   property (``Default`` / ``BoundingBoxProblem``) on the respective **ArcServerService**. It
+   determines, per AGS service, whether this workaround is active at all. The problem only
+   occurs when the service's data resides in a **SQL Server** or **Oracle** database; no
+   occurrence is known so far with **PostGIS** as the data source. Details on the decision
+   cascade can be found in the appendix: :doc:`../../annex/ags-spatial-query`.
 
 Section ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
