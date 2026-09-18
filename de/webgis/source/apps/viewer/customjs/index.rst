@@ -11,6 +11,7 @@ custom.js
     benutzerdefmarker
     dynamic-content
     customtools
+    appmenuitems
     usability
     defaults
     speziellethemen
