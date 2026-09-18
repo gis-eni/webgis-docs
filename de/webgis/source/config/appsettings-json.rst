@@ -26,8 +26,16 @@ Hier sind einige der wichtigsten Abschnitte und ihre Funktionen:
     }
   }
 
-- **Logging**: Dieser Abschnitt definiert die Einstellungen für das Logging der Anwendung aus ASP.NET Core Ebene, 
+- **Logging**: Dieser Abschnitt definiert die Einstellungen für das Logging der Anwendung aus ASP.NET Core Ebene,
   einschließlich der Log-Level und der Log-Ausgabeziele.
+
+  Ohne weitere Konfiguration gehen Log-Ereignisse an die Konsole. Wohin sie stattdessen
+  geschrieben werden können - strukturierte JSON-Konsolenausgabe, OpenTelemetry (OTLP) oder ein
+  Serilog-Sink nach SQL Server, PostgreSQL oder Seq - ist in :doc:`../annex/logging` beschrieben.
+  In einem Kubernetes-Deployment, oder überall dort, wo pro Instanz nur das
+  ``_config``-Verzeichnis editierbar ist, können dieselben Einstellungen statt in
+  ``appsettings.json`` auch in den optionalen Dateien ``_config/logging.json``/
+  ``_config/logging.env`` hinterlegt werden - siehe dasselbe Kapitel.
 
 - **Localization**: Hier werden die Einstellungen für die Lokalisierung der Anwendung festgelegt,
   einschließlich der Standardkultur, die für die Anwendung verwendet wird.

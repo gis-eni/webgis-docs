@@ -9,4 +9,5 @@ Appendix
    security
    geocodes
    ags-spatial-query
+   logging
 

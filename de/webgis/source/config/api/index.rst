@@ -199,22 +199,60 @@ Abschnitt ``Marker``
 Abschnitt ``Logging``
 ---------------------
 
+.. note::
+
+   WebGIS unterscheidet zwei weitgehend unabhängige Logging-Ebenen: Das **GeoService
+   Performance-/Exception-Logging** (``logging-type``), das hier beschrieben wird, und das
+   allgemeine **Applikations-/Host-Logging** von ASP.NET Core (Konsole, OpenTelemetry,
+   Serilog-Sinks, Seq, ...), siehe :doc:`../appsettings-json` und :doc:`../../annex/logging`.
+
 .. code-block:: xml
 
   <!-- Logging (optional) -->
-  <add key="logging-type" value="files" />  
+  <!-- Kommagetrennte Liste: files, microsoft, sqlserver, postgres, sqlite, oracle (beliebige Kombination) -->
+  <add key="logging-type" value="files" />
   <!-- Pfad für das Logging: Verzeichnis muss für WebGIS Schreibrechte aufweisen -->
-  <add key="Log_Path" value="C:\\apps\\webgis\\local\\webgis-repository\\logs" />   
+  <add key="Log_Path" value="C:\\apps\\webgis\\local\\webgis-repository\\logs" />
 
   <add key="logging-log-performance" value="true" />
   <add key="Log_Performance_Columns" value="SESSIONID;MAPREQUESTID;CLIENTIP;DATE;TIME;MAPNAME;USERNAME;X;Y;SCALE" />
   <add key="logging-log-exceptions" value="true" />
 
-  <add key="trace" value="true" />
-  <!-- Nur für Debugging, nicht in Produktion verwenden -->
-  <add key="logging-log-service-requests" value="true" />  
+  <!-- optional: wie Benutzernamen in den Performance-/Exception-Logs gespeichert werden: "plaintext" (default), "hash", "none" -->
+  <add key="logging-username-mode" value="plaintext" />
 
-Das Logging kann in Dateien erfolgen (``logging-type = files``).  
+  <!-- nur für die Datenbank-basierten Typen unten erforderlich -->
+  <add key="logging-sqlserver-connectionstring" value="Server=sql-host;Database=webgis;User Id=webgis;Password=...;" />
+  <add key="logging-postgres-connectionstring" value="Host=pg-host;Database=webgis;Username=webgis;Password=...;" />
+  <add key="logging-oracle-connectionstring" value="Data Source=ora-host:1521/orclpdb;User Id=webgis;Password=...;" />
+  <add key="logging-sqlite-connectionstring" value="Data Source=C:\\apps\\webgis\\local\\webgis-repository\\logs\\webgis.db" />
+
+  <!-- Nur für Debugging, nicht in Produktion verwenden -->
+  <add key="trace" value="true" />
+  <add key="logging-log-service-requests" value="true" />
+
+``logging-type`` ist eine **kommagetrennte Liste** aus einem oder mehreren der Werte ``files``,
+``microsoft``, ``sqlserver``, ``postgres``, ``sqlite``, ``oracle`` (z. B. ``"files,microsoft"``
+oder ``"files,sqlserver"``). Alle angegebenen Backends sind **gleichzeitig aktiv**: Jeder
+``GetMap``-/``GetSelection``-/``GetLegend``-/``GetPrintImage``-/Druckjob-Request wird zeitgemessen
+und an **alle** konfigurierten Backends gemeldet (Exceptions ebenso).
+``logging-log-performance``/``logging-log-exceptions`` schalten Performance- bzw.
+Exception-Logging weiterhin für **alle** konfigurierten Typen gemeinsam ein oder aus (nicht pro
+Backend).
+
+- ``files`` schreibt die klassischen CSV-Logdateien nach ``Log_Path`` (``webgis_performance.csv``,
+  ``webgis_exceptions.csv``).
+- ``microsoft`` leitet dieselben Ereignisse zusätzlich über ``Microsoft.Extensions.Logging``
+  (``ILogger``) - das ist der Einstiegspunkt in das allgemeine Applikations-/Host-Logging, siehe
+  :doc:`../../annex/logging`.
+- ``sqlserver``/``postgres``/``sqlite``/``oracle`` schreiben direkt in die Tabellen
+  ``webgis_performance``/``webgis_exceptions`` einer relationalen Datenbank, konfiguriert über
+  die Schlüssel ``logging-sqlserver-connectionstring``/``logging-postgres-connectionstring``/
+  ``logging-sqlite-connectionstring``/``logging-oracle-connectionstring``. Die Tabellen werden
+  beim ersten Gebrauch **automatisch angelegt** - es ist keine manuelle Migration nötig. (Das
+  sind eigenständige, für GeoService-Performance-/Exception-Daten vorgesehene Tabellen - nicht zu
+  verwechseln mit den generischen Serilog-DB-Sinks aus :doc:`../../annex/logging`, die
+  Applikations-Ereignisse in eine ``Logs``-Tabelle schreiben.)
 
 .. list-table::
    :widths: 20 80
@@ -223,16 +261,94 @@ Das Logging kann in Dateien erfolgen (``logging-type = files``).
    * - **Attribut**
      - **Beschreibung**
    * - ``logging-log-performance``
-     - Speichert **Karten-Requests** und deren Zugriffszeiten in einer **CSV-Logdatei**.
+     - Speichert **Karten-Requests** und deren Zugriffszeiten in allen konfigurierten
+       ``logging-type``-Backends.
    * - ``logging-log-exceptions``
-     - Protokolliert **Exceptions**, die während der Laufzeit der **WebGIS API** auftreten.
+     - Protokolliert **Exceptions**, die während der Laufzeit der **WebGIS API** auftreten, in
+       allen konfigurierten ``logging-type``-Backends.
    * - ``logging-log-service-requests``
      - Speichert **Anfragen an den Kartenserver** sowie deren Antworten.
 
        Diese Einstellung sollte **nur zum Debugging** verwendet werden, da sie eine **große Datenmenge** erzeugt und die **Performance** negativ beeinflussen kann.
-       
+
        .. important::
           **Wichtig:** Die Requests werden nur geloggt, wenn zusätzlich ``trace=true`` gesetzt ist.
+   * - ``logging-username-mode``
+     - Legt fest, wie der Benutzername in den Performance-/Exception-Logs gespeichert wird.
+       Gilt einheitlich für **alle** konfigurierten ``logging-type``-Backends, also auch für
+       ``files`` und ``microsoft``, nicht nur für die Datenbank-Backends:
+
+       - ``plaintext`` (Default, aus Kompatibilitätsgründen) - der Benutzername wird
+         unverändert gespeichert.
+       - ``hash`` - es wird ein SHA-256-Hash des (getrimmten, kleingeschriebenen)
+         Benutzernamens gespeichert, sodass ein Administrator "denselben Benutzer" über mehrere
+         Log-Zeilen hinweg wiedererkennen kann, ohne den tatsächlichen Benutzernamen zu
+         speichern.
+       - ``none`` - das Feld bleibt immer leer, es wird kein Benutzername protokolliert.
+
+Datenbank-Backends (``sqlserver``/``postgres``/``sqlite``/``oracle``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``logging-sqlserver-connectionstring``
+     - Roher, **provider-nativer** ADO.NET-Connection-String im
+       ``Microsoft.Data.SqlClient``-Format.
+   * - ``logging-postgres-connectionstring``
+     - Roher, **provider-nativer** ADO.NET-Connection-String im ``Npgsql``-Format.
+   * - ``logging-sqlite-connectionstring``
+     - Roher, **provider-nativer** ADO.NET-Connection-String im ``System.Data.SQLite``-Format
+       (z. B. ``Data Source=C:\...\webgis.db``).
+   * - ``logging-oracle-connectionstring``
+     - Roher, **provider-nativer** ADO.NET-Connection-String im
+       ``Oracle.ManagedDataAccess``-Format.
+
+Zu beachten:
+
+- WebGIS stellt jedem Connection-String intern selbst ein Präfix (``mssql:``/``postgres:``/
+  ``sqlite:``/``oracle:``) voran, bevor er an ``E.Standard.DbConnector`` übergeben wird, der ihn
+  an den passenden ADO.NET-Provider weiterreicht.
+- Ist ein in ``logging-type`` gelisteter Typ ohne (oder mit leerem) Connection-String-Schlüssel
+  konfiguriert, wird dieser Typ **stillschweigend übersprungen** (keine Tabelle wird angelegt,
+  nichts wird für ihn geloggt).
+- Um bei hoher gleichzeitiger Request-Last nicht für jeden einzelnen Request eine neue
+  DB-Verbindung öffnen zu müssen, werden Einträge der ``sqlserver``-/``postgres``-/``sqlite``-/
+  ``oracle``-Backends im Speicher **gepuffert** und in **Batches** geschrieben (eine Verbindung,
+  eine Transaktion, ein Commit pro Batch): Ein Batch wird geschrieben, sobald sich 200 Einträge
+  angesammelt haben, spätestens aber alle 5 Sekunden im Hintergrund (damit bei geringer Last
+  keine Einträge lange ungeschrieben bleiben), oder sofort über
+  ``Instance/Logging?flush=true`` (ruft ``Flush()`` auf allen konfigurierten Backends auf). Ein
+  gepufferter Batch geht nur verloren, wenn der Prozess hart beendet wird (nicht bei einem
+  regulären Stopp) oder die Datenbank bei einem Flush-Versuch nicht erreichbar ist - dieselbe
+  "best effort, den eigentlichen Request nicht gefährden"-Garantie wie bei den anderen Backends.
+- Neben den Basisspalten (``timestamp_utc``, ``server``, ``service``, ``command``, ``map``,
+  ``success``/``duration_ms`` bei ``webgis_performance``, ``exception_type``/``message``/
+  ``stack_trace`` bei ``webgis_exceptions``) führen beide Tabellen dieselben zusätzlichen,
+  pro Request erfassten Spalten wie das ``files``-CSV-Log bereits heute: ``session_id``,
+  ``map_request_id``, ``client_ip``, ``user``, ``center_x``, ``center_y``, ``scale``. Da
+  ``user`` in SQL Server/PostgreSQL/Oracle ein reserviertes Wort ist, wird die Spalte im
+  generierten SQL immer gequotet - beim direkten Abfragen der Tabellen ist dasselbe zu
+  beachten (``"user"`` bei SQL Server/PostgreSQL/SQLite; ``"USER"`` bei Oracle, da Oracle alle
+  anderen, nicht gequoteten Spalten-/Tabellennamen auf Großschreibung normalisiert - also z. B.
+  ``SELECT "USER" FROM webgis_performance``). Wie diese Spalte befüllt wird, steuert
+  ``logging-username-mode`` (siehe oben) - einheitlich für **alle** Backends, nicht nur die
+  Datenbank-Typen.
+- Fehlen einzelne dieser Spalten in einer von einer älteren Version angelegten Tabelle, werden
+  sie beim nächsten Start der Anwendung automatisch ergänzt (``ALTER TABLE ... ADD ...``) - auch
+  hier ist keine manuelle Migration nötig. Das schließt die Umbenennung der älteren Spalte
+  ``username_hash`` ein: Diese wird **nicht** direkt umbenannt, sondern es wird zusätzlich eine
+  neue Spalte ``user`` angelegt; die alte, nun ungenutzte Spalte ``username_hash`` bleibt in der
+  Tabelle bestehen und kann bei Bedarf manuell gelöscht werden.
+- Da Oracle keine über alle unterstützten Versionen hinweg einheitliche
+  Auto-Increment-Syntax kennt, wird der ``id``-Primärschlüssel dort stattdessen über einen
+  ``BEFORE INSERT``-Trigger befüllt, der aus einer dedizierten Sequenz
+  (``webgis_performance_seq0``/``webgis_exceptions_seq0``) liest - dasselbe Muster, das in
+  WebGIS bereits an anderer Stelle für Oracle-"Serial"-Spalten verwendet wird. Trigger und
+  Sequenz werden zusammen mit der Tabelle automatisch angelegt.
 
 Abschnitt ``Query Results``
 ---------------------------

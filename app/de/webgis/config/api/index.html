@@ -417,7 +417,15 @@ Werden vom Anwender beispielsweise CSV Dateien heruntergeladen, muss das Encodin
 </section>
 <section id="abschnitt-logging">
 <h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code><a class="headerlink" href="#abschnitt-logging" title="Link to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>WebGIS unterscheidet zwei weitgehend unabhängige Logging-Ebenen: Das <strong>GeoService
+Performance-/Exception-Logging</strong> (<code class="docutils literal notranslate"><span class="pre">logging-type</span></code>), das hier beschrieben wird, und das
+allgemeine <strong>Applikations-/Host-Logging</strong> von ASP.NET Core (Konsole, OpenTelemetry,
+Serilog-Sinks, Seq, …), siehe <a class="reference internal" href="../appsettings-json.html"><span class="doc">Datei appsettings.json</span></a> und <a class="reference internal" href="../../annex/logging.html"><span class="doc">Applikations-Logging (Konsole / OpenTelemetry / Serilog / Seq)</span></a>.</p>
+</div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Logging (optional) --&gt;</span>
+<span class="cm">&lt;!-- Kommagetrennte Liste: files, microsoft, sqlserver, postgres, sqlite, oracle (beliebige Kombination) --&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-type&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;files&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="cm">&lt;!-- Pfad für das Logging: Verzeichnis muss für WebGIS Schreibrechte aufweisen --&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Log_Path&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;C:\\apps\\webgis\\local\\webgis-repository\\logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -426,12 +434,43 @@ Werden vom Anwender beispielsweise CSV Dateien heruntergeladen, muss das Encodin
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Log_Performance_Columns&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;SESSIONID;MAPREQUESTID;CLIENTIP;DATE;TIME;MAPNAME;USERNAME;X;Y;SCALE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-exceptions&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;trace&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="cm">&lt;!-- optional: wie Benutzernamen in den Performance-/Exception-Logs gespeichert werden: &quot;plaintext&quot; (default), &quot;hash&quot;, &quot;none&quot; --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-username-mode&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;plaintext&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="cm">&lt;!-- nur für die Datenbank-basierten Typen unten erforderlich --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-sqlserver-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Server=sql-host;Database=webgis;User Id=webgis;Password=...;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-postgres-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Host=pg-host;Database=webgis;Username=webgis;Password=...;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-oracle-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Data Source=ora-host:1521/orclpdb;User Id=webgis;Password=...;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-sqlite-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Data Source=C:\\apps\\webgis\\local\\webgis-repository\\logs\\webgis.db&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
 <span class="cm">&lt;!-- Nur für Debugging, nicht in Produktion verwenden --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;trace&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-service-requests&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>Das Logging kann in Dateien erfolgen (<code class="docutils literal notranslate"><span class="pre">logging-type</span> <span class="pre">=</span> <span class="pre">files</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">logging-type</span></code> ist eine <strong>kommagetrennte Liste</strong> aus einem oder mehreren der Werte <code class="docutils literal notranslate"><span class="pre">files</span></code>,
+<code class="docutils literal notranslate"><span class="pre">microsoft</span></code>, <code class="docutils literal notranslate"><span class="pre">sqlserver</span></code>, <code class="docutils literal notranslate"><span class="pre">postgres</span></code>, <code class="docutils literal notranslate"><span class="pre">sqlite</span></code>, <code class="docutils literal notranslate"><span class="pre">oracle</span></code> (z. B. <code class="docutils literal notranslate"><span class="pre">&quot;files,microsoft&quot;</span></code>
+oder <code class="docutils literal notranslate"><span class="pre">&quot;files,sqlserver&quot;</span></code>). Alle angegebenen Backends sind <strong>gleichzeitig aktiv</strong>: Jeder
+<code class="docutils literal notranslate"><span class="pre">GetMap</span></code>-/<code class="docutils literal notranslate"><span class="pre">GetSelection</span></code>-/<code class="docutils literal notranslate"><span class="pre">GetLegend</span></code>-/<code class="docutils literal notranslate"><span class="pre">GetPrintImage</span></code>-/Druckjob-Request wird zeitgemessen
+und an <strong>alle</strong> konfigurierten Backends gemeldet (Exceptions ebenso).
+<code class="docutils literal notranslate"><span class="pre">logging-log-performance</span></code>/<code class="docutils literal notranslate"><span class="pre">logging-log-exceptions</span></code> schalten Performance- bzw.
+Exception-Logging weiterhin für <strong>alle</strong> konfigurierten Typen gemeinsam ein oder aus (nicht pro
+Backend).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">files</span></code> schreibt die klassischen CSV-Logdateien nach <code class="docutils literal notranslate"><span class="pre">Log_Path</span></code> (<code class="docutils literal notranslate"><span class="pre">webgis_performance.csv</span></code>,
+<code class="docutils literal notranslate"><span class="pre">webgis_exceptions.csv</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">microsoft</span></code> leitet dieselben Ereignisse zusätzlich über <code class="docutils literal notranslate"><span class="pre">Microsoft.Extensions.Logging</span></code>
+(<code class="docutils literal notranslate"><span class="pre">ILogger</span></code>) - das ist der Einstiegspunkt in das allgemeine Applikations-/Host-Logging, siehe
+<a class="reference internal" href="../../annex/logging.html"><span class="doc">Applikations-Logging (Konsole / OpenTelemetry / Serilog / Seq)</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlserver</span></code>/<code class="docutils literal notranslate"><span class="pre">postgres</span></code>/<code class="docutils literal notranslate"><span class="pre">sqlite</span></code>/<code class="docutils literal notranslate"><span class="pre">oracle</span></code> schreiben direkt in die Tabellen
+<code class="docutils literal notranslate"><span class="pre">webgis_performance</span></code>/<code class="docutils literal notranslate"><span class="pre">webgis_exceptions</span></code> einer relationalen Datenbank, konfiguriert über
+die Schlüssel <code class="docutils literal notranslate"><span class="pre">logging-sqlserver-connectionstring</span></code>/<code class="docutils literal notranslate"><span class="pre">logging-postgres-connectionstring</span></code>/
+<code class="docutils literal notranslate"><span class="pre">logging-sqlite-connectionstring</span></code>/<code class="docutils literal notranslate"><span class="pre">logging-oracle-connectionstring</span></code>. Die Tabellen werden
+beim ersten Gebrauch <strong>automatisch angelegt</strong> - es ist keine manuelle Migration nötig. (Das
+sind eigenständige, für GeoService-Performance-/Exception-Daten vorgesehene Tabellen - nicht zu
+verwechseln mit den generischen Serilog-DB-Sinks aus <a class="reference internal" href="../../annex/logging.html"><span class="doc">Applikations-Logging (Konsole / OpenTelemetry / Serilog / Seq)</span></a>, die
+Applikations-Ereignisse in eine <code class="docutils literal notranslate"><span class="pre">Logs</span></code>-Tabelle schreiben.)</p></li>
+</ul>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -444,10 +483,12 @@ Werden vom Anwender beispielsweise CSV Dateien heruntergeladen, muss das Encodin
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging-log-performance</span></code></p></td>
-<td><p>Speichert <strong>Karten-Requests</strong> und deren Zugriffszeiten in einer <strong>CSV-Logdatei</strong>.</p></td>
+<td><p>Speichert <strong>Karten-Requests</strong> und deren Zugriffszeiten in allen konfigurierten
+<code class="docutils literal notranslate"><span class="pre">logging-type</span></code>-Backends.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logging-log-exceptions</span></code></p></td>
-<td><p>Protokolliert <strong>Exceptions</strong>, die während der Laufzeit der <strong>WebGIS API</strong> auftreten.</p></td>
+<td><p>Protokolliert <strong>Exceptions</strong>, die während der Laufzeit der <strong>WebGIS API</strong> auftreten, in
+allen konfigurierten <code class="docutils literal notranslate"><span class="pre">logging-type</span></code>-Backends.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging-log-service-requests</span></code></p></td>
 <td><p>Speichert <strong>Anfragen an den Kartenserver</strong> sowie deren Antworten.</p>
@@ -458,8 +499,97 @@ Werden vom Anwender beispielsweise CSV Dateien heruntergeladen, muss das Encodin
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logging-username-mode</span></code></p></td>
+<td><p>Legt fest, wie der Benutzername in den Performance-/Exception-Logs gespeichert wird.
+Gilt einheitlich für <strong>alle</strong> konfigurierten <code class="docutils literal notranslate"><span class="pre">logging-type</span></code>-Backends, also auch für
+<code class="docutils literal notranslate"><span class="pre">files</span></code> und <code class="docutils literal notranslate"><span class="pre">microsoft</span></code>, nicht nur für die Datenbank-Backends:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plaintext</span></code> (Default, aus Kompatibilitätsgründen) - der Benutzername wird
+unverändert gespeichert.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hash</span></code> - es wird ein SHA-256-Hash des (getrimmten, kleingeschriebenen)
+Benutzernamens gespeichert, sodass ein Administrator „denselben Benutzer“ über mehrere
+Log-Zeilen hinweg wiedererkennen kann, ohne den tatsächlichen Benutzernamen zu
+speichern.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code> - das Feld bleibt immer leer, es wird kein Benutzername protokolliert.</p></li>
+</ul>
+</td>
+</tr>
 </tbody>
 </table>
+<section id="datenbank-backends-sqlserver-postgres-sqlite-oracle">
+<h4>Datenbank-Backends (<code class="docutils literal notranslate"><span class="pre">sqlserver</span></code>/<code class="docutils literal notranslate"><span class="pre">postgres</span></code>/<code class="docutils literal notranslate"><span class="pre">sqlite</span></code>/<code class="docutils literal notranslate"><span class="pre">oracle</span></code>)<a class="headerlink" href="#datenbank-backends-sqlserver-postgres-sqlite-oracle" title="Link to this heading">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging-sqlserver-connectionstring</span></code></p></td>
+<td><p>Roher, <strong>provider-nativer</strong> ADO.NET-Connection-String im
+<code class="docutils literal notranslate"><span class="pre">Microsoft.Data.SqlClient</span></code>-Format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logging-postgres-connectionstring</span></code></p></td>
+<td><p>Roher, <strong>provider-nativer</strong> ADO.NET-Connection-String im <code class="docutils literal notranslate"><span class="pre">Npgsql</span></code>-Format.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logging-sqlite-connectionstring</span></code></p></td>
+<td><p>Roher, <strong>provider-nativer</strong> ADO.NET-Connection-String im <code class="docutils literal notranslate"><span class="pre">System.Data.SQLite</span></code>-Format
+(z. B. <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Source=C:\...\webgis.db</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logging-oracle-connectionstring</span></code></p></td>
+<td><p>Roher, <strong>provider-nativer</strong> ADO.NET-Connection-String im
+<code class="docutils literal notranslate"><span class="pre">Oracle.ManagedDataAccess</span></code>-Format.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Zu beachten:</p>
+<ul class="simple">
+<li><p>WebGIS stellt jedem Connection-String intern selbst ein Präfix (<code class="docutils literal notranslate"><span class="pre">mssql:</span></code>/<code class="docutils literal notranslate"><span class="pre">postgres:</span></code>/
+<code class="docutils literal notranslate"><span class="pre">sqlite:</span></code>/<code class="docutils literal notranslate"><span class="pre">oracle:</span></code>) voran, bevor er an <code class="docutils literal notranslate"><span class="pre">E.Standard.DbConnector</span></code> übergeben wird, der ihn
+an den passenden ADO.NET-Provider weiterreicht.</p></li>
+<li><p>Ist ein in <code class="docutils literal notranslate"><span class="pre">logging-type</span></code> gelisteter Typ ohne (oder mit leerem) Connection-String-Schlüssel
+konfiguriert, wird dieser Typ <strong>stillschweigend übersprungen</strong> (keine Tabelle wird angelegt,
+nichts wird für ihn geloggt).</p></li>
+<li><p>Um bei hoher gleichzeitiger Request-Last nicht für jeden einzelnen Request eine neue
+DB-Verbindung öffnen zu müssen, werden Einträge der <code class="docutils literal notranslate"><span class="pre">sqlserver</span></code>-/<code class="docutils literal notranslate"><span class="pre">postgres</span></code>-/<code class="docutils literal notranslate"><span class="pre">sqlite</span></code>-/
+<code class="docutils literal notranslate"><span class="pre">oracle</span></code>-Backends im Speicher <strong>gepuffert</strong> und in <strong>Batches</strong> geschrieben (eine Verbindung,
+eine Transaktion, ein Commit pro Batch): Ein Batch wird geschrieben, sobald sich 200 Einträge
+angesammelt haben, spätestens aber alle 5 Sekunden im Hintergrund (damit bei geringer Last
+keine Einträge lange ungeschrieben bleiben), oder sofort über
+<code class="docutils literal notranslate"><span class="pre">Instance/Logging?flush=true</span></code> (ruft <code class="docutils literal notranslate"><span class="pre">Flush()</span></code> auf allen konfigurierten Backends auf). Ein
+gepufferter Batch geht nur verloren, wenn der Prozess hart beendet wird (nicht bei einem
+regulären Stopp) oder die Datenbank bei einem Flush-Versuch nicht erreichbar ist - dieselbe
+„best effort, den eigentlichen Request nicht gefährden“-Garantie wie bei den anderen Backends.</p></li>
+<li><p>Neben den Basisspalten (<code class="docutils literal notranslate"><span class="pre">timestamp_utc</span></code>, <code class="docutils literal notranslate"><span class="pre">server</span></code>, <code class="docutils literal notranslate"><span class="pre">service</span></code>, <code class="docutils literal notranslate"><span class="pre">command</span></code>, <code class="docutils literal notranslate"><span class="pre">map</span></code>,
+<code class="docutils literal notranslate"><span class="pre">success</span></code>/<code class="docutils literal notranslate"><span class="pre">duration_ms</span></code> bei <code class="docutils literal notranslate"><span class="pre">webgis_performance</span></code>, <code class="docutils literal notranslate"><span class="pre">exception_type</span></code>/<code class="docutils literal notranslate"><span class="pre">message</span></code>/
+<code class="docutils literal notranslate"><span class="pre">stack_trace</span></code> bei <code class="docutils literal notranslate"><span class="pre">webgis_exceptions</span></code>) führen beide Tabellen dieselben zusätzlichen,
+pro Request erfassten Spalten wie das <code class="docutils literal notranslate"><span class="pre">files</span></code>-CSV-Log bereits heute: <code class="docutils literal notranslate"><span class="pre">session_id</span></code>,
+<code class="docutils literal notranslate"><span class="pre">map_request_id</span></code>, <code class="docutils literal notranslate"><span class="pre">client_ip</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">center_x</span></code>, <code class="docutils literal notranslate"><span class="pre">center_y</span></code>, <code class="docutils literal notranslate"><span class="pre">scale</span></code>. Da
+<code class="docutils literal notranslate"><span class="pre">user</span></code> in SQL Server/PostgreSQL/Oracle ein reserviertes Wort ist, wird die Spalte im
+generierten SQL immer gequotet - beim direkten Abfragen der Tabellen ist dasselbe zu
+beachten (<code class="docutils literal notranslate"><span class="pre">&quot;user&quot;</span></code> bei SQL Server/PostgreSQL/SQLite; <code class="docutils literal notranslate"><span class="pre">&quot;USER&quot;</span></code> bei Oracle, da Oracle alle
+anderen, nicht gequoteten Spalten-/Tabellennamen auf Großschreibung normalisiert - also z. B.
+<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">&quot;USER&quot;</span> <span class="pre">FROM</span> <span class="pre">webgis_performance</span></code>). Wie diese Spalte befüllt wird, steuert
+<code class="docutils literal notranslate"><span class="pre">logging-username-mode</span></code> (siehe oben) - einheitlich für <strong>alle</strong> Backends, nicht nur die
+Datenbank-Typen.</p></li>
+<li><p>Fehlen einzelne dieser Spalten in einer von einer älteren Version angelegten Tabelle, werden
+sie beim nächsten Start der Anwendung automatisch ergänzt (<code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">...</span> <span class="pre">ADD</span> <span class="pre">...</span></code>) - auch
+hier ist keine manuelle Migration nötig. Das schließt die Umbenennung der älteren Spalte
+<code class="docutils literal notranslate"><span class="pre">username_hash</span></code> ein: Diese wird <strong>nicht</strong> direkt umbenannt, sondern es wird zusätzlich eine
+neue Spalte <code class="docutils literal notranslate"><span class="pre">user</span></code> angelegt; die alte, nun ungenutzte Spalte <code class="docutils literal notranslate"><span class="pre">username_hash</span></code> bleibt in der
+Tabelle bestehen und kann bei Bedarf manuell gelöscht werden.</p></li>
+<li><p>Da Oracle keine über alle unterstützten Versionen hinweg einheitliche
+Auto-Increment-Syntax kennt, wird der <code class="docutils literal notranslate"><span class="pre">id</span></code>-Primärschlüssel dort stattdessen über einen
+<code class="docutils literal notranslate"><span class="pre">BEFORE</span> <span class="pre">INSERT</span></code>-Trigger befüllt, der aus einer dedizierten Sequenz
+(<code class="docutils literal notranslate"><span class="pre">webgis_performance_seq0</span></code>/<code class="docutils literal notranslate"><span class="pre">webgis_exceptions_seq0</span></code>) liest - dasselbe Muster, das in
+WebGIS bereits an anderer Stelle für Oracle-„Serial“-Spalten verwendet wird. Trigger und
+Sequenz werden zusammen mit der Tabelle automatisch angelegt.</p></li>
+</ul>
+</section>
 </section>
 <section id="abschnitt-query-results">
 <h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Results</span></code><a class="headerlink" href="#abschnitt-query-results" title="Link to this heading">¶</a></h3>
@@ -1501,7 +1631,10 @@ Um zu prüfen, ob die <strong>DataLinq-Einstellungen</strong> korrekt gesetzt si
 <li><a class="reference internal" href="#abschnitt-api-portal-url">Abschnitt <code class="docutils literal notranslate"><span class="pre">Api/Portal</span> <span class="pre">Url</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-storage">Abschnitt <code class="docutils literal notranslate"><span class="pre">Storage</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-marker">Abschnitt <code class="docutils literal notranslate"><span class="pre">Marker</span></code></a></li>
-<li><a class="reference internal" href="#abschnitt-logging">Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code></a></li>
+<li><a class="reference internal" href="#abschnitt-logging">Abschnitt <code class="docutils literal notranslate"><span class="pre">Logging</span></code></a><ul>
+<li><a class="reference internal" href="#datenbank-backends-sqlserver-postgres-sqlite-oracle">Datenbank-Backends (<code class="docutils literal notranslate"><span class="pre">sqlserver</span></code>/<code class="docutils literal notranslate"><span class="pre">postgres</span></code>/<code class="docutils literal notranslate"><span class="pre">sqlite</span></code>/<code class="docutils literal notranslate"><span class="pre">oracle</span></code>)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#abschnitt-query-results">Abschnitt <code class="docutils literal notranslate"><span class="pre">Query</span> <span class="pre">Results</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-schnellsuche">Abschnitt <code class="docutils literal notranslate"><span class="pre">Schnellsuche</span></code></a></li>
 <li><a class="reference internal" href="#werkzeug-konfiguration">Werkzeug Konfiguration</a><ul>

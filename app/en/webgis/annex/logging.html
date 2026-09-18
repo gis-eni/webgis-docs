@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Application Logging (Console / OpenTelemetry / Serilog / Seq) &#8212; WebGIS 2026 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
+    <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="ArcGIS Server Spatial-Query Workaround" href="ags-spatial-query.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+
+        <a id="eni_home_link" href="/index.html" title="Back to overview">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3.172l-8.5 7.653a.75.75 0 0 0 1 1.116L5 11.5V20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4h2v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.5l.5.441a.75.75 0 0 0 1-1.116L12 3.172z"/></svg>
+        </a>
+
+        <h1><a href="../index.html" title="Go to homepage">WebGIS for Admins</a></h1>
+
+        <a id="eni_lang_switch" href="/de/webgis/annex/logging.html" title="Auf Deutsch wechseln">
+            DE
+        </a>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Tool Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Measures for the WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geocodes.html">Geo Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ags-spatial-query.html">ArcGIS Server Spatial-Query Workaround</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application Logging (Console / OpenTelemetry / Serilog / Seq)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="application-logging-console-opentelemetry-serilog-seq">
+<h1>Application Logging (Console / OpenTelemetry / Serilog / Seq)<a class="headerlink" href="#application-logging-console-opentelemetry-serilog-seq" title="Link to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page describes the <strong>application/host logging</strong> layer only - i.e. where the
+standard <code class="docutils literal notranslate"><span class="pre">Microsoft.Extensions.Logging</span></code> events produced by ASP.NET Core itself and by the
+WebGIS internals end up. It is independent of the <strong>GeoService performance/exception
+logging</strong> switch (<code class="docutils literal notranslate"><span class="pre">Api:logging-type</span></code>) described in <a class="reference internal" href="../config/api/index.html"><span class="doc">Configuration of the API application</span></a>, which writes
+dedicated <code class="docutils literal notranslate"><span class="pre">webgis_performance</span></code>/<code class="docutils literal notranslate"><span class="pre">webgis_exceptions</span></code> records rather than generic
+application log events - the two layers can end up pointed at the same database server, just
+at different tables.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Api</span></code>, <code class="docutils literal notranslate"><span class="pre">Cms</span></code> and <code class="docutils literal notranslate"><span class="pre">Portal</span></code> hosts all share the same setup, so everything below applies
+to all three (adjust the file names accordingly, e.g. <code class="docutils literal notranslate"><span class="pre">Cms/appsettings.json</span></code>).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">MicrosoftGeoServiceRequestLogger</span></code> (the <code class="docutils literal notranslate"><span class="pre">microsoft</span></code> <code class="docutils literal notranslate"><span class="pre">IGeoServiceRequestLogger</span></code>, i.e. the
+per-request “audit” log, as opposed to the performance timings) logs at <code class="docutils literal notranslate"><span class="pre">LogLevel.Trace</span></code> -
+the most verbose level, disabled by default. <code class="docutils literal notranslate"><span class="pre">Logging:LogLevel:Default</span></code> is normally
+<code class="docutils literal notranslate"><span class="pre">Information</span></code>, so nothing is written for this category unless it is explicitly overridden
+(raising only <code class="docutils literal notranslate"><span class="pre">Default</span></code> is <strong>not</strong> enough, since <code class="docutils literal notranslate"><span class="pre">Trace</span></code> is more verbose than
+<code class="docutils literal notranslate"><span class="pre">Information</span></code>):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LogLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Api.Core.AppCode.Services.Logging.MicrosoftGeoServiceRequestLogger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Trace&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This can go into <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code>, <code class="docutils literal notranslate"><span class="pre">_config/logging.json</span></code> (see below), or as the
+environment variable
+<code class="docutils literal notranslate"><span class="pre">Logging__LogLevel__Api.Core.AppCode.Services.Logging.MicrosoftGeoServiceRequestLogger=Trace</span></code>.
+If a specific provider (e.g. <code class="docutils literal notranslate"><span class="pre">Console</span></code>) has its own narrower <code class="docutils literal notranslate"><span class="pre">Logging:&lt;Provider&gt;:LogLevel</span></code>
+section, that provider needs the same override too.</p>
+<p>Under the hood, WebGIS always routes logging through Serilog, which normally only obeys its
+own <code class="docutils literal notranslate"><span class="pre">Serilog:MinimumLevel</span></code> section and ignores <code class="docutils literal notranslate"><span class="pre">Logging:LogLevel</span></code> entirely; WebGIS bridges
+<code class="docutils literal notranslate"><span class="pre">Logging:LogLevel</span></code> into Serilog’s <code class="docutils literal notranslate"><span class="pre">MinimumLevel</span></code> automatically, so this standard ASP.NET
+Core section keeps working as documented. An explicit <code class="docutils literal notranslate"><span class="pre">Serilog:MinimumLevel</span></code>/<code class="docutils literal notranslate"><span class="pre">Override</span></code>
+entry for the same category always takes precedence over the bridged <code class="docutils literal notranslate"><span class="pre">Logging:LogLevel</span></code>
+value.</p>
+</div>
+<section id="configuring-via-config-recommended-for-production-kubernetes">
+<h2>Configuring via <code class="docutils literal notranslate"><span class="pre">_config</span></code> (recommended for production/Kubernetes)<a class="headerlink" href="#configuring-via-config-recommended-for-production-kubernetes" title="Link to this heading">¶</a></h2>
+<p>Most customers only touch the <code class="docutils literal notranslate"><span class="pre">_config</span></code> directory next to the application binaries (it also
+holds <code class="docutils literal notranslate"><span class="pre">api.config</span></code>/<code class="docutils literal notranslate"><span class="pre">cms.config</span></code>/<code class="docutils literal notranslate"><span class="pre">portal.config</span></code>) - in a Kubernetes deployment this is
+typically the one directory mounted from a ConfigMap/Secret volume, while <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code>
+and the pod’s environment variables are not (easily) editable per instance. Everything on this
+page can therefore also be configured by dropping one or both of these optional files into
+<code class="docutils literal notranslate"><span class="pre">_config</span></code>, with no rebuild and no pod-spec changes required:</p>
+<ul class="simple">
+<li><p><strong>``_config/logging.json``</strong> - a regular JSON file merged into the standard configuration,
+i.e. anything that could otherwise only be configured via <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code> or environment
+variables (<code class="docutils literal notranslate"><span class="pre">Logging</span></code>, <code class="docutils literal notranslate"><span class="pre">Serilog</span></code>, <code class="docutils literal notranslate"><span class="pre">OTEL_*</span></code> keys, …) can be placed here instead. All JSON
+examples on this page work unchanged as the content of <code class="docutils literal notranslate"><span class="pre">_config/logging.json</span></code>.</p></li>
+<li><p><strong>``_config/logging.env``</strong> - a simple <code class="docutils literal notranslate"><span class="pre">KEY=VALUE</span></code> per line file (like a Docker
+<code class="docutils literal notranslate"><span class="pre">--env-file</span></code>, <code class="docutils literal notranslate"><span class="pre">#</span></code> starts a comment line), loaded as real process environment variables
+before the app starts. Useful for the standard OpenTelemetry <code class="docutils literal notranslate"><span class="pre">OTEL_*</span></code> variables shown below,
+since they are normally set as environment variables rather than nested JSON. An environment
+variable that is already set on the process/pod always wins over the file.</p></li>
+</ul>
+<p>Example <code class="docutils literal notranslate"><span class="pre">_config/logging.env</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+</pre></div>
+</div>
+<p>Both files are optional and take effect for <code class="docutils literal notranslate"><span class="pre">Api</span></code>, <code class="docutils literal notranslate"><span class="pre">Cms</span></code> and <code class="docutils literal notranslate"><span class="pre">Portal</span></code> alike; a missing
+file is a no-op. <code class="docutils literal notranslate"><span class="pre">_config/logging.json</span></code> is loaded after <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code>/
+<code class="docutils literal notranslate"><span class="pre">appsettings.&lt;Environment&gt;.json</span></code>, so it overrides them (matching how <code class="docutils literal notranslate"><span class="pre">_config/*.config</span></code>
+already overrides other defaults today).</p>
+</section>
+<section id="console-default">
+<h2>Console (default)<a class="headerlink" href="#console-default" title="Link to this heading">¶</a></h2>
+<p>Out of the box, logs go to the console (stdout), formatted as plain text - this is the ASP.NET
+Core default and requires no configuration. Log levels are controlled the usual way via the
+<code class="docutils literal notranslate"><span class="pre">Logging:LogLevel</span></code> section in <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code> or environment variables
+(<code class="docutils literal notranslate"><span class="pre">Logging__LogLevel__Default=Information</span></code>, …).</p>
+<p>For structured/JSON console output (useful when a container log collector like
+Filebeat/Fluent Bit/Promtail parses stdout), switch the console formatter:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Console&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;FormatterName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="opentelemetry-otlp-recommended-for-most-backends">
+<h2>OpenTelemetry (OTLP) - recommended for most backends<a class="headerlink" href="#opentelemetry-otlp-recommended-for-most-backends" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Api</span></code>, <code class="docutils literal notranslate"><span class="pre">Cms</span></code> and <code class="docutils literal notranslate"><span class="pre">Portal</span></code> hosts export logs, metrics and traces via the OpenTelemetry
+Protocol (OTLP) whenever an OTLP endpoint is configured. This is controlled purely by the
+standard OpenTelemetry environment variables - no other configuration or rebuild is needed:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+OTEL_EXPORTER_OTLP_PROTOCOL=grpc        # or &quot;http/protobuf&quot; for port 4318
+OTEL_SERVICE_NAME=webgis-api            # optional, defaults to the host name
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_ENDPOINT</span></code> is not set, no OTLP exporter is created and there is no
+overhead.</p>
+<p>These can be set as regular process/pod environment variables, or - if only the <code class="docutils literal notranslate"><span class="pre">_config</span></code>
+directory is available - via <code class="docutils literal notranslate"><span class="pre">_config/logging.env</span></code> (see above).</p>
+<p>This is the lowest-effort way to plug WebGIS into most modern observability backends, because
+they all speak OTLP natively (no WebGIS-specific sink needed): an OpenTelemetry Collector (which
+can then fan out anywhere), Grafana stack (Loki/Tempo/Mimir), Elastic (8.x+ / Elastic Cloud),
+Seq, Jaeger, Zipkin, Honeycomb, Datadog, New Relic, Azure Monitor, AWS X-Ray/ADOT, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Previously this was only wired up for local development (.NET Aspire). It is now available in
+release builds of <code class="docutils literal notranslate"><span class="pre">Api</span></code>, <code class="docutils literal notranslate"><span class="pre">Cms</span></code> and <code class="docutils literal notranslate"><span class="pre">Portal</span></code> as well.</p>
+</div>
+<section id="request-log-entries-on-the-trace">
+<h3>Request log entries on the trace<a class="headerlink" href="#request-log-entries-on-the-trace" title="Link to this heading">¶</a></h3>
+<p>GeoService requests (<code class="docutils literal notranslate"><span class="pre">GetMap</span></code>, <code class="docutils literal notranslate"><span class="pre">GetSelection</span></code>, …, print jobs) each run inside their own
+<code class="docutils literal notranslate"><span class="pre">geoservice:{command}</span> <span class="pre">{service}</span></code> trace span (<code class="docutils literal notranslate"><span class="pre">WebGIS.GeoServices</span></code> <code class="docutils literal notranslate"><span class="pre">ActivitySource</span></code>, tagged
+with <code class="docutils literal notranslate"><span class="pre">webgis.category</span></code>/<code class="docutils literal notranslate"><span class="pre">command</span></code>/<code class="docutils literal notranslate"><span class="pre">server</span></code>/<code class="docutils literal notranslate"><span class="pre">service</span></code>/<code class="docutils literal notranslate"><span class="pre">map</span></code>/<code class="docutils literal notranslate"><span class="pre">success</span></code>). While that span
+is active, every <code class="docutils literal notranslate"><span class="pre">IGeoServiceRequestLogger.LogString(...)</span></code> call (the per-request “audit” trail
+- e.g. the underlying HTTP request/response to the real GIS server) is also attached to it as an
+OpenTelemetry span event (<code class="docutils literal notranslate"><span class="pre">webgis.geoservice.request</span></code>, with <code class="docutils literal notranslate"><span class="pre">webgis.server</span></code>/<code class="docutils literal notranslate"><span class="pre">service</span></code>/
+<code class="docutils literal notranslate"><span class="pre">command</span></code> tags). In a trace viewer (e.g. the Aspire dashboard’s trace detail view, or the “View
+Logs” action there for the correlated log entries), this means the request-audit trail for a
+call shows up directly next to/on its span, not just as a separately-filtered log level.
+Recording the span event does not depend on the <code class="docutils literal notranslate"><span class="pre">microsoft</span></code> <code class="docutils literal notranslate"><span class="pre">IGeoServiceRequestLogger</span></code>’s own
+<code class="docutils literal notranslate"><span class="pre">LogLevel.Trace</span></code> setting (see above) - it is skipped only when nothing is sampling/listening to
+the trace.</p>
+<p>The request and response are kept as two separate tags instead of being concatenated into one
+string:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">webgis.requestResult</span></code> - the response (or, for call sites that only log a single value, that
+value) - typically JSON, and still recognizable as such by tooling since nothing is prefixed in
+front of it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">webgis.requestBody</span></code> - only present when a request body was actually logged separately (e.g.
+the outgoing request sent to the upstream GIS server).</p></li>
+</ul>
+<p>The same split applies to the structured log entry itself: with a request body, the request
+logger logs <code class="docutils literal notranslate"><span class="pre">requestBody</span></code> and <code class="docutils literal notranslate"><span class="pre">message</span></code> as distinct named placeholders (rather than one
+pre-joined string), so a JSON response is still parsed as JSON by log backends that recognize
+structured fields.</p>
+</section>
+</section>
+<section id="serilog-sinks-sql-server-postgresql-seq">
+<h2>Serilog sinks (SQL Server / PostgreSQL / Seq)<a class="headerlink" href="#serilog-sinks-sql-server-postgresql-seq" title="Link to this heading">¶</a></h2>
+<p>For deployments that need logs written directly into a relational database - without standing
+up an OpenTelemetry Collector - <code class="docutils literal notranslate"><span class="pre">Api</span></code>, <code class="docutils literal notranslate"><span class="pre">Cms</span></code> and <code class="docutils literal notranslate"><span class="pre">Portal</span></code> additionally run
+<a class="reference external" href="https://serilog.net/">Serilog</a> alongside the default logging pipeline, so it augments rather
+than replaces OTLP/console logging. Serilog is purely config-driven: with no <code class="docutils literal notranslate"><span class="pre">Serilog</span></code> section
+present, nothing changes from the default behavior (console output only).</p>
+<p>To add a sink, add a <code class="docutils literal notranslate"><span class="pre">Serilog</span></code> section to <code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">appsettings.Production.json</span></code>, or environment variables) - or, equivalently, to
+<code class="docutils literal notranslate"><span class="pre">_config/logging.json</span></code> (see above).</p>
+<section id="sql-server">
+<h3>SQL Server<a class="headerlink" href="#sql-server" title="Link to this heading">¶</a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ConnectionStrings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LogsDb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Server=sql-host;Database=WebGisLogs;User Id=webgis;Password=***;TrustServerCertificate=True&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Serilog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;WriteTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MSSqlServer&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;connectionString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LogsDb&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;sinkOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;tableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logs&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;autoCreateSqlTable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="postgresql">
+<h3>PostgreSQL<a class="headerlink" href="#postgresql" title="Link to this heading">¶</a></h3>
+<p>The PostgreSQL sink needs its configuration companion package to be loaded explicitly via
+<code class="docutils literal notranslate"><span class="pre">Using</span></code>, and - unlike <code class="docutils literal notranslate"><span class="pre">MSSqlServer</span></code>, which ships sensible default columns - it has <strong>no</strong>
+built-in defaults: a <code class="docutils literal notranslate"><span class="pre">Columns</span></code> section describing which columns to write and how must always
+be supplied. Omitting it fails fast at startup with:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>System.InvalidOperationException: &#39;Columns&#39; section not found in provided configuration path:
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Columns</span></code> section must be a <strong>root-level</strong> key of the configuration - a sibling of
+<code class="docutils literal notranslate"><span class="pre">Serilog</span></code>/<code class="docutils literal notranslate"><span class="pre">ConnectionStrings</span></code>, <em>not</em> nested inside <code class="docutils literal notranslate"><span class="pre">Serilog</span></code> (it is easy to assume
+otherwise, since everything else Serilog-related lives under the <code class="docutils literal notranslate"><span class="pre">Serilog</span></code> section). If it
+needs to be placed elsewhere (e.g. to avoid a name clash), point at it explicitly via
+<code class="docutils literal notranslate"><span class="pre">Serilog:WriteTo:Args:configurationPath</span></code>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ConnectionStrings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LogsDb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Host=pg-host;Port=5432;Database=webgis_logs;Username=webgis;Password=***&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Serilog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Using&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;Serilog.Sinks.PostgreSQL.Configuration&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;WriteTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PostgreSQL&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;connectionString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LogsDb&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;tableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;logs&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;needAutoCreateTable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;Columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RenderedMessageColumnWriter&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MessageTemplateColumnWriter&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LevelColumnWriter&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;renderAsText&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;dbType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Varchar&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;raise_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TimestampColumnWriter&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;exception&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ExceptionColumnWriter&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LogEventSerializedColumnWriter&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Both sinks are batching sinks (periodic bulk insert), so they have negligible impact on request
+latency.</p>
+</section>
+<section id="seq">
+<h3>Seq<a class="headerlink" href="#seq" title="Link to this heading">¶</a></h3>
+<p>Unlike the DB sinks above, <a class="reference external" href="https://datalust.co/seq">Seq</a> is not a relational database - it is
+a small, self-hostable log server with its own storage engine and UI (see
+<a class="reference internal" href="#setting-up-seq">Setting up Seq</a> below for how to run it). The sink just needs a URL and (optionally) an API
+key - no table/columns to define:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Serilog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;WriteTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Seq&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;serverUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://seq-host:5341&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;apiKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This, too, is a batching sink with negligible latency impact, and can run alongside the SQL
+Server/PostgreSQL sink (e.g. DB for long-term retention, Seq for day-to-day search) - Serilog
+happily writes to any number of configured sinks at once.</p>
+</section>
+<section id="oracle">
+<h3>Oracle<a class="headerlink" href="#oracle" title="Link to this heading">¶</a></h3>
+<p>There is currently no well-maintained Serilog sink for Oracle, so a direct DB sink is not
+offered for Oracle. If the log backend is Oracle-only, use the OTLP path instead (e.g. an
+OpenTelemetry Collector with an Oracle/JDBC exporter, or export to an OTLP-native backend and
+query it there).</p>
+</section>
+</section>
+<section id="viewing-analyzing-logs">
+<h2>Viewing &amp; analyzing logs<a class="headerlink" href="#viewing-analyzing-logs" title="Link to this heading">¶</a></h2>
+<p>Which tool makes sense depends on which sink(s) are enabled:</p>
+<ul>
+<li><p><strong>Only the SQL Server/PostgreSQL sink, ad-hoc troubleshooting</strong>: a regular DB client is
+enough - no extra tool needed. Azure Data Studio/SSMS (SQL Server) or pgAdmin/DBeaver
+(PostgreSQL). The structured <code class="docutils literal notranslate"><span class="pre">Properties</span></code>/<code class="docutils literal notranslate"><span class="pre">properties</span></code> column is JSON
+(<code class="docutils literal notranslate"><span class="pre">NVARCHAR</span></code>/<code class="docutils literal notranslate"><span class="pre">jsonb</span></code>), queryable directly, e.g.:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- SQL Server</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Logs</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">Level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Warning&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">JSON_VALUE</span><span class="p">(</span><span class="n">Properties</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.RequestPath&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%GetMap%&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">TimeStamp</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
+
+<span class="c1">-- PostgreSQL</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">logs</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Warning&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">properties</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;RequestPath&#39;</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%GetMap%&#39;</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">raise_date</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This does not give full-text search, dashboards, alerting, or trace correlation though - it is
+fine for “quick lookup”, not for ongoing analysis.</p>
+</li>
+<li><p><strong>Dashboards/alerting/search - recommended: Grafana</strong> (OSS, self-hostable, free). It can be
+pointed at what is already configured, with no need to add another sink:</p>
+<ul class="simple">
+<li><p>Directly at the <strong>SQL Server/PostgreSQL sink table</strong> via Grafana’s built-in SQL data
+sources - dashboards/alerts on top of data already being written today.</p></li>
+<li><p>At the <strong>OTLP path</strong> via Loki (logs) + Tempo (traces) + Prometheus/Mimir (metrics) - the
+de-facto open source stack for OpenTelemetry, and a natural fit since <code class="docutils literal notranslate"><span class="pre">Api</span></code>/<code class="docutils literal notranslate"><span class="pre">Cms</span></code>/
+<code class="docutils literal notranslate"><span class="pre">Portal</span></code> already export OTLP once <code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_ENDPOINT</span></code> is set (see above). This
+also enables trace/log/metric correlation (e.g. drilling from a slow <code class="docutils literal notranslate"><span class="pre">GetMap</span></code> trace into
+its log lines), which the DB sinks alone cannot provide.</p></li>
+</ul>
+</li>
+<li><p><strong>Simplest “just show me the logs” option, no Grafana setup</strong>: <a class="reference external" href="https://datalust.co/seq">Seq</a>
+- single Docker container, understands Serilog’s structured events natively, free for a single
+user/small team, and accepts OTLP directly too (see below for step-by-step setup).</p></li>
+<li><p><strong>Customer already runs a cloud/enterprise observability platform</strong>: point
+<code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_ENDPOINT</span></code> at it - Azure Monitor/Application Insights, AWS CloudWatch,
+Elastic/OpenSearch + Kibana, Datadog, New Relic, … all accept OTLP natively (directly or via
+an OpenTelemetry Collector), no code changes required.</p></li>
+</ul>
+<section id="setting-up-seq">
+<h3>Setting up Seq<a class="headerlink" href="#setting-up-seq" title="Link to this heading">¶</a></h3>
+<p>Unlike Grafana, Seq has no “SQL data source” concept - it can only show events that were sent to
+it directly, either via OTLP or as a Serilog sink. It <strong>cannot</strong> simply be pointed at an
+already-populated <code class="docutils literal notranslate"><span class="pre">Logs</span></code>/<code class="docutils literal notranslate"><span class="pre">logs</span></code> table in SQL Server/PostgreSQL and browse that in place; if
+that is the goal (view/analyze what the DB sink already collects, without touching anything
+else), use Grafana’s built-in SQL data source against that table instead (see above) - no
+dual-write, no extra sink required.</p>
+<p>If Seq’s own UI/search is still preferred, WebGIS needs to additionally send events to Seq -
+either as the <a class="reference internal" href="#seq">Seq</a> sink documented above (dual-write, alongside the existing SQL
+Server/PostgreSQL sink if any), or via OTLP as described below - both are already fully wired up.</p>
+<p>No WebGIS-specific sink/package is needed for the OTLP route below - Seq
+<a class="reference external" href="https://docs.datalust.co/docs/ingestion-with-opentelemetry">natively implements OTLP ingestion</a>,
+so that path is purely a matter of pointing the existing OTLP exporter at it.</p>
+<ol class="arabic">
+<li><p>Run Seq (persists its data in <code class="docutils literal notranslate"><span class="pre">&lt;local</span> <span class="pre">path&gt;</span></code>, replace <code class="docutils literal notranslate"><span class="pre">&lt;password&gt;</span></code> with the initial admin
+password):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>seq<span class="w"> </span>-d<span class="w"> </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">ACCEPT_EULA</span><span class="o">=</span>Y<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">SEQ_FIRSTRUN_ADMINPASSWORD</span><span class="o">=</span>&lt;password&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>&lt;<span class="nb">local</span><span class="w"> </span>path&gt;:/data<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">5341</span>:80<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>datalust/seq
+</pre></div>
+</div>
+</li>
+<li><p>In the Seq UI (<code class="docutils literal notranslate"><span class="pre">http://&lt;seq-host&gt;:5341</span></code>), create a dedicated API key per app under
+<em>Settings &gt; API Keys</em> (recommended, not required) - this makes it easy to tell
+<code class="docutils literal notranslate"><span class="pre">Api</span></code>/<code class="docutils literal notranslate"><span class="pre">Cms</span></code>/<code class="docutils literal notranslate"><span class="pre">Portal</span></code> traffic apart later in <em>Data &gt; Ingestion</em>.</p></li>
+<li><p>Point WebGIS’s OTLP exporter at Seq’s OTLP endpoint - either as real environment variables,
+or via <code class="docutils literal notranslate"><span class="pre">_config/logging.env</span></code> (see above):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OTEL_EXPORTER_OTLP_ENDPOINT=http://&lt;seq-host&gt;:5341/ingest/otlp
+OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+OTEL_EXPORTER_OTLP_HEADERS=X-Seq-ApiKey=&lt;api-key-from-step-2&gt;
+</pre></div>
+</div>
+<p>Note the endpoint is Seq’s ingestion path (<code class="docutils literal notranslate"><span class="pre">/ingest/otlp</span></code>), not just the host root - the
+exporter appends <code class="docutils literal notranslate"><span class="pre">/v1/logs</span></code>/<code class="docutils literal notranslate"><span class="pre">/v1/traces</span></code> itself. <code class="docutils literal notranslate"><span class="pre">OTEL_EXPORTER_OTLP_HEADERS</span></code> can be
+omitted if no API key was created in step 2.</p>
+<p>Alternatively - no traces, but structured events with full property fidelity and less config
+- add the <a class="reference internal" href="#seq">Seq</a> sink to <code class="docutils literal notranslate"><span class="pre">_config/logging.json</span></code> instead, using the same URL/API key.</p>
+</li>
+<li><p>Restart <code class="docutils literal notranslate"><span class="pre">Api</span></code>/<code class="docutils literal notranslate"><span class="pre">Cms</span></code>/<code class="docutils literal notranslate"><span class="pre">Portal</span></code> (environment variables are only read at process startup, so
+<code class="docutils literal notranslate"><span class="pre">_config/logging.env</span></code> changes need a restart, unlike <code class="docutils literal notranslate"><span class="pre">_config/logging.json</span></code> which is
+picked up automatically). Logs and traces (including the GeoService request/performance spans
+described above) start showing up in the Seq UI immediately - with full trace/span correlation
+via the <em>Trace</em> menu on each event.</p></li>
+</ol>
+<p>The SQL Server/PostgreSQL sink can keep running in parallel if it is already configured (e.g.
+for long-term retention/compliance) - Seq is simply an additional, independent consumer of the
+same telemetry.</p>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Everything on this page (Serilog sinks, OTLP, Seq, Grafana, …) concerns <em>where application
+log events go</em>; it is independent of the <code class="docutils literal notranslate"><span class="pre">Api:logging-type</span></code> GeoService performance/exception
+logging switch described in <a class="reference internal" href="../config/api/index.html"><span class="doc">Configuration of the API application</span></a>, which - since it now also supports
+<code class="docutils literal notranslate"><span class="pre">sqlserver</span></code>/<code class="docutils literal notranslate"><span class="pre">postgres</span></code>/<code class="docutils literal notranslate"><span class="pre">sqlite</span></code>/<code class="docutils literal notranslate"><span class="pre">oracle</span></code> - can end up pointed at the same database
+server, just a different, purpose-built <code class="docutils literal notranslate"><span class="pre">webgis_performance</span></code>/<code class="docutils literal notranslate"><span class="pre">webgis_exceptions</span></code> table
+rather than the generic <code class="docutils literal notranslate"><span class="pre">Logs</span></code> table the Serilog DB sinks write to.</p></li>
+<li><p>Multiple sinks can be active at once (e.g. console + OTLP + SQL Server) - enable only what is
+needed.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Application Logging (Console / OpenTelemetry / Serilog / Seq)</a><ul>
+<li><a class="reference internal" href="#configuring-via-config-recommended-for-production-kubernetes">Configuring via <code class="docutils literal notranslate"><span class="pre">_config</span></code> (recommended for production/Kubernetes)</a></li>
+<li><a class="reference internal" href="#console-default">Console (default)</a></li>
+<li><a class="reference internal" href="#opentelemetry-otlp-recommended-for-most-backends">OpenTelemetry (OTLP) - recommended for most backends</a><ul>
+<li><a class="reference internal" href="#request-log-entries-on-the-trace">Request log entries on the trace</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#serilog-sinks-sql-server-postgresql-seq">Serilog sinks (SQL Server / PostgreSQL / Seq)</a><ul>
+<li><a class="reference internal" href="#sql-server">SQL Server</a></li>
+<li><a class="reference internal" href="#postgresql">PostgreSQL</a></li>
+<li><a class="reference internal" href="#seq">Seq</a></li>
+<li><a class="reference internal" href="#oracle">Oracle</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#viewing-analyzing-logs">Viewing &amp; analyzing logs</a><ul>
+<li><a class="reference internal" href="#setting-up-seq">Setting up Seq</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="ags-spatial-query.html">
+                    <span class="icon">&lt;</span><span>ArcGIS Server Spatial-Query Workaround</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

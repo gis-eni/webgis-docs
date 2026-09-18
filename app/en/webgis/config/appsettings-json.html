@@ -183,7 +183,14 @@ Below are some of the most important sections and their functions:</p>
 </div>
 <ul>
 <li><p><strong>Logging</strong>: This section defines the settings for the application’s logging at the ASP.NET Core level,
-including the log levels and the log output targets.</p></li>
+including the log levels and the log output targets.</p>
+<p>Out of the box, log events go to the console. Where they should go instead - structured
+JSON console output, OpenTelemetry (OTLP), or a Serilog sink writing into SQL Server,
+PostgreSQL or Seq - is described in <a class="reference internal" href="../annex/logging.html"><span class="doc">Application Logging (Console / OpenTelemetry / Serilog / Seq)</span></a>. In a Kubernetes deployment, or
+wherever only the <code class="docutils literal notranslate"><span class="pre">_config</span></code> directory is editable per instance, the same settings can also
+be placed into the optional <code class="docutils literal notranslate"><span class="pre">_config/logging.json</span></code>/<code class="docutils literal notranslate"><span class="pre">_config/logging.env</span></code> files instead of
+<code class="docutils literal notranslate"><span class="pre">appsettings.json</span></code> - see the same chapter.</p>
+</li>
 <li><p><strong>Localization</strong>: This defines the localization settings for the application,
 including the default culture used by the application.</p>
 <p>Normally the application starts in the operating system’s culture,

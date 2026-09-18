@@ -29,6 +29,13 @@ Below are some of the most important sections and their functions:
 - **Logging**: This section defines the settings for the application's logging at the ASP.NET Core level,
   including the log levels and the log output targets.
 
+  Out of the box, log events go to the console. Where they should go instead - structured
+  JSON console output, OpenTelemetry (OTLP), or a Serilog sink writing into SQL Server,
+  PostgreSQL or Seq - is described in :doc:`../annex/logging`. In a Kubernetes deployment, or
+  wherever only the ``_config`` directory is editable per instance, the same settings can also
+  be placed into the optional ``_config/logging.json``/``_config/logging.env`` files instead of
+  ``appsettings.json`` - see the same chapter.
+
 - **Localization**: This defines the localization settings for the application,
   including the default culture used by the application.
 
