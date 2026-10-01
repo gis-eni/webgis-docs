@@ -185,7 +185,7 @@ Structured Expressions sind typisiert und unterstützen:
 * Null-/Leerwertfunktionen
 * numerische Funktionen
 * Datumsfunktionen
-* bei AutoValues zusätzlich GIS-/Geometriefunktionen
+* GIS-/Geometriefunktionen (bei AutoValues und Tabellen)
 
 Feldreferenzen
 ^^^^^^^^^^^^^^
@@ -414,10 +414,10 @@ Beispiele:
 Datumswerte werden zuerst als ISO-8601 interpretiert. Als Kompatibilitätsfallback wird die aktuelle
 Kultur verwendet.
 
-GIS-/Geometriefunktionen (nur AutoValues)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+GIS-/Geometriefunktionen
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Diese Funktionen stehen ausschließlich im AutoValue-Kontext zur Verfügung:
+Diese Funktionen stehen bei AutoValues und bei Tabellenspalten vom Typ ``TableFieldExpression`` zur Verfügung:
 
 .. code-block:: text
 
@@ -431,6 +431,22 @@ Diese Funktionen stehen ausschließlich im AutoValue-Kontext zur Verfügung:
 * Mit einer ``SRefId`` (EPSG-Code) wird eine **transformierte Kopie** der Geometrie verwendet. Die
   ursprüngliche Feature-Geometrie wird nicht verändert.
 
+.. important::
+
+   Der EPSG-Code sollte **immer angegeben** werden:
+
+   * **AutoValues:** Ohne Angabe wird in der Regel das Koordinatensystem der Ziel-Featureklasse verwendet.
+     Das ist aber nicht gesichert.
+   * **Tabellen:** Die Geometrie wird für verschiedene Anwendungsfälle in andere Koordinatensysteme
+     transformiert und liegt hier in der Regel in WGS84 vor. Der EPSG-Code muss daher zwingend
+     angegeben werden, sonst sind Längen und Flächen nicht in der erwarteten Einheit.
+
+.. tip::
+
+   In Tabellen sollten die Funktionen nicht verwendet werden, wenn die Datenbank bereits einen berechneten
+   Wert (z. B. ``Shape.Length()`` bzw. ein Längen-/Flächenfeld) liefert. Dieser Wert sollte aus
+   Performancegründen bevorzugt werden.
+
 Beispiele:
 
 .. code-block:: text
@@ -440,6 +456,13 @@ Beispiele:
    =round(shape_area(31256), 2)
    =shape_centroid_x(4326)
    =concat("Fläche: ", round(shape_area(31256), 2), " m2")
+
+In einer Tabellenspalte (``TableFieldExpression``) entfällt das führende ``=``:
+
+.. code-block:: text
+
+   round(shape_area(31256), 2)
+   concat("Länge: ", round(shape_len(31256), 1), " m")
 
 Textausgaben in Structured Expressions
 --------------------------------------
