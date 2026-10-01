@@ -176,75 +176,726 @@
             
   <section id="editierbare-felder-autovalues">
 <h1>Editierbare Felder: Autovalues<a class="headerlink" href="#editierbare-felder-autovalues" title="Link to this heading">¶</a></h1>
-<p><em>Autovalues</em> sind Felder, die nicht vom Anwender eingegeben werden müssen, sondern vor dem Speichern
-am Server <em>automatisch</em> gesetzt werden.</p>
-<p>Beispiele für solche Felder sind:</p>
+<p><em>Autovalues</em> befüllen ein Attributfeld beim Speichern am Server <strong>automatisch</strong>, der Anwender muss
+den Wert nicht eingeben. Sie werden am Bearbeitungsfeld konfiguriert. Diese Felder werden in der
+Eingabemaske meist als <em>readonly</em> oder nicht sichtbar definiert.</p>
+<nav class="contents local" id="inhalt-dieser-seite">
+<p class="topic-title">Inhalt dieser Seite</p>
 <ul class="simple">
-<li><p>Der Benutzername des aktuellen Anwenders: <code class="docutils literal notranslate"><span class="pre">create_login</span></code>, <code class="docutils literal notranslate"><span class="pre">create_login_full</span></code>, <code class="docutils literal notranslate"><span class="pre">create_login_short</span></code>, …</p></li>
-<li><p>Das Erstellungsdatum eines Objekts:  <code class="docutils literal notranslate"><span class="pre">create_date</span></code>, <code class="docutils literal notranslate"><span class="pre">create_time</span></code>, …</p></li>
-<li><p>Die Länge einer Liniengeometrie: <code class="docutils literal notranslate"><span class="pre">shape_len</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_area</span></code>, …</p></li>
-<li><p>GUIDs</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">guid</span></code>: eine Guid in diesem Format <code class="docutils literal notranslate"><span class="pre">4b2dd0dfeb1b40188b2583167886e886</span></code>
-eignet sich, wenn die GUID in der Datenbank als Text gespeichert werden soll.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">guid_sql</span></code>: ein GUid in diesem Format <code class="docutils literal notranslate"><span class="pre">{9e2702e4-169f-41ec-b3e3-fcf786182885}</span></code>
-eignet sich, wenn die GUID in einer SQL-Datenbank als GUID gespeichert werden soll.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">guid_v7</span></code>, <code class="docutils literal notranslate"><span class="pre">guid_v7_sql</span></code>: Wie oben, aber mit einer Version 7 GUID.
-Version 7 GUIDs eigenen sich für die Speicherung in Datenbanken, wenn die Zugrunde
-liegenden Felder auch indiziert werden sollen. Die erzeugten GUIDs sind zeitlich nach
-ihrem Wert sortiert, was in der Regel zu einer geringeren Fragmentierung der Indizes führt.</p></li>
+<li><p><a class="reference internal" href="#auswahl-im-cms" id="id2">Auswahl im CMS</a></p></li>
+<li><p><a class="reference internal" href="#wann-wird-ein-autovalue-ausgewertet" id="id3">Wann wird ein Autovalue ausgewertet?</a></p></li>
+<li><p><a class="reference internal" href="#werte-nur-beim-insert" id="id4">Werte nur beim Insert</a></p></li>
+<li><p><a class="reference internal" href="#anderungswerte" id="id5">Änderungswerte</a></p></li>
+<li><p><a class="reference internal" href="#url-und-rollenparameter" id="id6">URL- und Rollenparameter</a></p></li>
+<li><p><a class="reference internal" href="#geometrie-autovalues" id="id7">Geometrie-Autovalues</a></p></li>
+<li><p><a class="reference internal" href="#allgemeine-werte-und-bearbeitungskontext" id="id8">Allgemeine Werte und Bearbeitungskontext</a></p></li>
+<li><p><a class="reference internal" href="#benutzerdefinierte-werte-mit-custom" id="id9">Benutzerdefinierte Werte mit „custom“</a></p></li>
+<li><p><a class="reference internal" href="#automatische-attributierung-uber-raumliche-beziehungen" id="id10">Automatische Attributierung über räumliche Beziehungen</a></p></li>
+<li><p><a class="reference internal" href="#automatische-werte-aus-einer-datenbankabfrage-db-select" id="id11">Automatische Werte aus einer Datenbankabfrage („db_select“)</a></p></li>
+<li><p><a class="reference internal" href="#autovalues-uber-webservice-datalinq" id="id12">Autovalues über WebService (DataLinq)</a></p></li>
+<li><p><a class="reference internal" href="#fehler-und-leerwertverhalten" id="id13">Fehler- und Leerwertverhalten</a></p></li>
+<li><p><a class="reference internal" href="#empfohlene-konfigurationen" id="id14">Empfohlene Konfigurationen</a></p></li>
 </ul>
-</li>
+</nav>
+<section id="auswahl-im-cms">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Auswahl im CMS</a><a class="headerlink" href="#auswahl-im-cms" title="Link to this heading">¶</a></h2>
+<p>Die meisten Autovalues werden im CMS über das Feld <strong>Auto Value</strong> aus einer Liste ausgewählt.
+Für freie Syntax wird <strong>custom</strong> gewählt und der eigentliche Wert unter
+<strong>Benutzerdefinierter Auto Value</strong> eingetragen.</p>
+<p>Das gilt insbesondere für:</p>
+<ul class="simple">
+<li><p>Expressions und Templates mit führendem <code class="docutils literal notranslate"><span class="pre">=</span></code></p></li>
+<li><p>URL- und Rollenparameter</p></li>
+<li><p>räumliche Abfragen mit <code class="docutils literal notranslate"><span class="pre">from</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mask-insert-default::...</span></code></p></li>
+<li><p>die älteren, weiterhin unterstützten Werte <code class="docutils literal notranslate"><span class="pre">create_userdas</span> <span class="pre">Komma-Leerzeichen-Trennzeichenchange_user</span></code>,
+<code class="docutils literal notranslate"><span class="pre">create_date_yyyy.mm.dd</span></code> und <code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></li>
 </ul>
-<p>Diese Felder werden in der Eingabemaske meist als <em>readonly</em> oder nicht sichtbar definiert.</p>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">db_select</span></code> und <code class="docutils literal notranslate"><span class="pre">db_select_on_insert</span></code> wird der Autovalue selbst in der Auswahlliste gewählt.
+Connection String und SQL-Statement werden in den beiden zusätzlichen benutzerdefinierten
+Autovalue-Feldern eingetragen.</p>
 <p>Im folgenden Beispiel wird die Länge der erstellten Liniengeometrie in ein Feld übernommen:</p>
 <img alt="../../../_images/editing18.png" src="../../../_images/editing18.png" />
-<section id="berechnete-werte-mit-ausdrucken">
-<h2>Berechnete Werte mit Ausdrücken<a class="headerlink" href="#berechnete-werte-mit-ausdrucken" title="Link to this heading">¶</a></h2>
-<p>Mit einem führenden <code class="docutils literal notranslate"><span class="pre">=</span></code> können Autovalues auch als <em>Expression</em> angegeben werden, z.B. <code class="docutils literal notranslate"><span class="pre">=concat([FIRSTNAME],</span> <span class="pre">&quot;</span> <span class="pre">&quot;,</span> <span class="pre">[LASTNAME])</span></code> oder
-<code class="docutils literal notranslate"><span class="pre">=round(shape_area(31256),</span> <span class="pre">2)</span></code>. Eine Beschreibung aller Möglichkeiten findet sich im Anhang: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions (Ausdrücke)</span></a>.</p>
+</section>
+<section id="wann-wird-ein-autovalue-ausgewertet">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Wann wird ein Autovalue ausgewertet?</a><a class="headerlink" href="#wann-wird-ein-autovalue-ausgewertet" title="Link to this heading">¶</a></h2>
+<p>Ein Autovalue kann abhängig von der Bearbeitungsoperation gelten:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+<col style="width: 12.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gruppe</p></th>
+<th class="head"><p>Insert</p></th>
+<th class="head"><p>Update</p></th>
+<th class="head"><p>Delete</p></th>
+<th class="head"><p>Massen-attributierung</p></th>
+<th class="head"><p>Transfer</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_*das</span> <span class="pre">Komma-Leerzeichen-Trennzeichenguid*</span></code></p></td>
+<td><p>ja</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">change_*</span></code></p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">db_select_on_insert</span></code></p></td>
+<td><p>ja</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oninsert:...</span></code></p></td>
+<td><p>ja</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">onupdate:...</span></code></p></td>
+<td><p>nein</p></td>
+<td><p>ja</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+<td><p>nein</p></td>
+</tr>
+<tr class="row-odd"><td><p>Geometrie-, Kontext- und allgemeine Autovalues</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">db_select</span></code></p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+</tr>
+<tr class="row-odd"><td><p>Expressions mit <code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+<td><p>ja</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Tabelle beschreibt die Auswertung des Autovalues. Ob ein Feld bei einer bestimmten Operation
+tatsächlich verarbeitet wird, hängt zusätzlich vom jeweiligen Editing-Ablauf ab.</p>
+</div>
+</section>
+<section id="werte-nur-beim-insert">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Werte nur beim Insert</a><a class="headerlink" href="#werte-nur-beim-insert" title="Link to this heading">¶</a></h2>
+<p>Diese Autovalues werden ausschließlich beim Erstellen eines neuen Features gesetzt.</p>
+<section id="benutzer-und-login">
+<h3>Benutzer und Login<a class="headerlink" href="#benutzer-und-login" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28.0%" />
+<col style="width: 52.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Beschreibung</p></th>
+<th class="head"><p>Beispiel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_user</span></code></p></td>
+<td><p>Datenbankbenutzer aus der Editing-Workspace-Verbindung</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">webgis_edit</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">create_login</span></code></p></td>
+<td><p>Login des aktuellen Benutzers ohne WebGIS-Namespace vor <code class="docutils literal notranslate"><span class="pre">::</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DOMAIN\max</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_login_full</span></code></p></td>
+<td><p>Vollständiger Login, wie er am aktuellen Benutzer gespeichert ist</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">oidc::DOMAIN\max</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">create_login_short</span></code></p></td>
+<td><p>Login ohne WebGIS-Namespace und ohne Windows-Domain</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">max</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_login_domain</span></code></p></td>
+<td><p>Domain aus <code class="docutils literal notranslate"><span class="pre">name&#64;domain</span></code> oder der Teil vor <code class="docutils literal notranslate"><span class="pre">\</span></code> im vollständigen Login</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">domain</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">DOMAIN</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Beispiel für einen vollständigen Login <code class="docutils literal notranslate"><span class="pre">oidc::DOMAIN\max</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">create_login</span></code> → <code class="docutils literal notranslate"><span class="pre">DOMAIN\max</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_login_full</span></code> → <code class="docutils literal notranslate"><span class="pre">oidc::DOMAIN\max</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_login_short</span></code> → <code class="docutils literal notranslate"><span class="pre">max</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_login_domain</span></code> → <code class="docutils literal notranslate"><span class="pre">oidc::DOMAIN</span></code></p></li>
+</ul>
+<p>Bei der Schreibweise <code class="docutils literal notranslate"><span class="pre">name&#64;domain</span></code> wird nur der Teil nach <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> zurückgegeben und kleingeschrieben.
+Bei <code class="docutils literal notranslate"><span class="pre">DOMAIN\name</span></code> wird der Teil vor <code class="docutils literal notranslate"><span class="pre">\</span></code> zurückgegeben. Ein eventuell vorhandener WebGIS-Namespace
+vor <code class="docutils literal notranslate"><span class="pre">::</span></code> wird für <code class="docutils literal notranslate"><span class="pre">*_login_domain</span></code> nicht entfernt; deshalb ergibt das obige Beispiel
+<code class="docutils literal notranslate"><span class="pre">oidc::DOMAIN</span></code>.</p>
+</section>
+<section id="guids">
+<h3>GUIDs<a class="headerlink" href="#guids" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22.0%" />
+<col style="width: 33.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Beschreibung</p></th>
+<th class="head"><p>Format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">guid</span></code></p></td>
+<td><p>Zufällige UUID</p></td>
+<td><p>32 Hex-Zeichen ohne Trennzeichen</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">guid_sql</span></code></p></td>
+<td><p>Zufällige UUID</p></td>
+<td><p>mit Bindestrichen und geschweiften Klammern</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">guid_v7</span></code></p></td>
+<td><p>Zeitlich sortierbare UUID Version 7</p></td>
+<td><p>32 Hex-Zeichen ohne Trennzeichen</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">guid_v7_sql</span></code></p></td>
+<td><p>Zeitlich sortierbare UUID Version 7</p></td>
+<td><p>mit Bindestrichen und geschweiften Klammern</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>guid      →  9f9c67bea32147e8a46100c17acef040
+guid_sql  →  {9f9c67be-a321-47e8-a461-00c17acef040}
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">guid</span></code> eignet sich, wenn die GUID in der Datenbank als Text gespeichert werden soll,
+<code class="docutils literal notranslate"><span class="pre">guid_sql</span></code>, wenn sie in einer SQL-Datenbank als GUID gespeichert werden soll.</p></li>
+<li><p>Version 7 GUIDs eignen sich für die Speicherung in Datenbanken, wenn die zugrunde liegenden Felder
+auch indiziert werden sollen. Die erzeugten GUIDs sind zeitlich nach ihrem Wert sortiert, was in
+der Regel zu einer geringeren Fragmentierung der Indizes führt.</p></li>
+</ul>
+</section>
+<section id="erstellungsdatum-und-zeit">
+<h3>Erstellungsdatum und -zeit<a class="headerlink" href="#erstellungsdatum-und-zeit" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Beschreibung</p></th>
+<th class="head"><p>Format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_date</span></code></p></td>
+<td><p>Lokales Erstellungsdatum</p></td>
+<td><p>kulturabhängiges kurzes Datumsformat</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">create_date_yyyy.mm.dd</span></code></p></td>
+<td><p>Lokales Erstellungsdatum</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">yyyy.MM.dd</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_time</span></code></p></td>
+<td><p>Lokale Erstellungszeit</p></td>
+<td><p>kulturabhängiges kurzes Zeitformat</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">create_datetime_sql</span></code></p></td>
+<td><p>Lokales Datum und lokale Uhrzeit</p></td>
+<td><p>kurzes Datumsformat + Leerzeichen + kurzes Zeitformat</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_datetime_sql2</span></code></p></td>
+<td><p>Lokales Datum und lokale Uhrzeit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dd.MM.yyyy</span> <span class="pre">HH:mm:ss</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">create_datetime_utc</span></code></p></td>
+<td><p>UTC-Zeitpunkt</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">yyyy-MM-ddTHH:mm:ss.fffZ</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Für systemübergreifende Speicherung ist <code class="docutils literal notranslate"><span class="pre">create_datetime_utc</span></code> zu bevorzugen, z. B.
+<code class="docutils literal notranslate"><span class="pre">2026-10-01T15:23:45.127Z</span></code>.</p>
+</section>
+</section>
+<section id="anderungswerte">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Änderungswerte</a><a class="headerlink" href="#anderungswerte" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">change_*</span></code> wird nicht nur beim Update ausgewertet, sondern bei <strong>jeder</strong> Bearbeitungsoperation, bei
+der das Feld verarbeitet wird. Damit kann dasselbe Feld bereits beim Insert und danach bei jeder
+Änderung aktualisiert werden.</p>
+<section id="id1">
+<h3>Benutzer und Login<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">change_user</span></code></p></td>
+<td><p>Datenbankbenutzer aus der Editing-Workspace-Verbindung</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">change_login</span></code></p></td>
+<td><p>Aktueller Login ohne WebGIS-Namespace vor <code class="docutils literal notranslate"><span class="pre">::</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">change_login_full</span></code></p></td>
+<td><p>Vollständiger Login des aktuellen Benutzers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">change_login_short</span></code></p></td>
+<td><p>Login ohne WebGIS-Namespace und ohne Windows-Domain</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">change_login_domain</span></code></p></td>
+<td><p>Domain aus <code class="docutils literal notranslate"><span class="pre">name&#64;domain</span></code> oder <code class="docutils literal notranslate"><span class="pre">DOMAIN\name</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="anderungsdatum-und-zeit">
+<h3>Änderungsdatum und -zeit<a class="headerlink" href="#anderungsdatum-und-zeit" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Beschreibung</p></th>
+<th class="head"><p>Format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">change_date</span></code></p></td>
+<td><p>Lokales Änderungsdatum</p></td>
+<td><p>kulturabhängiges kurzes Datumsformat</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">change_time</span></code></p></td>
+<td><p>Lokale Änderungszeit</p></td>
+<td><p>kulturabhängiges kurzes Zeitformat</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">change_datetime_sql</span></code></p></td>
+<td><p>Lokales Datum und lokale Uhrzeit</p></td>
+<td><p>kurzes Datumsformat + Leerzeichen + kurzes Zeitformat</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">change_datetime_sql2</span></code></p></td>
+<td><p>Lokales Datum und lokale Uhrzeit</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dd.MM.yyyy</span> <span class="pre">HH:mm:ss</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">change_datetime_utc</span></code></p></td>
+<td><p>UTC-Zeitpunkt</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">yyyy-MM-ddTHH:mm:ss.fffZ</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Für Audit-Felder ist <code class="docutils literal notranslate"><span class="pre">change_datetime_utc</span></code> zu bevorzugen.</p>
+</section>
+</section>
+<section id="url-und-rollenparameter">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">URL- und Rollenparameter</a><a class="headerlink" href="#url-und-rollenparameter" title="Link to this heading">¶</a></h2>
+<section id="url-parameter">
+<h3>URL-Parameter<a class="headerlink" href="#url-parameter" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>url-parameter:&lt;name&gt;
+</pre></div>
+</div>
+<p>Übernimmt den Wert eines Parameters aus der ursprünglichen URL (siehe Abschnitt: Aufruf des Viewers),
+z. B. <code class="docutils literal notranslate"><span class="pre">url-parameter:project_id</span></code>. Ist der Parameter nicht vorhanden, wird ein leerer String gesetzt.</p>
+<p>Die Auswertung kann auf Insert oder Update eingeschränkt werden. Bei einer anderen Operation wird das
+Feld dann nicht gesetzt:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>oninsert:url-parameter:project_id
+onupdate:url-parameter:project_id
+</pre></div>
+</div>
+</section>
+<section id="rollenparameter">
+<h3>Rollenparameter<a class="headerlink" href="#rollenparameter" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>role-parameter:&lt;name&gt;
+</pre></div>
+</div>
+<p>Übernimmt einen Parameter aus den Rolleninformationen des aktuellen Benutzers, z. B.
+<code class="docutils literal notranslate"><span class="pre">role-parameter:GEMEINDENUMMER</span></code> (siehe <a class="reference internal" href="../../../extended_config/roles/index.html"><span class="doc">Rollenparameter</span></a>). Ist der Rollenparameter
+nicht vorhanden, wird ein leerer String gesetzt. Auch Rollenparameter können eingeschränkt werden:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>oninsert:role-parameter:GEMEINDENUMMER
+onupdate:role-parameter:GEMEINDENUMMER
+</pre></div>
+</div>
+</section>
+</section>
+<section id="geometrie-autovalues">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Geometrie-Autovalues</a><a class="headerlink" href="#geometrie-autovalues" title="Link to this heading">¶</a></h2>
+<p>Geometrie-Autovalues verwenden standardmäßig das Koordinatensystem der Feature-Geometrie. Für
+Koordinaten, Längen und Flächen kann nach einem Doppelpunkt eine positive Ziel-SRefId (EPSG-Code)
+angegeben werden:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>shape_area:31256
+shape_centroid_x:4326
+</pre></div>
+</div>
+<p>Die Berechnung erfolgt auf einer <strong>transformierten Kopie</strong>. Die ursprüngliche Feature-Geometrie und
+deren <code class="docutils literal notranslate"><span class="pre">SrsId</span></code> werden nicht verändert. Wenn eine Ziel-SRefId angegeben wird, muss die Quellgeometrie
+eine gültige <code class="docutils literal notranslate"><span class="pre">SrsId</span></code> besitzen. Ein ungültiger EPSG-/SRefId-Wert führt zu einem Konfigurationsfehler.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Der EPSG-Code sollte immer angegeben werden. Andernfalls hängt das Ergebnis vom Koordinatensystem
+der Feature-Geometrie ab, in der Regel das der Ziel-Featureklasse, was nicht gesichert ist.</p>
+</div>
+<section id="langen-und-flachen">
+<h3>Längen und Flächen<a class="headerlink" href="#langen-und-flachen" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 15.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Geometrie</p></th>
+<th class="head"><p>Ergebnis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_len[:SRefId]</span></code></p></td>
+<td><p>Polyline</p></td>
+<td><p>Länge, auf 2 Nachkommastellen gerundet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_len_int[:SRefId]</span></code></p></td>
+<td><p>Polyline</p></td>
+<td><p>Länge, auf ganze Zahl gerundet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_area[:SRefId]</span></code></p></td>
+<td><p>Polygon</p></td>
+<td><p>Fläche, auf 2 Nachkommastellen gerundet</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_area_int[:SRefId]</span></code></p></td>
+<td><p>Polygon</p></td>
+<td><p>Fläche, auf ganze Zahl gerundet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_perimeter[:SRefId]</span></code></p></td>
+<td><p>Polygon</p></td>
+<td><p>Umfang, auf 2 Nachkommastellen gerundet</p></td>
+</tr>
+</tbody>
+</table>
+<p>Die Einheit ergibt sich aus dem verwendeten Koordinatensystem. Bei einem metrischen
+Projektionssystem sind Längen typischerweise Meter und Flächen Quadratmeter.</p>
+</section>
+<section id="schwerpunkt-und-ausdehnung">
+<h3>Schwerpunkt und Ausdehnung<a class="headerlink" href="#schwerpunkt-und-ausdehnung" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Ergebnis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_centroid_x[:SRefId]</span></code></p></td>
+<td><p>X-Koordinate des Schwerpunkts</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_centroid_y[:SRefId]</span></code></p></td>
+<td><p>Y-Koordinate des Schwerpunkts</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_minx[:SRefId]</span></code></p></td>
+<td><p>minimale X-Koordinate der Bounding Box</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_miny[:SRefId]</span></code></p></td>
+<td><p>minimale Y-Koordinate der Bounding Box</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_maxx[:SRefId]</span></code></p></td>
+<td><p>maximale X-Koordinate der Bounding Box</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_maxy[:SRefId]</span></code></p></td>
+<td><p>maximale Y-Koordinate der Bounding Box</p></td>
+</tr>
+</tbody>
+</table>
+<p>Der Schwerpunkt wird abhängig vom Geometrietyp bestimmt:</p>
+<ul class="simple">
+<li><p>Punkt: der Punkt selbst</p></li>
+<li><p>Multipoint: Mittelwert aller Punkte</p></li>
+<li><p>Polyline: Punkt bei der halben Linienlänge</p></li>
+<li><p>Polygon: flächengewichteter Schwerpunkt; Löcher werden abgezogen</p></li>
+<li><p>Envelope: Mittelpunkt</p></li>
+</ul>
+</section>
+<section id="struktur-und-metadaten">
+<h3>Struktur und Metadaten<a class="headerlink" href="#struktur-und-metadaten" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Ergebnis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_vertex_count</span></code></p></td>
+<td><p>Anzahl der Stützpunkte</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_part_count</span></code></p></td>
+<td><p>Anzahl der Geometrieteile</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pointdas</span> <span class="pre">Komma-Leerzeichen-Trennzeichenmultipoint</span></code>, <code class="docutils literal notranslate"><span class="pre">polyline</span></code>, <code class="docutils literal notranslate"><span class="pre">polygon</span></code> oder <code class="docutils literal notranslate"><span class="pre">envelope</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_srefid</span></code></p></td>
+<td><p>SRefId der Feature-Geometrie</p></td>
+</tr>
+</tbody>
+</table>
+<p>Diese vier Autovalues akzeptieren <strong>keine</strong> Ziel-SRefId, weil sie nicht von einer
+Koordinatentransformation abhängen.</p>
+<p>Ist keine Geometrie vorhanden oder passt der Geometrietyp nicht zur Berechnung, wird durch diesen
+Autovalue kein Wert gesetzt.</p>
+</section>
+</section>
+<section id="allgemeine-werte-und-bearbeitungskontext">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Allgemeine Werte und Bearbeitungskontext</a><a class="headerlink" href="#allgemeine-werte-und-bearbeitungskontext" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Autovalue</p></th>
+<th class="head"><p>Beschreibung</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code></p></td>
+<td><p>Lokales Datum und lokale Uhrzeit im Format <code class="docutils literal notranslate"><span class="pre">yyyy-MM-dd</span> <span class="pre">HH:mm:ss</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scale</span></code></p></td>
+<td><p>Aktueller Kartenmaßstab, auf eine ganze Zahl gerundet</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">edit_operation</span></code></p></td>
+<td><p>Aktuelle Bearbeitungsoperation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">map_srefid</span></code></p></td>
+<td><p>SRefId der aktuellen Karte</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">edit_service_id</span></code></p></td>
+<td><p>Service-ID des bearbeiteten Themas</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">edit_layer_id</span></code></p></td>
+<td><p>Layer-ID des bearbeiteten Themas</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">edit_theme_id</span></code></p></td>
+<td><p>ID des Editing-Themas</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">edit_operation</span></code> liefert einen stabilen technischen Wert:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Wert</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Insert</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">insert</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Update</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">update</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Delete</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">delete</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Massenattributierung</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mass_attribution</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Transfer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">transfer</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="benutzerdefinierte-werte-mit-custom">
-<h2>Benutzerdefinierte Werte mit „custom“<a class="headerlink" href="#benutzerdefinierte-werte-mit-custom" title="Link to this heading">¶</a></h2>
-<p>Mit dem <em>Autovalue</em> <code class="docutils literal notranslate"><span class="pre">custom</span></code> können Werte direkt im Eingabefeld definiert werden.
-Beispielsweise kann für ein Feld <strong>QUELLE</strong> immer der Wert <code class="docutils literal notranslate"><span class="pre">WEBGIS</span></code> eingetragen werden:</p>
-<p><code class="docutils literal notranslate"><span class="pre">=WEBGIS</span></code></p>
-<p>Zusätzlich lassen sich Werte aus den URL-Parametern des Viewers übernehmen.
-Dies funktioniert mit <em>originären</em> URL-Parametern (siehe Abschnitt: Aufruf des Viewers):</p>
-<p><code class="docutils literal notranslate"><span class="pre">url-parameter:project_id</span></code></p>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Benutzerdefinierte Werte mit „custom“</a><a class="headerlink" href="#benutzerdefinierte-werte-mit-custom" title="Link to this heading">¶</a></h2>
+<p>Mit dem Autovalue <code class="docutils literal notranslate"><span class="pre">custom</span></code> können Werte direkt im Feld <strong>Benutzerdefinierter Auto Value</strong> definiert
+werden. Ein Wert mit führendem <code class="docutils literal notranslate"><span class="pre">=</span></code> wird als Expression bzw. Template ausgewertet. Beispielsweise
+kann für ein Feld <strong>QUELLE</strong> immer der Wert <code class="docutils literal notranslate"><span class="pre">WEBGIS</span></code> eingetragen werden:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=WEBGIS
+</pre></div>
+</div>
+<section id="expressions-und-templates">
+<h3>Expressions und Templates<a class="headerlink" href="#expressions-und-templates" title="Link to this heading">¶</a></h3>
+<p>Beginnt ein Custom-Autovalue mit <code class="docutils literal notranslate"><span class="pre">=</span></code>, wird er als Expression bzw. Legacy-Template behandelt:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=Objekt [NAME]
+=concat([VORNAME], &quot; &quot;, [NACHNAME])
+=round(shape_area(31256), 2)
+</pre></div>
+</div>
+<p>Expressions werden bei allen Bearbeitungsoperationen ausgewertet. Feldwerte werden aus dem aktuell
+bearbeiteten Feature gelesen. Die vollständige Syntax, alle Funktionen und die Sicherheitsregeln sind
+im Anhang beschrieben: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions (Ausdrücke)</span></a>.</p>
+</section>
+<section id="defaultwert-nur-in-der-insert-maske">
+<h3>Defaultwert nur in der Insert-Maske<a class="headerlink" href="#defaultwert-nur-in-der-insert-maske" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mask-insert-default::&lt;wert&gt;
+</pre></div>
+</div>
+<p>Dieser Eintrag ist <strong>kein</strong> serverseitig gesetzter Autovalue. Er zeigt beim Anlegen eines neuen
+Features lediglich einen Defaultwert in der Eingabemaske an, z. B. <code class="docutils literal notranslate"><span class="pre">mask-insert-default::Entwurf</span></code>.
+Der Benutzer kann den Wert vor dem Speichern ändern.</p>
+</section>
 </section>
 <section id="automatische-attributierung-uber-raumliche-beziehungen">
-<h2>Automatische Attributierung über räumliche Beziehungen<a class="headerlink" href="#automatische-attributierung-uber-raumliche-beziehungen" title="Link to this heading">¶</a></h2>
-<p>Auch räumliche Beziehungen zu anderen Featureklassen können zur automatischen Attributierung genutzt werden:</p>
-<p><code class="docutils literal notranslate"><span class="pre">NR</span> <span class="pre">FROM</span> <span class="pre">GDBAbfrage</span> <span class="pre">SERVICE</span> <span class="pre">kataster</span></code></p>
-<dl class="simple">
-<dt>→ Hier wird das Attribut <strong>NR</strong> von Objekten aus dem Thema <strong>GDBAbfrage</strong> übernommen,</dt><dd><p>wenn diese sich räumlich mit dem gespeicherten Objekt decken.
-Gibt es mehrere Treffer, werden diese mit <strong>Strichpunkten</strong> getrennt.</p>
-</dd>
-</dl>
-<p><code class="docutils literal notranslate"><span class="pre">TYP</span> <span class="pre">FROM</span> <span class="pre">kasten</span> <span class="pre">SERVICE</span> <span class="pre">strom&#64;mycms</span> <span class="pre">BUFFERDIST</span> <span class="pre">20</span> <span class="pre">SEPARATOR</span> <span class="pre">space-space</span> <span class="pre">MAX</span> <span class="pre">10</span></code></p>
-<dl class="simple">
-<dt>→ Hier wird das Attribut <strong>TYP</strong> von Objekten aus dem Thema <strong>Kasten</strong> übernommen,</dt><dd><p>wenn diese im Umkreis von <strong>20 m</strong> liegen (<code class="docutils literal notranslate"><span class="pre">BUFFERDIST</span> <span class="pre">20</span></code>).
-Mehrere Ergebnisse werden mit <strong>Leerzeichen-Bindestrich-Leerzeichen</strong> getrennt
-(<code class="docutils literal notranslate"><span class="pre">SEPARATOR</span> <span class="pre">space-space</span></code>). Es werden maximal <strong>10 Ergebnisse</strong> übernommen (<code class="docutils literal notranslate"><span class="pre">MAX</span> <span class="pre">10</span></code>).</p>
-</dd>
-</dl>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Automatische Attributierung über räumliche Beziehungen</a><a class="headerlink" href="#automatische-attributierung-uber-raumliche-beziehungen" title="Link to this heading">¶</a></h2>
+<p>Ein Custom-Autovalue kann Werte aus Features eines anderen Layers übernehmen, die die aktuelle
+Geometrie räumlich schneiden.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;Feld&gt; from &lt;Layer&gt; [Optionen]
+</pre></div>
+</div>
+<p>Der Layer kann über seinen Namen oder seine ID angegeben werden. Verfügbare Optionen:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 55.0%" />
+<col style="width: 15.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Beschreibung</p></th>
+<th class="head"><p>Standard</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">&lt;Service-ID&gt;</span></code></p></td>
+<td><p>Service, in dem der Layer gesucht wird</p></td>
+<td><p>leer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bufferdist</span> <span class="pre">&lt;Distanz&gt;</span></code></p></td>
+<td><p>Puffer um die aktuelle Geometrie</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">&lt;Anzahl&gt;</span></code></p></td>
+<td><p>maximale Anzahl übernommener Werte</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">seperator</span> <span class="pre">&lt;Text&gt;</span></code></p></td>
+<td><p>Trennzeichen zwischen mehreren Werten</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><code class="docutils literal notranslate"><span class="pre">seperator</span></code> ist aus Kompatibilitätsgründen genau in dieser Schreibweise zu verwenden.</p>
+</div>
+<p>Der besondere Wert <code class="docutils literal notranslate"><span class="pre">space</span></code> im Separator wird durch ein Leerzeichen ersetzt. Texte mit Leerzeichen
+können in Anführungszeichen geschrieben werden. Bei Punkt-Layern wird eine Pufferdistanz von mindestens
+<code class="docutils literal notranslate"><span class="pre">0.03</span></code> verwendet. Die Einheit des Puffers entspricht dem Koordinatensystem der Feature-Geometrie.
+Die gefundenen Feldwerte werden in Abfragereihenfolge verbunden, <code class="docutils literal notranslate"><span class="pre">null</span></code>-Werte werden übersprungen.</p>
+<p>Beispiele:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NR from GDBAbfrage service kataster
+</pre></div>
+</div>
+<p>→ Das Attribut <strong>NR</strong> wird von Objekten aus dem Thema <strong>GDBAbfrage</strong> übernommen, wenn diese sich
+räumlich mit dem gespeicherten Objekt decken. Gibt es mehrere Treffer, werden diese mit
+<strong>Strichpunkten</strong> getrennt.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GNR from Grundstuecke service kataster max 10 seperator &quot;, &quot;
+</pre></div>
+</div>
+<p>→ Das Attribut <strong>GNR</strong> wird übernommen, es werden maximal <strong>10</strong> Werte mit Komma und Leerzeichen getrennt eingetragen.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TYP from kasten service strom@mycms bufferdist 20 seperator space-space max 10
+</pre></div>
+</div>
+<p>→ Das Attribut <strong>TYP</strong> wird von Objekten aus dem Thema <strong>Kasten</strong> übernommen, wenn diese im Umkreis von
+<strong>20</strong> Einheiten liegen. Mehrere Ergebnisse werden mit <strong>Leerzeichen-Bindestrich-Leerzeichen</strong>
+getrennt, maximal <strong>10</strong> Ergebnisse.</p>
 </section>
 <section id="automatische-werte-aus-einer-datenbankabfrage-db-select">
-<h2>Automatische Werte aus einer Datenbankabfrage („db_select“)<a class="headerlink" href="#automatische-werte-aus-einer-datenbankabfrage-db-select" title="Link to this heading">¶</a></h2>
-<p>Der Autovalue <code class="docutils literal notranslate"><span class="pre">db_select</span></code> ermöglicht das automatische Befüllen eines Feldes
-über eine Datenbankabfrage. Dazu müssen folgende Angaben gemacht werden:</p>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Automatische Werte aus einer Datenbankabfrage („db_select“)</a><a class="headerlink" href="#automatische-werte-aus-einer-datenbankabfrage-db-select" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">db_select</span></code> führt bei jeder unterstützten Bearbeitungsoperation eine <strong>skalare</strong> Datenbankabfrage
+aus. Dazu müssen folgende Angaben gemacht werden:</p>
 <ul class="simple">
-<li><p><strong>ConnectionString</strong> → Die Verbindung zur Datenbank</p></li>
-<li><p><strong>SQL Statement</strong> → Die Abfrage für das gewünschte Feld</p></li>
+<li><p><strong>Benutzerdefinierter Auto Value:</strong> Connection String</p></li>
+<li><p><strong>Benutzerdefinierter Auto Value 2:</strong> SQL-Statement</p></li>
 </ul>
 <img alt="../../../_images/editing19.png" src="../../../_images/editing19.png" />
-<p>Mit <strong>Platzhaltern</strong> wie <code class="docutils literal notranslate"><span class="pre">{{VORGANG_TEXT}}</span></code> kann auf aktuelle Eingaben zugegriffen werden.</p>
+<p>Beispiel:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>select GNR
+from GRUNDSTUECK
+where OBJECTID = {{OBJECTID}}
+</pre></div>
+</div>
+<p>Featurefelder werden mit <code class="docutils literal notranslate"><span class="pre">{{FELDNAME}}</span></code> referenziert (z. B. <code class="docutils literal notranslate"><span class="pre">{{VORGANG_TEXT}}</span></code>). Diese Werte werden
+als <strong>Datenbankparameter</strong> übergeben und nicht direkt in das SQL eingesetzt.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p>Um Platzhalter dürfen <strong>keine Hochkommas</strong> gesetzt werden, auch nicht bei Textfeldern:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>-- richtig
+where CODE = {{CODE}}
+
+-- falsch
+where CODE = &#39;{{CODE}}&#39;
+</pre></div>
+</div>
+</div>
+<p>Benutzer- und sitzungsabhängige Filterplatzhalter werden vor der Ausführung ebenfalls aufgelöst. Das
+Statement muss genau einen skalaren Wert liefern. Der erste Wert des ersten Datensatzes wird als
+Autovalue verwendet.</p>
+<section id="db-select-on-insert">
+<h3>db_select_on_insert<a class="headerlink" href="#db-select-on-insert" title="Link to this heading">¶</a></h3>
+<p>Funktioniert wie <code class="docutils literal notranslate"><span class="pre">db_select</span></code>, wird aber ausschließlich beim Insert ausgeführt. Bei anderen
+Operationen wird das Feld nicht gesetzt und die Datenbankkonfiguration nicht geprüft.</p>
+</section>
+<section id="verhalten-bei-massenattributierung">
+<h3>Verhalten bei Massenattributierung<a class="headerlink" href="#verhalten-bei-massenattributierung" title="Link to this heading">¶</a></h3>
+<p>Bei einer Massenattributierung wird die Abfrage nur ausgeführt, wenn mindestens eines der
+referenzierten Featurefelder enthalten ist. Sind nur einige, aber nicht alle benötigten Felder
+enthalten, wird ein Fehler mit den fehlenden Attributnamen ausgegeben.</p>
+</section>
 </section>
 <section id="autovalues-uber-webservice-datalinq">
-<h2>Autovalues über WebService (DataLinq)<a class="headerlink" href="#autovalues-uber-webservice-datalinq" title="Link to this heading">¶</a></h2>
-<p>Statt einer Datenbank kann auch ein WebService als Datenquelle für <code class="docutils literal notranslate"><span class="pre">db_select</span></code> genutzt werden.
-Ein Beispiel für eine <em>DataLinq</em>-Abfrage:</p>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Autovalues über WebService (DataLinq)</a><a class="headerlink" href="#autovalues-uber-webservice-datalinq" title="Link to this heading">¶</a></h2>
+<p>Ist <strong>Benutzerdefinierter Auto Value</strong> eine HTTP- oder HTTPS-URL, wird keine direkte
+Datenbankverbindung geöffnet, sondern ein WebService (z. B. <em>DataLinq</em>) abgefragt:</p>
+<ul class="simple">
+<li><p><strong>Benutzerdefinierter Auto Value:</strong> DataLinq-/HTTP-URL</p></li>
+<li><p><strong>Benutzerdefinierter Auto Value 2:</strong> Query-String mit <code class="docutils literal notranslate"><span class="pre">{{FELDNAME}}</span></code></p></li>
+</ul>
+<p>Ein Beispiel für eine <em>DataLinq</em>-Abfrage:</p>
 <p><code class="docutils literal notranslate"><span class="pre">https://localhost:44341/datalinq/select/auswahllisten(oJ...token)&#64;color?value=4711</span></code></p>
 <p>Diese Abfrage liefert folgendes JSON-Ergebnis:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
@@ -255,35 +906,93 @@ Ein Beispiel für eine <em>DataLinq</em>-Abfrage:</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>Für die Einbindung dieses Dienstes müssen die Felder <strong>ConnectionString</strong> und <strong>SqlStatement</strong>
-folgendermaßen befüllt werden:</p>
+<p>Für die Einbindung dieses Dienstes müssen die Felder folgendermaßen befüllt werden:</p>
 <p><strong>ConnectionString:</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">https://localhost:44341/datalinq/select/auswahllisten(oJ...token)&#64;color</span></code></p>
 <p><strong>SqlStatement:</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">value={{color}}</span></code></p>
 <p>Hierbei ist <code class="docutils literal notranslate"><span class="pre">color</span></code> das Edit-Eingabe/Auswahllisten-Feld, das für diesen Autovalue verwendet wird.
-In diesem Beispiel würde als Autovalue der Wert <strong>„Blau“</strong> übernommen werden.</p>
+In diesem Beispiel würde als Autovalue der Wert <strong>„Blau“</strong> übernommen werden. Die Feldwerte werden
+URL-kodiert übergeben.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
-<ul>
-<li><p>Es wird immer das <strong>erste Ergebnis</strong> der Abfrage verwendet.</p></li>
+<ul class="simple">
+<li><p>Es wird immer das <strong>erste Ergebnis</strong> der Abfrage verwendet. Die Antwort muss ein JSON-Array sein.</p></li>
 <li><p>Bei einer URL-Abfrage wird der Wert aus dem Feld <strong>„name“</strong> übernommen.</p></li>
 <li><p>Bei <em>DataLinq PlainText</em>-Endpoints heißt das Feld per Definition immer <strong>„text“</strong>.</p></li>
-<li><p>Falls eine eigene SQL-Abfrage in <em>DataLinq</em> genutzt wird, sollte das gewünschte Feld umbenannt werden:</p>
-<p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FARBE</span> <span class="pre">as</span> <span class="pre">name</span> <span class="pre">FROM</span> <span class="pre">TABLE</span> <span class="pre">WHERE</span> <span class="pre">...</span></code></p>
-</li>
+<li><p>Falls eine eigene SQL-Abfrage in <em>DataLinq</em> genutzt wird, sollte das gewünschte Feld
+umbenannt werden: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">FARBE</span> <span class="pre">as</span> <span class="pre">name</span> <span class="pre">FROM</span> <span class="pre">TABLE</span> <span class="pre">WHERE</span> <span class="pre">...</span></code></p></li>
 </ul>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
-<p><strong>Sicherheitshinweis:</strong>
-- <em>ConnectionStrings</em> oder URLs mit Tokens sollten nicht direkt im CMS hinterlegt werden.
-- Stattdessen sollten diese Werte im Abschnitt <code class="docutils literal notranslate"><span class="pre">secrets</span></code> gespeichert werden.
-- Der ConnectionString kann dann mit einem <strong>Platzhalter</strong> angegeben werden:</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">{{select-datalinq-endpoint-auswahllisten}}&#64;color</span></code></p>
-</div></blockquote>
+<p><strong>Sicherheitshinweis:</strong></p>
+<ul>
+<li><p><em>ConnectionStrings</em> oder URLs mit Tokens sollten nicht direkt im CMS hinterlegt werden.</p></li>
+<li><p>Stattdessen sollten diese Werte im Abschnitt <code class="docutils literal notranslate"><span class="pre">secrets</span></code> gespeichert werden.</p></li>
+<li><p>Der ConnectionString kann dann mit einem <strong>Platzhalter</strong> angegeben werden:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{{select-datalinq-endpoint-auswahllisten}}&#64;color</span></code></p>
+</li>
+</ul>
 </div>
+</section>
+<section id="fehler-und-leerwertverhalten">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Fehler- und Leerwertverhalten</a><a class="headerlink" href="#fehler-und-leerwertverhalten" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Ein unbekannter Autovalue setzt das Feld nicht.</p></li>
+<li><p>Ein leerer Autovalue setzt das Feld nicht.</p></li>
+<li><p>Ein operationsgebundener Autovalue (<code class="docutils literal notranslate"><span class="pre">create_*das</span> <span class="pre">Komma-Leerzeichen-Trennzeichenoninsert:</span></code>, <code class="docutils literal notranslate"><span class="pre">onupdate:</span></code> …) setzt bei einer
+anderen Operation keinen Wert.</p></li>
+<li><p>Fehlende URL- oder Rollenparameter setzen einen leeren String.</p></li>
+<li><p>Fehlende oder ungeeignete Geometrien setzen durch den betreffenden Geometrie-Autovalue keinen Wert.</p></li>
+<li><p>Ungültige SRefIds, fehlende Quell-SRefIds bei einer Transformation, unbekannte Services/Layer und
+fehlerhafte Datenbankkonfigurationen erzeugen einen nachvollziehbaren Fehler.</p></li>
+<li><p>Expressions melden Syntax-, Typ- und Rechenfehler und fallen nicht still auf einen anderen Parser
+zurück.</p></li>
+</ul>
+</section>
+<section id="empfohlene-konfigurationen">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Empfohlene Konfigurationen</a><a class="headerlink" href="#empfohlene-konfigurationen" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feld → Autovalue</p></th>
+<th class="head"><p>Zweck</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CREATED_BY</span></code> → <code class="docutils literal notranslate"><span class="pre">create_login_short</span></code></p></td>
+<td><p>Ersteller</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CREATED_AT</span></code> → <code class="docutils literal notranslate"><span class="pre">create_datetime_utc</span></code></p></td>
+<td><p>Erstellungszeit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CHANGED_BY</span></code> → <code class="docutils literal notranslate"><span class="pre">change_login_short</span></code></p></td>
+<td><p>Letzter Bearbeiter</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CHANGED_AT</span></code> → <code class="docutils literal notranslate"><span class="pre">change_datetime_utc</span></code></p></td>
+<td><p>Änderungszeit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FEATURE_ID</span></code> → <code class="docutils literal notranslate"><span class="pre">guid_v7</span></code></p></td>
+<td><p>Eindeutige, sortierbare ID</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">AREA_M2</span></code> → <code class="docutils literal notranslate"><span class="pre">shape_area:31256</span></code></p></td>
+<td><p>Fläche in einem metrischen Koordinatensystem</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EDIT_ACTION</span></code> → <code class="docutils literal notranslate"><span class="pre">edit_operation</span></code></p></td>
+<td><p>Bearbeitungskontext protokollieren</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EDIT_THEME</span></code> → <code class="docutils literal notranslate"><span class="pre">edit_theme_id</span></code></p></td>
+<td><p>Bearbeitungskontext protokollieren</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MAP_SREF</span></code> → <code class="docutils literal notranslate"><span class="pre">map_srefid</span></code></p></td>
+<td><p>Bearbeitungskontext protokollieren</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
@@ -302,11 +1011,45 @@ In diesem Beispiel würde als Autovalue der Wert <strong>„Blau“</strong> üb
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Editierbare Felder: Autovalues</a><ul>
-<li><a class="reference internal" href="#berechnete-werte-mit-ausdrucken">Berechnete Werte mit Ausdrücken</a></li>
-<li><a class="reference internal" href="#benutzerdefinierte-werte-mit-custom">Benutzerdefinierte Werte mit „custom“</a></li>
+<li><a class="reference internal" href="#auswahl-im-cms">Auswahl im CMS</a></li>
+<li><a class="reference internal" href="#wann-wird-ein-autovalue-ausgewertet">Wann wird ein Autovalue ausgewertet?</a></li>
+<li><a class="reference internal" href="#werte-nur-beim-insert">Werte nur beim Insert</a><ul>
+<li><a class="reference internal" href="#benutzer-und-login">Benutzer und Login</a></li>
+<li><a class="reference internal" href="#guids">GUIDs</a></li>
+<li><a class="reference internal" href="#erstellungsdatum-und-zeit">Erstellungsdatum und -zeit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anderungswerte">Änderungswerte</a><ul>
+<li><a class="reference internal" href="#id1">Benutzer und Login</a></li>
+<li><a class="reference internal" href="#anderungsdatum-und-zeit">Änderungsdatum und -zeit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#url-und-rollenparameter">URL- und Rollenparameter</a><ul>
+<li><a class="reference internal" href="#url-parameter">URL-Parameter</a></li>
+<li><a class="reference internal" href="#rollenparameter">Rollenparameter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometrie-autovalues">Geometrie-Autovalues</a><ul>
+<li><a class="reference internal" href="#langen-und-flachen">Längen und Flächen</a></li>
+<li><a class="reference internal" href="#schwerpunkt-und-ausdehnung">Schwerpunkt und Ausdehnung</a></li>
+<li><a class="reference internal" href="#struktur-und-metadaten">Struktur und Metadaten</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#allgemeine-werte-und-bearbeitungskontext">Allgemeine Werte und Bearbeitungskontext</a></li>
+<li><a class="reference internal" href="#benutzerdefinierte-werte-mit-custom">Benutzerdefinierte Werte mit „custom“</a><ul>
+<li><a class="reference internal" href="#expressions-und-templates">Expressions und Templates</a></li>
+<li><a class="reference internal" href="#defaultwert-nur-in-der-insert-maske">Defaultwert nur in der Insert-Maske</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#automatische-attributierung-uber-raumliche-beziehungen">Automatische Attributierung über räumliche Beziehungen</a></li>
-<li><a class="reference internal" href="#automatische-werte-aus-einer-datenbankabfrage-db-select">Automatische Werte aus einer Datenbankabfrage („db_select“)</a></li>
+<li><a class="reference internal" href="#automatische-werte-aus-einer-datenbankabfrage-db-select">Automatische Werte aus einer Datenbankabfrage („db_select“)</a><ul>
+<li><a class="reference internal" href="#db-select-on-insert">db_select_on_insert</a></li>
+<li><a class="reference internal" href="#verhalten-bei-massenattributierung">Verhalten bei Massenattributierung</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#autovalues-uber-webservice-datalinq">Autovalues über WebService (DataLinq)</a></li>
+<li><a class="reference internal" href="#fehler-und-leerwertverhalten">Fehler- und Leerwertverhalten</a></li>
+<li><a class="reference internal" href="#empfohlene-konfigurationen">Empfohlene Konfigurationen</a></li>
 </ul>
 </li>
 </ul>

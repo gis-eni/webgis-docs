@@ -184,7 +184,7 @@ Structured expressions are typed and support:
 * Null/empty-value functions
 * Numeric functions
 * Date functions
-* For AutoValues additionally GIS/geometry functions
+* GIS/geometry functions (for AutoValues and tables)
 
 Field references
 ^^^^^^^^^^^^^^^^
@@ -411,10 +411,10 @@ Examples:
 Date values are interpreted as ISO 8601 first. As a compatibility fallback, the current culture is
 used.
 
-GIS/geometry functions (AutoValues only)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+GIS/geometry functions
+^^^^^^^^^^^^^^^^^^^^^^
 
-These functions are available in the AutoValue context only:
+These functions are available for AutoValues and for table columns of type ``TableFieldExpression``:
 
 .. code-block:: text
 
@@ -428,6 +428,22 @@ These functions are available in the AutoValue context only:
 * With an ``SRefId`` (EPSG code), a **transformed copy** of the geometry is used. The original
   feature geometry is not modified.
 
+.. important::
+
+   The EPSG code should **always be specified**:
+
+   * **AutoValues:** Without it, the coordinate system of the target feature class is usually used.
+     This is not guaranteed, however.
+   * **Tables:** The geometry is transformed into other coordinate systems for various use cases and
+     is usually available in WGS84 here. The EPSG code must therefore always be specified, otherwise
+     lengths and areas are not in the expected unit.
+
+.. tip::
+
+   In tables, the functions should not be used if the database already provides a calculated value
+   (e.g. ``Shape.Length()`` or a length/area field). For performance reasons, that value should be
+   preferred.
+
 Examples:
 
 .. code-block:: text
@@ -437,6 +453,13 @@ Examples:
    =round(shape_area(31256), 2)
    =shape_centroid_x(4326)
    =concat("Area: ", round(shape_area(31256), 2), " m2")
+
+In a table column (``TableFieldExpression``), the leading ``=`` is omitted:
+
+.. code-block:: text
+
+   round(shape_area(31256), 2)
+   concat("Length: ", round(shape_len(31256), 1), " m")
 
 Text output in structured expressions
 -------------------------------------
