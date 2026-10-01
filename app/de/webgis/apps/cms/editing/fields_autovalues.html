@@ -199,6 +199,11 @@ ihrem Wert sortiert, was in der Regel zu einer geringeren Fragmentierung der Ind
 <p>Diese Felder werden in der Eingabemaske meist als <em>readonly</em> oder nicht sichtbar definiert.</p>
 <p>Im folgenden Beispiel wird die Länge der erstellten Liniengeometrie in ein Feld übernommen:</p>
 <img alt="../../../_images/editing18.png" src="../../../_images/editing18.png" />
+<section id="berechnete-werte-mit-ausdrucken">
+<h2>Berechnete Werte mit Ausdrücken<a class="headerlink" href="#berechnete-werte-mit-ausdrucken" title="Link to this heading">¶</a></h2>
+<p>Mit einem führenden <code class="docutils literal notranslate"><span class="pre">=</span></code> können Autovalues auch als <em>Expression</em> angegeben werden, z.B. <code class="docutils literal notranslate"><span class="pre">=concat([FIRSTNAME],</span> <span class="pre">&quot;</span> <span class="pre">&quot;,</span> <span class="pre">[LASTNAME])</span></code> oder
+<code class="docutils literal notranslate"><span class="pre">=round(shape_area(31256),</span> <span class="pre">2)</span></code>. Eine Beschreibung aller Möglichkeiten findet sich im Anhang: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions (Ausdrücke)</span></a>.</p>
+</section>
 <section id="benutzerdefinierte-werte-mit-custom">
 <h2>Benutzerdefinierte Werte mit „custom“<a class="headerlink" href="#benutzerdefinierte-werte-mit-custom" title="Link to this heading">¶</a></h2>
 <p>Mit dem <em>Autovalue</em> <code class="docutils literal notranslate"><span class="pre">custom</span></code> können Werte direkt im Eingabefeld definiert werden.
@@ -297,6 +302,7 @@ In diesem Beispiel würde als Autovalue der Wert <strong>„Blau“</strong> üb
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Editierbare Felder: Autovalues</a><ul>
+<li><a class="reference internal" href="#berechnete-werte-mit-ausdrucken">Berechnete Werte mit Ausdrücken</a></li>
 <li><a class="reference internal" href="#benutzerdefinierte-werte-mit-custom">Benutzerdefinierte Werte mit „custom“</a></li>
 <li><a class="reference internal" href="#automatische-attributierung-uber-raumliche-beziehungen">Automatische Attributierung über räumliche Beziehungen</a></li>
 <li><a class="reference internal" href="#automatische-werte-aus-einer-datenbankabfrage-db-select">Automatische Werte aus einer Datenbankabfrage („db_select“)</a></li>

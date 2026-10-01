@@ -392,10 +392,11 @@ Trennzeichen angegeben werden, mit dem die einzelnen Werte in der URL getrennt w
 <p>Durch diese Auswahl kann gesteuert werden, wie und wo der Benutzer nach Klick auf den Hotlink weitergeleitet wird.</p>
 <p>Weitere Spalten-Typen sind beispielsweise:</p>
 <ul class="simple">
-<li><p><strong>Expression:</strong>
+<li><p><strong>TableFieldExpression:</strong>
 Hier kann ein <em>Ausdruck</em> bestehend aus (mehreren) Feldern und freiem Text angegeben werden.
 Die Platzhalter für die Felder werden wieder in eckigen Klammern angegeben, z.B.: <code class="docutils literal notranslate"><span class="pre">Fläche:</span> <span class="pre">[THE_AREA_FIELD]m²</span></code>.
-Zusätzlich können bei Expression auch Funktionen zum Berechnen und Formatieren verwendet werden (siehe unten).</p></li>
+Zusätzlich können Funktionen zum Berechnen und Formatieren verwendet werden. Die neuen <em>Structured Expressions</em> (z.B. <code class="docutils literal notranslate"><span class="pre">round(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">concat(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">if(...)</span></code>)
+sind im Anhang beschrieben (<a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions (Ausdrücke)</span></a>), die alten <code class="docutils literal notranslate"><span class="pre">$...</span></code>-Funktionen weiter unten.</p></li>
 <li><p><strong>ImageExpression:</strong>
 Wie Hotlink, nur muss die Ziel-URL eine Bilddatei sein. Das Bild wird in der Ergebnistabelle
 angezeigt. Die Größe kann eingestellt werden.</p></li>
@@ -405,9 +406,20 @@ Das Ergebnis wird als anklickbare E-Mail-Adresse oder Telefonnummer in der Tabel
 Das Ergebnis wird als Datum dargestellt. Unter Definition kann dabei eingestellt
 werden, wie das Datum formatiert werden soll.</p></li>
 </ul>
-<section id="funktionen-innerhalb-von-expressions">
-<h2>Funktionen innerhalb von Expressions<a class="headerlink" href="#funktionen-innerhalb-von-expressions" title="Link to this heading">¶</a></h2>
-<p>Bei Tabellenspalten vom Typ <em>Expression</em> können innerhalb des Ausdrucks neben den oben angeführten Platzhaltern für Felder in eckigen Klammern
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Ausdrücke sind deutlich mächtiger geworden (Bedingungen, String-, Datums- und Rechenfunktionen, <code class="docutils literal notranslate"><span class="pre">concat</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">coalesce</span></code> …).
+Eine vollständige Beschreibung der neuen <em>Structured Expressions</em> findet sich im Anhang: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions (Ausdrücke)</span></a>.</p>
+</div>
+<section id="legacy-funktionen-in-tablefieldexpression">
+<h2>Legacy-<code class="docutils literal notranslate"><span class="pre">$</span></code>-Funktionen in <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code><a class="headerlink" href="#legacy-funktionen-in-tablefieldexpression" title="Link to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Dieser Abschnitt beschreibt ausschließlich die <strong>Legacy-Syntax</strong> mit <code class="docutils literal notranslate"><span class="pre">$...</span></code>-Funktionen (<code class="docutils literal notranslate"><span class="pre">$round2(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">$eval(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">$n2_de(...)</span></code>).
+Funktionen ohne <code class="docutils literal notranslate"><span class="pre">$</span></code> wie <code class="docutils literal notranslate"><span class="pre">round(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">concat(...)</span></code> und <code class="docutils literal notranslate"><span class="pre">if(...)</span></code> gehören zur neuen <strong>Structured Expression</strong> und werden
+im Anhang beschrieben: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions (Ausdrücke)</span></a>.</p>
+</div>
+<p>Bei Tabellenspalten vom Typ <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code> können innerhalb des Ausdrucks neben den oben angeführten Platzhaltern für Felder in eckigen Klammern
 auch Funktionen eingefügt werden. Diese dienen für spezielle Berechnungen und Formatierungen des Feldes.</p>
 <p>Funktionen beginnen immer mit <code class="docutils literal notranslate"><span class="pre">$</span></code> gefolgt vom Funktionsnamen. Das Argument wird der Funktion in Klammern übergeben, z.B. <code class="docutils literal notranslate"><span class="pre">$eval(42*42)</span></code>,
 Attribute aus dem aktuellen Objekt werden der Funktion wieder als Platzhalter in eckigen Klammern übergeben, z.B. <code class="docutils literal notranslate"><span class="pre">$eval([THE_AREA_FIELD]*42)</span></code>.</p>
@@ -471,7 +483,7 @@ Tabelle <code class="docutils literal notranslate"><span class="pre">NaN</span><
 <li><a class="reference internal" href="#suchfelder">Suchfelder</a></li>
 <li><a class="reference internal" href="#auswahllisten">Auswahllisten</a></li>
 <li><a class="reference internal" href="#tabelle">Tabelle</a><ul>
-<li><a class="reference internal" href="#funktionen-innerhalb-von-expressions">Funktionen innerhalb von Expressions</a></li>
+<li><a class="reference internal" href="#legacy-funktionen-in-tablefieldexpression">Legacy-<code class="docutils literal notranslate"><span class="pre">$</span></code>-Funktionen in <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code></a></li>
 </ul>
 </li>
 </ul>

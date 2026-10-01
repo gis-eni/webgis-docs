@@ -389,10 +389,11 @@ delimiter can also be specified here, with which the individual values are separ
 <p>This selection controls how and where the user is redirected after clicking the hotlink.</p>
 <p>Further column types include, for example:</p>
 <ul class="simple">
-<li><p><strong>Expression:</strong>
+<li><p><strong>TableFieldExpression:</strong>
 Here you can specify an <em>expression</em> consisting of (multiple) fields and free text.
 The placeholders for the fields are again specified in square brackets, e.g.: <code class="docutils literal notranslate"><span class="pre">Area:</span> <span class="pre">[THE_AREA_FIELD]m²</span></code>.
-Additionally, functions for calculating and formatting can also be used with Expression (see below).</p></li>
+Additionally, functions for calculating and formatting can be used. The new <em>structured expressions</em> (e.g. <code class="docutils literal notranslate"><span class="pre">round(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">concat(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">if(...)</span></code>)
+are described in the appendix (<a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions</span></a>), the old <code class="docutils literal notranslate"><span class="pre">$...</span></code> functions further below.</p></li>
 <li><p><strong>ImageExpression:</strong>
 Like Hotlink, except the target URL must be an image file. The image is shown in the result table.
 The size can be adjusted.</p></li>
@@ -402,9 +403,20 @@ The result is shown in the table as a clickable email address or phone number.</
 The result is shown as a date. Under Definition, you can set
 how the date should be formatted.</p></li>
 </ul>
-<section id="functions-within-expressions">
-<h2>Functions Within Expressions<a class="headerlink" href="#functions-within-expressions" title="Link to this heading">¶</a></h2>
-<p>For table columns of type <em>Expression</em>, in addition to the placeholders for fields shown above in square brackets,
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Expressions have become much more powerful (conditions, string, date and math functions, <code class="docutils literal notranslate"><span class="pre">concat</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">coalesce</span></code> …).
+A complete description of the new <em>structured expressions</em> can be found in the appendix: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions</span></a>.</p>
+</div>
+<section id="legacy-functions-in-tablefieldexpression">
+<h2>Legacy <code class="docutils literal notranslate"><span class="pre">$</span></code> Functions in <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code><a class="headerlink" href="#legacy-functions-in-tablefieldexpression" title="Link to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section describes the <strong>legacy syntax</strong> with <code class="docutils literal notranslate"><span class="pre">$...</span></code> functions only (<code class="docutils literal notranslate"><span class="pre">$round2(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">$eval(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">$n2_de(...)</span></code>).
+Functions without <code class="docutils literal notranslate"><span class="pre">$</span></code> such as <code class="docutils literal notranslate"><span class="pre">round(...)</span></code>, <code class="docutils literal notranslate"><span class="pre">concat(...)</span></code> and <code class="docutils literal notranslate"><span class="pre">if(...)</span></code> belong to the new <strong>structured expression</strong> and are
+described in the appendix: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions</span></a>.</p>
+</div>
+<p>For table columns of type <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code>, in addition to the placeholders for fields shown above in square brackets,
 functions can also be inserted within the expression. These are used for special calculations and formatting of the field.</p>
 <p>Functions always begin with <code class="docutils literal notranslate"><span class="pre">$</span></code> followed by the function name. The argument is passed to the function in parentheses, e.g. <code class="docutils literal notranslate"><span class="pre">$eval(42*42)</span></code>.
 Attributes from the current object are again passed to the function as placeholders in square brackets, e.g. <code class="docutils literal notranslate"><span class="pre">$eval([THE_AREA_FIELD]*42)</span></code>.</p>
@@ -468,7 +480,7 @@ table is <code class="docutils literal notranslate"><span class="pre">NaN</span>
 <li><a class="reference internal" href="#search-fields">Search Fields</a></li>
 <li><a class="reference internal" href="#selection-lists">Selection Lists</a></li>
 <li><a class="reference internal" href="#table">Table</a><ul>
-<li><a class="reference internal" href="#functions-within-expressions">Functions Within Expressions</a></li>
+<li><a class="reference internal" href="#legacy-functions-in-tablefieldexpression">Legacy <code class="docutils literal notranslate"><span class="pre">$</span></code> Functions in <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code></a></li>
 </ul>
 </li>
 </ul>

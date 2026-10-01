@@ -271,10 +271,11 @@ Durch diese Auswahl kann gesteuert werden, wie und wo der Benutzer nach Klick au
 
 Weitere Spalten-Typen sind beispielsweise:
 
-* **Expression:**  
+* **TableFieldExpression:**  
   Hier kann ein *Ausdruck* bestehend aus (mehreren) Feldern und freiem Text angegeben werden.  
   Die Platzhalter für die Felder werden wieder in eckigen Klammern angegeben, z.B.: ``Fläche: [THE_AREA_FIELD]m²``.  
-  Zusätzlich können bei Expression auch Funktionen zum Berechnen und Formatieren verwendet werden (siehe unten).
+  Zusätzlich können Funktionen zum Berechnen und Formatieren verwendet werden. Die neuen *Structured Expressions* (z.B. ``round(...)``, ``concat(...)``, ``if(...)``)
+  sind im Anhang beschrieben (:doc:`/annex/expressions`), die alten ``$...``-Funktionen weiter unten.
 
 * **ImageExpression:**  
   Wie Hotlink, nur muss die Ziel-URL eine Bilddatei sein. Das Bild wird in der Ergebnistabelle 
@@ -288,10 +289,19 @@ Weitere Spalten-Typen sind beispielsweise:
   werden, wie das Datum formatiert werden soll.
 
 
-Funktionen innerhalb von Expressions
-------------------------------------
+.. tip::
+   Ausdrücke sind deutlich mächtiger geworden (Bedingungen, String-, Datums- und Rechenfunktionen, ``concat``, ``if``, ``coalesce`` ...).
+   Eine vollständige Beschreibung der neuen *Structured Expressions* findet sich im Anhang: :doc:`/annex/expressions`.
 
-Bei Tabellenspalten vom Typ *Expression* können innerhalb des Ausdrucks neben den oben angeführten Platzhaltern für Felder in eckigen Klammern 
+Legacy-``$``-Funktionen in ``TableFieldExpression``
+---------------------------------------------------
+
+.. note::
+   Dieser Abschnitt beschreibt ausschließlich die **Legacy-Syntax** mit ``$...``-Funktionen (``$round2(...)``, ``$eval(...)``, ``$n2_de(...)``).
+   Funktionen ohne ``$`` wie ``round(...)``, ``concat(...)`` und ``if(...)`` gehören zur neuen **Structured Expression** und werden
+   im Anhang beschrieben: :doc:`/annex/expressions`.
+
+Bei Tabellenspalten vom Typ ``TableFieldExpression`` können innerhalb des Ausdrucks neben den oben angeführten Platzhaltern für Felder in eckigen Klammern 
 auch Funktionen eingefügt werden. Diese dienen für spezielle Berechnungen und Formatierungen des Feldes.
 
 Funktionen beginnen immer mit ``$`` gefolgt vom Funktionsnamen. Das Argument wird der Funktion in Klammern übergeben, z.B. ``$eval(42*42)``, 

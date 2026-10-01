@@ -29,6 +29,12 @@ Im folgenden Beispiel wird die Länge der erstellten Liniengeometrie in ein Feld
 
 .. image:: img/editing18.png
 
+Berechnete Werte mit Ausdrücken
+-------------------------------
+
+Mit einem führenden ``=`` können Autovalues auch als *Expression* angegeben werden, z.B. ``=concat([FIRSTNAME], " ", [LASTNAME])`` oder
+``=round(shape_area(31256), 2)``. Eine Beschreibung aller Möglichkeiten findet sich im Anhang: :doc:`/annex/expressions`.
+
 Benutzerdefinierte Werte mit „custom“
 -------------------------------------
 

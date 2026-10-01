@@ -10,4 +10,5 @@ Appendix
    geocodes
    ags-spatial-query
    logging
+   expressions
 

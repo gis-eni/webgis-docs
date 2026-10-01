@@ -269,10 +269,11 @@ This selection controls how and where the user is redirected after clicking the 
 
 Further column types include, for example:
 
-* **Expression:**
+* **TableFieldExpression:**
   Here you can specify an *expression* consisting of (multiple) fields and free text.
   The placeholders for the fields are again specified in square brackets, e.g.: ``Area: [THE_AREA_FIELD]m²``.
-  Additionally, functions for calculating and formatting can also be used with Expression (see below).
+  Additionally, functions for calculating and formatting can be used. The new *structured expressions* (e.g. ``round(...)``, ``concat(...)``, ``if(...)``)
+  are described in the appendix (:doc:`/annex/expressions`), the old ``$...`` functions further below.
 
 * **ImageExpression:**
   Like Hotlink, except the target URL must be an image file. The image is shown in the result table.
@@ -286,10 +287,19 @@ Further column types include, for example:
   how the date should be formatted.
 
 
-Functions Within Expressions
-------------------------------------
+.. tip::
+   Expressions have become much more powerful (conditions, string, date and math functions, ``concat``, ``if``, ``coalesce`` ...).
+   A complete description of the new *structured expressions* can be found in the appendix: :doc:`/annex/expressions`.
 
-For table columns of type *Expression*, in addition to the placeholders for fields shown above in square brackets,
+Legacy ``$`` Functions in ``TableFieldExpression``
+--------------------------------------------------
+
+.. note::
+   This section describes the **legacy syntax** with ``$...`` functions only (``$round2(...)``, ``$eval(...)``, ``$n2_de(...)``).
+   Functions without ``$`` such as ``round(...)``, ``concat(...)`` and ``if(...)`` belong to the new **structured expression** and are
+   described in the appendix: :doc:`/annex/expressions`.
+
+For table columns of type ``TableFieldExpression``, in addition to the placeholders for fields shown above in square brackets,
 functions can also be inserted within the expression. These are used for special calculations and formatting of the field.
 
 Functions always begin with ``$`` followed by the function name. The argument is passed to the function in parentheses, e.g. ``$eval(42*42)``.

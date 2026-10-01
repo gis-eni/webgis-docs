@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Expressions &#8212; WebGIS 2026 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
+    <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Application Logging (Console / OpenTelemetry / Serilog / Seq)" href="logging.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+
+        <a id="eni_home_link" href="/index.html" title="Back to overview">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3.172l-8.5 7.653a.75.75 0 0 0 1 1.116L5 11.5V20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4h2v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.5l.5.441a.75.75 0 0 0 1-1.116L12 3.172z"/></svg>
+        </a>
+
+        <h1><a href="../index.html" title="Go to homepage">WebGIS for Admins</a></h1>
+
+        <a id="eni_lang_switch" href="/de/webgis/annex/expressions.html" title="Auf Deutsch wechseln">
+            DE
+        </a>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apps/index.html">WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Tool Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Appendix</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Measures for the WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geocodes.html">Geo Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ags-spatial-query.html">ArcGIS Server Spatial-Query Workaround</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Application Logging (Console / OpenTelemetry / Serilog / Seq)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Expressions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="expressions">
+<h1>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">¶</a></h1>
+<p>With <em>expressions</em>, values can be calculated from the fields of a geo object or assembled into
+texts, for example <code class="docutils literal notranslate"><span class="pre">[AREA]m2</span></code> or <code class="docutils literal notranslate"><span class="pre">concat(&quot;Area:</span> <span class="pre">&quot;,</span> <span class="pre">round([AREA],</span> <span class="pre">2),</span> <span class="pre">&quot;</span> <span class="pre">m2&quot;)</span></code>.</p>
+<nav class="contents local" id="contents-of-this-page">
+<p class="topic-title">Contents of this page</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#where-can-expressions-be-used" id="id2">Where can expressions be used?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#autovalues" id="id3">AutoValues</a></p></li>
+<li><p><a class="reference internal" href="#table-columns-of-type-tablefieldexpression" id="id4">Table columns of type <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#structured-expression-or-legacy-expression" id="id5">Structured expression or legacy expression?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#when-is-a-structured-expression-recognized" id="id6">When is a structured expression recognized?</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id7">Overview</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#structured-expressions" id="id8">Structured expressions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#field-references" id="id9">Field references</a></p></li>
+<li><p><a class="reference internal" href="#literals" id="id10">Literals</a></p></li>
+<li><p><a class="reference internal" href="#operators" id="id11">Operators</a></p></li>
+<li><p><a class="reference internal" href="#conditions" id="id12">Conditions</a></p></li>
+<li><p><a class="reference internal" href="#string-functions" id="id13">String functions</a></p></li>
+<li><p><a class="reference internal" href="#null-and-empty-value-functions" id="id14">Null and empty-value functions</a></p></li>
+<li><p><a class="reference internal" href="#numeric-functions" id="id15">Numeric functions</a></p></li>
+<li><p><a class="reference internal" href="#date-functions" id="id16">Date functions</a></p></li>
+<li><p><a class="reference internal" href="#gis-geometry-functions-autovalues-only" id="id17">GIS/geometry functions (AutoValues only)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#text-output-in-structured-expressions" id="id18">Text output in structured expressions</a></p></li>
+<li><p><a class="reference internal" href="#legacy-expressions" id="id19">Legacy expressions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#simple-text-templates" id="id20">Simple text templates</a></p></li>
+<li><p><a class="reference internal" href="#placeholders-and-formatting" id="id21">Placeholders and formatting</a></p></li>
+<li><p><a class="reference internal" href="#spatial-placeholders" id="id22">Spatial placeholders</a></p></li>
+<li><p><a class="reference internal" href="#legacy-dollar-functions" id="id23">Legacy dollar functions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#examples" id="id24">Examples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id25">AutoValues</a></p></li>
+<li><p><a class="reference internal" href="#tablefieldexpression" id="id26">TableFieldExpression</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#error-behavior" id="id27">Error behavior</a></p></li>
+<li><p><a class="reference internal" href="#security" id="id28">Security</a></p></li>
+<li><p><a class="reference internal" href="#performance" id="id29">Performance</a></p></li>
+</ul>
+</nav>
+<section id="where-can-expressions-be-used">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Where can expressions be used?</a><a class="headerlink" href="#where-can-expressions-be-used" title="Link to this heading">¶</a></h2>
+<section id="autovalues">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">AutoValues</a><a class="headerlink" href="#autovalues" title="Link to this heading">¶</a></h3>
+<p>For <a class="reference internal" href="../apps/cms/editing/fields_autovalues.html"><span class="doc">AutoValues</span></a>, a leading <code class="docutils literal notranslate"><span class="pre">=</span></code> marks an
+expression. This is required to distinguish expressions from <em>named</em> AutoValues such as
+<code class="docutils literal notranslate"><span class="pre">create_login</span></code>, <code class="docutils literal notranslate"><span class="pre">shape_area</span></code> or <code class="docutils literal notranslate"><span class="pre">change_datetime_utc</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>create_login
+</pre></div>
+</div>
+<p>is a named AutoValue.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=Object [NAME]
+</pre></div>
+</div>
+<p>is a legacy template.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+</pre></div>
+</div>
+<p>is a structured expression.</p>
+<p>The leading <code class="docutils literal notranslate"><span class="pre">=</span></code> belongs only to the AutoValue configuration. It is removed before the content is
+classified as a legacy template or structured expression.</p>
+</section>
+<section id="table-columns-of-type-tablefieldexpression">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Table columns of type <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code></a><a class="headerlink" href="#table-columns-of-type-tablefieldexpression" title="Link to this heading">¶</a></h3>
+<p>Table columns of type <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code> (see <a class="reference internal" href="../apps/cms/queries/index.html"><span class="doc">Queries</span></a>) are always
+expressions. A leading <code class="docutils literal notranslate"><span class="pre">=</span></code> is therefore <strong>not</strong> required. It has no special meaning here and is
+not removed.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Object [NAME]
+</pre></div>
+</div>
+<p>is a legacy template.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+</pre></div>
+</div>
+<p>is a structured expression.</p>
+</section>
+</section>
+<section id="structured-expression-or-legacy-expression">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Structured expression or legacy expression?</a><a class="headerlink" href="#structured-expression-or-legacy-expression" title="Link to this heading">¶</a></h2>
+<p>The selection is made <strong>automatically</strong>:</p>
+<ul class="simple">
+<li><p>Clearly structured syntax is evaluated with the new, typed expression parser
+(<em>structured expression</em>).</p></li>
+<li><p>Text templates and existing <code class="docutils literal notranslate"><span class="pre">$...</span></code> functions remain in the <em>legacy</em> path.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>An expression that has been recognized as a structured expression does <strong>not</strong> silently fall
+back to legacy on a syntax or evaluation error. Instead, an error with its position is
+reported.</p>
+</div>
+<section id="when-is-a-structured-expression-recognized">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">When is a structured expression recognized?</a><a class="headerlink" href="#when-is-a-structured-expression-recognized" title="Link to this heading">¶</a></h3>
+<p><strong>Function calls</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+round([AREA], 2)
+if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)
+coalesce([NAME], &quot;Unknown&quot;)
+</pre></div>
+</div>
+<p>An unknown function name is also classified as a structured expression:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>unknown([VALUE])
+</pre></div>
+</div>
+<p>This expression produces the error <em>Unknown function</em> and does not fall back to legacy.</p>
+<p><strong>Field reference with operator</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[COUNT] + 1
+[AREA] / 10000
+[STATUS] == &quot;A&quot;
+[VALUE] &gt;= 10 &amp;&amp; [ACTIVE] == true
+</pre></div>
+</div>
+<p>A single field without an operator, on the other hand, remains legacy:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[NAME]
+</pre></div>
+</div>
+<p><strong>Literals</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>42
+12.5
+-10
+&quot;Text&quot;
+true
+false
+null
+</pre></div>
+</div>
+<p><strong>Parenthesized and unary expressions</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(1 + 2) * 3
+![ACTIVE]
+</pre></div>
+</div>
+</section>
+<section id="overview">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<th class="head"><p>Evaluation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[NAME]</span></code></p></td>
+<td><p>Legacy</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Object</span> <span class="pre">[NAME]</span></code></p></td>
+<td><p>Legacy</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[FIRSTNAME]</span> <span class="pre">[LASTNAME]</span></code></p></td>
+<td><p>Legacy</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Object-ID</span> <span class="pre">[ID]</span></code></p></td>
+<td><p>Legacy</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$round2([AREA])</span></code></p></td>
+<td><p>Legacy</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Area:</span> <span class="pre">$round2([AREA])</span> <span class="pre">m2</span></code></p></td>
+<td><p>Legacy</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Area:</span> <span class="pre">round([AREA],</span> <span class="pre">2)</span> <span class="pre">m2</span></code></p></td>
+<td><p>Legacy; <code class="docutils literal notranslate"><span class="pre">round</span></code> is <strong>not</strong> executed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[COUNT]</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[AREA]</span> <span class="pre">/</span> <span class="pre">10000</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[STATUS]</span> <span class="pre">==</span> <span class="pre">&quot;A&quot;</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">round([AREA],</span> <span class="pre">2)</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">concat(&quot;Area:</span> <span class="pre">&quot;,</span> <span class="pre">round([AREA],</span> <span class="pre">2),</span> <span class="pre">&quot;</span> <span class="pre">m2&quot;)</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">if([STATUS]</span> <span class="pre">==</span> <span class="pre">&quot;A&quot;,</span> <span class="pre">&quot;Active&quot;,</span> <span class="pre">&quot;Inactive&quot;)</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;Text&quot;</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">42</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
+<td><p>Structured</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="structured-expressions">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Structured expressions</a><a class="headerlink" href="#structured-expressions" title="Link to this heading">¶</a></h2>
+<p>Structured expressions are typed and support:</p>
+<ul class="simple">
+<li><p>Field references</p></li>
+<li><p>String, number, boolean and <code class="docutils literal notranslate"><span class="pre">null</span></code> literals</p></li>
+<li><p>Arithmetic operators</p></li>
+<li><p>Comparisons</p></li>
+<li><p>Logical operators</p></li>
+<li><p>Conditions</p></li>
+<li><p>String functions</p></li>
+<li><p>Null/empty-value functions</p></li>
+<li><p>Numeric functions</p></li>
+<li><p>Date functions</p></li>
+<li><p>For AutoValues additionally GIS/geometry functions</p></li>
+</ul>
+<section id="field-references">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Field references</a><a class="headerlink" href="#field-references" title="Link to this heading">¶</a></h3>
+<p>Fields are written in square brackets:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[NAME]
+[AREA]
+[STATUS]
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A <strong>missing</strong> field yields <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
+<li><p>An <strong>existing</strong> field with empty content yields an <strong>empty string</strong>, not <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
+</ul>
+</section>
+<section id="literals">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Literals</a><a class="headerlink" href="#literals" title="Link to this heading">¶</a></h3>
+<p><strong>Strings</strong> are written in double quotes:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;Text&quot;
+&quot;Active&quot;
+&quot;Area: &quot;
+</pre></div>
+</div>
+<p>Supported escape sequences:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\&quot;</span></code></p></td>
+<td><p>Quotation mark</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\\</span></code></p></td>
+<td><p>Backslash</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+<td><p>Line feed</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">\r</span></code></p></td>
+<td><p>Carriage return</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+<td><p>Tab</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Numbers</strong> are written invariantly with a decimal point:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>42
+12.5
+-10
+</pre></div>
+</div>
+<p><strong>Boolean values:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Null value:</strong> <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
+</section>
+<section id="operators">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Operators</a><a class="headerlink" href="#operators" title="Link to this heading">¶</a></h3>
+<p><strong>Arithmetic:</strong> <code class="docutils literal notranslate"><span class="pre">+</span>&#160; <span class="pre">-</span>&#160; <span class="pre">*</span>&#160; <span class="pre">/</span>&#160; <span class="pre">%</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[COUNT] + 1
+[AREA] / 10000
+([WIDTH] * [HEIGHT]) / 2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">+</span></code> is used for numeric addition only. Strings are joined with <code class="docutils literal notranslate"><span class="pre">concat(...)</span></code>.
+<code class="docutils literal notranslate"><span class="pre">&quot;Text&quot;</span> <span class="pre">+</span> <span class="pre">&quot;Text&quot;</span></code> is therefore invalid.</p>
+</div>
+<p><strong>Comparisons:</strong> <code class="docutils literal notranslate"><span class="pre">==</span>&#160; <span class="pre">!=</span>&#160; <span class="pre">&lt;</span>&#160; <span class="pre">&lt;=</span>&#160; <span class="pre">&gt;</span>&#160; <span class="pre">&gt;=</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[STATUS] == &quot;A&quot;
+[AREA] &gt;= 1000
+[MISSING] == null
+</pre></div>
+</div>
+<p><strong>Logical operators:</strong> <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span>&#160; <span class="pre">||</span>&#160; <span class="pre">!</span></code></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[STATUS] == &quot;A&quot; &amp;&amp; [AREA] &gt; 1000
+[TYPE] == &quot;A&quot; || [TYPE] == &quot;B&quot;
+![ACTIVE]
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> are evaluated <em>lazily</em>. A right-hand branch that is not needed is not
+calculated.</p>
+</section>
+<section id="conditions">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Conditions</a><a class="headerlink" href="#conditions" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if(condition, trueValue, falseValue)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">if(...)</span></code> is also evaluated <em>lazily</em>. Only the branch that is actually selected is calculated.</p>
+</section>
+<section id="string-functions">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">String functions</a><a class="headerlink" href="#string-functions" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">concat(...)</span></code></p></td>
+<td><p>Joins any number of values into one text</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">upper(value)</span></code></p></td>
+<td><p>Upper case</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lower(value)</span></code></p></td>
+<td><p>Lower case</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trim(value)</span></code></p></td>
+<td><p>Removes whitespace at the start and end</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">substring(value,</span> <span class="pre">start)</span></code></p></td>
+<td><p>Substring from position <code class="docutils literal notranslate"><span class="pre">start</span></code> (0-based, the first character has index <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">substring(value,</span> <span class="pre">start,</span> <span class="pre">length)</span></code></p></td>
+<td><p>Substring with the given length</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">replace(value,</span> <span class="pre">oldValue,</span> <span class="pre">newValue)</span></code></p></td>
+<td><p>Replaces parts of the text</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">length(value)</span></code></p></td>
+<td><p>Length of the text</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">length</span></code> must be non-negative integers. If <code class="docutils literal notranslate"><span class="pre">start</span></code> lies outside the string, or <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">+</span> <span class="pre">length</span></code>
+extends beyond the end of the string, an expression error is raised.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>substring(&quot;abcdef&quot;, 0, 3)  -&gt;  &quot;abc&quot;
+substring(&quot;abcdef&quot;, 2, 3)  -&gt;  &quot;cde&quot;
+substring(&quot;abcdef&quot;, 2)     -&gt;  &quot;cdef&quot;
+</pre></div>
+</div>
+<p>More examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+upper([NAME])
+lower([CODE])
+trim([DESCRIPTION])
+substring([CODE], 0, 3)
+replace([NAME], &quot;-&quot;, &quot; &quot;)
+length([NAME])
+</pre></div>
+</div>
+</section>
+<section id="null-and-empty-value-functions">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Null and empty-value functions</a><a class="headerlink" href="#null-and-empty-value-functions" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">coalesce(...)</span></code></p></td>
+<td><p>Returns the first value that is not <code class="docutils literal notranslate"><span class="pre">null</span></code>. An empty string is <strong>not</strong> skipped.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">is_null(value)</span></code></p></td>
+<td><p>Checks for <code class="docutils literal notranslate"><span class="pre">null</span></code> only</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">is_empty(value)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> for <code class="docutils literal notranslate"><span class="pre">null</span></code> or an empty string</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">null_if_empty(value)</span></code></p></td>
+<td><p>Converts an empty string to <code class="docutils literal notranslate"><span class="pre">null</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>coalesce([DISPLAY_NAME], [NAME], &quot;Unknown&quot;)
+is_null([MISSING])
+is_empty([DESCRIPTION])
+</pre></div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">coalesce</span></code> does not skip empty strings, it is often combined with <code class="docutils literal notranslate"><span class="pre">null_if_empty</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>coalesce(null_if_empty([DISPLAY_NAME]), [NAME], &quot;Unknown&quot;)
+</pre></div>
+</div>
+</section>
+<section id="numeric-functions">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Numeric functions</a><a class="headerlink" href="#numeric-functions" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>round(value)
+round(value, digits)
+abs(value)
+min(...)
+max(...)
+</pre></div>
+</div>
+<p>Examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>round([AREA], 2)
+round([AREA] / 10000, 2)
+abs([DIFFERENCE])
+min([VALUE1], [VALUE2], 0)
+max([VALUE1], [VALUE2], 100)
+</pre></div>
+</div>
+</section>
+<section id="date-functions">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Date functions</a><a class="headerlink" href="#date-functions" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>format_date(value, format)
+year(value)
+month(value)
+day(value)
+</pre></div>
+</div>
+<p>Examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>format_date([CREATED], &quot;yyyy-MM-dd&quot;)
+year([CREATED])
+month([CREATED])
+day([CREATED])
+</pre></div>
+</div>
+<p>Date values are interpreted as ISO 8601 first. As a compatibility fallback, the current culture is
+used.</p>
+</section>
+<section id="gis-geometry-functions-autovalues-only">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">GIS/geometry functions (AutoValues only)</a><a class="headerlink" href="#gis-geometry-functions-autovalues-only" title="Link to this heading">¶</a></h3>
+<p>These functions are available in the AutoValue context only:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>shape_len()               shape_len(SRefId)
+shape_area()              shape_area(SRefId)
+shape_perimeter()         shape_perimeter(SRefId)
+shape_centroid_x()        shape_centroid_x(SRefId)
+shape_centroid_y()        shape_centroid_y(SRefId)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Without an argument, calculations are performed in the coordinate system of the feature geometry.</p></li>
+<li><p>With an <code class="docutils literal notranslate"><span class="pre">SRefId</span></code> (EPSG code), a <strong>transformed copy</strong> of the geometry is used. The original
+feature geometry is not modified.</p></li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=shape_area()
+=shape_area(31256)
+=round(shape_area(31256), 2)
+=shape_centroid_x(4326)
+=concat(&quot;Area: &quot;, round(shape_area(31256), 2), &quot; m2&quot;)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="text-output-in-structured-expressions">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Text output in structured expressions</a><a class="headerlink" href="#text-output-in-structured-expressions" title="Link to this heading">¶</a></h2>
+<p>A structured expression must be a valid expression <strong>as a whole</strong>. Free text before or after a
+function call does not automatically turn it into a structured expression.</p>
+<p>This input</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Area: round([AREA], 2) m2
+</pre></div>
+</div>
+<p>is recognized as a <strong>legacy template</strong>. Only <code class="docutils literal notranslate"><span class="pre">[AREA]</span></code> is replaced; <code class="docutils literal notranslate"><span class="pre">round(...)</span></code> is not executed
+as a new function. With <code class="docutils literal notranslate"><span class="pre">AREA</span> <span class="pre">=</span> <span class="pre">123.456</span></code> the result is approximately:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Area: round(123.456, 2) m2
+</pre></div>
+</div>
+<p>For a calculated text output, <code class="docutils literal notranslate"><span class="pre">concat(...)</span></code> must be used:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(&quot;Area: &quot;, round([AREA], 2), &quot; m2&quot;)
+</pre></div>
+</div>
+<p>For AutoValues, additionally with the leading <code class="docutils literal notranslate"><span class="pre">=</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=concat(&quot;Area: &quot;, round([AREA], 2), &quot; m2&quot;)
+</pre></div>
+</div>
+<p>The result is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Area: 123.46 m2
+</pre></div>
+</div>
+<p>More examples (expressions may be written over several lines):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(&quot;Name: &quot;, upper([NAME]))
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(
+    &quot;Status: &quot;,
+    if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)
+)
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(
+    &quot;Area: &quot;,
+    round([AREA] / 10000, 2),
+    &quot; ha&quot;
+)
+</pre></div>
+</div>
+</section>
+<section id="legacy-expressions">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Legacy expressions</a><a class="headerlink" href="#legacy-expressions" title="Link to this heading">¶</a></h2>
+<p>Legacy expressions remain fully supported for compatibility. If the configured expression contains
+a <code class="docutils literal notranslate"><span class="pre">$...</span></code> function, it is evaluated after the placeholders have been replaced.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><code class="docutils literal notranslate"><span class="pre">$...</span></code> expressions coming from <strong>feature attribute values</strong> are not executed. Only functions
+that are already part of the configured expression are evaluated. This prevents expression
+injection through attribute data (see <a class="reference internal" href="#expressions-security"><span class="std std-ref">Security</span></a>).</p>
+</div>
+<section id="simple-text-templates">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Simple text templates</a><a class="headerlink" href="#simple-text-templates" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[NAME]
+[FIRSTNAME] [LASTNAME]
+Object [NAME]
+Object-ID [ID]
+Name: [NAME], Area: [AREA]
+</pre></div>
+</div>
+<p>Examples:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Object</span> <span class="pre">[NAME]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Object</span> <span class="pre">Main</span> <span class="pre">Street</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[FIRSTNAME]</span> <span class="pre">[LASTNAME]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ada</span> <span class="pre">Lovelace</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="placeholders-and-formatting">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Placeholders and formatting</a><a class="headerlink" href="#placeholders-and-formatting" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[!FIELD]</span></code></p></td>
+<td><p>Required field: if the field value is empty, the <strong>entire</strong> legacy expression yields an
+empty string (e.g. <code class="docutils literal notranslate"><span class="pre">[!NAME]</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[~FIELD]</span></code></p></td>
+<td><p>Retained for backward compatibility</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[FIELD:format]</span></code></p></td>
+<td><p>Formatted value, e.g. <code class="docutils literal notranslate"><span class="pre">[AREA:0.00]</span></code>, <code class="docutils literal notranslate"><span class="pre">[COUNT:0000]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[url-encode:FIELD]</span></code></p></td>
+<td><p>URL encoding (UTF-8)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[url-encode-latin1:FIELD]</span></code></p></td>
+<td><p>URL encoding (Latin-1)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example of URL encoding:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://example.com/?name=[url-encode:NAME]
+</pre></div>
+</div>
+</section>
+<section id="spatial-placeholders">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Spatial placeholders</a><a class="headerlink" href="#spatial-placeholders" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[BBOX]
+[spatial::bbox]
+[spatial::bbox::4326]
+
+[spatial::point]
+[spatial::point::4326]
+
+[spatial::latlng]
+[spatial::lnglat]
+[spatial::lat]
+[spatial::lng]
+</pre></div>
+</div>
+</section>
+<section id="legacy-dollar-functions">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Legacy dollar functions</a><a class="headerlink" href="#legacy-dollar-functions" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$eval(...)
+$sin(...)   $cos(...)   $tan(...)
+$asin(...)  $acos(...)  $atan(...)
+
+$round0(...) ... $round5(...)
+$n0(...)     ... $n5(...)
+$n0_de(...)  ... $n5_de(...)
+
+$pi()
+</pre></div>
+</div>
+<p>Examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$eval(1+2*3)
+$round2([AREA])
+Area: $round2([AREA]) m2
+[NAME]: $n2_de([VALUE])
+</pre></div>
+</div>
+<p>A description of the individual functions (including notes on nesting) can be found in the chapter
+<a class="reference internal" href="../apps/cms/queries/index.html"><span class="doc">Queries</span></a>.</p>
+</section>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">AutoValues</a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>create_login                                              (named AutoValue)
+
+=Object [NAME]                                            (legacy)
+=[FIRSTNAME] [LASTNAME]                                   (legacy)
+
+=concat([FIRSTNAME], &quot; &quot;, [LASTNAME])                     (structured)
+=round([AREA] / 10000, 2)                                 (structured)
+=if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)                (structured)
+=concat(&quot;Area: &quot;, round(shape_area(31256), 2), &quot; m2&quot;)     (structured)
+</pre></div>
+</div>
+</section>
+<section id="tablefieldexpression">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">TableFieldExpression</a><a class="headerlink" href="#tablefieldexpression" title="Link to this heading">¶</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Object [NAME]                                             (legacy)
+[FIRSTNAME] [LASTNAME]                                    (legacy)
+Area: $round2([AREA]) m2                                  (legacy)
+
+concat([FIRSTNAME], &quot; &quot;, [LASTNAME])                      (structured)
+round([AREA] / 10000, 2)                                  (structured)
+if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)                 (structured)
+concat(&quot;Area: &quot;, round([AREA], 2), &quot; m2&quot;)                 (structured)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="error-behavior">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Error behavior</a><a class="headerlink" href="#error-behavior" title="Link to this heading">¶</a></h2>
+<p>Structured expressions report clear errors with a source position, among others for:</p>
+<ul class="simple">
+<li><p>invalid syntax</p></li>
+<li><p>unknown function</p></li>
+<li><p>wrong number of arguments</p></li>
+<li><p>wrong data type</p></li>
+<li><p>division by zero</p></li>
+<li><p>modulo by zero</p></li>
+<li><p>invalid SRefId</p></li>
+<li><p>invalid substring range</p></li>
+</ul>
+<p>Examples of invalid structured expressions:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>round(
+unknown([VALUE])
+&quot;Text&quot; + &quot;Text&quot;
+[VALUE] / 0
+</pre></div>
+</div>
+<p>Structured expressions do not silently fall back to legacy on errors.</p>
+</section>
+<section id="security">
+<span id="expressions-security"></span><h2><a class="toc-backref" href="#id28" role="doc-backlink">Security</a><a class="headerlink" href="#security" title="Link to this heading">¶</a></h2>
+<p>The configured structured expression is compiled once into a fixed syntax tree before rendering.
+Feature attribute values are then inserted only as <strong>typed values</strong>. They are not tokenized or
+parsed again.</p>
+<p>An attribute value such as</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>round(12.345, 2) || unknown()
+</pre></div>
+</div>
+<p>therefore remains plain text and cannot inject an additional function or operation.</p>
+<p>In the legacy path, too, <code class="docutils literal notranslate"><span class="pre">$...</span></code> functions are executed only if they are already part of the
+configured expression. Content such as <code class="docutils literal notranslate"><span class="pre">$round</span></code> or <code class="docutils literal notranslate"><span class="pre">$eval</span></code> originating from attribute values is
+not executed.</p>
+</section>
+<section id="performance">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Performance</a><a class="headerlink" href="#performance" title="Link to this heading">¶</a></h2>
+<p>For table columns of type <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code>, the feature-independent preparation is carried
+out only <strong>once per table field</strong>:</p>
+<ul class="simple">
+<li><p>Selection between structured and legacy</p></li>
+<li><p>Parsing and compiling the structured expression</p></li>
+<li><p>Determining the legacy placeholders</p></li>
+<li><p>Detecting configured legacy dollar functions</p></li>
+</ul>
+<p>When the individual objects are rendered, the prepared syntax tree or the cached legacy parameters
+are used. Parser selection and parsing are therefore not repeated for every single object.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Expressions</a><ul>
+<li><a class="reference internal" href="#where-can-expressions-be-used">Where can expressions be used?</a><ul>
+<li><a class="reference internal" href="#autovalues">AutoValues</a></li>
+<li><a class="reference internal" href="#table-columns-of-type-tablefieldexpression">Table columns of type <code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structured-expression-or-legacy-expression">Structured expression or legacy expression?</a><ul>
+<li><a class="reference internal" href="#when-is-a-structured-expression-recognized">When is a structured expression recognized?</a></li>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#structured-expressions">Structured expressions</a><ul>
+<li><a class="reference internal" href="#field-references">Field references</a></li>
+<li><a class="reference internal" href="#literals">Literals</a></li>
+<li><a class="reference internal" href="#operators">Operators</a></li>
+<li><a class="reference internal" href="#conditions">Conditions</a></li>
+<li><a class="reference internal" href="#string-functions">String functions</a></li>
+<li><a class="reference internal" href="#null-and-empty-value-functions">Null and empty-value functions</a></li>
+<li><a class="reference internal" href="#numeric-functions">Numeric functions</a></li>
+<li><a class="reference internal" href="#date-functions">Date functions</a></li>
+<li><a class="reference internal" href="#gis-geometry-functions-autovalues-only">GIS/geometry functions (AutoValues only)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#text-output-in-structured-expressions">Text output in structured expressions</a></li>
+<li><a class="reference internal" href="#legacy-expressions">Legacy expressions</a><ul>
+<li><a class="reference internal" href="#simple-text-templates">Simple text templates</a></li>
+<li><a class="reference internal" href="#placeholders-and-formatting">Placeholders and formatting</a></li>
+<li><a class="reference internal" href="#spatial-placeholders">Spatial placeholders</a></li>
+<li><a class="reference internal" href="#legacy-dollar-functions">Legacy dollar functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#id1">AutoValues</a></li>
+<li><a class="reference internal" href="#tablefieldexpression">TableFieldExpression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-behavior">Error behavior</a></li>
+<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#performance">Performance</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="logging.html">
+                    <span class="icon">&lt;</span><span>Application Logging (Console / OpenTelemetry / Serilog / Seq)</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

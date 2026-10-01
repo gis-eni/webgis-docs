@@ -29,6 +29,12 @@ In the following example, the length of the created line geometry is written int
 
 .. image:: img/editing18.png
 
+Calculated Values with Expressions
+----------------------------------
+
+With a leading ``=``, autovalues can also be specified as an *expression*, e.g. ``=concat([FIRSTNAME], " ", [LASTNAME])`` or
+``=round(shape_area(31256), 2)``. A description of all possibilities can be found in the appendix: :doc:`/annex/expressions`.
+
 Custom Values with "custom"
 -------------------------------------
 

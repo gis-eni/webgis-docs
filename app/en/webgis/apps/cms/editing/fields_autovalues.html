@@ -198,6 +198,11 @@ their value, which generally leads to less fragmentation of the indexes.</p></li
 <p>These fields are usually defined as <em>read-only</em> or invisible in the input form.</p>
 <p>In the following example, the length of the created line geometry is written into a field:</p>
 <img alt="../../../_images/editing18.png" src="../../../_images/editing18.png" />
+<section id="calculated-values-with-expressions">
+<h2>Calculated Values with Expressions<a class="headerlink" href="#calculated-values-with-expressions" title="Link to this heading">¶</a></h2>
+<p>With a leading <code class="docutils literal notranslate"><span class="pre">=</span></code>, autovalues can also be specified as an <em>expression</em>, e.g. <code class="docutils literal notranslate"><span class="pre">=concat([FIRSTNAME],</span> <span class="pre">&quot;</span> <span class="pre">&quot;,</span> <span class="pre">[LASTNAME])</span></code> or
+<code class="docutils literal notranslate"><span class="pre">=round(shape_area(31256),</span> <span class="pre">2)</span></code>. A description of all possibilities can be found in the appendix: <a class="reference internal" href="../../../annex/expressions.html"><span class="doc">Expressions</span></a>.</p>
+</section>
 <section id="custom-values-with-custom">
 <h2>Custom Values with “custom”<a class="headerlink" href="#custom-values-with-custom" title="Link to this heading">¶</a></h2>
 <p>With the <em>autovalue</em> <code class="docutils literal notranslate"><span class="pre">custom</span></code>, values can be defined directly in the input field.
@@ -296,6 +301,7 @@ In this example, the value <strong>“Blau”</strong> would be adopted as the a
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Editable Fields: Autovalues</a><ul>
+<li><a class="reference internal" href="#calculated-values-with-expressions">Calculated Values with Expressions</a></li>
 <li><a class="reference internal" href="#custom-values-with-custom">Custom Values with “custom”</a></li>
 <li><a class="reference internal" href="#automatic-attribution-via-spatial-relationships">Automatic Attribution via Spatial Relationships</a></li>
 <li><a class="reference internal" href="#automatic-values-from-a-database-query-db-select">Automatic Values from a Database Query (“db_select”)</a></li>
