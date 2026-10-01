@@ -71,15 +71,15 @@ wenn die entsprechenden Einstellungen in ``h.xml`` vorgenommen wurden.
    Displaystyle angezeigt werden, z. B. als Grad und Dezimalminuten (47°04,69') ``dm`` oder 
    Grad, Minuten und Sekunden (47°04'41,4'') ``dms``.
 
-tip.txt
-=======
+Eingabe-Tipps und Texte
+=======================
 
-In der Benutzeroberfläche des XYZ Werkzeugs werden **Eingabe Tipps** angezeigt, 
-die angeben, wie Koordinaten eingegeben werden können. Der Inhalt dieses Tooltips kann 
-in der Datei ``tip.txt`` angepasst werden.
+Die **Eingabe-Tipps** und alle anderen Texte des XYZ Werkzeugs werden nicht mehr in der Datei
+``tip.txt`` konfiguriert, sondern in den Sprachdateien des Werkzeugs. Wie diese angepasst werden,
+ist im Kapitel :doc:`../tool_texts` beschrieben.
 
 .. note::
 
-  Die Dateien ``default.xml`` und ``tip.txt`` müssen nicht zwingend vorhanden sein.
-  Wenn sie nicht vorhanden sind, greift WebGIS auf die Standardkonfiguration zurück,
-  diese liegen in den Dateien ``default_.xml`` und ``tip_.txt``.
+  Die Datei ``default.xml`` muss nicht zwingend vorhanden sein.
+  Wenn sie nicht vorhanden ist, greift WebGIS auf die Standardkonfiguration zurück,
+  diese liegt in der Datei ``default_.xml``.

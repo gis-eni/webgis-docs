@@ -71,15 +71,15 @@ if the corresponding settings have been made in ``h.xml``.
    display style, e.g. as degrees and decimal minutes (47°04.69') ``dm`` or
    degrees, minutes, and seconds (47°04'41.4'') ``dms``.
 
-tip.txt
-=======
+Input tips and texts
+====================
 
-In the user interface of the XYZ tool, **input tips** are shown,
-indicating how coordinates can be entered. The content of this tooltip can be
-adjusted in the file ``tip.txt``.
+The **input tips** and all other texts of the XYZ tool are no longer configured in the file
+``tip.txt`` but in the tool's language files. How to adjust them is described in the chapter
+:doc:`../tool_texts`.
 
 .. note::
 
-  The files ``default.xml`` and ``tip.txt`` do not necessarily have to exist.
-  If they do not exist, WebGIS falls back to the default configuration,
-  which is located in the files ``default_.xml`` and ``tip_.txt``.
+  The file ``default.xml`` does not necessarily have to exist.
+  If it does not exist, WebGIS falls back to the default configuration,
+  which is located in the file ``default_.xml``.

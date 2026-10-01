@@ -7,4 +7,5 @@ Extended Tool Configuration
    :caption: Contents:
 
    etc/index
+   tool_texts
    roles/index

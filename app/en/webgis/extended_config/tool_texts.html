@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Extended Tool Configuration &#8212; WebGIS 2026 documentation</title>
+    <title>Customizing Tool Texts &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
@@ -17,8 +17,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The etc Directory" href="etc/index.html" />
-    <link rel="prev" title="Custom Layouts" href="../apps/viewer/layouts/index.html" /> 
+    <link rel="next" title="Role Parameters" href="roles/index.html" />
+    <link rel="prev" title="Print Layouts" href="etc/print_layouts/index.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -39,7 +39,7 @@
 
         <h1><a href="../index.html" title="Go to homepage">WebGIS for Admins</a></h1>
 
-        <a id="eni_lang_switch" href="/de/webgis/extended_config/index.html" title="Auf Deutsch wechseln">
+        <a id="eni_lang_switch" href="/de/webgis/extended_config/tool_texts.html" title="Auf Deutsch wechseln">
             DE
         </a>
 
@@ -135,9 +135,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../run/index.html">Running WebGIS Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration (post-installation)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apps/index.html">WebGIS Applications</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Extended Tool Configuration</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Extended Tool Configuration</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="etc/index.html">The etc Directory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tool_texts.html">Customizing Tool Texts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Customizing Tool Texts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="roles/index.html">Role Parameters</a></li>
 </ul>
 </li>
@@ -153,30 +153,136 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="extended-tool-configuration">
-<h1>Extended Tool Configuration<a class="headerlink" href="#extended-tool-configuration" title="Link to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="etc/index.html">The etc Directory</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="etc/measure.html">Tool <code class="docutils literal notranslate"><span class="pre">Measure</span> <span class="pre">Distance</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="etc/xz.html">Tool <code class="docutils literal notranslate"><span class="pre">XY</span> <span class="pre">(Coordinates/Elevation)</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="etc/print_layouts/index.html">Print Layouts</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tool_texts.html">Customizing Tool Texts</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tool_texts.html#procedure">Procedure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tool_texts.html#file-structure">File structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tool_texts.html#example-coordinate-tool">Example: coordinate tool</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="roles/index.html">Role Parameters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="roles/index.html#using-role-parameters">Using Role Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="roles/index.html#role-parameters-for-different-tools">Role Parameters for Different Tools</a></li>
-</ul>
-</li>
-</ul>
+  <section id="customizing-tool-texts">
+<h1>Customizing Tool Texts<a class="headerlink" href="#customizing-tool-texts" title="Link to this heading">¶</a></h1>
+<p>All tool texts (labels, descriptions, hints, error messages, input tips, …)
+are multilingual and stored in language files (Markdown). The installation package contains
+a directory per language (<code class="docutils literal notranslate"><span class="pre">l10n/de</span></code>, <code class="docutils literal notranslate"><span class="pre">l10n/en</span></code>, …) and in it <strong>one file per tool</strong>,
+e.g. <code class="docutils literal notranslate"><span class="pre">Tools.Coordinates.md</span></code>.</p>
+<p>These files in the installation package should <strong>not be modified</strong>, because they are overwritten
+again on an update. Customized texts are stored in the <code class="docutils literal notranslate"><span class="pre">etc</span></code> directory instead.</p>
+<section id="procedure">
+<h2>Procedure<a class="headerlink" href="#procedure" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Create the folder <code class="docutils literal notranslate"><span class="pre">api/l10n</span></code> in the <code class="docutils literal notranslate"><span class="pre">etc</span></code> directory.</p></li>
+<li><p>Create a subfolder for each affected language in it (<code class="docutils literal notranslate"><span class="pre">de</span></code>, <code class="docutils literal notranslate"><span class="pre">en</span></code>, …).</p></li>
+<li><p>Copy the tool’s file from the installation package there,
+e.g. <code class="docutils literal notranslate"><span class="pre">etc/api/l10n/de/Tools.Coordinates.md</span></code>.</p></li>
+<li><p>In the copied file, <strong>keep only the entries that are actually to be changed</strong>.
+Delete all other entries.</p></li>
+<li><p>Restart the application pool (ApplicationPool).</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>etc/
+└── api/
+    └── l10n/
+        ├── de/
+        │   └── Tools.Coordinates.md
+        └── en/
+            └── Tools.Coordinates.md
+</pre></div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The texts are read <strong>only when the application starts</strong>. After making changes, the
+<strong>ApplicationPool must therefore be restarted</strong>.</p>
+</div>
+<section id="how-the-application-loads-the-texts">
+<h3>How the application loads the texts<a class="headerlink" href="#how-the-application-loads-the-texts" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>First, all Markdown files from the installation package are read.</p></li>
+<li><p>Then the files in <code class="docutils literal notranslate"><span class="pre">etc/api/l10n</span></code> are searched. The values they contain
+<strong>overwrite</strong> the values already read.</p></li>
+</ol>
+<p>Entries that do not appear in the customized file therefore keep the default value from the installation package.
+This way, new or changed default texts are picked up on an update without losing your own customizations.</p>
+</section>
+</section>
+<section id="file-structure">
+<h2>File structure<a class="headerlink" href="#file-structure" title="Link to this heading">¶</a></h2>
+<p>The files are written in <strong>Markdown</strong>. The <strong>headings</strong> define the id of a text,
+followed by a colon. The translation follows after it. For longer texts, the text is not on
+the heading line but below it as <strong>body</strong>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># name: Coordinates / Elevation
+
+Query coordinates and elevation values
+
+# container: Queries
+
+# enter-coordinates: Enter coordinates
+
+# upload:
+## label1:
+
+Coordinates can be uploaded here. ...
+
+## exception-too-many-points: A maximum of {0} coordinate rows may be uploaded
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Whether a text is placed <strong>directly on the heading line</strong> or <strong>in the body</strong> cannot be chosen freely;
+it is dictated by the application. As a rule, simple translations (labels) are on the line,
+longer descriptions in the body. It is best to keep the form used in the installation package.</p>
+</div>
+<section id="hierarchy">
+<h3>Hierarchy<a class="headerlink" href="#hierarchy" title="Link to this heading">¶</a></h3>
+<p>The <strong>heading hierarchy</strong> (<code class="docutils literal notranslate"><span class="pre">#</span></code>, <code class="docutils literal notranslate"><span class="pre">##</span></code>, <code class="docutils literal notranslate"><span class="pre">###</span></code>, …) must be preserved. It forms the
+id path used by the application to access the text. This also applies if the customized file contains
+only a single entry: the parent headings must be included.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Id</p></th>
+<th class="head"><p>Position in the file</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">upload.label1</span></code></p></td>
+<td><p>Body text under <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">upload:</span></code> / <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">label1:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">upload.sketch.label1</span></code></p></td>
+<td><p>Text after <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">upload:</span></code> / <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">sketch:</span></code> / <code class="docutils literal notranslate"><span class="pre">###</span> <span class="pre">label1:</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Ids must therefore not be renamed and levels must not be moved; only the texts themselves may be changed.</p>
+<p>Placeholders such as <code class="docutils literal notranslate"><span class="pre">{0}</span></code> must be kept. The application replaces them with values.</p>
+<p>Tools have the entries <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">name:</span></code> (display name of the tool) and <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">container:</span></code>
+(display name of the container in which the tool is listed).</p>
+</section>
+</section>
+<section id="example-coordinate-tool">
+<h2>Example: coordinate tool<a class="headerlink" href="#example-coordinate-tool" title="Link to this heading">¶</a></h2>
+<p>File <code class="docutils literal notranslate"><span class="pre">etc/api/l10n/en/Tools.Coordinates.md</span></code>. A paragraph (body) under
+<code class="docutils literal notranslate"><span class="pre">upload</span></code> / <code class="docutils literal notranslate"><span class="pre">label1</span></code>, a simple label (<code class="docutils literal notranslate"><span class="pre">tip-label</span></code>) and the input tip (<code class="docutils literal notranslate"><span class="pre">tip</span></code>) are changed.
+All other texts remain unchanged and are therefore not in the file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># upload:
+
+## label1:
+
+Coordinates can be uploaded. The coordinates must be provided as CSV files
+with a semicolon as separator. The columns of the CSV file should correspond to
+point name/number, easting and northing. The first row is interpreted as the table header.
+
+# tip-label: Input hint
+
+# tip:
+
+md:There are projected coordinates (GK-M34, Web Mercator, ...) and geographic coordinates (WGS 84, GPS).
+When entering coordinates, the coordinate system should therefore always be selected first.
+
+**GK-M34**
+Easting: -67772.43
+Northing: 215837.13
+</pre></div>
+</div>
+<p>The prefix <code class="docutils literal notranslate"><span class="pre">md:</span></code> at the beginning of the text marks the content as Markdown.
+The input tip used to be configured via the file <code class="docutils literal notranslate"><span class="pre">tip.txt</span></code> in the <code class="docutils literal notranslate"><span class="pre">etc</span></code> directory.
+This file is no longer used.</p>
+</section>
 </section>
 
 
@@ -185,6 +291,31 @@
         </div>
       </div>
     
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Customizing Tool Texts</a><ul>
+<li><a class="reference internal" href="#procedure">Procedure</a><ul>
+<li><a class="reference internal" href="#how-the-application-loads-the-texts">How the application loads the texts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#file-structure">File structure</a><ul>
+<li><a class="reference internal" href="#hierarchy">Hierarchy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-coordinate-tool">Example: coordinate tool</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
 
       <div class="clearer"></div>
     </div>
@@ -192,14 +323,14 @@
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../apps/viewer/layouts/index.html">
-                    <span class="icon">&lt;</span><span>Custom Layouts</span></a>
+                <a href="etc/print_layouts/index.html">
+                    <span class="icon">&lt;</span><span>Print Layouts</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="etc/index.html"><span>The etc Directory</span><span class="icon">&gt;</span></a>
+                    <a href="roles/index.html"><span>Role Parameters</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>

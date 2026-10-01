@@ -142,6 +142,7 @@
 <li class="toctree-l3"><a class="reference internal" href="print_layouts/index.html">Print Layouts</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../tool_texts.html">Customizing Tool Texts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../roles/index.html">Role Parameters</a></li>
 </ul>
 </li>
@@ -230,16 +231,16 @@ display style, e.g. as degrees and decimal minutes (47°04.69’) <code class="d
 degrees, minutes, and seconds (47°04’41.4’’) <code class="docutils literal notranslate"><span class="pre">dms</span></code>.</p>
 </div>
 </section>
-<section id="tip-txt">
-<h2>tip.txt<a class="headerlink" href="#tip-txt" title="Link to this heading">¶</a></h2>
-<p>In the user interface of the XYZ tool, <strong>input tips</strong> are shown,
-indicating how coordinates can be entered. The content of this tooltip can be
-adjusted in the file <code class="docutils literal notranslate"><span class="pre">tip.txt</span></code>.</p>
+<section id="input-tips-and-texts">
+<h2>Input tips and texts<a class="headerlink" href="#input-tips-and-texts" title="Link to this heading">¶</a></h2>
+<p>The <strong>input tips</strong> and all other texts of the XYZ tool are no longer configured in the file
+<code class="docutils literal notranslate"><span class="pre">tip.txt</span></code> but in the tool’s language files. How to adjust them is described in the chapter
+<a class="reference internal" href="../tool_texts.html"><span class="doc">Customizing Tool Texts</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The files <code class="docutils literal notranslate"><span class="pre">default.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">tip.txt</span></code> do not necessarily have to exist.
-If they do not exist, WebGIS falls back to the default configuration,
-which is located in the files <code class="docutils literal notranslate"><span class="pre">default_.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">tip_.txt</span></code>.</p>
+<p>The file <code class="docutils literal notranslate"><span class="pre">default.xml</span></code> does not necessarily have to exist.
+If it does not exist, WebGIS falls back to the default configuration,
+which is located in the file <code class="docutils literal notranslate"><span class="pre">default_.xml</span></code>.</p>
 </div>
 </section>
 </section>
@@ -261,7 +262,7 @@ which is located in the files <code class="docutils literal notranslate"><span c
 <li><a class="reference internal" href="#">Tool <code class="docutils literal notranslate"><span class="pre">XY</span> <span class="pre">(Coordinates/Elevation)</span></code></a><ul>
 <li><a class="reference internal" href="#h-xml">h.xml</a></li>
 <li><a class="reference internal" href="#default-xml">default.xml</a></li>
-<li><a class="reference internal" href="#tip-txt">tip.txt</a></li>
+<li><a class="reference internal" href="#input-tips-and-texts">Input tips and texts</a></li>
 </ul>
 </li>
 </ul>
