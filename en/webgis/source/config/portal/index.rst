@@ -43,6 +43,8 @@ The file is, like ``api.config``, an XML file that contains various ``key-value 
        <!-- Advanced Security -->
        <!-- default: true; if false, login is no longer possible (security: no configuration in internet) -->
        <add key="allow-subscriber-login" value="true" />
+       <!-- Allowed origins (CORS) for the HMAC endpoint, comma separated -->
+       <add key="add-cors-origins-for-hmac" value="https://localhost,https://example.com" />
 
        <!-- URL to the portal as seen by the user -->
        <add key="api" value="http://localhost:5001" />
@@ -238,6 +240,15 @@ Section ``Advanced Security``
      - Controls whether subscribers can log in to this instance. A detailed description of this key is available in ``api.config`` under the ``Subscriber Registration`` section.
    * - ``query-custom-map-layout``
      - Allows the use of custom layouts in the map viewer depending on screen size. This key defines whether custom layouts are allowed (``true``) or prohibited (``false``).
+   * - ``add-cors-origins-for-hmac``
+     - Comma-separated list of origins (servers) from which the portal's ``hmac`` endpoint (``https://webgisserver.com/portal/hmac``) may be called by a browser (CORS policy). Example: ``https://localhost,https://example.com``
+
+       This endpoint is used to fetch credentials (keys) for accessing the API on behalf of the currently logged-in user. This must not be possible from arbitrary pages: a malicious page could otherwise call the ``hmac`` request in the background and retrieve keys for the visitor. Therefore, all third-party sites that embed a WebGIS API application must be listed here. Specify scheme and, if necessary, port, without a path (e.g. ``https://example.com``). Pages hosted on the same server as the portal are not affected.
+
+       The value ``~`` is a wildcard and allows **all** sites.
+
+       .. danger::
+          The wildcard ``~`` should only be used in exceptional cases for testing and never in a production environment, since it allows any website to request credentials for logged-in users.
 
 Section ``Logging``
 ===================

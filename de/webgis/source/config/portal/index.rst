@@ -40,6 +40,8 @@ Die Datei ist – ähnlich wie die ``api.config`` – eine XML-Datei, die versch
       <!-- Advanced Security -->
       <!-- default: true  wenn false, ist kein Login mehr möglich (Security: In Internet keine Konfiguration mehr) -->
       <add key="allow-subscriber-login" value="true" />
+      <!-- Erlaubte Origins (CORS) für den HMAC-Endpunkt, mit Beistrich getrennt -->
+      <add key="add-cors-origins-for-hmac" value="https://localhost,https://example.com" />
 
       <!-- Url zum Portal, so wie es auch vom Anwender sichtbar ist -->
       <add key="api" value="http://localhost:5001" />
@@ -233,6 +235,15 @@ Abschnitt ``Advanced Security``
      - Steuert, ob sich Subscriber an dieser Instanz anmelden können. Eine detaillierte Beschreibung dieses Schlüssels befindet sich in der ``api.config`` unter dem Abschnitt ``Subscriber Registration``.
    * - ``query-custom-map-layout``
      - Ermöglicht die Verwendung benutzerdefinierter Layouts im Kartenviewer, abhängig von der Bildschirmgröße. Mit diesem Schlüssel kann festgelegt werden, ob benutzerdefinierte Layouts zugelassen (``true``) oder untersagt (``false``) werden.
+   * - ``add-cors-origins-for-hmac``
+     - Kommagetrennte Liste der Origins (Server), von denen aus der ``hmac``-Endpunkt des Portals (``https://webgisserver.com/portal/hmac``) per Browser aufgerufen werden darf (CORS-Policy). Beispiel: ``https://localhost,https://example.com``
+
+       Über diesen Endpunkt werden Zugangsdaten (Keys) für den Zugriff auf die API für den aktuell angemeldeten Benutzer abgeholt. Das darf nicht von beliebigen Seiten aus möglich sein: Eine Schadseite könnte sonst im Hintergrund den ``hmac``-Request aufrufen und Keys für den Besucher der Seite abfragen. Daher müssen hier alle Drittseiten angeführt werden, in die eine WebGIS API Anwendung eingebunden ist. Die Angabe erfolgt mit Schema und ggf. Port, ohne Pfad (z. B. ``https://example.com``). Seiten, die auf demselben Server wie das Portal liegen, sind davon nicht betroffen.
+
+       Der Wert ``~`` ist ein Wildcard und erlaubt **alle** Seiten.
+
+       .. danger::
+          Der Wildcard ``~`` sollte nur in Ausnahmefällen zum Testen verwendet werden und niemals in einer Produktionsumgebung, da damit jede beliebige Webseite Zugangsdaten für angemeldete Benutzer abfragen kann.
 
 Abschnitt ``Logging``
 =====================

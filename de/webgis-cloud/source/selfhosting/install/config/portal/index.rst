@@ -134,6 +134,16 @@ Abschnitt ``Advanced Security``
   Für den Kartenviewer lassen sich benutzerdefinierte Layouts anlegen (je nach Bildschirmgröße). 
   Mit diesem Key kann man Benutzerdefinierte Layouts zulassen bzw. untersagen (``true`` / ``false``).
 
+* ``add-cors-origins-for-hmac``
+  Kommagetrennte Liste der Origins (Server), von denen aus der ``hmac``-Endpunkt des Portals
+  (``https://webgisserver.com/portal/hmac``) per Browser aufgerufen werden darf (CORS-Policy),
+  z.B.: ``https://localhost,https://example.com``.
+  Über diesen Endpunkt werden Zugangsdaten für den aktuell angemeldeten Benutzer abgeholt.
+  Eine Schadseite könnte sonst im Hintergrund Keys für den Besucher der Seite abfragen.
+  Daher müssen hier alle Drittseiten angeführt werden, in die eine WebGIS API Anwendung eingebunden ist.
+  Der Wert ``~`` ist ein Wildcard und erlaubt alle Seiten. Er sollte nur in Ausnahmefällen zum Testen
+  verwendet werden!
+
 
 Abschnitt ``Logging``
 +++++++++++++++++++++
