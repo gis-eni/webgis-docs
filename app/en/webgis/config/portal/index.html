@@ -194,6 +194,8 @@ This section explains how to adapt the file to your own requirements for product
 <span class="w">    </span><span class="cm">&lt;!-- Advanced Security --&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- default: true; if false, login is no longer possible (security: no configuration in internet) --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-subscriber-login&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Allowed origins (CORS) for the HMAC endpoint, comma separated --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-cors-origins-for-hmac&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://localhost,https://example.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- URL to the portal as seen by the user --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;api&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;http://localhost:5001&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -449,6 +451,16 @@ If the <strong>Portal application</strong> is used as well, both the <strong>API
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">query-custom-map-layout</span></code></p></td>
 <td><p>Allows the use of custom layouts in the map viewer depending on screen size. This key defines whether custom layouts are allowed (<code class="docutils literal notranslate"><span class="pre">true</span></code>) or prohibited (<code class="docutils literal notranslate"><span class="pre">false</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-hmac</span></code></p></td>
+<td><p>Comma-separated list of origins (servers) from which the portal’s <code class="docutils literal notranslate"><span class="pre">hmac</span></code> endpoint (<code class="docutils literal notranslate"><span class="pre">https://webgisserver.com/portal/hmac</span></code>) may be called by a browser (CORS policy). Example: <code class="docutils literal notranslate"><span class="pre">https://localhost,https://example.com</span></code></p>
+<p>This endpoint is used to fetch credentials (keys) for accessing the API on behalf of the currently logged-in user. This must not be possible from arbitrary pages: a malicious page could otherwise call the <code class="docutils literal notranslate"><span class="pre">hmac</span></code> request in the background and retrieve keys for the visitor. Therefore, all third-party sites that embed a WebGIS API application must be listed here. Specify scheme and, if necessary, port, without a path (e.g. <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code>). Pages hosted on the same server as the portal are not affected.</p>
+<p>The value <code class="docutils literal notranslate"><span class="pre">~</span></code> is a wildcard and allows <strong>all</strong> sites.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The wildcard <code class="docutils literal notranslate"><span class="pre">~</span></code> should only be used in exceptional cases for testing and never in a production environment, since it allows any website to request credentials for logged-in users.</p>
+</div>
+</td>
 </tr>
 </tbody>
 </table>

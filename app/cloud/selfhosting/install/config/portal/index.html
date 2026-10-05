@@ -268,6 +268,15 @@ Eine Beschreibung für diesen Key steht in der Auflistung der Keys für die <cod
 <li><p><code class="docutils literal notranslate"><span class="pre">query-custom-map-layout</span></code>
 Für den Kartenviewer lassen sich benutzerdefinierte Layouts anlegen (je nach Bildschirmgröße).
 Mit diesem Key kann man Benutzerdefinierte Layouts zulassen bzw. untersagen (<code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-hmac</span></code>
+Kommagetrennte Liste der Origins (Server), von denen aus der <code class="docutils literal notranslate"><span class="pre">hmac</span></code>-Endpunkt des Portals
+(<code class="docutils literal notranslate"><span class="pre">https://webgisserver.com/portal/hmac</span></code>) per Browser aufgerufen werden darf (CORS-Policy),
+z.B.: <code class="docutils literal notranslate"><span class="pre">https://localhost,https://example.com</span></code>.
+Über diesen Endpunkt werden Zugangsdaten für den aktuell angemeldeten Benutzer abgeholt.
+Eine Schadseite könnte sonst im Hintergrund Keys für den Besucher der Seite abfragen.
+Daher müssen hier alle Drittseiten angeführt werden, in die eine WebGIS API Anwendung eingebunden ist.
+Der Wert <code class="docutils literal notranslate"><span class="pre">~</span></code> ist ein Wildcard und erlaubt alle Seiten. Er sollte nur in Ausnahmefällen zum Testen
+verwendet werden!</p></li>
 </ul>
 </section>
 <section id="abschnitt-logging">
