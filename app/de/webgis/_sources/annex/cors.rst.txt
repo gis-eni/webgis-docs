@@ -4,7 +4,7 @@ CORS und der HMAC-Endpunkt
 ==========================
 
 Wird eine WebGIS API Anwendung nicht im Portal selbst, sondern auf einer **Drittseite** (einem anderen Server) eingebunden,
-muss diese Seite in der ``portal.config`` freigegeben werden. Dieses Kapitel erklärt, warum das notwendig ist und wie es konfiguriert wird.
+muss diese Seite in der ``portal.config`` freigegeben werden, sofern **angemeldete Benutzer** darauf zugreifen (siehe :ref:`unten <annex-cors-when>`). Dieses Kapitel erklärt, warum das notwendig ist und wie es konfiguriert wird.
 
 .. contents:: Inhalt dieser Seite
    :local:
@@ -38,6 +38,33 @@ Ohne Schutz könnte daher **jede beliebige Webseite** im Hintergrund den ``hmac`
 
 Mit der CORS-Policy beantwortet das Portal den ``hmac``-Request nur dann mit einem passenden ``Access-Control-Allow-Origin``-Header,
 wenn die aufrufende Origin ausdrücklich freigegeben wurde. Für alle anderen Seiten verweigert der Browser das Lesen der Antwort.
+
+.. _annex-cors-when:
+
+Wann wird ``/hmac`` benötigt?
+-----------------------------
+
+Der Aufruf von ``/hmac`` auf einer Drittseite ist **nur** dann notwendig, wenn **angemeldete Benutzer** auf eine API Anwendung zugreifen.
+Wie der Anwender auf der Drittseite zu einem Cookie (oder einer vergleichbaren Anmeldung am Portal) kommt, wird **nicht über WebGIS geregelt**.
+
+Für **anonyme Anwendungen** ist es besser, eine **Client ID** zu vergeben:
+
+* Die Client ID bezieht sich immer auf einen **HTTP-Referer**, der beim API Client eingestellt werden kann
+  (siehe :doc:`../apps/api/clients_anlegen`).
+* Ist ein API Key bzw. eine Client ID vorhanden, wird ``/hmac`` in der Regel **nicht** aufgerufen.
+  Der Anwender erbt automatisch die Rechte des Clients.
+* In diesem Fall ist für die Drittseite kein Eintrag in ``add-cors-origins-for-hmac`` notwendig.
+
+.. list-table::
+   :widths: 35 65
+   :header-rows: 1
+
+   * - Anwendungsfall
+     - Empfohlene Vorgehensweise
+   * - Anonyme Anwendung auf Drittseite
+     - API Client mit Client ID und HTTP-Referer; kein ``/hmac``, kein CORS-Eintrag
+   * - Angemeldete Benutzer auf Drittseite
+     - ``/hmac`` am Portal; Drittseite in ``add-cors-origins-for-hmac`` eintragen
 
 Konfiguration
 -------------
