@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Security Measures for the WebGIS Portal &#8212; WebGIS 2026 documentation</title>
+    <title>CORS and the HMAC endpoint &#8212; WebGIS 2026 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
@@ -17,8 +17,7 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Geo Codes" href="geocodes.html" />
-    <link rel="prev" title="Appendix" href="index.html" /> 
+    <link rel="prev" title="Expressions" href="expressions.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -39,7 +38,7 @@
 
         <h1><a href="../index.html" title="Go to homepage">WebGIS for Admins</a></h1>
 
-        <a id="eni_lang_switch" href="/de/webgis/annex/security.html" title="Auf Deutsch wechseln">
+        <a id="eni_lang_switch" href="/de/webgis/annex/cors.html" title="Auf Deutsch wechseln">
             DE
         </a>
 
@@ -137,12 +136,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../apps/index.html">WebGIS Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../extended_config/index.html">Extended Tool Configuration</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Appendix</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Security Measures for the WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Measures for the WebGIS Portal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="geocodes.html">Geo Codes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ags-spatial-query.html">ArcGIS Server Spatial-Query Workaround</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging.html">Application Logging (Console / OpenTelemetry / Serilog / Seq)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="expressions.html">Expressions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cors.html">CORS and the HMAC endpoint</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CORS and the HMAC endpoint</a></li>
 </ul>
 </li>
 </ul>
@@ -156,69 +155,134 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="security-measures-for-the-webgis-portal">
-<h1>Security Measures for the WebGIS Portal<a class="headerlink" href="#security-measures-for-the-webgis-portal" title="Link to this heading">¶</a></h1>
-<section id="password-security-tips">
-<h2>Password Security Tips<a class="headerlink" href="#password-security-tips" title="Link to this heading">¶</a></h2>
-<p>A secure password is the first step in protecting the <em>WebGIS Portal</em>. Here are some tips on how to create a strong password:</p>
-<p>Default passwords such as <code class="docutils literal notranslate"><span class="pre">admin123</span></code> or <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> are <strong>particularly vulnerable to brute-force attacks</strong>. A brute-force attack is a method in which automated programs try millions of passwords until the correct one is found. The shorter and simpler the password, the faster it can be cracked.</p>
-<p>Example:</p>
+  <section id="cors-and-the-hmac-endpoint">
+<span id="annex-cors"></span><h1>CORS and the HMAC endpoint<a class="headerlink" href="#cors-and-the-hmac-endpoint" title="Link to this heading">¶</a></h1>
+<p>If a WebGIS API application is embedded not in the portal itself but on a <strong>third-party site</strong> (a different server),
+that site must be allowed in the <code class="docutils literal notranslate"><span class="pre">portal.config</span></code>. This chapter explains why this is necessary and how to configure it.</p>
+<nav class="contents local" id="contents-of-this-page">
+<p class="topic-title">Contents of this page</p>
 <ul class="simple">
-<li><p>A password like <code class="docutils literal notranslate"><span class="pre">admin123</span></code> can be cracked with common hardware <strong>in a few seconds</strong>.</p></li>
-<li><p>A secure password with <strong>at least 12 characters, uppercase and lowercase letters, numbers, and special characters</strong>, on the other hand, requires <strong>years or even centuries</strong> to be cracked by brute force.</p></li>
+<li><p><a class="reference internal" href="#background-same-origin-policy-and-cors" id="id1">Background: same-origin policy and CORS</a></p></li>
+<li><p><a class="reference internal" href="#what-is-the-hmac-endpoint-for" id="id2">What is the HMAC endpoint for?</a></p></li>
+<li><p><a class="reference internal" href="#configuration" id="id3">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id4">Example</a></p></li>
+<li><p><a class="reference internal" href="#troubleshooting" id="id5">Troubleshooting</a></p></li>
+<li><p><a class="reference internal" href="#wildcard" id="id6">Wildcard <code class="docutils literal notranslate"><span class="pre">~</span></code></a></p></li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><strong>Strong, individual passwords</strong> should be chosen for the <strong>author account</strong> and the <strong>admin account in the API</strong>. A good password strategy includes:</p>
-<ul class="simple">
-<li><p><strong>At least 12 characters</strong> (16+ is better).</p></li>
-<li><p><strong>Uppercase and lowercase letters, numbers, and special characters</strong>.</p></li>
-<li><p><strong>No relation to real names, birth dates, or dictionary words</strong>.</p></li>
-<li><p><strong>Each account should have its own, unique password</strong>.</p></li>
-<li><p>If possible: <strong>enable two-factor authentication (2FA)</strong>.</p></li>
-</ul>
+</nav>
+<section id="background-same-origin-policy-and-cors">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Background: same-origin policy and CORS</a><a class="headerlink" href="#background-same-origin-policy-and-cors" title="Link to this heading">¶</a></h2>
+<p>By default, a browser only allows JavaScript code to read responses from its <strong>own origin</strong>.
+An <em>origin</em> consists of scheme, host and port, e.g. <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code> (<code class="docutils literal notranslate"><span class="pre">https://example.com:8443</span></code> and <code class="docutils literal notranslate"><span class="pre">http://example.com</span></code> are different origins).
+This is called the <em>same-origin policy</em>.</p>
+<p>If a page on <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code> is nevertheless to read responses from another server (e.g. <code class="docutils literal notranslate"><span class="pre">https://webgisserver.com</span></code>),
+that server must explicitly allow this via <em>CORS</em> (<em>Cross-Origin Resource Sharing</em>).
+To do so, the server returns the HTTP header <code class="docutils literal notranslate"><span class="pre">Access-Control-Allow-Origin</span></code> containing the allowed origin.
+If this header is missing or the origin does not match, the browser discards the response and the call fails.</p>
+</section>
+<section id="what-is-the-hmac-endpoint-for">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">What is the HMAC endpoint for?</a><a class="headerlink" href="#what-is-the-hmac-endpoint-for" title="Link to this heading">¶</a></h2>
+<p>The portal provides the endpoint <code class="docutils literal notranslate"><span class="pre">https://webgisserver.com/portal/hmac</span></code>.
+It is used to fetch credentials (keys) for accessing the API on behalf of the <strong>currently logged-in user</strong>.
+A WebGIS API application calls this endpoint to identify itself to the API as that user.</p>
+<p>The problem: for such a call the browser automatically sends the user’s portal login (cookie).
+Without protection, <strong>any web page</strong> could call the <code class="docutils literal notranslate"><span class="pre">hmac</span></code> request in the background and retrieve the keys for the visitor:</p>
+<ol class="arabic simple">
+<li><p>A logged-in user visits a malicious page <code class="docutils literal notranslate"><span class="pre">https://evil.example</span></code>.</p></li>
+<li><p>Its JavaScript calls <code class="docutils literal notranslate"><span class="pre">https://webgisserver.com/portal/hmac</span></code>.</p></li>
+<li><p>Without CORS protection the page could read the response and would thus have access to the API on behalf of the user.</p></li>
+</ol>
+<p>With the CORS policy, the portal only answers the <code class="docutils literal notranslate"><span class="pre">hmac</span></code> request with a matching <code class="docutils literal notranslate"><span class="pre">Access-Control-Allow-Origin</span></code> header
+if the calling origin has been explicitly allowed. For all other pages the browser refuses to expose the response.</p>
+</section>
+<section id="configuration">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Configuration</a><a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<p>The allowed origins are specified in the file <code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code> using the key <code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-hmac</span></code>
+as a <strong>comma-separated list</strong> (description of the key: <a class="reference internal" href="../config/portal/index.html"><span class="doc">Portal Configuration</span></a>, section <code class="docutils literal notranslate"><span class="pre">Advanced</span> <span class="pre">Security</span></code>):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-cors-origins-for-hmac&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://localhost,https://example.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
 </div>
-<p>To generate and securely store passwords, using a <strong>password manager</strong> is recommended.</p>
-<p>More on password security and brute-force attacks:
-<a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">OWASP Authentication Cheat Sheet</a></p>
-</section>
-<section id="use-https-even-on-the-intranet">
-<h2>Use HTTPS Even on the Intranet<a class="headerlink" href="#use-https-even-on-the-intranet" title="Link to this heading">¶</a></h2>
-<p>Many people believe that an intranet is automatically secure because it is not directly reachable from the internet. But that is a misconception! There are risks even within a corporate network:</p>
+<p>Rules:</p>
 <ul class="simple">
-<li><p><strong>Employee devices can be infected</strong> (e.g. via phishing or malware) and thereby spy on sensitive data.</p></li>
-<li><p><strong>Data is transmitted unencrypted</strong> if HTTPS is not used. This means that passwords, session information, and personal data could be read by attackers or malware.</p></li>
-<li><p><strong>Internal attacks are possible</strong>: people with access to the network could intentionally or accidentally intercept or manipulate data.</p></li>
-<li><p><strong>Future browser versions block unencrypted connections</strong>, which can cause problems in the long run.</p></li>
-</ul>
-<p>For this reason, the <em>WebGIS Portal</em> should always be operated over <strong>HTTPS</strong>, even if it is only used internally. More information on the importance of HTTPS and possible attacks can be found in the OWASP documentation:</p>
-<p><a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html">Transport Layer Security Cheat Sheet</a></p>
-</section>
-<section id="further-recommended-security-measures">
-<h2>Further Recommended Security Measures<a class="headerlink" href="#further-recommended-security-measures" title="Link to this heading">¶</a></h2>
-<p>In addition to HTTPS and changing default passwords, there are further important measures to secure the application:</p>
-<ul class="simple">
-<li><p><strong>Restrict access to the administration interface</strong>
-If possible, only a <strong>specific group of people or only devices from the internal network</strong> should have access to the administration.</p></li>
-<li><p><strong>Use the browser’s security mechanisms</strong>
-Security features such as <code class="docutils literal notranslate"><span class="pre">Strict-Transport-Security</span> <span class="pre">(HSTS)</span></code> and <code class="docutils literal notranslate"><span class="pre">Content-Security-Policy</span> <span class="pre">(CSP)</span></code> should be enabled to prevent attacks via malicious code.</p></li>
-<li><p><strong>Perform regular updates</strong>
-Outdated software can contain security vulnerabilities. It is important to regularly update the <em>WebGIS Portal</em> as well as all servers, databases, and third-party components used.</p></li>
-<li><p><strong>Monitor suspicious activity</strong>
-The system should log who logged in and when. If someone logs in with incorrect passwords or accesses the administration unusually often, this could be an indication of an attack. In this case, administrators should be notified.</p></li>
+<li><p>List <strong>all servers</strong> on which a WebGIS API application is embedded.</p></li>
+<li><p>Each entry consists of scheme, host and, if necessary, port, <strong>without a path and without a trailing slash</strong>
+(<code class="docutils literal notranslate"><span class="pre">https://example.com</span></code> or <code class="docutils literal notranslate"><span class="pre">https://example.com:8443</span></code>).</p></li>
+<li><p>Scheme and port must match exactly: <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code> allows neither <code class="docutils literal notranslate"><span class="pre">http://example.com</span></code> nor <code class="docutils literal notranslate"><span class="pre">https://www.example.com</span></code>.</p></li>
+<li><p>Separate entries with commas, without spaces.</p></li>
+<li><p>Pages served from the same server as the portal (same origin) do not need an entry.</p></li>
+<li><p>After changing the <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> the portal application must be restarted.</p></li>
 </ul>
 </section>
-<section id="further-information-for-interested-readers">
-<h2>Further Information for Interested Readers<a class="headerlink" href="#further-information-for-interested-readers" title="Link to this heading">¶</a></h2>
-<p>There is a wide range of <strong>possible attack scenarios</strong> that also affect intranet applications. These include:</p>
-<ul class="simple">
-<li><p><strong>Man-in-the-middle attacks (MITM)</strong>, in which an attacker reads network traffic.</p></li>
-<li><p><strong>Session hijacking</strong>, in which a user’s session is stolen to impersonate them.</p></li>
-<li><p><strong>Cross-site scripting (XSS)</strong>, in which malicious code is injected into the system.</p></li>
-</ul>
-<p>More on these attack techniques and how to protect against them can be found in the OWASP documentation:
-<a class="reference external" href="https://owasp.org/www-project-top-ten/">OWASP Top 10 Security Risks</a></p>
-<p>By implementing these measures, the <em>WebGIS Portal</em> is optimally protected and remains secure and reliable – whether on the intranet or publicly on the internet.</p>
+<section id="example">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<p>The portal runs at <code class="docutils literal notranslate"><span class="pre">https://webgisserver.com/portal</span></code>.
+A municipality operates its own website <code class="docutils literal notranslate"><span class="pre">https://gemeinde.example.org/karte.html</span></code> which embeds a WebGIS API application.
+Development is additionally done locally (<code class="docutils literal notranslate"><span class="pre">https://localhost</span></code>).
+The <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> then looks like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+<span class="w">  </span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- ... other settings ... --&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Allowed origins (CORS) for the HMAC endpoint --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-cors-origins-for-hmac&quot;</span>
+<span class="w">         </span><span class="na">value=</span><span class="s">&quot;https://gemeinde.example.org,https://localhost&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/appSettings&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<p>Result:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Calling page</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">https://gemeinde.example.org/karte.html</span></code></p></td>
+<td><p>allowed (origin <code class="docutils literal notranslate"><span class="pre">https://gemeinde.example.org</span></code> is listed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">https://localhost</span></code></p></td>
+<td><p>allowed</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">http://gemeinde.example.org</span></code></p></td>
+<td><p><strong>blocked</strong> (different scheme)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">https://www.gemeinde.example.org</span></code></p></td>
+<td><p><strong>blocked</strong> (different host)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">https://evil.example</span></code></p></td>
+<td><p><strong>blocked</strong> (not listed)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="troubleshooting">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<p>If an origin is not listed, the embedded application does not work as expected (e.g. no login to the API).
+The browser developer tools (F12, console or network tab) then show a message similar to:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Access to fetch at &#39;https://webgisserver.com/portal/hmac&#39; from origin
+&#39;https://gemeinde.example.org&#39; has been blocked by CORS policy: No
+&#39;Access-Control-Allow-Origin&#39; header is present on the requested resource.
+</pre></div>
+</div>
+<p>In this case, add the origin named in the message (here <code class="docutils literal notranslate"><span class="pre">https://gemeinde.example.org</span></code>) to <code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-hmac</span></code>.</p>
+</section>
+<section id="wildcard">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Wildcard <code class="docutils literal notranslate"><span class="pre">~</span></code></a><a class="headerlink" href="#wildcard" title="Link to this heading">¶</a></h2>
+<p>The value <code class="docutils literal notranslate"><span class="pre">~</span></code> is a wildcard and allows <strong>all</strong> sites:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-cors-origins-for-hmac&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;~&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The wildcard completely removes the protection described above. It should only be used in exceptional cases for testing
+and <strong>never in a production environment</strong>.</p>
+</div>
 </section>
 </section>
 
@@ -236,11 +300,13 @@ The system should log who logged in and when. If someone logs in with incorrect 
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">Security Measures for the WebGIS Portal</a><ul>
-<li><a class="reference internal" href="#password-security-tips">Password Security Tips</a></li>
-<li><a class="reference internal" href="#use-https-even-on-the-intranet">Use HTTPS Even on the Intranet</a></li>
-<li><a class="reference internal" href="#further-recommended-security-measures">Further Recommended Security Measures</a></li>
-<li><a class="reference internal" href="#further-information-for-interested-readers">Further Information for Interested Readers</a></li>
+<li><a class="reference internal" href="#">CORS and the HMAC endpoint</a><ul>
+<li><a class="reference internal" href="#background-same-origin-policy-and-cors">Background: same-origin policy and CORS</a></li>
+<li><a class="reference internal" href="#what-is-the-hmac-endpoint-for">What is the HMAC endpoint for?</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#wildcard">Wildcard <code class="docutils literal notranslate"><span class="pre">~</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -255,14 +321,12 @@ The system should log who logged in and when. If someone logs in with incorrect 
         <div class="button_nav">
             <div class="left">
                 
-                <a href="index.html">
-                    <span class="icon">&lt;</span><span>Appendix</span></a>
+                <a href="expressions.html">
+                    <span class="icon">&lt;</span><span>Expressions</span></a>
                 
             </div>
 
             <div class="right">
-                
-                    <a href="geocodes.html"><span>Geo Codes</span><span class="icon">&gt;</span></a>
                 
             </div>
         </div>
