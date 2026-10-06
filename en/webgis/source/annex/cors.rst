@@ -4,7 +4,7 @@ CORS and the HMAC endpoint
 ==========================
 
 If a WebGIS API application is embedded not in the portal itself but on a **third-party site** (a different server),
-that site must be allowed in the ``portal.config``. This chapter explains why this is necessary and how to configure it.
+that site must be allowed in the ``portal.config`` if **logged-in users** access it (see :ref:`below <annex-cors-when>`). This chapter explains why this is necessary and how to configure it.
 
 .. contents:: Contents of this page
    :local:
@@ -38,6 +38,33 @@ Without protection, **any web page** could call the ``hmac`` request in the back
 
 With the CORS policy, the portal only answers the ``hmac`` request with a matching ``Access-Control-Allow-Origin`` header
 if the calling origin has been explicitly allowed. For all other pages the browser refuses to expose the response.
+
+.. _annex-cors-when:
+
+When is ``/hmac`` needed?
+-------------------------
+
+Calling ``/hmac`` from a third-party site is **only** necessary when **logged-in users** access an API application.
+How the user obtains a cookie (or a comparable login to the portal) on the third-party site is **not handled by WebGIS**.
+
+For **anonymous applications** it is better to assign a **client ID**:
+
+* The client ID always refers to an **HTTP referer** that can be set on the API client
+  (see :doc:`../apps/api/clients_anlegen`).
+* If an API key or client ID is present, ``/hmac`` is usually **not** called.
+  The user automatically inherits the rights of the client.
+* In this case no entry in ``add-cors-origins-for-hmac`` is needed for the third-party site.
+
+.. list-table::
+   :widths: 35 65
+   :header-rows: 1
+
+   * - Use case
+     - Recommended approach
+   * - Anonymous application on a third-party site
+     - API client with client ID and HTTP referer; no ``/hmac``, no CORS entry
+   * - Logged-in users on a third-party site
+     - ``/hmac`` on the portal; add the third-party site to ``add-cors-origins-for-hmac``
 
 Configuration
 -------------
