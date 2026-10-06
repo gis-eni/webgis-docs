@@ -242,6 +242,8 @@ Abschnitt ``Advanced Security``
 
        Der Wert ``~`` ist ein Wildcard und erlaubt **alle** Seiten.
 
+       Eine ausführliche Erklärung mit Beispiel steht im Anhang: :ref:`annex-cors`.
+
        .. danger::
           Der Wildcard ``~`` sollte nur in Ausnahmefällen zum Testen verwendet werden und niemals in einer Produktionsumgebung, da damit jede beliebige Webseite Zugangsdaten für angemeldete Benutzer abfragen kann.
 

@@ -247,6 +247,8 @@ Section ``Advanced Security``
 
        The value ``~`` is a wildcard and allows **all** sites.
 
+       A detailed explanation with an example can be found in the appendix: :ref:`annex-cors`.
+
        .. danger::
           The wildcard ``~`` should only be used in exceptional cases for testing and never in a production environment, since it allows any website to request credentials for logged-in users.
 

@@ -11,4 +11,5 @@ Appendix
    ags-spatial-query
    logging
    expressions
+   cors
 
