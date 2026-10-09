@@ -83,6 +83,10 @@ Section ``Root Element``
      - The internal URL to the **WebGIS Portal**. This parameter is required when CMS nodes should be authorized. Via this URL, the CMS application retrieves the available **users and groups** (e.g. **AD users/groups**). Since this query happens directly server-to-server, an **internal URL** can also be used here. If both applications are on the same server, ``http://localhost/webgis-portal`` can, for example, also be used.
    * - ``cms-display-url`` *(optional)*
      - This optional parameter is helpful if the CMS is operated behind a **reverse proxy server** and the application cannot automatically determine which URL is visible to the user. In this case, the desired **external URL** can be specified here.
+   * - ``git-workspace-root`` *(optional)*
+     - Default directory for the workspaces of all CMS that are versioned with Git (see :ref:`cms-config-git`). Can be overridden per CMS with ``git.workspace-root``.
+
+       .. versionadded:: 9.26.4102
 
 With a **Web CMS**, multiple trees can be managed. An object is created in the ``cms-items`` array for each tree. The value of ``cms-items`` must be an **array** that contains individual ``cms-item`` objects.
 
@@ -127,6 +131,71 @@ Section ``cms-item``
            ]
 
        Multiple deployments can be helpful for generating different XML files for test, failover, training, and production systems.
+   * - ``git`` *(optional)*
+     - Enables versioning of this CMS with Git (see :ref:`cms-config-git`). If this section is missing, the CMS works as before.
+
+.. _cms-config-git:
+
+Section ``git``
+---------------
+
+.. versionadded:: 9.26.4102
+
+The optional section ``git`` in a ``cms-item`` versions the CMS tree with Git. Working with it in the CMS is described in :ref:`cms-git`.
+
+.. code-block:: json
+
+    {
+      "git-workspace-root": "C:\\apps\\webgis/local/webgis-repository/cms/git-workspaces",
+      "cms-items": [
+        {
+          "id": "webgis-custom",
+          "name": "WebGIS Custom",
+          "path": "C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-custom",
+          "scheme": "webgis",
+          "git": {
+            "remote-url": "https://git.mycompany.com/gis/webgis-custom-cms.git",
+            "username": "webgis-cms",
+            "token": "%WEBGIS_CMS_GIT_TOKEN%",
+            "default-branch": "main",
+            "committer-name": "WebGIS CMS",
+            "committer-email": "webgis-cms@mycompany.com"
+          },
+          "deployments": []
+        }
+      ]
+    }
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``remote-url``
+     - URL of the Git repository (HTTPS), e.g. on GitLab, Gitea, Azure DevOps or GitHub. The repository must already exist but can be empty. If it is empty, it is filled with the CMS tree from ``path`` when the first workspace is created. After that, ``path`` is no longer used.
+   * - ``username``
+     - User of a technical account on the Git server.
+   * - ``token``
+     - Access token (e.g. *personal access token*) of the technical account with read and write permissions on the repository. Environment variables in the form ``%NAME%`` are replaced, so the token does not have to be stored in plain text in the ``cms.config``.
+   * - ``default-branch`` *(optional)*
+     - Main branch that is published by the normal deployment and into which working branches are merged. Default: ``main``.
+   * - ``workspace-root`` *(optional)*
+     - Directory on the CMS server for the workspaces of the editors, the deploy clone and the snapshots for the fast deploy. Default: ``git-workspace-root`` from the root element. Below it, a folder ``{cms-id}`` is created per CMS.
+   * - ``author-email-domain`` *(optional)*
+     - The logged-in CMS user is recorded as the author of a commit. If the login does not provide an e-mail address, ``{user}@{author-email-domain}`` is used. Default: ``cms.local``.
+   * - ``committer-name``, ``committer-email`` *(optional)*
+     - Committer of all commits, e.g. the technical account. Default: the author.
+
+Git is only active if ``remote-url`` and a directory for the workspaces (``workspace-root`` or ``git-workspace-root``) are specified. Invalid settings are logged when the CMS starts. The CMS then runs without Git.
+
+.. danger::
+
+    The **entire** CMS tree is versioned, including permissions and encrypted secrets. The repository must be **private** and hosted on a **trusted** Git server.
+
+.. note::
+
+    Git is only supported for CMS trees in the file system (``cms-items`` with ``path``).
 
 Section ``deployments``
 -------------------------
@@ -172,6 +241,12 @@ Section ``deployments``
        Services not listed are skipped during export.
 
        If the list is left empty or unset, the previous behavior is retained: **all services** continue to be exported.
+   * - ``allowBranchDeploy`` *(optional)*
+     - Only if the CMS is versioned with Git: if this value is ``true``, editors can additionally deploy their workspace as a branch for this deployment (see :ref:`cms-deploy-branch`). Branch deploys are stored in the folder ``branches/{branch}/`` next to the target file or transferred via upload. The WebGIS API must allow branches (``allow-branches`` in the ``api.config``). Default: ``false``.
+
+       Branch deploys are intended for development and test systems and should not be enabled for production systems.
+
+       .. versionadded:: 9.26.4102
 
 Section ``postEvents``
 ------------------------
@@ -193,6 +268,14 @@ Section ``postEvents``
        .. note::
 
           If the **CMS.xml** is transferred to the **WebGIS API** via upload, a manual ``cache/clear`` call can be skipped, since this is performed automatically by the WebGIS API.
+
+The placeholder ``{branch}`` can be used in ``commands`` and ``http-get``. For a branch deploy, it is replaced by the (encoded) name of the branch; for the deployment of the published state, it is empty. This way, for example, a branch deploy can reload only the branch of a CMS (``id`` = CMS name from the ``api.config``, e.g. ``custom`` for ``cmspath_custom``):
+
+.. code-block:: json
+
+    "http-get": ["http://localhost:5001/cache/clear?id=custom&branch={branch}"]
+
+.. versionadded:: 9.26.4102
 
 
 Additional attributes

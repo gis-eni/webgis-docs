@@ -206,6 +206,17 @@
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">server-side-configuration-path</span></code></p></td>
 <td><p>Pfad zur serverseitigen Konfiguration der API. In diesem Verzeichnis befinden sich Konfigurationsdateien für die komplette Instanz, einschließlich <code class="docutils literal notranslate"><span class="pre">etc</span></code> (z. B. Drucklayouts) und <code class="docutils literal notranslate"><span class="pre">config</span></code>.</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-branches</span></code></p></td>
+<td><p>Ist dieser Wert <code class="docutils literal notranslate"><span class="pre">true</span></code>, sucht die API unterhalb jeder CMS-Datei (<code class="docutils literal notranslate"><span class="pre">cmspath_...</span></code>) im Ordner <code class="docutils literal notranslate"><span class="pre">branches/</span></code> nach Branch-Deploys aus dem WebGIS CMS und akzeptiert Branch-Uploads. Kartenautoren können diese Branches dann im Portal auswählen und testen (siehe <a class="reference internal" href="../../apps/cms/deploy.html#cms-deploy-branch"><span class="std std-ref">Arbeitszweig testen (Branch-Deploy)</span></a> und <a class="reference internal" href="../../apps/portal/branches.html#portal-branches"><span class="std std-ref">CMS-Branches testen</span></a>). Standard: <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>Sollte nur auf Entwicklungs- und Testsystemen aktiviert werden.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-branches&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4102.</span></p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 </section>

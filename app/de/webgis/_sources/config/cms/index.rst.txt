@@ -83,6 +83,10 @@ Abschnitt ``Root-Element``
      - Die interne URL zum **WebGIS-Portal**. Dieser Parameter wird benötigt, wenn CMS-Knoten autorisiert werden sollen. Über diese URL ruft die CMS-Applikation die verfügbaren **Benutzer und Gruppen** ab (z. B. **AD-Benutzer/Gruppen**). Da diese Abfrage direkt von Server zu Server erfolgt, kann hier auch eine **interne URL** verwendet werden. Befinden sich beide Applikationen auf demselben Server, kann beispielsweise auch ``http://localhost/webgis-portal`` genutzt werden.
    * - ``cms-display-url`` *(optional)*
      - Dieser optionale Parameter ist hilfreich, wenn das CMS hinter einem **Reverse-Proxy-Server** betrieben wird und die Applikation nicht automatisch ermitteln kann, welche URL für den Anwender sichtbar ist. In diesem Fall kann hier die gewünschte **externe URL** angegeben werden.
+   * - ``git-workspace-root`` *(optional)*
+     - Standard-Verzeichnis für die Arbeitsbereiche aller CMS, die mit Git versioniert werden (siehe :ref:`cms-config-git`). Kann pro CMS mit ``git.workspace-root`` überschrieben werden.
+
+       .. versionadded:: 9.26.4102
 
 Mit einem **Web-CMS** können mehrere Bäume verwaltet werden. Für jeden Baum wird ein Objekt im ``cms-items``-Array angelegt. Der Wert von ``cms-items`` muss ein **Array** sein, das einzelne ``cms-item``-Objekte enthält.
 
@@ -127,6 +131,71 @@ Abschnitt ``cms-item``
            ]
 
        Mehrere Deployments können hilfreich sein, um für Test-, Ausfall-, Schulungs- und Produktivsysteme unterschiedliche XML-Dateien zu erzeugen.
+   * - ``git`` *(optional)*
+     - Aktiviert die Versionierung dieses CMS mit Git (siehe :ref:`cms-config-git`). Fehlt dieser Abschnitt, funktioniert das CMS wie bisher.
+
+.. _cms-config-git:
+
+Abschnitt ``git``
+-----------------
+
+.. versionadded:: 9.26.4102
+
+Mit dem optionalen Abschnitt ``git`` in einem ``cms-item`` wird der CMS-Baum mit Git versioniert. Die Bedienung im CMS ist unter :ref:`cms-git` beschrieben.
+
+.. code-block:: json
+
+    {
+      "git-workspace-root": "C:\\apps\\webgis/local/webgis-repository/cms/git-workspaces",
+      "cms-items": [
+        {
+          "id": "webgis-custom",
+          "name": "WebGIS Custom",
+          "path": "C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-custom",
+          "scheme": "webgis",
+          "git": {
+            "remote-url": "https://git.mycompany.com/gis/webgis-custom-cms.git",
+            "username": "webgis-cms",
+            "token": "%WEBGIS_CMS_GIT_TOKEN%",
+            "default-branch": "main",
+            "committer-name": "WebGIS CMS",
+            "committer-email": "webgis-cms@mycompany.com"
+          },
+          "deployments": []
+        }
+      ]
+    }
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``remote-url``
+     - URL des Git-Repositorys (HTTPS), z. B. auf GitLab, Gitea, Azure DevOps oder GitHub. Das Repository muss bereits existieren, kann aber leer sein. Ist es leer, wird es beim ersten Arbeitsbereich mit dem CMS-Baum aus ``path`` befüllt. Danach wird ``path`` nicht mehr verwendet.
+   * - ``username``
+     - Benutzer eines technischen Accounts am Git-Server.
+   * - ``token``
+     - Zugriffstoken (z. B. *Personal Access Token*) des technischen Accounts mit Lese- und Schreibrechten auf das Repository. Umgebungsvariablen in der Form ``%NAME%`` werden ersetzt, damit das Token nicht im Klartext in der ``cms.config`` stehen muss.
+   * - ``default-branch`` *(optional)*
+     - Hauptzweig, der beim normalen Deploy veröffentlicht wird und in den Arbeitszweige übernommen werden. Standard: ``main``.
+   * - ``workspace-root`` *(optional)*
+     - Verzeichnis am CMS-Server für die Arbeitsbereiche der Bearbeiter, den Deploy-Klon und die Zwischenstände für den Fast Deploy. Standard: ``git-workspace-root`` aus dem Root-Element. Darunter wird pro CMS ein Ordner ``{cms-id}`` angelegt.
+   * - ``author-email-domain`` *(optional)*
+     - Als Autor eines Commits wird der angemeldete CMS-Benutzer eingetragen. Liefert die Anmeldung keine E-Mail-Adresse, wird ``{benutzer}@{author-email-domain}`` verwendet. Standard: ``cms.local``.
+   * - ``committer-name``, ``committer-email`` *(optional)*
+     - Committer aller Commits, z. B. der technische Account. Standard: der Autor.
+
+Git ist nur aktiv, wenn ``remote-url`` und ein Verzeichnis für die Arbeitsbereiche (``workspace-root`` oder ``git-workspace-root``) angegeben sind. Fehlerhafte Einstellungen werden beim Start des CMS protokolliert. Das CMS läuft dann ohne Git.
+
+.. danger::
+
+    Versioniert wird der **gesamte** CMS-Baum, inklusive Berechtigungen und verschlüsselter Secrets. Das Repository muss **privat** sein und auf einem **vertrauenswürdigen** Git-Server liegen.
+
+.. note::
+
+    Git wird nur für CMS-Bäume im Dateisystem unterstützt (``cms-items`` mit ``path``).
 
 Abschnitt ``deployments``
 -------------------------
@@ -172,6 +241,12 @@ Abschnitt ``deployments``
        Dienste, die nicht in der Liste enthalten sind, werden beim Export übersprungen.
 
        Bleibt die Liste leer oder wird sie weggelassen, bleibt das bisherige Verhalten erhalten: Es werden weiterhin **alle Dienste** exportiert.
+   * - ``allowBranchDeploy`` *(optional)*
+     - Nur wenn das CMS mit Git versioniert wird: Ist dieser Wert ``true``, können Bearbeiter für dieses Deployment zusätzlich ihren Arbeitsbereich als Branch deployen (siehe :ref:`cms-deploy-branch`). Branch-Deploys werden im Ordner ``branches/{branch}/`` neben der Ziel-Datei abgelegt bzw. per Upload übertragen. Die WebGIS API muss Branches erlauben (``allow-branches`` in der ``api.config``). Standard: ``false``.
+
+       Branch-Deploys sind für Entwicklungs- und Testsysteme gedacht und sollten für Produktivsysteme nicht aktiviert werden.
+
+       .. versionadded:: 9.26.4102
 
 Abschnitt ``postEvents``
 ------------------------
@@ -193,6 +268,14 @@ Abschnitt ``postEvents``
        .. note::
 
           Wird die **CMS.xml** per Upload an die **WebGIS API** übertragen, kann auf einen manuellen ``cache/clear``-Aufruf verzichtet werden, da dies von der WebGIS API automatisch ausgeführt wird.
+
+In ``commands`` und ``http-get`` kann der Platzhalter ``{branch}`` verwendet werden. Er wird bei einem Branch-Deploy durch den (kodierten) Namen des Branches ersetzt und ist beim Deploy des veröffentlichten Stands leer. So kann z. B. bei einem Branch-Deploy gezielt nur der Branch eines CMS neu geladen werden (``id`` = CMS-Name aus der ``api.config``, z. B. ``custom`` für ``cmspath_custom``):
+
+.. code-block:: json
+
+    "http-get": ["http://localhost:5001/cache/clear?id=custom&branch={branch}"]
+
+.. versionadded:: 9.26.4102
 
 
 Weitere Attribute

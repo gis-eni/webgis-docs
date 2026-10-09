@@ -16,4 +16,5 @@ With the WebGIS CMS, administrators can define which services are offered via th
     editing/index
     secrets/index.rst
     security/index
+    git
     deploy

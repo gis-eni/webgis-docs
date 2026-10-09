@@ -45,6 +45,16 @@ Section ``CMS``
      - URL of the output directory that must be reachable for the user. This can be a virtual directory, but it should not be listable via the browser.
    * - ``server-side-configuration-path``
      - Path to the server-side configuration of the API. This directory contains configuration files for the entire instance, including ``etc`` (e.g. print layouts) and ``config``.
+   * - ``allow-branches``
+     - If this value is ``true``, the API looks for branch deploys from the WebGIS CMS in the folder ``branches/`` below each CMS file (``cmspath_...``) and accepts branch uploads. Map authors can then select and test these branches in the portal (see :ref:`cms-deploy-branch` and :ref:`portal-branches`). Default: ``false``.
+
+       Should only be enabled on development and test systems.
+
+       .. code-block:: xml
+
+           <add key="allow-branches" value="true" />
+
+       .. versionadded:: 9.26.4102
 
 Section ``Proj4 Database``
 -----------------------------

@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="WebGIS API" href="../api/index.html" />
-    <link rel="prev" title="Permissions (Security)" href="security/index.html" /> 
+    <link rel="prev" title="Versioning with Git" href="git.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -150,6 +150,7 @@
 <li class="toctree-l3"><a class="reference internal" href="secrets/index.html">Secrets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="secrets/index.html#creating-a-secret">Creating a Secret</a></li>
 <li class="toctree-l3"><a class="reference internal" href="security/index.html">Permissions (Security)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git.html">Versioning with Git</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Publishing the CMS</a></li>
 </ul>
 </li>
@@ -195,6 +196,55 @@ After the warnings are shown, close the window. In the deploy dialog, a note now
 <p><strong>Caution:</strong> You should only do this if deleting the layer toggle, for example, was intentional. Otherwise, references may be deleted unintentionally:</p>
 <img alt="../../_images/image37.png" src="../../_images/image37.png" />
 <p>After this process, the red button disappears from the deploy dialog and the CMS can be published again.</p>
+<section id="deploy-with-git">
+<span id="cms-deploy-git"></span><h2>Deploy with Git<a class="headerlink" href="#deploy-with-git" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4102.</span></p>
+</div>
+<p>If a CMS is versioned with Git (see <a class="reference internal" href="git.html#cms-git"><span class="std std-ref">Versioning with Git</span></a>), the deploy page additionally shows a section <strong>Versioning (Git)</strong>:</p>
+<img alt="../../_images/deploy-git-page.png" src="../../_images/deploy-git-page.png" />
+<p>It shows</p>
+<ul class="simple">
+<li><p>which state of <code class="docutils literal notranslate"><span class="pre">main</span></code> on the Git server will be deployed (commit, date, author and description),</p></li>
+<li><p>which state was deployed last,</p></li>
+<li><p>whether there are changes in the own workspace that are <strong>not</strong> part of the deployment (e.g. unsaved or unpublished changes, or because you are working in a working branch).</p></li>
+</ul>
+<p>Each deploy tile shows a label indicating which kind of deployment is possible:</p>
+<ul class="simple">
+<li><p><strong>main only:</strong> Only the published state can be deployed.</p></li>
+<li><p><strong>main + branches:</strong> Additionally, the own workspace can be deployed as a branch (see <a class="reference internal" href="#cms-deploy-branch"><span class="std std-ref">Testing a working branch (branch deploy)</span></a>). This must be enabled for the deployment in the <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> with <code class="docutils literal notranslate"><span class="pre">allowBranchDeploy</span></code> (see <a class="reference internal" href="../../config/cms/index.html"><span class="doc">Configuration of the CMS application</span></a>).</p></li>
+</ul>
+<section id="published-state-main">
+<h3>Published state (main)<a class="headerlink" href="#published-state-main" title="Link to this heading">¶</a></h3>
+<p>The normal deployment always deploys the <strong>published state</strong>, i.e. the current state of <code class="docutils literal notranslate"><span class="pre">main</span></code> on the Git server, and <strong>not</strong> the content of the own workspace. This way, only changes that have been saved, published and merged into <code class="docutils literal notranslate"><span class="pre">main</span></code> end up in the WebGIS. It does not matter which editor starts the deployment.</p>
+<p>For this, the CMS uses its own copy of the Git repository on the server (<em>deploy clone</em>), which is updated before each deployment. Per CMS, only one deployment of the published state can run at a time.</p>
+</section>
+<section id="testing-a-working-branch-branch-deploy">
+<span id="cms-deploy-branch"></span><h3>Testing a working branch (branch deploy)<a class="headerlink" href="#testing-a-working-branch-branch-deploy" title="Link to this heading">¶</a></h3>
+<p>A branch deploy publishes the <strong>current state of the own workspace</strong>, including unsaved changes, as a separate <em>branch</em> next to the published state. This way, changes can be tested in the WebGIS before they are merged into <code class="docutils literal notranslate"><span class="pre">main</span></code>. Other users still see the published state.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Branch deploys are intended for <strong>development and test environments</strong>. On a production system, usually only the published state (main) is deployed. Therefore, branch deploys must be enabled explicitly per deployment (<code class="docutils literal notranslate"><span class="pre">allowBranchDeploy</span></code> in the <code class="docutils literal notranslate"><span class="pre">cms.config</span></code>), and the WebGIS API must allow branches (<code class="docutils literal notranslate"><span class="pre">allow-branches</span></code> in the <code class="docutils literal notranslate"><span class="pre">api.config</span></code>, see <a class="reference internal" href="../../config/api/index.html"><span class="doc">Configuration of the API application</span></a>).</p>
+</div>
+<p>Clicking a tile labeled <em>main + branches</em> opens a selection dialog:</p>
+<img alt="../../_images/deploy-branch-choice.png" src="../../_images/deploy-branch-choice.png" />
+<ul class="simple">
+<li><p><strong>Published state (main):</strong> normal deployment as described above.</p></li>
+<li><p><strong>Test working branch:</strong> branch deploy of the own workspace. The name of the current working branch is used as the branch name. If you work directly in <code class="docutils literal notranslate"><span class="pre">main</span></code>, the branch name is <code class="docutils literal notranslate"><span class="pre">{user}-main</span></code>.</p></li>
+</ul>
+<p>How a deployed branch is selected and tested in the WebGIS is described in <a class="reference internal" href="../portal/branches.html#portal-branches"><span class="std std-ref">Testing CMS branches</span></a>.</p>
+<p>Below the tiles, <strong>Deployed branches</strong> lists all branches that have been deployed for this deployment (branch, editor, commit, date). <em>Remove</em> deletes a branch deploy again. If a working branch is deleted in the CMS (also with <em>Merge into main</em> and the option <em>Delete working branch afterwards</em>), its branch deploys are removed automatically. Branch deploys of the form <code class="docutils literal notranslate"><span class="pre">{user}-main</span></code> must be removed manually.</p>
+<p>If warnings occur during a branch deploy, a separate tile for fixing these warnings is shown. The warnings of the published state are not affected.</p>
+</section>
+<section id="fast-deploy">
+<span id="cms-deploy-fast"></span><h3>Fast deploy<a class="headerlink" href="#fast-deploy" title="Link to this heading">¶</a></h3>
+<p>By default, a branch deploy is executed as a <strong>fast deploy</strong>. With the first branch deploy, the entire CMS tree is read and a snapshot is stored. With every further branch deploy, only the files that have changed since then are read again (determined via Git). The result is identical to a full deployment, but many times faster for large CMS trees.</p>
+<p>The selection dialog shows when the snapshot was taken. The option <strong>Read everything again</strong> discards the snapshot and reads the entire tree again. This is normally not necessary.</p>
+<p>The deployment log shows how many paths have changed and how long reading took:</p>
+<img alt="../../_images/deploy-fast-console.png" src="../../_images/deploy-fast-console.png" />
+<p>The snapshot is stored per editor on the CMS server (not in the Git repository) and is deleted together with the workspace. The deployment of the published state always reads the entire tree.</p>
+</section>
+</section>
 </section>
 
 
@@ -203,6 +253,28 @@ After the warnings are shown, close the window. In the deploy dialog, a note now
         </div>
       </div>
     
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Publishing the CMS</a><ul>
+<li><a class="reference internal" href="#deploy-with-git">Deploy with Git</a><ul>
+<li><a class="reference internal" href="#published-state-main">Published state (main)</a></li>
+<li><a class="reference internal" href="#testing-a-working-branch-branch-deploy">Testing a working branch (branch deploy)</a></li>
+<li><a class="reference internal" href="#fast-deploy">Fast deploy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
 
       <div class="clearer"></div>
     </div>
@@ -210,8 +282,8 @@ After the warnings are shown, close the window. In the deploy dialog, a note now
         <div class="button_nav">
             <div class="left">
                 
-                <a href="security/index.html">
-                    <span class="icon">&lt;</span><span>Permissions (Security)</span></a>
+                <a href="git.html">
+                    <span class="icon">&lt;</span><span>Versioning with Git</span></a>
                 
             </div>
 

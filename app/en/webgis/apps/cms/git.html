@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Versioning with Git &#8212; WebGIS 2026 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
+    <script src="../../_static/documentation_options.js?v=fc6fd62b"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Publishing the CMS" href="deploy.html" />
+    <link rel="prev" title="Permissions (Security)" href="security/index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+
+        <a id="eni_home_link" href="/index.html" title="Back to overview">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3.172l-8.5 7.653a.75.75 0 0 0 1 1.116L5 11.5V20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4h2v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.5l.5.441a.75.75 0 0 0 1-1.116L12 3.172z"/></svg>
+        </a>
+
+        <h1><a href="../../index.html" title="Go to homepage">WebGIS for Admins</a></h1>
+
+        <a id="eni_lang_switch" href="/de/webgis/apps/cms/git.html" title="Auf Deutsch wechseln">
+            DE
+        </a>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">Running WebGIS Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">Configuration (post-installation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">WebGIS Applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">WebGIS CMS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ui.html">CMS Web Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add_wmts_service.html">Integrating a WMTS Tilecache Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add_ags_service.html">Integrating an ArcGIS Server Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html">Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#general-query-properties">General Query Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#search-fields">Search Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#selection-lists">Selection Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#table">Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html">Layer Toggles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="presentations.html">Presentation Variants (Providing Layer Toggles for the Viewer)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing/index.html">Editing (Editing Geo-Objects)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="secrets/index.html">Secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="secrets/index.html#creating-a-secret">Creating a Secret</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/index.html">Permissions (Security)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Versioning with Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html">Publishing the CMS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../viewer/index.html">WebGIS Viewer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Extended Tool Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex/index.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="versioning-with-git">
+<span id="cms-git"></span><h1>Versioning with Git<a class="headerlink" href="#versioning-with-git" title="Link to this heading">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4102.</span></p>
+</div>
+<p>Optionally, a CMS tree can be versioned with <strong>Git</strong>. Every change is then traceable (who changed what and when), can be compared and restored, and several editors can work on the same CMS at the same time without getting in each other’s way.</p>
+<p>Whether a CMS is versioned with Git is defined by the administrator in the <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> (see <a class="reference internal" href="../../config/cms/index.html#cms-config-git"><span class="std std-ref">Section git</span></a>). If no Git is configured for a CMS, the CMS works exactly as before: all editors work in the same tree, and every change is immediately visible to everyone.</p>
+<section id="basic-principle">
+<h2>Basic principle<a class="headerlink" href="#basic-principle" title="Link to this heading">¶</a></h2>
+<p>With Git, the following applies:</p>
+<ul class="simple">
+<li><p><strong>Own workspace:</strong> Every editor gets an own workspace (a copy of the CMS tree) on the CMS server. Changes of other editors only become visible once they have been published and taken over into the own workspace.</p></li>
+<li><p><strong>Git server:</strong> The shared state is stored in an external Git repository (e.g. GitLab, Gitea, Azure DevOps, GitHub). It contains the complete history.</p></li>
+<li><p><strong>Main branch main:</strong> The main branch (usually <code class="docutils literal notranslate"><span class="pre">main</span></code>) is the <em>published state</em>. Only this state is published by the normal deployment (see <a class="reference internal" href="deploy.html#cms-deploy-git"><span class="std std-ref">Deploy with Git</span></a>).</p></li>
+<li><p><strong>Working branches:</strong> Larger changes can be prepared and tested in a separate working branch before they are merged into <code class="docutils literal notranslate"><span class="pre">main</span></code>. Smaller changes may also be saved directly in <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+</ul>
+<p>The user interface deliberately uses simple terms. The corresponding Git commands are shown in small print below them:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>In the CMS</strong></p></th>
+<th class="head"><p><strong>Git</strong></p></th>
+<th class="head"><p><strong>Meaning</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Save changes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code></p></td>
+<td><p>The changes are saved with a description in the own workspace. They are not on the Git server yet.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Publish</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p></td>
+<td><p>The saved changes are transferred to the Git server and are thus available to other editors.</p></td>
+</tr>
+<tr class="row-even"><td><p>Update</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p></td>
+<td><p>Gets the latest changes of other editors from the Git server into the own workspace.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Branch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></p></td>
+<td><p>An own development branch in which you can work independently of <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Take over changes from main</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">main</span></code></p></td>
+<td><p>Gets the current state of <code class="docutils literal notranslate"><span class="pre">main</span></code> into the current working branch.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Merge into main</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> → <code class="docutils literal notranslate"><span class="pre">main</span></code></p></td>
+<td><p>Merges the working branch into <code class="docutils literal notranslate"><span class="pre">main</span></code> and publishes the result.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>entire</strong> CMS tree is versioned, including permissions (<code class="docutils literal notranslate"><span class="pre">.acl</span></code> files) and encrypted secrets. The Git repository must therefore be private and hosted on a trusted server.</p>
+</div>
+</section>
+<section id="getting-a-workspace">
+<h2>Getting a workspace<a class="headerlink" href="#getting-a-workspace" title="Link to this heading">¶</a></h2>
+<p>When an editor opens a Git-versioned CMS for the first time, there is no workspace for them yet. The CMS shows a corresponding notice. With one click, the current state is fetched from the Git server and the workspace is created. After that, you can work in the CMS tree as usual.</p>
+<p>If the Git repository is still empty, it is automatically filled with the existing CMS tree (<code class="docutils literal notranslate"><span class="pre">path</span></code> from the <code class="docutils literal notranslate"><span class="pre">cms.config</span></code>) when the first workspace is created.</p>
+</section>
+<section id="the-git-panel">
+<h2>The Git panel<a class="headerlink" href="#the-git-panel" title="Link to this heading">¶</a></h2>
+<p>In the sidebar, the panel <strong>Versioning (Git)</strong> appears in the <em>Tools</em> section:</p>
+<img alt="../../_images/git-panel-changes.png" src="../../_images/git-panel-changes.png" />
+<p>The panel shows:</p>
+<ul class="simple">
+<li><p>the <strong>current branch</strong> (here <code class="docutils literal notranslate"><span class="pre">main</span></code>),</p></li>
+<li><p>the <strong>state</strong> of the workspace, e.g. <em>34 unsaved</em>, <em>1 not published</em>, <em>Up to date</em> or <em>x new change(s) on the server</em>,</p></li>
+<li><p>a <strong>main action</strong> (green button) that depends on the state: <em>Save changes…</em>, <em>Publish</em>, <em>Merge into main…</em>, <em>Resolve conflicts…</em> or <em>Finish merge</em>,</p></li>
+<li><p>further <strong>tools</strong> as icons. The tooltip of an icon describes its function.</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tool</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Check status</p></td>
+<td><p>Checks the Git server for new changes (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code>). The icon is located next to the panel title.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Save changes…</p></td>
+<td><p>Opens the dialog for saving the changes (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>Publish</p></td>
+<td><p>Transfers saved changes to the Git server (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Update</p></td>
+<td><p>Gets new changes from the Git server (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>Take over changes from main</p></td>
+<td><p>Only in a working branch: gets the current state of <code class="docutils literal notranslate"><span class="pre">main</span></code> into the working branch.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Discard all changes</p></td>
+<td><p>Discards all unsaved changes and restores the last saved state.</p></td>
+</tr>
+<tr class="row-even"><td><p>Branches…</p></td>
+<td><p>Create, switch and delete working branches.</p></td>
+</tr>
+<tr class="row-odd"><td><p>History…</p></td>
+<td><p>Shows the history of all branches and changes.</p></td>
+</tr>
+<tr class="row-even"><td><p>Differences to main</p></td>
+<td><p>Only in a working branch: shows all differences between the own state and <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Manage workspaces…</p></td>
+<td><p>Shows the workspaces of all editors of this CMS (see below).</p></td>
+</tr>
+</tbody>
+</table>
+<p>Changed nodes are highlighted in the CMS tree with a color and a dot (e.g. <em>Dienste •</em>), so it is easy to see where there are unsaved changes.</p>
+<p>If the Git server is not reachable, you can still keep working. The panel then shows the notice <em>Server not reachable</em>. Changes can be saved locally, but only published again once the server is reachable.</p>
+</section>
+<section id="saving-changes">
+<h2>Saving changes<a class="headerlink" href="#saving-changes" title="Link to this heading">¶</a></h2>
+<p>A click on <em>Save changes…</em> opens a dialog with all changed nodes:</p>
+<img alt="../../_images/git-commit-dialog.png" src="../../_images/git-commit-dialog.png" />
+<p>For each node, the state (<em>changed</em>, <em>new</em>, <em>deleted</em>), the name and the path in the CMS tree are shown. If only the order of sub nodes has been changed, <em>Order changed</em> is shown. Using the icons on the right, you can:</p>
+<ul class="simple">
+<li><p>show the <strong>differences</strong> (as a table of the changed properties or as XML text),</p></li>
+<li><p><strong>discard</strong> the change of this node,</p></li>
+<li><p>show the <strong>history</strong> of this node (see below),</p></li>
+<li><p><strong>jump</strong> to the node in the CMS tree.</p></li>
+</ul>
+<p>The <strong>description of the changes</strong> is suggested automatically and can be overwritten. A meaningful description makes it easier to follow the history later. <em>Save</em> stores the changes in the own workspace.</p>
+<p>The logged-in CMS user is recorded as the author.</p>
+</section>
+<section id="publishing">
+<h2>Publishing<a class="headerlink" href="#publishing" title="Link to this heading">¶</a></h2>
+<p>Saved changes initially only exist in the own workspace. The panel then shows e.g. <em>1 not published</em> and <em>Publish</em> as the main action:</p>
+<img alt="../../_images/git-panel-ahead.png" src="../../_images/git-panel-ahead.png" />
+<p>Only <em>Publish</em> transfers the changes to the Git server.</p>
+<p>If another editor has published changes in the same branch in the meantime, these are automatically taken over first when publishing. If the same nodes were changed on both sides, conflicts arise that must be resolved before publishing (see <a class="reference internal" href="#cms-git-conflicts"><span class="std std-ref">Resolving conflicts</span></a>). Changes on the server are never overwritten.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Publishing in Git does <strong>not</strong> mean that the changes are visible in the WebGIS yet. A <a class="reference internal" href="deploy.html"><span class="doc">deployment</span></a> is still required for that.</p>
+</div>
+</section>
+<section id="working-branches">
+<h2>Working branches<a class="headerlink" href="#working-branches" title="Link to this heading">¶</a></h2>
+<p>Using <em>Branches…</em>, own working branches can be created, switched and deleted:</p>
+<img alt="../../_images/git-branches.png" src="../../_images/git-branches.png" />
+<p>The user name is suggested as a prefix for the name, but the name can be chosen freely. A new working branch always starts with the current state. Branches that only exist on the server (e.g. from other editors) are marked with <em>server only</em> and can be selected as well.</p>
+<p>When you are in a working branch, the panel shows its name. The main action is then <em>Merge into main…</em>:</p>
+<img alt="../../_images/git-panel-branch.png" src="../../_images/git-panel-branch.png" />
+<p>A working branch can be deployed to a development or test environment for testing without changing the published state (see <a class="reference internal" href="deploy.html#cms-deploy-branch"><span class="std std-ref">Testing a working branch (branch deploy)</span></a>).</p>
+<section id="taking-over-changes-from-main">
+<h3>Taking over changes from main<a class="headerlink" href="#taking-over-changes-from-main" title="Link to this heading">¶</a></h3>
+<p>If several editors work in parallel, <code class="docutils literal notranslate"><span class="pre">main</span></code> evolves while you work in your own working branch. <em>Take over changes from main</em> gets the current state of <code class="docutils literal notranslate"><span class="pre">main</span></code> into the working branch. This is useful before testing a working branch or merging it into <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+</section>
+<section id="merging-into-main">
+<h3>Merging into main<a class="headerlink" href="#merging-into-main" title="Link to this heading">¶</a></h3>
+<p>Once the work in the working branch is finished, it is merged into the main branch with <em>Merge into main…</em>:</p>
+<img alt="../../_images/git-merge-into-main.png" src="../../_images/git-merge-into-main.png" />
+<p>This will:</p>
+<ol class="arabic simple">
+<li><p>take over new changes from <code class="docutils literal notranslate"><span class="pre">main</span></code> into the working branch (possibly with conflicts, see below),</p></li>
+<li><p>merge the changes of the working branch into <code class="docutils literal notranslate"><span class="pre">main</span></code> and publish them,</p></li>
+<li><p>switch to the main branch.</p></li>
+</ol>
+<p>If the option <em>Delete working branch afterwards</em> is set, the working branch is deleted locally and on the Git server. Any existing branch deployment of this working branch is removed as well.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Afterwards, a deployment of the published state is required for the changes to become visible in the WebGIS.</p>
+</div>
+</section>
+</section>
+<section id="resolving-conflicts">
+<span id="cms-git-conflicts"></span><h2>Resolving conflicts<a class="headerlink" href="#resolving-conflicts" title="Link to this heading">¶</a></h2>
+<p>A conflict arises if the same node was changed differently on both sides, e.g. in the own working branch and at the same time by another editor in <code class="docutils literal notranslate"><span class="pre">main</span></code>. Conflicts are resolved <strong>per CMS node</strong>, not per file. A changed order of nodes is merged automatically (own order first, new nodes of the other side are appended).</p>
+<p>While a merge is running, editing the CMS tree is locked. A notice with the buttons <em>Resolve conflicts…</em> and <em>Abort merge</em> appears above the tree:</p>
+<img alt="../../_images/git-merge-banner.png" src="../../_images/git-merge-banner.png" />
+<p>The dialog <em>Resolve conflicts</em> shows all affected nodes with the differing properties of both versions:</p>
+<img alt="../../_images/git-conflicts.png" src="../../_images/git-conflicts.png" />
+<p>For each node, you choose which version to keep. <em>Use … everywhere</em> resolves all conflicts at once. The differences can be shown as a table of properties or as XML text.</p>
+<p>Once all conflicts are resolved, the merge is completed with <em>Finish merge</em>. After that, you can work and publish as usual again.</p>
+<p>The state of a running merge is kept, even if the CMS is closed in the meantime. <em>Abort merge</em> restores the state before the merge.</p>
+</section>
+<section id="history">
+<h2>History<a class="headerlink" href="#history" title="Link to this heading">¶</a></h2>
+<p><em>History…</em> shows all saved changes as a graph, optionally for all branches. Labels mark the current state, the branches, the state on the server (<code class="docutils literal notranslate"><span class="pre">origin/...</span></code>), the last deployed state (<em>deployed</em>) and changes that have not been published yet.</p>
+<img alt="../../_images/git-history.png" src="../../_images/git-history.png" />
+<p>A click on a change shows author, date, commit and the changed files. The differences can be shown for each file.</p>
+<section id="history-of-a-node-and-restoring">
+<h3>History of a node and restoring<a class="headerlink" href="#history-of-a-node-and-restoring" title="Link to this heading">¶</a></h3>
+<p>Using the history icon of a node (e.g. in the dialog <em>Save changes</em> or <em>Differences to main</em>), the history of this node only is shown. An earlier state of the node can be brought back with <em>Restore this state</em>. The result is an unsaved change that can be checked, saved or discarded again.</p>
+</section>
+</section>
+<section id="differences-to-main">
+<h2>Differences to main<a class="headerlink" href="#differences-to-main" title="Link to this heading">¶</a></h2>
+<p>In a working branch, <em>Differences to main</em> shows all nodes that differ from the current state of <code class="docutils literal notranslate"><span class="pre">main</span></code>, including unsaved changes:</p>
+<img alt="../../_images/git-compare-main.png" src="../../_images/git-compare-main.png" />
+<p>For each node, the differences can be shown, the history opened, or the version from <code class="docutils literal notranslate"><span class="pre">main</span></code> taken over (as an unsaved change). <em>Update</em> fetches the current state of <code class="docutils literal notranslate"><span class="pre">main</span></code> from the Git server.</p>
+</section>
+<section id="managing-workspaces">
+<h2>Managing workspaces<a class="headerlink" href="#managing-workspaces" title="Link to this heading">¶</a></h2>
+<p>All CMS editors are administrators. Therefore, <em>Manage workspaces…</em> shows the workspaces of all editors of this CMS with branch, state and last change:</p>
+<img alt="../../_images/git-workspaces.png" src="../../_images/git-workspaces.png" />
+<p>A workspace can be deleted here, e.g. if an editor no longer works on the CMS. <strong>Attention:</strong> Unsaved and unpublished changes of this workspace are lost. Your own workspace must be fetched again afterwards.</p>
+<p><em>Reset deploy clone</em> deletes the copy of the repository that the CMS uses for deploying the published state. It is fetched again automatically with the next deployment.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Versioning with Git</a><ul>
+<li><a class="reference internal" href="#basic-principle">Basic principle</a></li>
+<li><a class="reference internal" href="#getting-a-workspace">Getting a workspace</a></li>
+<li><a class="reference internal" href="#the-git-panel">The Git panel</a></li>
+<li><a class="reference internal" href="#saving-changes">Saving changes</a></li>
+<li><a class="reference internal" href="#publishing">Publishing</a></li>
+<li><a class="reference internal" href="#working-branches">Working branches</a><ul>
+<li><a class="reference internal" href="#taking-over-changes-from-main">Taking over changes from main</a></li>
+<li><a class="reference internal" href="#merging-into-main">Merging into main</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#resolving-conflicts">Resolving conflicts</a></li>
+<li><a class="reference internal" href="#history">History</a><ul>
+<li><a class="reference internal" href="#history-of-a-node-and-restoring">History of a node and restoring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#differences-to-main">Differences to main</a></li>
+<li><a class="reference internal" href="#managing-workspaces">Managing workspaces</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="security/index.html">
+                    <span class="icon">&lt;</span><span>Permissions (Security)</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="deploy.html"><span>Publishing the CMS</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

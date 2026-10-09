@@ -16,4 +16,5 @@ WebGIS CMS
     editing/index
     secrets/index.rst
     security/index
+    git
     deploy

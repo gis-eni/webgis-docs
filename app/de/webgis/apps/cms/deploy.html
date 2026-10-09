@@ -19,7 +19,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="WebGIS API" href="../api/index.html" />
-    <link rel="prev" title="Berechtigungen (Security)" href="security/index.html" /> 
+    <link rel="prev" title="Versionierung mit Git" href="git.html" /> 
   </head><body data-dark_mode_code_blocks="true">
 
 <div id="top_nav">
@@ -151,6 +151,7 @@
 <li class="toctree-l3"><a class="reference internal" href="secrets/index.html">Secrets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="secrets/index.html#secret-erstellen">Secret erstellen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="security/index.html">Berechtigungen (Security)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git.html">Versionierung mit Git</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">CMS Veröffentlichen</a></li>
 </ul>
 </li>
@@ -196,6 +197,55 @@ Nach der Ausgabe von Warnungen das Fenster schließen. Im Deploy-Dialog erschein
 <p><strong>Achtung:</strong> Diesen Vorgang sollte man nur durchführen, wenn das Löschen der z.B. Layer-Schaltung beabsichtigt war. Ansonsten werden vielleicht unabsichtlich Verweise gelöscht:</p>
 <img alt="../../_images/image37.png" src="../../_images/image37.png" />
 <p>Nach diesem Vorgang ist die rote Schaltfläche im Deploy-Dialog verschwunden und das CMS kann neu Veröffentlicht werden.</p>
+<section id="deploy-mit-git">
+<span id="cms-deploy-git"></span><h2>Deploy mit Git<a class="headerlink" href="#deploy-mit-git" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4102.</span></p>
+</div>
+<p>Wird ein CMS mit Git versioniert (siehe <a class="reference internal" href="git.html#cms-git"><span class="std std-ref">Versionierung mit Git</span></a>), zeigt die Deploy-Seite zusätzlich einen Bereich <strong>Versionierung (Git)</strong>:</p>
+<img alt="../../_images/deploy-git-page.png" src="../../_images/deploy-git-page.png" />
+<p>Dort ist ersichtlich,</p>
+<ul class="simple">
+<li><p>welcher Stand von <code class="docutils literal notranslate"><span class="pre">main</span></code> am Git-Server deployt wird (Commit, Datum, Autor und Beschreibung),</p></li>
+<li><p>welcher Stand zuletzt deployt wurde,</p></li>
+<li><p>ob es im eigenen Arbeitsbereich Änderungen gibt, die <strong>nicht</strong> Teil des Deploys sind (z. B. ungespeicherte oder nicht veröffentlichte Änderungen oder weil man in einem Arbeitszweig arbeitet).</p></li>
+</ul>
+<p>Jede Deploy-Kachel zeigt mit einem Kennzeichen, welche Art von Deploy möglich ist:</p>
+<ul class="simple">
+<li><p><strong>nur main:</strong> Es kann nur der veröffentlichte Stand deployt werden.</p></li>
+<li><p><strong>main + Branches:</strong> Zusätzlich kann der eigene Arbeitsbereich als Branch deployt werden (siehe <a class="reference internal" href="#cms-deploy-branch"><span class="std std-ref">Arbeitszweig testen (Branch-Deploy)</span></a>). Das muss für das Deployment in der <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> mit <code class="docutils literal notranslate"><span class="pre">allowBranchDeploy</span></code> freigeschaltet sein (siehe <a class="reference internal" href="../../config/cms/index.html"><span class="doc">Konfiguration der CMS Applikation</span></a>).</p></li>
+</ul>
+<section id="veroffentlichter-stand-main">
+<h3>Veröffentlichter Stand (main)<a class="headerlink" href="#veroffentlichter-stand-main" title="Link to this heading">¶</a></h3>
+<p>Beim normalen Deploy wird immer der <strong>veröffentlichte Stand</strong>, also der aktuelle Stand von <code class="docutils literal notranslate"><span class="pre">main</span></code> am Git-Server, deployt, und <strong>nicht</strong> der Inhalt des eigenen Arbeitsbereichs. Damit landen nur Änderungen im WebGIS, die gespeichert, veröffentlicht und in <code class="docutils literal notranslate"><span class="pre">main</span></code> übernommen wurden. Es ist egal, welcher Bearbeiter den Deploy startet.</p>
+<p>Das CMS verwendet dafür am Server eine eigene Kopie des Git-Repositorys (<em>Deploy-Klon</em>), die vor jedem Deploy auf den aktuellen Stand gebracht wird. Pro CMS kann immer nur ein Deploy des veröffentlichten Stands gleichzeitig laufen.</p>
+</section>
+<section id="arbeitszweig-testen-branch-deploy">
+<span id="cms-deploy-branch"></span><h3>Arbeitszweig testen (Branch-Deploy)<a class="headerlink" href="#arbeitszweig-testen-branch-deploy" title="Link to this heading">¶</a></h3>
+<p>Ein Branch-Deploy veröffentlicht den <strong>aktuellen Stand des eigenen Arbeitsbereichs</strong>, inklusive ungespeicherter Änderungen, als eigenen <em>Branch</em> neben dem veröffentlichten Stand. Damit können Änderungen im WebGIS getestet werden, bevor sie in <code class="docutils literal notranslate"><span class="pre">main</span></code> übernommen werden. Andere Anwender sehen weiterhin den veröffentlichten Stand.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Branch-Deploys sind für <strong>Entwicklungs- und Testumgebungen</strong> gedacht. Auf einem Produktivsystem wird in der Regel nur der veröffentlichte Stand (main) deployt. Deshalb muss der Branch-Deploy pro Deployment explizit freigeschaltet werden (<code class="docutils literal notranslate"><span class="pre">allowBranchDeploy</span></code> in der <code class="docutils literal notranslate"><span class="pre">cms.config</span></code>) und die WebGIS API muss Branches erlauben (<code class="docutils literal notranslate"><span class="pre">allow-branches</span></code> in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code>, siehe <a class="reference internal" href="../../config/api/index.html"><span class="doc">Konfiguration der API-Applikation</span></a>).</p>
+</div>
+<p>Klickt man auf eine Kachel mit dem Kennzeichen <em>main + Branches</em>, erscheint ein Auswahldialog:</p>
+<img alt="../../_images/deploy-branch-choice.png" src="../../_images/deploy-branch-choice.png" />
+<ul class="simple">
+<li><p><strong>Veröffentlichter Stand (main):</strong> normaler Deploy wie oben beschrieben.</p></li>
+<li><p><strong>Arbeitszweig testen:</strong> Branch-Deploy des eigenen Arbeitsbereichs. Als Branch-Name wird der Name des aktuellen Arbeitszweiges verwendet. Arbeitet man direkt in <code class="docutils literal notranslate"><span class="pre">main</span></code>, lautet der Branch-Name <code class="docutils literal notranslate"><span class="pre">{benutzer}-main</span></code>.</p></li>
+</ul>
+<p>Wie ein deployter Branch im WebGIS ausgewählt und getestet wird, ist unter <a class="reference internal" href="../portal/branches.html#portal-branches"><span class="std std-ref">CMS-Branches testen</span></a> beschrieben.</p>
+<p>Unterhalb der Kacheln werden unter <strong>Deployte Branches</strong> alle Branches angezeigt, die für dieses Deployment deployt wurden (Branch, Bearbeiter, Commit, Datum). Mit <em>Entfernen</em> wird ein Branch-Deploy wieder gelöscht. Wird ein Arbeitszweig im CMS gelöscht (auch beim <em>In main übernehmen</em> mit der Option <em>Arbeitszweig danach löschen</em>), werden seine Branch-Deploys automatisch entfernt. Branch-Deploys der Form <code class="docutils literal notranslate"><span class="pre">{benutzer}-main</span></code> müssen manuell entfernt werden.</p>
+<p>Treten bei einem Branch-Deploy Warnungen auf, wird dafür eine eigene Kachel zum Beheben der Warnungen angezeigt. Die Warnungen des veröffentlichten Stands sind davon nicht betroffen.</p>
+</section>
+<section id="fast-deploy">
+<span id="cms-deploy-fast"></span><h3>Fast Deploy<a class="headerlink" href="#fast-deploy" title="Link to this heading">¶</a></h3>
+<p>Der Branch-Deploy wird standardmäßig als <strong>Fast Deploy</strong> ausgeführt. Beim ersten Branch-Deploy wird der gesamte CMS-Baum eingelesen und ein Zwischenstand gespeichert. Bei jedem weiteren Branch-Deploy werden nur noch die Dateien neu eingelesen, die sich seitdem geändert haben (ermittelt über Git). Das Ergebnis ist identisch mit einem vollständigen Deploy, bei großen CMS-Bäumen aber um ein Vielfaches schneller.</p>
+<p>Im Auswahldialog wird angezeigt, von wann der Zwischenstand ist. Mit der Option <strong>Vollständig neu einlesen</strong> wird der Zwischenstand verworfen und der gesamte Baum neu eingelesen. Das ist normalerweise nicht notwendig.</p>
+<p>Im Protokoll des Deploys ist ersichtlich, wie viele Pfade sich geändert haben und wie lange das Einlesen gedauert hat:</p>
+<img alt="../../_images/deploy-fast-console.png" src="../../_images/deploy-fast-console.png" />
+<p>Der Zwischenstand wird pro Bearbeiter am CMS-Server gespeichert (nicht im Git-Repository) und beim Löschen des Arbeitsbereichs ebenfalls gelöscht. Der Deploy des veröffentlichten Stands liest den Baum immer vollständig ein.</p>
+</section>
+</section>
 </section>
 
 
@@ -204,6 +254,28 @@ Nach der Ausgabe von Warnungen das Fenster schließen. Im Deploy-Dialog erschein
         </div>
       </div>
     
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">CMS Veröffentlichen</a><ul>
+<li><a class="reference internal" href="#deploy-mit-git">Deploy mit Git</a><ul>
+<li><a class="reference internal" href="#veroffentlichter-stand-main">Veröffentlichter Stand (main)</a></li>
+<li><a class="reference internal" href="#arbeitszweig-testen-branch-deploy">Arbeitszweig testen (Branch-Deploy)</a></li>
+<li><a class="reference internal" href="#fast-deploy">Fast Deploy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
 
       <div class="clearer"></div>
     </div>
@@ -211,8 +283,8 @@ Nach der Ausgabe von Warnungen das Fenster schließen. Im Deploy-Dialog erschein
         <div class="button_nav">
             <div class="left">
                 
-                <a href="security/index.html">
-                    <span class="icon">&lt;</span><span>Berechtigungen (Security)</span></a>
+                <a href="git.html">
+                    <span class="icon">&lt;</span><span>Versionierung mit Git</span></a>
                 
             </div>
 
