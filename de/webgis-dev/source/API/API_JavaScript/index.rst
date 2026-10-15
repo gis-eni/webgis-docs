@@ -8,6 +8,30 @@ WebGIS 5.0 API JavaScript
 
 In dieser Dokumentation werden die grundlegenden Objekte beschrieben, die für das Erzeugen von Kartenanwendungen mit der WebGIS-API notwendig sind. Um die API nutzen können sind folgende Einträge in der entsprechenden HTML notwendig:
 
+.. _api-javascript-single-bundle:
+
+.. code-block:: html
+
+    <link href="https://api.webgiscloud.com/content/styles/webgis-api.min.css" rel="stylesheet" />
+    <script src="https://api.webgiscloud.com/scripts/api/webgis-api.min.js" id="webgis-api-script"></script>
+
+.. versionadded:: 9.26.4104
+
+    ``webgis-api.min.js`` enthält die gesamte API inklusive UI Elemente (TOC, Werkzeuge, Suche),
+    ``webgis-api.min.css`` die dazu passenden Styles. Dies ist die empfohlene Einbindung.
+
+Die ``id="webgis-api-script"`` am ``<script>`` Tag wird empfohlen. Fehlt sie, wird die Adresse der API aus dem aktuell geladenen Script ermittelt.
+
+Vollbild-Kartenanwendungen (wie der WebGIS Viewer) können zusätzlich ``ui.app.css`` einbinden. Damit werden Textmarkierung und Pull-to-Refresh auf der Seite unterbunden:
+
+.. code-block:: html
+
+    <link href="https://api.webgiscloud.com/content/api/ui.app.css" rel="stylesheet" />
+
+.. deprecated:: 9.26.4104
+
+    Die bisherige Einbindung über mehrere Dateien (``default.css``, ``ui.css``, ``api.min.js``, ``api-ui.min.js``) wird weiterhin unterstützt, sollte aber durch das Gesamt-Bundle ersetzt werden:
+
 .. code-block:: html
 
     <link href="https://api.webgiscloud.com/content/styles/default.css" rel="stylesheet" />
