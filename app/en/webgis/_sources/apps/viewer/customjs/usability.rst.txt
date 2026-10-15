@@ -476,4 +476,38 @@ basemaps/overlays), instead of showing only the first three tiles:
 If this option is enabled, the user immediately sees all available basemaps without
 having to manually expand the container first.
 
+.. _customjs-detachable-windows:
+
+Areas in a separate window (detaching)
+======================================
+
+.. versionadded:: 9.26.4104
+
+In the desktop layout template, the *toolbar* and the *query results* area (table) can be
+detached into a separate window, e.g. to enlarge the table on a second screen. For this, an
+additional icon is shown in these areas. The feature is disabled by default and is enabled in
+``custom.js``:
+
+.. code:: javascript
+
+   webgis.usability.detachableWindows = true;  // default: false
+
+.. note::
+
+   The separate window is opened via the browser's *Document Picture-in-Picture* API. It is
+   currently only available in Chromium-based browsers (Chrome, Edge). In other browsers the
+   detach icon is not shown.
+
+Behavior:
+
+- All detached areas share one window. A placeholder remains at the original position in the
+  viewer, which can be used to bring the area back.
+- In the detached toolbar, all tools are shown on one page without tabs; the tab names become
+  headings of the tool blocks.
+- If a tool (e.g. *Print map*) hides a detached area, the window shows a hint with a button to
+  close the active tool.
+- Which areas were detached is stored in the browser (``localStorage``). The next time the map
+  is opened, the user is asked whether the windows should be restored (the browser only allows
+  opening the window after a user action).
+
 

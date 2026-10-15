@@ -485,4 +485,38 @@ automatisch vollständig aufgeklappt wird, anstatt nur die ersten drei Kacheln a
 Ist die Option aktiviert, sieht der Anwender sofort alle verfügbaren Hintergrundkarten,
 ohne den Container zuerst manuell aufklappen zu müssen.
 
+.. _customjs-detachable-windows:
+
+Bereiche in eigenem Fenster (Abkoppeln)
+=======================================
+
+.. versionadded:: 9.26.4104
+
+In der Desktop-Layoutvorlage können die *Werkzeugleiste* und der Bereich für die
+*Abfrageergebnisse* (Tabelle) in ein eigenes Fenster abgekoppelt werden, z. B. um die Tabelle
+auf einem zweiten Bildschirm zu vergrößern. Dazu erscheint in diesen Bereichen ein zusätzliches
+Symbol. Die Funktion ist standardmäßig deaktiviert und wird in der ``custom.js`` eingeschaltet:
+
+.. code:: javascript
+
+   webgis.usability.detachableWindows = true;  // default: false
+
+.. note::
+
+   Das eigene Fenster wird über die *Document Picture-in-Picture* Schnittstelle des Browsers
+   geöffnet. Diese steht derzeit nur in Chromium-basierten Browsern (Chrome, Edge) zur
+   Verfügung. In anderen Browsern wird das Symbol zum Abkoppeln nicht angezeigt.
+
+Verhalten:
+
+- Alle abgekoppelten Bereiche teilen sich ein gemeinsames Fenster. An der ursprünglichen
+  Stelle im Viewer bleibt ein Platzhalter, über den der Bereich wieder zurückgeholt werden kann.
+- In der abgekoppelten Werkzeugleiste werden alle Werkzeuge ohne Tabs auf einer Seite
+  dargestellt, die Tab-Namen sind Überschriften der Werkzeugblöcke.
+- Blendet ein Werkzeug (z. B. *Karte drucken*) einen abgekoppelten Bereich aus, erscheint im
+  Fenster ein Hinweis mit einer Schaltfläche, um das aktive Werkzeug zu schließen.
+- Welche Bereiche abgekoppelt waren, wird im Browser (``localStorage``) gespeichert. Beim nächsten
+  Aufruf der Karte wird der Anwender gefragt, ob die Fenster wiederhergestellt werden sollen
+  (der Browser erlaubt das Öffnen des Fensters nur nach einer Benutzeraktion).
+
 

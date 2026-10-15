@@ -13,15 +13,14 @@ must be included on the web page:
 
 .. code:: html
 
-    <!-- required styles and scripts: jquery, api, api-ui, smartmap -->
+    <!-- required styles and scripts: jquery, webgis-api, smartmap -->
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/jquery-3.2.0.min.js"></script>
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/typeahead/typeahead.jquery.min.js"></script>
 
-    <link href="https://api.webgiscloud.com/content/styles/default.css" rel="stylesheet" />
-    <link href="https://api.webgiscloud.com/content/api/ui.css" rel="stylesheet" />
+    <link href="https://api.webgiscloud.com/content/styles/webgis-api.min.css" rel="stylesheet" />
+    <link href="https://api.webgiscloud.com/content/api/ui.app.css" rel="stylesheet" />
 
-    <script src="https://api.webgiscloud.com/scripts/api/api.min.js" id="webgis-api-script"></script>
-    <script src="https://api.webgiscloud.com/scripts/api/api-ui.min.js"></script>
+    <script src="https://api.webgiscloud.com/scripts/api/webgis-api.min.js" id="webgis-api-script"></script>
 
     <link rel="stylesheet" href="https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.css" />
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.js"></script>

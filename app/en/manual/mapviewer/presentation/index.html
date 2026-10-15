@@ -232,8 +232,58 @@ desired topics on the map). If you zoom further into the map, these topics will 
 <p>The reason for the scale-dependent display is usually that not all topics make sense at every scale. Parcel boundaries, for example, don’t make sense at a very small scale (e.g. an entire federal state)
 and would only slow down the map build-up.</p>
 </section>
+<section id="context-menu-in-the-table-of-contents">
+<span id="toc-context-menu"></span><h2><span class="sectnum">3.4 </span>Context Menu in the Table of Contents<a class="headerlink" href="#context-menu-in-the-table-of-contents" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>Every presentation variant and every group in the table of contents has a context menu. It can be opened in two ways:</p>
+<ul class="simple">
+<li><p><strong>Right mouse button</strong> on the presentation variant or on the title of the group.</p></li>
+<li><p><strong>Menu icon</strong> (three lines): it appears on the right as soon as you move the mouse over a presentation variant or a group.</p></li>
+</ul>
+<img alt="../../_images/toc_burger.png" src="../../_images/toc_burger.png" />
+<p>On touch devices, the context menu is opened by long-pressing an entry.</p>
+<p>Depending on the presentation variant, its context menu contains:</p>
+<ul class="simple">
+<li><p><strong>Metadata:</strong> opens the metadata of the presentation variant (only if provided by the map author).</p></li>
+<li><p><strong>Query Builder:</strong> opens the Query Builder, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
+If the presentation variant refers to several layers, a single layer can be chosen in the submenu. <strong>All</strong> opens the Query Builder for all layers of the presentation variant.</p></li>
+<li><p><strong>Properties:</strong> opens the properties dialog (see below).</p></li>
+</ul>
+<img alt="../../_images/toc_menu_querybuilder.png" src="../../_images/toc_menu_querybuilder.png" />
+<p>The context menu of a group contains the <strong>metadata</strong> of the group (if available) and the <strong>properties</strong>:</p>
+<img alt="../../_images/toc_menu_group.png" src="../../_images/toc_menu_group.png" />
+<section id="properties">
+<span id="toc-properties"></span><h3><span class="sectnum">3.4.1 </span>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
+<p>The properties dialog summarizes the most important information about a presentation variant in several tabs:</p>
+<ul>
+<li><p><strong>General:</strong> name, description and services of the presentation variant, as well as a list of all layers with</p>
+<ul class="simple">
+<li><p><em>Visible:</em> whether the layer is currently switched on,</p></li>
+<li><p><em>Scale:</em> in which scale range the layer is displayed (e.g. <em>from 1:10,000</em>). Layers that are not visible at the current scale are shown in gray.
+<strong>Zoom to visible scale</strong> zooms to the nearest scale at which the layer is visible (the map center is kept),</p></li>
+<li><p><em>Queryable:</em> whether a query exists for the layer,</p></li>
+<li><p><em>Filter:</em> whether a filter (e.g. from the Query Builder) is currently set for the layer. <strong>Remove filter</strong> removes the filter for this layer.
+If several layers are filtered, <strong>Remove all filters of this theme</strong> removes all filters at once.</p></li>
+</ul>
+<img alt="../../_images/toc_props_general.png" src="../../_images/toc_props_general.png" />
+</li>
+<li><p><strong>Legend:</strong> the legend of all layers of the presentation variant, including those that are currently not visible.</p></li>
+<li><p><strong>Info &amp; Copyright:</strong> description and copyright of the services.</p></li>
+<li><p><strong>Technical:</strong> only visible to map authors. Shows the ID of the presentation variant (<em>dvid</em>), the ID and type of the services and, for each layer,
+the ID, the full layer name, the minimum/maximum scale and the ID of the query. The values can be copied to the clipboard using the copy icon
+that appears when hovering over a row.</p>
+<img alt="../../_images/toc_props_technical.png" src="../../_images/toc_props_technical.png" />
+</li>
+</ul>
+<p>For a group, the properties dialog shows the name of the group, the contained presentation variants (visible, visible at the current scale, filtered)
+and a combined legend of all layers of the group:</p>
+<img alt="../../_images/toc_props_group.png" src="../../_images/toc_props_group.png" />
+</section>
+</section>
 <section id="tips-and-tricks">
-<h2><span class="sectnum">3.4 </span>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Link to this heading">¶</a></h2>
+<h2><span class="sectnum">3.5 </span>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Link to this heading">¶</a></h2>
 <p>Maps with a lot of thematic data can have quite extensive presentation-variant trees. Depending on experience, several clicks may be needed to find a presentation variant.
 To speed up this process, you can search for presentation variants in the tree. For this, there is a small input field directly above the topmost container (desktop only), labeled <em>Search content…</em></p>
 <p>If you enter a value here, all irrelevant presentation variants and <em>containers</em> disappear, and all relevant groups are shown expanded.</p>
@@ -262,7 +312,11 @@ You can also click on a relevant group to open it in the original tree and show 
 <li><a class="reference internal" href="#dynamic-content"><span class="sectnum">3.1 </span>Dynamic Content</a></li>
 <li><a class="reference internal" href="#background-basemaps"><span class="sectnum">3.2 </span>Background (Basemaps)</a></li>
 <li><a class="reference internal" href="#presentation-variants-thematic-data"><span class="sectnum">3.3 </span>Presentation Variants (Thematic Data)</a></li>
-<li><a class="reference internal" href="#tips-and-tricks"><span class="sectnum">3.4 </span>Tips and Tricks</a></li>
+<li><a class="reference internal" href="#context-menu-in-the-table-of-contents"><span class="sectnum">3.4 </span>Context Menu in the Table of Contents</a><ul>
+<li><a class="reference internal" href="#properties"><span class="sectnum">3.4.1 </span>Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tips-and-tricks"><span class="sectnum">3.5 </span>Tips and Tricks</a></li>
 </ul>
 </li>
 </ul>

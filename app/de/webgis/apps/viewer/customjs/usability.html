@@ -590,6 +590,37 @@ automatisch vollständig aufgeklappt wird, anstatt nur die ersten drei Kacheln a
 <p>Ist die Option aktiviert, sieht der Anwender sofort alle verfügbaren Hintergrundkarten,
 ohne den Container zuerst manuell aufklappen zu müssen.</p>
 </section>
+<section id="bereiche-in-eigenem-fenster-abkoppeln">
+<span id="customjs-detachable-windows"></span><h2>Bereiche in eigenem Fenster (Abkoppeln)<a class="headerlink" href="#bereiche-in-eigenem-fenster-abkoppeln" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>In der Desktop-Layoutvorlage können die <em>Werkzeugleiste</em> und der Bereich für die
+<em>Abfrageergebnisse</em> (Tabelle) in ein eigenes Fenster abgekoppelt werden, z. B. um die Tabelle
+auf einem zweiten Bildschirm zu vergrößern. Dazu erscheint in diesen Bereichen ein zusätzliches
+Symbol. Die Funktion ist standardmäßig deaktiviert und wird in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> eingeschaltet:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">detachableWindows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: false</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das eigene Fenster wird über die <em>Document Picture-in-Picture</em> Schnittstelle des Browsers
+geöffnet. Diese steht derzeit nur in Chromium-basierten Browsern (Chrome, Edge) zur
+Verfügung. In anderen Browsern wird das Symbol zum Abkoppeln nicht angezeigt.</p>
+</div>
+<p>Verhalten:</p>
+<ul class="simple">
+<li><p>Alle abgekoppelten Bereiche teilen sich ein gemeinsames Fenster. An der ursprünglichen
+Stelle im Viewer bleibt ein Platzhalter, über den der Bereich wieder zurückgeholt werden kann.</p></li>
+<li><p>In der abgekoppelten Werkzeugleiste werden alle Werkzeuge ohne Tabs auf einer Seite
+dargestellt, die Tab-Namen sind Überschriften der Werkzeugblöcke.</p></li>
+<li><p>Blendet ein Werkzeug (z. B. <em>Karte drucken</em>) einen abgekoppelten Bereich aus, erscheint im
+Fenster ein Hinweis mit einer Schaltfläche, um das aktive Werkzeug zu schließen.</p></li>
+<li><p>Welche Bereiche abgekoppelt waren, wird im Browser (<code class="docutils literal notranslate"><span class="pre">localStorage</span></code>) gespeichert. Beim nächsten
+Aufruf der Karte wird der Anwender gefragt, ob die Fenster wiederhergestellt werden sollen
+(der Browser erlaubt das Öffnen des Fensters nur nach einer Benutzeraktion).</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -628,6 +659,7 @@ ohne den Container zuerst manuell aufklappen zu müssen.</p>
 <li><a class="reference internal" href="#ubersichtskarte-minimap">Übersichtskarte (Minimap)</a></li>
 <li><a class="reference internal" href="#metadaten">Metadaten</a></li>
 <li><a class="reference internal" href="#hintergrundkarten-basemaps">Hintergrundkarten (Basemaps)</a></li>
+<li><a class="reference internal" href="#bereiche-in-eigenem-fenster-abkoppeln">Bereiche in eigenem Fenster (Abkoppeln)</a></li>
 </ul>
 </li>
 </ul>

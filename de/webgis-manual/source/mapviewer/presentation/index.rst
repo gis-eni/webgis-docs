@@ -107,6 +107,66 @@ Die Darstellungsvarianten können mit unterschiedlichen Symbolen angezeigt werde
 Der Grund für die maßstabsabhängige Darstellung ist in der Regel, dass nicht alle Themen in jedem Maßstab Sinn ergeben. Grundstücksgrenzen machen etwa in einem sehr kleinen Maßstab (zB komplettes Bundesland) keinen Sinn
 und würden den Kartenaufbau nur verlangsamen.
 
+.. _toc-context-menu:
+
+Kontextmenü im Inhaltsverzeichnis
+---------------------------------
+
+.. versionadded:: 9.26.4104
+
+Jede Darstellungsvariante und jede Gruppe im Inhaltsverzeichnis besitzt ein Kontextmenü. Es kann auf zwei Arten geöffnet werden:
+
+* **Rechte Maustaste** auf die Darstellungsvariante bzw. auf den Titel der Gruppe.
+* **Menü-Symbol** (drei Striche): Es erscheint rechts, sobald man mit der Maus über eine Darstellungsvariante oder eine Gruppe fährt.
+
+.. image:: img/toc_burger.png
+
+Auf Touch-Geräten wird das Kontextmenü durch längeres Drücken auf einen Eintrag geöffnet.
+
+Das Kontextmenü einer Darstellungsvariante enthält, je nach Darstellungsvariante:
+
+* **Metadaten:** Öffnet die Metadaten der Darstellungsvariante (nur wenn vom Kartenautor hinterlegt).
+* **Query Builder:** Öffnet den Query Builder, mit dem die Layer der Darstellungsvariante gefiltert werden können (nur wenn die Layer abfragbar sind).
+  Bezieht sich die Darstellungsvariante auf mehrere Layer, kann im Untermenü ein einzelner Layer gewählt werden. **Alle** öffnet den Query Builder für alle Layer der Darstellungsvariante.
+* **Eigenschaften:** Öffnet den Eigenschaften-Dialog (siehe unten).
+
+.. image:: img/toc_menu_querybuilder.png
+
+Das Kontextmenü einer Gruppe enthält die **Metadaten** der Gruppe (falls vorhanden) und die **Eigenschaften**:
+
+.. image:: img/toc_menu_group.png
+
+.. _toc-properties:
+
+Eigenschaften
+~~~~~~~~~~~~~
+
+Der Eigenschaften-Dialog fasst die wichtigsten Informationen zu einer Darstellungsvariante in mehreren Reitern zusammen:
+
+* **Allgemein:** Name, Beschreibung und Dienste der Darstellungsvariante sowie eine Liste aller Layer mit
+
+  * *Sichtbar:* ob der Layer aktuell eingeschaltet ist,
+  * *Maßstab:* in welchem Maßstabsbereich der Layer dargestellt wird (zB *ab 1:10.000*). Layer, die im aktuellen Maßstab nicht sichtbar sind, werden grau angezeigt.
+    Über **Auf sichtbaren Maßstab zoomen** wird in den nächstgelegenen Maßstab gezoomt, in dem der Layer sichtbar ist (der Kartenmittelpunkt bleibt erhalten),
+  * *Abfragbar:* ob für den Layer eine Abfrage existiert,
+  * *Filter:* ob für den Layer aktuell ein Filter (zB aus dem Query Builder) gesetzt ist. Über **Filter entfernen** kann der Filter für diesen Layer wieder entfernt werden.
+    Sind mehrere Layer gefiltert, können mit **Alle Filter dieser Darstellungsvariante entfernen** alle Filter auf einmal entfernt werden.
+
+  .. image:: img/toc_props_general.png
+
+* **Legende:** Die Legende aller Layer der Darstellungsvariante, auch jener, die aktuell nicht sichtbar sind.
+* **Info & Copyright:** Beschreibung und Copyright der Dienste.
+* **Technisch:** Nur für Kartenautoren sichtbar. Zeigt die ID der Darstellungsvariante (*dvid*), die ID und den Typ der Dienste und für jeden Layer
+  die ID, den vollständigen Layernamen, den minimalen/maximalen Maßstab und die ID der Abfrage. Über das Kopier-Symbol, das beim Überfahren einer Zeile erscheint,
+  können die Werte in die Zwischenablage kopiert werden.
+
+  .. image:: img/toc_props_technical.png
+
+Bei einer Gruppe zeigt der Eigenschaften-Dialog den Namen der Gruppe, die enthaltenen Darstellungsvarianten (sichtbar, im aktuellen Maßstab sichtbar, gefiltert)
+und eine gemeinsame Legende aller Layer der Gruppe:
+
+.. image:: img/toc_props_group.png
+
 Tipps und Tricks
 ----------------
 

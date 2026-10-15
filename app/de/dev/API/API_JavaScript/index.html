@@ -161,6 +161,22 @@
   <section id="webgis-5-0-api-javascript">
 <h1>WebGIS 5.0 API JavaScript<a class="headerlink" href="#webgis-5-0-api-javascript" title="Link to this heading">¶</a></h1>
 <p>In dieser Dokumentation werden die grundlegenden Objekte beschrieben, die für das Erzeugen von Kartenanwendungen mit der WebGIS-API notwendig sind. Um die API nutzen können sind folgende Einträge in der entsprechenden HTML notwendig:</p>
+<div class="highlight-html notranslate" id="api-javascript-single-bundle"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/webgis-api.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/webgis-api.min.js&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-api-script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104: </span><code class="docutils literal notranslate"><span class="pre">webgis-api.min.js</span></code> enthält die gesamte API inklusive UI Elemente (TOC, Werkzeuge, Suche),
+<code class="docutils literal notranslate"><span class="pre">webgis-api.min.css</span></code> die dazu passenden Styles. Dies ist die empfohlene Einbindung.</p>
+</div>
+<p>Die <code class="docutils literal notranslate"><span class="pre">id=&quot;webgis-api-script&quot;</span></code> am <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> Tag wird empfohlen. Fehlt sie, wird die Adresse der API aus dem aktuell geladenen Script ermittelt.</p>
+<p>Vollbild-Kartenanwendungen (wie der WebGIS Viewer) können zusätzlich <code class="docutils literal notranslate"><span class="pre">ui.app.css</span></code> einbinden. Damit werden Textmarkierung und Pull-to-Refresh auf der Seite unterbunden:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/api/ui.app.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Veraltet ab Version 9.26.4104: </span>Die bisherige Einbindung über mehrere Dateien (<code class="docutils literal notranslate"><span class="pre">default.css</span></code>, <code class="docutils literal notranslate"><span class="pre">ui.css</span></code>, <code class="docutils literal notranslate"><span class="pre">api.min.js</span></code>, <code class="docutils literal notranslate"><span class="pre">api-ui.min.js</span></code>) wird weiterhin unterstützt, sollte aber durch das Gesamt-Bundle ersetzt werden:</p>
+</div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/default.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/api.min.js&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-api-script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>

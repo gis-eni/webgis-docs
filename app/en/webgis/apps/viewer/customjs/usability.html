@@ -580,6 +580,37 @@ basemaps/overlays), instead of showing only the first three tiles:</p>
 <p>If this option is enabled, the user immediately sees all available basemaps without
 having to manually expand the container first.</p>
 </section>
+<section id="areas-in-a-separate-window-detaching">
+<span id="customjs-detachable-windows"></span><h2>Areas in a separate window (detaching)<a class="headerlink" href="#areas-in-a-separate-window-detaching" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>In the desktop layout template, the <em>toolbar</em> and the <em>query results</em> area (table) can be
+detached into a separate window, e.g. to enlarge the table on a second screen. For this, an
+additional icon is shown in these areas. The feature is disabled by default and is enabled in
+<code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">detachableWindows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: false</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The separate window is opened via the browser’s <em>Document Picture-in-Picture</em> API. It is
+currently only available in Chromium-based browsers (Chrome, Edge). In other browsers the
+detach icon is not shown.</p>
+</div>
+<p>Behavior:</p>
+<ul class="simple">
+<li><p>All detached areas share one window. A placeholder remains at the original position in the
+viewer, which can be used to bring the area back.</p></li>
+<li><p>In the detached toolbar, all tools are shown on one page without tabs; the tab names become
+headings of the tool blocks.</p></li>
+<li><p>If a tool (e.g. <em>Print map</em>) hides a detached area, the window shows a hint with a button to
+close the active tool.</p></li>
+<li><p>Which areas were detached is stored in the browser (<code class="docutils literal notranslate"><span class="pre">localStorage</span></code>). The next time the map
+is opened, the user is asked whether the windows should be restored (the browser only allows
+opening the window after a user action).</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -618,6 +649,7 @@ having to manually expand the container first.</p>
 <li><a class="reference internal" href="#overview-map-minimap">Overview Map (Minimap)</a></li>
 <li><a class="reference internal" href="#metadata">Metadata</a></li>
 <li><a class="reference internal" href="#basemaps">Basemaps</a></li>
+<li><a class="reference internal" href="#areas-in-a-separate-window-detaching">Areas in a separate window (detaching)</a></li>
 </ul>
 </li>
 </ul>

@@ -107,6 +107,66 @@ The presentation variants can be shown with different icons:
 The reason for the scale-dependent display is usually that not all topics make sense at every scale. Parcel boundaries, for example, don't make sense at a very small scale (e.g. an entire federal state)
 and would only slow down the map build-up.
 
+.. _toc-context-menu:
+
+Context Menu in the Table of Contents
+-------------------------------------
+
+.. versionadded:: 9.26.4104
+
+Every presentation variant and every group in the table of contents has a context menu. It can be opened in two ways:
+
+* **Right mouse button** on the presentation variant or on the title of the group.
+* **Menu icon** (three lines): it appears on the right as soon as you move the mouse over a presentation variant or a group.
+
+.. image:: img/toc_burger.png
+
+On touch devices, the context menu is opened by long-pressing an entry.
+
+Depending on the presentation variant, its context menu contains:
+
+* **Metadata:** opens the metadata of the presentation variant (only if provided by the map author).
+* **Query Builder:** opens the Query Builder, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
+  If the presentation variant refers to several layers, a single layer can be chosen in the submenu. **All** opens the Query Builder for all layers of the presentation variant.
+* **Properties:** opens the properties dialog (see below).
+
+.. image:: img/toc_menu_querybuilder.png
+
+The context menu of a group contains the **metadata** of the group (if available) and the **properties**:
+
+.. image:: img/toc_menu_group.png
+
+.. _toc-properties:
+
+Properties
+~~~~~~~~~~
+
+The properties dialog summarizes the most important information about a presentation variant in several tabs:
+
+* **General:** name, description and services of the presentation variant, as well as a list of all layers with
+
+  * *Visible:* whether the layer is currently switched on,
+  * *Scale:* in which scale range the layer is displayed (e.g. *from 1:10,000*). Layers that are not visible at the current scale are shown in gray.
+    **Zoom to visible scale** zooms to the nearest scale at which the layer is visible (the map center is kept),
+  * *Queryable:* whether a query exists for the layer,
+  * *Filter:* whether a filter (e.g. from the Query Builder) is currently set for the layer. **Remove filter** removes the filter for this layer.
+    If several layers are filtered, **Remove all filters of this theme** removes all filters at once.
+
+  .. image:: img/toc_props_general.png
+
+* **Legend:** the legend of all layers of the presentation variant, including those that are currently not visible.
+* **Info & Copyright:** description and copyright of the services.
+* **Technical:** only visible to map authors. Shows the ID of the presentation variant (*dvid*), the ID and type of the services and, for each layer,
+  the ID, the full layer name, the minimum/maximum scale and the ID of the query. The values can be copied to the clipboard using the copy icon
+  that appears when hovering over a row.
+
+  .. image:: img/toc_props_technical.png
+
+For a group, the properties dialog shows the name of the group, the contained presentation variants (visible, visible at the current scale, filtered)
+and a combined legend of all layers of the group:
+
+.. image:: img/toc_props_group.png
+
 Tips and Tricks
 ----------------
 

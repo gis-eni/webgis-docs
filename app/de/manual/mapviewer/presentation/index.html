@@ -233,8 +233,58 @@ gewünschten Themen anzeigen). Zoomt man weiter in die Karte hinein, werden dies
 <p>Der Grund für die maßstabsabhängige Darstellung ist in der Regel, dass nicht alle Themen in jedem Maßstab Sinn ergeben. Grundstücksgrenzen machen etwa in einem sehr kleinen Maßstab (zB komplettes Bundesland) keinen Sinn
 und würden den Kartenaufbau nur verlangsamen.</p>
 </section>
+<section id="kontextmenu-im-inhaltsverzeichnis">
+<span id="toc-context-menu"></span><h2><span class="sectnum">3.4 </span>Kontextmenü im Inhaltsverzeichnis<a class="headerlink" href="#kontextmenu-im-inhaltsverzeichnis" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Jede Darstellungsvariante und jede Gruppe im Inhaltsverzeichnis besitzt ein Kontextmenü. Es kann auf zwei Arten geöffnet werden:</p>
+<ul class="simple">
+<li><p><strong>Rechte Maustaste</strong> auf die Darstellungsvariante bzw. auf den Titel der Gruppe.</p></li>
+<li><p><strong>Menü-Symbol</strong> (drei Striche): Es erscheint rechts, sobald man mit der Maus über eine Darstellungsvariante oder eine Gruppe fährt.</p></li>
+</ul>
+<img alt="../../_images/toc_burger.png" src="../../_images/toc_burger.png" />
+<p>Auf Touch-Geräten wird das Kontextmenü durch längeres Drücken auf einen Eintrag geöffnet.</p>
+<p>Das Kontextmenü einer Darstellungsvariante enthält, je nach Darstellungsvariante:</p>
+<ul class="simple">
+<li><p><strong>Metadaten:</strong> Öffnet die Metadaten der Darstellungsvariante (nur wenn vom Kartenautor hinterlegt).</p></li>
+<li><p><strong>Query Builder:</strong> Öffnet den Query Builder, mit dem die Layer der Darstellungsvariante gefiltert werden können (nur wenn die Layer abfragbar sind).
+Bezieht sich die Darstellungsvariante auf mehrere Layer, kann im Untermenü ein einzelner Layer gewählt werden. <strong>Alle</strong> öffnet den Query Builder für alle Layer der Darstellungsvariante.</p></li>
+<li><p><strong>Eigenschaften:</strong> Öffnet den Eigenschaften-Dialog (siehe unten).</p></li>
+</ul>
+<img alt="../../_images/toc_menu_querybuilder.png" src="../../_images/toc_menu_querybuilder.png" />
+<p>Das Kontextmenü einer Gruppe enthält die <strong>Metadaten</strong> der Gruppe (falls vorhanden) und die <strong>Eigenschaften</strong>:</p>
+<img alt="../../_images/toc_menu_group.png" src="../../_images/toc_menu_group.png" />
+<section id="eigenschaften">
+<span id="toc-properties"></span><h3><span class="sectnum">3.4.1 </span>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Link to this heading">¶</a></h3>
+<p>Der Eigenschaften-Dialog fasst die wichtigsten Informationen zu einer Darstellungsvariante in mehreren Reitern zusammen:</p>
+<ul>
+<li><p><strong>Allgemein:</strong> Name, Beschreibung und Dienste der Darstellungsvariante sowie eine Liste aller Layer mit</p>
+<ul class="simple">
+<li><p><em>Sichtbar:</em> ob der Layer aktuell eingeschaltet ist,</p></li>
+<li><p><em>Maßstab:</em> in welchem Maßstabsbereich der Layer dargestellt wird (zB <em>ab 1:10.000</em>). Layer, die im aktuellen Maßstab nicht sichtbar sind, werden grau angezeigt.
+Über <strong>Auf sichtbaren Maßstab zoomen</strong> wird in den nächstgelegenen Maßstab gezoomt, in dem der Layer sichtbar ist (der Kartenmittelpunkt bleibt erhalten),</p></li>
+<li><p><em>Abfragbar:</em> ob für den Layer eine Abfrage existiert,</p></li>
+<li><p><em>Filter:</em> ob für den Layer aktuell ein Filter (zB aus dem Query Builder) gesetzt ist. Über <strong>Filter entfernen</strong> kann der Filter für diesen Layer wieder entfernt werden.
+Sind mehrere Layer gefiltert, können mit <strong>Alle Filter dieser Darstellungsvariante entfernen</strong> alle Filter auf einmal entfernt werden.</p></li>
+</ul>
+<img alt="../../_images/toc_props_general.png" src="../../_images/toc_props_general.png" />
+</li>
+<li><p><strong>Legende:</strong> Die Legende aller Layer der Darstellungsvariante, auch jener, die aktuell nicht sichtbar sind.</p></li>
+<li><p><strong>Info &amp; Copyright:</strong> Beschreibung und Copyright der Dienste.</p></li>
+<li><p><strong>Technisch:</strong> Nur für Kartenautoren sichtbar. Zeigt die ID der Darstellungsvariante (<em>dvid</em>), die ID und den Typ der Dienste und für jeden Layer
+die ID, den vollständigen Layernamen, den minimalen/maximalen Maßstab und die ID der Abfrage. Über das Kopier-Symbol, das beim Überfahren einer Zeile erscheint,
+können die Werte in die Zwischenablage kopiert werden.</p>
+<img alt="../../_images/toc_props_technical.png" src="../../_images/toc_props_technical.png" />
+</li>
+</ul>
+<p>Bei einer Gruppe zeigt der Eigenschaften-Dialog den Namen der Gruppe, die enthaltenen Darstellungsvarianten (sichtbar, im aktuellen Maßstab sichtbar, gefiltert)
+und eine gemeinsame Legende aller Layer der Gruppe:</p>
+<img alt="../../_images/toc_props_group.png" src="../../_images/toc_props_group.png" />
+</section>
+</section>
 <section id="tipps-und-tricks">
-<h2><span class="sectnum">3.4 </span>Tipps und Tricks<a class="headerlink" href="#tipps-und-tricks" title="Link to this heading">¶</a></h2>
+<h2><span class="sectnum">3.5 </span>Tipps und Tricks<a class="headerlink" href="#tipps-und-tricks" title="Link to this heading">¶</a></h2>
 <p>Karten mit sehr vielen Fachendaten, können recht umfangreiche Darstellungsvarianten Bäume haben. Um eine Darstellungsvariante zu finden, sind dabei je nach Übung mehrere Klicks notwendig.
 Um diesen Vorgang zu beschleunigen, kann nach Darstellungsvarianten im Baum gesucht werden. Dazu gibt es direkt über dem obersten Container (nur Desktop Variante) ein kleines Eingebfeld
 mit der Beschriftung <em>Inhalte suchen…</em></p>
@@ -264,7 +314,11 @@ Man kann ebenfalls auf eine relevante Gruppe klicken, um diese dann im ursprüng
 <li><a class="reference internal" href="#dynamische-inhalte"><span class="sectnum">3.1 </span>Dynamische Inhalte</a></li>
 <li><a class="reference internal" href="#hintergrund-basemaps"><span class="sectnum">3.2 </span>Hintergrund (Basemaps)</a></li>
 <li><a class="reference internal" href="#darstellungsvarianten-fachdaten"><span class="sectnum">3.3 </span>Darstellungsvarianten (Fachdaten)</a></li>
-<li><a class="reference internal" href="#tipps-und-tricks"><span class="sectnum">3.4 </span>Tipps und Tricks</a></li>
+<li><a class="reference internal" href="#kontextmenu-im-inhaltsverzeichnis"><span class="sectnum">3.4 </span>Kontextmenü im Inhaltsverzeichnis</a><ul>
+<li><a class="reference internal" href="#eigenschaften"><span class="sectnum">3.4.1 </span>Eigenschaften</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tipps-und-tricks"><span class="sectnum">3.5 </span>Tipps und Tricks</a></li>
 </ul>
 </li>
 </ul>

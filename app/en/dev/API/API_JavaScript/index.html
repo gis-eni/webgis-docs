@@ -160,6 +160,22 @@
   <section id="webgis-5-0-api-javascript">
 <h1>WebGIS 5.0 API JavaScript<a class="headerlink" href="#webgis-5-0-api-javascript" title="Link to this heading">¶</a></h1>
 <p>This documentation describes the basic objects needed to create map applications with the WebGIS API. To be able to use the API, the following entries are required in the corresponding HTML:</p>
+<div class="highlight-html notranslate" id="api-javascript-single-bundle"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/webgis-api.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/webgis-api.min.js&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-api-script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104: </span><code class="docutils literal notranslate"><span class="pre">webgis-api.min.js</span></code> contains the whole API including the UI elements (TOC, tools, search),
+<code class="docutils literal notranslate"><span class="pre">webgis-api.min.css</span></code> the matching styles. This is the recommended way to include the API.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">id=&quot;webgis-api-script&quot;</span></code> on the <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> tag is recommended. If it is missing, the address of the API is determined from the currently loaded script.</p>
+<p>Full-page map applications (like the WebGIS viewer) can additionally include <code class="docutils literal notranslate"><span class="pre">ui.app.css</span></code>. It prevents text selection and pull-to-refresh on the page:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/api/ui.app.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 9.26.4104: </span>Including the API via multiple files (<code class="docutils literal notranslate"><span class="pre">default.css</span></code>, <code class="docutils literal notranslate"><span class="pre">ui.css</span></code>, <code class="docutils literal notranslate"><span class="pre">api.min.js</span></code>, <code class="docutils literal notranslate"><span class="pre">api-ui.min.js</span></code>) is still supported, but should be replaced by the single bundle:</p>
+</div>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/default.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/api.min.js&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-api-script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
