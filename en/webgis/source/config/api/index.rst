@@ -606,17 +606,26 @@ In addition, the following parameters can be configured:
      - Sets the **paper format** for the **overview page** (e.g. ``A4.Portrait``).
        If no value is specified, the same format as for the series print pages is used.
 
-Tool ``Display Filter``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _api-config-toc-contextmenu:
+
+Context Menu in the Table of Contents (``toc-contextmenu``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: xml
 
-   <section name="tool-visfilter">
+   <section name="toc-contextmenu">
       <add key="allow-toc-visfilter" value="true" />
+      <add key="allow-toc-userrenderer" value="true" />
+      <add key="userrenderer-max-unique-value-classes" value="100" />
+      <add key="allow-toc-userlabeling" value="true" />
    </section>
 
-From version 8.x, a **display filter** can be defined for each layer in the **table of contents (TOC)**.
-For this to be usable, the following parameter must be set in ``api.config``:
+.. versionchanged:: 9.26.4104
+   The section was previously called ``tool-visfilter``. It has been renamed to ``toc-contextmenu``, as it now controls all entries of the
+   context menu in the table of contents. Existing ``api.config`` files must be adjusted when updating.
+
+This section defines which functions are offered in the **context menu of the table of contents (TOC)**.
+All ``allow-...`` keys default to ``false``.
 
 .. list-table::
    :widths: 30 70
@@ -625,7 +634,24 @@ For this to be usable, the following parameter must be set in ``api.config``:
    * - **Attribute**
      - **Description**
    * - ``allow-toc-visfilter``
-     - Must be set to ``true`` so that a **display filter** can be defined for layers in the **table of contents (TOC)**.
+     - Must be set to ``true`` so that a **display filter** (Query Builder) can be defined for layers in the **table of contents (TOC)**.
+   * - ``allow-toc-userrenderer``
+     - Must be set to ``true`` so that users can change the **presentation** of layers in the table of contents.
+       Additionally, the property *Allow user-defined rendering* must be set for the service in the CMS (see :ref:`cms-ags-user-renderer-labeling`).
+
+       .. versionadded:: 9.26.4104
+   * - ``userrenderer-max-unique-value-classes``
+     - Maximum number of values (classes) of a custom presentation with *Unique values*. Default: ``100``.
+
+       .. versionadded:: 9.26.4104
+   * - ``allow-toc-userlabeling``
+     - Must be set to ``true`` so that users can change the **labeling** of layers in the table of contents.
+       Additionally, the property *Allow user-defined labeling* must be set for the service in the CMS (see :ref:`cms-ags-user-renderer-labeling`).
+       Replaces the former *Labeling Topics* tool.
+
+       .. versionadded:: 9.26.4104
+
+**Display filter** (``allow-toc-visfilter``):
 
 The behavior then is such that, for topics in the **table of contents (TOC)**, a
 small **filter icon** is displayed that opens a **query builder**, with which the user

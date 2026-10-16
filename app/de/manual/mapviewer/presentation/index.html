@@ -250,13 +250,100 @@ und würden den Kartenaufbau nur verlangsamen.</p>
 <li><p><strong>Metadaten:</strong> Öffnet die Metadaten der Darstellungsvariante (nur wenn vom Kartenautor hinterlegt).</p></li>
 <li><p><strong>Query Builder:</strong> Öffnet den Query Builder, mit dem die Layer der Darstellungsvariante gefiltert werden können (nur wenn die Layer abfragbar sind).
 Bezieht sich die Darstellungsvariante auf mehrere Layer, kann im Untermenü ein einzelner Layer gewählt werden. <strong>Alle</strong> öffnet den Query Builder für alle Layer der Darstellungsvariante.</p></li>
+<li><p><strong>Filter zurücksetzen:</strong> Entfernt alle Filter (zB aus dem Query Builder) der Layer dieser Darstellungsvariante (nur wenn Filter gesetzt sind).</p></li>
+<li><p><strong>Darstellung:</strong> Ändert die Darstellung (Symbolik) eines Layers (siehe <a class="reference internal" href="#toc-user-renderer"><span class="std std-ref">3.4.2   Darstellung</span></a>).</p></li>
+<li><p><strong>Beschriftung:</strong> Ändert die Beschriftung eines Layers (siehe <a class="reference internal" href="#toc-user-labeling"><span class="std std-ref">3.4.3   Beschriftung</span></a>).</p></li>
 <li><p><strong>Eigenschaften:</strong> Öffnet den Eigenschaften-Dialog (siehe unten).</p></li>
 </ul>
 <img alt="../../_images/toc_menu_querybuilder.png" src="../../_images/toc_menu_querybuilder.png" />
+<p><strong>Darstellung</strong> und <strong>Beschriftung</strong> werden nur angeboten, wenn der Kartenautor das für den Dienst erlaubt hat. Bezieht sich die Darstellungsvariante auf mehrere Layer,
+wird der Layer, wie beim Query Builder, über ein Untermenü gewählt.</p>
+<img alt="../../_images/toc_menu_userrenderer.png" src="../../_images/toc_menu_userrenderer.png" />
+<section id="hinweis-symbole-badges">
+<span id="toc-badges"></span><h3><span class="sectnum">3.4.1 </span>Hinweis-Symbole (Badges)<a class="headerlink" href="#hinweis-symbole-badges" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Rechts neben dem Namen einer Darstellungsvariante zeigt ein kleines, abgerundetes Feld (Badge) an, dass für die Darstellungsvariante etwas Besonderes gilt:</p>
+<ul class="simple">
+<li><p>Farbschema-Symbol: eine benutzerdefinierte Darstellung ist aktiv,</p></li>
+<li><p>Beschriftungs-Symbol: eine benutzerdefinierte Beschriftung ist aktiv,</p></li>
+<li><p>Trichter: ein Filter (zB aus dem Query Builder) ist gesetzt,</p></li>
+<li><p><em>i</em>: für die Darstellungsvariante sind Metadaten vorhanden.</p></li>
+</ul>
+<p>Fährt man mit der Maus über das Badge, wird die Bedeutung der Symbole als Tooltip angezeigt.</p>
+<img alt="../../_images/toc_badges.png" src="../../_images/toc_badges.png" />
+<p>Ein Klick auf das Badge schaltet die Darstellungsvariante <strong>nicht</strong> ein oder aus, sondern öffnet das Kontextmenü. Dort sind die passenden Einträge zu finden,
+zB <strong>Metadaten</strong>, <strong>Filter zurücksetzen</strong>, <strong>Darstellung zurücksetzen</strong> oder <strong>Beschriftung zurücksetzen</strong>.
+Ist der Name einer Darstellungsvariante sehr lang, wird er gekürzt, damit das Badge sichtbar bleibt.</p>
+</section>
+<section id="darstellung">
+<span id="toc-user-renderer"></span><h3><span class="sectnum">3.4.2 </span>Darstellung<a class="headerlink" href="#darstellung" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Über den Menüpunkt <strong>Darstellung</strong> kann die Symbolik eines Layers für die eigene Karte geändert werden. Im Dialog stehen zwei Optionen zur Auswahl:</p>
+<ul class="simple">
+<li><p><strong>Standard (Darstellung des Dienstes):</strong> Der Layer wird so dargestellt, wie er im Dienst definiert ist.</p></li>
+<li><p><strong>Benutzerdefiniert:</strong> Es wird eine neue Darstellung für den Layer festgelegt.</p></li>
+</ul>
+<img alt="../../_images/renderer_default.png" src="../../_images/renderer_default.png" />
+<p>Für eine benutzerdefinierte Darstellung wird zuerst die <strong>Darstellungsart</strong> gewählt:</p>
+<ul>
+<li><p><strong>Einheitliches Symbol:</strong> Alle Objekte des Layers werden mit demselben Symbol dargestellt. Je nach Geometrie (Punkt, Linie, Fläche) können
+Farbe, Größe, Symbol, Linienart und -stärke bzw. Füllung und Rand eingestellt werden.</p>
+<img alt="../../_images/renderer_simple.png" src="../../_images/renderer_simple.png" />
+</li>
+<li><p><strong>Eindeutige Werte:</strong> Die Objekte werden nach den Werten eines Feldes unterschiedlich dargestellt. Nach Auswahl des <strong>Feldes</strong> können über <strong>Werte laden</strong>
+die im Layer vorkommenden Werte übernommen oder mit <strong>Wert hinzufügen</strong> einzelne Werte händisch eingetragen werden. Für jeden Wert kann das Symbol
+und eine <strong>Beschriftung (Legende)</strong> festgelegt werden. Mit <strong>Alle anderen Werte</strong> werden auch Objekte dargestellt, deren Wert in der Liste nicht vorkommt.</p>
+<img alt="../../_images/renderer_uniquevalue.png" src="../../_images/renderer_uniquevalue.png" />
+</li>
+<li><p><strong>Klassen (Wertebereiche):</strong> Die Objekte werden nach Wertebereichen eines numerischen Feldes dargestellt. Nach Auswahl von <strong>Feld</strong>, <strong>Anzahl Klassen</strong>
+und <strong>Farbverlauf</strong> werden über <strong>Klassen berechnen</strong> gleich große Klassen zwischen dem kleinsten und größten Wert des Feldes erzeugt.
+Die Klassengrenzen, Symbole und Beschriftungen können danach noch angepasst werden.</p>
+<img alt="../../_images/renderer_classbreaks.png" src="../../_images/renderer_classbreaks.png" />
+</li>
+</ul>
+<p>Zur Auswahl stehen dieselben Felder, nach denen auch mit dem Query Builder gefiltert werden kann.
+Mit <strong>Anwenden</strong> wird die Karte mit der neuen Darstellung gezeichnet. Auch die Legende zeigt die benutzerdefinierte Darstellung an;
+bei <em>Eindeutige Werte</em> und <em>Klassen</em> wird das verwendete Feld in Klammern hinter dem Layernamen angezeigt, damit erkennbar ist, wonach klassifiziert wurde.</p>
+<p>Ist eine benutzerdefinierte Darstellung aktiv, wird der Menüpunkt <strong>Darstellung</strong> mit einem Häkchen markiert und es erscheint zusätzlich der Menüpunkt
+<strong>Darstellung zurücksetzen</strong>, mit dem wieder die Standard-Darstellung des Dienstes verwendet wird.</p>
+<img alt="../../_images/toc_menu_userrenderer_active.png" src="../../_images/toc_menu_userrenderer_active.png" />
+<p>Benutzerdefinierte Darstellungen werden mit der Karte gespeichert und beim Laden der Karte wiederhergestellt.</p>
+</section>
+<section id="beschriftung">
+<span id="toc-user-labeling"></span><h3><span class="sectnum">3.4.3 </span>Beschriftung<a class="headerlink" href="#beschriftung" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Über den Menüpunkt <strong>Beschriftung</strong> kann die Beschriftung eines Layers geändert werden. Im Dialog stehen drei Optionen zur Auswahl:</p>
+<ul class="simple">
+<li><p><strong>Standard (Beschriftung laut Dienst):</strong> Der Layer wird so beschriftet, wie es im Dienst eingestellt ist.</p></li>
+<li><p><strong>Keine Beschriftung:</strong> Der Layer wird nicht beschriftet, auch wenn im Dienst eine Beschriftung eingestellt ist.</p></li>
+<li><p><strong>Benutzerdefiniert:</strong> Es wird eine eigene Beschriftung festgelegt.</p></li>
+</ul>
+<img alt="../../_images/labeling_default.png" src="../../_images/labeling_default.png" />
+<p>Bei einer benutzerdefinierten Beschriftung wird der <strong>Beschriftungstext</strong> eingegeben. Felder werden in eckigen Klammern angegeben,
+zB <code class="docutils literal notranslate"><span class="pre">Fläche:</span> <span class="pre">[FLAECHE]</span> <span class="pre">m²</span></code>. Über <strong>Feld einfügen…</strong> kann ein Feld an der aktuellen Position in den Text eingefügt werden. Zur Auswahl stehen
+dieselben Felder, nach denen auch mit dem Query Builder gefiltert werden kann. Der Text darf aus maximal 3 Zeilen und 200 Zeichen bestehen.</p>
+<p>Weiters können <strong>Schriftgröße</strong>, <strong>Schriftstil</strong> (Normal, Fett, Kursiv, Fett kursiv), <strong>Schriftfarbe</strong> und eine <strong>Freistellung (Halo)</strong> eingestellt werden.</p>
+<img alt="../../_images/labeling_custom.png" src="../../_images/labeling_custom.png" />
+<p>Mit <strong>Anwenden</strong> wird die Karte mit der neuen Beschriftung gezeichnet. Ist eine benutzerdefinierte Beschriftung aktiv, wird der Menüpunkt <strong>Beschriftung</strong>
+mit einem Häkchen markiert und es erscheint zusätzlich der Menüpunkt <strong>Beschriftung zurücksetzen</strong>.
+Benutzerdefinierte Beschriftungen werden ebenfalls mit der Karte gespeichert.</p>
+<p>Beispiel: Naturdenkmäler mit benutzerdefinierter Darstellung (Klassen nach Jahr der Unterschutzstellung) und Beschriftung <code class="docutils literal notranslate"><span class="pre">[Baum]</span></code> / <code class="docutils literal notranslate"><span class="pre">seit</span> <span class="pre">[Jahr_Unterschutzstellung]</span></code>:</p>
+<img alt="../../_images/map_userrenderer_labeling.png" src="../../_images/map_userrenderer_labeling.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Beschriftung ersetzt das frühere Werkzeug <em>Themen beschriften</em>.</p>
+</div>
 <p>Das Kontextmenü einer Gruppe enthält die <strong>Metadaten</strong> der Gruppe (falls vorhanden) und die <strong>Eigenschaften</strong>:</p>
 <img alt="../../_images/toc_menu_group.png" src="../../_images/toc_menu_group.png" />
+</section>
 <section id="eigenschaften">
-<span id="toc-properties"></span><h3><span class="sectnum">3.4.1 </span>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Link to this heading">¶</a></h3>
+<span id="toc-properties"></span><h3><span class="sectnum">3.4.4 </span>Eigenschaften<a class="headerlink" href="#eigenschaften" title="Link to this heading">¶</a></h3>
 <p>Der Eigenschaften-Dialog fasst die wichtigsten Informationen zu einer Darstellungsvariante in mehreren Reitern zusammen:</p>
 <ul>
 <li><p><strong>Allgemein:</strong> Name, Beschreibung und Dienste der Darstellungsvariante sowie eine Liste aller Layer mit</p>
@@ -315,7 +402,10 @@ Man kann ebenfalls auf eine relevante Gruppe klicken, um diese dann im ursprüng
 <li><a class="reference internal" href="#hintergrund-basemaps"><span class="sectnum">3.2 </span>Hintergrund (Basemaps)</a></li>
 <li><a class="reference internal" href="#darstellungsvarianten-fachdaten"><span class="sectnum">3.3 </span>Darstellungsvarianten (Fachdaten)</a></li>
 <li><a class="reference internal" href="#kontextmenu-im-inhaltsverzeichnis"><span class="sectnum">3.4 </span>Kontextmenü im Inhaltsverzeichnis</a><ul>
-<li><a class="reference internal" href="#eigenschaften"><span class="sectnum">3.4.1 </span>Eigenschaften</a></li>
+<li><a class="reference internal" href="#hinweis-symbole-badges"><span class="sectnum">3.4.1 </span>Hinweis-Symbole (Badges)</a></li>
+<li><a class="reference internal" href="#darstellung"><span class="sectnum">3.4.2 </span>Darstellung</a></li>
+<li><a class="reference internal" href="#beschriftung"><span class="sectnum">3.4.3 </span>Beschriftung</a></li>
+<li><a class="reference internal" href="#eigenschaften"><span class="sectnum">3.4.4 </span>Eigenschaften</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tipps-und-tricks"><span class="sectnum">3.5 </span>Tipps und Tricks</a></li>

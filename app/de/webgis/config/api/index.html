@@ -861,15 +861,22 @@ Wird kein Wert angegeben, wird dasselbe Format wie für die Seriendruckseiten ve
 </tbody>
 </table>
 </section>
-<section id="werkzeug-darstellungsfilter">
-<h4>Werkzeug <code class="docutils literal notranslate"><span class="pre">Darstellungsfilter</span></code><a class="headerlink" href="#werkzeug-darstellungsfilter" title="Link to this heading">¶</a></h4>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-visfilter&quot;</span><span class="nt">&gt;</span>
+<section id="kontextmenu-im-inhaltsverzeichnis-toc-contextmenu">
+<span id="api-config-toc-contextmenu"></span><h4>Kontextmenü im Inhaltsverzeichnis (<code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code>)<a class="headerlink" href="#kontextmenu-im-inhaltsverzeichnis-toc-contextmenu" title="Link to this heading">¶</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;toc-contextmenu&quot;</span><span class="nt">&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-visfilter&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userrenderer&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;userrenderer-max-unique-value-classes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userlabeling&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
-<p>Ab Version 8.x kann im <strong>Inhaltsverzeichnis (TOC)</strong> für jeden Layer ein <strong>Darstellungsfilter</strong> definiert werden.
-Damit dies genutzt werden kann, muss der folgende Parameter in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> gesetzt werden:</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Geändert in Version 9.26.4104: </span>Die Section hieß bisher <code class="docutils literal notranslate"><span class="pre">tool-visfilter</span></code>. Sie wurde in <code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code> umbenannt, da sie jetzt alle Einträge des Kontextmenüs
+im Inhaltsverzeichnis steuert. Bestehende <code class="docutils literal notranslate"><span class="pre">api.config</span></code> Dateien müssen beim Update angepasst werden.</p>
+</div>
+<p>In dieser Section wird festgelegt, welche Funktionen im <strong>Kontextmenü des Inhaltsverzeichnisses (TOC)</strong> angeboten werden.
+Alle <code class="docutils literal notranslate"><span class="pre">allow-...</span></code> Schlüssel sind standardmäßig <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 30.0%" />
@@ -882,10 +889,35 @@ Damit dies genutzt werden kann, muss der folgende Parameter in der <code class="
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-toc-visfilter</span></code></p></td>
-<td><p>Muss auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt sein, damit im <strong>Inhaltsverzeichnis (TOC)</strong> für Layer ein <strong>Darstellungsfilter</strong> definiert werden kann.</p></td>
+<td><p>Muss auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt sein, damit im <strong>Inhaltsverzeichnis (TOC)</strong> für Layer ein <strong>Darstellungsfilter</strong> (Query Builder) definiert werden kann.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-toc-userrenderer</span></code></p></td>
+<td><p>Muss auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt sein, damit Anwender die <strong>Darstellung</strong> von Layern im Inhaltsverzeichnis ändern können.
+Zusätzlich muss im CMS beim Dienst die Eigenschaft <em>Benutzerdefinierte Darstellung erlauben</em> gesetzt sein (siehe <a class="reference internal" href="../../apps/cms/add_ags_service.html#cms-ags-user-renderer-labeling"><span class="std std-ref">Benutzerdefinierte Darstellung und Beschriftung</span></a>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">userrenderer-max-unique-value-classes</span></code></p></td>
+<td><p>Maximale Anzahl an Werten (Klassen) einer benutzerdefinierten Darstellung mit <em>Eindeutigen Werten</em>. Standardwert: <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-toc-userlabeling</span></code></p></td>
+<td><p>Muss auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt sein, damit Anwender die <strong>Beschriftung</strong> von Layern im Inhaltsverzeichnis ändern können.
+Zusätzlich muss im CMS beim Dienst die Eigenschaft <em>Benutzerdefinierte Beschriftung erlauben</em> gesetzt sein (siehe <a class="reference internal" href="../../apps/cms/add_ags_service.html#cms-ags-user-renderer-labeling"><span class="std std-ref">Benutzerdefinierte Darstellung und Beschriftung</span></a>).
+Ersetzt das frühere Werkzeug <em>Themen beschriften</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Darstellungsfilter</strong> (<code class="docutils literal notranslate"><span class="pre">allow-toc-visfilter</span></code>):</p>
 <p>Das Verhalten ist dann so, dass bei Themen Im <strong>Inhaltsverzeichnis (TOC)</strong> ein
 kleines <strong>Filter-Symbol</strong> angezeigt wird, dass einen <strong>Query-Builder</strong> öffnet, mit der Benutzer
 einen <strong>Darstellungsfilter</strong> im SQL Style definieren kann.
@@ -1653,7 +1685,7 @@ Um zu prüfen, ob die <strong>DataLinq-Einstellungen</strong> korrekt gesetzt si
 <li><a class="reference internal" href="#werkzeug-koordinaten-xy">Werkzeug <code class="docutils literal notranslate"><span class="pre">Koordinaten</span> <span class="pre">(XY)</span></code></a></li>
 <li><a class="reference internal" href="#werkzeug-drucken">Werkzeug <code class="docutils literal notranslate"><span class="pre">Drucken</span></code></a></li>
 <li><a class="reference internal" href="#werkzeug-seriendruck">Werkzeug <code class="docutils literal notranslate"><span class="pre">Seriendruck</span></code></a></li>
-<li><a class="reference internal" href="#werkzeug-darstellungsfilter">Werkzeug <code class="docutils literal notranslate"><span class="pre">Darstellungsfilter</span></code></a></li>
+<li><a class="reference internal" href="#kontextmenu-im-inhaltsverzeichnis-toc-contextmenu">Kontextmenü im Inhaltsverzeichnis (<code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code>)</a></li>
 <li><a class="reference internal" href="#werkzeug-liveshare">Werkzeug <code class="docutils literal notranslate"><span class="pre">LiveShare</span></code></a></li>
 <li><a class="reference internal" href="#werkzeug-3d-messen">Werkzeug <code class="docutils literal notranslate"><span class="pre">3D-Messen</span></code></a></li>
 <li><a class="reference internal" href="#werkzeug-karte-speichern">Werkzeug <code class="docutils literal notranslate"><span class="pre">Karte</span> <span class="pre">speichern</span></code></a></li>

@@ -853,15 +853,22 @@ If no value is specified, the same format as for the series print pages is used.
 </tbody>
 </table>
 </section>
-<section id="tool-display-filter">
-<h4>Tool <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Filter</span></code><a class="headerlink" href="#tool-display-filter" title="Link to this heading">¶</a></h4>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-visfilter&quot;</span><span class="nt">&gt;</span>
+<section id="context-menu-in-the-table-of-contents-toc-contextmenu">
+<span id="api-config-toc-contextmenu"></span><h4>Context Menu in the Table of Contents (<code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code>)<a class="headerlink" href="#context-menu-in-the-table-of-contents-toc-contextmenu" title="Link to this heading">¶</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;toc-contextmenu&quot;</span><span class="nt">&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-visfilter&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userrenderer&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;userrenderer-max-unique-value-classes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userlabeling&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
-<p>From version 8.x, a <strong>display filter</strong> can be defined for each layer in the <strong>table of contents (TOC)</strong>.
-For this to be usable, the following parameter must be set in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 9.26.4104: </span>The section was previously called <code class="docutils literal notranslate"><span class="pre">tool-visfilter</span></code>. It has been renamed to <code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code>, as it now controls all entries of the
+context menu in the table of contents. Existing <code class="docutils literal notranslate"><span class="pre">api.config</span></code> files must be adjusted when updating.</p>
+</div>
+<p>This section defines which functions are offered in the <strong>context menu of the table of contents (TOC)</strong>.
+All <code class="docutils literal notranslate"><span class="pre">allow-...</span></code> keys default to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 30.0%" />
@@ -874,10 +881,35 @@ For this to be usable, the following parameter must be set in <code class="docut
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-toc-visfilter</span></code></p></td>
-<td><p>Must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that a <strong>display filter</strong> can be defined for layers in the <strong>table of contents (TOC)</strong>.</p></td>
+<td><p>Must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that a <strong>display filter</strong> (Query Builder) can be defined for layers in the <strong>table of contents (TOC)</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-toc-userrenderer</span></code></p></td>
+<td><p>Must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that users can change the <strong>presentation</strong> of layers in the table of contents.
+Additionally, the property <em>Allow user-defined rendering</em> must be set for the service in the CMS (see <a class="reference internal" href="../../apps/cms/add_ags_service.html#cms-ags-user-renderer-labeling"><span class="std std-ref">User-defined Rendering and Labeling</span></a>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">userrenderer-max-unique-value-classes</span></code></p></td>
+<td><p>Maximum number of values (classes) of a custom presentation with <em>Unique values</em>. Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-toc-userlabeling</span></code></p></td>
+<td><p>Must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that users can change the <strong>labeling</strong> of layers in the table of contents.
+Additionally, the property <em>Allow user-defined labeling</em> must be set for the service in the CMS (see <a class="reference internal" href="../../apps/cms/add_ags_service.html#cms-ags-user-renderer-labeling"><span class="std std-ref">User-defined Rendering and Labeling</span></a>).
+Replaces the former <em>Labeling Topics</em> tool.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Display filter</strong> (<code class="docutils literal notranslate"><span class="pre">allow-toc-visfilter</span></code>):</p>
 <p>The behavior then is such that, for topics in the <strong>table of contents (TOC)</strong>, a
 small <strong>filter icon</strong> is displayed that opens a <strong>query builder</strong>, with which the user
 can define a <strong>display filter</strong> in SQL style.
@@ -1641,7 +1673,7 @@ To check whether the <strong>DataLinq settings</strong> are set correctly, the <
 <li><a class="reference internal" href="#tool-coordinates-xy">Tool <code class="docutils literal notranslate"><span class="pre">Coordinates</span> <span class="pre">(XY)</span></code></a></li>
 <li><a class="reference internal" href="#tool-printing">Tool <code class="docutils literal notranslate"><span class="pre">Printing</span></code></a></li>
 <li><a class="reference internal" href="#tool-series-printing">Tool <code class="docutils literal notranslate"><span class="pre">Series</span> <span class="pre">Printing</span></code></a></li>
-<li><a class="reference internal" href="#tool-display-filter">Tool <code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Filter</span></code></a></li>
+<li><a class="reference internal" href="#context-menu-in-the-table-of-contents-toc-contextmenu">Context Menu in the Table of Contents (<code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code>)</a></li>
 <li><a class="reference internal" href="#tool-liveshare">Tool <code class="docutils literal notranslate"><span class="pre">LiveShare</span></code></a></li>
 <li><a class="reference internal" href="#tool-3d-measurement">Tool <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Measurement</span></code></a></li>
 <li><a class="reference internal" href="#tool-save-map">Tool <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Map</span></code></a></li>

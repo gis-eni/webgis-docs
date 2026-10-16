@@ -285,6 +285,32 @@ must be parameterized in the CMS.</p>
 </div>
 </section>
 </section>
+<section id="user-defined-rendering-and-labeling">
+<span id="cms-ags-user-renderer-labeling"></span><h2>User-defined Rendering and Labeling<a class="headerlink" href="#user-defined-rendering-and-labeling" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>The following service properties allow users to define the presentation or the labeling of individual layers
+themselves in the table of contents of the map viewer (menu items <strong>Presentation</strong> and <strong>Labeling</strong> in the context menu, see the
+<a class="reference external" href="https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-context-menu">manual</a>):</p>
+<ul class="simple">
+<li><p><strong>Allow user-defined rendering (Rendering from TOC):</strong> the user can define a custom presentation for individual layers
+(single symbol, unique values, classes).</p></li>
+<li><p><strong>Allow user-defined labeling (Labeling from TOC):</strong> the user can define a custom labeling for individual layers
+or switch the labeling off.</p></li>
+</ul>
+<p>Both properties are switched off by default and, like other authorizable properties, can be restricted to certain roles.
+Prerequisites:</p>
+<ul class="simple">
+<li><p>The ArcGIS Server service must support <strong>DynamicLayers</strong> (<code class="docutils literal notranslate"><span class="pre">supportsDynamicLayers</span></code>). The function is only available for feature layers
+(point, line, polygon).</p></li>
+<li><p>The respective function must be enabled in the <code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code> section of <code class="docutils literal notranslate"><span class="pre">api.config</span></code>
+(<code class="docutils literal notranslate"><span class="pre">allow-toc-userrenderer</span></code> or <code class="docutils literal notranslate"><span class="pre">allow-toc-userlabeling</span></code>, see <a class="reference internal" href="../../config/api/index.html#api-config-toc-contextmenu"><span class="std std-ref">Context Menu in the Table of Contents (toc-contextmenu)</span></a>).</p></li>
+<li><p>Only the fields that are also offered in the <strong>QueryBuilder</strong> are available to the user.</p></li>
+</ul>
+<p>The presentation or labeling defined by the user is passed to ArcGIS Server via DynamicLayers with every map request.
+Invalid definitions (e.g. fields that are not allowed) are ignored; the layer is then drawn with its default presentation.</p>
+</section>
 </section>
 
 
@@ -307,6 +333,7 @@ must be parameterized in the CMS.</p>
 <li><a class="reference internal" href="#dynamic-queries">Dynamic Queries</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#user-defined-rendering-and-labeling">User-defined Rendering and Labeling</a></li>
 </ul>
 </li>
 </ul>

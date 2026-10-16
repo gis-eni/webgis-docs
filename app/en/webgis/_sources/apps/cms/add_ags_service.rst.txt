@@ -118,3 +118,31 @@ Dynamic Queries
    All queryable topics are offered as a query with all fields. If certain topics should be
    available as a query, or if search fields should be searchable within topics, all queries
    must be parameterized in the CMS.
+
+.. _cms-ags-user-renderer-labeling:
+
+User-defined Rendering and Labeling
+-----------------------------------
+
+.. versionadded:: 9.26.4104
+
+The following service properties allow users to define the presentation or the labeling of individual layers
+themselves in the table of contents of the map viewer (menu items **Presentation** and **Labeling** in the context menu, see the
+`manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-context-menu>`_):
+
+* **Allow user-defined rendering (Rendering from TOC):** the user can define a custom presentation for individual layers
+  (single symbol, unique values, classes).
+* **Allow user-defined labeling (Labeling from TOC):** the user can define a custom labeling for individual layers
+  or switch the labeling off.
+
+Both properties are switched off by default and, like other authorizable properties, can be restricted to certain roles.
+Prerequisites:
+
+* The ArcGIS Server service must support **DynamicLayers** (``supportsDynamicLayers``). The function is only available for feature layers
+  (point, line, polygon).
+* The respective function must be enabled in the ``toc-contextmenu`` section of ``api.config``
+  (``allow-toc-userrenderer`` or ``allow-toc-userlabeling``, see :ref:`api-config-toc-contextmenu`).
+* Only the fields that are also offered in the **QueryBuilder** are available to the user.
+
+The presentation or labeling defined by the user is passed to ArcGIS Server via DynamicLayers with every map request.
+Invalid definitions (e.g. fields that are not allowed) are ignored; the layer is then drawn with its default presentation.

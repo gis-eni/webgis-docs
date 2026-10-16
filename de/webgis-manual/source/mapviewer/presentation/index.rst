@@ -128,9 +128,117 @@ Das Kontextmenü einer Darstellungsvariante enthält, je nach Darstellungsvarian
 * **Metadaten:** Öffnet die Metadaten der Darstellungsvariante (nur wenn vom Kartenautor hinterlegt).
 * **Query Builder:** Öffnet den Query Builder, mit dem die Layer der Darstellungsvariante gefiltert werden können (nur wenn die Layer abfragbar sind).
   Bezieht sich die Darstellungsvariante auf mehrere Layer, kann im Untermenü ein einzelner Layer gewählt werden. **Alle** öffnet den Query Builder für alle Layer der Darstellungsvariante.
+* **Filter zurücksetzen:** Entfernt alle Filter (zB aus dem Query Builder) der Layer dieser Darstellungsvariante (nur wenn Filter gesetzt sind).
+* **Darstellung:** Ändert die Darstellung (Symbolik) eines Layers (siehe :ref:`toc-user-renderer`).
+* **Beschriftung:** Ändert die Beschriftung eines Layers (siehe :ref:`toc-user-labeling`).
 * **Eigenschaften:** Öffnet den Eigenschaften-Dialog (siehe unten).
 
 .. image:: img/toc_menu_querybuilder.png
+
+**Darstellung** und **Beschriftung** werden nur angeboten, wenn der Kartenautor das für den Dienst erlaubt hat. Bezieht sich die Darstellungsvariante auf mehrere Layer,
+wird der Layer, wie beim Query Builder, über ein Untermenü gewählt.
+
+.. image:: img/toc_menu_userrenderer.png
+
+.. _toc-badges:
+
+Hinweis-Symbole (Badges)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+Rechts neben dem Namen einer Darstellungsvariante zeigt ein kleines, abgerundetes Feld (Badge) an, dass für die Darstellungsvariante etwas Besonderes gilt:
+
+* Farbschema-Symbol: eine benutzerdefinierte Darstellung ist aktiv,
+* Beschriftungs-Symbol: eine benutzerdefinierte Beschriftung ist aktiv,
+* Trichter: ein Filter (zB aus dem Query Builder) ist gesetzt,
+* *i*: für die Darstellungsvariante sind Metadaten vorhanden.
+
+Fährt man mit der Maus über das Badge, wird die Bedeutung der Symbole als Tooltip angezeigt.
+
+.. image:: img/toc_badges.png
+
+Ein Klick auf das Badge schaltet die Darstellungsvariante **nicht** ein oder aus, sondern öffnet das Kontextmenü. Dort sind die passenden Einträge zu finden,
+zB **Metadaten**, **Filter zurücksetzen**, **Darstellung zurücksetzen** oder **Beschriftung zurücksetzen**.
+Ist der Name einer Darstellungsvariante sehr lang, wird er gekürzt, damit das Badge sichtbar bleibt.
+
+.. _toc-user-renderer:
+
+Darstellung
+~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+Über den Menüpunkt **Darstellung** kann die Symbolik eines Layers für die eigene Karte geändert werden. Im Dialog stehen zwei Optionen zur Auswahl:
+
+* **Standard (Darstellung des Dienstes):** Der Layer wird so dargestellt, wie er im Dienst definiert ist.
+* **Benutzerdefiniert:** Es wird eine neue Darstellung für den Layer festgelegt.
+
+.. image:: img/renderer_default.png
+
+Für eine benutzerdefinierte Darstellung wird zuerst die **Darstellungsart** gewählt:
+
+* **Einheitliches Symbol:** Alle Objekte des Layers werden mit demselben Symbol dargestellt. Je nach Geometrie (Punkt, Linie, Fläche) können
+  Farbe, Größe, Symbol, Linienart und -stärke bzw. Füllung und Rand eingestellt werden.
+
+  .. image:: img/renderer_simple.png
+
+* **Eindeutige Werte:** Die Objekte werden nach den Werten eines Feldes unterschiedlich dargestellt. Nach Auswahl des **Feldes** können über **Werte laden**
+  die im Layer vorkommenden Werte übernommen oder mit **Wert hinzufügen** einzelne Werte händisch eingetragen werden. Für jeden Wert kann das Symbol
+  und eine **Beschriftung (Legende)** festgelegt werden. Mit **Alle anderen Werte** werden auch Objekte dargestellt, deren Wert in der Liste nicht vorkommt.
+
+  .. image:: img/renderer_uniquevalue.png
+
+* **Klassen (Wertebereiche):** Die Objekte werden nach Wertebereichen eines numerischen Feldes dargestellt. Nach Auswahl von **Feld**, **Anzahl Klassen**
+  und **Farbverlauf** werden über **Klassen berechnen** gleich große Klassen zwischen dem kleinsten und größten Wert des Feldes erzeugt.
+  Die Klassengrenzen, Symbole und Beschriftungen können danach noch angepasst werden.
+
+  .. image:: img/renderer_classbreaks.png
+
+Zur Auswahl stehen dieselben Felder, nach denen auch mit dem Query Builder gefiltert werden kann.
+Mit **Anwenden** wird die Karte mit der neuen Darstellung gezeichnet. Auch die Legende zeigt die benutzerdefinierte Darstellung an;
+bei *Eindeutige Werte* und *Klassen* wird das verwendete Feld in Klammern hinter dem Layernamen angezeigt, damit erkennbar ist, wonach klassifiziert wurde.
+
+Ist eine benutzerdefinierte Darstellung aktiv, wird der Menüpunkt **Darstellung** mit einem Häkchen markiert und es erscheint zusätzlich der Menüpunkt
+**Darstellung zurücksetzen**, mit dem wieder die Standard-Darstellung des Dienstes verwendet wird.
+
+.. image:: img/toc_menu_userrenderer_active.png
+
+Benutzerdefinierte Darstellungen werden mit der Karte gespeichert und beim Laden der Karte wiederhergestellt.
+
+.. _toc-user-labeling:
+
+Beschriftung
+~~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+Über den Menüpunkt **Beschriftung** kann die Beschriftung eines Layers geändert werden. Im Dialog stehen drei Optionen zur Auswahl:
+
+* **Standard (Beschriftung laut Dienst):** Der Layer wird so beschriftet, wie es im Dienst eingestellt ist.
+* **Keine Beschriftung:** Der Layer wird nicht beschriftet, auch wenn im Dienst eine Beschriftung eingestellt ist.
+* **Benutzerdefiniert:** Es wird eine eigene Beschriftung festgelegt.
+
+.. image:: img/labeling_default.png
+
+Bei einer benutzerdefinierten Beschriftung wird der **Beschriftungstext** eingegeben. Felder werden in eckigen Klammern angegeben,
+zB ``Fläche: [FLAECHE] m²``. Über **Feld einfügen...** kann ein Feld an der aktuellen Position in den Text eingefügt werden. Zur Auswahl stehen
+dieselben Felder, nach denen auch mit dem Query Builder gefiltert werden kann. Der Text darf aus maximal 3 Zeilen und 200 Zeichen bestehen.
+
+Weiters können **Schriftgröße**, **Schriftstil** (Normal, Fett, Kursiv, Fett kursiv), **Schriftfarbe** und eine **Freistellung (Halo)** eingestellt werden.
+
+.. image:: img/labeling_custom.png
+
+Mit **Anwenden** wird die Karte mit der neuen Beschriftung gezeichnet. Ist eine benutzerdefinierte Beschriftung aktiv, wird der Menüpunkt **Beschriftung**
+mit einem Häkchen markiert und es erscheint zusätzlich der Menüpunkt **Beschriftung zurücksetzen**.
+Benutzerdefinierte Beschriftungen werden ebenfalls mit der Karte gespeichert.
+
+Beispiel: Naturdenkmäler mit benutzerdefinierter Darstellung (Klassen nach Jahr der Unterschutzstellung) und Beschriftung ``[Baum]`` / ``seit [Jahr_Unterschutzstellung]``:
+
+.. image:: img/map_userrenderer_labeling.png
+
+.. note::
+   Die Beschriftung ersetzt das frühere Werkzeug *Themen beschriften*.
 
 Das Kontextmenü einer Gruppe enthält die **Metadaten** der Gruppe (falls vorhanden) und die **Eigenschaften**:
 

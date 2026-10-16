@@ -119,3 +119,31 @@ Dynamische Abfragen
    Es werden alle abfragbaren Themen mit allen Feldern als Abfrage angeboten. Sollten bestimmte Themen als 
    Abfrage zur Verfügung stehen oder in Themen über Suchfelder gesucht werden können, müssen alle Abfragen 
    im CMS parametriert werden.
+
+.. _cms-ags-user-renderer-labeling:
+
+Benutzerdefinierte Darstellung und Beschriftung
+-----------------------------------------------
+
+.. versionadded:: 9.26.4104
+
+Mit den folgenden Eigenschaften des Dienstes kann Anwendern erlaubt werden, die Darstellung bzw. die Beschriftung einzelner Layer
+im Inhaltsverzeichnis des Karten Viewers selbst festzulegen (Menüpunkte **Darstellung** und **Beschriftung** im Kontextmenü, siehe
+`Handbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-context-menu>`_):
+
+* **Benutzerdefinierte Darstellung erlauben (Darstellung aus TOC):** Der Anwender kann für einzelne Layer eine eigene Darstellung
+  (Einheitliches Symbol, Eindeutige Werte, Klassen) festlegen.
+* **Benutzerdefinierte Beschriftung erlauben (Beschriftung aus TOC):** Der Anwender kann für einzelne Layer eine eigene Beschriftung
+  festlegen oder die Beschriftung ausschalten.
+
+Beide Eigenschaften sind standardmäßig ausgeschaltet und können, wie andere berechtigbare Eigenschaften, auf bestimmte Rollen
+eingeschränkt werden. Voraussetzungen:
+
+* Der ArcGIS Server Dienst muss **DynamicLayers** unterstützen (``supportsDynamicLayers``). Die Funktion steht nur für Feature Layer
+  (Punkt, Linie, Fläche) zur Verfügung.
+* In der ``api.config`` muss die jeweilige Funktion in der Section ``toc-contextmenu`` freigeschaltet sein
+  (``allow-toc-userrenderer`` bzw. ``allow-toc-userlabeling``, siehe :ref:`api-config-toc-contextmenu`).
+* Zur Auswahl stehen dem Anwender nur die Felder, die auch im **QueryBuilder** angeboten werden.
+
+Die vom Anwender festgelegte Darstellung bzw. Beschriftung wird bei jedem Kartenrequest über DynamicLayers an den ArcGIS Server
+übergeben. Ungültige Definitionen (zB nicht erlaubte Felder) werden ignoriert; der Layer wird dann in der Standard-Darstellung gezeichnet.

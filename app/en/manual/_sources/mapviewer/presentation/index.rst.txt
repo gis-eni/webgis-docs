@@ -128,9 +128,117 @@ Depending on the presentation variant, its context menu contains:
 * **Metadata:** opens the metadata of the presentation variant (only if provided by the map author).
 * **Query Builder:** opens the Query Builder, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
   If the presentation variant refers to several layers, a single layer can be chosen in the submenu. **All** opens the Query Builder for all layers of the presentation variant.
+* **Reset filter:** removes all filters (e.g. from the Query Builder) of the layers of this presentation variant (only if filters are set).
+* **Presentation:** changes the presentation (symbology) of a layer (see :ref:`toc-user-renderer`).
+* **Labeling:** changes the labeling of a layer (see :ref:`toc-user-labeling`).
 * **Properties:** opens the properties dialog (see below).
 
 .. image:: img/toc_menu_querybuilder.png
+
+**Presentation** and **Labeling** are only offered if the map author has allowed this for the service. If the presentation variant refers to several layers,
+the layer is chosen in a submenu, as with the Query Builder.
+
+.. image:: img/toc_menu_userrenderer.png
+
+.. _toc-badges:
+
+Badges
+~~~~~~
+
+.. versionadded:: 9.26.4104
+
+A small rounded box (badge) to the right of the name of a presentation variant indicates that something special applies to the presentation variant:
+
+* Color scheme icon: a custom presentation is active,
+* Label icon: a custom labeling is active,
+* Funnel: a filter (e.g. from the Query Builder) is set,
+* *i*: metadata is available for the presentation variant.
+
+When moving the mouse over the badge, the meaning of the icons is shown as a tooltip.
+
+.. image:: img/toc_badges.png
+
+Clicking the badge does **not** switch the presentation variant on or off, but opens the context menu. There you will find the matching entries,
+e.g. **Metadata**, **Reset filter**, **Reset presentation** or **Reset labeling**.
+If the name of a presentation variant is very long, it is shortened so that the badge remains visible.
+
+.. _toc-user-renderer:
+
+Presentation
+~~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+The **Presentation** menu item can be used to change the symbology of a layer for your own map. The dialog offers two options:
+
+* **Default (presentation of the service):** the layer is displayed as defined in the service.
+* **Custom:** a new presentation is defined for the layer.
+
+.. image:: img/renderer_default.png
+
+For a custom presentation, first choose the **Renderer**:
+
+* **Single symbol:** all features of the layer are displayed with the same symbol. Depending on the geometry (point, line, polygon),
+  color, size, symbol, line style and width or fill and outline can be set.
+
+  .. image:: img/renderer_simple.png
+
+* **Unique values:** the features are displayed differently according to the values of a field. After selecting the **Field**, **Load values**
+  takes over the values occurring in the layer, or single values can be entered manually with **Add value**. For each value, the symbol
+  and a **Label (legend)** can be defined. With **All other values**, features whose value does not occur in the list are displayed as well.
+
+  .. image:: img/renderer_uniquevalue.png
+
+* **Classes (value ranges):** the features are displayed according to value ranges of a numeric field. After selecting **Field**, **Number of classes**
+  and **Color ramp**, **Calculate classes** creates classes of equal size between the smallest and the largest value of the field.
+  The class breaks, symbols and labels can be adjusted afterwards.
+
+  .. image:: img/renderer_classbreaks.png
+
+The same fields are available that can be used to filter with the Query Builder.
+**Apply** draws the map with the new presentation. The legend also shows the custom presentation;
+for *Unique values* and *Classes*, the field used is shown in brackets after the layer name, so it is clear what the classification is based on.
+
+If a custom presentation is active, the **Presentation** menu item is marked with a check mark and the additional menu item
+**Reset presentation** appears, which switches back to the default presentation of the service.
+
+.. image:: img/toc_menu_userrenderer_active.png
+
+Custom presentations are saved with the map and restored when the map is loaded.
+
+.. _toc-user-labeling:
+
+Labeling
+~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+The **Labeling** menu item can be used to change the labeling of a layer. The dialog offers three options:
+
+* **Default (labeling of the service):** the layer is labeled as configured in the service.
+* **No labeling:** the layer is not labeled, even if labeling is configured in the service.
+* **Custom:** a custom labeling is defined.
+
+.. image:: img/labeling_default.png
+
+For a custom labeling, enter the **Label text**. Fields are specified in square brackets,
+e.g. ``Area: [AREA] m²``. **Insert field...** inserts a field at the current position in the text. The same fields are available
+that can be used to filter with the Query Builder. The text may consist of at most 3 lines and 200 characters.
+
+Furthermore, **Font size**, **Font style** (Regular, Bold, Italic, Bold italic), **Font color** and a **Halo** can be set.
+
+.. image:: img/labeling_custom.png
+
+**Apply** draws the map with the new labeling. If a custom labeling is active, the **Labeling** menu item
+is marked with a check mark and the additional menu item **Reset labeling** appears.
+Custom labelings are saved with the map as well.
+
+Example: natural monuments with a custom presentation (classes by year of protection) and the labeling ``[Baum]`` / ``seit [Jahr_Unterschutzstellung]``:
+
+.. image:: img/map_userrenderer_labeling.png
+
+.. note::
+   Labeling replaces the former *Labeling Topics* tool.
 
 The context menu of a group contains the **metadata** of the group (if available) and the **properties**:
 

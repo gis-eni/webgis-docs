@@ -613,17 +613,26 @@ Zusätzlich können folgende Parameter konfiguriert werden:
      - Legt das **Papierformat** für die **Übersichtsseite** fest (z. B. ``A4.Portrait``).  
        Wird kein Wert angegeben, wird dasselbe Format wie für die Seriendruckseiten verwendet.
 
-Werkzeug ``Darstellungsfilter``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _api-config-toc-contextmenu:
+
+Kontextmenü im Inhaltsverzeichnis (``toc-contextmenu``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: xml
 
-   <section name="tool-visfilter">
+   <section name="toc-contextmenu">
       <add key="allow-toc-visfilter" value="true" />
+      <add key="allow-toc-userrenderer" value="true" />
+      <add key="userrenderer-max-unique-value-classes" value="100" />
+      <add key="allow-toc-userlabeling" value="true" />
    </section>
 
-Ab Version 8.x kann im **Inhaltsverzeichnis (TOC)** für jeden Layer ein **Darstellungsfilter** definiert werden.
-Damit dies genutzt werden kann, muss der folgende Parameter in der ``api.config`` gesetzt werden:
+.. versionchanged:: 9.26.4104
+   Die Section hieß bisher ``tool-visfilter``. Sie wurde in ``toc-contextmenu`` umbenannt, da sie jetzt alle Einträge des Kontextmenüs
+   im Inhaltsverzeichnis steuert. Bestehende ``api.config`` Dateien müssen beim Update angepasst werden.
+
+In dieser Section wird festgelegt, welche Funktionen im **Kontextmenü des Inhaltsverzeichnisses (TOC)** angeboten werden.
+Alle ``allow-...`` Schlüssel sind standardmäßig ``false``.
 
 .. list-table::
    :widths: 30 70
@@ -632,7 +641,24 @@ Damit dies genutzt werden kann, muss der folgende Parameter in der ``api.config`
    * - **Attribut**
      - **Beschreibung**
    * - ``allow-toc-visfilter``
-     - Muss auf ``true`` gesetzt sein, damit im **Inhaltsverzeichnis (TOC)** für Layer ein **Darstellungsfilter** definiert werden kann.
+     - Muss auf ``true`` gesetzt sein, damit im **Inhaltsverzeichnis (TOC)** für Layer ein **Darstellungsfilter** (Query Builder) definiert werden kann.
+   * - ``allow-toc-userrenderer``
+     - Muss auf ``true`` gesetzt sein, damit Anwender die **Darstellung** von Layern im Inhaltsverzeichnis ändern können.
+       Zusätzlich muss im CMS beim Dienst die Eigenschaft *Benutzerdefinierte Darstellung erlauben* gesetzt sein (siehe :ref:`cms-ags-user-renderer-labeling`).
+
+       .. versionadded:: 9.26.4104
+   * - ``userrenderer-max-unique-value-classes``
+     - Maximale Anzahl an Werten (Klassen) einer benutzerdefinierten Darstellung mit *Eindeutigen Werten*. Standardwert: ``100``.
+
+       .. versionadded:: 9.26.4104
+   * - ``allow-toc-userlabeling``
+     - Muss auf ``true`` gesetzt sein, damit Anwender die **Beschriftung** von Layern im Inhaltsverzeichnis ändern können.
+       Zusätzlich muss im CMS beim Dienst die Eigenschaft *Benutzerdefinierte Beschriftung erlauben* gesetzt sein (siehe :ref:`cms-ags-user-renderer-labeling`).
+       Ersetzt das frühere Werkzeug *Themen beschriften*.
+
+       .. versionadded:: 9.26.4104
+
+**Darstellungsfilter** (``allow-toc-visfilter``):
 
 Das Verhalten ist dann so, dass bei Themen Im **Inhaltsverzeichnis (TOC)** ein 
 kleines **Filter-Symbol** angezeigt wird, dass einen **Query-Builder** öffnet, mit der Benutzer 

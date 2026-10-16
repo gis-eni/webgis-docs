@@ -249,13 +249,100 @@ and would only slow down the map build-up.</p>
 <li><p><strong>Metadata:</strong> opens the metadata of the presentation variant (only if provided by the map author).</p></li>
 <li><p><strong>Query Builder:</strong> opens the Query Builder, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
 If the presentation variant refers to several layers, a single layer can be chosen in the submenu. <strong>All</strong> opens the Query Builder for all layers of the presentation variant.</p></li>
+<li><p><strong>Reset filter:</strong> removes all filters (e.g. from the Query Builder) of the layers of this presentation variant (only if filters are set).</p></li>
+<li><p><strong>Presentation:</strong> changes the presentation (symbology) of a layer (see <a class="reference internal" href="#toc-user-renderer"><span class="std std-ref">3.4.2   Presentation</span></a>).</p></li>
+<li><p><strong>Labeling:</strong> changes the labeling of a layer (see <a class="reference internal" href="#toc-user-labeling"><span class="std std-ref">3.4.3   Labeling</span></a>).</p></li>
 <li><p><strong>Properties:</strong> opens the properties dialog (see below).</p></li>
 </ul>
 <img alt="../../_images/toc_menu_querybuilder.png" src="../../_images/toc_menu_querybuilder.png" />
+<p><strong>Presentation</strong> and <strong>Labeling</strong> are only offered if the map author has allowed this for the service. If the presentation variant refers to several layers,
+the layer is chosen in a submenu, as with the Query Builder.</p>
+<img alt="../../_images/toc_menu_userrenderer.png" src="../../_images/toc_menu_userrenderer.png" />
+<section id="badges">
+<span id="toc-badges"></span><h3><span class="sectnum">3.4.1 </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>A small rounded box (badge) to the right of the name of a presentation variant indicates that something special applies to the presentation variant:</p>
+<ul class="simple">
+<li><p>Color scheme icon: a custom presentation is active,</p></li>
+<li><p>Label icon: a custom labeling is active,</p></li>
+<li><p>Funnel: a filter (e.g. from the Query Builder) is set,</p></li>
+<li><p><em>i</em>: metadata is available for the presentation variant.</p></li>
+</ul>
+<p>When moving the mouse over the badge, the meaning of the icons is shown as a tooltip.</p>
+<img alt="../../_images/toc_badges.png" src="../../_images/toc_badges.png" />
+<p>Clicking the badge does <strong>not</strong> switch the presentation variant on or off, but opens the context menu. There you will find the matching entries,
+e.g. <strong>Metadata</strong>, <strong>Reset filter</strong>, <strong>Reset presentation</strong> or <strong>Reset labeling</strong>.
+If the name of a presentation variant is very long, it is shortened so that the badge remains visible.</p>
+</section>
+<section id="presentation">
+<span id="toc-user-renderer"></span><h3><span class="sectnum">3.4.2 </span>Presentation<a class="headerlink" href="#presentation" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>The <strong>Presentation</strong> menu item can be used to change the symbology of a layer for your own map. The dialog offers two options:</p>
+<ul class="simple">
+<li><p><strong>Default (presentation of the service):</strong> the layer is displayed as defined in the service.</p></li>
+<li><p><strong>Custom:</strong> a new presentation is defined for the layer.</p></li>
+</ul>
+<img alt="../../_images/renderer_default.png" src="../../_images/renderer_default.png" />
+<p>For a custom presentation, first choose the <strong>Renderer</strong>:</p>
+<ul>
+<li><p><strong>Single symbol:</strong> all features of the layer are displayed with the same symbol. Depending on the geometry (point, line, polygon),
+color, size, symbol, line style and width or fill and outline can be set.</p>
+<img alt="../../_images/renderer_simple.png" src="../../_images/renderer_simple.png" />
+</li>
+<li><p><strong>Unique values:</strong> the features are displayed differently according to the values of a field. After selecting the <strong>Field</strong>, <strong>Load values</strong>
+takes over the values occurring in the layer, or single values can be entered manually with <strong>Add value</strong>. For each value, the symbol
+and a <strong>Label (legend)</strong> can be defined. With <strong>All other values</strong>, features whose value does not occur in the list are displayed as well.</p>
+<img alt="../../_images/renderer_uniquevalue.png" src="../../_images/renderer_uniquevalue.png" />
+</li>
+<li><p><strong>Classes (value ranges):</strong> the features are displayed according to value ranges of a numeric field. After selecting <strong>Field</strong>, <strong>Number of classes</strong>
+and <strong>Color ramp</strong>, <strong>Calculate classes</strong> creates classes of equal size between the smallest and the largest value of the field.
+The class breaks, symbols and labels can be adjusted afterwards.</p>
+<img alt="../../_images/renderer_classbreaks.png" src="../../_images/renderer_classbreaks.png" />
+</li>
+</ul>
+<p>The same fields are available that can be used to filter with the Query Builder.
+<strong>Apply</strong> draws the map with the new presentation. The legend also shows the custom presentation;
+for <em>Unique values</em> and <em>Classes</em>, the field used is shown in brackets after the layer name, so it is clear what the classification is based on.</p>
+<p>If a custom presentation is active, the <strong>Presentation</strong> menu item is marked with a check mark and the additional menu item
+<strong>Reset presentation</strong> appears, which switches back to the default presentation of the service.</p>
+<img alt="../../_images/toc_menu_userrenderer_active.png" src="../../_images/toc_menu_userrenderer_active.png" />
+<p>Custom presentations are saved with the map and restored when the map is loaded.</p>
+</section>
+<section id="labeling">
+<span id="toc-user-labeling"></span><h3><span class="sectnum">3.4.3 </span>Labeling<a class="headerlink" href="#labeling" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>The <strong>Labeling</strong> menu item can be used to change the labeling of a layer. The dialog offers three options:</p>
+<ul class="simple">
+<li><p><strong>Default (labeling of the service):</strong> the layer is labeled as configured in the service.</p></li>
+<li><p><strong>No labeling:</strong> the layer is not labeled, even if labeling is configured in the service.</p></li>
+<li><p><strong>Custom:</strong> a custom labeling is defined.</p></li>
+</ul>
+<img alt="../../_images/labeling_default.png" src="../../_images/labeling_default.png" />
+<p>For a custom labeling, enter the <strong>Label text</strong>. Fields are specified in square brackets,
+e.g. <code class="docutils literal notranslate"><span class="pre">Area:</span> <span class="pre">[AREA]</span> <span class="pre">m²</span></code>. <strong>Insert field…</strong> inserts a field at the current position in the text. The same fields are available
+that can be used to filter with the Query Builder. The text may consist of at most 3 lines and 200 characters.</p>
+<p>Furthermore, <strong>Font size</strong>, <strong>Font style</strong> (Regular, Bold, Italic, Bold italic), <strong>Font color</strong> and a <strong>Halo</strong> can be set.</p>
+<img alt="../../_images/labeling_custom.png" src="../../_images/labeling_custom.png" />
+<p><strong>Apply</strong> draws the map with the new labeling. If a custom labeling is active, the <strong>Labeling</strong> menu item
+is marked with a check mark and the additional menu item <strong>Reset labeling</strong> appears.
+Custom labelings are saved with the map as well.</p>
+<p>Example: natural monuments with a custom presentation (classes by year of protection) and the labeling <code class="docutils literal notranslate"><span class="pre">[Baum]</span></code> / <code class="docutils literal notranslate"><span class="pre">seit</span> <span class="pre">[Jahr_Unterschutzstellung]</span></code>:</p>
+<img alt="../../_images/map_userrenderer_labeling.png" src="../../_images/map_userrenderer_labeling.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Labeling replaces the former <em>Labeling Topics</em> tool.</p>
+</div>
 <p>The context menu of a group contains the <strong>metadata</strong> of the group (if available) and the <strong>properties</strong>:</p>
 <img alt="../../_images/toc_menu_group.png" src="../../_images/toc_menu_group.png" />
+</section>
 <section id="properties">
-<span id="toc-properties"></span><h3><span class="sectnum">3.4.1 </span>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
+<span id="toc-properties"></span><h3><span class="sectnum">3.4.4 </span>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <p>The properties dialog summarizes the most important information about a presentation variant in several tabs:</p>
 <ul>
 <li><p><strong>General:</strong> name, description and services of the presentation variant, as well as a list of all layers with</p>
@@ -313,7 +400,10 @@ You can also click on a relevant group to open it in the original tree and show 
 <li><a class="reference internal" href="#background-basemaps"><span class="sectnum">3.2 </span>Background (Basemaps)</a></li>
 <li><a class="reference internal" href="#presentation-variants-thematic-data"><span class="sectnum">3.3 </span>Presentation Variants (Thematic Data)</a></li>
 <li><a class="reference internal" href="#context-menu-in-the-table-of-contents"><span class="sectnum">3.4 </span>Context Menu in the Table of Contents</a><ul>
-<li><a class="reference internal" href="#properties"><span class="sectnum">3.4.1 </span>Properties</a></li>
+<li><a class="reference internal" href="#badges"><span class="sectnum">3.4.1 </span>Badges</a></li>
+<li><a class="reference internal" href="#presentation"><span class="sectnum">3.4.2 </span>Presentation</a></li>
+<li><a class="reference internal" href="#labeling"><span class="sectnum">3.4.3 </span>Labeling</a></li>
+<li><a class="reference internal" href="#properties"><span class="sectnum">3.4.4 </span>Properties</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tips-and-tricks"><span class="sectnum">3.5 </span>Tips and Tricks</a></li>

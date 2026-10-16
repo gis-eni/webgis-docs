@@ -287,6 +287,32 @@ im CMS parametriert werden.</p>
 </div>
 </section>
 </section>
+<section id="benutzerdefinierte-darstellung-und-beschriftung">
+<span id="cms-ags-user-renderer-labeling"></span><h2>Benutzerdefinierte Darstellung und Beschriftung<a class="headerlink" href="#benutzerdefinierte-darstellung-und-beschriftung" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Mit den folgenden Eigenschaften des Dienstes kann Anwendern erlaubt werden, die Darstellung bzw. die Beschriftung einzelner Layer
+im Inhaltsverzeichnis des Karten Viewers selbst festzulegen (Menüpunkte <strong>Darstellung</strong> und <strong>Beschriftung</strong> im Kontextmenü, siehe
+<a class="reference external" href="https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-context-menu">Handbuch</a>):</p>
+<ul class="simple">
+<li><p><strong>Benutzerdefinierte Darstellung erlauben (Darstellung aus TOC):</strong> Der Anwender kann für einzelne Layer eine eigene Darstellung
+(Einheitliches Symbol, Eindeutige Werte, Klassen) festlegen.</p></li>
+<li><p><strong>Benutzerdefinierte Beschriftung erlauben (Beschriftung aus TOC):</strong> Der Anwender kann für einzelne Layer eine eigene Beschriftung
+festlegen oder die Beschriftung ausschalten.</p></li>
+</ul>
+<p>Beide Eigenschaften sind standardmäßig ausgeschaltet und können, wie andere berechtigbare Eigenschaften, auf bestimmte Rollen
+eingeschränkt werden. Voraussetzungen:</p>
+<ul class="simple">
+<li><p>Der ArcGIS Server Dienst muss <strong>DynamicLayers</strong> unterstützen (<code class="docutils literal notranslate"><span class="pre">supportsDynamicLayers</span></code>). Die Funktion steht nur für Feature Layer
+(Punkt, Linie, Fläche) zur Verfügung.</p></li>
+<li><p>In der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> muss die jeweilige Funktion in der Section <code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code> freigeschaltet sein
+(<code class="docutils literal notranslate"><span class="pre">allow-toc-userrenderer</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">allow-toc-userlabeling</span></code>, siehe <a class="reference internal" href="../../config/api/index.html#api-config-toc-contextmenu"><span class="std std-ref">Kontextmenü im Inhaltsverzeichnis (toc-contextmenu)</span></a>).</p></li>
+<li><p>Zur Auswahl stehen dem Anwender nur die Felder, die auch im <strong>QueryBuilder</strong> angeboten werden.</p></li>
+</ul>
+<p>Die vom Anwender festgelegte Darstellung bzw. Beschriftung wird bei jedem Kartenrequest über DynamicLayers an den ArcGIS Server
+übergeben. Ungültige Definitionen (zB nicht erlaubte Felder) werden ignoriert; der Layer wird dann in der Standard-Darstellung gezeichnet.</p>
+</section>
 </section>
 
 
@@ -309,6 +335,7 @@ im CMS parametriert werden.</p>
 <li><a class="reference internal" href="#dynamische-abfragen">Dynamische Abfragen</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#benutzerdefinierte-darstellung-und-beschriftung">Benutzerdefinierte Darstellung und Beschriftung</a></li>
 </ul>
 </li>
 </ul>
