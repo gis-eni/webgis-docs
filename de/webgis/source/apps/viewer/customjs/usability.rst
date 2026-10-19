@@ -519,4 +519,23 @@ Verhalten:
   Aufruf der Karte wird der Anwender gefragt, ob die Fenster wiederhergestellt werden sollen
   (der Browser erlaubt das Öffnen des Fensters nur nach einer Benutzeraktion).
 
+.. _customjs-toc-table:
+
+Tabelle im Kontextmenü des Inhaltsverzeichnisses
+================================================
+
+.. versionadded:: 9.26.4104
+
+Im Kontextmenü des Inhaltsverzeichnisses gibt es für abfragbare Layer den Menüpunkt **Tabelle**, der die
+Objekte des Layers ohne Suchbegriff abfragt und in der Ergebnistabelle anzeigt
+(siehe `Tabelle im Anwenderhandbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-table>`_).
+Der Menüpunkt ist standardmäßig aktiv und kann in der ``custom.js`` ausgeblendet werden:
+
+.. code:: javascript
+
+   webgis.usability.allowTocTable = false;  // default: true
+
+Die maximale Anzahl der abgefragten Objekte wird in der ``api.config`` mit ``table-feature-limit`` in der Section
+``toc-contextmenu`` festgelegt (siehe :ref:`api-config-toc-contextmenu`).
+
 

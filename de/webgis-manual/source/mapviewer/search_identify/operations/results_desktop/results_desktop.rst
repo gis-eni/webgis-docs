@@ -53,6 +53,10 @@ und die Eingaben der Detailsuche, ergänzt um die Bedingungen aus dem Query Buil
 * Ist ein Ergebnis eingeschränkt, wird das in der Tabelle mit einem Hinweis angezeigt. Die Einschränkung kann über das **×** im Hinweis oder über
   **Einschränkung entfernen** im Query Builder wieder aufgehoben werden. Dabei wird die ursprüngliche Abfrage ohne Einschränkung erneut ausgeführt.
 * Bei langsamen Diensten wird während der Abfrage ein Ladesymbol angezeigt; die Schaltflächen können in dieser Zeit nicht erneut geklickt werden.
+* Findet die Abfrage mit den Bedingungen keine Ergebnisse (oder ist eine Bedingung für das Feld ungültig), wird ein Hinweis angezeigt.
+  Der Query Builder bleibt mit den eingegebenen Bedingungen geöffnet und die Tabelle bleibt unverändert.
+* Wurde die Tabelle über das Kontextmenü im Inhaltsverzeichnis geöffnet (siehe :ref:`toc-table`), basiert das Ergebnis auf dem gesamten
+  Datenbestand des Layers (inkl. aktiver Darstellungsfilter); das wird im Query Builder ebenfalls angezeigt.
 
 .. note::
    Die Einschränkung wirkt nur auf das Abfrageergebnis in der Tabelle. Sie ist **kein Darstellungsfilter**, die Darstellung des Layers in der Karte bleibt unverändert.

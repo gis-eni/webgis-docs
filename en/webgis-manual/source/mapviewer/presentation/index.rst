@@ -126,8 +126,9 @@ On touch devices, the context menu is opened by long-pressing an entry.
 Depending on the presentation variant, its context menu contains:
 
 * **Metadata:** opens the metadata of the presentation variant (only if provided by the map author).
-* **Query Builder:** opens the Query Builder, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
+* **Display filter (DefinitionQuery):** opens the :ref:`Query Builder <toc-querybuilder>`, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
   If the presentation variant refers to several layers, a single layer can be chosen in the submenu. **All** opens the Query Builder for all layers of the presentation variant.
+* **Table:** shows the features of a layer in a table (see :ref:`toc-table`).
 * **Reset filter:** removes all filters (e.g. from the Query Builder) of the layers of this presentation variant (only if filters are set).
 * **Presentation:** changes the presentation (symbology) of a layer (see :ref:`toc-user-renderer`).
 * **Labeling:** changes the labeling of a layer (see :ref:`toc-user-labeling`).
@@ -159,6 +160,33 @@ several conditions are combined with **AND** or **OR**. **Apply** only displays 
 
    The suggestions do not take the filter already set for the layer into account, so that an existing filter can also be extended.
    Suggested values are currently only available for layers of ArcGIS services; for other services, the value is entered without suggestions.
+
+.. versionadded:: 9.26.4104
+   Besides ``=``, ``<>``, ``like`` and ``in``, negated and empty conditions are available as well:
+
+   * ``not like`` (text fields): e.g. *GNR* ``not like`` ``3%`` for all features whose number does **not** start with 3 (``%`` stands for any characters).
+   * ``not in`` (text and number fields): as with ``in``, the values are entered separated by commas.
+   * ``is null`` / ``is not null`` (all field types): features where the field is empty or not empty. No value is entered here.
+
+   If a value is empty or invalid (e.g. text in a number field), the Query Builder shows a hint and the conditions are not applied.
+
+.. _toc-table:
+
+Table
+~~~~~
+
+.. versionadded:: 9.26.4104
+
+The menu item **Table** queries the features of a layer without a search term and without a query geometry and shows them in the
+:doc:`results table <../search_identify/operations/results_desktop/results_desktop>`. The menu item is offered if a query exists for the layer
+that is also used for identify and may be executed without a search term. If there are several such queries
+(or the presentation variant refers to several layers), the query is chosen in a submenu.
+
+* Active display filters of the layer are taken into account.
+* Only the first features are shown (the maximum number is defined by the map author or the service). If this number is reached,
+  a hint is shown above the table.
+* The table tool **Restrict** narrows down the result further with the Query Builder
+  (see :ref:`results-query-restriction`). This restriction only affects the table and is **not a display filter**.
 
 .. _toc-badges:
 

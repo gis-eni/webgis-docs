@@ -126,8 +126,9 @@ Auf Touch-Geräten wird das Kontextmenü durch längeres Drücken auf einen Eint
 Das Kontextmenü einer Darstellungsvariante enthält, je nach Darstellungsvariante:
 
 * **Metadaten:** Öffnet die Metadaten der Darstellungsvariante (nur wenn vom Kartenautor hinterlegt).
-* **Query Builder:** Öffnet den Query Builder, mit dem die Layer der Darstellungsvariante gefiltert werden können (nur wenn die Layer abfragbar sind).
+* **Darstellungsfilter (DefinitionQuery):** Öffnet den :ref:`Query Builder <toc-querybuilder>`, mit dem die Layer der Darstellungsvariante gefiltert werden können (nur wenn die Layer abfragbar sind).
   Bezieht sich die Darstellungsvariante auf mehrere Layer, kann im Untermenü ein einzelner Layer gewählt werden. **Alle** öffnet den Query Builder für alle Layer der Darstellungsvariante.
+* **Tabelle:** Zeigt die Objekte eines Layers als Tabelle an (siehe :ref:`toc-table`).
 * **Filter zurücksetzen:** Entfernt alle Filter (zB aus dem Query Builder) der Layer dieser Darstellungsvariante (nur wenn Filter gesetzt sind).
 * **Darstellung:** Ändert die Darstellung (Symbolik) eines Layers (siehe :ref:`toc-user-renderer`).
 * **Beschriftung:** Ändert die Beschriftung eines Layers (siehe :ref:`toc-user-labeling`).
@@ -159,6 +160,33 @@ mehrere Bedingungen werden mit **AND** oder **OR** verknüpft. Mit **Anwenden** 
 
    Die Vorschläge berücksichtigen nicht den bereits gesetzten Filter des Layers, damit auch ein bestehender Filter erweitert werden kann.
    Vorschlagswerte gibt es derzeit nur für Layer aus ArcGIS Diensten; bei anderen Diensten wird der Wert ohne Vorschläge eingegeben.
+
+.. versionadded:: 9.26.4104
+   Neben ``=``, ``<>``, ``like`` und ``in`` stehen auch verneinte und leere Bedingungen zur Verfügung:
+
+   * ``not like`` (Textfelder): zB *GNR* ``not like`` ``3%`` für alle Objekte, deren Nummer **nicht** mit 3 beginnt (``%`` steht für beliebige Zeichen).
+   * ``not in`` (Text- und Zahlenfelder): die Werte werden, wie bei ``in``, durch Komma getrennt eingegeben.
+   * ``is null`` / ``is not null`` (alle Feldtypen): Objekte, bei denen das Feld leer bzw. nicht leer ist. Hier wird kein Wert eingegeben.
+
+   Ist ein Wert leer oder ungültig (zB Text in einem Zahlenfeld), weist der Query Builder darauf hin und die Bedingungen werden nicht übernommen.
+
+.. _toc-table:
+
+Tabelle
+~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+Über den Menüpunkt **Tabelle** werden die Objekte eines Layers ohne Suchbegriff und ohne Abfragegeometrie abgefragt und in der
+:doc:`Ergebnistabelle <../search_identify/operations/results_desktop/results_desktop>` angezeigt. Der Menüpunkt wird angeboten, wenn für den Layer
+eine Abfrage existiert, die auch beim Identify verwendet wird, und die ohne Suchbegriff ausgeführt werden darf. Gibt es mehrere solcher Abfragen
+(oder bezieht sich die Darstellungsvariante auf mehrere Layer), wird die Abfrage über ein Untermenü gewählt.
+
+* Aktive Darstellungsfilter des Layers werden berücksichtigt.
+* Es werden nur die ersten Objekte angezeigt (die maximale Anzahl legt der Kartenautor bzw. der Dienst fest). Wird diese Anzahl erreicht,
+  wird über der Tabelle ein Hinweis angezeigt.
+* Über das Tabellen-Werkzeug **Einschränken** kann das Ergebnis mit dem Query Builder weiter eingeschränkt werden
+  (siehe :ref:`results-query-restriction`). Diese Einschränkung wirkt nur auf die Tabelle und ist **kein Darstellungsfilter**.
 
 .. _toc-badges:
 

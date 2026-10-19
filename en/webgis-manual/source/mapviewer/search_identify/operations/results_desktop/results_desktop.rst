@@ -53,6 +53,10 @@ and the conditions from the Query Builder are added. Afterwards, the table only 
 * A restricted result is marked with a hint in the table. The restriction can be removed with the **×** in the hint or with
   **Remove restriction** in the Query Builder. The original query is then run again without the restriction.
 * For slow services, a loading indicator is shown while the query runs; the buttons cannot be clicked again during this time.
+* If the query with the conditions returns no results (or a condition is invalid for the field), a hint is shown.
+  The Query Builder stays open with the entered conditions and the table remains unchanged.
+* If the table was opened via the context menu of the table of contents (see :ref:`toc-table`), the result is based on all
+  features of the layer (including active display filters); this is also shown in the Query Builder.
 
 .. note::
    The restriction only affects the query result in the table. It is **not a display filter**; the way the layer is drawn in the map does not change.
