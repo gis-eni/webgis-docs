@@ -140,6 +140,26 @@ the layer is chosen in a submenu, as with the Query Builder.
 
 .. image:: img/toc_menu_userrenderer.png
 
+.. _toc-querybuilder:
+
+Query Builder
+~~~~~~~~~~~~~
+
+The Query Builder is used to compose a filter from one or more conditions. Each condition consists of **Field**, **Operator** and **Value**;
+several conditions are combined with **AND** or **OR**. **Apply** only displays the features that match the filter.
+
+.. versionadded:: 9.26.4104
+   As soon as a field is selected, the Query Builder helps entering the value, depending on the type of the field:
+
+   * **Text fields:** matching values of the layer are suggested from the first character on (values containing the entered text, at most 20).
+   * **Number fields:** if the layer contains only a few distinct values (at most 25), they can be chosen from a list. Otherwise the number
+     is entered directly. For numbers, the operators ``<``, ``>``, ``<=`` and ``>=`` are available as well.
+   * **Date fields:** the date is selected in a calendar. Here, too, the operators ``<``, ``>``, ``<=`` and ``>=`` are available,
+     e.g. for *all features before 30.06.2024*.
+
+   The suggestions do not take the filter already set for the layer into account, so that an existing filter can also be extended.
+   Suggested values are currently only available for layers of ArcGIS services; for other services, the value is entered without suggestions.
+
 .. _toc-badges:
 
 Badges
@@ -186,12 +206,14 @@ For a custom presentation, first choose the **Renderer**:
 * **Unique values:** the features are displayed differently according to the values of a field. After selecting the **Field**, **Load values**
   takes over the values occurring in the layer, or single values can be entered manually with **Add value**. For each value, the symbol
   and a **Label (legend)** can be defined. With **All other values**, features whose value does not occur in the list are displayed as well.
+  If a filter is set for the layer (e.g. via the Query Builder), **Load values** only takes over the values of the filtered features.
 
   .. image:: img/renderer_uniquevalue.png
 
 * **Classes (value ranges):** the features are displayed according to value ranges of a numeric field. After selecting **Field**, **Number of classes**
   and **Color ramp**, **Calculate classes** creates classes of equal size between the smallest and the largest value of the field.
-  The class breaks, symbols and labels can be adjusted afterwards.
+  The class breaks, symbols and labels can be adjusted afterwards. If a filter is set for the layer, the smallest and largest value
+  are only determined from the filtered features.
 
   .. image:: img/renderer_classbreaks.png
 

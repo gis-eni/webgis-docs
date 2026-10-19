@@ -140,6 +140,26 @@ wird der Layer, wie beim Query Builder, über ein Untermenü gewählt.
 
 .. image:: img/toc_menu_userrenderer.png
 
+.. _toc-querybuilder:
+
+Query Builder
+~~~~~~~~~~~~~
+
+Im Query Builder wird ein Filter aus einer oder mehreren Bedingungen zusammengestellt. Jede Bedingung besteht aus **Feld**, **Operator** und **Wert**;
+mehrere Bedingungen werden mit **AND** oder **OR** verknüpft. Mit **Anwenden** werden nur noch die Objekte angezeigt, die dem Filter entsprechen.
+
+.. versionadded:: 9.26.4104
+   Sobald ein Feld gewählt ist, hilft der Query Builder bei der Eingabe des Wertes, abhängig vom Typ des Feldes:
+
+   * **Textfelder:** Bereits ab dem ersten Zeichen werden passende Werte des Layers vorgeschlagen (Werte, die den eingegebenen Text enthalten, maximal 20).
+   * **Zahlenfelder:** Gibt es im Layer nur wenige unterschiedliche Werte (maximal 25), können diese aus einer Liste gewählt werden. Andernfalls wird die Zahl
+     direkt eingegeben. Für Zahlen stehen auch die Operatoren ``<``, ``>``, ``<=`` und ``>=`` zur Verfügung.
+   * **Datumsfelder:** Das Datum wird über einen Kalender ausgewählt. Auch hier stehen die Operatoren ``<``, ``>``, ``<=`` und ``>=`` zur Verfügung,
+     zB für *alle Objekte vor dem 30.06.2024*.
+
+   Die Vorschläge berücksichtigen nicht den bereits gesetzten Filter des Layers, damit auch ein bestehender Filter erweitert werden kann.
+   Vorschlagswerte gibt es derzeit nur für Layer aus ArcGIS Diensten; bei anderen Diensten wird der Wert ohne Vorschläge eingegeben.
+
 .. _toc-badges:
 
 Hinweis-Symbole (Badges)
@@ -186,12 +206,14 @@ Für eine benutzerdefinierte Darstellung wird zuerst die **Darstellungsart** gew
 * **Eindeutige Werte:** Die Objekte werden nach den Werten eines Feldes unterschiedlich dargestellt. Nach Auswahl des **Feldes** können über **Werte laden**
   die im Layer vorkommenden Werte übernommen oder mit **Wert hinzufügen** einzelne Werte händisch eingetragen werden. Für jeden Wert kann das Symbol
   und eine **Beschriftung (Legende)** festgelegt werden. Mit **Alle anderen Werte** werden auch Objekte dargestellt, deren Wert in der Liste nicht vorkommt.
+  Ist für den Layer ein Filter gesetzt (zB über den Query Builder), werden mit **Werte laden** nur die Werte der gefilterten Objekte übernommen.
 
   .. image:: img/renderer_uniquevalue.png
 
 * **Klassen (Wertebereiche):** Die Objekte werden nach Wertebereichen eines numerischen Feldes dargestellt. Nach Auswahl von **Feld**, **Anzahl Klassen**
   und **Farbverlauf** werden über **Klassen berechnen** gleich große Klassen zwischen dem kleinsten und größten Wert des Feldes erzeugt.
-  Die Klassengrenzen, Symbole und Beschriftungen können danach noch angepasst werden.
+  Die Klassengrenzen, Symbole und Beschriftungen können danach noch angepasst werden. Ist für den Layer ein Filter gesetzt, werden kleinster und größter Wert
+  nur aus den gefilterten Objekten ermittelt.
 
   .. image:: img/renderer_classbreaks.png
 

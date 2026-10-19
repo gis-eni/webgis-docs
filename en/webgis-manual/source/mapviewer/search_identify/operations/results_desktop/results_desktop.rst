@@ -35,6 +35,29 @@ If you select entries in a table with several results, two additional table tool
 
 .. image:: img/ausgew_entfernen.png
 
+.. _results-query-restriction:
+
+Restricting a Query Result
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+If a query or identify returns too many results, the result can be narrowed down with the **Restrict** table tool.
+This opens the :ref:`Query Builder <toc-querybuilder>`, where conditions (**Field**, **Operator**, **Value**) for the results are defined.
+
+**Apply** runs the original query again. The query geometry (e.g. identify point, rectangle or buffer) and the inputs of the detail search are kept,
+and the conditions from the Query Builder are added. Afterwards, the table only shows the matching results.
+
+* The Query Builder shows where the result comes from, e.g. from a query geometry or from a detail search with the entered values.
+  **Show** briefly displays the query geometry in the map.
+* A restricted result is marked with a hint in the table. The restriction can be removed with the **×** in the hint or with
+  **Remove restriction** in the Query Builder. The original query is then run again without the restriction.
+* For slow services, a loading indicator is shown while the query runs; the buttons cannot be clicked again during this time.
+
+.. note::
+   The restriction only affects the query result in the table. It is **not a display filter**; the way the layer is drawn in the map does not change.
+   The tool is only available if the Query Builder is allowed for the service and fields are enabled for it.
+
 
 Table Tabs
 -------------

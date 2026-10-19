@@ -658,6 +658,11 @@ small **filter icon** is displayed that opens a **query builder**, with which th
 can define a **display filter** in SQL style.
 Which fields are offered for this can be defined in the CMS for the service under **QueryBuilder**.
 
+.. versionadded:: 9.26.4104
+   After selecting a field, the query builder suggests values (autocomplete for texts, selection list for numbers with at most 25 distinct values,
+   calendar for date fields, see `Query Builder in the user manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-querybuilder>`_).
+   The values are queried live from the service, currently only for ArcGIS services. Locked display filters are always taken into account.
+
 .. note::
 
   This function should only be used in **protected environments** (intranet, never internet),

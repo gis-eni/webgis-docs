@@ -665,6 +665,11 @@ kleines **Filter-Symbol** angezeigt wird, dass einen **Query-Builder** öffnet, 
 einen **Darstellungsfilter** im SQL Style definieren kann.
 Welche Felder dabei anboten werden, kann im CMS beim Dienst unter **QueryBuilder** definiert werden.
 
+.. versionadded:: 9.26.4104
+   Nach Auswahl eines Feldes schlägt der Query Builder Werte vor (Autocomplete für Texte, Auswahlliste für Zahlen mit maximal 25 unterschiedlichen Werten,
+   Kalender für Datumsfelder, siehe `Query Builder im Anwenderhandbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-querybuilder>`_).
+   Die Werte werden live aus dem Dienst abgefragt, derzeit nur für ArcGIS Dienste. Gesperrte Darstellungsfilter (*locked*) werden dabei immer berücksichtigt.
+
 .. note::
 
   Diese Funktion sollte nur in **geschützten Umgebungen** (Intranet, niemals Internet) verwendet werden, 

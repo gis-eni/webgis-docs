@@ -35,9 +35,32 @@ Selektiert man in einer Tabelle mit mehreren Ergebnissen Einträge, so kommen zw
 
 .. image:: img/ausgew_entfernen.png
 
+.. _results-query-restriction:
+
+Abfrageergebnis einschränken
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+Liefert eine Abfrage oder ein Identify zu viele Ergebnisse, kann das Ergebnis über das Tabellen-Werkzeug **Einschränken** weiter eingeschränkt werden.
+Dabei öffnet sich der :ref:`Query Builder <toc-querybuilder>`, in dem Bedingungen (**Feld**, **Operator**, **Wert**) für die Ergebnisse festgelegt werden.
+
+Mit **Anwenden** wird die ursprüngliche Abfrage erneut ausgeführt. Berücksichtigt werden dabei die Abfragegeometrie (zB Identify-Punkt, Rechteck oder Puffer)
+und die Eingaben der Detailsuche, ergänzt um die Bedingungen aus dem Query Builder. Die Tabelle zeigt danach nur noch die passenden Ergebnisse.
+
+* Im Query Builder wird angezeigt, woher das Ergebnis stammt, zB aus einer Abfragegeometrie oder einer Detailsuche mit den eingegebenen Werten.
+  Über **Anzeigen** wird die Abfragegeometrie kurz in der Karte dargestellt.
+* Ist ein Ergebnis eingeschränkt, wird das in der Tabelle mit einem Hinweis angezeigt. Die Einschränkung kann über das **×** im Hinweis oder über
+  **Einschränkung entfernen** im Query Builder wieder aufgehoben werden. Dabei wird die ursprüngliche Abfrage ohne Einschränkung erneut ausgeführt.
+* Bei langsamen Diensten wird während der Abfrage ein Ladesymbol angezeigt; die Schaltflächen können in dieser Zeit nicht erneut geklickt werden.
+
+.. note::
+   Die Einschränkung wirkt nur auf das Abfrageergebnis in der Tabelle. Sie ist **kein Darstellungsfilter**, die Darstellung des Layers in der Karte bleibt unverändert.
+   Das Werkzeug steht nur zur Verfügung, wenn für den Dienst der Query Builder erlaubt ist und Felder dafür freigegeben sind.
+
 
 Tabellen-Tabs 
--------------
+--------------
 
 Ein weiterer Unterschied zum Mobile-Layout ist das Vorhandensein von Tabs. Je Abfragethema öffnet sich ein Tab. Rechts von der Tab-Bezeichnung steht die Anzahl der Ergebnisse. 
 
