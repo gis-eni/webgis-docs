@@ -87,6 +87,10 @@ Abschnitt ``Root-Element``
      - Standard-Verzeichnis für die Arbeitsbereiche aller CMS, die mit Git versioniert werden (siehe :ref:`cms-config-git`). Kann pro CMS mit ``git.workspace-root`` überschrieben werden.
 
        .. versionadded:: 9.26.4102
+   * - ``mcp`` *(optional)*
+     - Einstellungen für den MCP-Endpunkt für KI-Agenten (siehe :ref:`cms-config-mcp`).
+
+       .. versionadded:: 9.26.4104
 
 Mit einem **Web-CMS** können mehrere Bäume verwaltet werden. Für jeden Baum wird ein Objekt im ``cms-items``-Array angelegt. Der Wert von ``cms-items`` muss ein **Array** sein, das einzelne ``cms-item``-Objekte enthält.
 
@@ -133,6 +137,10 @@ Abschnitt ``cms-item``
        Mehrere Deployments können hilfreich sein, um für Test-, Ausfall-, Schulungs- und Produktivsysteme unterschiedliche XML-Dateien zu erzeugen.
    * - ``git`` *(optional)*
      - Aktiviert die Versionierung dieses CMS mit Git (siehe :ref:`cms-config-git`). Fehlt dieser Abschnitt, funktioniert das CMS wie bisher.
+   * - ``mcp`` *(optional)*
+     - Überschreibt ``mcp.enabled`` aus dem Root-Element für dieses CMS und legt ``discovery-deployment`` fest (siehe :ref:`cms-config-mcp`).
+
+       .. versionadded:: 9.26.4104
 
 .. _cms-config-git:
 
@@ -196,6 +204,50 @@ Git ist nur aktiv, wenn ``remote-url`` und ein Verzeichnis für die Arbeitsberei
 .. note::
 
     Git wird nur für CMS-Bäume im Dateisystem unterstützt (``cms-items`` mit ``path``).
+
+.. _cms-config-mcp:
+
+Abschnitt ``mcp``
+-----------------
+
+.. versionadded:: 9.26.4104
+
+Mit dem optionalen Abschnitt ``mcp`` wird der MCP-Endpunkt für KI-Agenten aktiviert. Die Verwendung ist unter :ref:`cms-mcp` beschrieben. Der Abschnitt kann im Root-Element (gilt für alle CMS) und in einzelnen ``cms-items`` (``enabled``, ``discovery-deployment``) angegeben werden.
+
+.. code-block:: json
+
+    {
+      "mcp": {
+        "enabled": false,
+        "token-store-path": "C:\\apps\\webgis/local/webgis-repository/cms/mcp"
+      },
+      "cms-items": [
+        {
+          "id": "webgis-custom",
+          "mcp": {
+            "enabled": true,
+            "discovery-deployment": "Test"
+          }
+        }
+      ]
+    }
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``enabled``
+     - Aktiviert den MCP-Endpunkt ``/{cms-id}/mcp`` und die Verwaltung der Zugriffstokens. Im Root-Element gilt der Wert für alle CMS, in einem ``cms-item`` überschreibt er diesen für das jeweilige CMS. Standard: ``false``.
+   * - ``token-store-path`` *(optional, nur Root-Element)*
+     - Verzeichnis am CMS-Server, in dem die Zugriffstokens (nur als Hash) gespeichert werden. Standard: ``{git-workspace-root}/_mcp``, ist kein ``git-workspace-root`` angegeben, ``_mcp`` im Verzeichnis der CMS-Applikation. Das Verzeichnis darf nicht innerhalb eines CMS-Baums liegen.
+        * - ``discovery-deployment`` *(optional, nur cms-item)*
+          - Name des Deployments, dessen Umgebung (``environment``) verwendet wird, wenn das CMS für den Agenten Dienste abfragt (z. B. Felder eines Layers). Secret-Platzhalter (``{{secret-...}}``) in Dienst-URL und Zugangsdaten werden dabei mit den Werten dieser Umgebung ersetzt. Standard: das erste Deployment des CMS.
+
+     .. note::
+
+         Der MCP-Endpunkt funktioniert nur, wenn der Zugang zum CMS gesichert ist (``_config/application-security.config``). Ohne Anmeldung antwortet der Endpunkt mit ``403``.
 
 Abschnitt ``deployments``
 -------------------------

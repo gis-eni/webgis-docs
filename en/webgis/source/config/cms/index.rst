@@ -87,6 +87,10 @@ Section ``Root Element``
      - Default directory for the workspaces of all CMS that are versioned with Git (see :ref:`cms-config-git`). Can be overridden per CMS with ``git.workspace-root``.
 
        .. versionadded:: 9.26.4102
+   * - ``mcp`` *(optional)*
+     - Settings for the MCP endpoint for AI agents (see :ref:`cms-config-mcp`).
+
+       .. versionadded:: 9.26.4104
 
 With a **Web CMS**, multiple trees can be managed. An object is created in the ``cms-items`` array for each tree. The value of ``cms-items`` must be an **array** that contains individual ``cms-item`` objects.
 
@@ -133,6 +137,10 @@ Section ``cms-item``
        Multiple deployments can be helpful for generating different XML files for test, failover, training, and production systems.
    * - ``git`` *(optional)*
      - Enables versioning of this CMS with Git (see :ref:`cms-config-git`). If this section is missing, the CMS works as before.
+   * - ``mcp`` *(optional)*
+     - Overrides ``mcp.enabled`` of the root element for this CMS and sets ``discovery-deployment`` (see :ref:`cms-config-mcp`).
+
+       .. versionadded:: 9.26.4104
 
 .. _cms-config-git:
 
@@ -196,6 +204,50 @@ Git is only active if ``remote-url`` and a directory for the workspaces (``works
 .. note::
 
     Git is only supported for CMS trees in the file system (``cms-items`` with ``path``).
+
+.. _cms-config-mcp:
+
+Section ``mcp``
+---------------
+
+.. versionadded:: 9.26.4104
+
+The optional section ``mcp`` enables the MCP endpoint for AI agents. Its usage is described in :ref:`cms-mcp`. The section can be specified in the root element (applies to all CMS) and in individual ``cms-items`` (``enabled``, ``discovery-deployment``).
+
+.. code-block:: json
+
+    {
+      "mcp": {
+        "enabled": false,
+        "token-store-path": "C:\\apps\\webgis/local/webgis-repository/cms/mcp"
+      },
+      "cms-items": [
+        {
+          "id": "webgis-custom",
+          "mcp": {
+            "enabled": true,
+            "discovery-deployment": "Test"
+          }
+        }
+      ]
+    }
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``enabled``
+     - Enables the MCP endpoint ``/{cms-id}/mcp`` and the management of access tokens. In the root element the value applies to all CMS; in a ``cms-item`` it overrides it for that CMS. Default: ``false``.
+   * - ``token-store-path`` *(optional, root element only)*
+     - Directory on the CMS server where the access tokens are stored (as hash only). Default: ``{git-workspace-root}/_mcp``; if no ``git-workspace-root`` is specified, ``_mcp`` in the directory of the CMS application. The directory must not be inside a CMS tree.
+   * - ``discovery-deployment`` *(optional, cms-item only)*
+     - Name of the deployment whose environment (``environment``) is used when the CMS queries services for the agent (e.g. the fields of a layer). Secret placeholders (``{{secret-...}}``) in the service URL and credentials are replaced with the values of this environment. Default: the first deployment of the CMS.
+
+.. note::
+
+    The MCP endpoint only works if access to the CMS is secured (``_config/application-security.config``). Without a login, the endpoint responds with ``403``.
 
 Section ``deployments``
 -------------------------
