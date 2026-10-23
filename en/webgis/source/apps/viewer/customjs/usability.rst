@@ -529,4 +529,28 @@ The menu item is enabled by default and can be hidden in ``custom.js``:
 The maximum number of queried features is set in ``api.config`` with ``table-feature-limit`` in the section
 ``toc-contextmenu`` (see :ref:`api-config-toc-contextmenu`).
 
+.. _customjs-css-animations:
+
+Animations (CSS)
+================
+
+.. versionadded:: 9.26.4104
+
+Expanding/collapsing and showing/hiding elements in the viewer (e.g. in the table of contents,
+the toolbox or the search) is done with CSS transitions instead of jQuery animations.
+The duration is 250 ms and can be adjusted in CSS with the variable ``--webgis-fx-duration``.
+If *reduced motion* (``prefers-reduced-motion``) is set in the operating system/browser,
+no animation is shown.
+
+If this causes problems, you can switch back to the previous jQuery animations in ``custom.js``:
+
+.. code:: javascript
+
+   webgis.usability.cssAnimations = false;  // default: true
+
+.. note::
+
+   Animating the height when expanding/collapsing is currently only supported by Chromium-based
+   browsers (Chrome, Edge). In other browsers, elements expand/collapse without a height animation.
+
 

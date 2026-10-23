@@ -538,4 +538,30 @@ Der Menüpunkt ist standardmäßig aktiv und kann in der ``custom.js`` ausgeblen
 Die maximale Anzahl der abgefragten Objekte wird in der ``api.config`` mit ``table-feature-limit`` in der Section
 ``toc-contextmenu`` festgelegt (siehe :ref:`api-config-toc-contextmenu`).
 
+.. _customjs-css-animations:
+
+Animationen (CSS)
+=================
+
+.. versionadded:: 9.26.4104
+
+Auf- und Zuklappen bzw. Ein- und Ausblenden von Elementen im Viewer (z. B. im Inhaltsverzeichnis,
+in der Toolbox oder in der Suche) werden über CSS-Transitions statt über jQuery-Animationen ausgeführt.
+Die Dauer beträgt 250 ms und kann im CSS über die Variable ``--webgis-fx-duration`` angepasst
+werden. Ist im Betriebssystem/Browser *reduzierte Bewegung* (``prefers-reduced-motion``) eingestellt,
+wird nicht animiert.
+
+Sollte es dabei zu Problemen kommen, kann in der ``custom.js`` auf die bisherigen jQuery-Animationen
+zurückgeschaltet werden:
+
+.. code:: javascript
+
+   webgis.usability.cssAnimations = false;  // default: true
+
+.. note::
+
+   Das Animieren der Höhe beim Auf- und Zuklappen wird derzeit nur von Chromium-basierten Browsern
+   (Chrome, Edge) unterstützt. In anderen Browsern werden die Elemente ohne Höhenanimation auf- bzw.
+   zugeklappt.
+
 
