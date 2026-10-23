@@ -25,7 +25,7 @@ must be included on the web page:
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.js"></script>
 
 .. versionchanged:: 9.26.4104
-   The script ``typeahead.jquery.min.js`` is no longer required. Autocompletion is now part of the WebGIS API.
+   The script ``typeahead.jquery.min.js`` is no longer required and no longer shipped by the API; remove an existing script tag. Autocompletion is now part of the WebGIS API.
    Custom styles must use the ``webgis-autocomplete-*`` classes instead of ``tt-*`` or ``.twitter-typeahead``.
 
 Within the *HTML body element*, an *HTML element* must then be defined,
