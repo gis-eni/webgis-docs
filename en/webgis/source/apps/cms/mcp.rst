@@ -9,16 +9,11 @@ The WebGIS CMS provides an endpoint based on the **Model Context Protocol** (MCP
 
 Examples of questions to an agent:
 
-- *Which queries exist for the service Cadastre and which fields are shown in the result?*
 - *In which maps is the layer Parcels used?*
-- *Which services have warnings?*
 - *Which fields does the layer Buildings have? Which of them are not yet included in the query?*
-
-For a CMS with Git versioning, the agent can also **change** the CMS (see :ref:`cms-mcp-write`), e.g.:
-
 - *Create a query for the layer Parcels with the fields KG, GNR and Area.*
-- *Set MaxFeatures to 500 for all queries of the service Cadastre.*
-- *Deploy my working branch to the Test deployment so I can test it in WebGIS.*
+
+For a CMS with Git versioning, the agent can also **change** the CMS (see :ref:`cms-mcp-write`). More examples are listed under :ref:`cms-mcp-prompts`.
 
 .. note::
 
@@ -41,7 +36,7 @@ An agent does not log in via the login form but with a personal **access token**
    - **Read**: the agent can only read the CMS.
    - **Read & write**: the agent can additionally change nodes, run Git commands and create branch deploys (see :ref:`cms-mcp-write`). Only possible with Git versioning.
 
-3. Copy the displayed token. It is shown **only once** and stored on the server only as a hash.
+3. Copy the displayed token or the ready-to-use client configuration with this token (see below). The token is shown **only once** and stored on the server only as a hash.
 
 A token is only valid for this CMS and for the user who created it. Under **My tokens**, the expiry date and the last use are shown. Tokens that are no longer needed should be **revoked** there.
 
@@ -62,7 +57,35 @@ The same page shows the URL of the endpoint and a sample configuration, e.g. for
       }
     }
 
-Replace ``<token>`` with the created token. Each CMS has its own endpoint.
+Replace ``<token>`` with the created token. Right after creating a token, this configuration is already shown with the new token and can be copied.
+
+.. _cms-mcp-multiple-cms:
+
+Multiple CMS
+~~~~~~~~~~~~
+
+Each CMS has its own endpoint ``/{cms-id}/mcp``, and a token is always valid for one CMS only. To make several CMS available to one agent, **create one token per CMS** and add **one entry per CMS** to the client configuration:
+
+.. code-block:: json
+
+    {
+      "servers": {
+        "webgis-cms-kataster": {
+          "type": "http",
+          "url": "https://my-server/webgis-cms/kataster/mcp",
+          "headers": { "Authorization": "Bearer <token-kataster>" }
+        },
+        "webgis-cms-leitungen": {
+          "type": "http",
+          "url": "https://my-server/webgis-cms/leitungen/mcp",
+          "headers": { "Authorization": "Bearer <token-leitungen>" }
+        }
+      }
+    }
+
+The agent then gets the tools separately for each CMS. Each endpoint tells the agent which CMS it belongs to (name, CMS id, Git versioning and permission of the token). To make sure the agent uses the right CMS, name the CMS in the prompt, e.g. *"Which queries exist in the CMS Kataster for the service Parcels?"*.
+
+Tasks across several CMS are possible as well, e.g. *"Compare the service Parcels in the CMS Kataster with the one in the CMS Leitungen"*. The agent reads from one CMS and - with a **Read & write** token - writes to the other. Every change is made in the working branch of the respective CMS.
 
 Functions
 ---------
@@ -176,6 +199,42 @@ Tools for branch deploys:
      - Returns the status and output of a running or finished deploy.
    * - ``remove_branch_deploy``
      - Removes the branch deploy of the own current working branch (destructive). Branch deploys of other working branches can only be removed in the CMS user interface.
+
+.. _cms-mcp-prompts:
+
+Sample prompts
+--------------
+
+The following prompts show what is possible with an agent. They can be used directly or adapted to your own CMS.
+
+**Reading and analyzing**
+
+- *Give me an overview of the CMS: which services, maps and editing themes exist?*
+- *Describe the query Parcels: search fields, table columns and hotlinks.*
+- *In which maps is the service Cadastre used?*
+- *Which fields does the layer Parcels have according to ArcGIS Server? Which of them are missing in the query Parcels?*
+- *Which warnings does the CMS have and how do I fix them?*
+
+**Changing**
+
+- *Create a working branch "query-buildings".*
+- *Create a query for the layer Buildings with the search fields Address and House number and show all fields except OBJECTID in the table.*
+- *Set MaxFeatures to 500 for all queries of the service Cadastre.*
+- *Sort the table columns of the query Parcels alphabetically.*
+- *Delete the query Test in the service Cadastre. Check beforehand where it is used.*
+
+**Reviewing, committing and testing**
+
+- *Show me all changes since the last commit.*
+- *Commit the changes with a suitable message and push them.*
+- *Merge the current state of main into my working branch.*
+- *Deploy my working branch to the Test deployment and show me the output.*
+
+**Multiple CMS** (see :ref:`cms-mcp-multiple-cms`)
+
+- *Which services exist in the CMS Kataster but not in the CMS Leitungen?*
+- *Compare the query Parcels in the CMS Kataster with the one in the CMS Leitungen.*
+- *Create the query Parcels from the CMS Kataster in the CMS Leitungen as well.*
 
 Security
 --------

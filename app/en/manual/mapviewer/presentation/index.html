@@ -247,19 +247,63 @@ and would only slow down the map build-up.</p>
 <p>Depending on the presentation variant, its context menu contains:</p>
 <ul class="simple">
 <li><p><strong>Metadata:</strong> opens the metadata of the presentation variant (only if provided by the map author).</p></li>
-<li><p><strong>Query Builder:</strong> opens the Query Builder, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
+<li><p><strong>Display filter (DefinitionQuery):</strong> opens the <a class="reference internal" href="#toc-querybuilder"><span class="std std-ref">Query Builder</span></a>, which can be used to filter the layers of the presentation variant (only if the layers are queryable).
 If the presentation variant refers to several layers, a single layer can be chosen in the submenu. <strong>All</strong> opens the Query Builder for all layers of the presentation variant.</p></li>
+<li><p><strong>Table:</strong> shows the features of a layer in a table (see <a class="reference internal" href="#toc-table"><span class="std std-ref">3.4.2   Table</span></a>).</p></li>
 <li><p><strong>Reset filter:</strong> removes all filters (e.g. from the Query Builder) of the layers of this presentation variant (only if filters are set).</p></li>
-<li><p><strong>Presentation:</strong> changes the presentation (symbology) of a layer (see <a class="reference internal" href="#toc-user-renderer"><span class="std std-ref">3.4.2   Presentation</span></a>).</p></li>
-<li><p><strong>Labeling:</strong> changes the labeling of a layer (see <a class="reference internal" href="#toc-user-labeling"><span class="std std-ref">3.4.3   Labeling</span></a>).</p></li>
+<li><p><strong>Presentation:</strong> changes the presentation (symbology) of a layer (see <a class="reference internal" href="#toc-user-renderer"><span class="std std-ref">3.4.4   Presentation</span></a>).</p></li>
+<li><p><strong>Labeling:</strong> changes the labeling of a layer (see <a class="reference internal" href="#toc-user-labeling"><span class="std std-ref">3.4.5   Labeling</span></a>).</p></li>
 <li><p><strong>Properties:</strong> opens the properties dialog (see below).</p></li>
 </ul>
 <img alt="../../_images/toc_menu_querybuilder.png" src="../../_images/toc_menu_querybuilder.png" />
 <p><strong>Presentation</strong> and <strong>Labeling</strong> are only offered if the map author has allowed this for the service. If the presentation variant refers to several layers,
 the layer is chosen in a submenu, as with the Query Builder.</p>
 <img alt="../../_images/toc_menu_userrenderer.png" src="../../_images/toc_menu_userrenderer.png" />
+<section id="query-builder">
+<span id="toc-querybuilder"></span><h3><span class="sectnum">3.4.1 </span>Query Builder<a class="headerlink" href="#query-builder" title="Link to this heading">¶</a></h3>
+<p>The Query Builder is used to compose a filter from one or more conditions. Each condition consists of <strong>Field</strong>, <strong>Operator</strong> and <strong>Value</strong>;
+several conditions are combined with <strong>AND</strong> or <strong>OR</strong>. <strong>Apply</strong> only displays the features that match the filter.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104: </span>As soon as a field is selected, the Query Builder helps entering the value, depending on the type of the field:</p>
+<ul class="simple">
+<li><p><strong>Text fields:</strong> matching values of the layer are suggested from the first character on (values containing the entered text, at most 20).</p></li>
+<li><p><strong>Number fields:</strong> if the layer contains only a few distinct values (at most 25), they can be chosen from a list. Otherwise the number
+is entered directly. For numbers, the operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> are available as well.</p></li>
+<li><p><strong>Date fields:</strong> the date is selected in a calendar. Here, too, the operators <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> are available,
+e.g. for <em>all features before 30.06.2024</em>.</p></li>
+</ul>
+<p>The suggestions do not take the filter already set for the layer into account, so that an existing filter can also be extended.
+Suggested values are currently only available for layers of ArcGIS services; for other services, the value is entered without suggestions.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104: </span>Besides <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">like</span></code> and <code class="docutils literal notranslate"><span class="pre">in</span></code>, negated and empty conditions are available as well:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code> (text fields): e.g. <em>GNR</em> <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code> <code class="docutils literal notranslate"><span class="pre">3%</span></code> for all features whose number does <strong>not</strong> start with 3 (<code class="docutils literal notranslate"><span class="pre">%</span></code> stands for any characters).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> (text and number fields): as with <code class="docutils literal notranslate"><span class="pre">in</span></code>, the values are entered separated by commas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">null</span></code> / <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span> <span class="pre">null</span></code> (all field types): features where the field is empty or not empty. No value is entered here.</p></li>
+</ul>
+<p>If a value is empty or invalid (e.g. text in a number field), the Query Builder shows a hint and the conditions are not applied.</p>
+</div>
+</section>
+<section id="table">
+<span id="toc-table"></span><h3><span class="sectnum">3.4.2 </span>Table<a class="headerlink" href="#table" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>The menu item <strong>Table</strong> queries the features of a layer without a search term and without a query geometry and shows them in the
+<a class="reference internal" href="../search_identify/operations/results_desktop/results_desktop.html"><span class="doc">results table</span></a>. The menu item is offered if a query exists for the layer
+that is also used for identify and may be executed without a search term. If there are several such queries
+(or the presentation variant refers to several layers), the query is chosen in a submenu.</p>
+<ul class="simple">
+<li><p>Active display filters of the layer are taken into account.</p></li>
+<li><p>Only the first features are shown (the maximum number is defined by the map author or the service). If this number is reached,
+a hint is shown above the table.</p></li>
+<li><p>The table tool <strong>Restrict</strong> narrows down the result further with the Query Builder
+(see <a class="reference internal" href="../search_identify/operations/results_desktop/results_desktop.html#results-query-restriction"><span class="std std-ref">Restricting a Query Result</span></a>). This restriction only affects the table and is <strong>not a display filter</strong>.</p></li>
+</ul>
+</section>
 <section id="badges">
-<span id="toc-badges"></span><h3><span class="sectnum">3.4.1 </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">¶</a></h3>
+<span id="toc-badges"></span><h3><span class="sectnum">3.4.3 </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 9.26.4104.</span></p>
 </div>
@@ -277,7 +321,7 @@ e.g. <strong>Metadata</strong>, <strong>Reset filter</strong>, <strong>Reset pre
 If the name of a presentation variant is very long, it is shortened so that the badge remains visible.</p>
 </section>
 <section id="presentation">
-<span id="toc-user-renderer"></span><h3><span class="sectnum">3.4.2 </span>Presentation<a class="headerlink" href="#presentation" title="Link to this heading">¶</a></h3>
+<span id="toc-user-renderer"></span><h3><span class="sectnum">3.4.4 </span>Presentation<a class="headerlink" href="#presentation" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 9.26.4104.</span></p>
 </div>
@@ -295,12 +339,14 @@ color, size, symbol, line style and width or fill and outline can be set.</p>
 </li>
 <li><p><strong>Unique values:</strong> the features are displayed differently according to the values of a field. After selecting the <strong>Field</strong>, <strong>Load values</strong>
 takes over the values occurring in the layer, or single values can be entered manually with <strong>Add value</strong>. For each value, the symbol
-and a <strong>Label (legend)</strong> can be defined. With <strong>All other values</strong>, features whose value does not occur in the list are displayed as well.</p>
+and a <strong>Label (legend)</strong> can be defined. With <strong>All other values</strong>, features whose value does not occur in the list are displayed as well.
+If a filter is set for the layer (e.g. via the Query Builder), <strong>Load values</strong> only takes over the values of the filtered features.</p>
 <img alt="../../_images/renderer_uniquevalue.png" src="../../_images/renderer_uniquevalue.png" />
 </li>
 <li><p><strong>Classes (value ranges):</strong> the features are displayed according to value ranges of a numeric field. After selecting <strong>Field</strong>, <strong>Number of classes</strong>
 and <strong>Color ramp</strong>, <strong>Calculate classes</strong> creates classes of equal size between the smallest and the largest value of the field.
-The class breaks, symbols and labels can be adjusted afterwards.</p>
+The class breaks, symbols and labels can be adjusted afterwards. If a filter is set for the layer, the smallest and largest value
+are only determined from the filtered features.</p>
 <img alt="../../_images/renderer_classbreaks.png" src="../../_images/renderer_classbreaks.png" />
 </li>
 </ul>
@@ -313,7 +359,7 @@ for <em>Unique values</em> and <em>Classes</em>, the field used is shown in brac
 <p>Custom presentations are saved with the map and restored when the map is loaded.</p>
 </section>
 <section id="labeling">
-<span id="toc-user-labeling"></span><h3><span class="sectnum">3.4.3 </span>Labeling<a class="headerlink" href="#labeling" title="Link to this heading">¶</a></h3>
+<span id="toc-user-labeling"></span><h3><span class="sectnum">3.4.5 </span>Labeling<a class="headerlink" href="#labeling" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 9.26.4104.</span></p>
 </div>
@@ -342,7 +388,7 @@ Custom labelings are saved with the map as well.</p>
 <img alt="../../_images/toc_menu_group.png" src="../../_images/toc_menu_group.png" />
 </section>
 <section id="properties">
-<span id="toc-properties"></span><h3><span class="sectnum">3.4.4 </span>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
+<span id="toc-properties"></span><h3><span class="sectnum">3.4.6 </span>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h3>
 <p>The properties dialog summarizes the most important information about a presentation variant in several tabs:</p>
 <ul>
 <li><p><strong>General:</strong> name, description and services of the presentation variant, as well as a list of all layers with</p>
@@ -400,10 +446,12 @@ You can also click on a relevant group to open it in the original tree and show 
 <li><a class="reference internal" href="#background-basemaps"><span class="sectnum">3.2 </span>Background (Basemaps)</a></li>
 <li><a class="reference internal" href="#presentation-variants-thematic-data"><span class="sectnum">3.3 </span>Presentation Variants (Thematic Data)</a></li>
 <li><a class="reference internal" href="#context-menu-in-the-table-of-contents"><span class="sectnum">3.4 </span>Context Menu in the Table of Contents</a><ul>
-<li><a class="reference internal" href="#badges"><span class="sectnum">3.4.1 </span>Badges</a></li>
-<li><a class="reference internal" href="#presentation"><span class="sectnum">3.4.2 </span>Presentation</a></li>
-<li><a class="reference internal" href="#labeling"><span class="sectnum">3.4.3 </span>Labeling</a></li>
-<li><a class="reference internal" href="#properties"><span class="sectnum">3.4.4 </span>Properties</a></li>
+<li><a class="reference internal" href="#query-builder"><span class="sectnum">3.4.1 </span>Query Builder</a></li>
+<li><a class="reference internal" href="#table"><span class="sectnum">3.4.2 </span>Table</a></li>
+<li><a class="reference internal" href="#badges"><span class="sectnum">3.4.3 </span>Badges</a></li>
+<li><a class="reference internal" href="#presentation"><span class="sectnum">3.4.4 </span>Presentation</a></li>
+<li><a class="reference internal" href="#labeling"><span class="sectnum">3.4.5 </span>Labeling</a></li>
+<li><a class="reference internal" href="#properties"><span class="sectnum">3.4.6 </span>Properties</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tips-and-tricks"><span class="sectnum">3.5 </span>Tips and Tricks</a></li>

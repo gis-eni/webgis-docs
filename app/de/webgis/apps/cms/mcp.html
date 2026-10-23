@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html lang="de" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>KI-Agenten (MCP) &#8212; WebGIS 2026 Dokumentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
+    <script src="../../_static/documentation_options.js?v=81100d21"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="WebGIS API" href="../api/index.html" />
+    <link rel="prev" title="CMS Veröffentlichen" href="deploy.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+
+        <a id="eni_home_link" href="/index.html" title="Zur Startseite">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3.172l-8.5 7.653a.75.75 0 0 0 1 1.116L5 11.5V20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-4h2v4a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-8.5l.5.441a.75.75 0 0 0 1-1.116L12 3.172z"/></svg>
+        </a>
+
+        <h1><a href="../../index.html" title="Go to homepage">WebGIS für Admins</a></h1>
+
+        <a id="eni_lang_switch" href="/en/webgis/apps/cms/mcp.html" title="Switch to English">
+            EN
+        </a>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Schnellsuche</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Los" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run/index.html">WebGIS Anwendungen Ausführen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">Konfiguration (Postinstallation)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">WebGIS Applikationen</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">WebGIS CMS</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ui.html">CMS Web-Oberfläche</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add_wmts_service.html">WMTS Tilecache Dienst einbinden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="add_ags_service.html">ArcGIS Server Dienst einbinden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html">Abfragen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#allgemeine-abfrage-eigenschaften">Allgemeine Abfrage Eigenschaften</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#suchfelder">Suchfelder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#auswahllisten">Auswahllisten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="queries/index.html#tabelle">Tabelle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html">Layer-Schaltungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="presentations.html">Darstellungsvarianten (Layer-Schaltungen für den Viewer bereitstellen)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing/index.html">Editieren (Geo-Objekte Bearbeiten)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="secrets/index.html">Secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="secrets/index.html#secret-erstellen">Secret erstellen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security/index.html">Berechtigungen (Security)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="git.html">Versionierung mit Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html">CMS Veröffentlichen</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">KI-Agenten (MCP)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html">WebGIS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../portal/index.html">WebGIS Portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../map_builder/index.html">WebGIS MapBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../app_builder/index.html">WebGIS AppBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../viewer/index.html">WebGIS Viewer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../extended_config/index.html">Erweiterte Werkzeugkonfiguration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../annex/index.html">Anhang</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ki-agenten-mcp">
+<span id="cms-mcp"></span><h1>KI-Agenten (MCP)<a class="headerlink" href="#ki-agenten-mcp" title="Link to this heading">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Das WebGIS CMS bietet einen Endpunkt nach dem <strong>Model Context Protocol</strong> (MCP). Darüber können KI-Agenten (z. B. GitHub Copilot in VS Code, Claude, …) ein CMS lesen und dem Administrator Fragen zur Konfiguration beantworten, ohne dass er sich durch den Baum klicken muss.</p>
+<p>Beispiele für Fragen an einen Agenten:</p>
+<ul class="simple">
+<li><p><em>In welchen Karten wird der Layer Grundstücke verwendet?</em></p></li>
+<li><p><em>Welche Felder hat der Layer Gebäude? Welche davon sind noch nicht in der Abfrage enthalten?</em></p></li>
+<li><p><em>Lege für den Layer Grundstücke eine Abfrage mit den Feldern KG, GNR und Fläche an.</em></p></li>
+</ul>
+<p>Bei einem CMS mit Git-Versionierung kann der Agent das CMS auch <strong>ändern</strong> (siehe <a class="reference internal" href="#cms-mcp-write"><span class="std std-ref">Änderungen durch den Agenten</span></a>). Weitere Beispiele stehen unter <a class="reference internal" href="#cms-mcp-prompts"><span class="std std-ref">Beispiel-Prompts</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Ohne Git-Versionierung ist nur <strong>lesender</strong> Zugriff möglich.</p>
+</div>
+<section id="voraussetzungen">
+<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Der MCP-Endpunkt ist in der <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> für das CMS aktiviert (siehe <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp"><span class="std std-ref">Abschnitt mcp</span></a>).</p></li>
+<li><p>Der Zugang zum CMS ist gesichert (<code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code>), da jeder Zugriff einem Benutzer zugeordnet wird.</p></li>
+</ul>
+</section>
+<section id="zugriffstoken-erstellen">
+<h2>Zugriffstoken erstellen<a class="headerlink" href="#zugriffstoken-erstellen" title="Link to this heading">¶</a></h2>
+<p>Ein Agent meldet sich nicht über das Login-Formular an, sondern mit einem persönlichen <strong>Zugriffstoken</strong>:</p>
+<ol class="arabic simple">
+<li><p>Im CMS links in der Seitenleiste auf <strong>AI Agents (MCP)</strong> klicken. Die Seite <code class="docutils literal notranslate"><span class="pre">/{cms-id}/mcp-tokens</span></code> öffnet sich in einem neuen Tab.</p></li>
+<li><p>Eine Bezeichnung (z. B. <em>VS Code Laptop</em>), die Gültigkeit (7, 30 oder 90 Tage) und - bei Git-Versionierung - die Berechtigung wählen und auf <strong>Token erstellen</strong> klicken:</p>
+<ul class="simple">
+<li><p><strong>Lesen</strong>: der Agent kann das CMS nur lesen.</p></li>
+<li><p><strong>Lesen &amp; Schreiben</strong>: der Agent kann zusätzlich Knoten ändern, Git-Befehle ausführen und Branch-Deploys erstellen (siehe <a class="reference internal" href="#cms-mcp-write"><span class="std std-ref">Änderungen durch den Agenten</span></a>). Nur bei Git-Versionierung möglich.</p></li>
+</ul>
+</li>
+</ol>
+<p>3. Den angezeigten Token bzw. die fertige Client-Konfiguration mit diesem Token kopieren (siehe unten). Der Token wird <strong>nur einmal</strong> angezeigt und am Server nur als Hash gespeichert.
+Ein Token gilt nur für dieses CMS und für den Benutzer, der ihn erstellt hat. Unter <strong>Meine Tokens</strong> werden Ablaufdatum und letzte Verwendung angezeigt. Nicht mehr benötigte Tokens sollten dort <strong>widerrufen</strong> werden.</p>
+</section>
+<section id="mcp-client-konfigurieren">
+<h2>MCP-Client konfigurieren<a class="headerlink" href="#mcp-client-konfigurieren" title="Link to this heading">¶</a></h2>
+<p>Auf derselben Seite werden die URL des Endpunkts und eine Beispiel-Konfiguration angezeigt, z. B. für VS Code (<code class="docutils literal notranslate"><span class="pre">.vscode/mcp.json</span></code>):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;servers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;webgis-cms-webgis-custom&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://my-server/webgis-cms/webgis-custom/mcp&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;Authorization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bearer &lt;token&gt;&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;token&gt;</span></code> wird durch den erstellten Token ersetzt. Direkt nach dem Erstellen eines Tokens wird diese Konfiguration bereits mit dem neuen Token angezeigt und kann übernommen werden.</p>
+<section id="mehrere-cms">
+<span id="cms-mcp-multiple-cms"></span><h3>Mehrere CMS<a class="headerlink" href="#mehrere-cms" title="Link to this heading">¶</a></h3>
+<p>Pro CMS gibt es einen eigenen Endpunkt <code class="docutils literal notranslate"><span class="pre">/{cms-id}/mcp</span></code>, und ein Token gilt immer nur für ein CMS. Sollen mehrere CMS über einen Agenten erreichbar sein, wird <strong>pro CMS ein Token erstellt</strong> und <strong>pro CMS ein Eintrag</strong> in der Client-Konfiguration angelegt:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;servers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;webgis-cms-kataster&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://my-server/webgis-cms/kataster/mcp&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;Authorization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bearer &lt;token-kataster&gt;&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;webgis-cms-leitungen&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://my-server/webgis-cms/leitungen/mcp&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;Authorization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bearer &lt;token-leitungen&gt;&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Die Werkzeuge stehen dem Agenten dann für jedes CMS getrennt zur Verfügung. Jeder Endpunkt meldet dem Agenten, zu welchem CMS er gehört (Name, CMS-Id, Git-Versionierung und Berechtigung des Tokens). Damit der Agent das richtige CMS verwendet, sollte das CMS im Prompt genannt werden, z. B. <em>„Welche Abfragen gibt es im CMS Kataster für den Dienst Grundstücke?“</em>.</p>
+<p>Aufgaben über mehrere CMS hinweg sind ebenfalls möglich, z. B. <em>„Vergleiche den Dienst Grundstücke im CMS Kataster mit dem im CMS Leitungen“</em>. Der Agent liest dabei aus dem einen und - mit einem Token <strong>Lesen &amp; Schreiben</strong> - schreibt in das andere CMS. Jede Änderung erfolgt im Arbeitszweig des jeweiligen CMS.</p>
+</section>
+</section>
+<section id="funktionen">
+<h2>Funktionen<a class="headerlink" href="#funktionen" title="Link to this heading">¶</a></h2>
+<p>Der Agent erhält folgende Werkzeuge (Tools) zum Lesen:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tool</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get_cms_info</span></code></p></td>
+<td><p>Name des CMS und - bei Git-Versionierung - der aktuelle Arbeitszweig.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">list_children</span></code></p></td>
+<td><p>Listet die Knoten unter einem Pfad im CMS-Baum (wie in der Baumansicht).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get_node</span></code></p></td>
+<td><p>Liefert die Eigenschaften eines Knotens (Dienst, Layer, Abfrage, Editierthema, Karte, …).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">describe_node_type</span></code></p></td>
+<td><p>Beschreibt die Eigenschaften eines Knotentyps mit Erklärung und erlaubten Werten.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">search_nodes</span></code></p></td>
+<td><p>Sucht Knoten nach einem Begriff (wie die Suche im CMS).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">find_references</span></code></p></td>
+<td><p>Findet die Stellen, an denen ein Knoten verwendet (verlinkt) wird.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get_warnings</span></code></p></td>
+<td><p>Liefert die Warnungen des CMS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">get_layer_fields</span></code></p></td>
+<td><p>Liest die Felder eines Layers direkt vom Dienst (ArcGIS Server, WFS).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="anderungen-durch-den-agenten">
+<span id="cms-mcp-write"></span><h2>Änderungen durch den Agenten<a class="headerlink" href="#anderungen-durch-den-agenten" title="Link to this heading">¶</a></h2>
+<p>Mit einem Token mit der Berechtigung <strong>Lesen &amp; Schreiben</strong> kann der Agent das CMS ändern. Damit jede Änderung nachvollziehbar und rückgängig zu machen ist, gelten folgende Regeln:</p>
+<ul class="simple">
+<li><p>Änderungen sind nur bei einem CMS mit Git-Versionierung möglich (siehe <a class="reference internal" href="git.html"><span class="doc">Versionierung mit Git</span></a>).</p></li>
+<li><p>Der Agent arbeitet im <strong>Arbeitsbereich des Token-Besitzers</strong>. Änderungen des Agenten sind sofort in der CMS-Oberfläche sichtbar und können dort geprüft und korrigiert werden.</p></li>
+<li><p>Änderungen sind <strong>nur in einem Arbeitszweig</strong> möglich, nie direkt im Standard-Branch (z. B. <code class="docutils literal notranslate"><span class="pre">main</span></code>). Der Agent legt dazu einen Arbeitszweig an oder wechselt in einen bestehenden.</p></li>
+<li><p><strong>In main übernehmen</strong>, Arbeitszweige löschen und das Deploy des veröffentlichten Stands sind über den Agenten <strong>nicht</strong> möglich. Diese Schritte bleiben dem Administrator in der CMS-Oberfläche vorbehalten.</p></li>
+<li><p>Löschende Werkzeuge (<code class="docutils literal notranslate"><span class="pre">delete_node</span></code>, <code class="docutils literal notranslate"><span class="pre">discard</span></code>, <code class="docutils literal notranslate"><span class="pre">remove_branch_deploy</span></code>) sind als <em>destruktiv</em> gekennzeichnet. Der Agent soll vorher nachfragen; der MCP-Client zeigt in der Regel ebenfalls eine Bestätigung an.</p></li>
+<li><p>Zugangsdaten von Diensten können nur als Secret-Platzhalter (<code class="docutils literal notranslate"><span class="pre">{{secret-...}}</span></code>) gesetzt werden, nie im Klartext.</p></li>
+</ul>
+<p>Ein typischer Ablauf:</p>
+<ol class="arabic simple">
+<li><p>Der Agent legt einen Arbeitszweig an (<code class="docutils literal notranslate"><span class="pre">create_branch</span></code>).</p></li>
+<li><p>Er ändert das CMS (Knoten anlegen, Eigenschaften setzen, verlinken, …).</p></li>
+<li><p>Er zeigt die Änderungen (<code class="docutils literal notranslate"><span class="pre">get_changes</span></code>, <code class="docutils literal notranslate"><span class="pre">get_file_diff</span></code>), committet und pusht sie.</p></li>
+<li><p>Optional deployt er den Arbeitszweig als Branch (<code class="docutils literal notranslate"><span class="pre">fast_deploy</span></code>), damit die Änderungen im WebGIS getestet werden können (siehe <a class="reference internal" href="deploy.html#cms-deploy-branch"><span class="std std-ref">Arbeitszweig testen (Branch-Deploy)</span></a>).</p></li>
+<li><p>Der Administrator prüft die Änderungen und übernimmt den Arbeitszweig in der CMS-Oberfläche in <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+</ol>
+<p>Werkzeuge zum Ändern:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tool</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">describe_create_form</span></code></p></td>
+<td><p>Liefert das Formular zum Anlegen eines neuen Knotens (wie der Dialog <em>Neu</em> im CMS), inklusive der Auswahllisten, die vom Dienst geladen werden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">create_node</span></code></p></td>
+<td><p>Legt einen neuen Knoten an (Dienst, Abfrage, Editierthema, Karte, …).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">set_properties</span></code></p></td>
+<td><p>Ändert Eigenschaften eines Knotens. Es werden nur die angegebenen Eigenschaften geändert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delete_node</span></code></p></td>
+<td><p>Löscht einen Knoten (destruktiv).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reorder_children</span></code></p></td>
+<td><p>Ändert die Reihenfolge der Knoten unter einem Knoten (z. B. Tabellenspalten).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">list_link_targets</span></code></p></td>
+<td><p>Listet die Knoten, die verlinkt werden können.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">add_links</span></code></p></td>
+<td><p>Verlinkt Knoten (z. B. einen Dienst in eine Karte).</p></td>
+</tr>
+</tbody>
+</table>
+<p>Git-Werkzeuge:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tool</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get_git_status</span></code></p></td>
+<td><p>Aktueller Arbeitszweig, Änderungen, Commits vor/hinter dem Server.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">list_branches</span></code></p></td>
+<td><p>Listet die Arbeitszweige.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">create_branch</span></code>, <code class="docutils literal notranslate"><span class="pre">checkout_branch</span></code></p></td>
+<td><p>Legt einen Arbeitszweig an bzw. wechselt in einen bestehenden.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">commit</span></code>, <code class="docutils literal notranslate"><span class="pre">push</span></code>, <code class="docutils literal notranslate"><span class="pre">pull</span></code></p></td>
+<td><p>Committet die Änderungen, überträgt sie zum Git-Server bzw. holt Änderungen vom Git-Server.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">merge_from_default</span></code>, <code class="docutils literal notranslate"><span class="pre">abort_merge</span></code></p></td>
+<td><p>Übernimmt den aktuellen Stand von <code class="docutils literal notranslate"><span class="pre">main</span></code> in den Arbeitszweig bzw. bricht ein Zusammenführen ab.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">discard</span></code></p></td>
+<td><p>Verwirft nicht committete Änderungen eines Knotens oder aller Knoten (destruktiv).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get_changes</span></code>, <code class="docutils literal notranslate"><span class="pre">get_file_diff</span></code>, <code class="docutils literal notranslate"><span class="pre">get_history</span></code></p></td>
+<td><p>Zeigt die geänderten Knoten, die Unterschiede einer Datei bzw. den Verlauf.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Werkzeuge für den Branch-Deploy:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Tool</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list_branch_deployments</span></code></p></td>
+<td><p>Listet die Deployments, die Branch-Deploys erlauben (<code class="docutils literal notranslate"><span class="pre">allowBranchDeploy</span></code>, siehe <a class="reference internal" href="../../config/cms/index.html"><span class="doc">Konfiguration der CMS Applikation</span></a>), und die dort deployten Branches.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fast_deploy</span></code></p></td>
+<td><p>Deployt den aktuellen Stand des Arbeitsbereichs als Branch (Fast Deploy). Der Deploy läuft im Hintergrund; währenddessen sind keine Änderungen über den Agenten möglich.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">get_deploy_status</span></code></p></td>
+<td><p>Liefert Status und Ausgabe eines laufenden oder beendeten Deploys.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">remove_branch_deploy</span></code></p></td>
+<td><p>Entfernt den Branch-Deploy des eigenen aktuellen Arbeitszweiges (destruktiv). Branch-Deploys anderer Arbeitszweige können nur in der CMS-Oberfläche entfernt werden.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="beispiel-prompts">
+<span id="cms-mcp-prompts"></span><h2>Beispiel-Prompts<a class="headerlink" href="#beispiel-prompts" title="Link to this heading">¶</a></h2>
+<p>Die folgenden Prompts zeigen, was mit einem Agenten möglich ist. Sie können direkt verwendet oder an das eigene CMS angepasst werden.</p>
+<p><strong>Lesen und Analysieren</strong></p>
+<ul class="simple">
+<li><p><em>Gib mir einen Überblick über das CMS: welche Dienste, Karten und Editierthemen gibt es?</em></p></li>
+<li><p><em>Beschreibe die Abfrage Grundstücke: Suchfelder, Tabellenspalten und Hotlinks.</em></p></li>
+<li><p><em>Welche Felder hat der Layer Grundstücke laut ArcGIS Server? Welche davon fehlen in der Abfrage Grundstücke?</em></p></li>
+<li><p><em>Welche Warnungen hat das CMS und wie behebe ich sie?</em></p></li>
+</ul>
+<p><strong>Ändern</strong></p>
+<ul class="simple">
+<li><p><em>Lege einen Arbeitszweig „abfrage-gebaeude“ an.</em></p></li>
+<li><p><em>Lege für den Layer Gebäude eine Abfrage mit den Suchfeldern Adresse und Hausnummer an und zeige alle Felder außer OBJECTID in der Tabelle.</em></p></li>
+<li><p><em>Setze bei allen Abfragen des Dienstes Kataster MaxFeatures auf 500.</em></p></li>
+<li><p><em>Sortiere die Tabellenspalten der Abfrage Grundstücke alphabetisch.</em></p></li>
+<li><p><em>Lösche die Abfrage Test im Dienst Kataster. Prüfe vorher, wo sie verwendet wird.</em></p></li>
+</ul>
+<p><strong>Prüfen, Committen und Testen</strong></p>
+<ul class="simple">
+<li><p><em>Zeige mir alle Änderungen seit dem letzten Commit.</em></p></li>
+<li><p><em>Committe die Änderungen mit einer passenden Nachricht und pushe sie.</em></p></li>
+<li><p><em>Übernimm den aktuellen Stand von main in meinen Arbeitszweig.</em></p></li>
+<li><p><em>Deploye meinen Arbeitszweig auf das Test-Deployment und zeige mir die Ausgabe.</em></p></li>
+</ul>
+<p><strong>Mehrere CMS</strong> (siehe <a class="reference internal" href="#cms-mcp-multiple-cms"><span class="std std-ref">Mehrere CMS</span></a>)</p>
+<ul class="simple">
+<li><p><em>Welche Dienste gibt es im CMS Kataster, aber nicht im CMS Leitungen?</em></p></li>
+<li><p><em>Vergleiche die Abfrage Grundstücke im CMS Kataster mit der im CMS Leitungen.</em></p></li>
+<li><p><em>Lege die Abfrage Grundstücke aus dem CMS Kataster auch im CMS Leitungen an.</em></p></li>
+</ul>
+</section>
+<section id="sicherheit">
+<h2>Sicherheit<a class="headerlink" href="#sicherheit" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Der Agent hat dieselben Rechte wie der Benutzer, der den Token erstellt hat, und arbeitet bei Git-Versionierung in dessen Arbeitsbereich.</p></li>
+<li><p><strong>Secrets</strong> (Passwörter, Tokens, …) werden dem Agenten nie im Klartext geliefert, sondern als <code class="docutils literal notranslate"><span class="pre">********</span></code> angezeigt.</p></li>
+<li><p>Ein Token ist maximal 90 Tage gültig und kann jederzeit widerrufen werden.</p></li>
+<li><p>Wo keine Änderungen nötig sind, sollte ein Token mit der Berechtigung <strong>Lesen</strong> verwendet werden. Arbeitet ein Agent selbstständig (z. B. im Autopilot-Modus), kann er auch destruktive Werkzeuge ohne Rückfrage bestätigen - Sicherheitsnetz sind dann der Arbeitszweig und die Git-Historie.</p></li>
+<li><p>Inhalte, die an den Agenten geliefert werden, verarbeitet das verwendete KI-Modell. Es sollte daher nur ein Modell bzw. Anbieter verwendet werden, der für die Daten des CMS freigegeben ist.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><code class="docutils literal notranslate"><span class="pre">get_layer_fields</span></code> fragt den Dienst immer über das CMS ab. Secret-Platzhalter (<code class="docutils literal notranslate"><span class="pre">{{secret-...}}</span></code>) in Dienst-URL und Zugangsdaten werden dabei serverseitig mit den Werten der Umgebung eines Deployments ersetzt, wie beim Deploy. Standardmäßig wird <code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code> (siehe <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp"><span class="std std-ref">Abschnitt mcp</span></a>) bzw. das erste Deployment verwendet, der Agent kann aber ein anderes Deployment angeben (z. B. <em>„Lies die Felder aus dem Test-Deployment“</em>). Die ersetzten Werte werden dem Agenten nie geliefert.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">KI-Agenten (MCP)</a><ul>
+<li><a class="reference internal" href="#voraussetzungen">Voraussetzungen</a></li>
+<li><a class="reference internal" href="#zugriffstoken-erstellen">Zugriffstoken erstellen</a></li>
+<li><a class="reference internal" href="#mcp-client-konfigurieren">MCP-Client konfigurieren</a><ul>
+<li><a class="reference internal" href="#mehrere-cms">Mehrere CMS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#funktionen">Funktionen</a></li>
+<li><a class="reference internal" href="#anderungen-durch-den-agenten">Änderungen durch den Agenten</a></li>
+<li><a class="reference internal" href="#beispiel-prompts">Beispiel-Prompts</a></li>
+<li><a class="reference internal" href="#sicherheit">Sicherheit</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="deploy.html">
+                    <span class="icon">&lt;</span><span>CMS Veröffentlichen</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../api/index.html"><span>WebGIS API</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, ENIE.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

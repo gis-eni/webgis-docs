@@ -621,6 +621,21 @@ Aufruf der Karte wird der Anwender gefragt, ob die Fenster wiederhergestellt wer
 (der Browser erlaubt das Öffnen des Fensters nur nach einer Benutzeraktion).</p></li>
 </ul>
 </section>
+<section id="tabelle-im-kontextmenu-des-inhaltsverzeichnisses">
+<span id="customjs-toc-table"></span><h2>Tabelle im Kontextmenü des Inhaltsverzeichnisses<a class="headerlink" href="#tabelle-im-kontextmenu-des-inhaltsverzeichnisses" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Im Kontextmenü des Inhaltsverzeichnisses gibt es für abfragbare Layer den Menüpunkt <strong>Tabelle</strong>, der die
+Objekte des Layers ohne Suchbegriff abfragt und in der Ergebnistabelle anzeigt
+(siehe <a class="reference external" href="https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-table">Tabelle im Anwenderhandbuch</a>).
+Der Menüpunkt ist standardmäßig aktiv und kann in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> ausgeblendet werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">allowTocTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
+</pre></div>
+</div>
+<p>Die maximale Anzahl der abgefragten Objekte wird in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> mit <code class="docutils literal notranslate"><span class="pre">table-feature-limit</span></code> in der Section
+<code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code> festgelegt (siehe <a class="reference internal" href="../../../config/api/index.html#api-config-toc-contextmenu"><span class="std std-ref">Kontextmenü im Inhaltsverzeichnis (toc-contextmenu)</span></a>).</p>
+</section>
 </section>
 
 
@@ -660,6 +675,7 @@ Aufruf der Karte wird der Anwender gefragt, ob die Fenster wiederhergestellt wer
 <li><a class="reference internal" href="#metadaten">Metadaten</a></li>
 <li><a class="reference internal" href="#hintergrundkarten-basemaps">Hintergrundkarten (Basemaps)</a></li>
 <li><a class="reference internal" href="#bereiche-in-eigenem-fenster-abkoppeln">Bereiche in eigenem Fenster (Abkoppeln)</a></li>
+<li><a class="reference internal" href="#tabelle-im-kontextmenu-des-inhaltsverzeichnisses">Tabelle im Kontextmenü des Inhaltsverzeichnisses</a></li>
 </ul>
 </li>
 </ul>

@@ -241,13 +241,43 @@ The optional section ``mcp`` enables the MCP endpoint for AI agents. Its usage i
    * - ``enabled``
      - Enables the MCP endpoint ``/{cms-id}/mcp`` and the management of access tokens. In the root element the value applies to all CMS; in a ``cms-item`` it overrides it for that CMS. Default: ``false``.
    * - ``token-store-path`` *(optional, root element only)*
-     - Directory on the CMS server where the access tokens are stored (as hash only). Default: ``{git-workspace-root}/_mcp``; if no ``git-workspace-root`` is specified, ``_mcp`` in the directory of the CMS application. The directory must not be inside a CMS tree.
+     - Directory on the CMS server where the access tokens of all CMS of this installation are stored (see :ref:`cms-config-mcp-token-store`). Default: ``{git-workspace-root}/_mcp``; if no ``git-workspace-root`` is specified, ``_mcp`` in the directory of the CMS application.
    * - ``discovery-deployment`` *(optional, cms-item only)*
-     - Name of the deployment whose environment (``environment``) is used when the CMS queries services for the agent (e.g. the fields of a layer). Secret placeholders (``{{secret-...}}``) in the service URL and credentials are replaced with the values of this environment. Default: the first deployment of the CMS.
+     - Name of the deployment whose environment is used when the CMS queries services for the agent (see :ref:`cms-config-mcp-discovery-deployment`). Default: the first deployment of the CMS.
 
 .. note::
 
     The MCP endpoint only works if access to the CMS is secured (``_config/application-security.config``). Without a login, the endpoint responds with ``403``.
+
+.. _cms-config-mcp-token-store:
+
+Token store (``token-store-path``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The access tokens that users create in the CMS under **AI Agents (MCP)** (see :ref:`cms-mcp`) are stored in the file ``tokens.json`` in this directory. One file contains the tokens of all CMS of the installation.
+
+- For each token, the id, CMS id, user, label, permission, creation and expiry date, last use and a **SHA-256 hash** of the token are stored. The token itself is **not** stored in plain text and cannot be recovered from the file.
+- The directory must **not** be inside a CMS tree or a Git repository, so the file is never deployed or committed. Only the user the CMS runs as needs write access.
+- The path must be **unique per CMS installation**. The CMS keeps the tokens in memory; if several CMS installations (e.g. behind a load balancer) share the same path, they do not notice new or revoked tokens of the other installation.
+- If the file is lost, all tokens become invalid and users have to create new ones. A backup of the file is therefore not strictly necessary.
+
+.. _cms-config-mcp-discovery-deployment:
+
+Deployment for service queries (``discovery-deployment``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some tools query the service itself for the agent, e.g. ``get_layer_fields``, which reads the fields of a layer directly from ArcGIS Server or WFS. In the CMS, however, the service URL and credentials are often not stored in plain text but as **secret placeholders**, e.g.:
+
+- ``{{secret-ags-server}}/rest/services/Kataster/MapServer`` as service URL, so each deployment (test, staging, production) points to the matching ArcGIS Server,
+- ``{{secret-ags-user}}`` and ``{{secret-ags-password}}`` as credentials.
+
+Secrets can have different values per deployment (environment) (see :doc:`../../apps/cms/secrets/index`). For a service query, the CMS therefore needs to know with the values of **which deployment** the placeholders are replaced. This is set by ``discovery-deployment``:
+
+- The placeholders are replaced **on the CMS server**, as during deploy. The replaced values (server addresses, passwords, ...) are **never** passed to the agent, not even in error messages.
+- If ``discovery-deployment`` is not set or unknown, the first deployment of the CMS is used.
+- The agent can specify another deployment per call (parameter ``deployment``), e.g. with the prompt *"Read the fields from the production deployment"*.
+
+**Recommendation:** specify a **test or staging deployment**. Queries of the agent then do not put load on the production services. Usually the fields are the same in all environments; differences show up at the latest when testing via a branch deploy.
 
 Section ``deployments``
 -------------------------

@@ -250,6 +250,13 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mcp</span></code> <em>(optional)</em></p></td>
+<td><p>Settings for the MCP endpoint for AI agents (see <a class="reference internal" href="#cms-config-mcp"><span class="std std-ref">Section mcp</span></a>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p>With a <strong>Web CMS</strong>, multiple trees can be managed. An object is created in the <code class="docutils literal notranslate"><span class="pre">cms-items</span></code> array for each tree. The value of <code class="docutils literal notranslate"><span class="pre">cms-items</span></code> must be an <strong>array</strong> that contains individual <code class="docutils literal notranslate"><span class="pre">cms-item</span></code> objects.</p>
@@ -305,6 +312,13 @@
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">git</span></code> <em>(optional)</em></p></td>
 <td><p>Enables versioning of this CMS with Git (see <a class="reference internal" href="#cms-config-git"><span class="std std-ref">Section git</span></a>). If this section is missing, the CMS works as before.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mcp</span></code> <em>(optional)</em></p></td>
+<td><p>Overrides <code class="docutils literal notranslate"><span class="pre">mcp.enabled</span></code> of the root element for this CMS and sets <code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code> (see <a class="reference internal" href="#cms-config-mcp"><span class="std std-ref">Section mcp</span></a>).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -380,6 +394,81 @@
 <p class="admonition-title">Note</p>
 <p>Git is only supported for CMS trees in the file system (<code class="docutils literal notranslate"><span class="pre">cms-items</span></code> with <code class="docutils literal notranslate"><span class="pre">path</span></code>).</p>
 </div>
+</section>
+<section id="section-mcp">
+<span id="cms-config-mcp"></span><h3>Section <code class="docutils literal notranslate"><span class="pre">mcp</span></code><a class="headerlink" href="#section-mcp" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>The optional section <code class="docutils literal notranslate"><span class="pre">mcp</span></code> enables the MCP endpoint for AI agents. Its usage is described in <a class="reference internal" href="../../apps/cms/mcp.html#cms-mcp"><span class="std std-ref">AI Agents (MCP)</span></a>. The section can be specified in the root element (applies to all CMS) and in individual <code class="docutils literal notranslate"><span class="pre">cms-items</span></code> (<code class="docutils literal notranslate"><span class="pre">enabled</span></code>, <code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code>).</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mcp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;token-store-path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/mcp&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;cms-items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis-custom&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;mcp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;discovery-deployment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribute</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enabled</span></code></p></td>
+<td><p>Enables the MCP endpoint <code class="docutils literal notranslate"><span class="pre">/{cms-id}/mcp</span></code> and the management of access tokens. In the root element the value applies to all CMS; in a <code class="docutils literal notranslate"><span class="pre">cms-item</span></code> it overrides it for that CMS. Default: <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">token-store-path</span></code> <em>(optional, root element only)</em></p></td>
+<td><p>Directory on the CMS server where the access tokens of all CMS of this installation are stored (see <a class="reference internal" href="#cms-config-mcp-token-store"><span class="std std-ref">Token store (token-store-path)</span></a>). Default: <code class="docutils literal notranslate"><span class="pre">{git-workspace-root}/_mcp</span></code>; if no <code class="docutils literal notranslate"><span class="pre">git-workspace-root</span></code> is specified, <code class="docutils literal notranslate"><span class="pre">_mcp</span></code> in the directory of the CMS application.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code> <em>(optional, cms-item only)</em></p></td>
+<td><p>Name of the deployment whose environment is used when the CMS queries services for the agent (see <a class="reference internal" href="#cms-config-mcp-discovery-deployment"><span class="std std-ref">Deployment for service queries (discovery-deployment)</span></a>). Default: the first deployment of the CMS.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MCP endpoint only works if access to the CMS is secured (<code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code>). Without a login, the endpoint responds with <code class="docutils literal notranslate"><span class="pre">403</span></code>.</p>
+</div>
+<section id="token-store-token-store-path">
+<span id="cms-config-mcp-token-store"></span><h4>Token store (<code class="docutils literal notranslate"><span class="pre">token-store-path</span></code>)<a class="headerlink" href="#token-store-token-store-path" title="Link to this heading">¶</a></h4>
+<p>The access tokens that users create in the CMS under <strong>AI Agents (MCP)</strong> (see <a class="reference internal" href="../../apps/cms/mcp.html#cms-mcp"><span class="std std-ref">AI Agents (MCP)</span></a>) are stored in the file <code class="docutils literal notranslate"><span class="pre">tokens.json</span></code> in this directory. One file contains the tokens of all CMS of the installation.</p>
+<ul class="simple">
+<li><p>For each token, the id, CMS id, user, label, permission, creation and expiry date, last use and a <strong>SHA-256 hash</strong> of the token are stored. The token itself is <strong>not</strong> stored in plain text and cannot be recovered from the file.</p></li>
+<li><p>The directory must <strong>not</strong> be inside a CMS tree or a Git repository, so the file is never deployed or committed. Only the user the CMS runs as needs write access.</p></li>
+<li><p>The path must be <strong>unique per CMS installation</strong>. The CMS keeps the tokens in memory; if several CMS installations (e.g. behind a load balancer) share the same path, they do not notice new or revoked tokens of the other installation.</p></li>
+<li><p>If the file is lost, all tokens become invalid and users have to create new ones. A backup of the file is therefore not strictly necessary.</p></li>
+</ul>
+</section>
+<section id="deployment-for-service-queries-discovery-deployment">
+<span id="cms-config-mcp-discovery-deployment"></span><h4>Deployment for service queries (<code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code>)<a class="headerlink" href="#deployment-for-service-queries-discovery-deployment" title="Link to this heading">¶</a></h4>
+<p>Some tools query the service itself for the agent, e.g. <code class="docutils literal notranslate"><span class="pre">get_layer_fields</span></code>, which reads the fields of a layer directly from ArcGIS Server or WFS. In the CMS, however, the service URL and credentials are often not stored in plain text but as <strong>secret placeholders</strong>, e.g.:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{{secret-ags-server}}/rest/services/Kataster/MapServer</span></code> as service URL, so each deployment (test, staging, production) points to the matching ArcGIS Server,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{secret-ags-user}}</span></code> and <code class="docutils literal notranslate"><span class="pre">{{secret-ags-password}}</span></code> as credentials.</p></li>
+</ul>
+<p>Secrets can have different values per deployment (environment) (see <a class="reference internal" href="../../apps/cms/secrets/index.html"><span class="doc">Secrets</span></a>). For a service query, the CMS therefore needs to know with the values of <strong>which deployment</strong> the placeholders are replaced. This is set by <code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code>:</p>
+<ul class="simple">
+<li><p>The placeholders are replaced <strong>on the CMS server</strong>, as during deploy. The replaced values (server addresses, passwords, …) are <strong>never</strong> passed to the agent, not even in error messages.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code> is not set or unknown, the first deployment of the CMS is used.</p></li>
+<li><p>The agent can specify another deployment per call (parameter <code class="docutils literal notranslate"><span class="pre">deployment</span></code>), e.g. with the prompt <em>“Read the fields from the production deployment”</em>.</p></li>
+</ul>
+<p><strong>Recommendation:</strong> specify a <strong>test or staging deployment</strong>. Queries of the agent then do not put load on the production services. Usually the fields are the same in all environments; differences show up at the latest when testing via a branch deploy.</p>
+</section>
 </section>
 <section id="section-deployments">
 <h3>Section <code class="docutils literal notranslate"><span class="pre">deployments</span></code><a class="headerlink" href="#section-deployments" title="Link to this heading">¶</a></h3>
@@ -777,6 +866,11 @@ and added separated by commas:</p>
 <li><a class="reference internal" href="#section-root-element">Section <code class="docutils literal notranslate"><span class="pre">Root</span> <span class="pre">Element</span></code></a></li>
 <li><a class="reference internal" href="#section-cms-item">Section <code class="docutils literal notranslate"><span class="pre">cms-item</span></code></a></li>
 <li><a class="reference internal" href="#section-git">Section <code class="docutils literal notranslate"><span class="pre">git</span></code></a></li>
+<li><a class="reference internal" href="#section-mcp">Section <code class="docutils literal notranslate"><span class="pre">mcp</span></code></a><ul>
+<li><a class="reference internal" href="#token-store-token-store-path">Token store (<code class="docutils literal notranslate"><span class="pre">token-store-path</span></code>)</a></li>
+<li><a class="reference internal" href="#deployment-for-service-queries-discovery-deployment">Deployment for service queries (<code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code>)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#section-deployments">Section <code class="docutils literal notranslate"><span class="pre">deployments</span></code></a></li>
 <li><a class="reference internal" href="#section-postevents">Section <code class="docutils literal notranslate"><span class="pre">postEvents</span></code></a></li>
 <li><a class="reference internal" href="#additional-attributes">Additional attributes</a></li>

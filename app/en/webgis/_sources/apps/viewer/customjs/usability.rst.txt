@@ -510,4 +510,23 @@ Behavior:
   is opened, the user is asked whether the windows should be restored (the browser only allows
   opening the window after a user action).
 
+.. _customjs-toc-table:
+
+Table in the Context Menu of the Table of Contents
+==================================================
+
+.. versionadded:: 9.26.4104
+
+For queryable layers, the context menu of the table of contents offers the menu item **Table**, which queries the
+features of the layer without a search term and shows them in the results table
+(see `Table in the user manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-table>`_).
+The menu item is enabled by default and can be hidden in ``custom.js``:
+
+.. code:: javascript
+
+   webgis.usability.allowTocTable = false;  // default: true
+
+The maximum number of queried features is set in ``api.config`` with ``table-feature-limit`` in the section
+``toc-contextmenu`` (see :ref:`api-config-toc-contextmenu`).
+
 

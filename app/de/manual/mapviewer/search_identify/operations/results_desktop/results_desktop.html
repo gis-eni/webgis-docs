@@ -175,6 +175,32 @@
 <p>Selektiert man in einer Tabelle mit mehreren Ergebnissen Einträge, so kommen zwei Tabellen-Werkzeuge hinzu. Diese dazu dienen, entweder die nicht ausgewählten Ergebnisse zu entfernen oder das selektierte Ergebnis aus der Liste zu löschen.</p>
 <img alt="../../../../_images/nicht_ausgew_entfernen.png" src="../../../../_images/nicht_ausgew_entfernen.png" />
 <img alt="../../../../_images/ausgew_entfernen.png" src="../../../../_images/ausgew_entfernen.png" />
+<section id="abfrageergebnis-einschranken">
+<span id="results-query-restriction"></span><h3>Abfrageergebnis einschränken<a class="headerlink" href="#abfrageergebnis-einschranken" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Liefert eine Abfrage oder ein Identify zu viele Ergebnisse, kann das Ergebnis über das Tabellen-Werkzeug <strong>Einschränken</strong> weiter eingeschränkt werden.
+Dabei öffnet sich der <a class="reference internal" href="../../../presentation/index.html#toc-querybuilder"><span class="std std-ref">Query Builder</span></a>, in dem Bedingungen (<strong>Feld</strong>, <strong>Operator</strong>, <strong>Wert</strong>) für die Ergebnisse festgelegt werden.</p>
+<p>Mit <strong>Anwenden</strong> wird die ursprüngliche Abfrage erneut ausgeführt. Berücksichtigt werden dabei die Abfragegeometrie (zB Identify-Punkt, Rechteck oder Puffer)
+und die Eingaben der Detailsuche, ergänzt um die Bedingungen aus dem Query Builder. Die Tabelle zeigt danach nur noch die passenden Ergebnisse.</p>
+<ul class="simple">
+<li><p>Im Query Builder wird angezeigt, woher das Ergebnis stammt, zB aus einer Abfragegeometrie oder einer Detailsuche mit den eingegebenen Werten.
+Über <strong>Anzeigen</strong> wird die Abfragegeometrie kurz in der Karte dargestellt.</p></li>
+<li><p>Ist ein Ergebnis eingeschränkt, wird das in der Tabelle mit einem Hinweis angezeigt. Die Einschränkung kann über das <strong>×</strong> im Hinweis oder über
+<strong>Einschränkung entfernen</strong> im Query Builder wieder aufgehoben werden. Dabei wird die ursprüngliche Abfrage ohne Einschränkung erneut ausgeführt.</p></li>
+<li><p>Bei langsamen Diensten wird während der Abfrage ein Ladesymbol angezeigt; die Schaltflächen können in dieser Zeit nicht erneut geklickt werden.</p></li>
+<li><p>Findet die Abfrage mit den Bedingungen keine Ergebnisse (oder ist eine Bedingung für das Feld ungültig), wird ein Hinweis angezeigt.
+Der Query Builder bleibt mit den eingegebenen Bedingungen geöffnet und die Tabelle bleibt unverändert.</p></li>
+<li><p>Wurde die Tabelle über das Kontextmenü im Inhaltsverzeichnis geöffnet (siehe <a class="reference internal" href="../../../presentation/index.html#toc-table"><span class="std std-ref">3.4.2   Tabelle</span></a>), basiert das Ergebnis auf dem gesamten
+Datenbestand des Layers (inkl. aktiver Darstellungsfilter); das wird im Query Builder ebenfalls angezeigt.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Einschränkung wirkt nur auf das Abfrageergebnis in der Tabelle. Sie ist <strong>kein Darstellungsfilter</strong>, die Darstellung des Layers in der Karte bleibt unverändert.
+Das Werkzeug steht nur zur Verfügung, wenn für den Dienst der Query Builder erlaubt ist und Felder dafür freigegeben sind.</p>
+</div>
+</section>
 </section>
 <section id="tabellen-tabs">
 <h2>Tabellen-Tabs<a class="headerlink" href="#tabellen-tabs" title="Link to this heading">¶</a></h2>
@@ -208,7 +234,10 @@
 <li><a class="reference internal" href="#">Ergebnisse im Desktop-Layout</a><ul>
 <li><a class="reference internal" href="#detailergebnisse">Detailergebnisse</a></li>
 <li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a></li>
-<li><a class="reference internal" href="#tabellen-werkzeuge">Tabellen-Werkzeuge</a></li>
+<li><a class="reference internal" href="#tabellen-werkzeuge">Tabellen-Werkzeuge</a><ul>
+<li><a class="reference internal" href="#abfrageergebnis-einschranken">Abfrageergebnis einschränken</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#tabellen-tabs">Tabellen-Tabs</a></li>
 <li><a class="reference internal" href="#ergebnisse-verlauf">Ergebnisse Verlauf</a></li>
 </ul>

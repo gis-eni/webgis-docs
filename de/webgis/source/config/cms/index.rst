@@ -241,13 +241,43 @@ Mit dem optionalen Abschnitt ``mcp`` wird der MCP-Endpunkt für KI-Agenten aktiv
    * - ``enabled``
      - Aktiviert den MCP-Endpunkt ``/{cms-id}/mcp`` und die Verwaltung der Zugriffstokens. Im Root-Element gilt der Wert für alle CMS, in einem ``cms-item`` überschreibt er diesen für das jeweilige CMS. Standard: ``false``.
    * - ``token-store-path`` *(optional, nur Root-Element)*
-     - Verzeichnis am CMS-Server, in dem die Zugriffstokens (nur als Hash) gespeichert werden. Standard: ``{git-workspace-root}/_mcp``, ist kein ``git-workspace-root`` angegeben, ``_mcp`` im Verzeichnis der CMS-Applikation. Das Verzeichnis darf nicht innerhalb eines CMS-Baums liegen.
-        * - ``discovery-deployment`` *(optional, nur cms-item)*
-          - Name des Deployments, dessen Umgebung (``environment``) verwendet wird, wenn das CMS für den Agenten Dienste abfragt (z. B. Felder eines Layers). Secret-Platzhalter (``{{secret-...}}``) in Dienst-URL und Zugangsdaten werden dabei mit den Werten dieser Umgebung ersetzt. Standard: das erste Deployment des CMS.
+     - Verzeichnis am CMS-Server, in dem die Zugriffstokens aller CMS dieser Installation gespeichert werden (siehe :ref:`cms-config-mcp-token-store`). Standard: ``{git-workspace-root}/_mcp``, ist kein ``git-workspace-root`` angegeben, ``_mcp`` im Verzeichnis der CMS-Applikation.
+   * - ``discovery-deployment`` *(optional, nur cms-item)*
+     - Name des Deployments, dessen Umgebung verwendet wird, wenn das CMS für den Agenten Dienste abfragt (siehe :ref:`cms-config-mcp-discovery-deployment`). Standard: das erste Deployment des CMS.
 
-     .. note::
+.. note::
 
-         Der MCP-Endpunkt funktioniert nur, wenn der Zugang zum CMS gesichert ist (``_config/application-security.config``). Ohne Anmeldung antwortet der Endpunkt mit ``403``.
+    Der MCP-Endpunkt funktioniert nur, wenn der Zugang zum CMS gesichert ist (``_config/application-security.config``). Ohne Anmeldung antwortet der Endpunkt mit ``403``.
+
+.. _cms-config-mcp-token-store:
+
+Token-Speicher (``token-store-path``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Die Zugriffstokens, die Benutzer im CMS unter **KI-Agenten (MCP)** erstellen (siehe :ref:`cms-mcp`), werden in der Datei ``tokens.json`` in diesem Verzeichnis gespeichert. Eine Datei enthält die Tokens aller CMS der Installation.
+
+- Pro Token werden Id, CMS-Id, Benutzer, Bezeichnung, Berechtigung, Erstell- und Ablaufdatum, letzte Verwendung sowie ein **SHA-256-Hash** des Tokens gespeichert. Der Token selbst wird **nicht** im Klartext gespeichert und kann aus der Datei nicht wiederhergestellt werden.
+- Das Verzeichnis darf **nicht** innerhalb eines CMS-Baums oder eines Git-Repositories liegen, damit die Datei nicht deployt oder committet wird. Schreibrechte braucht nur der Benutzer, unter dem das CMS läuft.
+- Der Pfad muss **pro CMS-Installation eindeutig** sein. Das CMS hält die Tokens im Speicher; teilen sich mehrere CMS-Installationen (z. B. hinter einem Load-Balancer) denselben Pfad, bemerken sie neue oder widerrufene Tokens der anderen Installation nicht.
+- Geht die Datei verloren, werden alle Tokens ungültig und müssen von den Benutzern neu erstellt werden. Eine Sicherung der Datei ist daher nicht unbedingt nötig.
+
+.. _cms-config-mcp-discovery-deployment:
+
+Deployment für Dienst-Abfragen (``discovery-deployment``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Einige Werkzeuge fragen für den Agenten den Dienst selbst ab, z. B. ``get_layer_fields``, das die Felder eines Layers direkt vom ArcGIS Server oder WFS liest. Im CMS stehen Dienst-URL und Zugangsdaten aber oft nicht im Klartext, sondern als **Secret-Platzhalter**, z. B.:
+
+- ``{{secret-ags-server}}/rest/services/Kataster/MapServer`` als Dienst-URL, damit jedes Deployment (Test, Staging, Produktion) auf den passenden ArcGIS Server zeigt,
+- ``{{secret-ags-user}}`` und ``{{secret-ags-password}}`` als Zugangsdaten.
+
+Secrets können pro Deployment (Umgebung) unterschiedliche Werte haben (siehe :doc:`../../apps/cms/secrets/index`). Für eine Dienst-Abfrage muss das CMS daher wissen, mit den Werten **welches Deployments** die Platzhalter ersetzt werden. Das legt ``discovery-deployment`` fest:
+
+- Die Platzhalter werden **am CMS-Server** ersetzt, wie beim Deploy. Die ersetzten Werte (Server-Adressen, Passwörter, ...) werden **nie** an den Agenten übergeben, auch nicht in Fehlermeldungen.
+- Ist ``discovery-deployment`` nicht gesetzt oder unbekannt, wird das erste Deployment des CMS verwendet.
+- Der Agent kann pro Aufruf ein anderes Deployment angeben (Parameter ``deployment``), z. B. mit dem Prompt *"Lies die Felder vom Produktions-Deployment"*.
+
+**Empfehlung:** ein **Test- oder Staging-Deployment** angeben. Abfragen des Agenten belasten dann nicht die produktiven Dienste. In der Regel sind die Felder in allen Umgebungen gleich; Abweichungen fallen spätestens beim Testen über einen Branch-Deploy auf.
 
 Abschnitt ``deployments``
 -------------------------

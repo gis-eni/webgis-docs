@@ -18,3 +18,4 @@ WebGIS CMS
     security/index
     git
     deploy
+    mcp

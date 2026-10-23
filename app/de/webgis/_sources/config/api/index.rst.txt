@@ -625,6 +625,7 @@ Kontextmenü im Inhaltsverzeichnis (``toc-contextmenu``)
       <add key="allow-toc-userrenderer" value="true" />
       <add key="userrenderer-max-unique-value-classes" value="100" />
       <add key="allow-toc-userlabeling" value="true" />
+      <add key="table-feature-limit" value="1000" />
    </section>
 
 .. versionchanged:: 9.26.4104
@@ -657,6 +658,13 @@ Alle ``allow-...`` Schlüssel sind standardmäßig ``false``.
        Ersetzt das frühere Werkzeug *Themen beschriften*.
 
        .. versionadded:: 9.26.4104
+   * - ``table-feature-limit``
+     - Maximale Anzahl an Objekten, die über den Menüpunkt **Tabelle** im Kontextmenü abgefragt werden
+       (siehe `Tabelle im Anwenderhandbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-table>`_).
+       Ist beim Dienst bzw. bei der Abfrage eine maximale Anzahl festgelegt, wird diese verwendet. Standardwert: ``1000``.
+       Der Menüpunkt selbst kann in der ``custom.js`` mit ``webgis.usability.allowTocTable = false`` ausgeblendet werden.
+
+       .. versionadded:: 9.26.4104
 
 **Darstellungsfilter** (``allow-toc-visfilter``):
 
@@ -664,6 +672,15 @@ Das Verhalten ist dann so, dass bei Themen Im **Inhaltsverzeichnis (TOC)** ein
 kleines **Filter-Symbol** angezeigt wird, dass einen **Query-Builder** öffnet, mit der Benutzer 
 einen **Darstellungsfilter** im SQL Style definieren kann.
 Welche Felder dabei anboten werden, kann im CMS beim Dienst unter **QueryBuilder** definiert werden.
+
+.. versionadded:: 9.26.4104
+   Nach Auswahl eines Feldes schlägt der Query Builder Werte vor (Autocomplete für Texte, Auswahlliste für Zahlen mit maximal 25 unterschiedlichen Werten,
+   Kalender für Datumsfelder, siehe `Query Builder im Anwenderhandbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-querybuilder>`_).
+   Die Werte werden live aus dem Dienst abgefragt, derzeit nur für ArcGIS Dienste. Gesperrte Darstellungsfilter (*locked*) werden dabei immer berücksichtigt.
+
+.. versionadded:: 9.26.4104
+   Im Kontextmenü heißt der Eintrag **Darstellungsfilter (DefinitionQuery)**. Zusätzlich stehen die Operatoren ``not like``, ``not in``,
+   ``is null`` und ``is not null`` zur Verfügung.
 
 .. note::
 

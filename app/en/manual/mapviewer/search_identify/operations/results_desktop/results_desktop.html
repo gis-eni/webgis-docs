@@ -174,6 +174,32 @@
 <p>If you select entries in a table with several results, two additional table tools appear. These are used to either remove the unselected results or to delete the selected result from the list.</p>
 <img alt="../../../../_images/nicht_ausgew_entfernen.png" src="../../../../_images/nicht_ausgew_entfernen.png" />
 <img alt="../../../../_images/ausgew_entfernen.png" src="../../../../_images/ausgew_entfernen.png" />
+<section id="restricting-a-query-result">
+<span id="results-query-restriction"></span><h3>Restricting a Query Result<a class="headerlink" href="#restricting-a-query-result" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>If a query or identify returns too many results, the result can be narrowed down with the <strong>Restrict</strong> table tool.
+This opens the <a class="reference internal" href="../../../presentation/index.html#toc-querybuilder"><span class="std std-ref">Query Builder</span></a>, where conditions (<strong>Field</strong>, <strong>Operator</strong>, <strong>Value</strong>) for the results are defined.</p>
+<p><strong>Apply</strong> runs the original query again. The query geometry (e.g. identify point, rectangle or buffer) and the inputs of the detail search are kept,
+and the conditions from the Query Builder are added. Afterwards, the table only shows the matching results.</p>
+<ul class="simple">
+<li><p>The Query Builder shows where the result comes from, e.g. from a query geometry or from a detail search with the entered values.
+<strong>Show</strong> briefly displays the query geometry in the map.</p></li>
+<li><p>A restricted result is marked with a hint in the table. The restriction can be removed with the <strong>×</strong> in the hint or with
+<strong>Remove restriction</strong> in the Query Builder. The original query is then run again without the restriction.</p></li>
+<li><p>For slow services, a loading indicator is shown while the query runs; the buttons cannot be clicked again during this time.</p></li>
+<li><p>If the query with the conditions returns no results (or a condition is invalid for the field), a hint is shown.
+The Query Builder stays open with the entered conditions and the table remains unchanged.</p></li>
+<li><p>If the table was opened via the context menu of the table of contents (see <a class="reference internal" href="../../../presentation/index.html#toc-table"><span class="std std-ref">3.4.2   Table</span></a>), the result is based on all
+features of the layer (including active display filters); this is also shown in the Query Builder.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The restriction only affects the query result in the table. It is <strong>not a display filter</strong>; the way the layer is drawn in the map does not change.
+The tool is only available if the Query Builder is allowed for the service and fields are enabled for it.</p>
+</div>
+</section>
 </section>
 <section id="table-tabs">
 <h2>Table Tabs<a class="headerlink" href="#table-tabs" title="Link to this heading">¶</a></h2>
@@ -207,7 +233,10 @@
 <li><a class="reference internal" href="#">Results in Desktop Layout</a><ul>
 <li><a class="reference internal" href="#detail-results">Detail Results</a></li>
 <li><a class="reference internal" href="#result-list">Result List</a></li>
-<li><a class="reference internal" href="#table-tools">Table Tools</a></li>
+<li><a class="reference internal" href="#table-tools">Table Tools</a><ul>
+<li><a class="reference internal" href="#restricting-a-query-result">Restricting a Query Result</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#table-tabs">Table Tabs</a></li>
 <li><a class="reference internal" href="#results-history">Results History</a></li>
 </ul>

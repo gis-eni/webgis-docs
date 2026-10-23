@@ -611,6 +611,21 @@ is opened, the user is asked whether the windows should be restored (the browser
 opening the window after a user action).</p></li>
 </ul>
 </section>
+<section id="table-in-the-context-menu-of-the-table-of-contents">
+<span id="customjs-toc-table"></span><h2>Table in the Context Menu of the Table of Contents<a class="headerlink" href="#table-in-the-context-menu-of-the-table-of-contents" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>For queryable layers, the context menu of the table of contents offers the menu item <strong>Table</strong>, which queries the
+features of the layer without a search term and shows them in the results table
+(see <a class="reference external" href="https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-table">Table in the user manual</a>).
+The menu item is enabled by default and can be hidden in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">allowTocTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
+</pre></div>
+</div>
+<p>The maximum number of queried features is set in <code class="docutils literal notranslate"><span class="pre">api.config</span></code> with <code class="docutils literal notranslate"><span class="pre">table-feature-limit</span></code> in the section
+<code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code> (see <a class="reference internal" href="../../../config/api/index.html#api-config-toc-contextmenu"><span class="std std-ref">Context Menu in the Table of Contents (toc-contextmenu)</span></a>).</p>
+</section>
 </section>
 
 
@@ -650,6 +665,7 @@ opening the window after a user action).</p></li>
 <li><a class="reference internal" href="#metadata">Metadata</a></li>
 <li><a class="reference internal" href="#basemaps">Basemaps</a></li>
 <li><a class="reference internal" href="#areas-in-a-separate-window-detaching">Areas in a separate window (detaching)</a></li>
+<li><a class="reference internal" href="#table-in-the-context-menu-of-the-table-of-contents">Table in the Context Menu of the Table of Contents</a></li>
 </ul>
 </li>
 </ul>

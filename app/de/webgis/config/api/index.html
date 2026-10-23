@@ -868,6 +868,7 @@ Wird kein Wert angegeben, wird dasselbe Format wie für die Seriendruckseiten ve
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userrenderer&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;userrenderer-max-unique-value-classes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userlabeling&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;table-feature-limit&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -915,6 +916,16 @@ Ersetzt das frühere Werkzeug <em>Themen beschriften</em>.</p>
 </div>
 </td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">table-feature-limit</span></code></p></td>
+<td><p>Maximale Anzahl an Objekten, die über den Menüpunkt <strong>Tabelle</strong> im Kontextmenü abgefragt werden
+(siehe <a class="reference external" href="https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-table">Tabelle im Anwenderhandbuch</a>).
+Ist beim Dienst bzw. bei der Abfrage eine maximale Anzahl festgelegt, wird diese verwendet. Standardwert: <code class="docutils literal notranslate"><span class="pre">1000</span></code>.
+Der Menüpunkt selbst kann in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> mit <code class="docutils literal notranslate"><span class="pre">webgis.usability.allowTocTable</span> <span class="pre">=</span> <span class="pre">false</span></code> ausgeblendet werden.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Darstellungsfilter</strong> (<code class="docutils literal notranslate"><span class="pre">allow-toc-visfilter</span></code>):</p>
@@ -922,6 +933,15 @@ Ersetzt das frühere Werkzeug <em>Themen beschriften</em>.</p>
 kleines <strong>Filter-Symbol</strong> angezeigt wird, dass einen <strong>Query-Builder</strong> öffnet, mit der Benutzer
 einen <strong>Darstellungsfilter</strong> im SQL Style definieren kann.
 Welche Felder dabei anboten werden, kann im CMS beim Dienst unter <strong>QueryBuilder</strong> definiert werden.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104: </span>Nach Auswahl eines Feldes schlägt der Query Builder Werte vor (Autocomplete für Texte, Auswahlliste für Zahlen mit maximal 25 unterschiedlichen Werten,
+Kalender für Datumsfelder, siehe <a class="reference external" href="https://docs.webgiscloud.com/de/webgis-manual/mapviewer/presentation/index.html#toc-querybuilder">Query Builder im Anwenderhandbuch</a>).
+Die Werte werden live aus dem Dienst abgefragt, derzeit nur für ArcGIS Dienste. Gesperrte Darstellungsfilter (<em>locked</em>) werden dabei immer berücksichtigt.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104: </span>Im Kontextmenü heißt der Eintrag <strong>Darstellungsfilter (DefinitionQuery)</strong>. Zusätzlich stehen die Operatoren <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>,
+<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">null</span></code> und <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span> <span class="pre">null</span></code> zur Verfügung.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Diese Funktion sollte nur in <strong>geschützten Umgebungen</strong> (Intranet, niemals Internet) verwendet werden,

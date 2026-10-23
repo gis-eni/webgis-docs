@@ -18,3 +18,4 @@ With the WebGIS CMS, administrators can define which services are offered via th
     security/index
     git
     deploy
+    mcp

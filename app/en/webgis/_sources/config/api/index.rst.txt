@@ -618,6 +618,7 @@ Context Menu in the Table of Contents (``toc-contextmenu``)
       <add key="allow-toc-userrenderer" value="true" />
       <add key="userrenderer-max-unique-value-classes" value="100" />
       <add key="allow-toc-userlabeling" value="true" />
+      <add key="table-feature-limit" value="1000" />
    </section>
 
 .. versionchanged:: 9.26.4104
@@ -650,6 +651,13 @@ All ``allow-...`` keys default to ``false``.
        Replaces the former *Labeling Topics* tool.
 
        .. versionadded:: 9.26.4104
+   * - ``table-feature-limit``
+     - Maximum number of features queried via the menu item **Table** in the context menu
+       (see `Table in the user manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-table>`_).
+       If a maximum number is defined for the service or the query, that one is used. Default: ``1000``.
+       The menu item itself can be hidden in ``custom.js`` with ``webgis.usability.allowTocTable = false``.
+
+       .. versionadded:: 9.26.4104
 
 **Display filter** (``allow-toc-visfilter``):
 
@@ -657,6 +665,15 @@ The behavior then is such that, for topics in the **table of contents (TOC)**, a
 small **filter icon** is displayed that opens a **query builder**, with which the user
 can define a **display filter** in SQL style.
 Which fields are offered for this can be defined in the CMS for the service under **QueryBuilder**.
+
+.. versionadded:: 9.26.4104
+   After selecting a field, the query builder suggests values (autocomplete for texts, selection list for numbers with at most 25 distinct values,
+   calendar for date fields, see `Query Builder in the user manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-querybuilder>`_).
+   The values are queried live from the service, currently only for ArcGIS services. Locked display filters are always taken into account.
+
+.. versionadded:: 9.26.4104
+   In the context menu, the entry is called **Display filter (DefinitionQuery)**. Additionally, the operators ``not like``, ``not in``,
+   ``is null`` and ``is not null`` are available.
 
 .. note::
 

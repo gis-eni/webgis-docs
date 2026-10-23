@@ -9,16 +9,11 @@ Das WebGIS CMS bietet einen Endpunkt nach dem **Model Context Protocol** (MCP). 
 
 Beispiele für Fragen an einen Agenten:
 
-- *Welche Abfragen gibt es für den Dienst Kataster und welche Felder werden im Ergebnis angezeigt?*
 - *In welchen Karten wird der Layer Grundstücke verwendet?*
-- *Welche Dienste haben Warnungen?*
 - *Welche Felder hat der Layer Gebäude? Welche davon sind noch nicht in der Abfrage enthalten?*
-
-Bei einem CMS mit Git-Versionierung kann der Agent das CMS auch **ändern** (siehe :ref:`cms-mcp-write`), z. B.:
-
 - *Lege für den Layer Grundstücke eine Abfrage mit den Feldern KG, GNR und Fläche an.*
-- *Setze bei allen Abfragen des Dienstes Kataster MaxFeatures auf 500.*
-- *Deploye meinen Arbeitszweig auf das Test-Deployment, damit ich ihn im WebGIS testen kann.*
+
+Bei einem CMS mit Git-Versionierung kann der Agent das CMS auch **ändern** (siehe :ref:`cms-mcp-write`). Weitere Beispiele stehen unter :ref:`cms-mcp-prompts`.
 
 .. note::
 
@@ -41,8 +36,7 @@ Ein Agent meldet sich nicht über das Login-Formular an, sondern mit einem pers�
    - **Lesen**: der Agent kann das CMS nur lesen.
    - **Lesen & Schreiben**: der Agent kann zusätzlich Knoten ändern, Git-Befehle ausführen und Branch-Deploys erstellen (siehe :ref:`cms-mcp-write`). Nur bei Git-Versionierung möglich.
 
-3. Den angezeigten Token kopieren. Er wird **nur einmal** angezeigt und am Server nur als Hash gespeichert.
-
+3. Den angezeigten Token bzw. die fertige Client-Konfiguration mit diesem Token kopieren (siehe unten). Der Token wird **nur einmal** angezeigt und am Server nur als Hash gespeichert.
 Ein Token gilt nur für dieses CMS und für den Benutzer, der ihn erstellt hat. Unter **Meine Tokens** werden Ablaufdatum und letzte Verwendung angezeigt. Nicht mehr benötigte Tokens sollten dort **widerrufen** werden.
 
 MCP-Client konfigurieren
@@ -62,7 +56,35 @@ Auf derselben Seite werden die URL des Endpunkts und eine Beispiel-Konfiguration
       }
     }
 
-``<token>`` wird durch den erstellten Token ersetzt. Pro CMS gibt es einen eigenen Endpunkt.
+``<token>`` wird durch den erstellten Token ersetzt. Direkt nach dem Erstellen eines Tokens wird diese Konfiguration bereits mit dem neuen Token angezeigt und kann übernommen werden.
+
+.. _cms-mcp-multiple-cms:
+
+Mehrere CMS
+~~~~~~~~~~~
+
+Pro CMS gibt es einen eigenen Endpunkt ``/{cms-id}/mcp``, und ein Token gilt immer nur für ein CMS. Sollen mehrere CMS über einen Agenten erreichbar sein, wird **pro CMS ein Token erstellt** und **pro CMS ein Eintrag** in der Client-Konfiguration angelegt:
+
+.. code-block:: json
+
+    {
+      "servers": {
+        "webgis-cms-kataster": {
+          "type": "http",
+          "url": "https://my-server/webgis-cms/kataster/mcp",
+          "headers": { "Authorization": "Bearer <token-kataster>" }
+        },
+        "webgis-cms-leitungen": {
+          "type": "http",
+          "url": "https://my-server/webgis-cms/leitungen/mcp",
+          "headers": { "Authorization": "Bearer <token-leitungen>" }
+        }
+      }
+    }
+
+Die Werkzeuge stehen dem Agenten dann für jedes CMS getrennt zur Verfügung. Jeder Endpunkt meldet dem Agenten, zu welchem CMS er gehört (Name, CMS-Id, Git-Versionierung und Berechtigung des Tokens). Damit der Agent das richtige CMS verwendet, sollte das CMS im Prompt genannt werden, z. B. *"Welche Abfragen gibt es im CMS Kataster für den Dienst Grundstücke?"*.
+
+Aufgaben über mehrere CMS hinweg sind ebenfalls möglich, z. B. *"Vergleiche den Dienst Grundstücke im CMS Kataster mit dem im CMS Leitungen"*. Der Agent liest dabei aus dem einen und - mit einem Token **Lesen & Schreiben** - schreibt in das andere CMS. Jede Änderung erfolgt im Arbeitszweig des jeweiligen CMS.
 
 Funktionen
 ----------
@@ -176,6 +198,41 @@ Werkzeuge für den Branch-Deploy:
      - Liefert Status und Ausgabe eines laufenden oder beendeten Deploys.
    * - ``remove_branch_deploy``
      - Entfernt den Branch-Deploy des eigenen aktuellen Arbeitszweiges (destruktiv). Branch-Deploys anderer Arbeitszweige können nur in der CMS-Oberfläche entfernt werden.
+
+.. _cms-mcp-prompts:
+
+Beispiel-Prompts
+----------------
+
+Die folgenden Prompts zeigen, was mit einem Agenten möglich ist. Sie können direkt verwendet oder an das eigene CMS angepasst werden.
+
+**Lesen und Analysieren**
+
+- *Gib mir einen Überblick über das CMS: welche Dienste, Karten und Editierthemen gibt es?*
+- *Beschreibe die Abfrage Grundstücke: Suchfelder, Tabellenspalten und Hotlinks.*
+- *Welche Felder hat der Layer Grundstücke laut ArcGIS Server? Welche davon fehlen in der Abfrage Grundstücke?*
+- *Welche Warnungen hat das CMS und wie behebe ich sie?*
+
+**Ändern**
+
+- *Lege einen Arbeitszweig "abfrage-gebaeude" an.*
+- *Lege für den Layer Gebäude eine Abfrage mit den Suchfeldern Adresse und Hausnummer an und zeige alle Felder außer OBJECTID in der Tabelle.*
+- *Setze bei allen Abfragen des Dienstes Kataster MaxFeatures auf 500.*
+- *Sortiere die Tabellenspalten der Abfrage Grundstücke alphabetisch.*
+- *Lösche die Abfrage Test im Dienst Kataster. Prüfe vorher, wo sie verwendet wird.*
+
+**Prüfen, Committen und Testen**
+
+- *Zeige mir alle Änderungen seit dem letzten Commit.*
+- *Committe die Änderungen mit einer passenden Nachricht und pushe sie.*
+- *Übernimm den aktuellen Stand von main in meinen Arbeitszweig.*
+- *Deploye meinen Arbeitszweig auf das Test-Deployment und zeige mir die Ausgabe.*
+
+**Mehrere CMS** (siehe :ref:`cms-mcp-multiple-cms`)
+
+- *Welche Dienste gibt es im CMS Kataster, aber nicht im CMS Leitungen?*
+- *Vergleiche die Abfrage Grundstücke im CMS Kataster mit der im CMS Leitungen.*
+- *Lege die Abfrage Grundstücke aus dem CMS Kataster auch im CMS Leitungen an.*
 
 Sicherheit
 ----------
