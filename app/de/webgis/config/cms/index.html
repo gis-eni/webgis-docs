@@ -402,6 +402,7 @@
 <p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
 </div>
 <p>Mit dem optionalen Abschnitt <code class="docutils literal notranslate"><span class="pre">mcp</span></code> wird der MCP-Endpunkt für KI-Agenten aktiviert. Die Verwendung ist unter <a class="reference internal" href="../../apps/cms/mcp.html#cms-mcp"><span class="std std-ref">KI-Agenten (MCP)</span></a> beschrieben. Der Abschnitt kann im Root-Element (gilt für alle CMS) und in einzelnen <code class="docutils literal notranslate"><span class="pre">cms-items</span></code> (<code class="docutils literal notranslate"><span class="pre">enabled</span></code>, <code class="docutils literal notranslate"><span class="pre">discovery-deployment</span></code>) angegeben werden.</p>
+<p>Zusätzlich muss MCP für das CMS in der Datei <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code> freigegeben sein (siehe <a class="reference internal" href="#cms-config-mcp-config"><span class="std std-ref">Datei _config/mcp.config</span></a>). Dort wird auch festgelegt, welche Werkzeuge (Lesen, Schreiben, Deploy) angeboten werden.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;mcp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
@@ -716,6 +717,57 @@ Damit kann nachverfolgt werden, welche Benutzer Änderungen im CMS vorgenommen h
 </table>
 </section>
 </section>
+<section id="datei-config-mcp-config">
+<span id="cms-config-mcp-config"></span><h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code><a class="headerlink" href="#datei-config-mcp-config" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>In dieser optionalen Datei wird für die gesamte CMS-Installation festgelegt, ob und für welche Anwendung ein MCP-Endpunkt für KI-Agenten angeboten wird und welche Werkzeuge der Agent verwenden darf. Für welche CMS der Endpunkt aktiviert ist, wird zusätzlich in der <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> festgelegt (siehe <a class="reference internal" href="#cms-config-mcp"><span class="std std-ref">Abschnitt mcp</span></a>). Die Verwendung ist unter <a class="reference internal" href="../../apps/cms/mcp.html#cms-mcp"><span class="std std-ref">KI-Agenten (MCP)</span></a> beschrieben.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;cms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tools&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;write&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;deploy&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;datalinq&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Existiert die Datei <strong>nicht</strong> oder fehlt ein Abschnitt, ist MCP für die jeweilige Anwendung <strong>deaktiviert</strong>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cms.enabled</span></code></p></td>
+<td><p>Bietet den MCP-Endpunkt <code class="docutils literal notranslate"><span class="pre">/{cms-id}/mcp</span></code> und die Verwaltung der Zugriffstokens an. Ist der Wert <code class="docutils literal notranslate"><span class="pre">false</span></code>, wird MCP in der CMS-Applikation gar nicht eingebunden, auch wenn es in der <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> aktiviert ist (beim Start wird dann eine Warnung protokolliert). Standard: <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cms.tools</span></code></p></td>
+<td><p>Werkzeuggruppen, die dem Agenten angeboten werden. Standard (leer oder nicht angegeben): <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">&quot;read&quot;</span> <span class="pre">]</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code>: lesende Werkzeuge, inklusive der lesenden Git-Werkzeuge. Ist immer enthalten.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code>: Werkzeuge zum Ändern des CMS und schreibende Git-Werkzeuge (siehe <a class="reference internal" href="../../apps/cms/mcp.html#cms-mcp-write"><span class="std std-ref">Änderungen durch den Agenten</span></a>). Nur bei CMS mit Git-Versionierung wirksam. Ohne <code class="docutils literal notranslate"><span class="pre">write</span></code> kann in der Token-Verwaltung keine Berechtigung <strong>Lesen &amp; Schreiben</strong> gewählt werden; bestehende Tokens mit dieser Berechtigung erlauben dann nur lesenden Zugriff.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">deploy</span></code>: Werkzeuge für den Branch-Deploy (Fast Deploy). Setzt <code class="docutils literal notranslate"><span class="pre">write</span></code> voraus, ohne <code class="docutils literal notranslate"><span class="pre">write</span></code> wird <code class="docutils literal notranslate"><span class="pre">deploy</span></code> ignoriert (beim Start wird eine Warnung protokolliert).</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">datalinq</span></code></p></td>
+<td><p>Reserviert für einen MCP-Endpunkt von DataLinq.Code (derzeit noch nicht verfügbar).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Datei wird nur beim Start der CMS-Applikation gelesen. Nach Änderungen muss die Applikation neu gestartet werden.</p>
+</div>
+</section>
 <section id="datei-config-application-security-config">
 <h2>Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code><a class="headerlink" href="#datei-config-application-security-config" title="Link to this heading">¶</a></h2>
 <p>Standardmäßig ist das Web-CMS für alle Benutzer zugänglich, die die URL kennen. Um den Zugriff mit <strong>Benutzername und Passwort</strong> einzuschränken, kann diese Datei verwendet werden.</p>
@@ -885,6 +937,7 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 <li><a class="reference internal" href="#id1">Übersicht der wichtigsten Konfigurationsparameter</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#datei-config-mcp-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code></a></li>
 <li><a class="reference internal" href="#datei-config-application-security-config">Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code></a><ul>
 <li><a class="reference internal" href="#gesicherter-benutzerzugang">Gesicherter Benutzerzugang</a><ul>
 <li><a class="reference internal" href="#passwortgeschutzten-zugriff-auf-das-cms-einrichten">Passwortgeschützten Zugriff auf das CMS einrichten</a></li>

@@ -22,6 +22,7 @@ Bei einem CMS mit Git-Versionierung kann der Agent das CMS auch **ändern** (sie
 Voraussetzungen
 ---------------
 
+- MCP ist in der ``_config/mcp.config`` für das CMS freigegeben (siehe :ref:`cms-config-mcp-config`).
 - Der MCP-Endpunkt ist in der ``cms.config`` für das CMS aktiviert (siehe :ref:`cms-config-mcp`).
 - Der Zugang zum CMS ist gesichert (``_config/application-security.config``), da jeder Zugriff einem Benutzer zugeordnet wird.
 
@@ -34,7 +35,7 @@ Ein Agent meldet sich nicht über das Login-Formular an, sondern mit einem pers�
 2. Eine Bezeichnung (z. B. *VS Code Laptop*), die Gültigkeit (7, 30 oder 90 Tage) und - bei Git-Versionierung - die Berechtigung wählen und auf **Token erstellen** klicken:
 
    - **Lesen**: der Agent kann das CMS nur lesen.
-   - **Lesen & Schreiben**: der Agent kann zusätzlich Knoten ändern, Git-Befehle ausführen und Branch-Deploys erstellen (siehe :ref:`cms-mcp-write`). Nur bei Git-Versionierung möglich.
+   - **Lesen & Schreiben**: der Agent kann zusätzlich Knoten ändern, Git-Befehle ausführen und Branch-Deploys erstellen (siehe :ref:`cms-mcp-write`). Nur bei Git-Versionierung möglich und wenn Schreiben in der ``_config/mcp.config`` freigegeben ist (``"tools": ["read", "write", ...]``). Sonst wird keine Berechtigung angeboten.
 
 3. Den angezeigten Token bzw. die fertige Client-Konfiguration mit diesem Token kopieren (siehe unten). Der Token wird **nur einmal** angezeigt und am Server nur als Hash gespeichert.
 Ein Token gilt nur für dieses CMS und für den Benutzer, der ihn erstellt hat. Unter **Meine Tokens** werden Ablaufdatum und letzte Verwendung angezeigt. Nicht mehr benötigte Tokens sollten dort **widerrufen** werden.
@@ -122,6 +123,7 @@ Der Agent erhält folgende Werkzeuge (Tools) zum Lesen:
 Mit einem Token mit der Berechtigung **Lesen & Schreiben** kann der Agent das CMS ändern. Damit jede Änderung nachvollziehbar und rückgängig zu machen ist, gelten folgende Regeln:
 
 - Änderungen sind nur bei einem CMS mit Git-Versionierung möglich (siehe :doc:`git`).
+- Die Werkzeuge zum Ändern und die schreibenden Git-Werkzeuge werden nur angeboten, wenn in der ``_config/mcp.config`` die Gruppe ``write`` freigegeben ist, die Werkzeuge für den Branch-Deploy nur mit der Gruppe ``deploy`` (siehe :ref:`cms-config-mcp-config`). Die lesenden Git-Werkzeuge (``get_git_status``, ``list_branches``, ``get_changes``, ``get_file_diff``, ``get_history``) stehen auch mit einem Token mit der Berechtigung **Lesen** zur Verfügung.
 - Der Agent arbeitet im **Arbeitsbereich des Token-Besitzers**. Änderungen des Agenten sind sofort in der CMS-Oberfläche sichtbar und können dort geprüft und korrigiert werden.
 - Änderungen sind **nur in einem Arbeitszweig** möglich, nie direkt im Standard-Branch (z. B. ``main``). Der Agent legt dazu einen Arbeitszweig an oder wechselt in einen bestehenden.
 - **In main übernehmen**, Arbeitszweige löschen und das Deploy des veröffentlichten Stands sind über den Agenten **nicht** möglich. Diese Schritte bleiben dem Administrator in der CMS-Oberfläche vorbehalten.

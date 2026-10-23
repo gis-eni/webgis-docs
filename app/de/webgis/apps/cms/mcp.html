@@ -196,6 +196,7 @@
 <section id="voraussetzungen">
 <h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">¶</a></h2>
 <ul class="simple">
+<li><p>MCP ist in der <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code> für das CMS freigegeben (siehe <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp-config"><span class="std std-ref">Datei _config/mcp.config</span></a>).</p></li>
 <li><p>Der MCP-Endpunkt ist in der <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> für das CMS aktiviert (siehe <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp"><span class="std std-ref">Abschnitt mcp</span></a>).</p></li>
 <li><p>Der Zugang zum CMS ist gesichert (<code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code>), da jeder Zugriff einem Benutzer zugeordnet wird.</p></li>
 </ul>
@@ -208,7 +209,7 @@
 <li><p>Eine Bezeichnung (z. B. <em>VS Code Laptop</em>), die Gültigkeit (7, 30 oder 90 Tage) und - bei Git-Versionierung - die Berechtigung wählen und auf <strong>Token erstellen</strong> klicken:</p>
 <ul class="simple">
 <li><p><strong>Lesen</strong>: der Agent kann das CMS nur lesen.</p></li>
-<li><p><strong>Lesen &amp; Schreiben</strong>: der Agent kann zusätzlich Knoten ändern, Git-Befehle ausführen und Branch-Deploys erstellen (siehe <a class="reference internal" href="#cms-mcp-write"><span class="std std-ref">Änderungen durch den Agenten</span></a>). Nur bei Git-Versionierung möglich.</p></li>
+<li><p><strong>Lesen &amp; Schreiben</strong>: der Agent kann zusätzlich Knoten ändern, Git-Befehle ausführen und Branch-Deploys erstellen (siehe <a class="reference internal" href="#cms-mcp-write"><span class="std std-ref">Änderungen durch den Agenten</span></a>). Nur bei Git-Versionierung möglich und wenn Schreiben in der <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code> freigegeben ist (<code class="docutils literal notranslate"><span class="pre">&quot;tools&quot;:</span> <span class="pre">[&quot;read&quot;,</span> <span class="pre">&quot;write&quot;,</span> <span class="pre">...]</span></code>). Sonst wird keine Berechtigung angeboten.</p></li>
 </ul>
 </li>
 </ol>
@@ -299,6 +300,7 @@ Ein Token gilt nur für dieses CMS und für den Benutzer, der ihn erstellt hat. 
 <p>Mit einem Token mit der Berechtigung <strong>Lesen &amp; Schreiben</strong> kann der Agent das CMS ändern. Damit jede Änderung nachvollziehbar und rückgängig zu machen ist, gelten folgende Regeln:</p>
 <ul class="simple">
 <li><p>Änderungen sind nur bei einem CMS mit Git-Versionierung möglich (siehe <a class="reference internal" href="git.html"><span class="doc">Versionierung mit Git</span></a>).</p></li>
+<li><p>Die Werkzeuge zum Ändern und die schreibenden Git-Werkzeuge werden nur angeboten, wenn in der <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code> die Gruppe <code class="docutils literal notranslate"><span class="pre">write</span></code> freigegeben ist, die Werkzeuge für den Branch-Deploy nur mit der Gruppe <code class="docutils literal notranslate"><span class="pre">deploy</span></code> (siehe <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp-config"><span class="std std-ref">Datei _config/mcp.config</span></a>). Die lesenden Git-Werkzeuge (<code class="docutils literal notranslate"><span class="pre">get_git_status</span></code>, <code class="docutils literal notranslate"><span class="pre">list_branches</span></code>, <code class="docutils literal notranslate"><span class="pre">get_changes</span></code>, <code class="docutils literal notranslate"><span class="pre">get_file_diff</span></code>, <code class="docutils literal notranslate"><span class="pre">get_history</span></code>) stehen auch mit einem Token mit der Berechtigung <strong>Lesen</strong> zur Verfügung.</p></li>
 <li><p>Der Agent arbeitet im <strong>Arbeitsbereich des Token-Besitzers</strong>. Änderungen des Agenten sind sofort in der CMS-Oberfläche sichtbar und können dort geprüft und korrigiert werden.</p></li>
 <li><p>Änderungen sind <strong>nur in einem Arbeitszweig</strong> möglich, nie direkt im Standard-Branch (z. B. <code class="docutils literal notranslate"><span class="pre">main</span></code>). Der Agent legt dazu einen Arbeitszweig an oder wechselt in einen bestehenden.</p></li>
 <li><p><strong>In main übernehmen</strong>, Arbeitszweige löschen und das Deploy des veröffentlichten Stands sind über den Agenten <strong>nicht</strong> möglich. Diese Schritte bleiben dem Administrator in der CMS-Oberfläche vorbehalten.</p></li>

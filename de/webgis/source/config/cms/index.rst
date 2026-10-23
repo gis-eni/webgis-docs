@@ -214,6 +214,8 @@ Abschnitt ``mcp``
 
 Mit dem optionalen Abschnitt ``mcp`` wird der MCP-Endpunkt für KI-Agenten aktiviert. Die Verwendung ist unter :ref:`cms-mcp` beschrieben. Der Abschnitt kann im Root-Element (gilt für alle CMS) und in einzelnen ``cms-items`` (``enabled``, ``discovery-deployment``) angegeben werden.
 
+Zusätzlich muss MCP für das CMS in der Datei ``_config/mcp.config`` freigegeben sein (siehe :ref:`cms-config-mcp-config`). Dort wird auch festgelegt, welche Werkzeuge (Lesen, Schreiben, Deploy) angeboten werden.
+
 .. code-block:: json
 
     {
@@ -489,6 +491,51 @@ Wenn externe Dienste eingebunden werden, kann für den Zugriff ein **Proxy-Serve
        - ``user``, ``password`` und ``domain`` sind optional.  
        - Im Feld ``ignore`` können mehrere Regeln durch ``;`` getrennt angegeben werden. Wenn der aufgerufene Server mit einer dieser Zeichenketten beginnt, wird der Proxy ignoriert.  
        - Auch **reguläre Ausdrücke** können hier verwendet werden.
+
+
+.. _cms-config-mcp-config:
+
+Datei ``_config/mcp.config``
+============================
+
+.. versionadded:: 9.26.4104
+
+In dieser optionalen Datei wird für die gesamte CMS-Installation festgelegt, ob und für welche Anwendung ein MCP-Endpunkt für KI-Agenten angeboten wird und welche Werkzeuge der Agent verwenden darf. Für welche CMS der Endpunkt aktiviert ist, wird zusätzlich in der ``cms.config`` festgelegt (siehe :ref:`cms-config-mcp`). Die Verwendung ist unter :ref:`cms-mcp` beschrieben.
+
+.. code-block:: json
+
+   {
+      "cms": {
+         "enabled": true,
+         "tools": [ "read", "write", "deploy" ]
+      },
+      "datalinq": {
+         "enabled": false
+      }
+   }
+
+Existiert die Datei **nicht** oder fehlt ein Abschnitt, ist MCP für die jeweilige Anwendung **deaktiviert**.
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``cms.enabled``
+     - Bietet den MCP-Endpunkt ``/{cms-id}/mcp`` und die Verwaltung der Zugriffstokens an. Ist der Wert ``false``, wird MCP in der CMS-Applikation gar nicht eingebunden, auch wenn es in der ``cms.config`` aktiviert ist (beim Start wird dann eine Warnung protokolliert). Standard: ``false``.
+   * - ``cms.tools``
+     - Werkzeuggruppen, die dem Agenten angeboten werden. Standard (leer oder nicht angegeben): ``[ "read" ]``.
+
+       - ``read``: lesende Werkzeuge, inklusive der lesenden Git-Werkzeuge. Ist immer enthalten.
+       - ``write``: Werkzeuge zum Ändern des CMS und schreibende Git-Werkzeuge (siehe :ref:`cms-mcp-write`). Nur bei CMS mit Git-Versionierung wirksam. Ohne ``write`` kann in der Token-Verwaltung keine Berechtigung **Lesen & Schreiben** gewählt werden; bestehende Tokens mit dieser Berechtigung erlauben dann nur lesenden Zugriff.
+       - ``deploy``: Werkzeuge für den Branch-Deploy (Fast Deploy). Setzt ``write`` voraus, ohne ``write`` wird ``deploy`` ignoriert (beim Start wird eine Warnung protokolliert).
+   * - ``datalinq``
+     - Reserviert für einen MCP-Endpunkt von DataLinq.Code (derzeit noch nicht verfügbar).
+
+.. note::
+
+    Die Datei wird nur beim Start der CMS-Applikation gelesen. Nach Änderungen muss die Applikation neu gestartet werden.
 
 
 Datei ``_config/application-security.config``

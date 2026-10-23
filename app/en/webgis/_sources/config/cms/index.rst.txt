@@ -214,6 +214,8 @@ Section ``mcp``
 
 The optional section ``mcp`` enables the MCP endpoint for AI agents. Its usage is described in :ref:`cms-mcp`. The section can be specified in the root element (applies to all CMS) and in individual ``cms-items`` (``enabled``, ``discovery-deployment``).
 
+In addition, MCP must be enabled for the CMS in the file ``_config/mcp.config`` (see :ref:`cms-config-mcp-config`). It also defines which tools (read, write, deploy) are offered.
+
 .. code-block:: json
 
     {
@@ -489,6 +491,51 @@ Overview of the most important configuration parameters
        - ``user``, ``password`` and ``domain`` are optional.
        - In the ``ignore`` field, multiple rules can be specified separated by ``;``. If the called server starts with one of these strings, the proxy is ignored.
        - **Regular expressions** can also be used here.
+
+
+.. _cms-config-mcp-config:
+
+File ``_config/mcp.config``
+===========================
+
+.. versionadded:: 9.26.4104
+
+This optional file defines for the whole CMS installation whether and for which application an MCP endpoint for AI agents is offered, and which tools the agent may use. For which CMS the endpoint is enabled is additionally defined in the ``cms.config`` (see :ref:`cms-config-mcp`). Its usage is described in :ref:`cms-mcp`.
+
+.. code-block:: json
+
+   {
+      "cms": {
+         "enabled": true,
+         "tools": [ "read", "write", "deploy" ]
+      },
+      "datalinq": {
+         "enabled": false
+      }
+   }
+
+If the file does **not** exist or a section is missing, MCP is **disabled** for the respective application.
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``cms.enabled``
+     - Offers the MCP endpoint ``/{cms-id}/mcp`` and the access token management. If the value is ``false``, MCP is not included in the CMS application at all, even if it is enabled in the ``cms.config`` (a warning is logged at startup). Default: ``false``.
+   * - ``cms.tools``
+     - Tool groups offered to the agent. Default (empty or not specified): ``[ "read" ]``.
+
+       - ``read``: reading tools, including the reading Git tools. Always included.
+       - ``write``: tools for changing the CMS and writing Git tools (see :ref:`cms-mcp-write`). Only effective for CMS with Git versioning. Without ``write``, the permission **Read & write** cannot be selected in the token management; existing tokens with this permission then only allow read access.
+       - ``deploy``: tools for the branch deploy (fast deploy). Requires ``write``; without ``write``, ``deploy`` is ignored (a warning is logged at startup).
+   * - ``datalinq``
+     - Reserved for an MCP endpoint of DataLinq.Code (not available yet).
+
+.. note::
+
+    The file is only read when the CMS application starts. After changes, the application must be restarted.
 
 
 File ``_config/application-security.config``

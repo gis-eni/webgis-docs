@@ -195,6 +195,7 @@
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
 <ul class="simple">
+<li><p>MCP is enabled for the CMS in the <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code> (see <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp-config"><span class="std std-ref">File _config/mcp.config</span></a>).</p></li>
 <li><p>The MCP endpoint is enabled for the CMS in the <code class="docutils literal notranslate"><span class="pre">cms.config</span></code> (see <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp"><span class="std std-ref">Section mcp</span></a>).</p></li>
 <li><p>Access to the CMS is secured (<code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code>), because every access is assigned to a user.</p></li>
 </ul>
@@ -207,7 +208,7 @@
 <li><p>Choose a label (e.g. <em>VS Code Laptop</em>), the validity (7, 30 or 90 days) and - with Git versioning - the permission, and click <strong>Create token</strong>:</p>
 <ul class="simple">
 <li><p><strong>Read</strong>: the agent can only read the CMS.</p></li>
-<li><p><strong>Read &amp; write</strong>: the agent can additionally change nodes, run Git commands and create branch deploys (see <a class="reference internal" href="#cms-mcp-write"><span class="std std-ref">Changes by the agent</span></a>). Only possible with Git versioning.</p></li>
+<li><p><strong>Read &amp; write</strong>: the agent can additionally change nodes, run Git commands and create branch deploys (see <a class="reference internal" href="#cms-mcp-write"><span class="std std-ref">Changes by the agent</span></a>). Only possible with Git versioning and if writing is enabled in the <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code> (<code class="docutils literal notranslate"><span class="pre">&quot;tools&quot;:</span> <span class="pre">[&quot;read&quot;,</span> <span class="pre">&quot;write&quot;,</span> <span class="pre">...]</span></code>). Otherwise no permission is offered.</p></li>
 </ul>
 </li>
 <li><p>Copy the displayed token or the ready-to-use client configuration with this token (see below). The token is shown <strong>only once</strong> and stored on the server only as a hash.</p></li>
@@ -298,6 +299,7 @@
 <p>With a token with the permission <strong>Read &amp; write</strong>, the agent can change the CMS. To keep every change traceable and reversible, the following rules apply:</p>
 <ul class="simple">
 <li><p>Changes are only possible for a CMS with Git versioning (see <a class="reference internal" href="git.html"><span class="doc">Versioning with Git</span></a>).</p></li>
+<li><p>The tools for changes and the writing Git tools are only offered if the group <code class="docutils literal notranslate"><span class="pre">write</span></code> is enabled in the <code class="docutils literal notranslate"><span class="pre">_config/mcp.config</span></code>, the branch deploy tools only with the group <code class="docutils literal notranslate"><span class="pre">deploy</span></code> (see <a class="reference internal" href="../../config/cms/index.html#cms-config-mcp-config"><span class="std std-ref">File _config/mcp.config</span></a>). The reading Git tools (<code class="docutils literal notranslate"><span class="pre">get_git_status</span></code>, <code class="docutils literal notranslate"><span class="pre">list_branches</span></code>, <code class="docutils literal notranslate"><span class="pre">get_changes</span></code>, <code class="docutils literal notranslate"><span class="pre">get_file_diff</span></code>, <code class="docutils literal notranslate"><span class="pre">get_history</span></code>) are also available with a token with the permission <strong>Read</strong>.</p></li>
 <li><p>The agent works in the <strong>workspace of the token owner</strong>. Changes made by the agent are immediately visible in the CMS user interface and can be reviewed and corrected there.</p></li>
 <li><p>Changes are <strong>only possible in a working branch</strong>, never directly in the default branch (e.g. <code class="docutils literal notranslate"><span class="pre">main</span></code>). The agent creates a working branch or switches to an existing one.</p></li>
 <li><p><strong>Merging into main</strong>, deleting working branches and deploying the published state are <strong>not</strong> possible through the agent. These steps are reserved for the administrator in the CMS user interface.</p></li>

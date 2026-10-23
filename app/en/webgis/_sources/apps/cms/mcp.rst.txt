@@ -22,6 +22,7 @@ For a CMS with Git versioning, the agent can also **change** the CMS (see :ref:`
 Prerequisites
 -------------
 
+- MCP is enabled for the CMS in the ``_config/mcp.config`` (see :ref:`cms-config-mcp-config`).
 - The MCP endpoint is enabled for the CMS in the ``cms.config`` (see :ref:`cms-config-mcp`).
 - Access to the CMS is secured (``_config/application-security.config``), because every access is assigned to a user.
 
@@ -34,7 +35,7 @@ An agent does not log in via the login form but with a personal **access token**
 2. Choose a label (e.g. *VS Code Laptop*), the validity (7, 30 or 90 days) and - with Git versioning - the permission, and click **Create token**:
 
    - **Read**: the agent can only read the CMS.
-   - **Read & write**: the agent can additionally change nodes, run Git commands and create branch deploys (see :ref:`cms-mcp-write`). Only possible with Git versioning.
+   - **Read & write**: the agent can additionally change nodes, run Git commands and create branch deploys (see :ref:`cms-mcp-write`). Only possible with Git versioning and if writing is enabled in the ``_config/mcp.config`` (``"tools": ["read", "write", ...]``). Otherwise no permission is offered.
 
 3. Copy the displayed token or the ready-to-use client configuration with this token (see below). The token is shown **only once** and stored on the server only as a hash.
 
@@ -123,6 +124,7 @@ Changes by the agent
 With a token with the permission **Read & write**, the agent can change the CMS. To keep every change traceable and reversible, the following rules apply:
 
 - Changes are only possible for a CMS with Git versioning (see :doc:`git`).
+- The tools for changes and the writing Git tools are only offered if the group ``write`` is enabled in the ``_config/mcp.config``, the branch deploy tools only with the group ``deploy`` (see :ref:`cms-config-mcp-config`). The reading Git tools (``get_git_status``, ``list_branches``, ``get_changes``, ``get_file_diff``, ``get_history``) are also available with a token with the permission **Read**.
 - The agent works in the **workspace of the token owner**. Changes made by the agent are immediately visible in the CMS user interface and can be reviewed and corrected there.
 - Changes are **only possible in a working branch**, never directly in the default branch (e.g. ``main``). The agent creates a working branch or switches to an existing one.
 - **Merging into main**, deleting working branches and deploying the published state are **not** possible through the agent. These steps are reserved for the administrator in the CMS user interface.
