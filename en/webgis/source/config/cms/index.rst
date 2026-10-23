@@ -25,7 +25,6 @@ The template has the following format:
     {
       "shared-crypto-keys-path": "C:\\apps\\webgis/local/webgis-repository/security/keys",
       "company": "",
-      "elasticsearch-endpoint": null,
       "force-https": false,
       "services-default-url-scheme": "http://",
       "webgis-portal-instance": "http://localhost:5002",
@@ -91,6 +90,10 @@ Section ``Root Element``
      - Settings for the MCP endpoint for AI agents (see :ref:`cms-config-mcp`).
 
        .. versionadded:: 9.26.4104
+   * - ``elasticsearch-endpoint`` *(obsolete)*
+     - No longer used and can be removed from existing configurations. The node search in the CMS always filters locally in the loaded tree.
+
+       .. deprecated:: 9.26.4104
 
 With a **Web CMS**, multiple trees can be managed. An object is created in the ``cms-items`` array for each tree. The value of ``cms-items`` must be an **array** that contains individual ``cms-item`` objects.
 
