@@ -15,7 +15,6 @@ must be included on the web page:
 
     <!-- required styles and scripts: jquery, webgis-api, smartmap -->
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="https://api.webgiscloud.com/scripts/typeahead/typeahead.jquery.min.js"></script>
 
     <link href="https://api.webgiscloud.com/content/styles/webgis-api.min.css" rel="stylesheet" />
     <link href="https://api.webgiscloud.com/content/api/ui.app.css" rel="stylesheet" />
@@ -24,6 +23,10 @@ must be included on the web page:
 
     <link rel="stylesheet" href="https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.css" />
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.js"></script>
+
+.. versionchanged:: 9.26.4104
+   The script ``typeahead.jquery.min.js`` is no longer required and no longer shipped by the API; remove an existing script tag. Autocompletion is now part of the WebGIS API.
+   Custom styles must use the ``webgis-autocomplete-*`` classes instead of ``tt-*`` or ``.twitter-typeahead``.
 
 Within the *HTML body element*, an *HTML element* must then be defined,
 in which the *Smartmap* should be shown:

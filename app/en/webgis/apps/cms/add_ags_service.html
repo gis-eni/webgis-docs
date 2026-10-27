@@ -312,6 +312,29 @@ Prerequisites:</p>
 <p>The presentation or labeling defined by the user is passed to ArcGIS Server via DynamicLayers with every map request.
 Invalid definitions (e.g. fields that are not allowed) are ignored; the layer is then drawn with its default presentation.</p>
 </section>
+<section id="statistics-for-a-query-result">
+<span id="cms-ags-query-statistics"></span><h2>Statistics for a Query Result<a class="headerlink" href="#statistics-for-a-query-result" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>The <strong>Statistics</strong> tool is available in the result table of the map viewer (count, minimum, maximum, average, sum
+and count per value of a field, see the
+<a class="reference external" href="https://docs.webgiscloud.com/en/webgis-manual/mapviewer/search_identify/operations/results_desktop/results_desktop.html#results-query-statistics">manual</a>).
+The statistics are calculated by ArcGIS Server over the whole query (<code class="docutils literal notranslate"><span class="pre">outStatistics</span></code> or <code class="docutils literal notranslate"><span class="pre">groupByFieldsForStatistics</span></code>), even if
+the query returns more hits than are shown in the table. No separate configuration is necessary. The following
+prerequisites and restrictions apply:</p>
+<ul class="simple">
+<li><p>Statistics are only available for layers of <strong>ArcGIS Server</strong> services that support statistics queries (<code class="docutils literal notranslate"><span class="pre">supportsStatistics</span></code>).
+For other services (e.g. WMS, WFS), the tool is not shown.</p></li>
+<li><p>The <strong>QueryBuilder</strong> must be allowed for the service. Only the fields enabled in the CMS for the service under <strong>QueryBuilder</strong> are offered
+(as with the <em>Restrict</em> tool).</p></li>
+<li><p>For date fields, only key figures (count, minimum, maximum) are calculated; grouping or restricting by values is not possible.</p></li>
+<li><p>The number of values for <em>Count per value</em> is limited by the maximum record count of the service (<code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>).
+If not all values are returned, this is shown to the user.</p></li>
+<li><p>Restricting to a rank (all values with the same count) is limited to 1000 values and not possible if empty values or
+values with a comma are included.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -335,6 +358,7 @@ Invalid definitions (e.g. fields that are not allowed) are ignored; the layer is
 </ul>
 </li>
 <li><a class="reference internal" href="#user-defined-rendering-and-labeling">User-defined Rendering and Labeling</a></li>
+<li><a class="reference internal" href="#statistics-for-a-query-result">Statistics for a Query Result</a></li>
 </ul>
 </li>
 </ul>

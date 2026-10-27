@@ -160,7 +160,6 @@ search result as text is shown:</p>
 must be included on the web page:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- required styles and scripts: jquery, webgis-api, smartmap --&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/jquery-3.2.0.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/typeahead/typeahead.jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/webgis-api.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/api/ui.app.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
@@ -170,6 +169,10 @@ must be included on the web page:</p>
 <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.css&quot;</span> <span class="p">/&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 9.26.4104: </span>The script <code class="docutils literal notranslate"><span class="pre">typeahead.jquery.min.js</span></code> is no longer required and no longer shipped by the API; remove an existing script tag. Autocompletion is now part of the WebGIS API.
+Custom styles must use the <code class="docutils literal notranslate"><span class="pre">webgis-autocomplete-*</span></code> classes instead of <code class="docutils literal notranslate"><span class="pre">tt-*</span></code> or <code class="docutils literal notranslate"><span class="pre">.twitter-typeahead</span></code>.</p>
 </div>
 <p>Within the <em>HTML body element</em>, an <em>HTML element</em> must then be defined,
 in which the <em>Smartmap</em> should be shown:</p>

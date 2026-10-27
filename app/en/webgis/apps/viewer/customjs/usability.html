@@ -626,6 +626,26 @@ The menu item is enabled by default and can be hidden in <code class="docutils l
 <p>The maximum number of queried features is set in <code class="docutils literal notranslate"><span class="pre">api.config</span></code> with <code class="docutils literal notranslate"><span class="pre">table-feature-limit</span></code> in the section
 <code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code> (see <a class="reference internal" href="../../../config/api/index.html#api-config-toc-contextmenu"><span class="std std-ref">Context Menu in the Table of Contents (toc-contextmenu)</span></a>).</p>
 </section>
+<section id="animations-css">
+<span id="customjs-css-animations"></span><h2>Animations (CSS)<a class="headerlink" href="#animations-css" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>Expanding/collapsing and showing/hiding elements in the viewer (e.g. in the table of contents,
+the toolbox or the search) is done with CSS transitions instead of jQuery animations.
+The duration is 250 ms and can be adjusted in CSS with the variable <code class="docutils literal notranslate"><span class="pre">--webgis-fx-duration</span></code>.
+If <em>reduced motion</em> (<code class="docutils literal notranslate"><span class="pre">prefers-reduced-motion</span></code>) is set in the operating system/browser,
+no animation is shown.</p>
+<p>If this causes problems, you can switch back to the previous jQuery animations in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">cssAnimations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Animating the height when expanding/collapsing is currently only supported by Chromium-based
+browsers (Chrome, Edge). In other browsers, elements expand/collapse without a height animation.</p>
+</div>
+</section>
 </section>
 
 
@@ -666,6 +686,7 @@ The menu item is enabled by default and can be hidden in <code class="docutils l
 <li><a class="reference internal" href="#basemaps">Basemaps</a></li>
 <li><a class="reference internal" href="#areas-in-a-separate-window-detaching">Areas in a separate window (detaching)</a></li>
 <li><a class="reference internal" href="#table-in-the-context-menu-of-the-table-of-contents">Table in the Context Menu of the Table of Contents</a></li>
+<li><a class="reference internal" href="#animations-css">Animations (CSS)</a></li>
 </ul>
 </li>
 </ul>

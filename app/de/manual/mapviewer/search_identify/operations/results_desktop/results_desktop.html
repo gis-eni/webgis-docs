@@ -201,6 +201,57 @@ Datenbestand des Layers (inkl. aktiver Darstellungsfilter); das wird im Query Bu
 Das Werkzeug steht nur zur Verfügung, wenn für den Dienst der Query Builder erlaubt ist und Felder dafür freigegeben sind.</p>
 </div>
 </section>
+<section id="statistik-zum-abfrageergebnis">
+<span id="results-query-statistics"></span><h3>Statistik zum Abfrageergebnis<a class="headerlink" href="#statistik-zum-abfrageergebnis" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Über das Tabellen-Werkzeug <strong>Statistik</strong> erhält man einen Überblick über ein Feld des Abfrageergebnisses, zB wie viele Objekte es je Material gibt
+oder welches das älteste bzw. jüngste Baujahr ist. Ein Export nach Excel ist dafür nicht mehr notwendig.</p>
+<img alt="../../../../_images/statistik_werkzeug.png" src="../../../../_images/statistik_werkzeug.png" />
+<p>Die Statistik wird vom Dienst über die <strong>gesamte Abfrage</strong> berechnet, nicht nur über die in der Tabelle geladenen Objekte. Sie ist damit auch dann korrekt,
+wenn die Abfrage mehr Treffer liefert, als in der Tabelle angezeigt werden. Berücksichtigt werden die Abfragegeometrie, die Eingaben der Detailsuche
+und eine eventuell vorhandene <a class="reference internal" href="#results-query-restriction"><span class="std std-ref">Einschränkung</span></a>.</p>
+<p>Im Dialog wird das <strong>Feld</strong> ausgewählt (angeboten werden die für den Query Builder freigegebenen Felder) und die <strong>Darstellung</strong>:</p>
+<p><strong>Kennzahlen</strong> (Zahlen- und Datumsfelder): Anzahl der Objekte mit Wert, Anzahl leer, Minimum und Maximum, bei Zahlenfeldern zusätzlich Mittelwert und Summe.</p>
+<img alt="../../../../_images/statistik_kennzahlen.png" src="../../../../_images/statistik_kennzahlen.png" />
+<p><strong>Anzahl je Wert</strong> (Zahlen- und Textfelder, bei Textfeldern immer): Die Objekte werden nach den Werten des Feldes gruppiert. Über der Liste wird angezeigt, wie viele verschiedene Werte (Klassen) es gibt.</p>
+<img alt="../../../../_images/statistik_gruppen.png" src="../../../../_images/statistik_gruppen.png" />
+<p>Die Liste hat folgende Spalten:</p>
+<ul class="simple">
+<li><p><strong>#</strong>: fortlaufende Nummer der Zeile.</p></li>
+<li><p><strong>Platz</strong>: Rang des Wertes nach seiner Anzahl, Platz 1 ist der häufigste Wert. Werte mit gleicher Anzahl haben den gleichen Platz,
+der nächste Platz wird entsprechend übersprungen (zB 1, 2, 2, 4). Wiederholt sich ein Platz, wird er abgeschwächt dargestellt.</p></li>
+<li><p><strong>Wert</strong>: der Wert des Feldes. Leere Werte werden als <em>(leer)</em> angezeigt.</p></li>
+<li><p><strong>Anzahl</strong>: Anzahl der Objekte mit diesem Wert und deren Anteil am gesamten Ergebnis.</p></li>
+</ul>
+<p>Über <strong>Sortierung</strong> kann die Liste nach der Anzahl absteigend (Standard, Platz 1 steht oben) oder aufsteigend sortiert werden.</p>
+<p>Liefert der Dienst nicht alle Werte (die Anzahl der Werte ist durch das Limit des Dienstes beschränkt), wird unter der Liste angezeigt,
+wie viele Objekte weitere, nicht aufgelistete Werte haben.</p>
+<p>Mit <strong>Als CSV herunterladen</strong> wird die angezeigte Statistik als CSV-Datei (Trennzeichen <code class="docutils literal notranslate"><span class="pre">;</span></code>) heruntergeladen, zB zur Weiterverarbeitung in Excel.</p>
+<section id="ergebnis-uber-die-statistik-einschranken">
+<h4>Ergebnis über die Statistik einschränken<a class="headerlink" href="#ergebnis-uber-die-statistik-einschranken" title="Link to this heading">¶</a></h4>
+<p>In der Darstellung <strong>Anzahl je Wert</strong> kann das Abfrageergebnis direkt aus der Statistik eingeschränkt werden:</p>
+<ul class="simple">
+<li><p>Klick auf einen <strong>Wert</strong>: Das Ergebnis wird auf alle Objekte mit diesem Wert eingeschränkt (zB <code class="docutils literal notranslate"><span class="pre">KGNAME</span> <span class="pre">=</span> <span class="pre">Güssing</span></code>).</p></li>
+<li><p>Klick auf einen (unterstrichenen) <strong>Platz</strong>: Das Ergebnis wird auf alle Werte dieses Platzes eingeschränkt (zB <code class="docutils literal notranslate"><span class="pre">KGNAME</span> <span class="pre">in</span> <span class="pre">(Wert1,</span> <span class="pre">Wert2,</span> <span class="pre">...)</span></code>).</p></li>
+</ul>
+<p>Die Tabelle zeigt danach nur noch die passenden Objekte und einen Hinweis auf die Einschränkung:</p>
+<img alt="../../../../_images/statistik_einschraenkung.png" src="../../../../_images/statistik_einschraenkung.png" />
+<p>Ist bereits eine Einschränkung vorhanden, wird die neue Bedingung mit <strong>AND</strong> ergänzt. So kann das Ergebnis schrittweise weiter eingegrenzt werden.
+Die Statistik zeigt dabei die aktuelle Einschränkung an:</p>
+<img alt="../../../../_images/statistik_eingeschraenkt.png" src="../../../../_images/statistik_eingeschraenkt.png" />
+<p>Im Query Builder (Werkzeug <strong>Einschränken</strong>) können einzelne Bedingungen über das <strong>×</strong> wieder entfernt werden, zB um nach einem anderen Wert einzuschränken.
+Mit <strong>Anwenden</strong> wird das Ergebnis mit den verbleibenden Bedingungen neu abgefragt.</p>
+<img alt="../../../../_images/statistik_querybuilder.png" src="../../../../_images/statistik_querybuilder.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Statistik steht nur für Layer von ArcGIS-Diensten zur Verfügung, die Statistikabfragen unterstützen, und nur, wenn für den Dienst der Query Builder erlaubt ist.
+Für Datumsfelder werden nur die Kennzahlen angezeigt. Eine Einschränkung über einen Platz ist nicht möglich, wenn dieser leere Werte oder Werte mit Komma enthält
+oder mehr als 1000 Werte umfasst.</p>
+</div>
+</section>
+</section>
 </section>
 <section id="tabellen-tabs">
 <h2>Tabellen-Tabs<a class="headerlink" href="#tabellen-tabs" title="Link to this heading">¶</a></h2>
@@ -236,6 +287,10 @@ Das Werkzeug steht nur zur Verfügung, wenn für den Dienst der Query Builder er
 <li><a class="reference internal" href="#ergebnisliste">Ergebnisliste</a></li>
 <li><a class="reference internal" href="#tabellen-werkzeuge">Tabellen-Werkzeuge</a><ul>
 <li><a class="reference internal" href="#abfrageergebnis-einschranken">Abfrageergebnis einschränken</a></li>
+<li><a class="reference internal" href="#statistik-zum-abfrageergebnis">Statistik zum Abfrageergebnis</a><ul>
+<li><a class="reference internal" href="#ergebnis-uber-die-statistik-einschranken">Ergebnis über die Statistik einschränken</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#tabellen-tabs">Tabellen-Tabs</a></li>

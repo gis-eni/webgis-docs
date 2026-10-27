@@ -62,6 +62,74 @@ and the conditions from the Query Builder are added. Afterwards, the table only 
    The restriction only affects the query result in the table. It is **not a display filter**; the way the layer is drawn in the map does not change.
    The tool is only available if the Query Builder is allowed for the service and fields are enabled for it.
 
+.. _results-query-statistics:
+
+Statistics for a Query Result
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+The **Statistics** table tool gives an overview of a field of the query result, e.g. how many features exist per material
+or which is the oldest or newest year of construction. An export to Excel is no longer necessary for this.
+
+.. image:: img/statistik_werkzeug.png
+
+The statistics are calculated by the service over the **whole query**, not only over the features loaded into the table. They are therefore correct
+even if the query returns more hits than are shown in the table. The query geometry, the inputs of the detail search
+and an existing :ref:`restriction <results-query-restriction>` are taken into account.
+
+In the dialog, select the **Field** (the fields enabled for the Query Builder are offered) and the **Display**:
+
+**Key figures** (number and date fields): count of features with a value, count empty, minimum and maximum, for number fields also average and sum.
+
+.. image:: img/statistik_kennzahlen.png
+
+**Count per value** (number and text fields, always for text fields): The features are grouped by the values of the field. Above the list, the number of distinct values (classes) is shown.
+
+.. image:: img/statistik_gruppen.png
+
+The list has the following columns:
+
+* **#**: consecutive row number.
+* **Rank**: rank of the value by its count, rank 1 is the most frequent value. Values with the same count share the same rank,
+  and the next rank is skipped accordingly (e.g. 1, 2, 2, 4). A repeated rank is shown faded.
+* **Value**: the value of the field. Empty values are shown as *(empty)*.
+* **Count**: number of features with this value and their share of the whole result.
+
+**Sort order** sorts the list by count in descending (default, rank 1 at the top) or ascending order.
+
+If the service does not return all values (the number of values is limited by the service), a hint below the list shows
+how many features have further values that are not listed.
+
+**Download as CSV** downloads the displayed statistics as a CSV file (separator ``;``), e.g. for further processing in Excel.
+
+Restricting the Result via the Statistics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the **Count per value** display, the query result can be restricted directly from the statistics:
+
+* Click on a **value**: the result is restricted to all features with this value (e.g. ``KGNAME = Güssing``).
+* Click on an (underlined) **rank**: the result is restricted to all values of this rank (e.g. ``KGNAME in (value1, value2, ...)``).
+
+Afterwards, the table only shows the matching features and a hint about the restriction:
+
+.. image:: img/statistik_einschraenkung.png
+
+If a restriction already exists, the new condition is added with **AND**. This way, the result can be narrowed down step by step.
+The statistics then show the current restriction:
+
+.. image:: img/statistik_eingeschraenkt.png
+
+In the Query Builder (**Restrict** tool), single conditions can be removed again with the **×**, e.g. to restrict by a different value.
+**Apply** queries the result again with the remaining conditions.
+
+.. image:: img/statistik_querybuilder.png
+
+.. note::
+   Statistics are only available for layers of ArcGIS services that support statistics queries, and only if the Query Builder is allowed for the service.
+   For date fields, only the key figures are shown. Restricting to a rank is not possible if it contains empty values or values with a comma,
+   or more than 1000 values.
+
 
 Table Tabs
 -------------

@@ -636,6 +636,28 @@ Der Menüpunkt ist standardmäßig aktiv und kann in der <code class="docutils l
 <p>Die maximale Anzahl der abgefragten Objekte wird in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> mit <code class="docutils literal notranslate"><span class="pre">table-feature-limit</span></code> in der Section
 <code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code> festgelegt (siehe <a class="reference internal" href="../../../config/api/index.html#api-config-toc-contextmenu"><span class="std std-ref">Kontextmenü im Inhaltsverzeichnis (toc-contextmenu)</span></a>).</p>
 </section>
+<section id="animationen-css">
+<span id="customjs-css-animations"></span><h2>Animationen (CSS)<a class="headerlink" href="#animationen-css" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Auf- und Zuklappen bzw. Ein- und Ausblenden von Elementen im Viewer (z. B. im Inhaltsverzeichnis,
+in der Toolbox oder in der Suche) werden über CSS-Transitions statt über jQuery-Animationen ausgeführt.
+Die Dauer beträgt 250 ms und kann im CSS über die Variable <code class="docutils literal notranslate"><span class="pre">--webgis-fx-duration</span></code> angepasst
+werden. Ist im Betriebssystem/Browser <em>reduzierte Bewegung</em> (<code class="docutils literal notranslate"><span class="pre">prefers-reduced-motion</span></code>) eingestellt,
+wird nicht animiert.</p>
+<p>Sollte es dabei zu Problemen kommen, kann in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> auf die bisherigen jQuery-Animationen
+zurückgeschaltet werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">cssAnimations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Das Animieren der Höhe beim Auf- und Zuklappen wird derzeit nur von Chromium-basierten Browsern
+(Chrome, Edge) unterstützt. In anderen Browsern werden die Elemente ohne Höhenanimation auf- bzw.
+zugeklappt.</p>
+</div>
+</section>
 </section>
 
 
@@ -676,6 +698,7 @@ Der Menüpunkt ist standardmäßig aktiv und kann in der <code class="docutils l
 <li><a class="reference internal" href="#hintergrundkarten-basemaps">Hintergrundkarten (Basemaps)</a></li>
 <li><a class="reference internal" href="#bereiche-in-eigenem-fenster-abkoppeln">Bereiche in eigenem Fenster (Abkoppeln)</a></li>
 <li><a class="reference internal" href="#tabelle-im-kontextmenu-des-inhaltsverzeichnisses">Tabelle im Kontextmenü des Inhaltsverzeichnisses</a></li>
+<li><a class="reference internal" href="#animationen-css">Animationen (CSS)</a></li>
 </ul>
 </li>
 </ul>

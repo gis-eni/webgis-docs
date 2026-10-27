@@ -146,3 +146,27 @@ Prerequisites:
 
 The presentation or labeling defined by the user is passed to ArcGIS Server via DynamicLayers with every map request.
 Invalid definitions (e.g. fields that are not allowed) are ignored; the layer is then drawn with its default presentation.
+
+.. _cms-ags-query-statistics:
+
+Statistics for a Query Result
+-----------------------------
+
+.. versionadded:: 9.26.4104
+
+The **Statistics** tool is available in the result table of the map viewer (count, minimum, maximum, average, sum
+and count per value of a field, see the
+`manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/search_identify/operations/results_desktop/results_desktop.html#results-query-statistics>`_).
+The statistics are calculated by ArcGIS Server over the whole query (``outStatistics`` or ``groupByFieldsForStatistics``), even if
+the query returns more hits than are shown in the table. No separate configuration is necessary. The following
+prerequisites and restrictions apply:
+
+* Statistics are only available for layers of **ArcGIS Server** services that support statistics queries (``supportsStatistics``).
+  For other services (e.g. WMS, WFS), the tool is not shown.
+* The **QueryBuilder** must be allowed for the service. Only the fields enabled in the CMS for the service under **QueryBuilder** are offered
+  (as with the *Restrict* tool).
+* For date fields, only key figures (count, minimum, maximum) are calculated; grouping or restricting by values is not possible.
+* The number of values for *Count per value* is limited by the maximum record count of the service (``maxRecordCount``).
+  If not all values are returned, this is shown to the user.
+* Restricting to a rank (all values with the same count) is limited to 1000 values and not possible if empty values or
+  values with a comma are included.

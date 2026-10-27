@@ -314,6 +314,29 @@ eingeschränkt werden. Voraussetzungen:</p>
 <p>Die vom Anwender festgelegte Darstellung bzw. Beschriftung wird bei jedem Kartenrequest über DynamicLayers an den ArcGIS Server
 übergeben. Ungültige Definitionen (zB nicht erlaubte Felder) werden ignoriert; der Layer wird dann in der Standard-Darstellung gezeichnet.</p>
 </section>
+<section id="statistik-zum-abfrageergebnis">
+<span id="cms-ags-query-statistics"></span><h2>Statistik zum Abfrageergebnis<a class="headerlink" href="#statistik-zum-abfrageergebnis" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>In der Ergebnistabelle des Karten Viewers steht das Werkzeug <strong>Statistik</strong> zur Verfügung (Anzahl, Minimum, Maximum, Mittelwert, Summe
+und Anzahl je Wert eines Feldes, siehe
+<a class="reference external" href="https://docs.webgiscloud.com/de/webgis-manual/mapviewer/search_identify/operations/results_desktop/results_desktop.html#results-query-statistics">Handbuch</a>).
+Die Statistik wird vom ArcGIS Server über die gesamte Abfrage berechnet (<code class="docutils literal notranslate"><span class="pre">outStatistics</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">groupByFieldsForStatistics</span></code>), auch wenn
+die Abfrage mehr Treffer liefert, als in der Tabelle angezeigt werden. Eine eigene Konfiguration ist nicht notwendig. Es gelten folgende
+Voraussetzungen und Einschränkungen:</p>
+<ul class="simple">
+<li><p>Die Statistik steht nur für Layer von <strong>ArcGIS Server</strong> Diensten zur Verfügung, die Statistikabfragen unterstützen (<code class="docutils literal notranslate"><span class="pre">supportsStatistics</span></code>).
+Für andere Dienste (zB WMS, WFS) wird das Werkzeug nicht angezeigt.</p></li>
+<li><p>Für den Dienst muss der <strong>QueryBuilder</strong> erlaubt sein. Angeboten werden nur die Felder, die im CMS beim Dienst unter <strong>QueryBuilder</strong> freigegeben sind
+(wie beim Werkzeug <em>Einschränken</em>).</p></li>
+<li><p>Für Datumsfelder werden nur Kennzahlen (Anzahl, Minimum, Maximum) berechnet, eine Gruppierung bzw. Einschränkung über Werte ist nicht möglich.</p></li>
+<li><p>Die Anzahl der Werte bei <em>Anzahl je Wert</em> ist durch die maximale Anzahl an Datensätzen des Dienstes (<code class="docutils literal notranslate"><span class="pre">maxRecordCount</span></code>) begrenzt.
+Werden nicht alle Werte geliefert, wird das dem Anwender angezeigt.</p></li>
+<li><p>Eine Einschränkung über einen Platz (alle Werte mit gleicher Anzahl) ist auf 1000 Werte begrenzt und nicht möglich, wenn leere Werte oder
+Werte mit Komma enthalten sind.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -337,6 +360,7 @@ eingeschränkt werden. Voraussetzungen:</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#benutzerdefinierte-darstellung-und-beschriftung">Benutzerdefinierte Darstellung und Beschriftung</a></li>
+<li><a class="reference internal" href="#statistik-zum-abfrageergebnis">Statistik zum Abfrageergebnis</a></li>
 </ul>
 </li>
 </ul>

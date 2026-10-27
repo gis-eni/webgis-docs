@@ -62,6 +62,74 @@ und die Eingaben der Detailsuche, ergänzt um die Bedingungen aus dem Query Buil
    Die Einschränkung wirkt nur auf das Abfrageergebnis in der Tabelle. Sie ist **kein Darstellungsfilter**, die Darstellung des Layers in der Karte bleibt unverändert.
    Das Werkzeug steht nur zur Verfügung, wenn für den Dienst der Query Builder erlaubt ist und Felder dafür freigegeben sind.
 
+.. _results-query-statistics:
+
+Statistik zum Abfrageergebnis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 9.26.4104
+
+Über das Tabellen-Werkzeug **Statistik** erhält man einen Überblick über ein Feld des Abfrageergebnisses, zB wie viele Objekte es je Material gibt
+oder welches das älteste bzw. jüngste Baujahr ist. Ein Export nach Excel ist dafür nicht mehr notwendig.
+
+.. image:: img/statistik_werkzeug.png
+
+Die Statistik wird vom Dienst über die **gesamte Abfrage** berechnet, nicht nur über die in der Tabelle geladenen Objekte. Sie ist damit auch dann korrekt,
+wenn die Abfrage mehr Treffer liefert, als in der Tabelle angezeigt werden. Berücksichtigt werden die Abfragegeometrie, die Eingaben der Detailsuche
+und eine eventuell vorhandene :ref:`Einschränkung <results-query-restriction>`.
+
+Im Dialog wird das **Feld** ausgewählt (angeboten werden die für den Query Builder freigegebenen Felder) und die **Darstellung**:
+
+**Kennzahlen** (Zahlen- und Datumsfelder): Anzahl der Objekte mit Wert, Anzahl leer, Minimum und Maximum, bei Zahlenfeldern zusätzlich Mittelwert und Summe.
+
+.. image:: img/statistik_kennzahlen.png
+
+**Anzahl je Wert** (Zahlen- und Textfelder, bei Textfeldern immer): Die Objekte werden nach den Werten des Feldes gruppiert. Über der Liste wird angezeigt, wie viele verschiedene Werte (Klassen) es gibt.
+
+.. image:: img/statistik_gruppen.png
+
+Die Liste hat folgende Spalten:
+
+* **#**: fortlaufende Nummer der Zeile.
+* **Platz**: Rang des Wertes nach seiner Anzahl, Platz 1 ist der häufigste Wert. Werte mit gleicher Anzahl haben den gleichen Platz,
+  der nächste Platz wird entsprechend übersprungen (zB 1, 2, 2, 4). Wiederholt sich ein Platz, wird er abgeschwächt dargestellt.
+* **Wert**: der Wert des Feldes. Leere Werte werden als *(leer)* angezeigt.
+* **Anzahl**: Anzahl der Objekte mit diesem Wert und deren Anteil am gesamten Ergebnis.
+
+Über **Sortierung** kann die Liste nach der Anzahl absteigend (Standard, Platz 1 steht oben) oder aufsteigend sortiert werden.
+
+Liefert der Dienst nicht alle Werte (die Anzahl der Werte ist durch das Limit des Dienstes beschränkt), wird unter der Liste angezeigt,
+wie viele Objekte weitere, nicht aufgelistete Werte haben.
+
+Mit **Als CSV herunterladen** wird die angezeigte Statistik als CSV-Datei (Trennzeichen ``;``) heruntergeladen, zB zur Weiterverarbeitung in Excel.
+
+Ergebnis über die Statistik einschränken
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In der Darstellung **Anzahl je Wert** kann das Abfrageergebnis direkt aus der Statistik eingeschränkt werden:
+
+* Klick auf einen **Wert**: Das Ergebnis wird auf alle Objekte mit diesem Wert eingeschränkt (zB ``KGNAME = Güssing``).
+* Klick auf einen (unterstrichenen) **Platz**: Das Ergebnis wird auf alle Werte dieses Platzes eingeschränkt (zB ``KGNAME in (Wert1, Wert2, ...)``).
+
+Die Tabelle zeigt danach nur noch die passenden Objekte und einen Hinweis auf die Einschränkung:
+
+.. image:: img/statistik_einschraenkung.png
+
+Ist bereits eine Einschränkung vorhanden, wird die neue Bedingung mit **AND** ergänzt. So kann das Ergebnis schrittweise weiter eingegrenzt werden.
+Die Statistik zeigt dabei die aktuelle Einschränkung an:
+
+.. image:: img/statistik_eingeschraenkt.png
+
+Im Query Builder (Werkzeug **Einschränken**) können einzelne Bedingungen über das **×** wieder entfernt werden, zB um nach einem anderen Wert einzuschränken.
+Mit **Anwenden** wird das Ergebnis mit den verbleibenden Bedingungen neu abgefragt.
+
+.. image:: img/statistik_querybuilder.png
+
+.. note::
+   Die Statistik steht nur für Layer von ArcGIS-Diensten zur Verfügung, die Statistikabfragen unterstützen, und nur, wenn für den Dienst der Query Builder erlaubt ist.
+   Für Datumsfelder werden nur die Kennzahlen angezeigt. Eine Einschränkung über einen Platz ist nicht möglich, wenn dieser leere Werte oder Werte mit Komma enthält
+   oder mehr als 1000 Werte umfasst.
+
 
 Tabellen-Tabs 
 --------------

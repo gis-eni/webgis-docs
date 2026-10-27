@@ -179,7 +179,6 @@
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;shared-crypto-keys-path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/security/keys&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;company&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;elasticsearch-endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;force-https&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;services-default-url-scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;webgis-portal-instance&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:5002&quot;</span><span class="p">,</span>
@@ -254,6 +253,13 @@
 <td><p>Settings for the MCP endpoint for AI agents (see <a class="reference internal" href="#cms-config-mcp"><span class="std std-ref">Section mcp</span></a>).</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">elasticsearch-endpoint</span></code> <em>(obsolete)</em></p></td>
+<td><p>No longer used and can be removed from existing configurations. The node search in the CMS always filters locally in the loaded tree.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 9.26.4104.</span></p>
 </div>
 </td>
 </tr>

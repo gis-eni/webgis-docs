@@ -16,7 +16,6 @@ Scripte und das Script für das *Smartmap-Plugin* eingebunden werden:
 
     <!-- required styles and scripts: jquery, webgis-api, smartmap -->
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="https://api.webgiscloud.com/scripts/typeahead/typeahead.jquery.min.js"></script>
 
     <link href="https://api.webgiscloud.com/content/styles/webgis-api.min.css" rel="stylesheet" />
     <link href="https://api.webgiscloud.com/content/api/ui.app.css" rel="stylesheet" />
@@ -25,6 +24,10 @@ Scripte und das Script für das *Smartmap-Plugin* eingebunden werden:
 
     <link rel="stylesheet" href="https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.css" />
     <script type="text/javascript" src="https://api.webgiscloud.com/scripts/api/plugins/smartmap/smartmap.js"></script>
+
+.. versionchanged:: 9.26.4104
+   Das Script ``typeahead.jquery.min.js`` wird nicht mehr benötigt und von der API nicht mehr ausgeliefert; ein bestehendes Script-Tag muss entfernt werden. Die Autovervollständigung ist jetzt Teil der WebGIS-API.
+   Eigene Styles müssen statt der Klassen ``tt-*`` bzw. ``.twitter-typeahead`` die Klassen ``webgis-autocomplete-*`` verwenden.
 
 Innerhalb des *HTML Body Elements* muss dann ein *HTML Element* definiert werden, 
 in dem die *Smartmap* dargestellt werden soll:

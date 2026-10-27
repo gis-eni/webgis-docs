@@ -147,3 +147,27 @@ eingeschränkt werden. Voraussetzungen:
 
 Die vom Anwender festgelegte Darstellung bzw. Beschriftung wird bei jedem Kartenrequest über DynamicLayers an den ArcGIS Server
 übergeben. Ungültige Definitionen (zB nicht erlaubte Felder) werden ignoriert; der Layer wird dann in der Standard-Darstellung gezeichnet.
+
+.. _cms-ags-query-statistics:
+
+Statistik zum Abfrageergebnis
+-----------------------------
+
+.. versionadded:: 9.26.4104
+
+In der Ergebnistabelle des Karten Viewers steht das Werkzeug **Statistik** zur Verfügung (Anzahl, Minimum, Maximum, Mittelwert, Summe
+und Anzahl je Wert eines Feldes, siehe
+`Handbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/search_identify/operations/results_desktop/results_desktop.html#results-query-statistics>`_).
+Die Statistik wird vom ArcGIS Server über die gesamte Abfrage berechnet (``outStatistics`` bzw. ``groupByFieldsForStatistics``), auch wenn
+die Abfrage mehr Treffer liefert, als in der Tabelle angezeigt werden. Eine eigene Konfiguration ist nicht notwendig. Es gelten folgende
+Voraussetzungen und Einschränkungen:
+
+* Die Statistik steht nur für Layer von **ArcGIS Server** Diensten zur Verfügung, die Statistikabfragen unterstützen (``supportsStatistics``).
+  Für andere Dienste (zB WMS, WFS) wird das Werkzeug nicht angezeigt.
+* Für den Dienst muss der **QueryBuilder** erlaubt sein. Angeboten werden nur die Felder, die im CMS beim Dienst unter **QueryBuilder** freigegeben sind
+  (wie beim Werkzeug *Einschränken*).
+* Für Datumsfelder werden nur Kennzahlen (Anzahl, Minimum, Maximum) berechnet, eine Gruppierung bzw. Einschränkung über Werte ist nicht möglich.
+* Die Anzahl der Werte bei *Anzahl je Wert* ist durch die maximale Anzahl an Datensätzen des Dienstes (``maxRecordCount``) begrenzt.
+  Werden nicht alle Werte geliefert, wird das dem Anwender angezeigt.
+* Eine Einschränkung über einen Platz (alle Werte mit gleicher Anzahl) ist auf 1000 Werte begrenzt und nicht möglich, wenn leere Werte oder
+  Werte mit Komma enthalten sind.

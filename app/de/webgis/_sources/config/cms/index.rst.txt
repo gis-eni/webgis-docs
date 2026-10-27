@@ -25,7 +25,6 @@ Die Vorlage hat folgendes Format:
     {
       "shared-crypto-keys-path": "C:\\apps\\webgis/local/webgis-repository/security/keys",
       "company": "",
-      "elasticsearch-endpoint": null,
       "force-https": false,
       "services-default-url-scheme": "http://",
       "webgis-portal-instance": "http://localhost:5002",
@@ -91,6 +90,10 @@ Abschnitt ``Root-Element``
      - Einstellungen für den MCP-Endpunkt für KI-Agenten (siehe :ref:`cms-config-mcp`).
 
        .. versionadded:: 9.26.4104
+   * - ``elasticsearch-endpoint`` *(veraltet)*
+     - Wird nicht mehr verwendet und kann aus bestehenden Konfigurationen entfernt werden. Die Knotensuche im CMS filtert immer lokal im geladenen Baum.
+
+       .. deprecated:: 9.26.4104
 
 Mit einem **Web-CMS** können mehrere Bäume verwaltet werden. Für jeden Baum wird ein Objekt im ``cms-items``-Array angelegt. Der Wert von ``cms-items`` muss ein **Array** sein, das einzelne ``cms-item``-Objekte enthält.
 

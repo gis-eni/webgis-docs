@@ -200,6 +200,57 @@ features of the layer (including active display filters); this is also shown in 
 The tool is only available if the Query Builder is allowed for the service and fields are enabled for it.</p>
 </div>
 </section>
+<section id="statistics-for-a-query-result">
+<span id="results-query-statistics"></span><h3>Statistics for a Query Result<a class="headerlink" href="#statistics-for-a-query-result" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>The <strong>Statistics</strong> table tool gives an overview of a field of the query result, e.g. how many features exist per material
+or which is the oldest or newest year of construction. An export to Excel is no longer necessary for this.</p>
+<img alt="../../../../_images/statistik_werkzeug.png" src="../../../../_images/statistik_werkzeug.png" />
+<p>The statistics are calculated by the service over the <strong>whole query</strong>, not only over the features loaded into the table. They are therefore correct
+even if the query returns more hits than are shown in the table. The query geometry, the inputs of the detail search
+and an existing <a class="reference internal" href="#results-query-restriction"><span class="std std-ref">restriction</span></a> are taken into account.</p>
+<p>In the dialog, select the <strong>Field</strong> (the fields enabled for the Query Builder are offered) and the <strong>Display</strong>:</p>
+<p><strong>Key figures</strong> (number and date fields): count of features with a value, count empty, minimum and maximum, for number fields also average and sum.</p>
+<img alt="../../../../_images/statistik_kennzahlen.png" src="../../../../_images/statistik_kennzahlen.png" />
+<p><strong>Count per value</strong> (number and text fields, always for text fields): The features are grouped by the values of the field. Above the list, the number of distinct values (classes) is shown.</p>
+<img alt="../../../../_images/statistik_gruppen.png" src="../../../../_images/statistik_gruppen.png" />
+<p>The list has the following columns:</p>
+<ul class="simple">
+<li><p><strong>#</strong>: consecutive row number.</p></li>
+<li><p><strong>Rank</strong>: rank of the value by its count, rank 1 is the most frequent value. Values with the same count share the same rank,
+and the next rank is skipped accordingly (e.g. 1, 2, 2, 4). A repeated rank is shown faded.</p></li>
+<li><p><strong>Value</strong>: the value of the field. Empty values are shown as <em>(empty)</em>.</p></li>
+<li><p><strong>Count</strong>: number of features with this value and their share of the whole result.</p></li>
+</ul>
+<p><strong>Sort order</strong> sorts the list by count in descending (default, rank 1 at the top) or ascending order.</p>
+<p>If the service does not return all values (the number of values is limited by the service), a hint below the list shows
+how many features have further values that are not listed.</p>
+<p><strong>Download as CSV</strong> downloads the displayed statistics as a CSV file (separator <code class="docutils literal notranslate"><span class="pre">;</span></code>), e.g. for further processing in Excel.</p>
+<section id="restricting-the-result-via-the-statistics">
+<h4>Restricting the Result via the Statistics<a class="headerlink" href="#restricting-the-result-via-the-statistics" title="Link to this heading">¶</a></h4>
+<p>In the <strong>Count per value</strong> display, the query result can be restricted directly from the statistics:</p>
+<ul class="simple">
+<li><p>Click on a <strong>value</strong>: the result is restricted to all features with this value (e.g. <code class="docutils literal notranslate"><span class="pre">KGNAME</span> <span class="pre">=</span> <span class="pre">Güssing</span></code>).</p></li>
+<li><p>Click on an (underlined) <strong>rank</strong>: the result is restricted to all values of this rank (e.g. <code class="docutils literal notranslate"><span class="pre">KGNAME</span> <span class="pre">in</span> <span class="pre">(value1,</span> <span class="pre">value2,</span> <span class="pre">...)</span></code>).</p></li>
+</ul>
+<p>Afterwards, the table only shows the matching features and a hint about the restriction:</p>
+<img alt="../../../../_images/statistik_einschraenkung.png" src="../../../../_images/statistik_einschraenkung.png" />
+<p>If a restriction already exists, the new condition is added with <strong>AND</strong>. This way, the result can be narrowed down step by step.
+The statistics then show the current restriction:</p>
+<img alt="../../../../_images/statistik_eingeschraenkt.png" src="../../../../_images/statistik_eingeschraenkt.png" />
+<p>In the Query Builder (<strong>Restrict</strong> tool), single conditions can be removed again with the <strong>×</strong>, e.g. to restrict by a different value.
+<strong>Apply</strong> queries the result again with the remaining conditions.</p>
+<img alt="../../../../_images/statistik_querybuilder.png" src="../../../../_images/statistik_querybuilder.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Statistics are only available for layers of ArcGIS services that support statistics queries, and only if the Query Builder is allowed for the service.
+For date fields, only the key figures are shown. Restricting to a rank is not possible if it contains empty values or values with a comma,
+or more than 1000 values.</p>
+</div>
+</section>
+</section>
 </section>
 <section id="table-tabs">
 <h2>Table Tabs<a class="headerlink" href="#table-tabs" title="Link to this heading">¶</a></h2>
@@ -235,6 +286,10 @@ The tool is only available if the Query Builder is allowed for the service and f
 <li><a class="reference internal" href="#result-list">Result List</a></li>
 <li><a class="reference internal" href="#table-tools">Table Tools</a><ul>
 <li><a class="reference internal" href="#restricting-a-query-result">Restricting a Query Result</a></li>
+<li><a class="reference internal" href="#statistics-for-a-query-result">Statistics for a Query Result</a><ul>
+<li><a class="reference internal" href="#restricting-the-result-via-the-statistics">Restricting the Result via the Statistics</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#table-tabs">Table Tabs</a></li>
