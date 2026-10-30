@@ -646,6 +646,21 @@ no animation is shown.</p>
 browsers (Chrome, Edge). In other browsers, elements expand/collapse without a height animation.</p>
 </div>
 </section>
+<section id="tool-groups-e-g-drawing-map-markup">
+<span id="customjs-group-tool-options"></span><h2>Tool Groups (e.g. Drawing/Map Markup)<a class="headerlink" href="#tool-groups-e-g-drawing-map-markup" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>Tools with many sub-tools combine them into groups to save space. For the <em>Drawing (Map Markup)</em>
+tool these are, for example, the groups <em>Draw</em>, <em>Measure</em> and <em>Import/Export</em>. Clicking a group
+opens a selection with the tools of this group
+(see <a class="reference external" href="https://docs.webgiscloud.com/en/webgis-manual/mapviewer/tools/general/mapmarkup/manual.html#mapmarkup-tool-groups">Drawing in the user manual</a>).</p>
+<p>To show all tools side by side without groups as before, the grouping can be turned off in
+<code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">groupToolOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -687,6 +702,7 @@ browsers (Chrome, Edge). In other browsers, elements expand/collapse without a h
 <li><a class="reference internal" href="#areas-in-a-separate-window-detaching">Areas in a separate window (detaching)</a></li>
 <li><a class="reference internal" href="#table-in-the-context-menu-of-the-table-of-contents">Table in the Context Menu of the Table of Contents</a></li>
 <li><a class="reference internal" href="#animations-css">Animations (CSS)</a></li>
+<li><a class="reference internal" href="#tool-groups-e-g-drawing-map-markup">Tool Groups (e.g. Drawing/Map Markup)</a></li>
 </ul>
 </li>
 </ul>

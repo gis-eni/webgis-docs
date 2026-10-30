@@ -172,6 +172,23 @@ Below the buttons, the name of the currently active drawing tool is shown again,
 description of how to use this tool (e.g. click on the map, click on an existing drawing element, etc.).</p>
 <p>Because of this description, the exact click sequence for the individual drawing tools is not covered here in detail;
 instead, the options and differences between the tools are shown.</p>
+<section id="tool-groups">
+<span id="mapmarkup-tool-groups"></span><h3>Tool Groups<a class="headerlink" href="#tool-groups" title="Link to this heading">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+</div>
+<p>To save space, the tools are combined into groups:</p>
+<ul class="simple">
+<li><p><strong>Select:</strong> shown directly</p></li>
+<li><p><strong>Draw:</strong> Symbol, Text, Point, Freehand, Line, Polygon, Rectangle, Circle</p></li>
+<li><p><strong>Measure:</strong> Dimensioning, Dimensioning Polygon, Hectometer Line, Distance Circle, Compass Rose</p></li>
+<li><p><strong>Import/Export:</strong> Save/Load Drawing, Share, Upload, Download</p></li>
+</ul>
+<p>Clicking a group (indicated by the small arrow at the top right) opens a selection with the tools of this group.
+It closes again after a tool is selected (also when clicking outside of it or pressing <code class="docutils literal notranslate"><span class="pre">Esc</span></code>).
+The group then shows the icon of the last selected tool and is highlighted as long as one of its tools is active.
+Tools that are not available on a device are not shown in the groups either.</p>
+</section>
 </section>
 <section id="drawing-a-new-element">
 <h2>Drawing a New Element<a class="headerlink" href="#drawing-a-new-element" title="Link to this heading">¶</a></h2>
@@ -307,7 +324,10 @@ Elements already applied to the map show this icon in the list of created elemen
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Using the Drawing (Map Markup) Tool</a><ul>
-<li><a class="reference internal" href="#general-usage">General Usage</a></li>
+<li><a class="reference internal" href="#general-usage">General Usage</a><ul>
+<li><a class="reference internal" href="#tool-groups">Tool Groups</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#drawing-a-new-element">Drawing a New Element</a><ul>
 <li><a class="reference internal" href="#changing-symbology">Changing Symbology</a></li>
 </ul>

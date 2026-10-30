@@ -658,6 +658,21 @@ zurückgeschaltet werden:</p>
 zugeklappt.</p>
 </div>
 </section>
+<section id="werkzeuggruppen-z-b-zeichnen-map-markup">
+<span id="customjs-group-tool-options"></span><h2>Werkzeuggruppen (z. B. Zeichnen/Map-Markup)<a class="headerlink" href="#werkzeuggruppen-z-b-zeichnen-map-markup" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+</div>
+<p>Werkzeuge mit vielen Unterwerkzeugen fassen diese in Gruppen zusammen, um Platz zu sparen. Beim
+Werkzeug <em>Zeichnen (Map-Markup)</em> sind das z. B. die Gruppen <em>Zeichnen</em>, <em>Messen</em> und
+<em>Import/Export</em>. Ein Klick auf eine Gruppe öffnet eine Auswahl mit den Werkzeugen der Gruppe
+(siehe <a class="reference external" href="https://docs.webgiscloud.com/de/webgis-manual/mapviewer/tools/general/mapmarkup/manual.html#mapmarkup-tool-groups">Zeichnen im Anwenderhandbuch</a>).</p>
+<p>Sollen wie bisher alle Werkzeuge ohne Gruppen nebeneinander angezeigt werden, kann die Gruppierung in der
+<code class="docutils literal notranslate"><span class="pre">custom.js</span></code> abgeschaltet werden:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">groupToolOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -699,6 +714,7 @@ zugeklappt.</p>
 <li><a class="reference internal" href="#bereiche-in-eigenem-fenster-abkoppeln">Bereiche in eigenem Fenster (Abkoppeln)</a></li>
 <li><a class="reference internal" href="#tabelle-im-kontextmenu-des-inhaltsverzeichnisses">Tabelle im Kontextmenü des Inhaltsverzeichnisses</a></li>
 <li><a class="reference internal" href="#animationen-css">Animationen (CSS)</a></li>
+<li><a class="reference internal" href="#werkzeuggruppen-z-b-zeichnen-map-markup">Werkzeuggruppen (z. B. Zeichnen/Map-Markup)</a></li>
 </ul>
 </li>
 </ul>

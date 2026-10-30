@@ -564,4 +564,23 @@ zurückgeschaltet werden:
    (Chrome, Edge) unterstützt. In anderen Browsern werden die Elemente ohne Höhenanimation auf- bzw.
    zugeklappt.
 
+.. _customjs-group-tool-options:
+
+Werkzeuggruppen (z. B. Zeichnen/Map-Markup)
+===========================================
+
+.. versionadded:: 9.26.4104
+
+Werkzeuge mit vielen Unterwerkzeugen fassen diese in Gruppen zusammen, um Platz zu sparen. Beim
+Werkzeug *Zeichnen (Map-Markup)* sind das z. B. die Gruppen *Zeichnen*, *Messen* und
+*Import/Export*. Ein Klick auf eine Gruppe öffnet eine Auswahl mit den Werkzeugen der Gruppe
+(siehe `Zeichnen im Anwenderhandbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/tools/general/mapmarkup/manual.html#mapmarkup-tool-groups>`_).
+
+Sollen wie bisher alle Werkzeuge ohne Gruppen nebeneinander angezeigt werden, kann die Gruppierung in der
+``custom.js`` abgeschaltet werden:
+
+.. code:: javascript
+
+   webgis.usability.groupToolOptions = false;  // default: true
+
 

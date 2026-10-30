@@ -553,4 +553,23 @@ If this causes problems, you can switch back to the previous jQuery animations i
    Animating the height when expanding/collapsing is currently only supported by Chromium-based
    browsers (Chrome, Edge). In other browsers, elements expand/collapse without a height animation.
 
+.. _customjs-group-tool-options:
+
+Tool Groups (e.g. Drawing/Map Markup)
+=====================================
+
+.. versionadded:: 9.26.4104
+
+Tools with many sub-tools combine them into groups to save space. For the *Drawing (Map Markup)*
+tool these are, for example, the groups *Draw*, *Measure* and *Import/Export*. Clicking a group
+opens a selection with the tools of this group
+(see `Drawing in the user manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/tools/general/mapmarkup/manual.html#mapmarkup-tool-groups>`_).
+
+To show all tools side by side without groups as before, the grouping can be turned off in
+``custom.js``:
+
+.. code:: javascript
+
+   webgis.usability.groupToolOptions = false;  // default: true
+
 

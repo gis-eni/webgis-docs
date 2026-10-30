@@ -19,6 +19,28 @@ Beschreibung, wie dieses Werkzeug bedient wird (z.B. in die Karte klicken, auf b
 Aufgrund dieser Beschreibung wird hier nicht auf die genaue Klickabfolge für die einzelnen Zeichenwerkzeuge eingegangen,
 sondern es werden die Möglichkeiten und Unterschiede der Werkzeuge aufgezeigt.
 
+.. _mapmarkup-tool-groups:
+
+Werkzeuggruppen
+^^^^^^^^^^^^^^^
+
+.. versionadded:: 9.26.4104
+
+Um Platz zu sparen, sind die Werkzeuge in Gruppen zusammengefasst:
+
+* **Auswählen:** wird direkt angezeigt
+
+* **Zeichnen:** Symbol, Text, Punkt, Freihand, Linie, Fläche, Rechteck, Kreis
+
+* **Messen:** Bemaßung, Bemaßungsfläche, Hektometrierungslinie, Umgebungskreis, Kompass Rose
+
+* **Import/Export:** Zeichnung speichern/laden, Teilen, Hochladen, Herunterladen
+
+Ein Klick auf eine Gruppe (erkennbar am kleinen Pfeil rechts oben) öffnet eine Auswahl mit den Werkzeugen der Gruppe.
+Nach der Auswahl eines Werkzeugs schließt sich diese wieder (ebenso mit einem Klick daneben oder der ``Esc`` Taste).
+Die Gruppe zeigt danach das Symbol des zuletzt gewählten Werkzeugs und ist hervorgehoben, solange eines ihrer Werkzeuge aktiv ist.
+Werkzeuge, die auf einem Endgerät nicht verfügbar sind, werden auch in den Gruppen nicht angezeigt.
+
 Neues Element zeichnen
 ----------------------
 

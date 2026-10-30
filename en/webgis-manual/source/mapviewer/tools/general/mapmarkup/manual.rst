@@ -19,6 +19,28 @@ description of how to use this tool (e.g. click on the map, click on an existing
 Because of this description, the exact click sequence for the individual drawing tools is not covered here in detail;
 instead, the options and differences between the tools are shown.
 
+.. _mapmarkup-tool-groups:
+
+Tool Groups
+^^^^^^^^^^^
+
+.. versionadded:: 9.26.4104
+
+To save space, the tools are combined into groups:
+
+* **Select:** shown directly
+
+* **Draw:** Symbol, Text, Point, Freehand, Line, Polygon, Rectangle, Circle
+
+* **Measure:** Dimensioning, Dimensioning Polygon, Hectometer Line, Distance Circle, Compass Rose
+
+* **Import/Export:** Save/Load Drawing, Share, Upload, Download
+
+Clicking a group (indicated by the small arrow at the top right) opens a selection with the tools of this group.
+It closes again after a tool is selected (also when clicking outside of it or pressing ``Esc``).
+The group then shows the icon of the last selected tool and is highlighted as long as one of its tools is active.
+Tools that are not available on a device are not shown in the groups either.
+
 Drawing a New Element
 ----------------------
 
