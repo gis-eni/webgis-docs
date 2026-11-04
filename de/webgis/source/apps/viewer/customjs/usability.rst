@@ -583,4 +583,26 @@ Sollen wie bisher alle Werkzeuge ohne Gruppen nebeneinander angezeigt werden, ka
 
    webgis.usability.groupToolOptions = false;  // default: true
 
+.. _customjs-mapmarkup-auto-open-properties:
 
+Symbolik-Fenster beim Zeichnen (Map-Markup)
+===========================================
+
+.. versionadded:: 9.26.4301
+
+Beim Werkzeug *Zeichnen (Map-Markup)* wird die Symbolik (Farbe, Linienstärke, Schriftgröße,
+werkzeugspezifische Eigenschaften, ...) am Desktop in einem Fenster rechts neben der Karte
+angezeigt. Das Fenster ist nicht modal: Die Werkzeugleiste und die Liste der Zeichenelemente
+bleiben sichtbar und es kann weitergezeichnet werden. Sobald ein Zeichen- oder Messwerkzeug
+gewählt wird, öffnet sich das Fenster automatisch, damit die Symbolik schon vor dem Zeichnen
+eingestellt werden kann
+(siehe `Symbolik ändern im Anwenderhandbuch <https://docs.webgiscloud.com/de/webgis-manual/mapviewer/tools/general/mapmarkup/manual.html#mapmarkup-symbology-panel>`_).
+
+Soll das Fenster nicht automatisch geöffnet werden, kann das in der ``custom.js`` abgeschaltet werden:
+
+.. code:: javascript
+
+   webgis.usability.mapMarkupAutoOpenProperties = false;  // default: true
+
+Das Fenster kann dann weiterhin über den Button *Symbolik: {Werkzeug}* im Werkzeugdialog geöffnet
+werden. Auf mobilen Geräten wird das Fenster nicht automatisch geöffnet.

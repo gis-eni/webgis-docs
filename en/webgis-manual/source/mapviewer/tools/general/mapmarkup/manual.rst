@@ -106,6 +106,30 @@ changes immediately.
    If you are drawing a new object, you will only notice the changes once you click on the map to create vertices
    for the element.
 
+.. _mapmarkup-symbology-panel:
+
+Symbology Panel (Desktop)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. versionadded:: 9.26.4301
+
+On desktop devices, the symbology is shown in a separate panel to the right of the map. The panel
+is not modal: the toolbar and the element list stay visible and drawing can continue.
+
+* When a drawing or measuring tool is selected, the panel opens automatically. This allows the symbology
+  to be set before drawing; it then applies to all further elements of this type.
+* Hints for the current tool (e.g. what to do next) are also shown in this panel.
+* If the panel is closed (X), it stays closed until the drawing tool is opened again.
+  It can be reopened at any time with the *Symbology: {tool}* button in the tool dialog.
+* If one or more elements are selected in the element list (several with the ``SHIFT`` key pressed),
+  the panel shows the symbology for the selection (*Symbology: Selection*). Selected elements are also highlighted
+  on the map. Selecting another drawing tool clears the selection.
+
+In the element list, lines and polygons are shown with a colored border in the color of the element,
+symbols with their actual symbol. Changes to the symbology are applied to the list immediately.
+
+Whether the panel opens automatically can be configured by the administrator in ``custom.js``.
+
 Different Behavior of Element Types
 --------------------------------------------
 
@@ -126,6 +150,23 @@ text can be changed via the text field and via *Apply / Draw another*. A change 
 map right away. If the position needs to be changed again, this can be done with another click
 on the map (or by dragging the insertion point). Clicking the checkmark permanently applies the text
 to the map.
+
+.. _mapmarkup-text-rotation:
+
+**Rotating text:**
+
+.. versionadded:: 9.26.4301
+
+While a text is being edited, a rotate icon appears to the right of the end of the first text line.
+Dragging it with the mouse rotates the text around the insertion point (clockwise, relative to the map).
+With the ``SHIFT`` key pressed the text rotates in 5° steps, with the ``CTRL`` key pressed in 15° steps.
+Near 0°, 90°, 180° and 270° the text snaps automatically.
+
+Alternatively, the angle can be entered in the symbology under *Rotation (°)* and set with *Apply rotation*;
+the *0°* button makes the text horizontal again. This also works for several
+selected texts (*Symbology: Selection*). Every new text starts horizontally (0°).
+
+The rotation is kept when saving, printing and downloading as a shape file (attribute ``ROTATION``).
 
 
 Changing an Existing Element

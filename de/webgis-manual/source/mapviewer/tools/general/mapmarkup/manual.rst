@@ -107,6 +107,30 @@ sofort in der Karte.
    Zeichnet man ein neues Objekt, erkennt man die Änderungen erst, wenn man in die Karte klickt um Stützpunkte für das Element 
    zu erstellen.
 
+.. _mapmarkup-symbology-panel:
+
+Symbolik-Fenster (Desktop)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. versionadded:: 9.26.4301
+
+Am Desktop wird die Symbolik in einem eigenen Fenster rechts neben der Karte angezeigt. Das Fenster
+ist nicht modal: Werkzeugleiste und Elementliste bleiben sichtbar und es kann weitergezeichnet werden.
+
+* Wählt man ein Zeichen- oder Messwerkzeug, öffnet sich das Fenster automatisch. Damit kann die Symbolik
+  schon vor dem Zeichnen eingestellt werden; sie gilt dann für alle weiteren Elemente dieses Typs.
+* Hinweise zum aktuellen Werkzeug (z. B. was als nächstes zu tun ist) werden ebenfalls in diesem Fenster angezeigt.
+* Schließt man das Fenster (X), bleibt es geschlossen, bis das Zeichnen-Werkzeug erneut geöffnet wird.
+  Über den Button *Symbolik: {Werkzeug}* im Werkzeugdialog kann es jederzeit wieder geöffnet werden.
+* Werden in der Elementliste ein oder mehrere Elemente ausgewählt (mehrere mit gedrückter ``SHIFT`` Taste),
+  zeigt das Fenster die Symbolik für die Auswahl (*Symbolik: Auswahl*). Ausgewählte Elemente werden auch in der
+  Karte hervorgehoben. Wählt man ein anderes Zeichenwerkzeug, wird die Auswahl aufgehoben.
+
+In der Elementliste werden Linien und Flächen mit einem farbigen Rand in der Farbe des Elements angezeigt,
+Symbole mit dem jeweiligen Symbol. Änderungen der Symbolik werden sofort in der Liste übernommen.
+
+Ob sich das Fenster automatisch öffnet, kann der Administrator in der ``custom.js`` festlegen.
+
 Unterschiedliches Verhalten von Elementtypen
 --------------------------------------------
 
@@ -127,6 +151,23 @@ Text über das Textfeld und über *Übernehmen / Weiteres zeichnen* geändert we
 Karte ersichtlich werden. Sollte die Position noch einmal geändert werden, kann diese mit einem weiteren Klick 
 in die Karte (oder Ziehen des Einfügepunktes) erfolgen. Mit klick auf das Häkchen wird der Text endgültig 
 in die Karte übernommen.
+
+.. _mapmarkup-text-rotation:
+
+**Text drehen:**
+
+.. versionadded:: 9.26.4301
+
+Solange ein Text bearbeitet wird, erscheint rechts neben dem Ende der ersten Textzeile ein Drehen-Symbol.
+Zieht man dieses mit der Maus, wird der Text um den Einfügepunkt gedreht (im Uhrzeigersinn, bezogen auf die Karte).
+Mit gedrückter ``SHIFT`` Taste wird in 5°-Schritten, mit gedrückter ``STRG`` Taste in 15°-Schritten gedreht.
+In der Nähe von 0°, 90°, 180° und 270° rastet der Text automatisch ein.
+
+Alternativ kann der Winkel in der Symbolik unter *Drehung (°)* eingegeben und mit *Drehung übernehmen*
+gesetzt werden; der Button *0°* stellt den Text wieder waagrecht. Das funktioniert auch für mehrere
+ausgewählte Texte (*Symbolik: Auswahl*). Jeder neue Text beginnt waagrecht (0°).
+
+Die Drehung wird beim Speichern, Drucken und beim Herunterladen als Shape-Datei (Attribut ``ROTATION``) übernommen.
 
 
 Bestehendes Element verändern
