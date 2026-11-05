@@ -130,6 +130,12 @@ Section ``Subscriber Registration``
        This option is useful for closed instances that are managed exclusively by an administrator. This prevents malicious access to the configuration.
 
        Example: An **intranet instance** could be used for configuration, while the **internet instance** is locked for access. Both instances can share the **storage**, or it can be copied between them.
+   * - ``subscriber-login-allowed-redirect-hosts``
+     - Optional, comma-separated list of hosts (``host`` or ``host:port``) that a subscriber login may redirect to (e.g. if the portal is reachable under a different host name than ``portal-url``).
+
+       The host of ``portal-url`` (path ``/auth/loginAsAdmin/...``) is always allowed. Other redirect targets are rejected with ``400 Bad Request``.
+
+       Since version 8.26.4301.
    * - ``allow-register-new-subscribers``
      - Specifies whether new subscribers may register themselves for the API (``true`` or ``false``).
 

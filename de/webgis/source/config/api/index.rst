@@ -130,6 +130,12 @@ Abschnitt ``Subscriber Registration``
        Diese Option ist für geschlossene Instanzen sinnvoll, die ausschließlich von einem Administrator verwaltet werden. Dadurch wird böswilliger Zugriff auf die Konfiguration verhindert.
 
        Beispiel: Eine **Intranet-Instanz** könnte zur Konfiguration genutzt werden, während die **Internet-Instanz** für den Zugriff gesperrt ist. Beide Instanzen können sich den **Storage** teilen oder dieser kann zwischen ihnen kopiert werden.
+   * - ``subscriber-login-allowed-redirect-hosts``
+     - Optionale, kommagetrennte Liste von Hosts (``host`` oder ``host:port``), auf die nach einem Subscriber-Login weitergeleitet werden darf (z. B. wenn das Portal über einen anderen Hostnamen als ``portal-url`` erreichbar ist).
+
+       Der Host von ``portal-url`` (Pfad ``/auth/loginAsAdmin/...``) ist immer erlaubt. Andere Weiterleitungsziele werden mit ``400 Bad Request`` abgelehnt.
+
+       Ab Version 8.26.4301.
    * - ``allow-register-new-subscribers``
      - Gibt an, ob sich neue Subscriber selbst für die API registrieren dürfen (``true`` oder ``false``).
 

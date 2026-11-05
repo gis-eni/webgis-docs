@@ -329,7 +329,13 @@ Diese Option ist für geschlossene Instanzen sinnvoll, die ausschließlich von e
 <p>Beispiel: Eine <strong>Intranet-Instanz</strong> könnte zur Konfiguration genutzt werden, während die <strong>Internet-Instanz</strong> für den Zugriff gesperrt ist. Beide Instanzen können sich den <strong>Storage</strong> teilen oder dieser kann zwischen ihnen kopiert werden.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subscriber-login-allowed-redirect-hosts</span></code></p></td>
+<td><p>Optionale, kommagetrennte Liste von Hosts (<code class="docutils literal notranslate"><span class="pre">host</span></code> oder <code class="docutils literal notranslate"><span class="pre">host:port</span></code>), auf die nach einem Subscriber-Login weitergeleitet werden darf (z. B. wenn das Portal über einen anderen Hostnamen als <code class="docutils literal notranslate"><span class="pre">portal-url</span></code> erreichbar ist).</p>
+<p>Der Host von <code class="docutils literal notranslate"><span class="pre">portal-url</span></code> (Pfad <code class="docutils literal notranslate"><span class="pre">/auth/loginAsAdmin/...</span></code>) ist immer erlaubt. Andere Weiterleitungsziele werden mit <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code> abgelehnt.</p>
+<p>Ab Version 8.26.4301.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code></p></td>
 <td><p>Gibt an, ob sich neue Subscriber selbst für die API registrieren dürfen (<code class="docutils literal notranslate"><span class="pre">true</span></code> oder <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p>
 <ul class="simple">
 <li><p>Bei der <strong>Erstinstallation</strong> sollte dieser Wert auf <code class="docutils literal notranslate"><span class="pre">true</span></code> gesetzt werden, damit mindestens ein Administrator-Subscriber erstellt werden kann.</p></li>
@@ -337,7 +343,7 @@ Diese Option ist für geschlossene Instanzen sinnvoll, die ausschließlich von e
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subscription-tools</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subscription-tools</span></code></p></td>
 <td><p>Bestimmt, welche Funktionen ein Subscriber im <strong>Portal</strong> erstellen darf.</p>
 <p>Mögliche Werte:
 - <code class="docutils literal notranslate"><span class="pre">clients</span></code>: Erlaubt das Erstellen von Clients.

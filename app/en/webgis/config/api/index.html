@@ -328,7 +328,13 @@ This option is useful for closed instances that are managed exclusively by an ad
 <p>Example: An <strong>intranet instance</strong> could be used for configuration, while the <strong>internet instance</strong> is locked for access. Both instances can share the <strong>storage</strong>, or it can be copied between them.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subscriber-login-allowed-redirect-hosts</span></code></p></td>
+<td><p>Optional, comma-separated list of hosts (<code class="docutils literal notranslate"><span class="pre">host</span></code> or <code class="docutils literal notranslate"><span class="pre">host:port</span></code>) that a subscriber login may redirect to (e.g. if the portal is reachable under a different host name than <code class="docutils literal notranslate"><span class="pre">portal-url</span></code>).</p>
+<p>The host of <code class="docutils literal notranslate"><span class="pre">portal-url</span></code> (path <code class="docutils literal notranslate"><span class="pre">/auth/loginAsAdmin/...</span></code>) is always allowed. Other redirect targets are rejected with <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>.</p>
+<p>Since version 8.26.4301.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code></p></td>
 <td><p>Specifies whether new subscribers may register themselves for the API (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>).</p>
 <ul class="simple">
 <li><p>During the <strong>initial installation</strong>, this value should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that at least one administrator subscriber can be created.</p></li>
@@ -336,7 +342,7 @@ This option is useful for closed instances that are managed exclusively by an ad
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subscription-tools</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subscription-tools</span></code></p></td>
 <td><p>Determines which functions a subscriber is allowed to create in the <strong>Portal</strong>.</p>
 <p>Possible values:
 - <code class="docutils literal notranslate"><span class="pre">clients</span></code>: allows creating clients.
