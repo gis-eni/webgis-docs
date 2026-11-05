@@ -98,3 +98,25 @@ In the same way, you could also add a marker to the selected parcels. To do this
 click the *Transfer symbols from selection of parcel areas...* button.
 
 .. image:: img/selection6.png
+
+.. _mapmarkup-selection-all-tools:
+
+Taking Over with Measuring and Special Tools
+--------------------------------------------
+
+Taking over from the selection is not only available for symbols, text, points, lines and polygons, but for
+all drawing and measuring tools (see :doc:`advanced-tools`):
+
+* The elements taken over get the currently set presentation and the options of the tool
+  (e.g. units or angle display of a dimension line). The dialog shows the properties of the tool for this.
+* If several objects are taken over, *Merge objects* in the dialog defines whether one element is created per object
+  or all objects are united into one element (polygons are united, adjoining lines are joined,
+  points are combined into a multipoint).
+* **Dimension line / chainage line:** multipart lines result in one element per part.
+* **Dimension polygon:** one element is created per outer ring; holes are removed.
+* **Buffer zone:** the objects are buffered with the set buffer width.
+* **Object distance:** the selected objects are added as objects B to the current origin object A.
+* **Perpendicular distance:** the selected points are added to the current reference line.
+
+The new elements are added to the currently active
+group of the :ref:`element list <mapmarkup-graphics-list>`.

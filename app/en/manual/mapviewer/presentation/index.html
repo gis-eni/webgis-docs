@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3 Presentation and Map Content &#8212; WebGIS Manual 2022 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni-gray.css?v=82efda12" />
     <script src="../../_static/documentation_options.js?v=001ecc8c"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -109,7 +109,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -117,14 +117,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Map Viewer User Manual</a><ul class="current">
@@ -235,7 +235,7 @@ and would only slow down the map build-up.</p>
 <section id="context-menu-in-the-table-of-contents">
 <span id="toc-context-menu"></span><h2><span class="sectnum">3.4 </span>Context Menu in the Table of Contents<a class="headerlink" href="#context-menu-in-the-table-of-contents" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Every presentation variant and every group in the table of contents has a context menu. It can be opened in two ways:</p>
 <ul class="simple">
@@ -264,7 +264,7 @@ the layer is chosen in a submenu, as with the Query Builder.</p>
 <p>The Query Builder is used to compose a filter from one or more conditions. Each condition consists of <strong>Field</strong>, <strong>Operator</strong> and <strong>Value</strong>;
 several conditions are combined with <strong>AND</strong> or <strong>OR</strong>. <strong>Apply</strong> only displays the features that match the filter.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104: </span>As soon as a field is selected, the Query Builder helps entering the value, depending on the type of the field:</p>
+<p><span class="versionmodified added">Added in version 9.26.4104: </span>As soon as a field is selected, the Query Builder helps entering the value, depending on the type of the field:</p>
 <ul class="simple">
 <li><p><strong>Text fields:</strong> matching values of the layer are suggested from the first character on (values containing the entered text, at most 20).</p></li>
 <li><p><strong>Number fields:</strong> if the layer contains only a few distinct values (at most 25), they can be chosen from a list. Otherwise the number
@@ -276,7 +276,7 @@ e.g. for <em>all features before 30.06.2024</em>.</p></li>
 Suggested values are currently only available for layers of ArcGIS services; for other services, the value is entered without suggestions.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104: </span>Besides <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">like</span></code> and <code class="docutils literal notranslate"><span class="pre">in</span></code>, negated and empty conditions are available as well:</p>
+<p><span class="versionmodified added">Added in version 9.26.4104: </span>Besides <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">like</span></code> and <code class="docutils literal notranslate"><span class="pre">in</span></code>, negated and empty conditions are available as well:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code> (text fields): e.g. <em>GNR</em> <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code> <code class="docutils literal notranslate"><span class="pre">3%</span></code> for all features whose number does <strong>not</strong> start with 3 (<code class="docutils literal notranslate"><span class="pre">%</span></code> stands for any characters).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> (text and number fields): as with <code class="docutils literal notranslate"><span class="pre">in</span></code>, the values are entered separated by commas.</p></li>
@@ -288,7 +288,7 @@ Suggested values are currently only available for layers of ArcGIS services; for
 <section id="table">
 <span id="toc-table"></span><h3><span class="sectnum">3.4.2 </span>Table<a class="headerlink" href="#table" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>The menu item <strong>Table</strong> queries the features of a layer without a search term and without a query geometry and shows them in the
 <a class="reference internal" href="../search_identify/operations/results_desktop/results_desktop.html"><span class="doc">results table</span></a>. The menu item is offered if a query exists for the layer
@@ -305,7 +305,7 @@ a hint is shown above the table.</p></li>
 <section id="badges">
 <span id="toc-badges"></span><h3><span class="sectnum">3.4.3 </span>Badges<a class="headerlink" href="#badges" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>A small rounded box (badge) to the right of the name of a presentation variant indicates that something special applies to the presentation variant:</p>
 <ul class="simple">
@@ -323,7 +323,7 @@ If the name of a presentation variant is very long, it is shortened so that the 
 <section id="presentation">
 <span id="toc-user-renderer"></span><h3><span class="sectnum">3.4.4 </span>Presentation<a class="headerlink" href="#presentation" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>The <strong>Presentation</strong> menu item can be used to change the symbology of a layer for your own map. The dialog offers two options:</p>
 <ul class="simple">
@@ -361,7 +361,7 @@ for <em>Unique values</em> and <em>Classes</em>, the field used is shown in brac
 <section id="labeling">
 <span id="toc-user-labeling"></span><h3><span class="sectnum">3.4.5 </span>Labeling<a class="headerlink" href="#labeling" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>The <strong>Labeling</strong> menu item can be used to change the labeling of a layer. The dialog offers three options:</p>
 <ul class="simple">
@@ -485,7 +485,7 @@ You can also click on a relevant group to open it in the original tree and show 
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

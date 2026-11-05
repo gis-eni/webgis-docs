@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Werkzeug Strecke Messen &#8212; WebGIS 2026 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=81100d21"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
@@ -170,46 +170,46 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Example for an ArcGIS Server Servie --&gt;</span>
 <span class="nt">&lt;xml&gt;</span>
 <span class="w">     </span><span class="nt">&lt;heightabovedatum</span>
-<span class="w">         </span><span class="na">type=</span><span class="s">&quot;ags&quot;</span>
-<span class="w">         </span><span class="na">srs=</span><span class="s">&quot;31256&quot;</span>
-<span class="w">         </span><span class="na">name=</span><span class="s">&quot;DTM&quot;</span>
-<span class="w">         </span><span class="na">server=</span><span class="s">&quot;my-server.com&quot;</span>
-<span class="w">         </span><span class="na">service=</span><span class="s">&quot;https://my-server.com/../rest/.../servicename/MapServer&quot;</span>
+<span class="w">         </span><span class="na">type=</span><span class="s">"ags"</span>
+<span class="w">         </span><span class="na">srs=</span><span class="s">"31256"</span>
+<span class="w">         </span><span class="na">name=</span><span class="s">"DTM"</span>
+<span class="w">         </span><span class="na">server=</span><span class="s">"my-server.com"</span>
+<span class="w">         </span><span class="na">service=</span><span class="s">"https://my-server.com/../rest/.../servicename/MapServer"</span>
 
-<span class="w">         </span><span class="na">user=</span><span class="s">&quot;username&quot;</span><span class="w"> </span><span class="na">pwd=</span><span class="s">&quot;my-passw0rd&quot;</span><span class="w"> </span><span class="na">tokenExpiration=</span><span class="s">&quot;60&quot;</span>
+<span class="w">         </span><span class="na">user=</span><span class="s">"username"</span><span class="w"> </span><span class="na">pwd=</span><span class="s">"my-passw0rd"</span><span class="w"> </span><span class="na">tokenExpiration=</span><span class="s">"60"</span>
 
-<span class="w">         </span><span class="na">rastertheme=</span><span class="s">&quot;DGM&quot;</span>
-<span class="w">         </span><span class="na">expression=</span><span class="s">&quot;{0:0.00}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="na">rastertheme=</span><span class="s">"DGM"</span>
+<span class="w">         </span><span class="na">expression=</span><span class="s">"{0:0.00}"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/xml&gt;</span>
 </pre></div>
 </div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Example for an ArcGIS Server Mosaic services --&gt;</span>
 <span class="nt">&lt;xml&gt;</span>
 <span class="w">     </span><span class="nt">&lt;heightabovedatum</span>
-<span class="w">         </span><span class="na">type=</span><span class="s">&quot;ags-mosaic&quot;</span>
-<span class="w">         </span><span class="na">srs=</span><span class="s">&quot;31256&quot;</span>
-<span class="w">         </span><span class="na">name=</span><span class="s">&quot;DTM&quot;</span>
-<span class="w">         </span><span class="na">server=</span><span class="s">&quot;my-server.com&quot;</span>
-<span class="w">         </span><span class="na">service=</span><span class="s">&quot;https://my-server.com/../rest/.../servicename/MapServer&quot;</span>
+<span class="w">         </span><span class="na">type=</span><span class="s">"ags-mosaic"</span>
+<span class="w">         </span><span class="na">srs=</span><span class="s">"31256"</span>
+<span class="w">         </span><span class="na">name=</span><span class="s">"DTM"</span>
+<span class="w">         </span><span class="na">server=</span><span class="s">"my-server.com"</span>
+<span class="w">         </span><span class="na">service=</span><span class="s">"https://my-server.com/../rest/.../servicename/MapServer"</span>
 
-<span class="w">         </span><span class="na">user=</span><span class="s">&quot;username&quot;</span><span class="w"> </span><span class="na">pwd=</span><span class="s">&quot;my-passw0rd&quot;</span><span class="w"> </span><span class="na">tokenExpiration=</span><span class="s">&quot;60&quot;</span>
+<span class="w">         </span><span class="na">user=</span><span class="s">"username"</span><span class="w"> </span><span class="na">pwd=</span><span class="s">"my-passw0rd"</span><span class="w"> </span><span class="na">tokenExpiration=</span><span class="s">"60"</span>
 
-<span class="w">         </span><span class="na">rastertheme=</span><span class="s">&quot;DGM&quot;</span>
-<span class="w">         </span><span class="na">expression=</span><span class="s">&quot;{0:0.00}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">         </span><span class="na">rastertheme=</span><span class="s">"DGM"</span>
+<span class="w">         </span><span class="na">expression=</span><span class="s">"{0:0.00}"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/xml&gt;</span>
 </pre></div>
 </div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Example for an ArcGIS Server ImageServer Service --&gt;</span>
 <span class="nt">&lt;xml&gt;</span>
-<span class="w">   </span><span class="nt">&lt;heightabovedatum</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ags-imageserver&quot;</span>
-<span class="w">               </span><span class="na">srs=</span><span class="s">&quot;31255&quot;</span>
+<span class="w">   </span><span class="nt">&lt;heightabovedatum</span><span class="w"> </span><span class="na">type=</span><span class="s">"ags-imageserver"</span>
+<span class="w">               </span><span class="na">srs=</span><span class="s">"31255"</span>
 
-<span class="w">               </span><span class="na">user=</span><span class="s">&quot;username&quot;</span><span class="w"> </span><span class="na">pwd=</span><span class="s">&quot;my-passw0rd&quot;</span><span class="w"> </span><span class="na">tokenExpiration=</span><span class="s">&quot;60&quot;</span>
+<span class="w">               </span><span class="na">user=</span><span class="s">"username"</span><span class="w"> </span><span class="na">pwd=</span><span class="s">"my-passw0rd"</span><span class="w"> </span><span class="na">tokenExpiration=</span><span class="s">"60"</span>
 
-<span class="w">               </span><span class="na">server=</span><span class="s">&quot;my-server.com&quot;</span>
-<span class="w">               </span><span class="na">service=</span><span class="s">&quot;https://my-server.com/arcgis/rest/services/.../ImageServer&quot;</span>
-<span class="w">               </span><span class="na">rastertheme=</span><span class="s">&quot;0&quot;</span>
-<span class="w">               </span><span class="na">expression=</span><span class="s">&quot;+{0:.00} müA&quot;</span>
+<span class="w">               </span><span class="na">server=</span><span class="s">"my-server.com"</span>
+<span class="w">               </span><span class="na">service=</span><span class="s">"https://my-server.com/arcgis/rest/services/.../ImageServer"</span>
+<span class="w">               </span><span class="na">rastertheme=</span><span class="s">"0"</span>
+<span class="w">               </span><span class="na">expression=</span><span class="s">"+{0:.00} müA"</span>
 <span class="w">               </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/xml&gt;</span>
 </pre></div>
@@ -217,13 +217,13 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Example for a IMS Service --&gt;</span>
 <span class="nt">&lt;xml&gt;</span>
 <span class="w">   </span><span class="nt">&lt;heightabovedatum</span>
-<span class="w">        </span><span class="na">type=</span><span class="s">&quot;ims&quot;</span>
-<span class="w">        </span><span class="na">srs=</span><span class="s">&quot;31256&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;DTM&quot;</span>
-<span class="w">        </span><span class="na">server=</span><span class="s">&quot;my.server.com:8010&quot;</span>
-<span class="w">        </span><span class="na">service=</span><span class="s">&quot;hoehenservice&quot;</span>
-<span class="w">        </span><span class="na">rastertheme=</span><span class="s">&quot;hoeheDTM&quot;</span>
-<span class="w">        </span><span class="na">expression=</span><span class="s">&quot;{0:0.00}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="na">type=</span><span class="s">"ims"</span>
+<span class="w">        </span><span class="na">srs=</span><span class="s">"31256"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"DTM"</span>
+<span class="w">        </span><span class="na">server=</span><span class="s">"my.server.com:8010"</span>
+<span class="w">        </span><span class="na">service=</span><span class="s">"hoehenservice"</span>
+<span class="w">        </span><span class="na">rastertheme=</span><span class="s">"hoeheDTM"</span>
+<span class="w">        </span><span class="na">expression=</span><span class="s">"{0:0.00}"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/xml&gt;</span>
 </pre></div>
 </div>
@@ -266,7 +266,7 @@ Wird hier ein zu hoher Wert angegeben, kann ein Token eventuell nicht abgeholt w
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -572,4 +572,42 @@ To show all tools side by side without groups as before, the grouping can be tur
 
    webgis.usability.groupToolOptions = false;  // default: true
 
+.. _customjs-mapmarkup-auto-open-properties:
 
+Symbology Panel While Drawing (Map Markup)
+==========================================
+
+.. versionadded:: 9.26.4301
+
+For the *Drawing (Map Markup)* tool, the symbology (color, line weight, font size, tool-specific
+properties, ...) is shown on desktop devices in a panel to the right of the map. The panel is not
+modal: the toolbar and the list of drawing elements stay visible and drawing can continue. As soon
+as a drawing or measuring tool is selected, the panel opens automatically, so the symbology can be
+set before drawing
+(see `Changing the symbology in the user manual <https://docs.webgiscloud.com/en/webgis-manual/mapviewer/tools/general/mapmarkup/manual.html#mapmarkup-symbology-panel>`_).
+
+If the panel should not open automatically, this can be turned off in ``custom.js``:
+
+.. code:: javascript
+
+   webgis.usability.mapMarkupAutoOpenProperties = false;  // default: true
+
+The panel can still be opened with the *Symbology: {tool}* button in the tool dialog. On mobile
+devices the panel is not opened automatically.
+
+.. _customjs-mapmarkup-list-filter:
+
+Filter in the Element List (Map Markup)
+=======================================
+
+.. versionadded:: 9.26.4301
+
+The list of drawing elements of the *Drawing (Map Markup)* tool shows a text field for filtering
+as soon as the current view (selected group or *All groups*) contains more elements than a
+threshold. The threshold can be changed in ``custom.js``:
+
+.. code:: javascript
+
+   webgis.usability.mapMarkupListFilterMinElements = 20;  // default: 10
+
+With a value ``<= 0`` the filter is never shown.

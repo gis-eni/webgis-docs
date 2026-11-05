@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Special Tools &#8212; WebGIS Manual 2022 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=82efda12" />
     <script src="../../../../_static/documentation_options.js?v=001ecc8c"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
@@ -109,7 +109,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../../search.html" method="get">
@@ -117,14 +117,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Map Viewer User Manual</a><ul class="current">
@@ -159,7 +159,18 @@
             
   <section id="special-tools">
 <h1>Special Tools<a class="headerlink" href="#special-tools" title="Link to this heading">¶</a></h1>
-<p>In addition to lines, polygons, freehand, text, rectangles, and circles, there are also more specialized graphics, which are covered here.</p>
+<p>In addition to lines, polygons, freehand, text, rectangles, and circles, there are also more specialized graphics, which are covered here.
+Most of them can be found in the <em>Measure</em> tool group (see <a class="reference internal" href="manual.html#mapmarkup-tool-groups"><span class="std std-ref">Tool Groups</span></a>).</p>
+<p>The following applies to all measuring tools:</p>
+<ul class="simple">
+<li><p>The exact click sequence is described for the selected tool in the <em>Symbology</em> panel (highlighted in yellow).</p></li>
+<li><p>The properties (unit, angle, distances, …) can be set before drawing. The most recently
+chosen values are reused for further elements of the same type.</p></li>
+<li><p>Lengths, areas and angles are calculated in the coordinate system of the map (see the note on the
+<a class="reference internal" href="#mapmarkup-measure-dimline"><span class="std std-ref">dimension line</span></a>).</p></li>
+<li><p>The elements are printed as they are shown on the map and can be downloaded as a shape file.
+The measured values (lengths, angles, units, …) are included as attributes.</p></li>
+</ul>
 <section id="buffer-circle">
 <h2>Buffer Circle<a class="headerlink" href="#buffer-circle" title="Link to this heading">¶</a></h2>
 <p>With this tool, a circle with a certain radius around a center point can be defined. In addition to the actual buffer circle, circles with intermediate steps are also shown and labeled:</p>
@@ -168,9 +179,23 @@
 <p>The result can be used for distance analyses.</p>
 </section>
 <section id="dimension-line">
-<h2>Dimension Line<a class="headerlink" href="#dimension-line" title="Link to this heading">¶</a></h2>
-<p>With this tool, a (poly)line can be drawn, in which each segment is labeled with its corresponding length in meters:</p>
+<span id="mapmarkup-measure-dimline"></span><h2>Dimension Line<a class="headerlink" href="#dimension-line" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-dimline.png"><img alt="../../../../_images/icon-dimline.png" src="../../../../_images/icon-dimline.png" style="width: 26px;" />
+</a>
+<p>With this tool (<em>Dimensioning</em>), a (poly)line can be drawn, in which each segment is labeled with its corresponding length in meters:</p>
 <img alt="../../../../_images/advanced-tools21.png" src="../../../../_images/advanced-tools21.png" />
+<p>Optionally, angles are labeled as well. To do so, choose the unit under <em>Show angles</em> in the properties
+(<em>None</em>, <em>Degrees</em>, <em>Gon</em> or <em>Degrees and gon</em>). <em>Angle type</em> defines which angle is shown:</p>
+<ul class="simple">
+<li><p><strong>Interior angle:</strong> the angle between the two segments at each intermediate vertex (0° to 180°)</p></li>
+<li><p><strong>Deflection angle (L/R):</strong> the change of direction at each intermediate vertex, with <code class="docutils literal notranslate"><span class="pre">L</span></code> (left) or <code class="docutils literal notranslate"><span class="pre">R</span></code> (right);
+the incoming segment is extended with a dashed line</p></li>
+<li><p><strong>Azimuth:</strong> the angle of each segment from (grid) north, clockwise (0° to 360°);
+a dashed north line is drawn for this</p></li>
+</ul>
+<img alt="../../../../_images/dimline-angles1.png" src="../../../../_images/dimline-angles1.png" />
+<img alt="../../../../_images/dim-angles-symbology.png" src="../../../../_images/dim-angles-symbology.png" />
+<p>Dimension lines from already existing drawings are still shown without angles.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The length shown is always calculated <em>live</em> from the vertices in the current map coordinate system. If you transfer the drawing (by saving and loading) into a map with a different coordinate system,
@@ -178,6 +203,14 @@ the values may differ. This applies particularly to all maps that use <em>WebMer
 at the bottom left of the <em>map viewer</em>.</p>
 <img alt="../../../../_images/advanced-tools3.png" src="../../../../_images/advanced-tools3.png" />
 </div>
+</section>
+<section id="dimension-polygon">
+<span id="mapmarkup-measure-dimpolygon"></span><h2>Dimension Polygon<a class="headerlink" href="#dimension-polygon" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-dimpolygon.png"><img alt="../../../../_images/icon-dimpolygon.png" src="../../../../_images/icon-dimpolygon.png" style="width: 26px;" />
+</a>
+<p>Like the dimension line, but for polygons: each edge is labeled with its length, the polygon with its area.
+Here too, the interior angles at all corners (0° to 360°) can be labeled in degrees, gon or both under <em>Show angles</em>.</p>
+<img alt="../../../../_images/dimpolygon-angles1.png" src="../../../../_images/dimpolygon-angles1.png" />
 </section>
 <section id="chainage-line">
 <h2>Chainage Line<a class="headerlink" href="#chainage-line" title="Link to this heading">¶</a></h2>
@@ -188,6 +221,121 @@ at the bottom left of the <em>map viewer</em>.</p>
 <p class="admonition-title">Note</p>
 <p>Just as with the dimension line, the distance points here are also calculated <em>live</em> and always relate to the current map coordinate system. If you insert the drawing into different maps, deviations may occur!</p>
 </div>
+</section>
+<section id="field-of-view-angle">
+<span id="mapmarkup-measure-view-angle"></span><h2>Field of View (Angle)<a class="headerlink" href="#field-of-view-angle" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-view-angle.png"><img alt="../../../../_images/icon-view-angle.png" src="../../../../_images/icon-view-angle.png" style="width: 26px;" />
+</a>
+<p>Draws a view cone with a given opening angle, e.g. for the field of view of a camera or a window.</p>
+<ul class="simple">
+<li><p>1st click: vertex, 2nd click: direction and length of the axis. Further clicks only move the end of the axis.</p></li>
+<li><p>Properties: <em>Opening angle</em> (default 30°, set with <em>Apply angle</em>), unit (degrees, gon or both)
+and optionally labeling the axis length.</p></li>
+</ul>
+<p>The total opening angle and the two half angles to the left and right of the axis are labeled.</p>
+<img alt="../../../../_images/view-angle1.png" src="../../../../_images/view-angle1.png" />
+</section>
+<section id="intersection-angle">
+<span id="mapmarkup-measure-intersection-angle"></span><h2>Intersection Angle<a class="headerlink" href="#intersection-angle" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-intersection-angle.png"><img alt="../../../../_images/icon-intersection-angle.png" src="../../../../_images/icon-intersection-angle.png" style="width: 26px;" />
+</a>
+<p>Measures the angle at which two lines intersect, e.g. road axes or pipelines.</p>
+<ul class="simple">
+<li><p>Define the first line with two clicks and the second line with two further clicks. Further clicks only move
+the end point of the second line.</p></li>
+<li><p>If the intersection point lies outside the drawn lines, they are extended with dashed lines.
+Parallel lines are labeled <em>parallel</em>.</p></li>
+<li><p><em>Show angles</em> defines which angles are labeled: intersection angle, adjacent angle
+(180° minus the intersection angle), both or all four angles at the intersection point. The unit is degrees, gon or both.</p></li>
+</ul>
+<img alt="../../../../_images/intersection-angle1.png" src="../../../../_images/intersection-angle1.png" />
+</section>
+<section id="circular-arc">
+<span id="mapmarkup-measure-circle-arc"></span><h2>Circular Arc<a class="headerlink" href="#circular-arc" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-circle-arc.png"><img alt="../../../../_images/icon-circle-arc.png" src="../../../../_images/icon-circle-arc.png" style="width: 26px;" />
+</a>
+<p>Draws a circular arc through three points, e.g. to determine the radius of a curve.</p>
+<ul class="simple">
+<li><p>Click the start point, any point on the arc and the end point. Further clicks only move the end point.
+If the three points lie on a straight line, a hint is shown.</p></li>
+<li><p>Radius, arc length and central angle are labeled. <em>Labels</em> defines whether all values or only one of them
+are shown; the angle unit is degrees, gon or both.</p></li>
+</ul>
+<img alt="../../../../_images/circle-arc1.png" src="../../../../_images/circle-arc1.png" />
+</section>
+<section id="perpendicular-distance">
+<span id="mapmarkup-measure-perpendicular"></span><h2>Perpendicular Distance<a class="headerlink" href="#perpendicular-distance" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-perpendicular.png"><img alt="../../../../_images/icon-perpendicular.png" src="../../../../_images/icon-perpendicular.png" style="width: 26px;" />
+</a>
+<p>Measures the perpendicular distance of any number of points to a reference line, e.g. the distance of objects to
+a road axis, including the station.</p>
+<ul class="simple">
+<li><p>First draw the reference line and finish it with a double-click on the last point (or <em>Close section</em>
+in the context menu or the <code class="docutils literal notranslate"><span class="pre">F</span></code> key).</p></li>
+<li><p>Then set any number of points: for each point, the perpendicular to the reference line is drawn and labeled with the
+distance. If the foot of the perpendicular lies outside the line, the line is extended with a dashed line.</p></li>
+<li><p>Properties: <em>Station</em> of the foot of the perpendicular in meters (e.g. <code class="docutils literal notranslate"><span class="pre">156.24m</span></code>), as chainage (e.g. <code class="docutils literal notranslate"><span class="pre">0+156.24</span></code>)
+or none, and the <em>Length unit</em> (m or km).</p></li>
+</ul>
+<img alt="../../../../_images/perpendicular1.png" src="../../../../_images/perpendicular1.png" />
+</section>
+<section id="buffer-zone">
+<span id="mapmarkup-measure-buffer-zone"></span><h2>Buffer Zone<a class="headerlink" href="#buffer-zone" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-buffer-zone.png"><img alt="../../../../_images/icon-buffer-zone.png" src="../../../../_images/icon-buffer-zone.png" style="width: 26px;" />
+</a>
+<p>Draws a buffer zone with a certain width around a geometry, e.g. a protective strip along a pipeline.</p>
+<ul class="simple">
+<li><p>Under <em>Source type</em>, choose which geometry is buffered: point, multiple points, line or polygon.
+Enter the width in meters under <em>Buffer width</em> and set it with <em>Apply buffer width</em>.</p></li>
+<li><p>Then draw the source geometry on the map. The buffer zone is calculated by the server and shown after a short time.</p></li>
+<li><p>With the source type <em>Point</em>, each further click moves the point; with <em>Multiple points</em>, each click adds a point.</p></li>
+<li><p>Lines and polygons can consist of several parts: <em>Close section</em> starts another part
+(e.g. a hole in a polygon).</p></li>
+<li><p>For polygons, a negative buffer width results in an inner buffer.</p></li>
+<li><p><em>Take from feature geometry</em> takes the geometry of an object from the map (point, line or polygon,
+also multipart and with holes). The source type is set automatically.</p></li>
+</ul>
+<img alt="../../../../_images/buffer-zone1.png" src="../../../../_images/buffer-zone1.png" />
+</section>
+<section id="object-distance">
+<span id="mapmarkup-measure-object-distance"></span><h2>Object Distance<a class="headerlink" href="#object-distance" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-object-distance.png"><img alt="../../../../_images/icon-object-distance.png" src="../../../../_images/icon-object-distance.png" style="width: 26px;" />
+</a>
+<p>Measures the shortest connection between objects from the map, e.g. from a building to the parcel boundary or between two pipelines.</p>
+<ul class="simple">
+<li><p>Click an object of a visible layer to choose the origin object (A).</p></li>
+<li><p>Then click any number of further objects (B): for each object, the shortest connection to A is drawn like a
+dimension line and labeled with its length. Clicking an object B again removes its line.</p></li>
+<li><p>If there are several objects at the click position, a selection list (<em>Select object</em>) is shown. Hovering over an
+entry highlights the object on the map.</p></li>
+<li><p>For polygons, the distance to the boundary is measured. If the objects touch or intersect, the distance is 0
+(no line is drawn).</p></li>
+<li><p>Properties: <em>Length unit</em> (m or km) and optionally numbering of the connections (<em>Show number</em>).</p></li>
+</ul>
+<img alt="../../../../_images/object-distance1.png" src="../../../../_images/object-distance1.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The distances are calculated while drawing and stored with the drawing. If the objects on the map change
+later, the stored distances are not recalculated.</p>
+</div>
+</section>
+<section id="measurement-grid">
+<span id="mapmarkup-measure-grid"></span><h2>Measurement Grid<a class="headerlink" href="#measurement-grid" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-measure-grid.png"><img alt="../../../../_images/icon-measure-grid.png" src="../../../../_images/icon-measure-grid.png" style="width: 26px;" />
+</a>
+<p>Draws a grid with a fixed cell size and labeled cells (<code class="docutils literal notranslate"><span class="pre">A1</span></code>, <code class="docutils literal notranslate"><span class="pre">B1</span></code>, …), e.g. for grid-based field surveys
+or to reference positions in a printout.</p>
+<ul class="simple">
+<li><p>The first two clicks define the base edge of the grid (cell A1 starts at the first point), the third
+click defines the depth. The grid can therefore be rotated arbitrarily. Further clicks only move the last point.</p></li>
+<li><p>Enter the <em>Cell size X/Y</em> in meters (Y empty = same as X) and set it with <em>Apply cell size</em> (default 10 m).</p></li>
+<li><p>With <em>Align to coordinate grid</em>, two clicks (opposite corners) are enough. The grid is then axis-parallel and
+the grid lines lie on round coordinate values. Optionally, the <em>Origin</em> (corner of cell A1) can be set to exact
+coordinates (<em>Apply origin</em>).</p></li>
+<li><p><em>Labels</em>: cells (<code class="docutils literal notranslate"><span class="pre">A1</span></code>, <code class="docutils literal notranslate"><span class="pre">B1</span></code>, …), border (columns/rows), coordinates (aligned grid only) or none.</p></li>
+<li><p>A grid can have at most 2500 cells. For larger grids, only the frame is shown together with a hint.</p></li>
+</ul>
+<img alt="../../../../_images/measure-grid1.png" src="../../../../_images/measure-grid1.png" />
 </section>
 <section id="compass">
 <h2>Compass<a class="headerlink" href="#compass" title="Link to this heading">¶</a></h2>
@@ -215,7 +363,15 @@ at the bottom left of the <em>map viewer</em>.</p>
 <li><a class="reference internal" href="#">Special Tools</a><ul>
 <li><a class="reference internal" href="#buffer-circle">Buffer Circle</a></li>
 <li><a class="reference internal" href="#dimension-line">Dimension Line</a></li>
+<li><a class="reference internal" href="#dimension-polygon">Dimension Polygon</a></li>
 <li><a class="reference internal" href="#chainage-line">Chainage Line</a></li>
+<li><a class="reference internal" href="#field-of-view-angle">Field of View (Angle)</a></li>
+<li><a class="reference internal" href="#intersection-angle">Intersection Angle</a></li>
+<li><a class="reference internal" href="#circular-arc">Circular Arc</a></li>
+<li><a class="reference internal" href="#perpendicular-distance">Perpendicular Distance</a></li>
+<li><a class="reference internal" href="#buffer-zone">Buffer Zone</a></li>
+<li><a class="reference internal" href="#object-distance">Object Distance</a></li>
+<li><a class="reference internal" href="#measurement-grid">Measurement Grid</a></li>
 <li><a class="reference internal" href="#compass">Compass</a></li>
 </ul>
 </li>
@@ -247,7 +403,7 @@ at the bottom left of the <em>map viewer</em>.</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

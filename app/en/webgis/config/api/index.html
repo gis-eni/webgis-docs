@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Configuration of the API application &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
@@ -163,12 +163,12 @@
 <h2>File <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code><a class="headerlink" href="#file-config-api-config" title="Link to this heading">¶</a></h2>
 <p>If this file does not exist, it is automatically created with default values the first time the API starts. This section shows how it can be adapted for <strong>production use</strong>.</p>
 <p>The file is an <strong>XML configuration file</strong> that contains various <strong>key-value pairs</strong>.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
 <span class="w">    </span><span class="nt">&lt;appSettings&gt;</span>
 
 <span class="w">        </span><span class="cm">&lt;!-- App Roles --&gt;</span>
-<span class="w">        </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;app-roles&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;all&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"app-roles"</span><span class="w"> </span><span class="na">value=</span><span class="s">"all"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="w">        </span>...
 
@@ -208,11 +208,11 @@
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allow-branches</span></code></p></td>
 <td><p>If this value is <code class="docutils literal notranslate"><span class="pre">true</span></code>, the API looks for branch deploys from the WebGIS CMS in the folder <code class="docutils literal notranslate"><span class="pre">branches/</span></code> below each CMS file (<code class="docutils literal notranslate"><span class="pre">cmspath_...</span></code>) and accepts branch uploads. Map authors can then select and test these branches in the portal (see <a class="reference internal" href="../../apps/cms/deploy.html#cms-deploy-branch"><span class="std std-ref">Testing a working branch (branch deploy)</span></a> and <a class="reference internal" href="../../apps/portal/branches.html#portal-branches"><span class="std std-ref">Testing CMS branches</span></a>). Default: <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>Should only be enabled on development and test systems.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-branches&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-branches"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4102.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4102.</span></p>
 </div>
 </td>
 </tr>
@@ -436,26 +436,26 @@ logging</strong> (<code class="docutils literal notranslate"><span class="pre">l
 </div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Logging (optional) --&gt;</span>
 <span class="cm">&lt;!-- Comma-separated list: files, microsoft, sqlserver, postgres, sqlite, oracle (any combination) --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-type&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;files&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-type"</span><span class="w"> </span><span class="na">value=</span><span class="s">"files"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="cm">&lt;!-- Path for logging: the directory must have write permissions for WebGIS --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Log_Path&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;C:\\apps\\webgis\\local\\webgis-repository\\logs&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"Log_Path"</span><span class="w"> </span><span class="na">value=</span><span class="s">"C:\\apps\\webgis\\local\\webgis-repository\\logs"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-performance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;Log_Performance_Columns&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;SESSIONID;MAPREQUESTID;CLIENTIP;DATE;TIME;MAPNAME;USERNAME;X;Y;SCALE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-exceptions&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-log-performance"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"Log_Performance_Columns"</span><span class="w"> </span><span class="na">value=</span><span class="s">"SESSIONID;MAPREQUESTID;CLIENTIP;DATE;TIME;MAPNAME;USERNAME;X;Y;SCALE"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-log-exceptions"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="cm">&lt;!-- optional: how usernames are recorded in the performance/exception logs: &quot;plaintext&quot; (default), &quot;hash&quot;, &quot;none&quot; --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-username-mode&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;plaintext&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="cm">&lt;!-- optional: how usernames are recorded in the performance/exception logs: "plaintext" (default), "hash", "none" --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-username-mode"</span><span class="w"> </span><span class="na">value=</span><span class="s">"plaintext"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="cm">&lt;!-- only needed for the DB-backed types below --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-sqlserver-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Server=sql-host;Database=webgis;User Id=webgis;Password=...;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-postgres-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Host=pg-host;Database=webgis;Username=webgis;Password=...;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-oracle-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Data Source=ora-host:1521/orclpdb;User Id=webgis;Password=...;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-sqlite-connectionstring&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Data Source=C:\\apps\\webgis\\local\\webgis-repository\\logs\\webgis.db&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-sqlserver-connectionstring"</span><span class="w"> </span><span class="na">value=</span><span class="s">"Server=sql-host;Database=webgis;User Id=webgis;Password=...;"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-postgres-connectionstring"</span><span class="w"> </span><span class="na">value=</span><span class="s">"Host=pg-host;Database=webgis;Username=webgis;Password=...;"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-oracle-connectionstring"</span><span class="w"> </span><span class="na">value=</span><span class="s">"Data Source=ora-host:1521/orclpdb;User Id=webgis;Password=...;"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-sqlite-connectionstring"</span><span class="w"> </span><span class="na">value=</span><span class="s">"Data Source=C:\\apps\\webgis\\local\\webgis-repository\\logs\\webgis.db"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="cm">&lt;!-- For debugging only, do not use in production --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;trace&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;logging-log-service-requests&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"trace"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"logging-log-service-requests"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">logging-type</span></code> is a <strong>comma-separated list</strong> of one or more of <code class="docutils literal notranslate"><span class="pre">files</span></code>, <code class="docutils literal notranslate"><span class="pre">microsoft</span></code>,
@@ -599,15 +599,15 @@ table.</p></li>
 <p>(from version 8.26.801)</p>
 <p>This section allows you to set how the results of
 <strong>identify or search queries</strong> are displayed on the map.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;query-results&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;selection-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#0ff&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: Cyan --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;selection-fill-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#10ff&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"query-results"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"selection-color"</span><span class="w"> </span><span class="na">value=</span><span class="s">"#0ff"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: Cyan --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"selection-fill-color"</span><span class="w"> </span><span class="na">value=</span><span class="s">"#10ff"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;highlight-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#0f0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: Yello --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;highlight-fill-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#cf00&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"highlight-color"</span><span class="w"> </span><span class="na">value=</span><span class="s">"#0f0"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: Yello --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"highlight-fill-color"</span><span class="w"> </span><span class="na">value=</span><span class="s">"#cf00"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;buffer-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#f00&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- optional, default: Gray --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;buffer-fill-color&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;#300f&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">       </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"buffer-color"</span><span class="w"> </span><span class="na">value=</span><span class="s">"#f00"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- optional, default: Gray --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"buffer-fill-color"</span><span class="w"> </span><span class="na">value=</span><span class="s">"#300f"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">       </span><span class="cm">&lt;!-- option, if differs from color --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -657,9 +657,9 @@ transparent blue (20% opacity). The first part of the hex code defines the trans
 <section id="section-quick-search">
 <h3>Section <code class="docutils literal notranslate"><span class="pre">Quick</span> <span class="pre">Search</span></code><a class="headerlink" href="#section-quick-search" title="Link to this heading">¶</a></h3>
 <p>In this section you define which results are shown in the quick search and which search criteria can be used for it.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;quick-search&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-result-items&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: 5 --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allowed-geocodes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;*&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"quick-search"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-result-items"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: 5 --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allowed-geocodes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"*"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -688,8 +688,8 @@ transparent blue (20% opacity). The first part of the hex code defines the trans
 <p>Some tools offered in the <strong>WebGIS Viewer</strong> require their own configuration entries. These are located in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>. To keep <code class="docutils literal notranslate"><span class="pre">api.config</span></code> clear, the entries are grouped by <em>sections</em>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;section&gt;</span></code> tags must be located inside the <code class="docutils literal notranslate"><span class="pre">&lt;appSettings&gt;</span></code> tag.</p>
 <p>The following attributes can be defined in all sections for tools:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-...&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: true --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-..."</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-anoymous-access"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional, default: true --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -707,8 +707,8 @@ If an anonymous user clicks it, they receive an error message
 <p>To hide a tool from anonymous users in the viewer, this must additionally
 be set in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>, for example for the <strong>load/save</strong> tool:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">hmac</span><span class="p">.</span><span class="nx">userName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.loadmap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
-<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.savemap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'webgis.tools.serialization.loadmap'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">'hidden'</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'webgis.tools.serialization.savemap'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">'hidden'</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -721,13 +721,13 @@ be set in <code class="docutils literal notranslate"><span class="pre">custom.js
 <section id="tool-mapmarkup">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">MapMarkup</span></code><a class="headerlink" href="#tool-mapmarkup" title="Link to this heading">¶</a></h4>
 <p>The configuration for the <strong>MapMarkup tool</strong> looks as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-mapmarkup&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection-max-features&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-add-from-selection-max-vertices&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-download-from-selection&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-download-epsg&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4326&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;save-name-maxlength&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: 40 --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-mapmarkup"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-add-from-selection"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-add-from-selection-max-features"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1000"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-add-from-selection-max-vertices"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10000"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-download-from-selection"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"default-download-epsg"</span><span class="w"> </span><span class="na">value=</span><span class="s">"4326"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"save-name-maxlength"</span><span class="w"> </span><span class="na">value=</span><span class="s">"20"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: 40 --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -739,8 +739,8 @@ be set in <code class="docutils literal notranslate"><span class="pre">custom.js
 </section>
 <section id="tool-coordinates-xy">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">Coordinates</span> <span class="pre">(XY)</span></code><a class="headerlink" href="#tool-coordinates-xy" title="Link to this heading">¶</a></h4>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-coordinates&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-upload-max-rows&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-coordinates"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-upload-max-rows"</span><span class="w"> </span><span class="na">value=</span><span class="s">"200"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -777,11 +777,11 @@ be set in <code class="docutils literal notranslate"><span class="pre">custom.js
 <p>A higher DPI improves <strong>readability</strong>, especially of text, but also increases the <strong>file size</strong> of the generated PDFs and the <strong>server load</strong>. In <strong>public internet applications</strong>, a <strong>print resolution above 150 DPI</strong> should be avoided, since it can put a heavy load on the server for large paper formats.</p>
 </div>
 <p>The configuration in <code class="docutils literal notranslate"><span class="pre">api.config</span></code> looks as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-print&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;qualities-dpi&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;150:Hoch (150 dpi),120:Mittel (120 dpi),225:Sehr hoch (225 dpi)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;scales&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000000,500000,250000,100000,50000,25000,10000,5000,3000,2000,1000,500,250,100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Landscape&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;scale-wysiwyg&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-print"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"qualities-dpi"</span><span class="w"> </span><span class="na">value=</span><span class="s">"150:Hoch (150 dpi),120:Mittel (120 dpi),225:Sehr hoch (225 dpi)"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"scales"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1000000,500000,250000,100000,50000,25000,10000,5000,3000,2000,1000,500,250,100"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"default-format"</span><span class="w"> </span><span class="na">value=</span><span class="s">"A4.Landscape"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"scale-wysiwyg"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -789,8 +789,8 @@ be set in <code class="docutils literal notranslate"><span class="pre">custom.js
 <p>The individual values are separated by <strong>commas</strong>. Each entry consists of a <strong>DPI number (integer)</strong> and a <strong>description</strong>, separated by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. In the <strong>viewer</strong>, the DPI values are shown <strong>sorted</strong> (e.g. 120, 150, 225). The first value in the list serves as the <strong>default value</strong> and is preselected when the print tool is first opened.</p>
 <p>Optionally, the print scales can also be defined. If no values are specified, the system uses the available <strong>map zoom levels</strong>.</p>
 <p>An alternative way to define print scales is to set them directly in the <strong>print layout file</strong>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot; ?&gt;</span>
-<span class="nt">&lt;layout</span><span class="w"> </span><span class="na">scales=</span><span class="s">&quot;5000,2500,1000,500&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="iso-8859-1" ?&gt;</span>
+<span class="nt">&lt;layout</span><span class="w"> </span><span class="na">scales=</span><span class="s">"5000,2500,1000,500"</span><span class="nt">&gt;</span>
 <span class="w">  </span>...
 <span class="nt">&lt;/layout&gt;</span>
 </pre></div>
@@ -807,14 +807,14 @@ be set in <code class="docutils literal notranslate"><span class="pre">custom.js
 <p>From version 8.X</p>
 </div>
 <p>The configuration for the <strong>series printing tool</strong> looks as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-map-series-print&quot;</span><span class="nt">&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;qualities-dpi&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;150:Hoch (150 dpi),120:Mittel (120 dpi),225:Sehr hoch (225 dpi)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;scales&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;50000,25000,10000,5000,3000,2000,1000,500,250,100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Landscape&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-pages&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-intersection-iterations&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: max-pages * 50 --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;overview-page-layout&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: layout_map_services_overview.xml  --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;overview-page-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;A4.Portrait&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: empty =&gt; use same format as series pages --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-map-series-print"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"qualities-dpi"</span><span class="w"> </span><span class="na">value=</span><span class="s">"150:Hoch (150 dpi),120:Mittel (120 dpi),225:Sehr hoch (225 dpi)"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"scales"</span><span class="w"> </span><span class="na">value=</span><span class="s">"50000,25000,10000,5000,3000,2000,1000,500,250,100"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"default-format"</span><span class="w"> </span><span class="na">value=</span><span class="s">"A4.Landscape"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-pages"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10"</span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-intersection-iterations"</span><span class="w"> </span><span class="na">value=</span><span class="s">"5000"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: max-pages * 50 --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"overview-page-layout"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: layout_map_services_overview.xml  --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"overview-page-format"</span><span class="w"> </span><span class="na">value=</span><span class="s">"A4.Portrait"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: empty =&gt; use same format as series pages --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -855,12 +855,12 @@ If no value is specified, the same format as for the series print pages is used.
 </section>
 <section id="context-menu-in-the-table-of-contents-toc-contextmenu">
 <span id="api-config-toc-contextmenu"></span><h4>Context Menu in the Table of Contents (<code class="docutils literal notranslate"><span class="pre">toc-contextmenu</span></code>)<a class="headerlink" href="#context-menu-in-the-table-of-contents-toc-contextmenu" title="Link to this heading">¶</a></h4>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;toc-contextmenu&quot;</span><span class="nt">&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-visfilter&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userrenderer&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;userrenderer-max-unique-value-classes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-toc-userlabeling&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;table-feature-limit&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"toc-contextmenu"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-toc-visfilter"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-toc-userrenderer"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"userrenderer-max-unique-value-classes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"100"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-toc-userlabeling"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"table-feature-limit"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1000"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -888,14 +888,14 @@ All <code class="docutils literal notranslate"><span class="pre">allow-...</span
 <td><p>Must be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> so that users can change the <strong>presentation</strong> of layers in the table of contents.
 Additionally, the property <em>Allow user-defined rendering</em> must be set for the service in the CMS (see <a class="reference internal" href="../../apps/cms/add_ags_service.html#cms-ags-user-renderer-labeling"><span class="std std-ref">User-defined Rendering and Labeling</span></a>).</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">userrenderer-max-unique-value-classes</span></code></p></td>
 <td><p>Maximum number of values (classes) of a custom presentation with <em>Unique values</em>. Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 </td>
 </tr>
@@ -904,7 +904,7 @@ Additionally, the property <em>Allow user-defined rendering</em> must be set for
 Additionally, the property <em>Allow user-defined labeling</em> must be set for the service in the CMS (see <a class="reference internal" href="../../apps/cms/add_ags_service.html#cms-ags-user-renderer-labeling"><span class="std std-ref">User-defined Rendering and Labeling</span></a>).
 Replaces the former <em>Labeling Topics</em> tool.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 </td>
 </tr>
@@ -914,7 +914,7 @@ Replaces the former <em>Labeling Topics</em> tool.</p>
 If a maximum number is defined for the service or the query, that one is used. Default: <code class="docutils literal notranslate"><span class="pre">1000</span></code>.
 The menu item itself can be hidden in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> with <code class="docutils literal notranslate"><span class="pre">webgis.usability.allowTocTable</span> <span class="pre">=</span> <span class="pre">false</span></code>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 </td>
 </tr>
@@ -926,12 +926,12 @@ small <strong>filter icon</strong> is displayed that opens a <strong>query build
 can define a <strong>display filter</strong> in SQL style.
 Which fields are offered for this can be defined in the CMS for the service under <strong>QueryBuilder</strong>.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104: </span>After selecting a field, the query builder suggests values (autocomplete for texts, selection list for numbers with at most 25 distinct values,
+<p><span class="versionmodified added">Added in version 9.26.4104: </span>After selecting a field, the query builder suggests values (autocomplete for texts, selection list for numbers with at most 25 distinct values,
 calendar for date fields, see <a class="reference external" href="https://docs.webgiscloud.com/en/webgis-manual/mapviewer/presentation/index.html#toc-querybuilder">Query Builder in the user manual</a>).
 The values are queried live from the service, currently only for ArcGIS services. Locked display filters are always taken into account.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104: </span>In the context menu, the entry is called <strong>Display filter (DefinitionQuery)</strong>. Additionally, the operators <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>,
+<p><span class="versionmodified added">Added in version 9.26.4104: </span>In the context menu, the entry is called <strong>Display filter (DefinitionQuery)</strong>. Additionally, the operators <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>,
 <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">null</span></code> and <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span> <span class="pre">null</span></code> are available.</p>
 </div>
 <div class="admonition note">
@@ -950,12 +950,12 @@ This allows the function to be enabled only for specific maps.</p>
 <section id="tool-liveshare">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">LiveShare</span></code><a class="headerlink" href="#tool-liveshare" title="Link to this heading">¶</a></h4>
 <p>For <strong>LiveShare</strong> to be usable, the URL of the <strong>hub</strong> must be specified in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-liveshare&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;simplify-session-ids&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-liveshare"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"simplify-session-ids"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;hub&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://liveshare.webgiscloud.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;clientId&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;gültige client Id&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;clientSecret&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;gültiges client secret&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"hub"</span><span class="w"> </span><span class="na">value=</span><span class="s">"https://liveshare.webgiscloud.com"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"clientId"</span><span class="w"> </span><span class="na">value=</span><span class="s">"gültige client Id"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"clientSecret"</span><span class="w"> </span><span class="na">value=</span><span class="s">"gültiges client secret"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -989,13 +989,13 @@ This allows the function to be enabled only for specific maps.</p>
 <section id="tool-3d-measurement">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">3D</span> <span class="pre">Measurement</span></code><a class="headerlink" href="#tool-3d-measurement" title="Link to this heading">¶</a></h4>
 <p>For <strong>3D measurements</strong> to work, the following values must be configured in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-threed&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;min-resolution&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-resolution&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-model-size&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1500&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-scale&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;100000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;texture-ortho-service&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;geoland_bm_of@default:0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="cm">&lt;!-- serviceId:layerId --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;texture-streets-overlay-service&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;geoland_bm_ov@default:0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="cm">&lt;!-- serviceId:layerId --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-threed"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"min-resolution"</span><span class="w"> </span><span class="na">value=</span><span class="s">"5"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-resolution"</span><span class="w"> </span><span class="na">value=</span><span class="s">"100"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-model-size"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1500"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-scale"</span><span class="w"> </span><span class="na">value=</span><span class="s">"100000"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"texture-ortho-service"</span><span class="w"> </span><span class="na">value=</span><span class="s">"geoland_bm_of@default:0"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="cm">&lt;!-- serviceId:layerId --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"texture-streets-overlay-service"</span><span class="w"> </span><span class="na">value=</span><span class="s">"geoland_bm_ov@default:0"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="cm">&lt;!-- serviceId:layerId --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1034,8 +1034,8 @@ This allows the function to be enabled only for specific maps.</p>
 <section id="tool-save-map">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Map</span></code><a class="headerlink" href="#tool-save-map" title="Link to this heading">¶</a></h4>
 <p>With the <strong>Save Map</strong> tool, users can save the current map (services, visibility, map markup) as a <strong>project</strong>. The following settings can be configured for this:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;name-maxlength&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-savemap"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"name-maxlength"</span><span class="w"> </span><span class="na">value=</span><span class="s">"40"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1063,9 +1063,9 @@ This setting prevents the <strong>file names</strong> from becoming too long.</p
 <p>With the <strong>Load Map</strong> tool, saved maps can be reopened by the user.</p>
 <p>If a saved map is opened via the <strong>portal page (My Projects)</strong>, a <strong>link</strong> is generated through which the map can be called. This link is shown in the <strong>browser’s address bar</strong> and can thus be copied and shared.</p>
 <p>The following settings determine who is allowed to open saved maps. By default, maps can only be opened by the user who saved them.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-loadmap&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-collaboration&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anonymous-collaboration&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-loadmap"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-collaboration"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-anonymous-collaboration"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1100,16 +1100,16 @@ If <strong>anonymous users</strong> should also have access to the maps, this op
 <section id="tool-cms-upload">
 <h4>Tool <code class="docutils literal notranslate"><span class="pre">CMS</span> <span class="pre">Upload</span></code><a class="headerlink" href="#tool-cms-upload" title="Link to this heading">¶</a></h4>
 <p>The configuration allows you to define whether <strong>CMS.xml</strong> files may be uploaded from a <strong>WebGIS CMS</strong> instance.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;cms-upload-{cms-name}&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;client&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;cms-upload-client&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secret&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;my-super-secret-with-min-length-24&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"cms-upload-{cms-name}"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"client"</span><span class="w"> </span><span class="na">value=</span><span class="s">"cms-upload-client"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secret"</span><span class="w"> </span><span class="na">value=</span><span class="s">"my-super-secret-with-min-length-24"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">{cms-name}</span></code> is the <strong>CMS name</strong> as defined in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>. Example:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- here {cms-name} equals my-cms --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;cmspath_my-cms&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{path-to-cms.xml}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"cmspath_my-cms"</span><span class="w"> </span><span class="na">value=</span><span class="s">"{path-to-cms.xml}"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <table class="docutils align-default">
@@ -1142,8 +1142,8 @@ If <strong>anonymous users</strong> should also have access to the maps, this op
 <p>Default values: <strong>one day, one week, or one month</strong>.</p>
 <img alt="../../_images/config-tools7.png" src="../../_images/config-tools7.png" />
 <p>If other values should be selectable, this can be configured via <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-share&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;duration&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1:1 Tag, 7:1 Woche, 31:1 Monat, 365: 1 Jahr, 36500:Für immer&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-share"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"duration"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1:1 Tag, 7:1 Woche, 31:1 Monat, 365: 1 Jahr, 36500:Für immer"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1173,19 +1173,19 @@ This tolerance determines how large the area around the click point is, within w
 It is necessary because it can be difficult to click exactly on a desired <strong>point- or line-shaped</strong> object.</p>
 <p>By default, a search is performed with a <strong>tolerance of ±20 pixels</strong> around the mouse cursor.
 For <strong>area-shaped objects</strong>, this can be undesirable. Therefore, the <strong>tolerance per geometry type</strong> can be adjusted in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-identify&quot;</span><span class="nt">&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance-for-point-layers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance-for-line-layers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;tolerance-for-polygon-layers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-identify"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"tolerance"</span><span class="w"> </span><span class="na">value=</span><span class="s">"20"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"tolerance-for-point-layers"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"tolerance-for-line-layers"</span><span class="w"> </span><span class="na">value=</span><span class="s">"5"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"tolerance-for-polygon-layers"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;show-layer-visibility-checkboxes&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"show-layer-visibility-checkboxes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;max-vertices-for-hover-highlighting&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-vertices-for-hover-highlighting"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-date-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-time-format&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;HH.mm&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;result-date-time-culture&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;de-AT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"result-date-format"</span><span class="w"> </span><span class="na">value=</span><span class="s">"dd.MM.yyyy"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"result-time-format"</span><span class="w"> </span><span class="na">value=</span><span class="s">"HH.mm"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"result-date-time-culture"</span><span class="w"> </span><span class="na">value=</span><span class="s">"de-AT"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1271,13 +1271,13 @@ multi-step <strong>workaround</strong> is applied internally.</p>
 <a class="reference internal" href="../../annex/ags-spatial-query.html"><span class="doc">ArcGIS Server Spatial-Query Workaround</span></a>.</p>
 <p>The behavior of the workaround can be adjusted via the <code class="docutils literal notranslate"><span class="pre">tool-identify</span></code> <em>section</em> in
 <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-identify&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-identify"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="cm">&lt;!-- ArcGIS Server spatial-query bounding-box workaround (see AgsQuerySettings) --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-max-result-cap&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;2000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-default-max-record-count-fallback&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-max-parallel-batch-requests&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-ids-timeout-seconds&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ags-spatial-query-ids-paging-threshold&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;50000&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"ags-spatial-query-max-result-cap"</span><span class="w"> </span><span class="na">value=</span><span class="s">"2000"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"ags-spatial-query-default-max-record-count-fallback"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1000"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"ags-spatial-query-max-parallel-batch-requests"</span><span class="w"> </span><span class="na">value=</span><span class="s">"4"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"ags-spatial-query-ids-timeout-seconds"</span><span class="w"> </span><span class="na">value=</span><span class="s">"20"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"ags-spatial-query-ids-paging-threshold"</span><span class="w"> </span><span class="na">value=</span><span class="s">"50000"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1339,9 +1339,9 @@ cascade can be found in the appendix: <a class="reference internal" href="../../
 <p>A workaround is the <strong>secured tiles redirect API</strong>. With this, the tiles are fetched via a call to the WebGIS API. The WebGIS API acts here as a reverse proxy to the protected WMTS service. The credentials thus remain on the server.</p>
 <p><strong>Client</strong> =&gt; TileRequest =&gt; <strong>WebGIS API</strong> =&gt; TileRequest+Credentials =&gt; <strong>WMTS Server</strong></p>
 <p>The <strong>secured tiles redirect API</strong> must be explicitly enabled via <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
-<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;secured-tiles-redirect&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-with-ogc-wmts&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
-<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;referers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;www.server1.com,www.server2.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"secured-tiles-redirect"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"use-with-ogc-wmts"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"referers"</span><span class="w"> </span><span class="na">value=</span><span class="s">"www.server1.com,www.server2.com"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- optional --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1370,14 +1370,14 @@ cascade can be found in the appendix: <a class="reference internal" href="../../
 <h3>Proxy Server<a class="headerlink" href="#proxy-server" title="Link to this heading">¶</a></h3>
 <p>If <strong>services from the internet</strong> are integrated, a <strong>proxy server</strong> may be required.
 The configuration is done in the optional <em>section</em> <code class="docutils literal notranslate"><span class="pre">proxy</span></code> in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;proxy&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;server&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;webproxy.mydomain.com&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;port&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;8080&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;user&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;pwd&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;domain&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ignore&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;localhost;localhost:8080;.my-domain.com$;^8\.;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"proxy"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"use"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"server"</span><span class="w"> </span><span class="na">value=</span><span class="s">"webproxy.mydomain.com"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"port"</span><span class="w"> </span><span class="na">value=</span><span class="s">"8080"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"user"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"pwd"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"domain"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"ignore"</span><span class="w"> </span><span class="na">value=</span><span class="s">"localhost;localhost:8080;.my-domain.com$;^8\.;"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1418,13 +1418,13 @@ The configuration is done in the optional <em>section</em> <code class="docutils
 </section>
 <section id="security">
 <h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;security&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;disable-anti-forgery&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: false. true is not recommended for production --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"security"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"disable-anti-forgery"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: false. true is not recommended for production --&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- optional: credentials for secured endpoints, e.g. cache/clear --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-url-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;****************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-username&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;admin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;secure-endpoint-basicauth-password&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;**************************************&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-url-password"</span><span class="w"> </span><span class="na">value=</span><span class="s">"****************************"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-basicauth-username"</span><span class="w"> </span><span class="na">value=</span><span class="s">"admin"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-basicauth-password"</span><span class="w"> </span><span class="na">value=</span><span class="s">"**************************************"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1453,22 +1453,22 @@ be protected in publicly accessible instances, to prevent misuse.</p>
 <h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>
 <p>Additional functions can be implemented in the <strong>WebGIS API</strong> via the <strong>middleware</strong>,
 e.g. <strong>logging</strong>, <strong>forwarding</strong> or <strong>security checks</strong>.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;middleware&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"middleware"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- optional: Forwarded Headers Middleware, default: false --&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- can be helpfull when WebGIS API is behind a reverse proxy and the original client IP and protocol information is needed --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-x-forwarded-headers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"use-x-forwarded-headers"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- optional: log forwarded headers, default: false, only for debugging purposes --&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- logs the original client IP and protocol information in the API logs (information level) --&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- should only be enabled if use-x-forwarded-headers is true and the API is behind a reverse proxy --&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-x-forwarded-headers-logging&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"use-x-forwarded-headers-logging"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
 </section>
 <section id="httpclient">
 <h3>HttpClient<a class="headerlink" href="#httpclient" title="Link to this heading">¶</a></h3>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;httpclient&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;default-timeout-seconds&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;300&quot;</span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default:0 = 100 secs --&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"httpclient"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"default-timeout-seconds"</span><span class="w"> </span><span class="na">value=</span><span class="s">"300"</span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default:0 = 100 secs --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1502,36 +1502,36 @@ configured in the CMS. If a higher value is configured in the CMS, it must also 
 <section id="datalinq">
 <h3>DataLinq<a class="headerlink" href="#datalinq" title="Link to this heading">¶</a></h3>
 <p>This section specifies whether <strong>DataLinq</strong> is offered by a <strong>WebGIS API instance</strong>.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;datalinq&quot;</span><span class="nt">&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;include&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-code-editing&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"datalinq"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"include"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-code-editing"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="w">   </span><span class="cm">&lt;!-- optional: Engine &amp; Serverside Encryption --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;razor-engine&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;default&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default, legacy --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;api-encryption-level&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;DefaultStaticEncryption&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- DefaultStaticEncryption, None, RandomSaltedPasswordEncryption --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"razor-engine"</span><span class="w"> </span><span class="na">value=</span><span class="s">"default"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default, legacy --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"api-encryption-level"</span><span class="w"> </span><span class="na">value=</span><span class="s">"DefaultStaticEncryption"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- DefaultStaticEncryption, None, RandomSaltedPasswordEncryption --&gt;</span>
 
 <span class="w">   </span><span class="cm">&lt;!-- optional --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allowed-code-api-clients&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://my-server/cms&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;initialize-sandbox-on-startup&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;environment&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;production&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default, production, development, test --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-namespaces&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-razor-whitelist&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;DXImageTransform.Microsoft.&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-razor-blacklist&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;ForbiddenNamespace.&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-css&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-/content/styles/my-company/default.css?{version}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;add-js&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;-/scripts/api/three_d.js?{version}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allowed-code-api-clients"</span><span class="w"> </span><span class="na">value=</span><span class="s">"https://my-server/cms"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"initialize-sandbox-on-startup"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"environment"</span><span class="w"> </span><span class="na">value=</span><span class="s">"production"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default, production, development, test --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"add-namespaces"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"add-razor-whitelist"</span><span class="w"> </span><span class="na">value=</span><span class="s">"DXImageTransform.Microsoft."</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"add-razor-blacklist"</span><span class="w"> </span><span class="na">value=</span><span class="s">"ForbiddenNamespace."</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"add-css"</span><span class="w"> </span><span class="na">value=</span><span class="s">"-/content/styles/my-company/default.css?{version}"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"add-js"</span><span class="w"> </span><span class="na">value=</span><span class="s">"-/scripts/api/three_d.js?{version}"</span><span class="w"> </span><span class="nt">/&gt;</span>
 
 <span class="w">   </span><span class="cm">&lt;!-- optional: SelectEngines&gt;</span>
-<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedPaths:0&quot; value=&quot;C:\datalinq\data\&quot; /&gt;</span>
-<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedPaths:1&quot; value=&quot;C:\webgis\data\&quot; /&gt;</span>
-<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:1&quot; value=&quot;.txt&quot; /&gt;</span>
-<span class="cm">   &lt;add key=&quot;SelectEngines:TextFileEngine:AllowedExtensions:0&quot; value=&quot;.csv&quot; /&gt;</span>
+<span class="cm">   &lt;add key="SelectEngines:TextFileEngine:AllowedPaths:0" value="C:\datalinq\data\" /&gt;</span>
+<span class="cm">   &lt;add key="SelectEngines:TextFileEngine:AllowedPaths:1" value="C:\webgis\data\" /&gt;</span>
+<span class="cm">   &lt;add key="SelectEngines:TextFileEngine:AllowedExtensions:1" value=".txt" /&gt;</span>
+<span class="cm">   &lt;add key="SelectEngines:TextFileEngine:AllowedExtensions:0" value=".csv" /&gt;</span>
 
-<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:0&quot; value=&quot;https://localhost/&quot; /&gt;</span>
-<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:1&quot; value=&quot;https://gisserver1.com/&quot; /&gt;</span>
-<span class="cm">   &lt;add key=&quot;ImageRequestWhiteList:2&quot; value=&quot;https://gisserver2.com/&quot; /&gt;</span>
+<span class="cm">   &lt;add key="ImageRequestWhiteList:0" value="https://localhost/" /&gt;</span>
+<span class="cm">   &lt;add key="ImageRequestWhiteList:1" value="https://gisserver1.com/" /&gt;</span>
+<span class="cm">   &lt;add key="ImageRequestWhiteList:2" value="https://gisserver2.com/" /&gt;</span>
 
 <span class="cm">   &lt;!-- optional: experimentell --&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;use-cache-token-for-one-2-n-links&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"use-cache-token-for-one-2-n-links"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- default: false --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1741,7 +1741,7 @@ To check whether the <strong>DataLinq settings</strong> are set correctly, the <
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

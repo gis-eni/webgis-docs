@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Konfiguration DataLinq.Code &#8212; DataLinq 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=cc740ad6" />
     <script src="_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/translations.js?v=70a09b52"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
     <script src="_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="provision.html">Bereitstellung von DataLinq und DataLinq.Code</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Systemarchitektur von WebGIS DataLinq</a></li>
@@ -164,18 +164,18 @@ an verschiedene Einsatzszenarien.</p>
 <strong>datalinq.code/_config/datalinq.code.json</strong></p>
 <p>Beispiel:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;DataLinq.Code&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Crypto&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;DefaultPasswort&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;SaltBytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">  </span><span class="nt">"DataLinq.Code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Crypto"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"DefaultPasswort"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"SaltBytes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;Instances&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"Instances"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Local&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A local datalinq instance for testing and development&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;LoginUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{url-datalinq-code-api}&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;LogoutUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{url-datalinq-code-api}&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
-<span class="w">        </span><span class="nt">&quot;CodeApiClientUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{url-datalinq-code-api}&quot;</span>
+<span class="w">        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Local"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A local datalinq instance for testing and development"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"LoginUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{url-datalinq-code-api}"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"LogoutUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{url-datalinq-code-api}"</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
+<span class="w">        </span><span class="nt">"CodeApiClientUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{url-datalinq-code-api}"</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w">  </span><span class="p">}</span>
@@ -259,7 +259,7 @@ in einer <strong>Docker</strong> oder <strong>Kubernetes</strong> Umgebung muss 
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Applikations-Logging (Konsole / OpenTelemetry / Serilog / Seq) &#8212; WebGIS 2026 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
     <script src="../_static/documentation_options.js?v=81100d21"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/translations.js?v=70a09b52"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=9bf55d28"></script>
     <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
@@ -180,10 +180,10 @@ Level <code class="docutils literal notranslate"><span class="pre">LogLevel.Trac
 nichts geschrieben, solange sie nicht explizit überschrieben wird (es genügt <strong>nicht</strong>, nur
 <code class="docutils literal notranslate"><span class="pre">Default</span></code> anzuheben, da <code class="docutils literal notranslate"><span class="pre">Trace</span></code> ausführlicher als <code class="docutils literal notranslate"><span class="pre">Information</span></code> ist):</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;LogLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Api.Core.AppCode.Services.Logging.MicrosoftGeoServiceRequestLogger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Trace&quot;</span>
+<span class="w">  </span><span class="nt">"Logging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"LogLevel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Api.Core.AppCode.Services.Logging.MicrosoftGeoServiceRequestLogger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trace"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -243,9 +243,9 @@ Umgebungsvariablen gesteuert (<code class="docutils literal notranslate"><span c
 <p>Für strukturierte JSON-Ausgabe auf der Konsole (nützlich, wenn ein Container-Log-Collector wie
 Filebeat/Fluent Bit/Promtail stdout parst), wird der Konsolen-Formatter umgestellt:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Console&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;FormatterName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json&quot;</span>
+<span class="w">  </span><span class="nt">"Logging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Console"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"FormatterName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -259,7 +259,7 @@ OpenTelemetry-Protokoll (OTLP), sobald ein OTLP-Endpunkt konfiguriert ist. Das w
 über die üblichen OpenTelemetry-Umgebungsvariablen gesteuert - es ist keine weitere Konfiguration
 und kein Rebuild nötig:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
-OTEL_EXPORTER_OTLP_PROTOCOL=grpc        # oder &quot;http/protobuf&quot; für Port 4318
+OTEL_EXPORTER_OTLP_PROTOCOL=grpc        # oder "http/protobuf" für Port 4318
 OTEL_SERVICE_NAME=webgis-api            # optional, Default: Name des Hosts
 </pre></div>
 </div>
@@ -320,18 +320,18 @@ vorhandenen <code class="docutils literal notranslate"><span class="pre">Serilog
 <section id="sql-server">
 <h3>SQL Server<a class="headerlink" href="#sql-server" title="Link to this heading">¶</a></h3>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;ConnectionStrings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;LogsDb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Server=sql-host;Database=WebGisLogs;User Id=webgis;Password=***;TrustServerCertificate=True&quot;</span>
+<span class="w">  </span><span class="nt">"ConnectionStrings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"LogsDb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Server=sql-host;Database=WebGisLogs;User Id=webgis;Password=***;TrustServerCertificate=True"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;Serilog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;WriteTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"Serilog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"WriteTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MSSqlServer&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;connectionString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LogsDb&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;sinkOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;tableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logs&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;autoCreateSqlTable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSSqlServer"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"Args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"connectionString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LogsDb"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"sinkOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logs"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"autoCreateSqlTable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">}</span>
@@ -348,7 +348,7 @@ eingebunden werden muss, und hat - anders als <code class="docutils literal notr
 mitbringt - <strong>keine</strong> eingebauten Defaults: Ein <code class="docutils literal notranslate"><span class="pre">Columns</span></code>-Abschnitt, der beschreibt, welche
 Spalten wie geschrieben werden, muss immer angegeben werden. Fehlt er, schlägt der Start sofort
 fehl mit:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>System.InvalidOperationException: &#39;Columns&#39; section not found in provided configuration path:
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>System.InvalidOperationException: 'Columns' section not found in provided configuration path:
 </pre></div>
 </div>
 <p>Der <code class="docutils literal notranslate"><span class="pre">Columns</span></code>-Abschnitt muss ein Schlüssel auf <strong>oberster Ebene</strong> der Konfiguration sein - ein
@@ -358,32 +358,32 @@ Geschwister von <code class="docutils literal notranslate"><span class="pre">Ser
 vermeiden), kann explizit über <code class="docutils literal notranslate"><span class="pre">Serilog:WriteTo:Args:configurationPath</span></code> darauf verwiesen
 werden.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;ConnectionStrings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;LogsDb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Host=pg-host;Port=5432;Database=webgis_logs;Username=webgis;Password=***&quot;</span>
+<span class="w">  </span><span class="nt">"ConnectionStrings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"LogsDb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Host=pg-host;Port=5432;Database=webgis_logs;Username=webgis;Password=***"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;Serilog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;Using&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;Serilog.Sinks.PostgreSQL.Configuration&quot;</span><span class="w"> </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;WriteTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"Serilog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"Using"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Serilog.Sinks.PostgreSQL.Configuration"</span><span class="w"> </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"WriteTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PostgreSQL&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;connectionString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LogsDb&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;tableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;logs&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;needAutoCreateTable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PostgreSQL"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"Args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"connectionString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LogsDb"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"tableName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logs"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"needAutoCreateTable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;Columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RenderedMessageColumnWriter&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;message_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MessageTemplateColumnWriter&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LevelColumnWriter&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;renderAsText&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;dbType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Varchar&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"Columns"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RenderedMessageColumnWriter"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MessageTemplateColumnWriter"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"level"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LevelColumnWriter"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"renderAsText"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"dbType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Varchar"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;raise_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TimestampColumnWriter&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;exception&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ExceptionColumnWriter&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LogEventSerializedColumnWriter&quot;</span>
+<span class="w">    </span><span class="nt">"raise_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimestampColumnWriter"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"exception"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExceptionColumnWriter"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LogEventSerializedColumnWriter"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -398,13 +398,13 @@ sondern ein kleiner, selbst hostbarer Log-Server mit eigener Storage-Engine und 
 <a class="reference internal" href="#seq-einrichten">Seq einrichten</a> weiter unten). Der Sink benötigt lediglich eine URL und optional einen
 API-Key - keine Tabellen/Spalten-Definition:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Serilog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;WriteTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"Serilog"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"WriteTo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Seq&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;Args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;serverUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://seq-host:5341&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;apiKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;***&quot;</span>
+<span class="w">        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seq"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"Args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"serverUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://seq-host:5341"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"apiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"***"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
@@ -434,12 +434,12 @@ oder Export in ein OTLP-natives Backend, das dort abgefragt wird).</p>
 (<code class="docutils literal notranslate"><span class="pre">NVARCHAR</span></code>/<code class="docutils literal notranslate"><span class="pre">jsonb</span></code>) und direkt abfragbar, z. B.:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- SQL Server</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Logs</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="k">Level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Warning&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">JSON_VALUE</span><span class="p">(</span><span class="n">Properties</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$.RequestPath&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%GetMap%&#39;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">Level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Warning'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">JSON_VALUE</span><span class="p">(</span><span class="n">Properties</span><span class="p">,</span><span class="w"> </span><span class="s1">'$.RequestPath'</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%GetMap%'</span>
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">TimeStamp</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
 
 <span class="c1">-- PostgreSQL</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">logs</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Warning&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">properties</span><span class="o">-&gt;&gt;</span><span class="s1">&#39;RequestPath&#39;</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%GetMap%&#39;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Warning'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">properties</span><span class="o">-&gt;&gt;</span><span class="s1">'RequestPath'</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%GetMap%'</span>
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">raise_date</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -605,7 +605,7 @@ nur aktiviert werden, was tatsächlich benötigt wird.</p></li>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

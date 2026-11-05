@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3 Darstellung und Karteninhalte &#8212; WebGIS Manual 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni-gray.css?v=82efda12" />
     <script src="../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -110,7 +110,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -118,14 +118,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
@@ -236,7 +236,7 @@ und würden den Kartenaufbau nur verlangsamen.</p>
 <section id="kontextmenu-im-inhaltsverzeichnis">
 <span id="toc-context-menu"></span><h2><span class="sectnum">3.4 </span>Kontextmenü im Inhaltsverzeichnis<a class="headerlink" href="#kontextmenu-im-inhaltsverzeichnis" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Jede Darstellungsvariante und jede Gruppe im Inhaltsverzeichnis besitzt ein Kontextmenü. Es kann auf zwei Arten geöffnet werden:</p>
 <ul class="simple">
@@ -265,7 +265,7 @@ wird der Layer, wie beim Query Builder, über ein Untermenü gewählt.</p>
 <p>Im Query Builder wird ein Filter aus einer oder mehreren Bedingungen zusammengestellt. Jede Bedingung besteht aus <strong>Feld</strong>, <strong>Operator</strong> und <strong>Wert</strong>;
 mehrere Bedingungen werden mit <strong>AND</strong> oder <strong>OR</strong> verknüpft. Mit <strong>Anwenden</strong> werden nur noch die Objekte angezeigt, die dem Filter entsprechen.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104: </span>Sobald ein Feld gewählt ist, hilft der Query Builder bei der Eingabe des Wertes, abhängig vom Typ des Feldes:</p>
+<p><span class="versionmodified added">Added in version 9.26.4104: </span>Sobald ein Feld gewählt ist, hilft der Query Builder bei der Eingabe des Wertes, abhängig vom Typ des Feldes:</p>
 <ul class="simple">
 <li><p><strong>Textfelder:</strong> Bereits ab dem ersten Zeichen werden passende Werte des Layers vorgeschlagen (Werte, die den eingegebenen Text enthalten, maximal 20).</p></li>
 <li><p><strong>Zahlenfelder:</strong> Gibt es im Layer nur wenige unterschiedliche Werte (maximal 25), können diese aus einer Liste gewählt werden. Andernfalls wird die Zahl
@@ -277,7 +277,7 @@ zB für <em>alle Objekte vor dem 30.06.2024</em>.</p></li>
 Vorschlagswerte gibt es derzeit nur für Layer aus ArcGIS Diensten; bei anderen Diensten wird der Wert ohne Vorschläge eingegeben.</p>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104: </span>Neben <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">like</span></code> und <code class="docutils literal notranslate"><span class="pre">in</span></code> stehen auch verneinte und leere Bedingungen zur Verfügung:</p>
+<p><span class="versionmodified added">Added in version 9.26.4104: </span>Neben <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">like</span></code> und <code class="docutils literal notranslate"><span class="pre">in</span></code> stehen auch verneinte und leere Bedingungen zur Verfügung:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code> (Textfelder): zB <em>GNR</em> <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">like</span></code> <code class="docutils literal notranslate"><span class="pre">3%</span></code> für alle Objekte, deren Nummer <strong>nicht</strong> mit 3 beginnt (<code class="docutils literal notranslate"><span class="pre">%</span></code> steht für beliebige Zeichen).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> (Text- und Zahlenfelder): die Werte werden, wie bei <code class="docutils literal notranslate"><span class="pre">in</span></code>, durch Komma getrennt eingegeben.</p></li>
@@ -289,7 +289,7 @@ Vorschlagswerte gibt es derzeit nur für Layer aus ArcGIS Diensten; bei anderen 
 <section id="tabelle">
 <span id="toc-table"></span><h3><span class="sectnum">3.4.2 </span>Tabelle<a class="headerlink" href="#tabelle" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Über den Menüpunkt <strong>Tabelle</strong> werden die Objekte eines Layers ohne Suchbegriff und ohne Abfragegeometrie abgefragt und in der
 <a class="reference internal" href="../search_identify/operations/results_desktop/results_desktop.html"><span class="doc">Ergebnistabelle</span></a> angezeigt. Der Menüpunkt wird angeboten, wenn für den Layer
@@ -306,7 +306,7 @@ wird über der Tabelle ein Hinweis angezeigt.</p></li>
 <section id="hinweis-symbole-badges">
 <span id="toc-badges"></span><h3><span class="sectnum">3.4.3 </span>Hinweis-Symbole (Badges)<a class="headerlink" href="#hinweis-symbole-badges" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Rechts neben dem Namen einer Darstellungsvariante zeigt ein kleines, abgerundetes Feld (Badge) an, dass für die Darstellungsvariante etwas Besonderes gilt:</p>
 <ul class="simple">
@@ -324,7 +324,7 @@ Ist der Name einer Darstellungsvariante sehr lang, wird er gekürzt, damit das B
 <section id="darstellung">
 <span id="toc-user-renderer"></span><h3><span class="sectnum">3.4.4 </span>Darstellung<a class="headerlink" href="#darstellung" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Über den Menüpunkt <strong>Darstellung</strong> kann die Symbolik eines Layers für die eigene Karte geändert werden. Im Dialog stehen zwei Optionen zur Auswahl:</p>
 <ul class="simple">
@@ -362,7 +362,7 @@ bei <em>Eindeutige Werte</em> und <em>Klassen</em> wird das verwendete Feld in K
 <section id="beschriftung">
 <span id="toc-user-labeling"></span><h3><span class="sectnum">3.4.5 </span>Beschriftung<a class="headerlink" href="#beschriftung" title="Link to this heading">¶</a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Über den Menüpunkt <strong>Beschriftung</strong> kann die Beschriftung eines Layers geändert werden. Im Dialog stehen drei Optionen zur Auswahl:</p>
 <ul class="simple">
@@ -487,7 +487,7 @@ Man kann ebenfalls auf eine relevante Gruppe klicken, um diese dann im ursprüng
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

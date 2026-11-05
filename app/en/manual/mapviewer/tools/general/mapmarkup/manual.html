@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Using the Drawing (Map Markup) Tool &#8212; WebGIS Manual 2022 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=82efda12" />
     <script src="../../../../_static/documentation_options.js?v=001ecc8c"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
@@ -109,7 +109,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../../search.html" method="get">
@@ -117,14 +117,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Map Viewer User Manual</a><ul class="current">
@@ -166,7 +166,8 @@ to graphically augment the content of the map.
 After opening the tool, the drawing (map markup) dialog is shown.
 It offers all possible drawing tools.
 In addition, there are buttons for managing drawings (load, save, share, upload, download).</p>
-<img alt="../../../../_images/mapmarkup1.png" src="../../../../_images/mapmarkup1.png" />
+<a class="reference internal image-reference" href="../../../../_images/mapmarkup1.png"><img alt="../../../../_images/mapmarkup1.png" src="../../../../_images/mapmarkup1.png" style="width: 320px;" />
+</a>
 <p>The buttons may vary depending on the end device. The figure shows all tools (desktop).
 Below the buttons, the name of the currently active drawing tool is shown again, along with a <em>yellow</em>-highlighted
 description of how to use this tool (e.g. click on the map, click on an existing drawing element, etc.).</p>
@@ -174,14 +175,13 @@ description of how to use this tool (e.g. click on the map, click on an existing
 instead, the options and differences between the tools are shown.</p>
 <section id="tool-groups">
 <span id="mapmarkup-tool-groups"></span><h3>Tool Groups<a class="headerlink" href="#tool-groups" title="Link to this heading">¶</a></h3>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
-</div>
 <p>To save space, the tools are combined into groups:</p>
 <ul class="simple">
 <li><p><strong>Select:</strong> shown directly</p></li>
 <li><p><strong>Draw:</strong> Symbol, Text, Point, Freehand, Line, Polygon, Rectangle, Circle</p></li>
-<li><p><strong>Measure:</strong> Dimensioning, Dimensioning Polygon, Hectometer Line, Distance Circle, Compass Rose</p></li>
+<li><p><strong>Measure:</strong> Dimensioning, Dimensioning Polygon, Hectometer Line, Field of View (Angle), Intersection Angle,
+Circular Arc, Perpendicular distance, Buffer zone, Object distance, Measurement grid, Distance Circle, Compass Rose
+(see <a class="reference internal" href="advanced-tools.html"><span class="doc">Special Tools</span></a>)</p></li>
 <li><p><strong>Import/Export:</strong> Save/Load Drawing, Share, Upload, Download</p></li>
 </ul>
 <p>Clicking a group (indicated by the small arrow at the top right) opens a selection with the tools of this group.
@@ -216,10 +216,8 @@ Descriptions for drawing elements are optional, but help to identify and interpr
 <li><p>Changing the drawing tool: if you draw a line and then want to continue, for example, by drawing a polygon, it is enough to click on the <em>polygon</em> tool. A valid line is then automatically applied.</p></li>
 <li><p>Labeling a drawing element: in the <em>Apply</em> dialog shown above, a <em>T</em> (for text) is shown to the right of the input field. This switches to the text tool and allows the current element to be labeled (e.g. length of a line - see below)</p></li>
 </ul>
-<p>Drawing elements already applied are shown not only on the map, but also as a list at the very bottom of the tool dialog:</p>
-<img alt="../../../../_images/mapmarkup4.png" src="../../../../_images/mapmarkup4.png" />
-<p>The icon indicates what type of element it is (line, polygon, text, …). In addition, there is
-a <em>delete button</em> (trash can), an <em>edit button</em> (pencil), and, depending on the type, a <em>T button</em> (text - label, see below).</p>
+<p>Drawing elements already applied are shown not only on the map, but also as a list in the tool dialog
+(see <a class="reference internal" href="#mapmarkup-graphics-list"><span class="std std-ref">Element List</span></a>).</p>
 <section id="changing-symbology">
 <h3>Changing Symbology<a class="headerlink" href="#changing-symbology" title="Link to this heading">¶</a></h3>
 <p>To change the symbology of the respective object, there is an icon to the left of the description (this icon differs depending on the object).</p>
@@ -236,6 +234,81 @@ changes immediately.</p>
 <p>If you are drawing a new object, you will only notice the changes once you click on the map to create vertices
 for the element.</p>
 </div>
+</section>
+<section id="symbology-panel-desktop">
+<span id="mapmarkup-symbology-panel"></span><h3>Symbology Panel (Desktop)<a class="headerlink" href="#symbology-panel-desktop" title="Link to this heading">¶</a></h3>
+<p>On desktop devices, the symbology is shown in a separate panel to the right of the map. The panel
+is not modal: the toolbar and the element list stay visible and drawing can continue.</p>
+<ul class="simple">
+<li><p>When a drawing or measuring tool is selected, the panel opens automatically. This allows the symbology
+to be set before drawing; it then applies to all further elements of this type.</p></li>
+<li><p>Hints for the current tool (e.g. what to do next) are also shown in this panel.</p></li>
+<li><p>If the panel is closed (X), it stays closed until the drawing tool is opened again.
+It can be reopened at any time with the <em>Symbology: {tool}</em> button in the tool dialog.</p></li>
+<li><p>If one or more elements are selected in the element list (several with the <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> key pressed),
+the panel shows the symbology for the selection (<em>Symbology: Selection</em>). Selected elements are also highlighted
+on the map. Selecting another drawing tool clears the selection.</p></li>
+</ul>
+<p>In the element list, lines and polygons are shown with a colored border in the color of the element,
+symbols with their actual symbol. Changes to the symbology are applied to the list immediately.</p>
+<p>Whether the panel opens automatically can be configured by the administrator in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>.</p>
+</section>
+</section>
+<section id="element-list">
+<span id="mapmarkup-graphics-list"></span><h2>Element List<a class="headerlink" href="#element-list" title="Link to this heading">¶</a></h2>
+<p>All applied drawing elements are shown as a list in the tool dialog below the tool buttons:</p>
+<a class="reference internal image-reference" href="../../../../_images/mapmarkup4.png"><img alt="../../../../_images/mapmarkup4.png" src="../../../../_images/mapmarkup4.png" style="width: 320px;" />
+</a>
+<p>Each entry shows:</p>
+<ul class="simple">
+<li><p>on the left a colored border in the color of the element and an icon for the type (line, polygon, text, dimensioning, …)</p></li>
+<li><p>the description of the element or, if none was entered, the type with a running number (e.g. <em>Line 1</em>)</p></li>
+<li><p>depending on the type, a <em>T button</em> (label, see below), a <em>magnifier</em> (zoom to the element),
+a <em>delete button</em> (trash can) and an <em>edit button</em> (pencil)</p></li>
+</ul>
+<p>Hovering over an entry highlights the element on the map. For composite measuring elements, a meaningful
+geometry is shown (e.g. only the reference line for a perpendicular distance).</p>
+<p>The order of the list can be reversed with the arrow button above the list.</p>
+<section id="selecting-elements">
+<h3>Selecting Elements<a class="headerlink" href="#selecting-elements" title="Link to this heading">¶</a></h3>
+<p>Clicking an entry selects the element, clicking it again clears the selection.</p>
+<ul class="simple">
+<li><p>With the <code class="docutils literal notranslate"><span class="pre">CTRL</span></code> key pressed, individual elements are added to or removed from the selection.</p></li>
+<li><p>With the <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> key pressed, all elements between the clicked element and the next already
+selected element are selected.</p></li>
+</ul>
+<p>Selected elements are highlighted on the map. The following functions for the selection are available above the list:
+change the symbology of all selected elements (<em>Symbology: Selection</em>, see above), clear the selection,
+delete the selected elements and <em>Move to group…</em> (see below).</p>
+</section>
+<section id="groups">
+<h3>Groups<a class="headerlink" href="#groups" title="Link to this heading">¶</a></h3>
+<p>Drawing elements can be organized in groups, e.g. to keep survey results apart from annotations.
+Each element belongs to exactly one group; without further groups, all elements are in the group <em>General</em>.</p>
+<ul class="simple">
+<li><p><strong>Add a group:</strong> Use the plus button next to the drop-down list to create a new group and enter a name.
+The new group immediately becomes the active group.</p></li>
+<li><p><strong>Active group:</strong> Newly drawn elements (including elements taken from a selection) are added
+to the active group. When <em>All groups</em> is shown, the text below the drop-down list indicates which group new elements
+are drawn into (e.g. <em>New objects → Survey</em>).</p></li>
+<li><p><strong>Show groups:</strong> The drop-down list restricts the list to one group (<em>All groups</em> shows all elements,
+structured by group). If a single group is selected, it can be renamed or deleted with the buttons next to the
+drop-down list. If a group to be deleted contains elements, you can choose whether they are moved
+to the group <em>General</em> or deleted as well. The group <em>General</em> cannot be deleted.</p></li>
+<li><p><strong>Move elements:</strong> Select elements in the list and choose the target group via the drop-down list <em>Move to group…</em>.</p></li>
+<li><p><strong>Show/hide:</strong> The checkbox at the group heading (or next to the drop-down list) shows or hides a group
+on the map. Hidden groups are marked <em>hidden</em> in the drop-down list and are <strong>not printed</strong>.
+Drawing into a hidden group shows it again automatically.</p></li>
+</ul>
+<p>The groups (including their visibility) are stored when a drawing is saved and restored when it is loaded.</p>
+</section>
+<section id="filtering-the-list">
+<h3>Filtering the List<a class="headerlink" href="#filtering-the-list" title="Link to this heading">¶</a></h3>
+<p>If the list contains many elements, a filter field (<em>Filter…</em>) is shown above it. Only entries whose
+description or type contains the entered text are then shown. <em>Select matches</em> selects all
+filtered elements (e.g. to change their symbology together or to move them to a group),
+<em>Clear filter</em> removes the filter again.</p>
+<p>The number of elements from which the filter field is shown can be configured by the administrator in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>.</p>
 </section>
 </section>
 <section id="different-behavior-of-element-types">
@@ -254,6 +327,15 @@ text can be changed via the text field and via <em>Apply / Draw another</em>. A 
 map right away. If the position needs to be changed again, this can be done with another click
 on the map (or by dragging the insertion point). Clicking the checkmark permanently applies the text
 to the map.</p>
+<p id="mapmarkup-text-rotation"><strong>Rotating text:</strong></p>
+<p>While a text is being edited, a rotate icon appears to the right of the end of the first text line.
+Dragging it with the mouse rotates the text around the insertion point (clockwise, relative to the map).
+With the <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> key pressed the text rotates in 5° steps, with the <code class="docutils literal notranslate"><span class="pre">CTRL</span></code> key pressed in 15° steps.
+Near 0°, 90°, 180° and 270° the text snaps automatically.</p>
+<p>Alternatively, the angle can be entered in the symbology under <em>Rotation (°)</em> and set with <em>Apply rotation</em>;
+the <em>0°</em> button makes the text horizontal again. This also works for several
+selected texts (<em>Symbology: Selection</em>). Every new text starts horizontally (0°).</p>
+<p>The rotation is kept when saving, printing and downloading as a shape file (attribute <code class="docutils literal notranslate"><span class="pre">ROTATION</span></code>).</p>
 </section>
 <section id="changing-an-existing-element">
 <h2>Changing an Existing Element<a class="headerlink" href="#changing-an-existing-element" title="Link to this heading">¶</a></h2>
@@ -267,7 +349,8 @@ to the map.</p>
 since the description is shown in the list.</p>
 <p>Once an element has been marked for changing, the draft <em>sketch</em> for the element is shown on the map. In addition, a new
 <em>symbology</em> icon appears above the list, taking you to the menu for editing the presentation.</p>
-<a class="reference internal image-reference" href="../../../../_images/mapmarkup5.png"><img alt="../../../../_images/mapmarkup5.png" src="../../../../_images/mapmarkup5.png" style="width: 200px; height: 80px;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/mapmarkup5.png"><img alt="../../../../_images/mapmarkup5.png" src="../../../../_images/mapmarkup5.png" style="width: 200px; height: 80px;" />
+</a>
 <p>The draft <em>sketch</em> can be used to change the geometry of the element. The presentation can likewise be adjusted via the
 presentation options. To finish the changes, you must confirm with the checkmark button to apply them.</p>
 </section>
@@ -330,6 +413,13 @@ Elements already applied to the map show this icon in the list of created elemen
 </li>
 <li><a class="reference internal" href="#drawing-a-new-element">Drawing a New Element</a><ul>
 <li><a class="reference internal" href="#changing-symbology">Changing Symbology</a></li>
+<li><a class="reference internal" href="#symbology-panel-desktop">Symbology Panel (Desktop)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#element-list">Element List</a><ul>
+<li><a class="reference internal" href="#selecting-elements">Selecting Elements</a></li>
+<li><a class="reference internal" href="#groups">Groups</a></li>
+<li><a class="reference internal" href="#filtering-the-list">Filtering the List</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#different-behavior-of-element-types">Different Behavior of Element Types</a></li>
@@ -366,7 +456,7 @@ Elements already applied to the map show this icon in the list of created elemen
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

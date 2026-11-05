@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Examples of UI Master Templates &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
@@ -169,15 +169,15 @@ The examples shown here are mainly intended to help you understand the form and 
 Further below, it is shown how these templates can be created in an automated way via the MapBuilder.</p>
 <p>The following example adds a general quick-search topic to every map:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-     <span class="s2">&quot;ui&quot;</span><span class="p">:</span> <span class="p">{</span>
-         <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">[</span>
+     <span class="s2">"ui"</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">"options"</span><span class="p">:</span> <span class="p">[</span>
              <span class="p">{</span>
-                 <span class="s2">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;topbar&quot;</span><span class="p">,</span>
-                 <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
-                     <span class="s2">&quot;quick_search_service&quot;</span><span class="p">:</span> <span class="s2">&quot;elastic_allgemein@default&quot;</span><span class="p">,</span>
-                     <span class="s2">&quot;quick_search&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                     <span class="s2">&quot;detail_search&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-                     <span class="s2">&quot;app_menu&quot;</span><span class="p">:</span> <span class="n">false</span>
+                 <span class="s2">"element"</span><span class="p">:</span> <span class="s2">"topbar"</span><span class="p">,</span>
+                 <span class="s2">"options"</span><span class="p">:</span> <span class="p">{</span>
+                     <span class="s2">"quick_search_service"</span><span class="p">:</span> <span class="s2">"elastic_allgemein@default"</span><span class="p">,</span>
+                     <span class="s2">"quick_search"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                     <span class="s2">"detail_search"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                     <span class="s2">"app_menu"</span><span class="p">:</span> <span class="n">false</span>
                  <span class="p">}</span>
              <span class="p">}</span>
          <span class="p">]</span>
@@ -195,36 +195,36 @@ However, since these are set to <code class="docutils literal notranslate"><span
 <em>Share Map</em>, <em>Print</em>, and <em>Download Map Image</em> are added to every map. In addition, a general print layout is made available in all
 maps:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;ui&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">"ui"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"options"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="s2">&quot;element&quot;</span><span class="p">:</span> <span class="s2">&quot;tabs&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s2">&quot;add_presentations&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-                <span class="s2">&quot;add_settings&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-                <span class="s2">&quot;add_tools&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                <span class="s2">&quot;add_queryResults&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-                <span class="s2">&quot;options_presentations&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;gdi_button&quot;</span><span class="p">:</span> <span class="n">false</span>
+                <span class="s2">"element"</span><span class="p">:</span> <span class="s2">"tabs"</span><span class="p">,</span>
+                <span class="s2">"options"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"add_presentations"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                <span class="s2">"add_settings"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                <span class="s2">"add_tools"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                <span class="s2">"add_queryResults"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                <span class="s2">"options_presentations"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"gdi_button"</span><span class="p">:</span> <span class="n">false</span>
                 <span class="p">},</span>
-                <span class="s2">&quot;options_settings&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;gdi_button&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-                    <span class="s2">&quot;themes&quot;</span><span class="p">:</span> <span class="n">true</span>
+                <span class="s2">"options_settings"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"gdi_button"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+                    <span class="s2">"themes"</span><span class="p">:</span> <span class="n">true</span>
                 <span class="p">},</span>
-                <span class="s2">&quot;options_tools&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="s2">&quot;containers&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"options_tools"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"containers"</span><span class="p">:</span> <span class="p">[</span>
                     <span class="p">{</span>
-                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Karte&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;tools&quot;</span><span class="p">:</span> <span class="p">[</span>
-                            <span class="s2">&quot;webgis.tools.serialization.sharemap&quot;</span><span class="p">,</span>
-                            <span class="s2">&quot;webgis.tools.print&quot;</span><span class="p">,</span>
-                            <span class="s2">&quot;webgis.tools.downloadmapimage&quot;</span>
+                        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Karte"</span><span class="p">,</span>
+                        <span class="s2">"tools"</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="s2">"webgis.tools.serialization.sharemap"</span><span class="p">,</span>
+                            <span class="s2">"webgis.tools.print"</span><span class="p">,</span>
+                            <span class="s2">"webgis.tools.downloadmapimage"</span>
                         <span class="p">]</span>
                     <span class="p">},</span>
                     <span class="p">{</span>
-                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;webgis.tools.io.print&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">[</span>
-                            <span class="s2">&quot;l9ljwxcvu-e2dedi_cq2guq@ccgis_default&quot;</span>
+                        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"webgis.tools.io.print"</span><span class="p">,</span>
+                        <span class="s2">"options"</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="s2">"l9ljwxcvu-e2dedi_cq2guq@ccgis_default"</span>
                         <span class="p">]</span>
                     <span class="p">}]</span>
                 <span class="p">}</span>
@@ -265,7 +265,7 @@ maps:</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

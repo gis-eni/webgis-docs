@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>URL Parameters &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
@@ -230,7 +230,7 @@ Expects a <strong>JavaScript object</strong> with properties for the position an
 <li><p>Properties are separated by <strong>commas</strong>.</p></li>
 <li><p>Assignment is done in the form <strong>property:value</strong> (e.g. <code class="docutils literal notranslate"><span class="pre">lng:14.2</span></code>).</p></li>
 <li><p><strong>Strings</strong> must be enclosed in <strong>single quotes</strong>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Popup Text&#39;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>'Popup Text'
 </pre></div>
 </div>
 </li>
@@ -309,7 +309,7 @@ If these values are specified, <code class="docutils literal notranslate"><span 
 </table>
 <p><strong>Examples:</strong></p>
 <p>A marker with the text <strong>“Hello World”</strong>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;marker={lng:14.7,lat:47.2,text:&#39;Hallo Welt&#39;}
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;marker={lng:14.7,lat:47.2,text:'Hallo Welt'}
 </pre></div>
 </div>
 <p>A marker with projected coordinates:</p>
@@ -322,7 +322,7 @@ If these values are specified, <code class="docutils literal notranslate"><span 
     lat:47.09,
     openPopup:true,
     text:
-    &#39;Das ist ein Bild img:https://upload.wikimedia.org/wikipedia/de/6/68/Nandu_gesamtes_Bild.jpg mit Subtext&#39;
+    'Das ist ein Bild img:https://upload.wikimedia.org/wikipedia/de/6/68/Nandu_gesamtes_Bild.jpg mit Subtext'
 }
 </pre></div>
 </div>
@@ -362,11 +362,11 @@ Each element in the array corresponds to a <strong>marker object</strong> with t
 </table>
 <p><strong>Example:</strong></p>
 <p>Multiple markers with individual popup texts:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;markers_name=Ziele&amp;markers=[{lng:14.7,lat:47.2,text:&#39;Ziel 1&#39;},
-                             {lng:14.9,lat:46.8,text:&#39;Ziel 2&#39;},
-                             {lng:14.8,lat:47.4,text:&#39;Ziel 3&#39;},
-                             {lng:15.8,lat:47.1,text:&#39;Ziel 4&#39;},
-                             {lng:15.2,lat:46.9,text:&#39;Ziel 5&#39;}]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;markers_name=Ziele&amp;markers=[{lng:14.7,lat:47.2,text:'Ziel 1'},
+                             {lng:14.9,lat:46.8,text:'Ziel 2'},
+                             {lng:14.8,lat:47.4,text:'Ziel 3'},
+                             {lng:15.8,lat:47.1,text:'Ziel 4'},
+                             {lng:15.2,lat:46.9,text:'Ziel 5'}]
 </pre></div>
 </div>
 </section>
@@ -741,7 +741,7 @@ To do this, add the suffix <code class="docutils literal notranslate"><span clas
 </pre></div>
 </div>
 <p>The locked filter can then access this parameter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROJECT_ID</span><span class="o">=</span><span class="s1">&#39;[url-parameter:project_id]&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROJECT_ID</span><span class="o">=</span><span class="s1">'[url-parameter:project_id]'</span>
 </pre></div>
 </div>
 <p>Here, the prefix <code class="docutils literal notranslate"><span class="pre">url-parameter:</span></code> is used to set the value from the URL as the filter criterion. This only works <strong>for locked filters</strong>.</p>
@@ -825,7 +825,7 @@ To do this, add the suffix <code class="docutils literal notranslate"><span clas
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

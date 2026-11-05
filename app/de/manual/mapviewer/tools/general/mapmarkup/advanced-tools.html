@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Spezialwerkzeuge &#8212; WebGIS Manual 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=82efda12" />
     <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
@@ -110,7 +110,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../../search.html" method="get">
@@ -118,14 +118,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
@@ -160,7 +160,18 @@
             
   <section id="spezialwerkzeuge">
 <h1>Spezialwerkzeuge<a class="headerlink" href="#spezialwerkzeuge" title="Link to this heading">¶</a></h1>
-<p>Neben Linien, Flächen, Freihand, Texten, Rechtecken und Kreisen gibt es noch speziellere Graphiken auf die hier eingegangen wird.</p>
+<p>Neben Linien, Flächen, Freihand, Texten, Rechtecken und Kreisen gibt es noch speziellere Graphiken auf die hier eingegangen wird.
+Die meisten davon befinden sich in der Werkzeuggruppe <em>Messen</em> (siehe <a class="reference internal" href="manual.html#mapmarkup-tool-groups"><span class="std std-ref">Werkzeuggruppen</span></a>).</p>
+<p>Für alle Messwerkzeuge gilt:</p>
+<ul class="simple">
+<li><p>Die genaue Klickabfolge wird beim gewählten Werkzeug im <em>Symbolik</em>-Fenster (gelb hinterlegt) beschrieben.</p></li>
+<li><p>Die Eigenschaften (Einheit, Winkel, Abstände, …) können schon vor dem Zeichnen eingestellt werden. Die zuletzt
+gewählten Werte werden für weitere Elemente des gleichen Typs übernommen.</p></li>
+<li><p>Längen, Flächen und Winkel werden im Koordinatensystem der Karte berechnet (siehe Hinweis bei der
+<a class="reference internal" href="#mapmarkup-measure-dimline"><span class="std std-ref">Bemaßungslinie</span></a>).</p></li>
+<li><p>Die Elemente werden so gedruckt, wie sie in der Karte dargestellt werden, und können als Shape-Datei
+heruntergeladen werden. Die Messwerte (Längen, Winkel, Einheiten, …) werden dabei als Attribute mitgeliefert.</p></li>
+</ul>
 <section id="umgebungskreis">
 <h2>Umgebungskreis<a class="headerlink" href="#umgebungskreis" title="Link to this heading">¶</a></h2>
 <p>Mit diesem Werkzeug kann ein Kreis mit einem bestimmten Radius um einen Mittelpunkt definiert werden. Zum eigentlich Umgebungskreis werden noch Kreise mit Zwischenschritten angezeigt und beschriftet:</p>
@@ -169,9 +180,23 @@
 <p>Das Ergebnis kann für Abstandsuntersuchungen verwendet werden.</p>
 </section>
 <section id="bemaszungslinie">
-<h2>Bemaßungslinie<a class="headerlink" href="#bemaszungslinie" title="Link to this heading">¶</a></h2>
-<p>Mit diesem Werkzeug kann eine (Poly-) Linie gezeichnet werden, bei der jedes Segment mit der entsprechenden Länge in Metern beschriftet wird:</p>
+<span id="mapmarkup-measure-dimline"></span><h2>Bemaßungslinie<a class="headerlink" href="#bemaszungslinie" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-dimline.png"><img alt="../../../../_images/icon-dimline.png" src="../../../../_images/icon-dimline.png" style="width: 26px;" />
+</a>
+<p>Mit diesem Werkzeug (<em>Bemaßung</em>) kann eine (Poly-) Linie gezeichnet werden, bei der jedes Segment mit der entsprechenden Länge in Metern beschriftet wird:</p>
 <img alt="../../../../_images/advanced-tools21.png" src="../../../../_images/advanced-tools21.png" />
+<p>Optional werden auch Winkel beschriftet. Dazu in den Eigenschaften unter <em>Winkel anzeigen</em> die Einheit wählen
+(<em>Keine</em>, <em>Grad</em>, <em>Gon</em> oder <em>Grad und Gon</em>). Unter <em>Winkelart</em> wird festgelegt, welcher Winkel angezeigt wird:</p>
+<ul class="simple">
+<li><p><strong>Innenwinkel:</strong> der Winkel zwischen den beiden Segmenten an jedem Zwischenpunkt (0° bis 180°)</p></li>
+<li><p><strong>Ablenkwinkel (L/R):</strong> die Richtungsänderung an jedem Zwischenpunkt, mit <code class="docutils literal notranslate"><span class="pre">L</span></code> (links) bzw. <code class="docutils literal notranslate"><span class="pre">R</span></code> (rechts);
+das ankommende Segment wird strichliert verlängert</p></li>
+<li><p><strong>Richtungswinkel (Azimut):</strong> der Winkel jedes Segments von (Gitter-) Nord im Uhrzeigersinn (0° bis 360°);
+dazu wird eine strichlierte Nordlinie gezeichnet</p></li>
+</ul>
+<img alt="../../../../_images/dimline-angles1.png" src="../../../../_images/dimline-angles1.png" />
+<img alt="../../../../_images/dim-angles-symbology.png" src="../../../../_images/dim-angles-symbology.png" />
+<p>Bemaßungen aus bereits bestehenden Zeichnungen werden weiterhin ohne Winkel angezeigt.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
 <p>Die angezeigte Länge wird immer <em>live</em> aus den Stützpunkte im aktuellen Karten Koordinatensystem berechnet. Übernimmt man die Zeichnung (durch Speichern und Laden) in eine Karte mit einem anderen Koordinatensystem,
@@ -179,6 +204,15 @@ könne die Werte abweichen. Dies gilt für allen für Karten, in denen mit <em>W
 links unten abgelesen werden.</p>
 <img alt="../../../../_images/advanced-tools3.png" src="../../../../_images/advanced-tools3.png" />
 </div>
+</section>
+<section id="bemaszungsflache">
+<span id="mapmarkup-measure-dimpolygon"></span><h2>Bemaßungsfläche<a class="headerlink" href="#bemaszungsflache" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-dimpolygon.png"><img alt="../../../../_images/icon-dimpolygon.png" src="../../../../_images/icon-dimpolygon.png" style="width: 26px;" />
+</a>
+<p>Wie die Bemaßungslinie, nur für Flächen: jede Kante wird mit ihrer Länge, die Fläche mit ihrem Flächeninhalt beschriftet.
+Auch hier können unter <em>Winkel anzeigen</em> die Innenwinkel an allen Ecken (0° bis 360°) in Grad, Gon oder beidem
+beschriftet werden.</p>
+<img alt="../../../../_images/dimpolygon-angles1.png" src="../../../../_images/dimpolygon-angles1.png" />
 </section>
 <section id="hektometrierungslinie">
 <h2>Hektometrierungslinie<a class="headerlink" href="#hektometrierungslinie" title="Link to this heading">¶</a></h2>
@@ -189,6 +223,124 @@ links unten abgelesen werden.</p>
 <p class="admonition-title">Bemerkung</p>
 <p>Gleich wie bei der Bemaßungslinie werden auch hier die Abstandspunkte <em>live</em> berechnet und beziehen sich immer auf das aktuelle Kartenkoordinatensystem. Fügt man die Zeichnung in unterschiedliche Karten ein, kann es zu Abweichungen kommen!</p>
 </div>
+</section>
+<section id="sichtfeld-winkel">
+<span id="mapmarkup-measure-view-angle"></span><h2>Sichtfeld (Winkel)<a class="headerlink" href="#sichtfeld-winkel" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-view-angle.png"><img alt="../../../../_images/icon-view-angle.png" src="../../../../_images/icon-view-angle.png" style="width: 26px;" />
+</a>
+<p>Zeichnet einen Sichtkegel mit einem vorgegebenen Öffnungswinkel, z. B. für den Blickwinkel einer Kamera oder eines Fensters.</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p>Klick: Scheitelpunkt, 2. Klick: Richtung und Länge der Achse. Weitere Klicks verschieben nur noch das Achsenende.</p></li>
+</ol>
+</li>
+<li><p>Eigenschaften: <em>Öffnungswinkel</em> (Standard 30°, mit <em>Winkel übernehmen</em> setzen), Einheit (Grad, Gon oder beides)
+und optional die Beschriftung der Achsenlänge.</p></li>
+</ul>
+<p>Beschriftet werden der gesamte Öffnungswinkel und die beiden halben Winkel links und rechts der Achse.</p>
+<img alt="../../../../_images/view-angle1.png" src="../../../../_images/view-angle1.png" />
+</section>
+<section id="schnittwinkel">
+<span id="mapmarkup-measure-intersection-angle"></span><h2>Schnittwinkel<a class="headerlink" href="#schnittwinkel" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-intersection-angle.png"><img alt="../../../../_images/icon-intersection-angle.png" src="../../../../_images/icon-intersection-angle.png" style="width: 26px;" />
+</a>
+<p>Misst den Winkel, unter dem sich zwei Linien schneiden, z. B. Straßenachsen oder Leitungen.</p>
+<ul class="simple">
+<li><p>Mit zwei Klicks die erste Linie und mit zwei weiteren Klicks die zweite Linie festlegen. Weitere Klicks verschieben
+nur noch den Endpunkt der zweiten Linie.</p></li>
+<li><p>Liegt der Schnittpunkt außerhalb der gezeichneten Linien, werden diese strichliert verlängert.
+Parallele Linien werden mit <em>parallel</em> beschriftet.</p></li>
+<li><p>Unter <em>Winkel anzeigen</em> wird festgelegt, welche Winkel beschriftet werden: Schnittwinkel, Nebenwinkel
+(180° minus Schnittwinkel), beide oder alle vier Winkel am Schnittpunkt. Die Einheit ist Grad, Gon oder beides.</p></li>
+</ul>
+<img alt="../../../../_images/intersection-angle1.png" src="../../../../_images/intersection-angle1.png" />
+</section>
+<section id="kreisbogen">
+<span id="mapmarkup-measure-circle-arc"></span><h2>Kreisbogen<a class="headerlink" href="#kreisbogen" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-circle-arc.png"><img alt="../../../../_images/icon-circle-arc.png" src="../../../../_images/icon-circle-arc.png" style="width: 26px;" />
+</a>
+<p>Zeichnet einen Kreisbogen durch drei Punkte, z. B. um den Radius einer Kurve zu ermitteln.</p>
+<ul class="simple">
+<li><p>Anfangspunkt, einen beliebigen Punkt auf dem Bogen und Endpunkt anklicken. Weitere Klicks verschieben nur noch den Endpunkt.
+Liegen die drei Punkte auf einer Geraden, wird ein Hinweis angezeigt.</p></li>
+<li><p>Beschriftet werden Radius, Bogenlänge und Zentriwinkel. Unter <em>Beschriftung</em> kann gewählt werden, ob alle
+Werte oder nur einer davon angezeigt werden; die Winkeleinheit ist Grad, Gon oder beides.</p></li>
+</ul>
+<img alt="../../../../_images/circle-arc1.png" src="../../../../_images/circle-arc1.png" />
+</section>
+<section id="normalabstand">
+<span id="mapmarkup-measure-perpendicular"></span><h2>Normalabstand<a class="headerlink" href="#normalabstand" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-perpendicular.png"><img alt="../../../../_images/icon-perpendicular.png" src="../../../../_images/icon-perpendicular.png" style="width: 26px;" />
+</a>
+<p>Misst den Normalabstand (Lot) von beliebig vielen Punkten auf eine Bezugslinie, z. B. den Abstand von Objekten zu
+einer Straßenachse, inklusive Stationierung.</p>
+<ul class="simple">
+<li><p>Zuerst die Bezugslinie zeichnen und mit einem Doppelklick auf den letzten Punkt abschließen (oder <em>Abschnitt schließen</em>
+im Kontextmenü bzw. Taste <code class="docutils literal notranslate"><span class="pre">F</span></code>).</p></li>
+<li><p>Danach beliebig viele Punkte setzen: für jeden Punkt wird das Lot auf die Bezugslinie gezeichnet und mit dem
+Normalabstand beschriftet. Liegt der Lotfußpunkt außerhalb der Linie, wird die Linie strichliert verlängert.</p></li>
+<li><p>Eigenschaften: <em>Stationierung</em> des Lotfußpunktes in Metern (z. B. <code class="docutils literal notranslate"><span class="pre">156,24m</span></code>), als Kilometrierung (z. B. <code class="docutils literal notranslate"><span class="pre">0+156,24</span></code>)
+oder keine, sowie die <em>Längeneinheit</em> (m oder km).</p></li>
+</ul>
+<img alt="../../../../_images/perpendicular1.png" src="../../../../_images/perpendicular1.png" />
+</section>
+<section id="pufferzone">
+<span id="mapmarkup-measure-buffer-zone"></span><h2>Pufferzone<a class="headerlink" href="#pufferzone" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-buffer-zone.png"><img alt="../../../../_images/icon-buffer-zone.png" src="../../../../_images/icon-buffer-zone.png" style="width: 26px;" />
+</a>
+<p>Zeichnet eine Pufferzone mit einer bestimmten Breite um eine Geometrie, z. B. einen Schutzstreifen entlang einer Leitung.</p>
+<ul class="simple">
+<li><p>Unter <em>Quelltyp</em> wählen, um welche Geometrie gepuffert wird: Punkt, mehrere Punkte, Linie oder Fläche.
+Unter <em>Pufferbreite</em> die Breite in Metern eingeben und mit <em>Pufferbreite übernehmen</em> setzen.</p></li>
+<li><p>Danach die Quellgeometrie in die Karte zeichnen. Die Pufferzone wird vom Server berechnet und nach kurzer Zeit angezeigt.</p></li>
+<li><p>Beim Quelltyp <em>Punkt</em> verschiebt jeder weitere Klick den Punkt, bei <em>mehreren Punkten</em> fügt jeder Klick einen Punkt hinzu.</p></li>
+<li><p>Linien und Flächen können aus mehreren Teilen bestehen: mit <em>Abschnitt schließen</em> wird ein weiterer Teil
+(z. B. ein Loch in einer Fläche) begonnen.</p></li>
+<li><p>Bei Flächen ergibt eine negative Pufferbreite einen Puffer nach innen.</p></li>
+<li><p>Mit <em>Aus Objektgeometrie übernehmen</em> kann die Geometrie eines Objekts aus der Karte (Punkt, Linie oder Fläche,
+auch mehrteilig und mit Löchern) übernommen werden. Der Quelltyp wird dabei automatisch eingestellt.</p></li>
+</ul>
+<img alt="../../../../_images/buffer-zone1.png" src="../../../../_images/buffer-zone1.png" />
+</section>
+<section id="objektabstand">
+<span id="mapmarkup-measure-object-distance"></span><h2>Objektabstand<a class="headerlink" href="#objektabstand" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-object-distance.png"><img alt="../../../../_images/icon-object-distance.png" src="../../../../_images/icon-object-distance.png" style="width: 26px;" />
+</a>
+<p>Misst die kürzeste Verbindung zwischen Objekten aus der Karte, z. B. vom Gebäude zur Grundstücksgrenze oder zwischen zwei Leitungen.</p>
+<ul class="simple">
+<li><p>Auf ein Objekt eines sichtbaren Layers klicken, um das Ausgangsobjekt (A) zu wählen.</p></li>
+<li><p>Danach auf beliebig viele weitere Objekte (B) klicken: für jedes Objekt wird die kürzeste Verbindung zu A wie eine
+Bemaßungslinie gezeichnet und mit der Länge beschriftet. Ein erneuter Klick auf ein Objekt B entfernt dessen Linie wieder.</p></li>
+<li><p>Liegen an der Klickposition mehrere Objekte, wird eine Auswahlliste (<em>Objekt wählen</em>) angezeigt. Fährt man mit der Maus
+über einen Eintrag, wird das Objekt in der Karte hervorgehoben.</p></li>
+<li><p>Bei Flächen wird der Abstand zum Rand gemessen. Berühren oder schneiden sich die Objekte, ist der Abstand 0
+(es wird keine Linie gezeichnet).</p></li>
+<li><p>Eigenschaften: <em>Längeneinheit</em> (m oder km) und optional eine Nummerierung der Verbindungen (<em>Nummer anzeigen</em>).</p></li>
+</ul>
+<img alt="../../../../_images/object-distance1.png" src="../../../../_images/object-distance1.png" />
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die Abstände werden beim Zeichnen berechnet und mit der Zeichnung gespeichert. Ändern sich die Objekte in der Karte
+später, werden die gespeicherten Abstände nicht neu berechnet.</p>
+</div>
+</section>
+<section id="messgitter">
+<span id="mapmarkup-measure-grid"></span><h2>Messgitter<a class="headerlink" href="#messgitter" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../../../../_images/icon-measure-grid.png"><img alt="../../../../_images/icon-measure-grid.png" src="../../../../_images/icon-measure-grid.png" style="width: 26px;" />
+</a>
+<p>Zeichnet ein Gitter mit fester Maschenweite und beschrifteten Feldern (<code class="docutils literal notranslate"><span class="pre">A1</span></code>, <code class="docutils literal notranslate"><span class="pre">B1</span></code>, …), z. B. für Raster-Begehungen
+oder um Positionen in einem Ausdruck zu referenzieren.</p>
+<ul class="simple">
+<li><p>Mit den ersten beiden Klicks die Grundkante des Gitters festlegen (Feld A1 beginnt beim ersten Punkt), mit dem dritten
+Klick die Tiefe. Das Gitter kann damit beliebig gedreht sein. Weitere Klicks verschieben nur noch den letzten Punkt.</p></li>
+<li><p><em>Maschenweite X/Y</em> in Metern eingeben (Y leer = wie X) und mit <em>Maschenweite übernehmen</em> setzen (Standard 10 m).</p></li>
+<li><p>Mit <em>Am Koordinatenraster ausrichten</em> genügen zwei Klicks (gegenüberliegende Ecken). Das Gitter ist dann achsparallel und
+die Gitterlinien liegen auf runden Koordinatenwerten. Optional kann der <em>Ursprung</em> (Ecke von Feld A1) auf exakte
+Koordinaten gesetzt werden (<em>Ursprung übernehmen</em>).</p></li>
+<li><p><em>Beschriftung</em>: Felder (<code class="docutils literal notranslate"><span class="pre">A1</span></code>, <code class="docutils literal notranslate"><span class="pre">B1</span></code>, …), Rand (Spalten/Zeilen), Koordinaten (nur bei ausgerichtetem Gitter) oder keine.</p></li>
+<li><p>Ein Gitter kann maximal 2500 Felder haben. Bei größeren Gittern wird nur der Rahmen mit einem Hinweis angezeigt.</p></li>
+</ul>
+<img alt="../../../../_images/measure-grid1.png" src="../../../../_images/measure-grid1.png" />
 </section>
 <section id="kompass">
 <h2>Kompass<a class="headerlink" href="#kompass" title="Link to this heading">¶</a></h2>
@@ -216,7 +368,15 @@ links unten abgelesen werden.</p>
 <li><a class="reference internal" href="#">Spezialwerkzeuge</a><ul>
 <li><a class="reference internal" href="#umgebungskreis">Umgebungskreis</a></li>
 <li><a class="reference internal" href="#bemaszungslinie">Bemaßungslinie</a></li>
+<li><a class="reference internal" href="#bemaszungsflache">Bemaßungsfläche</a></li>
 <li><a class="reference internal" href="#hektometrierungslinie">Hektometrierungslinie</a></li>
+<li><a class="reference internal" href="#sichtfeld-winkel">Sichtfeld (Winkel)</a></li>
+<li><a class="reference internal" href="#schnittwinkel">Schnittwinkel</a></li>
+<li><a class="reference internal" href="#kreisbogen">Kreisbogen</a></li>
+<li><a class="reference internal" href="#normalabstand">Normalabstand</a></li>
+<li><a class="reference internal" href="#pufferzone">Pufferzone</a></li>
+<li><a class="reference internal" href="#objektabstand">Objektabstand</a></li>
+<li><a class="reference internal" href="#messgitter">Messgitter</a></li>
 <li><a class="reference internal" href="#kompass">Kompass</a></li>
 </ul>
 </li>
@@ -248,7 +408,7 @@ links unten abgelesen werden.</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

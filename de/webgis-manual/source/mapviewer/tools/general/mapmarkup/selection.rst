@@ -98,3 +98,25 @@ Auf die gleiche Weise könnte man die gewählten Grundstücke auch mit einem Mar
 auf den Button *Symbole aus Selektion Grundstücksflächen übernehmen...* zu klicken
 
 .. image:: img/selection6.png
+
+.. _mapmarkup-selection-all-tools:
+
+Übernahme bei Mess- und Spezialwerkzeugen
+-----------------------------------------
+
+Die Übernahme aus der Selektion steht nicht nur bei Symbolen, Texten, Punkten, Linien und Flächen zur Verfügung, sondern bei
+allen Zeichen- und Messwerkzeugen (siehe :doc:`advanced-tools`):
+
+* Die übernommenen Elemente erhalten die aktuell eingestellte Darstellung und die Optionen des Werkzeugs
+  (z. B. Einheiten oder Winkelanzeige einer Bemaßung). Der Dialog zeigt dazu die Eigenschaften des Werkzeugs an.
+* Werden mehrere Objekte übernommen, kann im Dialog unter *Objekte zusammenführen* gewählt werden, ob je Objekt ein
+  eigenes Element entsteht oder alle Objekte zu einem Element vereinigt werden (Flächen werden vereinigt,
+  aneinanderstoßende Linien verbunden, Punkte zu einem Mehrfachpunkt zusammengefasst).
+* **Bemaßung / Hektometrierungslinie:** Mehrteilige Linien ergeben ein Element je Teil.
+* **Bemaßungsfläche:** Je Außenring entsteht ein Element; Löcher werden dabei entfernt.
+* **Pufferzone:** Die Objekte werden mit der eingestellten Pufferbreite gepuffert.
+* **Objektabstand:** Die ausgewählten Objekte werden als Objekte B zum aktuellen Ausgangsobjekt A übernommen.
+* **Normalabstand:** Die ausgewählten Punkte werden zur aktuellen Bezugslinie hinzugefügt.
+
+Die neuen Elemente landen in der aktuell aktiven
+Gruppe der :ref:`Elementliste <mapmarkup-graphics-list>`.

@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>URL-Parameter &#8212; WebGIS 2026 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../../_static/documentation_options.js?v=81100d21"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
@@ -231,7 +231,7 @@ Erwartet ein <strong>JavaScript-Objekt</strong> mit Eigenschaften für die Posit
 <li><p>Eigenschaften werden mit <strong>Beistrich</strong> getrennt.</p></li>
 <li><p>Die Zuweisung erfolgt in der Form <strong>Eigenschaft:Wert</strong> (z. B. <code class="docutils literal notranslate"><span class="pre">lng:14.2</span></code>).</p></li>
 <li><p><strong>Strings</strong> müssen in <strong>einfachen Hochkommata</strong> stehen:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Popup Text&#39;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>'Popup Text'
 </pre></div>
 </div>
 </li>
@@ -310,7 +310,7 @@ Werden diese Werte angegeben, sind <code class="docutils literal notranslate"><s
 </table>
 <p><strong>Beispiele:</strong></p>
 <p>Ein Marker mit dem Text <strong>„Hallo Welt“</strong>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;marker={lng:14.7,lat:47.2,text:&#39;Hallo Welt&#39;}
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;marker={lng:14.7,lat:47.2,text:'Hallo Welt'}
 </pre></div>
 </div>
 <p>Ein Marker mit projizierten Koordinaten:</p>
@@ -323,7 +323,7 @@ Werden diese Werte angegeben, sind <code class="docutils literal notranslate"><s
     lat:47.09,
     openPopup:true,
     text:
-    &#39;Das ist ein Bild img:https://upload.wikimedia.org/wikipedia/de/6/68/Nandu_gesamtes_Bild.jpg mit Subtext&#39;
+    'Das ist ein Bild img:https://upload.wikimedia.org/wikipedia/de/6/68/Nandu_gesamtes_Bild.jpg mit Subtext'
 }
 </pre></div>
 </div>
@@ -363,11 +363,11 @@ Jedes Element im Array entspricht einem <strong>Marker-Objekt</strong> mit dense
 </table>
 <p><strong>Beispiel:</strong></p>
 <p>Mehrere Marker mit individuellen Popup-Texten:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;markers_name=Ziele&amp;markers=[{lng:14.7,lat:47.2,text:&#39;Ziel 1&#39;},
-                             {lng:14.9,lat:46.8,text:&#39;Ziel 2&#39;},
-                             {lng:14.8,lat:47.4,text:&#39;Ziel 3&#39;},
-                             {lng:15.8,lat:47.1,text:&#39;Ziel 4&#39;},
-                             {lng:15.2,lat:46.9,text:&#39;Ziel 5&#39;}]
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&amp;markers_name=Ziele&amp;markers=[{lng:14.7,lat:47.2,text:'Ziel 1'},
+                             {lng:14.9,lat:46.8,text:'Ziel 2'},
+                             {lng:14.8,lat:47.4,text:'Ziel 3'},
+                             {lng:15.8,lat:47.1,text:'Ziel 4'},
+                             {lng:15.2,lat:46.9,text:'Ziel 5'}]
 </pre></div>
 </div>
 </section>
@@ -742,7 +742,7 @@ Dazu ist dem Namen der Darstellungsvariante der Suffix <code class="docutils lit
 </pre></div>
 </div>
 <p>Der gesperrte (<strong>locked</strong>) Filter kann dann auf diesen Parameter zugreifen:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROJECT_ID</span><span class="o">=</span><span class="s1">&#39;[url-parameter:project_id]&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROJECT_ID</span><span class="o">=</span><span class="s1">'[url-parameter:project_id]'</span>
 </pre></div>
 </div>
 <p>Hier wird über den Prefix <code class="docutils literal notranslate"><span class="pre">url-parameter:</span></code> der Wert aus der URL als Filterkriterium gesetzt. Dies funktioniert <strong>nur für gesperrte Filter</strong>.</p>
@@ -826,7 +826,7 @@ Dazu ist dem Namen der Darstellungsvariante der Suffix <code class="docutils lit
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

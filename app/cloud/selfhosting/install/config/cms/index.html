@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Konfiguration der CMS Applikation &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni.css?v=d882a67f" />
     <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
@@ -105,7 +105,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../../search.html" method="get">
@@ -113,14 +113,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../portal/index.html">WebGIS Cloud Portal</a></li>
@@ -156,37 +156,37 @@
 <p>Dabei handelt es sich um eine JSON Datei (JavaScript Object Notation). Darum ist beim Editieren dieser Datei auf die Besonderheiten der JavaScript Syntax aufzupassen.
 Nach dem Editieren muss es sich wieder um eine gültige JavaScript Datei handeln. Die Vorlage sieht folgendermaßen aus:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="p">{</span>
-  <span class="s2">&quot;company&quot;</span><span class="p">:</span><span class="s2">&quot;e&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;force-https&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-  <span class="s2">&quot;services-default-url-scheme&quot;</span><span class="p">:</span> <span class="s2">&quot;https://&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;webgis-portal-instance&quot;</span><span class="p">:</span><span class="s2">&quot;http://localhost/portal&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;cms-display-url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://myserver.com/cms&quot;</span><span class="p">,</span>   <span class="o">//</span> <span class="n">optional</span>
-  <span class="s2">&quot;cms-items&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">"company"</span><span class="p">:</span><span class="s2">"e"</span><span class="p">,</span>
+  <span class="s2">"force-https"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s2">"services-default-url-scheme"</span><span class="p">:</span> <span class="s2">"https://"</span><span class="p">,</span>
+  <span class="s2">"webgis-portal-instance"</span><span class="p">:</span><span class="s2">"http://localhost/portal"</span><span class="p">,</span>
+  <span class="s2">"cms-display-url"</span><span class="p">:</span> <span class="s2">"https://myserver.com/cms"</span><span class="p">,</span>   <span class="o">//</span> <span class="n">optional</span>
+  <span class="s2">"cms-items"</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;webgis-release-default&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;WebGIS Release Default&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;c:/cms/param/webgis-release-default&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;scheme&quot;</span><span class="p">:</span> <span class="s2">&quot;webgis&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;deployments&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"webgis-release-default"</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"WebGIS Release Default"</span><span class="p">,</span>
+      <span class="s2">"path"</span><span class="p">:</span> <span class="s2">"c:/cms/param/webgis-release-default"</span><span class="p">,</span>
+      <span class="s2">"scheme"</span><span class="p">:</span> <span class="s2">"webgis"</span><span class="p">,</span>
+      <span class="s2">"deployments"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;c:/cms/publish/cms-default.xml&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;replacement-file&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;postEvents&quot;</span><span class="p">:{</span>
-              <span class="s2">&quot;commands&quot;</span><span class="p">:[</span>
+          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"default"</span><span class="p">,</span>
+          <span class="s2">"target"</span><span class="p">:</span> <span class="s2">"c:/cms/publish/cms-default.xml"</span><span class="p">,</span>
+          <span class="s2">"replacement-file"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+          <span class="s2">"postEvents"</span><span class="p">:{</span>
+              <span class="s2">"commands"</span><span class="p">:[</span>
 
               <span class="p">],</span>
-              <span class="s2">&quot;http-get&quot;</span><span class="p">:[</span>
-                <span class="s2">&quot;http://localhost/api/cache/clear&quot;</span>
+              <span class="s2">"http-get"</span><span class="p">:[</span>
+                <span class="s2">"http://localhost/api/cache/clear"</span>
               <span class="p">]</span>
           <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
-          <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;default-upload&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost/api/cache/upload/{cms-name}&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;client&quot;</span><span class="p">:</span> <span class="s2">&quot;cms-upload-client&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;secret&quot;</span><span class="p">:</span> <span class="s2">&quot;my-super-secret-with-min-length-24&quot;</span>
-          <span class="s2">&quot;replacement-file&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"default-upload"</span><span class="p">,</span>
+          <span class="s2">"target"</span><span class="p">:</span> <span class="s2">"https://localhost/api/cache/upload/{cms-name}"</span><span class="p">,</span>
+          <span class="s2">"client"</span><span class="p">:</span> <span class="s2">"cms-upload-client"</span><span class="p">,</span>
+          <span class="s2">"secret"</span><span class="p">:</span> <span class="s2">"my-super-secret-with-min-length-24"</span>
+          <span class="s2">"replacement-file"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
         <span class="p">},</span>
       <span class="p">]</span>
     <span class="p">}</span>
@@ -346,14 +346,14 @@ Die eigentliche <em>DataLinq Engine</em> läuft bei WebGIS immer innerhalb einer
 <p>Welche Instanzen über die CMS Startseite zum Editieren angezeigt werden, kann über die Datei
 <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code> gesteuert werden:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;instances&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">"instances"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Local WebGIS API&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;My local WebGIS test and developing API&quot;</span><span class="p">,</span>
-         <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://my-server/webgis-api&quot;</span>
+         <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Local WebGIS API"</span><span class="p">,</span>
+         <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"My local WebGIS test and developing API"</span><span class="p">,</span>
+         <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://my-server/webgis-api"</span>
       <span class="p">}</span>
    <span class="p">],</span>
-   <span class="s2">&quot;useAppPrefixFilters&quot;</span><span class="p">:</span> <span class="n">true</span>
+   <span class="s2">"useAppPrefixFilters"</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -392,15 +392,15 @@ ist derzeit die Angabe eines Logging Files oder das Einstellen eines Proxy Serve
 Bindet man Dienste aus dem Internet ein, kann für den Zugriff ein Proxy Server notwendig sein.
 Mit folgender Einstellung kann über diese Datei ein <em>Proxy Server</em> angegeben werden, der für jeden Zugriff auf das Internet angewendet wird:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;logging_connection_string&quot;</span><span class="p">:</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">cms</span><span class="se">\\</span><span class="s2">cms-logging.csv&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;proxy&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;use&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-      <span class="s2">&quot;server&quot;</span><span class="p">:</span> <span class="s2">&quot;webproxy.mydomain.com&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span>
-      <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>            <span class="o">//</span> <span class="n">optinal</span>
-      <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>        <span class="o">//</span> <span class="n">optional</span>
-      <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>          <span class="o">//</span> <span class="n">optional</span>
-      <span class="s2">&quot;ignore&quot;</span><span class="p">:</span><span class="s2">&quot;localhost;my-intranet.com;.my-domain.com$;&quot;</span>
+   <span class="s2">"logging_connection_string"</span><span class="p">:</span> <span class="s2">"C:</span><span class="se">\\</span><span class="s2">cms</span><span class="se">\\</span><span class="s2">cms-logging.csv"</span><span class="p">,</span>
+   <span class="s2">"proxy"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"use"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">"server"</span><span class="p">:</span> <span class="s2">"webproxy.mydomain.com"</span><span class="p">,</span>
+      <span class="s2">"port"</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span>
+      <span class="s2">"user"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>            <span class="o">//</span> <span class="n">optinal</span>
+      <span class="s2">"password"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>        <span class="o">//</span> <span class="n">optional</span>
+      <span class="s2">"domain"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>          <span class="o">//</span> <span class="n">optional</span>
+      <span class="s2">"ignore"</span><span class="p">:</span><span class="s2">"localhost;my-intranet.com;.my-domain.com$;"</span>
    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -452,10 +452,10 @@ muss man bereits angemeldet sein, um zu dieser Seite zu kommen.</p>
 <img alt="../../../../_images/config-security2.png" src="../../../../_images/config-security2.png" />
 <p>Das Code Snippet kopieren und an die entsprechende Stelle an die Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code> kopieren:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">"users"</span><span class="p">:</span> <span class="p">[</span>
      <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;tcwXYZ55...&quot;</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"admin"</span><span class="p">,</span>
+      <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"tcwXYZ55..."</span>
      <span class="p">}</span>
    <span class="p">]</span>
 <span class="p">}</span>
@@ -464,14 +464,14 @@ muss man bereits angemeldet sein, um zu dieser Seite zu kommen.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Users</span></code> ist hier wieder ein Array. Es können theoretisch auch mehrere User
 angelegt und mit Beistrich getrennt angeführt werden:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">"users"</span><span class="p">:</span> <span class="p">[</span>
      <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;tcwXYZ55...&quot;</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"admin"</span><span class="p">,</span>
+      <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"tcwXYZ55..."</span>
      <span class="p">},</span>
      <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;admin2&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;dA8NR...&quot;</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"admin2"</span><span class="p">,</span>
+      <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"dA8NR..."</span>
      <span class="p">}</span>
    <span class="p">]</span>
 <span class="p">}</span>
@@ -482,16 +482,16 @@ angelegt und mit Beistrich getrennt angeführt werden:</p>
 Windows Authentifizierung oder einen OpenID Connection Server (Auth0, Azure AD, usw.) erfolgen.
 Eine Beispiel application-security.config für für Windows-Authentifizierung:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;identityType&quot;</span><span class="p">:</span> <span class="s2">&quot;windows&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">"identityType"</span><span class="p">:</span> <span class="s2">"windows"</span><span class="p">,</span>
+   <span class="s2">"users"</span><span class="p">:</span> <span class="p">[</span>
      <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domain</span><span class="se">\\</span><span class="s2">user1&quot;</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"domain</span><span class="se">\\</span><span class="s2">user1"</span><span class="p">,</span>
      <span class="p">},</span>
      <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domain</span><span class="se">\\</span><span class="s2">user2&quot;</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"domain</span><span class="se">\\</span><span class="s2">user2"</span><span class="p">,</span>
      <span class="p">},</span>
      <span class="p">{</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domain</span><span class="se">\\</span><span class="s2">admin123&quot;</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"domain</span><span class="se">\\</span><span class="s2">admin123"</span><span class="p">,</span>
      <span class="p">}</span>
    <span class="p">]</span>
 <span class="p">}</span>
@@ -503,12 +503,12 @@ IIS Windows Authentifizierung eingestellt wird (keine anonyme Anmeldung).</p>
 <p>Möchten man für die Anmeldungen einen OpenId Connection Konformen Anmeldeserver verwenden,
 könnte die <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> wir folgt aussehen:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-   <span class="s2">&quot;identityType&quot;</span><span class="p">:</span> <span class="s2">&quot;oidc&quot;</span><span class="p">,</span>
-   <span class="s2">&quot;oidc&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;authority&quot;</span><span class="p">:</span> <span class="s2">&quot;https://server.com/identity&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;clientId&quot;</span><span class="p">:</span> <span class="s2">&quot;cms-local-oidc&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;clientSecret&quot;</span><span class="p">:</span> <span class="s2">&quot;secret123&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;requiredRole&quot;</span><span class="p">:</span> <span class="s2">&quot;gis-admin-webgis-cms&quot;</span>
+   <span class="s2">"identityType"</span><span class="p">:</span> <span class="s2">"oidc"</span><span class="p">,</span>
+   <span class="s2">"oidc"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"authority"</span><span class="p">:</span> <span class="s2">"https://server.com/identity"</span><span class="p">,</span>
+      <span class="s2">"clientId"</span><span class="p">:</span> <span class="s2">"cms-local-oidc"</span><span class="p">,</span>
+      <span class="s2">"clientSecret"</span><span class="p">:</span> <span class="s2">"secret123"</span><span class="p">,</span>
+      <span class="s2">"requiredRole"</span><span class="p">:</span> <span class="s2">"gis-admin-webgis-cms"</span>
    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -574,7 +574,7 @@ Also Scopes müssen für den Client mindestens <code class="docutils literal not
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

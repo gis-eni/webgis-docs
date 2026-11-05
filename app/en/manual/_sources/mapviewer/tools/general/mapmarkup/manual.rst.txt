@@ -11,6 +11,7 @@ It offers all possible drawing tools.
 In addition, there are buttons for managing drawings (load, save, share, upload, download).
 
 .. image:: img/mapmarkup1.png
+   :width: 320px
 
 The buttons may vary depending on the end device. The figure shows all tools (desktop).
 Below the buttons, the name of the currently active drawing tool is shown again, along with a *yellow*-highlighted
@@ -24,15 +25,15 @@ instead, the options and differences between the tools are shown.
 Tool Groups
 ^^^^^^^^^^^
 
-.. versionadded:: 9.26.4104
-
 To save space, the tools are combined into groups:
 
 * **Select:** shown directly
 
 * **Draw:** Symbol, Text, Point, Freehand, Line, Polygon, Rectangle, Circle
 
-* **Measure:** Dimensioning, Dimensioning Polygon, Hectometer Line, Distance Circle, Compass Rose
+* **Measure:** Dimensioning, Dimensioning Polygon, Hectometer Line, Field of View (Angle), Intersection Angle,
+  Circular Arc, Perpendicular distance, Buffer zone, Object distance, Measurement grid, Distance Circle, Compass Rose
+  (see :doc:`Special Tools <advanced-tools>`)
 
 * **Import/Export:** Save/Load Drawing, Share, Upload, Download
 
@@ -76,12 +77,8 @@ Descriptions for drawing elements are optional, but help to identify and interpr
 
 * Labeling a drawing element: in the *Apply* dialog shown above, a *T* (for text) is shown to the right of the input field. This switches to the text tool and allows the current element to be labeled (e.g. length of a line - see below)
 
-Drawing elements already applied are shown not only on the map, but also as a list at the very bottom of the tool dialog:
-
-.. image:: img/mapmarkup4.png
-
-The icon indicates what type of element it is (line, polygon, text, ...). In addition, there is
-a *delete button* (trash can), an *edit button* (pencil), and, depending on the type, a *T button* (text - label, see below).
+Drawing elements already applied are shown not only on the map, but also as a list in the tool dialog
+(see :ref:`Element List <mapmarkup-graphics-list>`).
 
 
 Changing Symbology
@@ -106,6 +103,95 @@ changes immediately.
    If you are drawing a new object, you will only notice the changes once you click on the map to create vertices
    for the element.
 
+.. _mapmarkup-symbology-panel:
+
+Symbology Panel (Desktop)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+On desktop devices, the symbology is shown in a separate panel to the right of the map. The panel
+is not modal: the toolbar and the element list stay visible and drawing can continue.
+
+* When a drawing or measuring tool is selected, the panel opens automatically. This allows the symbology
+  to be set before drawing; it then applies to all further elements of this type.
+* Hints for the current tool (e.g. what to do next) are also shown in this panel.
+* If the panel is closed (X), it stays closed until the drawing tool is opened again.
+  It can be reopened at any time with the *Symbology: {tool}* button in the tool dialog.
+* If one or more elements are selected in the element list (several with the ``SHIFT`` key pressed),
+  the panel shows the symbology for the selection (*Symbology: Selection*). Selected elements are also highlighted
+  on the map. Selecting another drawing tool clears the selection.
+
+In the element list, lines and polygons are shown with a colored border in the color of the element,
+symbols with their actual symbol. Changes to the symbology are applied to the list immediately.
+
+Whether the panel opens automatically can be configured by the administrator in ``custom.js``.
+
+.. _mapmarkup-graphics-list:
+
+Element List
+------------
+
+All applied drawing elements are shown as a list in the tool dialog below the tool buttons:
+
+.. image:: img/mapmarkup4.png
+   :width: 320px
+
+Each entry shows:
+
+* on the left a colored border in the color of the element and an icon for the type (line, polygon, text, dimensioning, ...)
+* the description of the element or, if none was entered, the type with a running number (e.g. *Line 1*)
+* depending on the type, a *T button* (label, see below), a *magnifier* (zoom to the element),
+  a *delete button* (trash can) and an *edit button* (pencil)
+
+Hovering over an entry highlights the element on the map. For composite measuring elements, a meaningful
+geometry is shown (e.g. only the reference line for a perpendicular distance).
+
+The order of the list can be reversed with the arrow button above the list.
+
+Selecting Elements
+^^^^^^^^^^^^^^^^^^
+
+Clicking an entry selects the element, clicking it again clears the selection.
+
+* With the ``CTRL`` key pressed, individual elements are added to or removed from the selection.
+* With the ``SHIFT`` key pressed, all elements between the clicked element and the next already
+  selected element are selected.
+
+Selected elements are highlighted on the map. The following functions for the selection are available above the list:
+change the symbology of all selected elements (*Symbology: Selection*, see above), clear the selection,
+delete the selected elements and *Move to group…* (see below).
+
+Groups
+^^^^^^
+
+Drawing elements can be organized in groups, e.g. to keep survey results apart from annotations.
+Each element belongs to exactly one group; without further groups, all elements are in the group *General*.
+
+* **Add a group:** Use the plus button next to the drop-down list to create a new group and enter a name.
+  The new group immediately becomes the active group.
+* **Active group:** Newly drawn elements (including elements taken from a selection) are added
+  to the active group. When *All groups* is shown, the text below the drop-down list indicates which group new elements
+  are drawn into (e.g. *New objects → Survey*).
+* **Show groups:** The drop-down list restricts the list to one group (*All groups* shows all elements,
+  structured by group). If a single group is selected, it can be renamed or deleted with the buttons next to the
+  drop-down list. If a group to be deleted contains elements, you can choose whether they are moved
+  to the group *General* or deleted as well. The group *General* cannot be deleted.
+* **Move elements:** Select elements in the list and choose the target group via the drop-down list *Move to group…*.
+* **Show/hide:** The checkbox at the group heading (or next to the drop-down list) shows or hides a group
+  on the map. Hidden groups are marked *hidden* in the drop-down list and are **not printed**.
+  Drawing into a hidden group shows it again automatically.
+
+The groups (including their visibility) are stored when a drawing is saved and restored when it is loaded.
+
+Filtering the List
+^^^^^^^^^^^^^^^^^^
+
+If the list contains many elements, a filter field (*Filter…*) is shown above it. Only entries whose
+description or type contains the entered text are then shown. *Select matches* selects all
+filtered elements (e.g. to change their symbology together or to move them to a group),
+*Clear filter* removes the filter again.
+
+The number of elements from which the filter field is shown can be configured by the administrator in ``custom.js``.
+
 Different Behavior of Element Types
 --------------------------------------------
 
@@ -126,6 +212,21 @@ text can be changed via the text field and via *Apply / Draw another*. A change 
 map right away. If the position needs to be changed again, this can be done with another click
 on the map (or by dragging the insertion point). Clicking the checkmark permanently applies the text
 to the map.
+
+.. _mapmarkup-text-rotation:
+
+**Rotating text:**
+
+While a text is being edited, a rotate icon appears to the right of the end of the first text line.
+Dragging it with the mouse rotates the text around the insertion point (clockwise, relative to the map).
+With the ``SHIFT`` key pressed the text rotates in 5° steps, with the ``CTRL`` key pressed in 15° steps.
+Near 0°, 90°, 180° and 270° the text snaps automatically.
+
+Alternatively, the angle can be entered in the symbology under *Rotation (°)* and set with *Apply rotation*;
+the *0°* button makes the text horizontal again. This also works for several
+selected texts (*Symbology: Selection*). Every new text starts horizontally (0°).
+
+The rotation is kept when saving, printing and downloading as a shape file (attribute ``ROTATION``).
 
 
 Changing an Existing Element

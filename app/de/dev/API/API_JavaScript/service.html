@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>WebGIS 5.0 API: service &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
@@ -245,7 +245,7 @@
 <p><em>Beschreibung</em></p>
 <p>Gibt einen Layer aufgrund seiner Id zurück. Wenn der Layer im Dienst nicht gefunden wird, ist der Rückgabewert <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayer</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayer</span><span class="p">(</span><span class="s1">'2'</span><span class="p">);</span>
 <span class="k">if</span><span class="p">(</span><span class="nx">layer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="c1">// do something</span>
@@ -259,7 +259,7 @@
 <p><em>Beschreibung</em></p>
 <p>Gibt ein Layer aufgrund seines Namens zurück. Wenn der Layer im Dienst nicht gefunden wird, ist der Rückgabewert <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getLayerFromName</span><span class="p">(</span><span class="s1">&#39;Verwaltungsdaten\\PLZ-Flächen&#39;</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getLayerFromName</span><span class="p">(</span><span class="s1">'Verwaltungsdaten\\PLZ-Flächen'</span><span class="p">);</span>
 <span class="k">if</span><span class="p">(</span><span class="nx">layer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
 <span class="c1">// do something</span>
@@ -290,8 +290,8 @@
 <p>Gibt ein Array mit den Ids der übergeben Layer zurück. Übergeben wird ein Array von String mit den Layernamen.</p>
 <p>Die Funktion ist nützlich, da die Ids beispielsweise für das setzen der Sichtbarkeit der Layer notwendig ist. Wenn sich bei Layer die Ids ändern können (zB beim AGS Services durch umsortieren der Layer), empfielt es die aktuellen Ids aus dem Namen zu holen.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">layerIds</span><span class="o">=</span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayerIdsFromNames</span><span class="p">([</span><span class="s1">&#39;Verwaltungsdaten\\PLZ-Flächen&#39;</span><span class="p">]);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">'estag_basis_ags@ccgis_default'</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">layerIds</span><span class="o">=</span><span class="nx">service</span><span class="p">.</span><span class="nx">getLayerIdsFromNames</span><span class="p">([</span><span class="s1">'Verwaltungsdaten\\PLZ-Flächen'</span><span class="p">]);</span>
 <span class="c1">//console.log(layerIds);</span>
 <span class="nx">service</span><span class="p">.</span><span class="nx">setLayerVisibility</span><span class="p">(</span><span class="nx">layerIds</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
 </pre></div>
@@ -304,10 +304,10 @@
 <p><em>Beispiel</em></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
 <span class="w">    </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getLegendUrl</span><span class="p">(),</span>
-<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;get&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'get'</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">success</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;img&gt;&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">'&lt;img&gt;'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'src'</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">'body'</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">});</span>
@@ -320,7 +320,7 @@
 <p>Mit dieser Methode kann eine Vorschaubild eines Dienstes in einer gewissen Größe abgeholt werden. Der Rückgabewert ist eine Url die einen Bild entspricht (png oder jpg). Diese Vorschau ist abhängig vom aktuellen Kartenmaßstab. Anwendungen für diese Methode sind beispielsweise die Vorschaubilder für die Hintergrundkarten im TOC.</p>
 <p>Der Übergabeparameter muss ein Objekt mit den Werten <code class="docutils literal notranslate"><span class="pre">width</span></code> und <code class="docutils literal notranslate"><span class="pre">height</span></code> sein und gibt die Größe des Vorschaubildes an.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;div&gt;&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;background&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;url(&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getPreviewUrl</span><span class="p">({</span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">})</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;)&#39;</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s2">"&lt;div&gt;"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'background'</span><span class="p">,</span><span class="w"> </span><span class="s1">'url('</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">getPreviewUrl</span><span class="p">({</span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">})</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">')'</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">'body'</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -329,7 +329,7 @@
 <p><em>Beschreibung</em></p>
 <p>Überprüft, ob ein Layer im aktuellen Kartenmaßstab sichtbar ist. Gewisse Layer in einem Service können Maßstabsanhängig sein. Es macht beispielsweise wenig Sinn Grundstücksgrenzen in sehr kleinen Maßstaben darzustellen. Um abzufragen, ob ein Layer im aktuellen Maßstabsbereich sichtbar ist, kann diese Methode verwendet werden. Der Übergabeparameter ist die Id des entsprechenden Layers. Der Funktionsrückgabe wert ist entweder <code class="docutils literal notranslate"><span class="pre">true</span></code> oder <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">layerInScale</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// Layer mit Id 1</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">layerInScale</span><span class="p">(</span><span class="s1">'1'</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// Layer mit Id 1</span>
 <span class="w">    </span><span class="c1">// do something</span>
 <span class="p">}</span>
 </pre></div>
@@ -358,8 +358,8 @@
 <p><em>Beschreibung</em></p>
 <p>Setzt die Sichtbarkeit von Layern über ihre Id. Übergeben werden die entspechenden Ids als Array und der Bool-Wert, für die Sichtbarkeit: true=sichtbar, false=unsichtbar.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
-<span class="nx">service</span><span class="p">.</span><span class="nx">setLayerVisibility</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">],</span><span class="kc">true</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">'estag_basis_ags@ccgis_default'</span><span class="p">);</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setLayerVisibility</span><span class="p">([</span><span class="s1">'1'</span><span class="p">,</span><span class="s1">'2'</span><span class="p">,</span><span class="s1">'3'</span><span class="p">],</span><span class="kc">true</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -370,7 +370,7 @@
 <p>0.0 … komplett durchlässig</p>
 <p>1.0 … nicht transparent</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">'estag_basis_ags@ccgis_default'</span><span class="p">);</span>
 <span class="nx">service</span><span class="p">.</span><span class="nx">setOpacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -381,7 +381,7 @@
 <p>Setzt alle Layer mit einer ensprechenden Id sichbar und alle restlichen Layer unsichtbar. Der Übergabe Parameter ist ein Array mit den Layer-Ids. Wird ein leeres Array oder Nichts übergeben, werden alle Layer in einem Dienst unsichtbar gesetzt.</p>
 <p><em>Beispiel</em></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Nur die Layer 1,2,3 sichtbar setzen</span>
-<span class="nx">service</span><span class="p">.</span><span class="nx">setServiceVisibility</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">]);</span>
+<span class="nx">service</span><span class="p">.</span><span class="nx">setServiceVisibility</span><span class="p">([</span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="s1">'2'</span><span class="p">,</span><span class="w"> </span><span class="s1">'3'</span><span class="p">]);</span>
 
 <span class="c1">// Alle Layer in einen Dienst unsichtbar setzten</span>
 <span class="nx">service</span><span class="p">.</span><span class="nx">setServiceVisibility</span><span class="p">();</span>
@@ -431,7 +431,7 @@
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">l</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">l</span><span class="p">];</span>
 
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">id</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">layer</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">id</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nx">layer</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -535,7 +535,7 @@
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

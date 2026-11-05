@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Bedienung Werkzeug Zeichnen (Map-Markup) &#8212; WebGIS Manual 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/eni-gray.css?v=82efda12" />
     <script src="../../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/js/petite-vue.js"></script>
@@ -110,7 +110,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../../search.html" method="get">
@@ -118,14 +118,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Benutzerhandbuch Karten Viewer</a><ul class="current">
@@ -167,7 +167,8 @@ den Inhalt der Karte graphisch zu ergänzen.
 Nach dem Öffnen des Werkzeugs wird der Zeichnen- (Map-Markup) Dialog angezeigt.
 Darin werden alle Möglichen Zeichenwerkzeuge angeboten.
 Zusätzlich gibt es noch Buttons zum Verwalten von Zeichnungen (Laden, Speichern, Teilen, Upload, Download).</p>
-<img alt="../../../../_images/mapmarkup1.png" src="../../../../_images/mapmarkup1.png" />
+<a class="reference internal image-reference" href="../../../../_images/mapmarkup1.png"><img alt="../../../../_images/mapmarkup1.png" src="../../../../_images/mapmarkup1.png" style="width: 320px;" />
+</a>
 <p>Die Buttons können je nach Endgerät variieren. In der Abbildung sind alle Werkzeuge zu sehen (Desktop).
 Unter den Buttons wird noch einmal der Name des gerade aktiven Zeichenwerkzeugs angezeigt, sowie <em>gelb</em> hinterlegt eine
 Beschreibung, wie dieses Werkzeug bedient wird (z.B. in die Karte klicken, auf bestehendes Zeichnungselement klicken, usw.).</p>
@@ -175,14 +176,13 @@ Beschreibung, wie dieses Werkzeug bedient wird (z.B. in die Karte klicken, auf b
 sondern es werden die Möglichkeiten und Unterschiede der Werkzeuge aufgezeigt.</p>
 <section id="werkzeuggruppen">
 <span id="mapmarkup-tool-groups"></span><h3>Werkzeuggruppen<a class="headerlink" href="#werkzeuggruppen" title="Link to this heading">¶</a></h3>
-<div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104.</span></p>
-</div>
 <p>Um Platz zu sparen, sind die Werkzeuge in Gruppen zusammengefasst:</p>
 <ul class="simple">
 <li><p><strong>Auswählen:</strong> wird direkt angezeigt</p></li>
 <li><p><strong>Zeichnen:</strong> Symbol, Text, Punkt, Freihand, Linie, Fläche, Rechteck, Kreis</p></li>
-<li><p><strong>Messen:</strong> Bemaßung, Bemaßungsfläche, Hektometrierungslinie, Umgebungskreis, Kompass Rose</p></li>
+<li><p><strong>Messen:</strong> Bemaßung, Bemaßungsfläche, Hektometrierungslinie, Sichtfeld (Winkel), Schnittwinkel, Kreisbogen,
+Normalabstand, Pufferzone, Objektabstand, Messgitter, Umgebungskreis, Kompass Rose
+(siehe <a class="reference internal" href="advanced-tools.html"><span class="doc">Spezialwerkzeuge</span></a>)</p></li>
 <li><p><strong>Import/Export:</strong> Zeichnung speichern/laden, Teilen, Hochladen, Herunterladen</p></li>
 </ul>
 <p>Ein Klick auf eine Gruppe (erkennbar am kleinen Pfeil rechts oben) öffnet eine Auswahl mit den Werkzeugen der Gruppe.
@@ -218,10 +218,8 @@ zeichnen:</p>
 <li><p>Ändern des Zeichenwerkzeugs: Zeichnet man eine Linie und möchte danach beispielsweise mit dem Zeichnen einer Fläche fortfahren, reicht es, auf das <em>Fläche</em> Werkzeug zu klicken. Eine gültige Linie wird dann automatich übernommen.</p></li>
 <li><p>Beschriften eines Zeichenelements: Im oben gezeigten <em>Übernehmen</em> Dialog wird rechts neben dem Eingebefeld ein <em>T</em> (für Text) angezeigt. Damit wechselt man zum Text Werkzeug und kann das aktuelle Element beschriften (zB Länge einer Linie - siehe unten)</p></li>
 </ul>
-<p>Bereits übernommene Zeichenelement werden zusätzlicht zur Karte auch als Liste ganz unten im Werkzeugdialog angezeigt:</p>
-<img alt="../../../../_images/mapmarkup4.png" src="../../../../_images/mapmarkup4.png" />
-<p>Das Icon zeigt an, um welchen Typ es sich bei dem Element handelt (Linie, Fläche, Text, …). Zusätzlich gibt es noch
-einen <em>Löschen Button</em> (Mistkübel), einen <em>Berarbeitungs-Button</em> (Stift) und je nach Typ einen <em>T Button</em> (Text - Beschriften, siehe unten)</p>
+<p>Bereits übernommene Zeichenelemente werden zusätzlich zur Karte auch als Liste im Werkzeugdialog angezeigt
+(siehe <a class="reference internal" href="#mapmarkup-graphics-list"><span class="std std-ref">Elementliste</span></a>).</p>
 <section id="symbolik-andern">
 <h3>Symbolik ändern<a class="headerlink" href="#symbolik-andern" title="Link to this heading">¶</a></h3>
 <p>Um die Symbolik des jeweiligen Objektes zu ändern, ist links von der Beschreibung ein Symbol (je nach Objekt ist dieses ein anderes Symbol).</p>
@@ -238,6 +236,82 @@ sofort in der Karte.</p>
 <p>Zeichnet man ein neues Objekt, erkennt man die Änderungen erst, wenn man in die Karte klickt um Stützpunkte für das Element
 zu erstellen.</p>
 </div>
+</section>
+<section id="symbolik-fenster-desktop">
+<span id="mapmarkup-symbology-panel"></span><h3>Symbolik-Fenster (Desktop)<a class="headerlink" href="#symbolik-fenster-desktop" title="Link to this heading">¶</a></h3>
+<p>Am Desktop wird die Symbolik in einem eigenen Fenster rechts neben der Karte angezeigt. Das Fenster
+ist nicht modal: Werkzeugleiste und Elementliste bleiben sichtbar und es kann weitergezeichnet werden.</p>
+<ul class="simple">
+<li><p>Wählt man ein Zeichen- oder Messwerkzeug, öffnet sich das Fenster automatisch. Damit kann die Symbolik
+schon vor dem Zeichnen eingestellt werden; sie gilt dann für alle weiteren Elemente dieses Typs.</p></li>
+<li><p>Hinweise zum aktuellen Werkzeug (z. B. was als nächstes zu tun ist) werden ebenfalls in diesem Fenster angezeigt.</p></li>
+<li><p>Schließt man das Fenster (X), bleibt es geschlossen, bis das Zeichnen-Werkzeug erneut geöffnet wird.
+Über den Button <em>Symbolik: {Werkzeug}</em> im Werkzeugdialog kann es jederzeit wieder geöffnet werden.</p></li>
+<li><p>Werden in der Elementliste ein oder mehrere Elemente ausgewählt (mehrere mit gedrückter <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> Taste),
+zeigt das Fenster die Symbolik für die Auswahl (<em>Symbolik: Auswahl</em>). Ausgewählte Elemente werden auch in der
+Karte hervorgehoben. Wählt man ein anderes Zeichenwerkzeug, wird die Auswahl aufgehoben.</p></li>
+</ul>
+<p>In der Elementliste werden Linien und Flächen mit einem farbigen Rand in der Farbe des Elements angezeigt,
+Symbole mit dem jeweiligen Symbol. Änderungen der Symbolik werden sofort in der Liste übernommen.</p>
+<p>Ob sich das Fenster automatisch öffnet, kann der Administrator in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> festlegen.</p>
+</section>
+</section>
+<section id="elementliste">
+<span id="mapmarkup-graphics-list"></span><h2>Elementliste<a class="headerlink" href="#elementliste" title="Link to this heading">¶</a></h2>
+<p>Alle übernommenen Zeichenelemente werden im Werkzeugdialog unter den Werkzeug-Buttons als Liste angezeigt:</p>
+<a class="reference internal image-reference" href="../../../../_images/mapmarkup4.png"><img alt="../../../../_images/mapmarkup4.png" src="../../../../_images/mapmarkup4.png" style="width: 320px;" />
+</a>
+<p>Jeder Eintrag zeigt:</p>
+<ul class="simple">
+<li><p>links einen farbigen Rand in der Farbe des Elements und ein Icon für den Typ (Linie, Fläche, Text, Bemaßung, …)</p></li>
+<li><p>die Beschreibung des Elements bzw., wenn keine angegeben wurde, den Typ mit einer laufenden Nummer (z. B. <em>Linie 1</em>)</p></li>
+<li><p>je nach Typ einen <em>T Button</em> (Beschriften, siehe unten), eine <em>Lupe</em> (auf das Element zoomen),
+einen <em>Löschen Button</em> (Mistkübel) und einen <em>Bearbeiten Button</em> (Stift)</p></li>
+</ul>
+<p>Fährt man mit der Maus über einen Eintrag, wird das Element in der Karte hervorgehoben. Bei zusammengesetzten
+Messelementen wird dabei eine aussagekräftige Geometrie gezeigt (z. B. beim Normalabstand nur die Bezugslinie).</p>
+<p>Mit dem Pfeil-Button oberhalb der Liste kann die Reihenfolge der Liste umgedreht werden.</p>
+<section id="elemente-auswahlen">
+<h3>Elemente auswählen<a class="headerlink" href="#elemente-auswahlen" title="Link to this heading">¶</a></h3>
+<p>Ein Klick auf einen Eintrag wählt das Element aus, ein weiterer Klick hebt die Auswahl wieder auf.</p>
+<ul class="simple">
+<li><p>Mit gedrückter <code class="docutils literal notranslate"><span class="pre">STRG</span></code> Taste werden einzelne Elemente zur Auswahl hinzugefügt oder daraus entfernt.</p></li>
+<li><p>Mit gedrückter <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> Taste werden alle Elemente zwischen dem angeklickten und dem nächsten bereits
+ausgewählten Element ausgewählt.</p></li>
+</ul>
+<p>Ausgewählte Elemente werden in der Karte hervorgehoben. Für die Auswahl stehen oberhalb der Liste folgende Funktionen
+zur Verfügung: Symbolik für alle ausgewählten Elemente ändern (<em>Symbolik: Auswahl</em>, siehe oben), Auswahl aufheben,
+ausgewählte Elemente löschen und ausgewählte Elemente <em>In Gruppe verschieben…</em> (siehe unten).</p>
+</section>
+<section id="gruppen">
+<h3>Gruppen<a class="headerlink" href="#gruppen" title="Link to this heading">¶</a></h3>
+<p>Zeichenelemente können in Gruppen organisiert werden, z. B. um Vermessungsergebnisse von Anmerkungen zu trennen.
+Jedes Element gehört genau zu einer Gruppe; ohne weitere Gruppen liegen alle Elemente in der Gruppe <em>Allgemein</em>.</p>
+<ul class="simple">
+<li><p><strong>Gruppe anlegen:</strong> Über den Plus-Button neben der Auswahlliste eine neue Gruppe anlegen und einen Namen eingeben.
+Die neue Gruppe wird gleich zur aktiven Gruppe.</p></li>
+<li><p><strong>Aktive Gruppe:</strong> Neu gezeichnete Elemente (auch Elemente, die aus einer Selektion übernommen werden) landen
+in der aktiven Gruppe. Bei der Anzeige <em>Alle Gruppen</em> steht unter der Auswahlliste, in welche Gruppe neue Elemente
+gezeichnet werden (z. B. <em>Neue Objekte → Vermessung</em>).</p></li>
+<li><p><strong>Gruppen anzeigen:</strong> Über die Auswahlliste kann die Liste auf eine Gruppe eingeschränkt werden (<em>Alle Gruppen</em>
+zeigt alle Elemente, gegliedert nach Gruppen). Ist eine einzelne Gruppe gewählt, kann sie über die Buttons neben der
+Auswahlliste umbenannt oder gelöscht werden. Enthält eine zu löschende Gruppe Elemente, kann man wählen, ob diese
+in die Gruppe <em>Allgemein</em> verschoben oder mitgelöscht werden. Die Gruppe <em>Allgemein</em> kann nicht gelöscht werden.</p></li>
+<li><p><strong>Elemente verschieben:</strong> Elemente in der Liste auswählen und über die Auswahlliste <em>In Gruppe verschieben…</em>
+die Zielgruppe wählen.</p></li>
+<li><p><strong>Ein-/Ausblenden:</strong> Über das Häkchen bei der Gruppenüberschrift (bzw. neben der Auswahlliste) wird eine Gruppe
+in der Karte aus- oder eingeblendet. Ausgeblendete Gruppen werden in der Auswahlliste mit <em>ausgeblendet</em>
+gekennzeichnet und <strong>nicht gedruckt</strong>. Zeichnet man in eine ausgeblendete Gruppe, wird sie automatisch wieder eingeblendet.</p></li>
+</ul>
+<p>Die Gruppen (inklusive Sichtbarkeit) werden beim Speichern einer Zeichnung mitgespeichert und beim Laden wiederhergestellt.</p>
+</section>
+<section id="liste-filtern">
+<h3>Liste filtern<a class="headerlink" href="#liste-filtern" title="Link to this heading">¶</a></h3>
+<p>Enthält die Liste viele Elemente, wird oberhalb ein Filterfeld (<em>Filtern…</em>) angezeigt. Damit werden nur noch
+Einträge angezeigt, deren Beschreibung oder Typ den eingegebenen Text enthält. Mit <em>Treffer auswählen</em> werden alle
+gefilterten Elemente ausgewählt (z. B. um ihre Symbolik gemeinsam zu ändern oder sie in eine Gruppe zu verschieben),
+mit <em>Filter löschen</em> wird der Filter wieder entfernt.</p>
+<p>Ab wie vielen Elementen das Filterfeld angezeigt wird, kann der Administrator in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> festlegen.</p>
 </section>
 </section>
 <section id="unterschiedliches-verhalten-von-elementtypen">
@@ -256,6 +330,15 @@ Text über das Textfeld und über <em>Übernehmen / Weiteres zeichnen</em> geän
 Karte ersichtlich werden. Sollte die Position noch einmal geändert werden, kann diese mit einem weiteren Klick
 in die Karte (oder Ziehen des Einfügepunktes) erfolgen. Mit klick auf das Häkchen wird der Text endgültig
 in die Karte übernommen.</p>
+<p id="mapmarkup-text-rotation"><strong>Text drehen:</strong></p>
+<p>Solange ein Text bearbeitet wird, erscheint rechts neben dem Ende der ersten Textzeile ein Drehen-Symbol.
+Zieht man dieses mit der Maus, wird der Text um den Einfügepunkt gedreht (im Uhrzeigersinn, bezogen auf die Karte).
+Mit gedrückter <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> Taste wird in 5°-Schritten, mit gedrückter <code class="docutils literal notranslate"><span class="pre">STRG</span></code> Taste in 15°-Schritten gedreht.
+In der Nähe von 0°, 90°, 180° und 270° rastet der Text automatisch ein.</p>
+<p>Alternativ kann der Winkel in der Symbolik unter <em>Drehung (°)</em> eingegeben und mit <em>Drehung übernehmen</em>
+gesetzt werden; der Button <em>0°</em> stellt den Text wieder waagrecht. Das funktioniert auch für mehrere
+ausgewählte Texte (<em>Symbolik: Auswahl</em>). Jeder neue Text beginnt waagrecht (0°).</p>
+<p>Die Drehung wird beim Speichern, Drucken und beim Herunterladen als Shape-Datei (Attribut <code class="docutils literal notranslate"><span class="pre">ROTATION</span></code>) übernommen.</p>
 </section>
 <section id="bestehendes-element-verandern">
 <h2>Bestehendes Element verändern<a class="headerlink" href="#bestehendes-element-verandern" title="Link to this heading">¶</a></h2>
@@ -269,7 +352,8 @@ in die Karte übernommen.</p>
 da die Beschreibung in der Liste angezeigt wird.</p>
 <p>Wurde ein Element zum Ändern markiert, wird für das Element in der Karte der Entwurfs-<em>Sketch</em> angezeigt. Außerdem erscheint ein neues Symbol
 <em>Symbolik</em> oberhalb der Auflistung, über das man in das Menü zum Bearbeiten der Darstellung kommt.</p>
-<a class="reference internal image-reference" href="../../../../_images/mapmarkup5.png"><img alt="../../../../_images/mapmarkup5.png" src="../../../../_images/mapmarkup5.png" style="width: 200px; height: 80px;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/mapmarkup5.png"><img alt="../../../../_images/mapmarkup5.png" src="../../../../_images/mapmarkup5.png" style="width: 200px; height: 80px;" />
+</a>
 <p>Durch den Entwurfs-<em>Sketch</em> lässt sich die Geometrie des Elements verändern. Ebenfalls kann die Darstellung über die
 Darstellungsoptionen angepasst werden. Zum Abschließen der Änderungen muss mit dem Häkchen-Button bestätigt werden, um diese zu übernehmen.</p>
 </section>
@@ -332,6 +416,13 @@ Bereits in die Karte übernommene Element weisen dieses Symbol in der Liste der 
 </li>
 <li><a class="reference internal" href="#neues-element-zeichnen">Neues Element zeichnen</a><ul>
 <li><a class="reference internal" href="#symbolik-andern">Symbolik ändern</a></li>
+<li><a class="reference internal" href="#symbolik-fenster-desktop">Symbolik-Fenster (Desktop)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#elementliste">Elementliste</a><ul>
+<li><a class="reference internal" href="#elemente-auswahlen">Elemente auswählen</a></li>
+<li><a class="reference internal" href="#gruppen">Gruppen</a></li>
+<li><a class="reference internal" href="#liste-filtern">Liste filtern</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#unterschiedliches-verhalten-von-elementtypen">Unterschiedliches Verhalten von Elementtypen</a></li>
@@ -368,7 +459,7 @@ Bereits in die Karte übernommene Element weisen dieses Symbol in der Liste der 
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

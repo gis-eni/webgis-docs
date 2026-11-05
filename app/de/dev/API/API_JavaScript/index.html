@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>WebGIS 5.0 API JavaScript &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
@@ -161,49 +161,49 @@
   <section id="webgis-5-0-api-javascript">
 <h1>WebGIS 5.0 API JavaScript<a class="headerlink" href="#webgis-5-0-api-javascript" title="Link to this heading">¶</a></h1>
 <p>In dieser Dokumentation werden die grundlegenden Objekte beschrieben, die für das Erzeugen von Kartenanwendungen mit der WebGIS-API notwendig sind. Um die API nutzen können sind folgende Einträge in der entsprechenden HTML notwendig:</p>
-<div class="highlight-html notranslate" id="api-javascript-single-bundle"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/webgis-api.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/webgis-api.min.js&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-api-script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate" id="api-javascript-single-bundle"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/content/styles/webgis-api.min.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/scripts/api/webgis-api.min.js"</span> <span class="na">id</span><span class="o">=</span><span class="s">"webgis-api-script"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">Neu in Version 9.26.4104: </span><code class="docutils literal notranslate"><span class="pre">webgis-api.min.js</span></code> enthält die gesamte API inklusive UI Elemente (TOC, Werkzeuge, Suche),
+<p><span class="versionmodified added">Added in version 9.26.4104: </span><code class="docutils literal notranslate"><span class="pre">webgis-api.min.js</span></code> enthält die gesamte API inklusive UI Elemente (TOC, Werkzeuge, Suche),
 <code class="docutils literal notranslate"><span class="pre">webgis-api.min.css</span></code> die dazu passenden Styles. Dies ist die empfohlene Einbindung.</p>
 </div>
 <p>Die <code class="docutils literal notranslate"><span class="pre">id=&quot;webgis-api-script&quot;</span></code> am <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> Tag wird empfohlen. Fehlt sie, wird die Adresse der API aus dem aktuell geladenen Script ermittelt.</p>
 <p>Vollbild-Kartenanwendungen (wie der WebGIS Viewer) können zusätzlich <code class="docutils literal notranslate"><span class="pre">ui.app.css</span></code> einbinden. Damit werden Textmarkierung und Pull-to-Refresh auf der Seite unterbunden:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/api/ui.app.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/content/api/ui.app.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
 </pre></div>
 </div>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Veraltet ab Version 9.26.4104: </span>Die bisherige Einbindung über mehrere Dateien (<code class="docutils literal notranslate"><span class="pre">default.css</span></code>, <code class="docutils literal notranslate"><span class="pre">ui.css</span></code>, <code class="docutils literal notranslate"><span class="pre">api.min.js</span></code>, <code class="docutils literal notranslate"><span class="pre">api-ui.min.js</span></code>) wird weiterhin unterstützt, sollte aber durch das Gesamt-Bundle ersetzt werden:</p>
 </div>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/default.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/api.min.js&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-api-script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/content/styles/default.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/scripts/api/api.min.js"</span> <span class="na">id</span><span class="o">=</span><span class="s">"webgis-api-script"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Wichtig ist hier, dass der <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> Tag die <code class="docutils literal notranslate"><span class="pre">id=&quot;webgis-api-script&quot;</span></code> erhält!</p>
 <p>Optional können UI Elemente (TOC, Werkzeuge, Suche) in der Karte verwendet werden, wenn zusätzlich folgende Inhalte einer Seite hinzugefügt werden.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://api.webgiscloud.com/content/api/ui.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://api.webgiscloud.com/scripts/api/api-ui.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"http://api.webgiscloud.com/content/api/ui.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"http://api.webgiscloud.com/scripts/api/api-ui.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Im Scripting Teil der Seite kann nun das webgis-Objekt initialisert und eine Karte erstellt werden.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// ab hier können Karten erzeugt werden</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">createMap</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">extent</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web_mercator_at@webgiscloud&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">services</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;geoland_bm@webgiscloud,geoland_bm_of@webgiscloud,geoland_bm_ov@webgiscloud&#39;</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">createMap</span><span class="p">(</span><span class="s1">'map'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">extent</span><span class="o">:</span><span class="w"> </span><span class="s1">'web_mercator_at@webgiscloud'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">services</span><span class="o">:</span><span class="w"> </span><span class="s1">'geoland_bm@webgiscloud,geoland_bm_of@webgiscloud,geoland_bm_ov@webgiscloud'</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">});</span>
 </pre></div>
 </div>
 <p>Die Kartenausdehung und die Dienste sind vom jeweiligen API Betreiber anhängig</p>
 <p>Mit den hier angeführten Links wird immer auf die aktuelle Version der WebGIS API verwiesen. Um auf ein spezielle Version zuzugriefen sind folgende Aufrufe möglich:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/content/styles/v/3.0.0/default.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/v/3.0.0/api.min.js&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-api-script&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/content/styles/v/3.0.0/default.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/scripts/api/v/3.0.0/api.min.js"</span> <span class="na">id</span><span class="o">=</span><span class="s">"webgis-api-script"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://api.webgiscloud.com/content/api/v/3.0.0/ui.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://api.webgiscloud.com/scripts/api/v/3.0.0/api-ui.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">"http://api.webgiscloud.com/content/api/v/3.0.0/ui.css"</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"http://api.webgiscloud.com/scripts/api/v/3.0.0/api-ui.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Im der folgenden Auflistung sind die Elemente zur Erstellung von Kartenanwendugen beschrieben.</p>
@@ -248,7 +248,7 @@
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

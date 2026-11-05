@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Usability &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
@@ -257,10 +257,10 @@ the containers would be sorted alphabetically without this option.</p></li>
 <h2>Toolbox<a class="headerlink" href="#toolbox" title="Link to this heading">¶</a></h2>
 <p>These settings can be used to configure the tools in the <em>toolbox</em>.
 The settings are made per tool; the syntax is as follows:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;{tool-id}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom container for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
-<span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom name for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
-<span class="w">     </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;a custom tooltip for this tool&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'{tool-id}'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">'a custom container for this tool'</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'a custom name for this tool'</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
+<span class="w">     </span><span class="nx">tooltip</span><span class="o">:</span><span class="w"> </span><span class="s1">'a custom tooltip for this tool'</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional</span>
 <span class="w">     </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="c1">// optional, default: 0</span>
 <span class="p">};</span>
 </pre></div>
@@ -269,13 +269,13 @@ The settings are made per tool; the syntax is as follows:</p>
 via the WebGIS API <code class="docutils literal notranslate"><span class="pre">/rest/tools</span></code></p>
 <p>One example use case is when tools should be moved to a different container (tab),
 e.g.:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.fullextent&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Start&#39;</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'webgis.tools.fullextent'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="s1">'Start'</span>
 <span class="p">};</span>
-<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.identify&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span><span class="s1">&#39;Abfragen&#39;</span><span class="p">],</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'webgis.tools.identify'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">container</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'Start'</span><span class="p">,</span><span class="s1">'Abfragen'</span><span class="p">],</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span>
 <span class="p">};</span>
-<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.boxzoomin&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="p">};</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'webgis.tools.boxzoomin'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
 <p>Here, the <em>Full Extent</em> tool is moved to the <em>Start</em> tab, and the <em>Query</em>
@@ -285,11 +285,11 @@ The <em>Box Zoom</em> tool gets a higher priority and thus ends up further forwa
 (container) (<code class="docutils literal notranslate"><span class="pre">priority</span></code> can be used to influence the order of tools within a container).</p>
 <p>Furthermore, the order of the containers can be determined:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolContainerOrder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s1">&#39;Start&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Abfragen&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Messwerkzeuge&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Zeichnen&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="s1">&#39;Navigation&#39;</span>
+<span class="w">    </span><span class="s1">'Start'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'Abfragen'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'Messwerkzeuge'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'Zeichnen'</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'Navigation'</span>
 <span class="p">];</span>
 </pre></div>
 </div>
@@ -307,8 +307,8 @@ that is not in the list, it is always shown at the end.</p>
 </div>
 <p>If a tool is not shown in the UI, even though it was, for example, added in the MapBuilder,
 this may be because it is not defined in the <code class="docutils literal notranslate"><span class="pre">toolProperties</span></code> configuration. In this case, it must be defined with an empty object:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;{tool-id}&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="c1">// optional, default: &#39;visible&#39;, other possible value: &#39;hidden&#39;</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'{tool-id}'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">'hidden'</span><span class="w"> </span><span class="c1">// optional, default: 'visible', other possible value: 'hidden'</span>
 <span class="p">};</span>
 </pre></div>
 </div>
@@ -316,21 +316,21 @@ this may be because it is not defined in the <code class="docutils literal notra
 <p class="admonition-title">Note</p>
 <p>This makes sense if a tool should only be visible to logged-in users.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">hmac</span><span class="p">.</span><span class="nx">userName</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.loadmap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
-<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">&#39;webgis.tools.serialization.savemap&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hidden&#39;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'webgis.tools.serialization.loadmap'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">'hidden'</span><span class="w"> </span><span class="p">};</span>
+<span class="w">   </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">toolProperties</span><span class="p">[</span><span class="s1">'webgis.tools.serialization.savemap'</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">visibility</span><span class="o">:</span><span class="w"> </span><span class="s1">'hidden'</span><span class="w"> </span><span class="p">};</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Here, anonymous access to the corresponding REST endpoints should also be disabled
 at the same time, so that the tools cannot be called via the URL. To do this, an entry <code class="docutils literal notranslate"><span class="pre">allow-anonymous-access</span></code>
 with the value <code class="docutils literal notranslate"><span class="pre">false</span></code> is required in the corresponding tool section in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>, e.g.:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-savemap&quot;</span><span class="nt">&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-savemap"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-anoymous-access"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="cm">&lt;!-- other settings --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 
-<span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tool-loadmap&quot;</span><span class="nt">&gt;</span>
-<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-anoymous-access&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"tool-loadmap"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-anoymous-access"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="cm">&lt;!-- other settings --&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
@@ -367,7 +367,7 @@ This shows the selection list as <em>select2</em>, which offers a better user ex
 <p>This requires that the <em>select2</em> library be used for this purpose.
 By default, the <code class="docutils literal notranslate"><span class="pre">Pro</span></code> behavior of the selection lists only changes once the
 <code class="docutils literal notranslate"><span class="pre">webgis.usability.select_pro_behaviour</span></code> constant is set in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">select_pro_behaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;select2&quot;</span><span class="p">;</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">select_pro_behaviour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"select2"</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -452,7 +452,7 @@ the results table:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">queryResultsTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">     </span><span class="nx">pageSize</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w">        </span><span class="c1">// number of rows per page in the results table (client-side paging)</span>
 <span class="w">     </span><span class="nx">pagingThreshold</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"> </span><span class="c1">// paging only kicks in once there are more results than this</span>
-<span class="w">                            </span><span class="c1">// (e.g. 1000 = existing behavior stays unchanged for &quot;classic&quot;</span>
+<span class="w">                            </span><span class="c1">// (e.g. 1000 = existing behavior stays unchanged for "classic"</span>
 <span class="w">                            </span><span class="c1">// AGS result sets, paging only starts beyond that)</span>
 <span class="p">};</span>
 </pre></div>
@@ -530,7 +530,7 @@ configuration.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// default options for the minimap</span>
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">miniMapOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">     </span><span class="nx">zoomLevelOffset</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">5</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottomleft&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">'bottomleft'</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">toggleDisplay</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">minimized</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w"> </span><span class="p">};</span>
@@ -545,7 +545,7 @@ There is the option to show the metadata as an i-button or as a link button.</p>
 <p>On touch displays (phones), clicking on the checkboxes for the presentation variants often leads to
 confusion, since the i-button for the metadata is often clicked instead.
 For this reason, the following options are now available:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Also shows the metadata links in the map&#39;s copyright area</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// Also shows the metadata links in the map's copyright area</span>
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">show_presentation_metadata_in_copyright</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 
 <span class="c1">// Shows i-buttons in the TOC</span>
@@ -583,7 +583,7 @@ having to manually expand the container first.</p>
 <section id="areas-in-a-separate-window-detaching">
 <span id="customjs-detachable-windows"></span><h2>Areas in a separate window (detaching)<a class="headerlink" href="#areas-in-a-separate-window-detaching" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>In the desktop layout template, the <em>toolbar</em> and the <em>query results</em> area (table) can be
 detached into a separate window, e.g. to enlarge the table on a second screen. For this, an
@@ -614,7 +614,7 @@ opening the window after a user action).</p></li>
 <section id="table-in-the-context-menu-of-the-table-of-contents">
 <span id="customjs-toc-table"></span><h2>Table in the Context Menu of the Table of Contents<a class="headerlink" href="#table-in-the-context-menu-of-the-table-of-contents" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>For queryable layers, the context menu of the table of contents offers the menu item <strong>Table</strong>, which queries the
 features of the layer without a search term and shows them in the results table
@@ -629,7 +629,7 @@ The menu item is enabled by default and can be hidden in <code class="docutils l
 <section id="animations-css">
 <span id="customjs-css-animations"></span><h2>Animations (CSS)<a class="headerlink" href="#animations-css" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Expanding/collapsing and showing/hiding elements in the viewer (e.g. in the table of contents,
 the toolbox or the search) is done with CSS transitions instead of jQuery animations.
@@ -649,7 +649,7 @@ browsers (Chrome, Edge). In other browsers, elements expand/collapse without a h
 <section id="tool-groups-e-g-drawing-map-markup">
 <span id="customjs-group-tool-options"></span><h2>Tool Groups (e.g. Drawing/Map Markup)<a class="headerlink" href="#tool-groups-e-g-drawing-map-markup" title="Link to this heading">¶</a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 9.26.4104.</span></p>
+<p><span class="versionmodified added">Added in version 9.26.4104.</span></p>
 </div>
 <p>Tools with many sub-tools combine them into groups to save space. For the <em>Drawing (Map Markup)</em>
 tool these are, for example, the groups <em>Draw</em>, <em>Measure</em> and <em>Import/Export</em>. Clicking a group
@@ -660,6 +660,37 @@ opens a selection with the tools of this group
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">groupToolOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
 </pre></div>
 </div>
+</section>
+<section id="symbology-panel-while-drawing-map-markup">
+<span id="customjs-mapmarkup-auto-open-properties"></span><h2>Symbology Panel While Drawing (Map Markup)<a class="headerlink" href="#symbology-panel-while-drawing-map-markup" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 9.26.4301.</span></p>
+</div>
+<p>For the <em>Drawing (Map Markup)</em> tool, the symbology (color, line weight, font size, tool-specific
+properties, …) is shown on desktop devices in a panel to the right of the map. The panel is not
+modal: the toolbar and the list of drawing elements stay visible and drawing can continue. As soon
+as a drawing or measuring tool is selected, the panel opens automatically, so the symbology can be
+set before drawing
+(see <a class="reference external" href="https://docs.webgiscloud.com/en/webgis-manual/mapviewer/tools/general/mapmarkup/manual.html#mapmarkup-symbology-panel">Changing the symbology in the user manual</a>).</p>
+<p>If the panel should not open automatically, this can be turned off in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">mapMarkupAutoOpenProperties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: true</span>
+</pre></div>
+</div>
+<p>The panel can still be opened with the <em>Symbology: {tool}</em> button in the tool dialog. On mobile
+devices the panel is not opened automatically.</p>
+</section>
+<section id="filter-in-the-element-list-map-markup">
+<span id="customjs-mapmarkup-list-filter"></span><h2>Filter in the Element List (Map Markup)<a class="headerlink" href="#filter-in-the-element-list-map-markup" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 9.26.4301.</span></p>
+</div>
+<p>The list of drawing elements of the <em>Drawing (Map Markup)</em> tool shows a text field for filtering
+as soon as the current view (selected group or <em>All groups</em>) contains more elements than a
+threshold. The threshold can be changed in <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">usability</span><span class="p">.</span><span class="nx">mapMarkupListFilterMinElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span><span class="w">  </span><span class="c1">// default: 10</span>
+</pre></div>
+</div>
+<p>With a value <code class="docutils literal notranslate"><span class="pre">&lt;=</span> <span class="pre">0</span></code> the filter is never shown.</p>
 </section>
 </section>
 
@@ -703,6 +734,8 @@ opens a selection with the tools of this group
 <li><a class="reference internal" href="#table-in-the-context-menu-of-the-table-of-contents">Table in the Context Menu of the Table of Contents</a></li>
 <li><a class="reference internal" href="#animations-css">Animations (CSS)</a></li>
 <li><a class="reference internal" href="#tool-groups-e-g-drawing-map-markup">Tool Groups (e.g. Drawing/Map Markup)</a></li>
+<li><a class="reference internal" href="#symbology-panel-while-drawing-map-markup">Symbology Panel While Drawing (Map Markup)</a></li>
+<li><a class="reference internal" href="#filter-in-the-element-list-map-markup">Filter in the Element List (Map Markup)</a></li>
 </ul>
 </li>
 </ul>
@@ -733,7 +766,7 @@ opens a selection with the tools of this group
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

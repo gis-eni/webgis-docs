@@ -11,6 +11,7 @@ Darin werden alle Möglichen Zeichenwerkzeuge angeboten.
 Zusätzlich gibt es noch Buttons zum Verwalten von Zeichnungen (Laden, Speichern, Teilen, Upload, Download).
 
 .. image:: img/mapmarkup1.png
+   :width: 320px
 
 Die Buttons können je nach Endgerät variieren. In der Abbildung sind alle Werkzeuge zu sehen (Desktop).
 Unter den Buttons wird noch einmal der Name des gerade aktiven Zeichenwerkzeugs angezeigt, sowie *gelb* hinterlegt eine
@@ -24,15 +25,15 @@ sondern es werden die Möglichkeiten und Unterschiede der Werkzeuge aufgezeigt.
 Werkzeuggruppen
 ^^^^^^^^^^^^^^^
 
-.. versionadded:: 9.26.4104
-
 Um Platz zu sparen, sind die Werkzeuge in Gruppen zusammengefasst:
 
 * **Auswählen:** wird direkt angezeigt
 
 * **Zeichnen:** Symbol, Text, Punkt, Freihand, Linie, Fläche, Rechteck, Kreis
 
-* **Messen:** Bemaßung, Bemaßungsfläche, Hektometrierungslinie, Umgebungskreis, Kompass Rose
+* **Messen:** Bemaßung, Bemaßungsfläche, Hektometrierungslinie, Sichtfeld (Winkel), Schnittwinkel, Kreisbogen,
+  Normalabstand, Pufferzone, Objektabstand, Messgitter, Umgebungskreis, Kompass Rose
+  (siehe :doc:`Spezialwerkzeuge <advanced-tools>`)
 
 * **Import/Export:** Zeichnung speichern/laden, Teilen, Hochladen, Herunterladen
 
@@ -77,12 +78,8 @@ zeichnen:
 
 * Beschriften eines Zeichenelements: Im oben gezeigten *Übernehmen* Dialog wird rechts neben dem Eingebefeld ein *T* (für Text) angezeigt. Damit wechselt man zum Text Werkzeug und kann das aktuelle Element beschriften (zB Länge einer Linie - siehe unten)
 
-Bereits übernommene Zeichenelement werden zusätzlicht zur Karte auch als Liste ganz unten im Werkzeugdialog angezeigt:
-
-.. image:: img/mapmarkup4.png
-
-Das Icon zeigt an, um welchen Typ es sich bei dem Element handelt (Linie, Fläche, Text, ...). Zusätzlich gibt es noch
-einen *Löschen Button* (Mistkübel), einen *Berarbeitungs-Button* (Stift) und je nach Typ einen *T Button* (Text - Beschriften, siehe unten)
+Bereits übernommene Zeichenelemente werden zusätzlich zur Karte auch als Liste im Werkzeugdialog angezeigt
+(siehe :ref:`Elementliste <mapmarkup-graphics-list>`).
 
 
 Symbolik ändern
@@ -112,8 +109,6 @@ sofort in der Karte.
 Symbolik-Fenster (Desktop)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. versionadded:: 9.26.4301
-
 Am Desktop wird die Symbolik in einem eigenen Fenster rechts neben der Karte angezeigt. Das Fenster
 ist nicht modal: Werkzeugleiste und Elementliste bleiben sichtbar und es kann weitergezeichnet werden.
 
@@ -130,6 +125,74 @@ In der Elementliste werden Linien und Flächen mit einem farbigen Rand in der Fa
 Symbole mit dem jeweiligen Symbol. Änderungen der Symbolik werden sofort in der Liste übernommen.
 
 Ob sich das Fenster automatisch öffnet, kann der Administrator in der ``custom.js`` festlegen.
+
+.. _mapmarkup-graphics-list:
+
+Elementliste
+------------
+
+Alle übernommenen Zeichenelemente werden im Werkzeugdialog unter den Werkzeug-Buttons als Liste angezeigt:
+
+.. image:: img/mapmarkup4.png
+   :width: 320px
+
+Jeder Eintrag zeigt:
+
+* links einen farbigen Rand in der Farbe des Elements und ein Icon für den Typ (Linie, Fläche, Text, Bemaßung, ...)
+* die Beschreibung des Elements bzw., wenn keine angegeben wurde, den Typ mit einer laufenden Nummer (z. B. *Linie 1*)
+* je nach Typ einen *T Button* (Beschriften, siehe unten), eine *Lupe* (auf das Element zoomen),
+  einen *Löschen Button* (Mistkübel) und einen *Bearbeiten Button* (Stift)
+
+Fährt man mit der Maus über einen Eintrag, wird das Element in der Karte hervorgehoben. Bei zusammengesetzten
+Messelementen wird dabei eine aussagekräftige Geometrie gezeigt (z. B. beim Normalabstand nur die Bezugslinie).
+
+Mit dem Pfeil-Button oberhalb der Liste kann die Reihenfolge der Liste umgedreht werden.
+
+Elemente auswählen
+^^^^^^^^^^^^^^^^^^
+
+Ein Klick auf einen Eintrag wählt das Element aus, ein weiterer Klick hebt die Auswahl wieder auf.
+
+* Mit gedrückter ``STRG`` Taste werden einzelne Elemente zur Auswahl hinzugefügt oder daraus entfernt.
+* Mit gedrückter ``SHIFT`` Taste werden alle Elemente zwischen dem angeklickten und dem nächsten bereits
+  ausgewählten Element ausgewählt.
+
+Ausgewählte Elemente werden in der Karte hervorgehoben. Für die Auswahl stehen oberhalb der Liste folgende Funktionen
+zur Verfügung: Symbolik für alle ausgewählten Elemente ändern (*Symbolik: Auswahl*, siehe oben), Auswahl aufheben,
+ausgewählte Elemente löschen und ausgewählte Elemente *In Gruppe verschieben…* (siehe unten).
+
+Gruppen
+^^^^^^^
+
+Zeichenelemente können in Gruppen organisiert werden, z. B. um Vermessungsergebnisse von Anmerkungen zu trennen.
+Jedes Element gehört genau zu einer Gruppe; ohne weitere Gruppen liegen alle Elemente in der Gruppe *Allgemein*.
+
+* **Gruppe anlegen:** Über den Plus-Button neben der Auswahlliste eine neue Gruppe anlegen und einen Namen eingeben.
+  Die neue Gruppe wird gleich zur aktiven Gruppe.
+* **Aktive Gruppe:** Neu gezeichnete Elemente (auch Elemente, die aus einer Selektion übernommen werden) landen
+  in der aktiven Gruppe. Bei der Anzeige *Alle Gruppen* steht unter der Auswahlliste, in welche Gruppe neue Elemente
+  gezeichnet werden (z. B. *Neue Objekte → Vermessung*).
+* **Gruppen anzeigen:** Über die Auswahlliste kann die Liste auf eine Gruppe eingeschränkt werden (*Alle Gruppen*
+  zeigt alle Elemente, gegliedert nach Gruppen). Ist eine einzelne Gruppe gewählt, kann sie über die Buttons neben der
+  Auswahlliste umbenannt oder gelöscht werden. Enthält eine zu löschende Gruppe Elemente, kann man wählen, ob diese
+  in die Gruppe *Allgemein* verschoben oder mitgelöscht werden. Die Gruppe *Allgemein* kann nicht gelöscht werden.
+* **Elemente verschieben:** Elemente in der Liste auswählen und über die Auswahlliste *In Gruppe verschieben…*
+  die Zielgruppe wählen.
+* **Ein-/Ausblenden:** Über das Häkchen bei der Gruppenüberschrift (bzw. neben der Auswahlliste) wird eine Gruppe
+  in der Karte aus- oder eingeblendet. Ausgeblendete Gruppen werden in der Auswahlliste mit *ausgeblendet*
+  gekennzeichnet und **nicht gedruckt**. Zeichnet man in eine ausgeblendete Gruppe, wird sie automatisch wieder eingeblendet.
+
+Die Gruppen (inklusive Sichtbarkeit) werden beim Speichern einer Zeichnung mitgespeichert und beim Laden wiederhergestellt.
+
+Liste filtern
+^^^^^^^^^^^^^
+
+Enthält die Liste viele Elemente, wird oberhalb ein Filterfeld (*Filtern…*) angezeigt. Damit werden nur noch
+Einträge angezeigt, deren Beschreibung oder Typ den eingegebenen Text enthält. Mit *Treffer auswählen* werden alle
+gefilterten Elemente ausgewählt (z. B. um ihre Symbolik gemeinsam zu ändern oder sie in eine Gruppe zu verschieben),
+mit *Filter löschen* wird der Filter wieder entfernt.
+
+Ab wie vielen Elementen das Filterfeld angezeigt wird, kann der Administrator in der ``custom.js`` festlegen.
 
 Unterschiedliches Verhalten von Elementtypen
 --------------------------------------------
@@ -155,8 +218,6 @@ in die Karte übernommen.
 .. _mapmarkup-text-rotation:
 
 **Text drehen:**
-
-.. versionadded:: 9.26.4301
 
 Solange ein Text bearbeitet wird, erscheint rechts neben dem Ende der ersten Textzeile ein Drehen-Symbol.
 Zieht man dieses mit der Maus, wird der Text um den Einfügepunkt gedreht (im Uhrzeigersinn, bezogen auf die Karte).

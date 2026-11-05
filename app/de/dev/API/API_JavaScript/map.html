@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>WebGIS 5.0 API: map &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
@@ -241,28 +241,28 @@
 <p><em>Beispiel</em></p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">addDynamicContent</span><span class="p">([</span>
 <span class="w">        </span><span class="p">{</span><span class="w">   </span><span class="c1">// Einbinden einer vordefinierten API Suche</span>
-<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id1&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Dynamische Inhalt 1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/rest/services/serviceid@cms/queries/queryid&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;api-query&#39;</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">'dynamic_content_id1'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"Dynamische Inhalt 1"</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">'/rest/services/serviceid@cms/queries/queryid'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'api-query'</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span><span class="w">   </span><span class="c1">// Einbinden einer vordefinierten API Suche mit suchbegriff(en)</span>
-<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id2&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Dynamische Inhalt 2&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/rest/services/serviceid@cms/queries/queryid/query?suchbegriff=wert&amp;..&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;api-query&#39;</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">'dynamic_content_id2'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"Dynamische Inhalt 2"</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">'/rest/services/serviceid@cms/queries/queryid/query?suchbegriff=wert&amp;..'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'api-query'</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id3&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Geo RSS Dienst&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://....../info.rss&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;georss&#39;</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">'dynamic_content_id3'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"Geo RSS Dienst"</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">'http://....../info.rss'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'georss'</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dynamic_content_id3&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GeoJson Dienst&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://....../info.json&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;geojson&#39;</span>
+<span class="w">            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">'dynamic_content_id3'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">"GeoJson Dienst"</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">'http://....../info.json'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'geojson'</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">     </span><span class="p">],</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
 </pre></div>
@@ -276,11 +276,11 @@
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">marker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({</span>
 <span class="w">    </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="nx">lngLat</span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
 <span class="w">    </span><span class="nx">lng</span><span class="o">:</span><span class="w"> </span><span class="nx">lngLat</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span>
-<span class="w">    </span><span class="nx">icon</span><span class="o">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ich bin hier: (&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">icon</span><span class="o">:</span><span class="s1">'blue'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">"Ich bin hier: ("</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">", "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">")"</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">openPopup</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">buttons</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Marker entfernen&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Marker entfernen'</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">onclick</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">marker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarker</span><span class="p">(</span><span class="nx">marker</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
@@ -298,7 +298,7 @@
 </ul>
 <p>übergeben werden. Übergibt man dieser Eigenschaft ein Objekt, können auch komplett benutzerdefinierte Marker erstellt werden:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">iconUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://...&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Url zu einem Icon Bild</span>
+<span class="w">    </span><span class="nx">iconUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">'http://...'</span><span class="p">,</span><span class="w"> </span><span class="c1">// Url zu einem Icon Bild</span>
 <span class="w">    </span><span class="nx">iconSize</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">],</span><span class="w"> </span><span class="c1">// Größe des Bildes</span>
 <span class="w">    </span><span class="nx">iconAnchor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">],</span><span class="w"> </span><span class="c1">// Einfügepunkt des Markers in Bildkoordinaten</span>
 <span class="w">    </span><span class="nx">popupAnchor</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="c1">// Einfügepunkt des Popups in Bildkoordinaten</span>
@@ -320,7 +320,7 @@
 <p><em>Beschreibung</em></p>
 <p>Gibt das entsprechende Service Objekt zurück.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">&#39;estag_basis_ags@ccgis_default&#39;</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">service</span><span class="o">=</span><span class="nx">map</span><span class="p">.</span><span class="nx">getService</span><span class="p">(</span><span class="s1">'estag_basis_ags@ccgis_default'</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -343,7 +343,7 @@
 <span class="w">    </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w">               </span><span class="c1">// defaullt: aktueller Maßstab in der Karte</span>
 <span class="p">},</span>
 <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;img /&gt;&#39;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;src&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">'&lt;img /&gt;'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'src'</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">url</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="s1">'body'</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </div>
@@ -364,10 +364,10 @@
 <p><em>Beschreibung</em></p>
 <p>Entfernt alle Marker, die mit der Methode <a class="reference internal" href="#tomarkergroupanchor"><span class="std std-ref">toMarkerGroup (groupName, marker)</span></a> einer bestimmten Gruppe zugeordnet wurden. Als Parameter wird der Gruppenname (Zeichenkette) übergeben.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...});</span>
-<span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...});</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">'my-markers'</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">'my-markers'</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...});</span>
 <span class="p">...</span>
-<span class="nx">map</span><span class="p">.</span><span class="nx">removeMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">);</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">removeMarkerGroup</span><span class="p">(</span><span class="s1">'my-markers'</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -397,7 +397,7 @@
 <p>Schaltet eine entsprechende Hintergrundkarte sichtbar. Als Hintergrundkarte ist hier immer Tiling-Dinst zu verstehen. Da immer nur ein Hintergrunddienst gleichzeit sichtbar ist, wird mit dieser Methode der aktuelle Hintergrunddienst automatisch ausgeblendet.</p>
 <p>Als Parameter wird die Id des Hintergrunddienstes übergeben.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">setBasemap</span><span class="p">(</span><span class="s1">&#39;ortsplan@ccgis-default&#39;</span><span class="p">);</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">setBasemap</span><span class="p">(</span><span class="s1">'ortsplan@ccgis-default'</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -416,7 +416,7 @@
 <p>Mit dieser Methode kann ein Marker einer Gruppe zugeordnet werden. Das Gruppe ist hier eine beliebige Zeichenkette zu verstehen, die als Klammer für gleichartige Marker dient. Durch das Zuordnen von Markern in eine Gruppe wird später das entfernen dieser Marker einfacher, siehe Methode <a class="reference internal" href="#removemarkergroupanchor"><span class="std std-ref">removeMarkerGroup (groupName)</span></a>.</p>
 <p>Der erster Parameter für die Methode ist der Name der Gruppe, der zweite Parameter entspricht dem Marker, wie er von der Methode <a class="reference internal" href="#addmarkeranchor"><span class="std std-ref">addMarker (options)</span></a> zurückgegeben wird.</p>
 <p><em>Beispiel</em></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;my-markers&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...}));</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">'my-markers'</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({...}));</span>
 </pre></div>
 </div>
 </section>
@@ -526,7 +526,7 @@
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

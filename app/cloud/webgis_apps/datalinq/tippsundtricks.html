@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6 Tipps und Tricks für Views &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=d882a67f" />
     <script src="../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -105,7 +105,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -113,14 +113,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../portal/index.html">WebGIS Cloud Portal</a></li>
@@ -206,7 +206,7 @@
 </ul>
 </div></blockquote>
 <p>Auf die Datensätze im Dictionary kann über Linq zugegriffen werden:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span><span class="o">.</span><span class="n">Records</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">String</span><span class="o">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span> <span class="o">||</span> <span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;x_field&quot;</span><span class="p">]))</span><span class="o">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;data_field&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span><span class="o">.</span><span class="n">Records</span><span class="o">.</span><span class="n">Where</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">String</span><span class="o">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">"x"</span><span class="p">])</span> <span class="o">||</span> <span class="n">Model</span><span class="o">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s2">"x"</span><span class="p">]</span><span class="o">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s2">"x_field"</span><span class="p">]))</span><span class="o">.</span><span class="n">OrderBy</span><span class="p">(</span><span class="n">r</span><span class="o">=&gt;</span><span class="n">r</span><span class="p">[</span><span class="s2">"data_field"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -298,12 +298,12 @@
 <p>Mithilfe von (optionalen) Parameter in den Queries lassen sich Abfrageergebnisse einschränken. In Views kann mit dem <code class="docutils literal notranslate"><span class="pre">DataLinqHelper.FilterView</span></code> ein Filter eingebaut werden, der eine einfache und übersichtliche Eingabe / Auswahl dieser Filterparameter ermöglicht. Im Hintergrund werden die Übergabeparameter einfach an die Aufruf-URL (siehe <a class="reference internal" href="aufrufundbeispiele.html#anchor4"><span class="std std-ref">Kapitel 4</span></a>) angehängt.
 Werden bereits beim Aufruf der View über die URL Filter- bzw. Sortierungsparameter definiert, so sind diese in der GUI bereits ausgefüllt bzw. gesetzt.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">FilterView</span><span class="p">(</span>
-    <span class="s2">&quot;Filter&quot;</span><span class="p">,</span>
+    <span class="s2">"Filter"</span><span class="p">,</span>
     <span class="n">new</span> <span class="n">Dictionary</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">(){</span>
-        <span class="p">{</span><span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;endpoint@lov-status&quot;</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s2">&quot;multiple&quot;</span><span class="p">}</span> <span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;NACHNAME&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Nachname&quot;</span> <span class="p">}</span> <span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;GAS&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Nur Gas betroffen&quot;</span><span class="p">,</span> <span class="n">dataType</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">Checkbox</span> <span class="p">}</span> <span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;ERSTELLD_FROM&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Datum von&quot;</span><span class="p">,</span> <span class="n">dataType</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">Date</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">"STATUS"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"Status"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">"endpoint@lov-status"</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">"VALUE"</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">"NAME"</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="s2">"multiple"</span><span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">"NACHNAME"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"Nachname"</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">"GAS"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"Nur Gas betroffen"</span><span class="p">,</span> <span class="n">dataType</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">Checkbox</span> <span class="p">}</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">"ERSTELLD_FROM"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"Datum von"</span><span class="p">,</span> <span class="n">dataType</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">Date</span> <span class="p">}</span> <span class="p">},</span>
     <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
@@ -316,10 +316,10 @@ WHERE-Bedingung definieren und alle anderen optionalen Bedingungen mit „AND �
 <p>Die Auswahllisten im Filter können kaskadierend sein, das heißt, ein Eingabefeld ist von einem anderen Feld abhängig. Immer wenn dieses Feld über die Auswahlliste geändert wird,
 ändert sich der Wert der abhängigen Auswahlliste(n).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">FilterView</span><span class="p">(</span>
-   <span class="s2">&quot;Filter&quot;</span><span class="p">,</span>
+   <span class="s2">"Filter"</span><span class="p">,</span>
     <span class="n">new</span> <span class="n">Dictionary</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">(){</span>
-       <span class="p">{</span><span class="s2">&quot;APP&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;App(s)&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;read@wlogging-apps&quot;</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span> <span class="p">}},</span>
-       <span class="p">{</span><span class="s2">&quot;TYPE&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Type(s)&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;read@logging-types?APP=[APP]&quot;</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span> <span class="p">}</span> <span class="p">}</span>
+       <span class="p">{</span><span class="s2">"APP"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"App(s)"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">"read@wlogging-apps"</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">"VALUE"</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">"VALUE"</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span> <span class="p">}},</span>
+       <span class="p">{</span><span class="s2">"TYPE"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"Type(s)"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">"read@logging-types?APP=[APP]"</span><span class="p">,</span> <span class="n">valueField</span><span class="o">=</span><span class="s2">"VALUE"</span><span class="p">,</span> <span class="n">nameField</span><span class="o">=</span><span class="s2">"VALUE"</span><span class="p">,</span> <span class="n">prependEmpty</span><span class="o">=</span><span class="n">true</span> <span class="p">}</span> <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
@@ -366,7 +366,7 @@ Die entsprechende Abfrage (hier Datenbankabfrage) muss natürlich den übergeben
 <span class="k">WHERE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 
 <span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">STATUS</span>
-<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">STRING_SPLIT</span><span class="p">(</span><span class="o">@</span><span class="n">STATUS</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;;&#39;</span><span class="p">))</span>
+<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">STRING_SPLIT</span><span class="p">(</span><span class="o">@</span><span class="n">STATUS</span><span class="p">,</span><span class="w"> </span><span class="s1">';'</span><span class="p">))</span>
 <span class="o">#</span><span class="n">endif</span>
 
 <span class="o">#</span><span class="k">if</span><span class="w"> </span><span class="n">NACHNAME</span>
@@ -393,10 +393,10 @@ Die entsprechende Abfrage (hier Datenbankabfrage) muss natürlich den übergeben
 Die Sortier-Felder werden wie die Filterparameter im Hintergrund an der Aufruf-URL mit <code class="docutils literal notranslate"><span class="pre">_orderby=…</span></code> angehängt.
 Absteigende Sortierungen werden mit einem Minus („-“) vor dem Spaltennamen übergeben.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DLH</span><span class="o">.</span><span class="n">SortView</span><span class="p">(</span>
-    <span class="s2">&quot;Sortierung&quot;</span><span class="p">,</span>
+    <span class="s2">"Sortierung"</span><span class="p">,</span>
     <span class="n">new</span> <span class="n">Dictionary</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="nb">object</span><span class="o">&gt;</span><span class="p">(){</span>
-        <span class="p">{</span><span class="s2">&quot;ERSTELLD&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Zeitpunkt Erstellung&quot;</span> <span class="p">}},</span>
-        <span class="p">{</span><span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">&quot;Status&quot;</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s2">"ERSTELLD"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"Zeitpunkt Erstellung"</span> <span class="p">}},</span>
+        <span class="p">{</span><span class="s2">"STATUS"</span><span class="p">,</span> <span class="n">new</span> <span class="p">{</span> <span class="n">displayname</span><span class="o">=</span><span class="s2">"Status"</span> <span class="p">}},</span>
     <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
@@ -414,9 +414,9 @@ Wenn dieser View über den <code class="docutils literal notranslate"><span clas
 <p>Hier macht es Sinn, den statischen, immer gleich bleibenden Code (JavaScript, CSS) vom dynamischen Teil (HTML) zu trennen und nur diesen neu zu laden.
 Immer wenn ein View neu geladen wurde, wird das Event „onpageloaded“ gefeuert. Auf dieses Ereignis kann im statischen Teil reagiert und bspw. Klick-Listener gesetzt werden:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;script&gt;
-    webgis_datalinq.events.on(&#39;onpageloaded, function(channel, sender, args){
-        webgis.$(&quot;.TABDET.clickable tbody tr.extended-click&quot;).on(&quot;click&quot;, function() {
-            var id = $(this).attr(&quot;stoer_id&quot;);
+    webgis_datalinq.events.on('onpageloaded, function(channel, sender, args){
+        webgis.$(".TABDET.clickable tbody tr.extended-click").on("click", function() {
+            var id = $(this).attr("stoer_id");
             ...
 </pre></div>
 </div>
@@ -485,7 +485,7 @@ Wird im View des ursprünglichen Query auf das Feld (in der Grafik „STATUS_NAM
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
