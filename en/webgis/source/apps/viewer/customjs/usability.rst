@@ -594,3 +594,20 @@ If the panel should not open automatically, this can be turned off in ``custom.j
 
 The panel can still be opened with the *Symbology: {tool}* button in the tool dialog. On mobile
 devices the panel is not opened automatically.
+
+.. _customjs-mapmarkup-list-filter:
+
+Filter in the Element List (Map Markup)
+=======================================
+
+.. versionadded:: 9.26.4301
+
+The list of drawing elements of the *Drawing (Map Markup)* tool shows a text field for filtering
+as soon as the current view (selected group or *All groups*) contains more elements than a
+threshold. The threshold can be changed in ``custom.js``:
+
+.. code:: javascript
+
+   webgis.usability.mapMarkupListFilterMinElements = 20;  // default: 10
+
+With a value ``<= 0`` the filter is never shown.

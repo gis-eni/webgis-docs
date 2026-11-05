@@ -606,3 +606,20 @@ Soll das Fenster nicht automatisch geöffnet werden, kann das in der ``custom.js
 
 Das Fenster kann dann weiterhin über den Button *Symbolik: {Werkzeug}* im Werkzeugdialog geöffnet
 werden. Auf mobilen Geräten wird das Fenster nicht automatisch geöffnet.
+
+.. _customjs-mapmarkup-list-filter:
+
+Filter in der Elementliste (Map-Markup)
+=======================================
+
+.. versionadded:: 9.26.4301
+
+Die Liste der Zeichenelemente im Werkzeug *Zeichnen (Map-Markup)* zeigt ein Textfeld zum Filtern,
+sobald die aktuelle Ansicht (gewählte Gruppe oder *Alle Gruppen*) mehr Elemente enthält als ein
+Grenzwert. Der Grenzwert kann in der ``custom.js`` angepasst werden:
+
+.. code:: javascript
+
+   webgis.usability.mapMarkupListFilterMinElements = 20;  // default: 10
+
+Bei einem Wert ``<= 0`` wird der Filter nie angezeigt.
