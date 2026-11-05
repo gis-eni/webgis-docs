@@ -247,6 +247,20 @@ Abschnitt ``Advanced Security``
        .. danger::
           Der Wildcard ``~`` sollte nur in Ausnahmefällen zum Testen verwendet werden und niemals in einer Produktionsumgebung, da damit jede beliebige Webseite Zugangsdaten für angemeldete Benutzer abfragen kann.
 
+   * - ``add-cors-origins-for-default``
+     - Kommagetrennte Liste zusätzlicher Origins (Server), die Aufrufe an das Portal (alle Seiten außer ``hmac``) per Browser **mit Anmeldung (Cookies)** durchführen dürfen. Beispiel: ``https://example.com``
+
+       Die Portal-Url und die API-Url sind immer erlaubt und müssen nicht angegeben werden. Aufrufe von nicht angeführten Origins werden vom Browser blockiert. Normalerweise ist hier kein Eintrag notwendig. Die Angabe erfolgt mit Schema und ggf. Port, ohne Pfad (z. B. ``https://example.com``). Für den ``hmac``-Endpunkt gilt ``add-cors-origins-for-hmac``.
+
+       Der Wert ``~`` ist ein Wildcard und erlaubt **alle** Seiten. Beim Start der Anwendung wird in diesem Fall eine Warnung ins Logfile geschrieben.
+
+       Bisher wurde für diese Aufrufe jede anfragende Origin (inklusive Anmeldung) erlaubt. Seiten auf fremden Servern müssen nun hier angeführt werden.
+
+       .. danger::
+          Der Wildcard ``~`` sollte nur in Ausnahmefällen zum Testen verwendet werden und niemals in einer Produktionsumgebung.
+   * - ``cors-default-allow-any-origin-without-credentials``
+     - Standard: ``false``. Bei ``true`` dürfen auch nicht in ``add-cors-origins-for-default`` angeführte Origins Antworten des Portals lesen, jedoch **ohne** Anmeldung (Cookies). Nur notwendig, wenn fremde Seiten öffentliche Portal-Seiten ohne Anmeldung abrufen.
+
 Abschnitt ``Logging``
 =====================
 
