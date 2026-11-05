@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Benutzerdefinierte Werkzeuge &#8212; WebGIS 2026 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../../_static/documentation_options.js?v=81100d21"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
@@ -169,16 +169,16 @@
 <h2>Werkzeuge mit Karteninteraktion<a class="headerlink" href="#werkzeuge-mit-karteninteraktion" title="Link to this heading">¶</a></h2>
 <p>Benutzerdefinierte Werkzeuge werden in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> mit folgendem Befehl dem Viewer hinzugefügt:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.google.com/maps/@{y},{x},19z&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Super Tool'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">'https://www.google.com/maps/@{y},{x},19z'</span><span class="p">,</span>
 <span class="p">});</span>
 </pre></div>
 </div>
 <p>Fügt man ein benutzerdefiniertes Werkzeug in die <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> ein, wird es in allen Karten dieser Portalseite hinzugefügt. Soll das Werkzeug nur in bestimmten Karten erscheinen, kann dies über Bedingungen gesteuert werden. Beispielsweise steht in der Variablen <code class="docutils literal notranslate"><span class="pre">mapUrlName</span></code> der Name der aktuell aufgerufenen Karte:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mapUrlName</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Geoland&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">mapUrlName</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"Geoland"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
-<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Super Tool&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.google.com/maps/@{y},{x},19z&#39;</span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Super Tool'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">'https://www.google.com/maps/@{y},{x},19z'</span>
 <span class="w">    </span><span class="p">});</span>
 <span class="p">}</span>
 </pre></div>
@@ -232,31 +232,31 @@
 </div>
 <p>Beispiel für ein Werkzeug mit Callback-Funktion:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Fetch Tool&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://.../rest?x={x}&amp;y={y}&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">tooltype</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;click&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">cursor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;crosshair&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;cursor-plus-26-b.png&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Fetch Tool'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">'https://.../rest?x={x}&amp;y={y}'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">tooltype</span><span class="o">:</span><span class="w"> </span><span class="s1">'click'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">cursor</span><span class="o">:</span><span class="w"> </span><span class="s1">'crosshair'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">'cursor-plus-26-b.png'</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">command_target</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">map</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span>
 
 <span class="w">        </span><span class="c1">// Remove the custom tool marker</span>
-<span class="w">        </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarkerGroup</span><span class="p">(</span><span class="s1">&#39;custom-temp-marker&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarkerGroup</span><span class="p">(</span><span class="s1">'custom-temp-marker'</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// Add a custom tool marker</span>
-<span class="w">        </span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">&#39;custom-temp-marker&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">map</span><span class="p">.</span><span class="nx">toMarkerGroup</span><span class="p">(</span><span class="s1">'custom-temp-marker'</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({</span>
 <span class="w">            </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">lat</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">lng</span><span class="o">:</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">lng</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&lt;div&gt;&#39;</span><span class="o">+</span><span class="nx">result</span><span class="p">.</span><span class="nx">text</span><span class="o">+</span><span class="s1">&#39;&lt;/div&gt;&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">'&lt;div&gt;'</span><span class="o">+</span><span class="nx">result</span><span class="p">.</span><span class="nx">text</span><span class="o">+</span><span class="s1">'&lt;/div&gt;'</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">openPopup</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">buttons</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
-<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Marker entfernen&#39;</span><span class="p">,</span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Marker entfernen'</span><span class="p">,</span>
 <span class="w">                </span><span class="nx">onclick</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">marker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarker</span><span class="p">(</span><span class="nx">marker</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}]</span>
 <span class="w">        </span><span class="p">}));</span>
 
-<span class="w">        </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;pre&gt;&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">$</span><span class="p">(</span><span class="s1">'&lt;pre&gt;'</span><span class="p">)</span>
 <span class="w">            </span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">result</span><span class="p">))</span>
 <span class="w">            </span><span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">uiElement</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
@@ -302,7 +302,7 @@ und kann diese verändern (z. B. World Koordinaten verändern). Beispiel:</p>
 <span class="w">    </span><span class="c1">// this coordinate will be used in the command URL placeholders {X} and {Y}</span>
 <span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">lng</span><span class="o">*</span><span class="mf">100</span><span class="p">;</span>
 <span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">world</span><span class="p">.</span><span class="nx">lat</span><span class="o">*</span><span class="mf">100</span><span class="p">;</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;modified Event&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'modified Event'</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -394,25 +394,25 @@ Entspricht: <code class="docutils literal notranslate"><span class="pre">{minx},
 <p><strong>Beispiel:</strong>
 Ein Werkzeug für Höhenprofile, bei dem der Benutzer vor der Ausführung Parameter wie Überhöhung und Stützpunktabstand eingeben kann.</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">webgis</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
-<span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Höhenprofil&#39;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://server.com/profile?ueberhoehung={ueberhoehung}&amp;hintergrund=bmapgrau&amp;stuetzpunktabstand={stuetzpunktabstand}&amp;title={profile_title}&amp;polygonzug={wkt}&amp;crs=31256&#39;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">command_target</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dialog&#39;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">tooltype</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sketch1d&#39;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;profil.png&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">'Höhenprofil'</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s1">'https://server.com/profile?ueberhoehung={ueberhoehung}&amp;hintergrund=bmapgrau&amp;stuetzpunktabstand={stuetzpunktabstand}&amp;title={profile_title}&amp;polygonzug={wkt}&amp;crs=31256'</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">command_target</span><span class="o">:</span><span class="w"> </span><span class="s1">'dialog'</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">tooltype</span><span class="o">:</span><span class="w"> </span><span class="s1">'sketch1d'</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="s1">'profil.png'</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">uiElements</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Titel&#39;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;profile_title&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;input-text&#39;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="s1">&#39;Überhöhung&#39;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ueberhoehung&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;select&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1:1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
-<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2:1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
-<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;3:1&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">}</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'label'</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Titel'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">'profile_title'</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'input-text'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="s1">'label'</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="s1">'Überhöhung'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">'ueberhoehung'</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'select'</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'1:1'</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'2:1'</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'3:1'</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">}</span>
 <span class="w">         </span><span class="p">]},</span>
-<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Punktabstand [m]&#39;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;stuetzpunktabstand&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;select&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1 m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
-<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2 m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
-<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;3 m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">}</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'label'</span><span class="p">,</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Punktabstand [m]'</span><span class="w"> </span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">'stuetzpunktabstand'</span><span class="p">,</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">'select'</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'1 m'</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'2 m'</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'3 m'</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="p">}</span>
 <span class="w">         </span><span class="p">]}</span>
 <span class="w">     </span><span class="p">]</span>
 <span class="w"> </span><span class="p">});</span>
@@ -512,7 +512,7 @@ Ein Werkzeug für Höhenprofile, bei dem der Benutzer vor der Ausführung Parame
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -983,6 +983,47 @@ Das Verhalten des Workarounds kann über die *Section* ``tool-identify`` in der 
    Datenbank liegen; bei **PostGIS** als Datenquelle ist bisher kein Auftreten bekannt. Details
    zur Entscheidungskaskade finden sich im Anhang: :doc:`../../annex/ags-spatial-query`.
 
+.. _api-config-lookup:
+
+Abschnitt ``Lookup``
+~~~~~~~~~~~~~~~~~~~~
+
+Betrifft die **Autocomplete- und Auswahllisten** der Vorgefilterten Abfragen (VisFilter), die ihre
+Werte über einen *Lookup* (SQL-Abfrage, Layer oder Datalinq) ermitteln. Der eingegebene Suchbegriff
+wird dabei nicht mehr ungeprüft in die SQL-Abfrage übernommen:
+
+* Steht ``{0}`` in der SQL-Abfrage innerhalb von Anführungszeichen (z. B. ``'{0}'``, ``'{0}%'`` oder
+  ``'%{0}%'``), wird der Suchbegriff als **Parameter** an die Datenbank übergeben.
+* Steht ``{0}`` an anderer Stelle (z. B. bei Layer-Abfragen), werden Anführungszeichen im Suchbegriff
+  maskiert (``'`` => ``''``).
+* Suchbegriffe und Parameterwerte (``{parameter}``), die nicht der konfigurierten **Whitelist**
+  entsprechen, liefern eine **leere Ergebnisliste**.
+
+.. code-block:: xml
+
+    <section name="lookup">
+      <add key="term-whitelist" value="^[\p{L}\p{N} _.,%/#:()+&amp;@'\-]{0,120}$" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``term-whitelist`` *(optional)*
+     - Regulärer Ausdruck, dem Suchbegriffe und Parameterwerte entsprechen müssen. Der Standardwert
+       erlaubt Buchstaben, Ziffern, Leerzeichen und die Zeichen ``_ . , % / # : ( ) + & @ ' -``
+       bis zu einer Länge von 120 Zeichen. Ist der Ausdruck ungültig, wird der Standardwert
+       verwendet.
+
+.. versionadded:: 8.26.4301
+
+.. note::
+
+   Sollen auch weitere Zeichen im Suchbegriff erlaubt sein (z. B. ``=`` oder ``*``), muss der
+   Ausdruck angepasst werden. Anführungszeichen werden unabhängig von dieser Einstellung immer maskiert.
+
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

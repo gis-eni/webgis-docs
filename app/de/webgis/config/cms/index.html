@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Konfiguration der CMS Applikation &#8212; WebGIS 2026 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=81100d21"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
@@ -178,44 +178,44 @@
 </div>
 <p>Die Vorlage hat folgendes Format:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;shared-crypto-keys-path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/security/keys&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;company&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;elasticsearch-endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;force-https&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;services-default-url-scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;webgis-portal-instance&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:5002&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cms-display-url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://myserver.com/cms&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cms-items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"shared-crypto-keys-path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\apps\\webgis/local/webgis-repository/security/keys"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"elasticsearch-endpoint"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"force-https"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"services-default-url-scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"webgis-portal-instance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:5002"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cms-display-url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://myserver.com/cms"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cms-items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis-release-default&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WebGIS Release Default&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-release-default&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;deployments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webgis-release-default"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebGIS Release Default"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-release-default"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webgis"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"deployments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/publish/cms-default.xml&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;replacement-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;postEvents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">            </span><span class="nt">&quot;http-get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;http://localhost:5001/cache/clear&quot;</span><span class="p">]</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\apps\\webgis/local/webgis-repository/cms/publish/cms-default.xml"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"replacement-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"postEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"commands"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">"http-get"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://localhost:5001/cache/clear"</span><span class="p">]</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis-custom&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;WebGIS Custom&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-custom&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;scheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webgis&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;deployments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webgis-custom"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebGIS Custom"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\apps\\webgis/local/webgis-repository/cms/param/webgis-custom"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"scheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webgis"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"deployments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\apps\\webgis/local/webgis-repository/cms/publish/cms-custom.xml&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;replacement-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="nt">&quot;postEvents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">            </span><span class="nt">&quot;http-get&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;http://localhost:5001/cache/clear&quot;</span><span class="p">]</span>
+<span class="w">          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\apps\\webgis/local/webgis-repository/cms/publish/cms-custom.xml"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"replacement-file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"postEvents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"commands"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">"http-get"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://localhost:5001/cache/clear"</span><span class="p">]</span>
 <span class="w">          </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">      </span><span class="p">]</span>
@@ -286,10 +286,10 @@
 <p><strong>Beispiel für Deployments:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;deployment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deployment 1&quot;</span>
+<span class="w">        </span><span class="nt">"deployment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deployment 1"</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;deployment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deployment 2&quot;</span>
+<span class="w">        </span><span class="nt">"deployment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deployment 2"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -318,7 +318,7 @@
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">target</span></code></p></td>
 <td><p>Der Pfad für die CMS-Datei. Das CMS erstellt im gleichen Ordner ein Verzeichnis <code class="docutils literal notranslate"><span class="pre">_archive</span></code>, in dem bestehende XML-Dateien vor dem Überschreiben gesichert werden. Falls diese Sicherungen nicht mehr benötigt werden, kann der Ordner manuell gelöscht werden. Hier kann auch eine URL zur API angegeben werden, z. B.: <code class="docutils literal notranslate"><span class="pre">https://localhost/api/cache/upload/{cms-name}</span></code>. <code class="docutils literal notranslate"><span class="pre">{cms-name}</span></code> entspricht dem CMS-Namen, wie er in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> definiert ist, z. B.:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;cmspath_my-cms&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;{path-to-cms.xml}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"cmspath_my-cms"</span><span class="w"> </span><span class="na">value=</span><span class="s">"{path-to-cms.xml}"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>Ergibt die URL: <code class="docutils literal notranslate"><span class="pre">https://{webgis-api-url}/cache/upload/my-cms</span></code></p>
@@ -421,15 +421,15 @@ Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann 
 <p>Die CMS-Applikation enthält auch <strong>DataLinq.Code</strong> zum Bearbeiten von <strong>DataLinq-Endpoints</strong>, <strong>Queries</strong> und <strong>Views</strong>. Die eigentliche <strong>DataLinq-Engine</strong> läuft innerhalb einer <strong>WebGIS-API-Instanz</strong>.</p>
 <p>Welche Instanzen über die CMS-Startseite zum Editieren angezeigt werden, kann über die Datei <code class="docutils literal notranslate"><span class="pre">_config/datalinq.config</span></code> gesteuert werden:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;instances&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">   </span><span class="nt">"instances"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Local WebGIS API&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My local WebGIS test and development API&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://my-server/webgis-api&quot;</span>
+<span class="w">         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Local WebGIS API"</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My local WebGIS test and development API"</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my-server/webgis-api"</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">   </span><span class="p">],</span>
-<span class="w">   </span><span class="nt">&quot;useAppPrefixFilters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;autoLogin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;author&quot;</span>
+<span class="w">   </span><span class="nt">"useAppPrefixFilters"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"autoLogin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"author"</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -481,15 +481,15 @@ Wenn mehrere WebGIS-Instanzen hinter einem Load-Balancer betrieben werden, kann 
 <p>In dieser optionalen Datei können allgemeine Einstellungen für die WebGIS-CMS-Applikation hinterlegt werden. Ein Anwendungsfall ist die Konfiguration eines <strong>Logging-Files</strong> oder die Einrichtung eines <strong>Proxy-Servers</strong>.</p>
 <p>Wenn externe Dienste eingebunden werden, kann für den Zugriff ein <strong>Proxy-Server</strong> erforderlich sein. Mit den folgenden Einstellungen kann über diese Datei ein Proxy-Server definiert werden, der für sämtliche Internetzugriffe genutzt wird:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;logging_connection_string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\cms\\cms-logging.csv&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;proxy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;use&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webproxy.mydomain.com&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">            </span><span class="c1">// optional</span>
-<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">        </span><span class="c1">// optional</span>
-<span class="w">      </span><span class="nt">&quot;domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">          </span><span class="c1">// optional</span>
-<span class="w">      </span><span class="nt">&quot;ignore&quot;</span><span class="p">:</span><span class="s2">&quot;localhost;my-intranet.com;.my-domain.com$;&quot;</span>
+<span class="w">   </span><span class="nt">"logging_connection_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\cms\\cms-logging.csv"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"proxy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"use"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"server"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webproxy.mydomain.com"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"port"</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">            </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">        </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">          </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">"ignore"</span><span class="p">:</span><span class="s2">"localhost;my-intranet.com;.my-domain.com$;"</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -566,10 +566,10 @@ gehen Sie folgendermaßen vor:</p>
 <ol class="arabic" start="3">
 <li><p>Das generierte Code-Snippet kopieren und in die Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.config</span></code> einfügen:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcwXYZ55...&quot;</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcwXYZ55..."</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
@@ -581,14 +581,14 @@ gehen Sie folgendermaßen vor:</p>
 und durch Kommas getrennt hinzugefügt werden:</p>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tcwXYZ55...&quot;</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tcwXYZ55..."</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin2&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dA8NR...&quot;</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin2"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dA8NR..."</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
@@ -610,16 +610,16 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 <p>Für eine <strong>Windows-basierte Anmeldung</strong> kann die <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> folgendermaßen konfiguriert werden:</p>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;users&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">   </span><span class="nt">"identityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"windows"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">     </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;domain\\user1&quot;</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domain\\user1"</span>
 <span class="w">     </span><span class="p">},</span>
 <span class="w">     </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;domain\\user2&quot;</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domain\\user2"</span>
 <span class="w">     </span><span class="p">},</span>
 <span class="w">     </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;domain\\admin123&quot;</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"domain\\admin123"</span>
 <span class="w">     </span><span class="p">}</span>
 <span class="w">   </span><span class="p">]</span>
 <span class="p">}</span>
@@ -637,12 +637,12 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 <p>Möchte man eine <strong>OpenID-Connect-konforme Authentifizierung</strong> nutzen, kann die <code class="docutils literal notranslate"><span class="pre">application-security.config</span></code> folgendermaßen aussehen:</p>
 <blockquote>
 <div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oidc&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;oidc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://server.com/identity&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cms-local-oidc&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;secret123&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;requiredRole&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gis-admin-webgis-cms&quot;</span>
+<span class="w">   </span><span class="nt">"identityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oidc"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"oidc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"authority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://server.com/identity"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"clientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cms-local-oidc"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"clientSecret"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secret123"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"requiredRole"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gis-admin-webgis-cms"</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -732,7 +732,7 @@ und durch Kommas getrennt hinzugefügt werden:</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>PDF Reporting in DataLinq &#8212; DataLinq 2025 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=cc740ad6" />
     <script src="_static/documentation_options.js?v=cb975c41"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="provision.html">Provisioning DataLinq and DataLinq.Code</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="operation.html">Using DataLinq and DataLinq.Code</a><ul class="current">
@@ -197,7 +197,7 @@ The following technologies can be combined:</p>
 <h2>Enabling PDF Reporting Mode<a class="headerlink" href="#enabling-pdf-reporting-mode" title="Link to this heading">¶</a></h2>
 <p>To create a PDF template, a new view is first created.
 Then, in the view’s settings under <strong>PDF Reporting mode</strong>, the desired mode can be enabled.</p>
-<img alt="Settings for PDF Reporting mode" class="align-center" src="_images/pdf_reporting_settings.png" />
+<img alt="Settings for PDF Reporting mode" class="align-center" src="_images/pdf_reporting_settings.PNG" />
 <p>Three checkboxes are available in the <strong>PDF Reporting mode</strong> section:</p>
 <ol class="arabic">
 <li><p><strong>View report mode</strong></p>
@@ -240,7 +240,7 @@ Detailed information on this follows in a further chapter.</p>
 </pre></div>
 </div>
 <p>In this example, a report is first started, and then a page with a heading is inserted.</p>
-<img alt="Simple PDF report with one page" class="align-center" src="_images/simple_report.png" />
+<img alt="Simple PDF report with one page" class="align-center" src="_images/simple_report.PNG" />
 </section>
 <section id="explanation-of-the-pdf-helper-functions">
 <h2>Explanation of the &#64;PDF Helper Functions<a class="headerlink" href="#explanation-of-the-pdf-helper-functions" title="Link to this heading">¶</a></h2>
@@ -260,10 +260,10 @@ This can be used to specify:</p>
 </ul>
 <p>Example:</p>
 <div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">pageNumberOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;UsePageNumbers&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;Position&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;SkipPages&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">}</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"UsePageNumbers"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"Position"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"Type"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"SkipPages"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -291,12 +291,12 @@ The default value is <code class="docutils literal notranslate"><span class="pre
 <p>Complete example:</p>
 <blockquote>
 <div><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">@DLH</span><span class="p">.</span><span class="n">BeginPdfReport</span><span class="p">(</span><span class="n">pageNumberOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">(){</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;UsePageNumbers&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;Position&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;SkipPages&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">}},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"UsePageNumbers"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"Position"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"Type"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"SkipPages"</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}},</span>
 <span class="w">            </span><span class="n">download_button</span><span class="p">:</span><span class="k">true</span><span class="p">,</span>
-<span class="w">            </span><span class="n">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">$&quot;Example_{@Guid.NewGuid().ToString()}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">fileName</span><span class="p">:</span><span class="w"> </span><span class="s">$"Example_{@Guid.NewGuid().ToString()}"</span><span class="p">,</span>
 <span class="w">            </span><span class="n">quality</span><span class="p">:</span><span class="w"> </span><span class="n">PdfQuality</span><span class="p">.</span><span class="n">Medium</span>
 <span class="p">)</span>
 </pre></div>
@@ -314,8 +314,8 @@ A typical use case is a central corporate-design template with a header and foot
 This means the shared frame does not need to be redefined on every page.</p>
 <p>Example:</p>
 <div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">pageTemplateOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;UsePageTemplate&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;TemplateId&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;datalinq-guide@pdf@pdf-template&quot;</span><span class="p">}</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"UsePageTemplate"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"TemplateId"</span><span class="p">,</span><span class="w"> </span><span class="s">"datalinq-guide@pdf@pdf-template"</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -328,7 +328,7 @@ This means the shared frame does not need to be redefined on every page.</p>
 <p>For templates (e.g. headers and footers), the contained elements should always be <strong>positioned absolutely</strong>.
 Otherwise, the template elements can shift as soon as additional content is inserted into the page.</p>
 <p>Example:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position: absolute; top:150px; left:150px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">"position: absolute; top:150px; left:150px;"</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -336,7 +336,7 @@ Otherwise, the template elements can shift as soon as additional content is inse
 </dl>
 </li>
 </ul>
-<img alt="Example of using a PDF page template" class="align-center" src="_images/template_example.png" />
+<img alt="Example of using a PDF page template" class="align-center" src="_images/template_example.PNG" />
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">landscape</span></code>:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">true</span></code> rotates the page to landscape orientation.
@@ -345,7 +345,7 @@ The default is <code class="docutils literal notranslate"><span class="pre">fals
 </dl>
 </li>
 </ul>
-<img alt="Example of landscape orientation" class="align-center" src="_images/landscape_example.png" />
+<img alt="Example of landscape orientation" class="align-center" src="_images/landscape_example.PNG" />
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">paperSize</span></code>:</dt><dd><p>Sets the page size via the <code class="docutils literal notranslate"><span class="pre">PaperSize</span></code> enum.
@@ -356,18 +356,18 @@ The paper sizes can be combined with <code class="docutils literal notranslate">
 </dl>
 </li>
 </ul>
-<img alt="Example of different paper sizes" class="align-center" src="_images/papersize_example.png" />
+<img alt="Example of different paper sizes" class="align-center" src="_images/papersize_example.PNG" />
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">dynamicTableOptions</span></code>:</dt><dd><p>Used to automatically split content from tables and flat hierarchies across multiple pages
 when the space on the current page is not sufficient due to dynamic table content.</p>
 <p>Example:</p>
 <div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">dynamicTableOptions</span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">object</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;Dynamic&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;DynamicUseTemplate&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;DefaultMarginTop&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">220</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;DefaultMarginBottom&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">110</span><span class="p">},</span>
-<span class="w">                </span><span class="p">{</span><span class="s">&quot;RepeatHeader&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">}</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"Dynamic"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"DynamicUseTemplate"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"DefaultMarginTop"</span><span class="p">,</span><span class="w"> </span><span class="mi">220</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"DefaultMarginBottom"</span><span class="p">,</span><span class="w"> </span><span class="mi">110</span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span><span class="s">"RepeatHeader"</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -388,7 +388,7 @@ If a minimum top margin is needed on the first page, this can be implemented wit
 </dl>
 </li>
 </ul>
-<img alt="Example of automatic splitting across multiple pages" class="align-center" src="_images/dynamic_example.png" />
+<img alt="Example of automatic splitting across multiple pages" class="align-center" src="_images/dynamic_example.PNG" />
 </section>
 <section id="notes-on-auto-splitting">
 <h3>Notes on Auto-Splitting<a class="headerlink" href="#notes-on-auto-splitting" title="Link to this heading">¶</a></h3>
@@ -516,7 +516,7 @@ without having to show the user the actual template.</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

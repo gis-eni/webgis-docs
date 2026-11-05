@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>File appsettings.json &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
     <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
@@ -168,15 +168,15 @@ localization/culture, etc.</p>
 that define different configuration parameters.
 Below are some of the most important sections and their functions:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Logging&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;LogLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span><span class="p">,</span><span class="w">  </span><span class="cm">/* default: Warning */</span>
-<span class="w">      </span><span class="nt">&quot;Microsoft&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Warning&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Microsoft.Hosting.Lifetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Information&quot;</span>
+<span class="w">  </span><span class="nt">"Logging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"LogLevel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information"</span><span class="p">,</span><span class="w">  </span><span class="cm">/* default: Warning */</span>
+<span class="w">      </span><span class="nt">"Microsoft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Warning"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Microsoft.Hosting.Lifetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Information"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;Localization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;DefaultCulture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span>
+<span class="w">  </span><span class="nt">"Localization"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"DefaultCulture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de-AT"</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -206,11 +206,11 @@ and can be helpful for verifying that the application is using the expected cult
 </pre></div>
 </div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;culture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cultureDisplayName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;German (Austria)&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cultureEnglishName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;German (Austria)&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;cultureUI&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;de-AT&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;currentTimeString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.03.2026 07:42:40&quot;</span>
+<span class="w">  </span><span class="nt">"culture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de-AT"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cultureDisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"German (Austria)"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cultureEnglishName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"German (Austria)"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"cultureUI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de-AT"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"currentTimeString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.03.2026 07:42:40"</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -251,7 +251,7 @@ and also returns the current time in the corresponding format.</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

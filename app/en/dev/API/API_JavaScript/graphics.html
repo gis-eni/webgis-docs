@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>WebGIS 5.0 API: graphics &#8212; webgis 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
@@ -197,9 +197,9 @@
 <span class="w">    </span><span class="nx">geojson</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">features</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span>
 <span class="w">            </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;LineString&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;SRID&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">31259</span><span class="p">,</span>
-<span class="w">                </span><span class="s2">&quot;coordinates&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"LineString"</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"SRID"</span><span class="o">:</span><span class="w"> </span><span class="mf">31259</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                    </span><span class="p">[</span><span class="mf">687883.796875</span><span class="p">,</span><span class="w"> </span><span class="mf">189434.5859375</span><span class="p">],</span>
 <span class="w">                    </span><span class="p">[</span><span class="mf">687883.3828125</span><span class="p">,</span><span class="w"> </span><span class="mf">189439.5546875</span><span class="p">],</span>
 <span class="w">                    </span><span class="p">[</span><span class="mf">687880.8359375</span><span class="p">,</span><span class="w"> </span><span class="mf">189470.359375</span><span class="p">],</span>
@@ -220,12 +220,12 @@
 <p>Color and style for the displayed objects can also be specified via the properties of the individual features:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">graphics</span><span class="p">.</span><span class="nx">fromGeoJson</span><span class="p">({</span>
 <span class="w">    </span><span class="nx">geojson</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;features&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"features"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;geometry&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;LineString&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;coordinates&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"geometry"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"LineString"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">[</span>
 <span class="w">            </span><span class="mf">15.435174107551825</span><span class="p">,</span>
 <span class="w">            </span><span class="mf">47.074882408392654</span>
@@ -236,37 +236,37 @@
 <span class="w">        </span><span class="p">]</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;stroke&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;#0000ff&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;stroke-opacity&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;stroke-width&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;stroke-style&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;15,15,3,15&quot;</span>
+<span class="w">    </span><span class="s2">"properties"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"stroke"</span><span class="o">:</span><span class="w"> </span><span class="s2">"#0000ff"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"stroke-opacity"</span><span class="o">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"stroke-width"</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"stroke-style"</span><span class="o">:</span><span class="w"> </span><span class="s2">"15,15,3,15"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;geometry&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Point&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;coordinates&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"geometry"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="mf">15.435801744461317</span><span class="p">,</span>
 <span class="w">        </span><span class="mf">47.074860488026204</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;symbol&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;graphics/markers/hotspot0.gif&quot;</span>
+<span class="w">    </span><span class="s2">"properties"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"symbol"</span><span class="o">:</span><span class="w"> </span><span class="s2">"graphics/markers/hotspot0.gif"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Feature&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;geometry&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Point&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;coordinates&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"geometry"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="mf">15.436622500419888</span><span class="p">,</span>
 <span class="w">        </span><span class="mf">47.07542310791081</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;symbol&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;graphics/markers/hotspot1.gif&quot;</span>
+<span class="w">    </span><span class="s2">"properties"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"symbol"</span><span class="o">:</span><span class="w"> </span><span class="s2">"graphics/markers/hotspot1.gif"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
@@ -330,7 +330,7 @@
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

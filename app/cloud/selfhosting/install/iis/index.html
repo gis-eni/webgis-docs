@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Installation im Internet Information Server (IIS) &#8212; WebGIS Cloud Dokumentation 2022 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=d882a67f" />
     <script src="../../../_static/documentation_options.js?v=7d611786"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -105,7 +105,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
@@ -113,14 +113,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../portal/index.html">WebGIS Cloud Portal</a></li>
@@ -163,15 +163,15 @@ Dieses WebGIS kann von allen Anwendern ohne lokaler Installation über einen <em
 die Dateien <code class="docutils literal notranslate"><span class="pre">webgis-api/_config/api.config</span></code> und <code class="docutils literal notranslate"><span class="pre">webgis-portal/_config/portal.config</span></code></p>
 <p>Sollte die beiden Web-Applikation später <code class="docutils literal notranslate"><span class="pre">webgis-api</span></code> und <code class="docutils literal notranslate"><span class="pre">webgis-portal</span></code> heißen, müssen die Konfigurationsdateien folgendermaßen angepasst werden:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!-- webgis-api/_config/api.config Anpassungen --&gt;
-&lt;add key=&quot;api-url&quot; value=&quot;https://my.server.com/webgis-api&quot; /&gt;
-&lt;add key=&quot;portal-url&quot; value=&quot;https://my.server.com/webgis-portal&quot; /&gt;
-&lt;add key=&quot;portal-internal-url&quot; value=&quot;http://localhost/webgis-portal&quot; /&gt;
+&lt;add key="api-url" value="https://my.server.com/webgis-api" /&gt;
+&lt;add key="portal-url" value="https://my.server.com/webgis-portal" /&gt;
+&lt;add key="portal-internal-url" value="http://localhost/webgis-portal" /&gt;
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!-- webgis-portal/_config/portal.config Anpassungen --&gt;
-&lt;add key=&quot;api&quot; value=&quot;https://my.server.com/webgis-api&quot; /&gt;
-&lt;add key=&quot;api-internal-url&quot; value=&quot;http://localhost/webgis-api&quot; /&gt;
-&lt;add key=&quot;portal-url&quot; value=&quot;https://my.server.com/webgis-portal&quot; /&gt;
+&lt;add key="api" value="https://my.server.com/webgis-api" /&gt;
+&lt;add key="api-internal-url" value="http://localhost/webgis-api" /&gt;
+&lt;add key="portal-url" value="https://my.server.com/webgis-portal" /&gt;
 </pre></div>
 </div>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Application</span></code> (zB auf der <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">Web</span> <span class="pre">Site</span></code>) können die beiden Anwendungen erstellt werden.
@@ -221,7 +221,7 @@ Hier sollte eine User verwendet (angelegt) werden, der nur genau die Rechte hat,
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

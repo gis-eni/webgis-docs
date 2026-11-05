@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>DataLinq Version Control &#8212; DataLinq 2025 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=cc740ad6" />
     <script src="_static/documentation_options.js?v=cb975c41"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="provision.html">Provisioning DataLinq and DataLinq.Code</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="operation.html">Using DataLinq and DataLinq.Code</a><ul class="current">
@@ -190,7 +190,7 @@ for example <strong>user name and password</strong>, or alternatively an <strong
 <li><p>Log in to your own Git system.</p></li>
 <li><p>Create a new repository.</p></li>
 </ol>
-<img alt="Create new repository" class="align-center" src="_images/repo_new.png" />
+<img alt="Create new repository" class="align-center" src="_images/repo_new.PNG" />
 <ol class="arabic" start="3">
 <li><p>Enter the repository details.</p>
 <blockquote>
@@ -199,7 +199,7 @@ for example <strong>user name and password</strong>, or alternatively an <strong
 </div></blockquote>
 </li>
 </ol>
-<img alt="Repository details and branch configuration" class="align-center" src="_images/repo_new_1.png" />
+<img alt="Repository details and branch configuration" class="align-center" src="_images/repo_new_1.PNG" />
 <ol class="arabic simple" start="4">
 <li><p>After creation, copy the repository URL and enter it in the DataLinq settings.</p></li>
 <li><dl class="simple">
@@ -208,7 +208,7 @@ for example <strong>user name and password</strong>, or alternatively an <strong
 </dl>
 </li>
 </ol>
-<img alt="Empty repository after creation" class="align-center" src="_images/repo_new_2.png" />
+<img alt="Empty repository after creation" class="align-center" src="_images/repo_new_2.PNG" />
 </section>
 <section id="initialization-in-datalinq-snapshot">
 <h2>Initialization in DataLinq (Snapshot)<a class="headerlink" href="#initialization-in-datalinq-snapshot" title="Link to this heading">¶</a></h2>
@@ -217,12 +217,12 @@ for example <strong>user name and password</strong>, or alternatively an <strong
 <li><p><strong>Init Snapshot</strong></p></li>
 <li><p><strong>Snapshot Status</strong></p></li>
 </ul>
-<img alt="New snapshot buttons on the DataLinq home page" class="align-center" src="_images/snapshot_1.png" />
+<img alt="New snapshot buttons on the DataLinq home page" class="align-center" src="_images/snapshot_1.PNG" />
 <section id="snapshot-status">
 <h3>Snapshot Status<a class="headerlink" href="#snapshot-status" title="Link to this heading">¶</a></h3>
 <p>Right after setup, <strong>Snapshot Status</strong> usually shows that nothing is up to date yet,
 since no content has been transferred to version control yet.</p>
-<img alt="Snapshot Status shows content that is not up to date" class="align-center" src="_images/snapshot_2.png" />
+<img alt="Snapshot Status shows content that is not up to date" class="align-center" src="_images/snapshot_2.PNG" />
 </section>
 <section id="init-snapshot">
 <h3>Init Snapshot<a class="headerlink" href="#init-snapshot" title="Link to this heading">¶</a></h3>
@@ -233,22 +233,22 @@ DataLinq asks for confirmation beforehand.</p>
 <p>The init process should only be performed <strong>once</strong>, right at the beginning,
 since it merges all existing content into a shared <strong>initial commit</strong>.</p>
 </div>
-<img alt="Confirmation dialog for Init Snapshot" class="align-center" src="_images/snapshot_3.png" />
+<img alt="Confirmation dialog for Init Snapshot" class="align-center" src="_images/snapshot_3.PNG" />
 <p>After successful initialization, a success message is shown.</p>
-<img alt="Successful initialization of the snapshot" class="align-center" src="_images/snapshot_4.png" />
+<img alt="Successful initialization of the snapshot" class="align-center" src="_images/snapshot_4.PNG" />
 </section>
 <section id="status-after-initialization">
 <h3>Status After Initialization<a class="headerlink" href="#status-after-initialization" title="Link to this heading">¶</a></h3>
 <p>Afterwards, <strong>Snapshot Status</strong> shows that all files are in sync with version control.</p>
-<img alt="Snapshot Status shows all files as up to date" class="align-center" src="_images/snapshot_5.png" />
+<img alt="Snapshot Status shows all files as up to date" class="align-center" src="_images/snapshot_5.PNG" />
 </section>
 <section id="verification-in-the-git-repository">
 <h3>Verification in the Git Repository<a class="headerlink" href="#verification-in-the-git-repository" title="Link to this heading">¶</a></h3>
 <p>The automatic initialization is also visible in the Git repository afterwards,
 including the first initial commit and the transferred query and endpoint files.</p>
-<img alt="Initialized repository with first commit and DataLinq files" class="align-center" src="_images/snapshot_6.png" />
+<img alt="Initialized repository with first commit and DataLinq files" class="align-center" src="_images/snapshot_6.PNG" />
 <p>Files:</p>
-<img alt="Initialized repository with first commit and DataLinq files" class="align-center" src="_images/snapshot_7.png" />
+<img alt="Initialized repository with first commit and DataLinq files" class="align-center" src="_images/snapshot_7.PNG" />
 </section>
 </section>
 <section id="commit-workflow-in-the-datalinq-code-editor">
@@ -256,23 +256,23 @@ including the first initial commit and the transferred query and endpoint files.
 <p>When a new query or view is created in the DataLinq Code Editor,
 or an existing query/view is changed, the Git icon in the toolbar signals the status.</p>
 <p>If the icon is <strong>red</strong>, local changes exist and the state is not yet synchronized.</p>
-<img alt="Red Git icon shows unsynchronized changes" class="align-center" src="_images/git_1.png" />
+<img alt="Red Git icon shows unsynchronized changes" class="align-center" src="_images/git_1.PNG" />
 <p>After clicking the Git icon, a commit can be created.
 This records <strong>name</strong> and <strong>message</strong>.</p>
-<img alt="Commit dialog with name and message" class="align-center" src="_images/git_2.png" />
+<img alt="Commit dialog with name and message" class="align-center" src="_images/git_2.PNG" />
 <p>After a successful commit, a success message is shown.</p>
-<img alt="Successful commit in the DataLinq Code Editor" class="align-center" src="_images/git_3.png" />
+<img alt="Successful commit in the DataLinq Code Editor" class="align-center" src="_images/git_3.PNG" />
 <p>Afterwards, the Git icon turns <strong>green</strong> and shows the synchronized status.</p>
-<img alt="Green Git icon shows synchronized status" class="align-center" src="_images/git_4.png" />
+<img alt="Green Git icon shows synchronized status" class="align-center" src="_images/git_4.PNG" />
 <p>If further changes are made afterwards (for example, by another user),
 the icon switches back to <strong>red</strong>.</p>
-<img alt="Git icon turns red again after further changes" class="align-center" src="_images/git_5.png" />
+<img alt="Git icon turns red again after further changes" class="align-center" src="_images/git_5.PNG" />
 <p>After another commit, the current state is synchronized again.</p>
-<img alt="Another commit after new changes" class="align-center" src="_images/git_6.png" />
+<img alt="Another commit after new changes" class="align-center" src="_images/git_6.PNG" />
 <p>The new commits, including commit messages, are then visible in the Git repository.</p>
-<img alt="New commits and messages in the Git repository" class="align-center" src="_images/git_7.png" />
+<img alt="New commits and messages in the Git repository" class="align-center" src="_images/git_7.PNG" />
 <p>The exact changes can be tracked.</p>
-<img alt="New commits and messages in the Git repository" src="_images/git_8.png" />
+<img alt="New commits and messages in the Git repository" src="_images/git_8.PNG" />
 </section>
 </section>
 
@@ -333,7 +333,7 @@ the icon switches back to <strong>red</strong>.</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

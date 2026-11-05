@@ -973,6 +973,46 @@ The behavior of the workaround can be adjusted via the ``tool-identify`` *sectio
    occurrence is known so far with **PostGIS** as the data source. Details on the decision
    cascade can be found in the appendix: :doc:`../../annex/ags-spatial-query`.
 
+.. _api-config-lookup:
+
+Section ``Lookup``
+~~~~~~~~~~~~~~~~~~
+
+Applies to the **autocomplete and selection lists** of the predefined filters (VisFilter) that
+obtain their values via a *lookup* (SQL query, layer or Datalinq). The search term entered by the
+user is no longer inserted into the SQL query unchecked:
+
+* If ``{0}`` is placed inside quotes in the SQL query (e.g. ``'{0}'``, ``'{0}%'`` or
+  ``'%{0}%'``), the search term is passed to the database as a **parameter**.
+* If ``{0}`` is placed elsewhere (e.g. in layer queries), quotes in the search term are escaped
+  (``'`` => ``''``).
+* Search terms and parameter values (``{parameter}``) that do not match the configured
+  **whitelist** return an **empty result list**.
+
+.. code-block:: xml
+
+    <section name="lookup">
+      <add key="term-whitelist" value="^[\p{L}\p{N} _.,%/#:()+&amp;@'\-]{0,120}$" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``term-whitelist`` *(optional)*
+     - Regular expression that search terms and parameter values must match. The default allows
+       letters, digits, spaces and the characters ``_ . , % / # : ( ) + & @ ' -`` up to a length
+       of 120 characters. If the expression is invalid, the default is used.
+
+.. versionadded:: 8.26.4301
+
+.. note::
+
+   If further characters should be allowed in the search term (e.g. ``=`` or ``*``), the
+   expression has to be adjusted. Quotes are always escaped, regardless of this setting.
+
 Section ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

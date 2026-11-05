@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Expressions &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
     <script src="../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
@@ -223,7 +223,7 @@ expression. This is required to distinguish expressions from <em>named</em> Auto
 </pre></div>
 </div>
 <p>is a legacy template.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=concat([FIRSTNAME], " ", [LASTNAME])
 </pre></div>
 </div>
 <p>is a structured expression.</p>
@@ -239,7 +239,7 @@ not removed.</p>
 </pre></div>
 </div>
 <p>is a legacy template.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], " ", [LASTNAME])
 </pre></div>
 </div>
 <p>is a structured expression.</p>
@@ -262,10 +262,10 @@ reported.</p>
 <section id="when-is-a-structured-expression-recognized">
 <h3><a class="toc-backref" href="#id6" role="doc-backlink">When is a structured expression recognized?</a><a class="headerlink" href="#when-is-a-structured-expression-recognized" title="Link to this heading">¶</a></h3>
 <p><strong>Function calls</strong></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], " ", [LASTNAME])
 round([AREA], 2)
-if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)
-coalesce([NAME], &quot;Unknown&quot;)
+if([STATUS] == "A", "Active", "Inactive")
+coalesce([NAME], "Unknown")
 </pre></div>
 </div>
 <p>An unknown function name is also classified as a structured expression:</p>
@@ -276,7 +276,7 @@ coalesce([NAME], &quot;Unknown&quot;)
 <p><strong>Field reference with operator</strong></p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[COUNT] + 1
 [AREA] / 10000
-[STATUS] == &quot;A&quot;
+[STATUS] == "A"
 [VALUE] &gt;= 10 &amp;&amp; [ACTIVE] == true
 </pre></div>
 </div>
@@ -288,7 +288,7 @@ coalesce([NAME], &quot;Unknown&quot;)
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>42
 12.5
 -10
-&quot;Text&quot;
+"Text"
 true
 false
 null
@@ -397,9 +397,9 @@ null
 <section id="literals">
 <h3><a class="toc-backref" href="#id10" role="doc-backlink">Literals</a><a class="headerlink" href="#literals" title="Link to this heading">¶</a></h3>
 <p><strong>Strings</strong> are written in double quotes:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&quot;Text&quot;
-&quot;Active&quot;
-&quot;Area: &quot;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>"Text"
+"Active"
+"Area: "
 </pre></div>
 </div>
 <p>Supported escape sequences:</p>
@@ -449,14 +449,14 @@ null
 <code class="docutils literal notranslate"><span class="pre">&quot;Text&quot;</span> <span class="pre">+</span> <span class="pre">&quot;Text&quot;</span></code> is therefore invalid.</p>
 </div>
 <p><strong>Comparisons:</strong> <code class="docutils literal notranslate"><span class="pre">==</span>&#160; <span class="pre">!=</span>&#160; <span class="pre">&lt;</span>&#160; <span class="pre">&lt;=</span>&#160; <span class="pre">&gt;</span>&#160; <span class="pre">&gt;=</span></code></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[STATUS] == &quot;A&quot;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[STATUS] == "A"
 [AREA] &gt;= 1000
 [MISSING] == null
 </pre></div>
 </div>
 <p><strong>Logical operators:</strong> <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span>&#160; <span class="pre">||</span>&#160; <span class="pre">!</span></code></p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[STATUS] == &quot;A&quot; &amp;&amp; [AREA] &gt; 1000
-[TYPE] == &quot;A&quot; || [TYPE] == &quot;B&quot;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[STATUS] == "A" &amp;&amp; [AREA] &gt; 1000
+[TYPE] == "A" || [TYPE] == "B"
 ![ACTIVE]
 </pre></div>
 </div>
@@ -469,7 +469,7 @@ calculated.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if([STATUS] == "A", "Active", "Inactive")
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">if(...)</span></code> is also evaluated <em>lazily</em>. Only the branch that is actually selected is calculated.</p>
@@ -515,18 +515,18 @@ calculated.</p>
 </table>
 <p><code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">length</span></code> must be non-negative integers. If <code class="docutils literal notranslate"><span class="pre">start</span></code> lies outside the string, or <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">+</span> <span class="pre">length</span></code>
 extends beyond the end of the string, an expression error is raised.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>substring(&quot;abcdef&quot;, 0, 3)  -&gt;  &quot;abc&quot;
-substring(&quot;abcdef&quot;, 2, 3)  -&gt;  &quot;cde&quot;
-substring(&quot;abcdef&quot;, 2)     -&gt;  &quot;cdef&quot;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>substring("abcdef", 0, 3)  -&gt;  "abc"
+substring("abcdef", 2, 3)  -&gt;  "cde"
+substring("abcdef", 2)     -&gt;  "cdef"
 </pre></div>
 </div>
 <p>More examples:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], &quot; &quot;, [LASTNAME])
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat([FIRSTNAME], " ", [LASTNAME])
 upper([NAME])
 lower([CODE])
 trim([DESCRIPTION])
 substring([CODE], 0, 3)
-replace([NAME], &quot;-&quot;, &quot; &quot;)
+replace([NAME], "-", " ")
 length([NAME])
 </pre></div>
 </div>
@@ -559,13 +559,13 @@ length([NAME])
 </tbody>
 </table>
 <p>Examples:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>coalesce([DISPLAY_NAME], [NAME], &quot;Unknown&quot;)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>coalesce([DISPLAY_NAME], [NAME], "Unknown")
 is_null([MISSING])
 is_empty([DESCRIPTION])
 </pre></div>
 </div>
 <p>Because <code class="docutils literal notranslate"><span class="pre">coalesce</span></code> does not skip empty strings, it is often combined with <code class="docutils literal notranslate"><span class="pre">null_if_empty</span></code>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>coalesce(null_if_empty([DISPLAY_NAME]), [NAME], &quot;Unknown&quot;)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>coalesce(null_if_empty([DISPLAY_NAME]), [NAME], "Unknown")
 </pre></div>
 </div>
 </section>
@@ -596,7 +596,7 @@ day(value)
 </pre></div>
 </div>
 <p>Examples:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>format_date([CREATED], &quot;yyyy-MM-dd&quot;)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>format_date([CREATED], "yyyy-MM-dd")
 year([CREATED])
 month([CREATED])
 day([CREATED])
@@ -642,12 +642,12 @@ preferred.</p>
 =shape_area(31256)
 =round(shape_area(31256), 2)
 =shape_centroid_x(4326)
-=concat(&quot;Area: &quot;, round(shape_area(31256), 2), &quot; m2&quot;)
+=concat("Area: ", round(shape_area(31256), 2), " m2")
 </pre></div>
 </div>
 <p>In a table column (<code class="docutils literal notranslate"><span class="pre">TableFieldExpression</span></code>), the leading <code class="docutils literal notranslate"><span class="pre">=</span></code> is omitted:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>round(shape_area(31256), 2)
-concat(&quot;Length: &quot;, round(shape_len(31256), 1), &quot; m&quot;)
+concat("Length: ", round(shape_len(31256), 1), " m")
 </pre></div>
 </div>
 </section>
@@ -666,11 +666,11 @@ as a new function. With <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 <p>For a calculated text output, <code class="docutils literal notranslate"><span class="pre">concat(...)</span></code> must be used:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(&quot;Area: &quot;, round([AREA], 2), &quot; m2&quot;)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat("Area: ", round([AREA], 2), " m2")
 </pre></div>
 </div>
 <p>For AutoValues, additionally with the leading <code class="docutils literal notranslate"><span class="pre">=</span></code>:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=concat(&quot;Area: &quot;, round([AREA], 2), &quot; m2&quot;)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>=concat("Area: ", round([AREA], 2), " m2")
 </pre></div>
 </div>
 <p>The result is:</p>
@@ -678,19 +678,19 @@ as a new function. With <code class="docutils literal notranslate"><span class="
 </pre></div>
 </div>
 <p>More examples (expressions may be written over several lines):</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(&quot;Name: &quot;, upper([NAME]))
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat("Name: ", upper([NAME]))
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(
-    &quot;Status: &quot;,
-    if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)
+    "Status: ",
+    if([STATUS] == "A", "Active", "Inactive")
 )
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>concat(
-    &quot;Area: &quot;,
+    "Area: ",
     round([AREA] / 10000, 2),
-    &quot; ha&quot;
+    " ha"
 )
 </pre></div>
 </div>
@@ -820,10 +820,10 @@ Area: $round2([AREA]) m2
 =Object [NAME]                                            (legacy)
 =[FIRSTNAME] [LASTNAME]                                   (legacy)
 
-=concat([FIRSTNAME], &quot; &quot;, [LASTNAME])                     (structured)
+=concat([FIRSTNAME], " ", [LASTNAME])                     (structured)
 =round([AREA] / 10000, 2)                                 (structured)
-=if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)                (structured)
-=concat(&quot;Area: &quot;, round(shape_area(31256), 2), &quot; m2&quot;)     (structured)
+=if([STATUS] == "A", "Active", "Inactive")                (structured)
+=concat("Area: ", round(shape_area(31256), 2), " m2")     (structured)
 </pre></div>
 </div>
 </section>
@@ -833,10 +833,10 @@ Area: $round2([AREA]) m2
 [FIRSTNAME] [LASTNAME]                                    (legacy)
 Area: $round2([AREA]) m2                                  (legacy)
 
-concat([FIRSTNAME], &quot; &quot;, [LASTNAME])                      (structured)
+concat([FIRSTNAME], " ", [LASTNAME])                      (structured)
 round([AREA] / 10000, 2)                                  (structured)
-if([STATUS] == &quot;A&quot;, &quot;Active&quot;, &quot;Inactive&quot;)                 (structured)
-concat(&quot;Area: &quot;, round([AREA], 2), &quot; m2&quot;)                 (structured)
+if([STATUS] == "A", "Active", "Inactive")                 (structured)
+concat("Area: ", round([AREA], 2), " m2")                 (structured)
 </pre></div>
 </div>
 </section>
@@ -857,7 +857,7 @@ concat(&quot;Area: &quot;, round([AREA], 2), &quot; m2&quot;)                 (s
 <p>Examples of invalid structured expressions:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>round(
 unknown([VALUE])
-&quot;Text&quot; + &quot;Text&quot;
+"Text" + "Text"
 [VALUE] / 0
 </pre></div>
 </div>
@@ -975,7 +975,7 @@ are used. Parser selection and parsing are therefore not repeated for every sing
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

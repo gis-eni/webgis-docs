@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Plot Service &#8212; webgis 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API …</a><ul class="current">
@@ -167,9 +167,9 @@
 <p>The API tries to fit the given area into the map layout, provided that this is possible for the given scale.
 For this, the API tries different paper sizes (A4, A3, …) and orientations (portrait, landscape). As soon as a paper size is found, a PDF file is created for this paper size.</p>
 <p>Which paper sizes and orientations are possible can be defined in the respective layout.xml file:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;layout</span><span class="w"> </span><span class="na">to-jpg-if-greater=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="na">image-format=</span><span class="s">&quot;jpg&quot;</span>
-<span class="w">   </span><span class="na">plot_service_page_sizes=</span><span class="s">&quot;A4,A3,A2&quot;</span>
-<span class="w">   </span><span class="na">plot_service_page_orientations=</span><span class="s">&quot;Landscape,Portrait&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;layout</span><span class="w"> </span><span class="na">to-jpg-if-greater=</span><span class="s">"5"</span><span class="w"> </span><span class="na">image-format=</span><span class="s">"jpg"</span>
+<span class="w">   </span><span class="na">plot_service_page_sizes=</span><span class="s">"A4,A3,A2"</span>
+<span class="w">   </span><span class="na">plot_service_page_orientations=</span><span class="s">"Landscape,Portrait"</span><span class="w"> </span><span class="nt">&gt;</span>
 </pre></div>
 </div>
 <p>The attributes for the <em>PlotService</em> start with <code class="docutils literal notranslate"><span class="pre">plot_service_</span></code>:</p>
@@ -222,12 +222,12 @@ the next scale is used. If the layout is only permitted for certain scales (see 
 </ul>
 <p>The response of a <em>PlotService</em> call comes as JSON in the following form:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;print_0a0d0ccb44f54ad7b9dce8f328052ae2.pdf&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="s2">&quot;base64&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;JVBERi0xLjQKJdP0zOEKMSAwIG9iago8PAovQ3JlYXRpb25EYXRlKEQ6MjAyMDEyMTQwODQyNDYrMDEnMDAnKQovQ3JlYXRvcihQ....&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="s2">&quot;page_format&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;A4.Landscape&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="s2">&quot;scale_dominator&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span>
-<span class="w">   </span><span class="s2">&quot;success&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">   </span><span class="s2">&quot;exception&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">   </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"print_0a0d0ccb44f54ad7b9dce8f328052ae2.pdf"</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">"base64"</span><span class="o">:</span><span class="w"> </span><span class="s2">"JVBERi0xLjQKJdP0zOEKMSAwIG9iago8PAovQ3JlYXRpb25EYXRlKEQ6MjAyMDEyMTQwODQyNDYrMDEnMDAnKQovQ3JlYXRvcihQ...."</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">"page_format"</span><span class="o">:</span><span class="w"> </span><span class="s2">"A4.Landscape"</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">"scale_dominator"</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">"success"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">"exception"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -255,7 +255,7 @@ which abstracts the call. This especially simplifies passing more complex parame
 <p>An example project that shows the procedure is the .NET Core console application <code class="docutils literal notranslate"><span class="pre">WebGIS.Api.Test.Client</span></code>.</p>
 <p>To be able to use the service, it must be registered via <em>DependencyInjection</em>. In addition,
 <code class="docutils literal notranslate"><span class="pre">IHttpClientFactory</span></code> must also be added for the <em>DependencyInjection</em>, e.g.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">services</span><span class="o">.</span><span class="n">AddHttpClient</span><span class="p">(</span><span class="s2">&quot;plostservice&quot;</span><span class="p">,</span> <span class="n">c</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">services</span><span class="o">.</span><span class="n">AddHttpClient</span><span class="p">(</span><span class="s2">"plostservice"</span><span class="p">,</span> <span class="n">c</span> <span class="o">=&gt;</span> <span class="p">{})</span>
       <span class="o">.</span><span class="n">ConfigurePrimaryHttpMessageHandler</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="n">new</span> <span class="n">HttpClientHandler</span><span class="p">()</span>
        <span class="p">{</span>
           <span class="n">ServerCertificateCustomValidationCallback</span> <span class="o">=</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">cert</span><span class="p">,</span> <span class="n">chain</span><span class="p">,</span> <span class="n">sslPolicyErrors</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">return</span> <span class="n">true</span><span class="p">;</span> <span class="p">}</span>
@@ -263,22 +263,22 @@ which abstracts the call. This especially simplifies passing more complex parame
 
 <span class="n">services</span><span class="o">.</span><span class="n">AddWebGISPlotService</span><span class="p">(</span><span class="n">o</span><span class="o">=&gt;</span>
 <span class="p">{</span>
-   <span class="n">o</span><span class="o">.</span><span class="n">HttpClientName</span> <span class="o">=</span> <span class="s2">&quot;plotservice&quot;</span><span class="p">;</span>
+   <span class="n">o</span><span class="o">.</span><span class="n">HttpClientName</span> <span class="o">=</span> <span class="s2">"plotservice"</span><span class="p">;</span>
 <span class="p">});</span>
 </pre></div>
 </div>
 <p>After that, <code class="docutils literal notranslate"><span class="pre">WebGISPlotService</span></code> can be injected via <em>DependencyInjection</em>. The <code class="docutils literal notranslate"><span class="pre">RunAsync</span></code> method
 performs a call to the PlotService:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
-   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;layout-standard&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">"https://localhost:44341"</span><span class="p">,</span>
+   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">"dev"</span><span class="p">,</span> <span class="s2">"Allgemein"</span><span class="p">,</span> <span class="s2">"Basiskarte und Kataster"</span><span class="p">,</span> <span class="s2">"layout-standard"</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
    <span class="p">{</span>
       <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
       <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
    <span class="p">});</span>
 
 <span class="o">//</span> <span class="n">alternatively</span><span class="p">,</span> <span class="n">passing</span> <span class="n">several</span> <span class="n">possible</span> <span class="n">scales</span>
-<span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
-   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;layout-standard&quot;</span><span class="p">,</span> <span class="n">new</span> <span class="nb">int</span><span class="p">[]{</span> <span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2880</span> <span class="p">})</span>
+<span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="s2">"https://localhost:44341"</span><span class="p">,</span>
+   <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">"dev"</span><span class="p">,</span> <span class="s2">"Allgemein"</span><span class="p">,</span> <span class="s2">"Basiskarte und Kataster"</span><span class="p">,</span> <span class="s2">"layout-standard"</span><span class="p">,</span> <span class="n">new</span> <span class="nb">int</span><span class="p">[]{</span> <span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2880</span> <span class="p">})</span>
    <span class="p">{</span>
       <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
       <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
@@ -291,15 +291,15 @@ performs a call to the PlotService:</p>
 </div>
 <p>The return value is of type <code class="docutils literal notranslate"><span class="pre">WebGISPlotServiceResponse</span></code>. Here too, it is important to check
 whether the plot was successful (<code class="docutils literal notranslate"><span class="pre">response.Success</span> <span class="pre">=</span> <span class="pre">true</span></code>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Console.WriteLine($&quot;Request Succeeded: { response.Success }&quot;);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Console.WriteLine($"Request Succeeded: { response.Success }");
 if (!response.Success)
 {
-   Console.WriteLine($&quot;Response Message: { response.ExceptionMessage  }&quot;);
+   Console.WriteLine($"Response Message: { response.ExceptionMessage  }");
 }
 else
 {
-   string fileName = $@&quot;c:\temp\{ response.Name }&quot;;
-   Console.WriteLine($&quot;Write file: { fileName }&quot;);
+   string fileName = $@"c:\temp\{ response.Name }";
+   Console.WriteLine($"Write file: { fileName }");
 
    await System.IO.File.WriteAllBytesAsync(fileName, response.BinaryResult);
 }
@@ -314,13 +314,13 @@ Only how presentation variants are passed via the API client library is describe
 <span class="p">{</span>
    <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">()</span>
    <span class="p">{</span>
-      <span class="n">Id</span><span class="o">=</span><span class="s2">&quot;dv_overviewmap_off&quot;</span><span class="p">,</span>
-      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;overviewmap_ags@my_cms&quot;</span>
+      <span class="n">Id</span><span class="o">=</span><span class="s2">"dv_overviewmap_off"</span><span class="p">,</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">"overviewmap_ags@my_cms"</span>
    <span class="p">},</span>
    <span class="n">new</span> <span class="n">WebGISPresentationDefinition</span><span class="p">()</span>
    <span class="p">{</span>
-      <span class="n">Id</span><span class="o">=</span><span class="s2">&quot;dv_streets_and_addresses&quot;</span><span class="p">,</span>
-      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;basemap_ags@my_cms&quot;</span><span class="p">,</span>
+      <span class="n">Id</span><span class="o">=</span><span class="s2">"dv_streets_and_addresses"</span><span class="p">,</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">"basemap_ags@my_cms"</span><span class="p">,</span>
       <span class="n">Check</span> <span class="o">=</span> <span class="n">true</span>
    <span class="p">}</span>
 <span class="p">}</span>
@@ -346,14 +346,14 @@ The presentation variants passed are executed in the order in which they are lis
 <span class="p">{</span>
    <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">()</span>
    <span class="p">{</span>
-      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;tor_tiles_gray@my-cms&quot;</span><span class="p">,</span>
-      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">&quot;0&quot;</span> <span class="p">},</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">"tor_tiles_gray@my-cms"</span><span class="p">,</span>
+      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">"0"</span> <span class="p">},</span>
       <span class="n">Visible</span><span class="o">=</span><span class="n">true</span>
    <span class="p">},</span>
    <span class="n">new</span> <span class="n">WebGISLayerVisibilityDefintion</span><span class="p">()</span>
    <span class="p">{</span>
-      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">&quot;strassen_tiles_default@my-cms&quot;</span><span class="p">,</span>
-      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">&quot;0&quot;</span> <span class="p">},</span>
+      <span class="n">ServiceId</span><span class="o">=</span><span class="s2">"strassen_tiles_default@my-cms"</span><span class="p">,</span>
+      <span class="n">Layers</span><span class="o">=</span><span class="n">new</span> <span class="n">string</span><span class="p">[]{</span> <span class="s2">"0"</span> <span class="p">},</span>
       <span class="n">Visible</span><span class="o">=</span><span class="n">true</span>
    <span class="p">}</span>
 <span class="p">}</span>
@@ -376,7 +376,7 @@ corresponding <em>credentials</em> must be passed when calling the API. Authenti
 <p>A <em>client</em> can be created by a <em>subscriber</em> via the API administration interface:</p>
 <img alt="../../_images/plotservice1.png" src="../../_images/plotservice1.png" />
 <p>Important for the call are the <code class="docutils literal notranslate"><span class="pre">ClientId</span></code> and the <code class="docutils literal notranslate"><span class="pre">ClientSecret</span></code>:</p>
-<img alt="../../_images/plotService2.png" src="../../_images/plotService2.png" />
+<img alt="../../_images/plotservice2.png" src="../../_images/plotservice2.png" />
 <p>In the CMS, all necessary services must now be authorized for this client. The name that must be given in the CMS is <code class="docutils literal notranslate"><span class="pre">{subscriber}&#64;{client-name}</span></code>.
 If the client shown above was created by the subscriber <code class="docutils literal notranslate"><span class="pre">subscriber::gis-admim</span></code>, <code class="docutils literal notranslate"><span class="pre">subscriber::gis-admin&#64;plot-service</span></code> must be given in the CMS.</p>
 <p>When calling the API, the <em>ClientId</em> and the <em>ClientSecret</em> must be passed with the following parameters:</p>
@@ -384,13 +384,13 @@ If the client shown above was created by the subscriber <code class="docutils li
 </pre></div>
 </div>
 <p>If you use the .NET Standard API client library, the client can be passed as follows when calling:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">RunAsync</span><span class="p">(</span><span class="s2">&quot;https://localhost:44341&quot;</span><span class="p">,</span>
-         <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">&quot;dev&quot;</span><span class="p">,</span> <span class="s2">&quot;Allgemein&quot;</span><span class="p">,</span> <span class="s2">&quot;Basiskarte und Kataster&quot;</span><span class="p">,</span> <span class="s2">&quot;strom-standard&quot;</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">plotService</span><span class="o">.</span><span class="n">RunAsync</span><span class="p">(</span><span class="s2">"https://localhost:44341"</span><span class="p">,</span>
+         <span class="n">new</span> <span class="n">WebGISPlotServiceRequestOptions</span><span class="p">(</span><span class="s2">"dev"</span><span class="p">,</span> <span class="s2">"Allgemein"</span><span class="p">,</span> <span class="s2">"Basiskarte und Kataster"</span><span class="p">,</span> <span class="s2">"strom-standard"</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
          <span class="p">{</span>
              <span class="n">BBox</span> <span class="o">=</span> <span class="n">new</span> <span class="n">double</span><span class="p">[]</span> <span class="p">{</span> <span class="o">-</span><span class="mf">68310.17</span><span class="p">,</span> <span class="mf">215052.83</span><span class="p">,</span> <span class="o">-</span><span class="mf">67577.19</span><span class="p">,</span> <span class="mf">216004.68</span> <span class="p">},</span>
              <span class="n">BBoxSrs</span> <span class="o">=</span> <span class="mi">31256</span>
          <span class="p">},</span>
-         <span class="n">new</span> <span class="n">WebGISApiClient</span><span class="p">(</span><span class="s2">&quot;0e4....&quot;</span><span class="p">,</span> <span class="s2">&quot;8337f.....&quot;</span><span class="p">));</span>
+         <span class="n">new</span> <span class="n">WebGISApiClient</span><span class="p">(</span><span class="s2">"0e4...."</span><span class="p">,</span> <span class="s2">"8337f....."</span><span class="p">));</span>
 </pre></div>
 </div>
 </section>
@@ -447,7 +447,7 @@ If the client shown above was created by the subscriber <code class="docutils li
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

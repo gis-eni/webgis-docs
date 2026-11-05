@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Security measures (hardening) &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
@@ -198,11 +198,11 @@
 <p class="admonition-title">Important</p>
 <p>The user name <strong>must</strong> be <code class="docutils literal notranslate"><span class="pre">admin</span></code> when using the default settings. The <em>WebGIS API</em> internally uses this <strong>fixed name</strong> to assign the user to the <strong>admin role</strong>. Without this name, the user will not receive administrator rights.</p>
 <p>Which user name is assigned the administrator role is defined in the API configuration file <code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code></p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
 <span class="w">  </span><span class="nt">&lt;appSettings&gt;</span>
 <span class="w">    </span>...
-<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;subscriber-admins&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;admin&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"subscriber-admins"</span><span class="w"> </span><span class="na">value=</span><span class="s">"admin"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">    </span>...
 <span class="w">  </span><span class="nt">&lt;/appSettings&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>
@@ -218,11 +218,11 @@
 <p>Once all necessary user accounts have been created, <strong>self-registration for subscribers</strong> should be disabled. Otherwise, any user could create an account on their own, which is undesirable in most cases.</p>
 <p>After disabling it, new user accounts can only be created manually via the <strong>admin account</strong>.</p>
 <p>Self-registration is disabled by setting <code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> in the API configuration file (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>):</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
 <span class="w">   </span><span class="nt">&lt;appSettings&gt;</span>
 <span class="w">      </span>...
-<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-register-new-subscribers&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-register-new-subscribers"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">      </span>...
 <span class="w">   </span><span class="nt">&lt;/appSettings&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>
@@ -241,11 +241,11 @@
 <section id="api-configuration-file-config-api-config">
 <h3>API configuration file (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>)<a class="headerlink" href="#api-configuration-file-config-api-config" title="Link to this heading">¶</a></h3>
 <img alt="../../_images/disable_api_login.png" src="../../_images/disable_api_login.png" />
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
 <span class="w">   </span><span class="nt">&lt;appSettings&gt;</span>
 <span class="w">      </span>...
-<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-subscriber-login&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-subscriber-login"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">      </span>...
 <span class="w">   </span><span class="nt">&lt;/appSettings&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>
@@ -255,11 +255,11 @@
 <section id="portal-configuration-file-config-portal-config">
 <h3>Portal configuration file (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>)<a class="headerlink" href="#portal-configuration-file-config-portal-config" title="Link to this heading">¶</a></h3>
 <img alt="../../_images/disable_portal_login.png" src="../../_images/disable_portal_login.png" />
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="nt">&lt;configuration&gt;</span>
 <span class="w">   </span><span class="nt">&lt;appSettings&gt;</span>
 <span class="w">      </span>...
-<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;allow-subscriber-login&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-subscriber-login"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">      </span>...
 <span class="w">   </span><span class="nt">&lt;/appSettings&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>
@@ -326,7 +326,7 @@
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

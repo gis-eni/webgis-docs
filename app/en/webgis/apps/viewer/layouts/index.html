@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Custom Layouts &#8212; WebGIS 2026 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../../_static/documentation_options.js?v=fc6fd62b"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Go" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/index.html">Installation</a></li>
@@ -171,7 +171,7 @@
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
 <p>The mechanism for using different layouts must first be enabled via the <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> file. The following key is responsible for this:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;query-custom-map-layout&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"query-custom-map-layout"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>If this value is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, after the map viewer is called, the client sends an additional Ajax request with the current browser window size to the server. The server then decides which layout is ideal for the client and, if applicable, returns a custom layout as an HTML fragment. Only once the custom layout has been inserted into the map viewer does the initialization of the map start.</p>
@@ -217,8 +217,8 @@
 </pre></div>
 </div>
 <p>The toolbox should essentially float transparently over the map. To achieve this effect, the toolbox should get a (3D) shadow with these styles.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;map&#39;</span>
-    <span class="na">style</span><span class="o">=</span><span class="s">&#39;position: absolute;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">'map'</span>
+    <span class="na">style</span><span class="o">=</span><span class="s">'position: absolute;</span>
 <span class="s">           top: 0px;</span>
 <span class="s">           left: 0px;</span>
 <span class="s">           bottom: 0px;</span>
@@ -226,18 +226,18 @@
 <span class="s">           opacity: 0;</span>
 <span class="s">           border-top: 1px solid #62b851;</span>
 <span class="s">           border-left: 1px solid #62b851;</span>
-<span class="s">           box-sizing: border-box&#39;</span><span class="p">&gt;</span>
+<span class="s">           box-sizing: border-box'</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Here, the map is inserted into the layout. The UI elements are always <code class="docutils literal notranslate"><span class="pre">div</span></code> tags. The <code class="docutils literal notranslate"><span class="pre">id</span></code> is important, so that the viewer knows which element it is. <code class="docutils literal notranslate"><span class="pre">id=&quot;map&quot;</span></code> corresponds, for example, to the map. The styles are used to position the map absolutely, filling the browser window.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">opacity</span></code> value is initially set to <code class="docutils literal notranslate"><span class="pre">0</span></code> here, i.e. the map is fully transparent. This can be used to achieve a “nicer” loading process for the viewer. As soon as the map has been fully initialized, the API automatically sets this value to <code class="docutils literal notranslate"><span class="pre">1</span></code>, causing the map to appear with a fade-in effect.</p>
 <p>Since the map is sometimes still being zoomed during initialization, which can cause a certain amount of “jitter,” the user does not notice this. The map thus only appears, optionally, once everything is ready.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;tabs&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tabs-layout-container-options&quot;</span>
-     <span class="na">data-option-add_tools</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
-     <span class="na">data-option-add_tool_content</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-     <span class="na">data-option-selected</span><span class="o">=</span><span class="s">&quot;presentations&quot;</span>
-     <span class="na">style</span><span class="o">=</span><span class="s">&#39;display: none&#39;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"tabs"</span> <span class="na">class</span><span class="o">=</span><span class="s">"tabs-layout-container-options"</span>
+     <span class="na">data-option-add_tools</span><span class="o">=</span><span class="s">"false"</span>
+     <span class="na">data-option-add_tool_content</span><span class="o">=</span><span class="s">"true"</span>
+     <span class="na">data-option-selected</span><span class="o">=</span><span class="s">"presentations"</span>
+     <span class="na">style</span><span class="o">=</span><span class="s">'display: none'</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -267,29 +267,29 @@
 </tbody>
 </table>
 <p>The next block describes where the hourglass (the small gray strip that shows which services are currently being loaded) is shown. It is usually located below the tab control.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index:9998;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"z-index:9998;</span>
 <span class="s">            position:absolute;</span>
 <span class="s">            right:0px;</span>
 <span class="s">            width:320px;</span>
 <span class="s">            bottom:0px;</span>
 <span class="s">            height:24px;</span>
-<span class="s">            background:#aaa&quot;</span><span class="p">&gt;</span>
+<span class="s">            background:#aaa"</span><span class="p">&gt;</span>
     …
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>The <strong>topbar</strong> (quick search, etc.) is positioned similarly. It appears at the top right:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;topbar&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"topbar"</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute;</span>
 <span class="s">                        right:0px;</span>
 <span class="s">                        top:0px;</span>
 <span class="s">                        text-align:right;</span>
 <span class="s">                        background-color:#fff;</span>
-<span class="s">                        z-index:1000&quot;</span><span class="p">&gt;</span>
+<span class="s">                        z-index:1000"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>The actual difference from the original layout is the <strong>toolbox</strong>. It is integrated into the layout via the following line:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;toolbar&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;webgis-ui-trans&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"toolbar"</span> <span class="na">class</span><span class="o">=</span><span class="s">"webgis-ui-trans"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -302,23 +302,23 @@
 <img alt="../../../_images/image_3.png" src="../../../_images/image_3.png" />
 <p>In this layout too, the necessary styles resulting from the layout are defined at the top. The next section contains a script part:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;~&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"~"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">gdiScheme</span><span class="p">;</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>This indicates that a different GDI schema is used in this layout. For example, in this layout the user can see different (more) presentation variants in the TOC than on a small display. There is a further whitepaper on this topic (<em>GDI schemes and presentation variants</em>).</p>
 <p>Next comes a block in which the logo and the logo text are placed at the top right:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-logo&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:0px; top:0px; width:320px; height:81px;&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"my-logo"</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute; left:0px; top:0px; width:320px; height:81px;"</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://ines.esn.at/_layouts/15/images/.../79x83.png&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:78px;&quot;</span> <span class="p">/&gt;</span>
+                <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://ines.esn.at/_layouts/15/images/.../79x83.png"</span> <span class="na">style</span><span class="o">=</span><span class="s">"height:78px;"</span> <span class="p">/&gt;</span>
             <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;font-size:2.5em;</span>
+            <span class="p">&lt;</span><span class="nt">td</span> <span class="na">style</span><span class="o">=</span><span class="s">"font-size:2.5em;</span>
 <span class="s">                       color:#62B851;</span>
 <span class="s">                       font-weight:bold;</span>
 <span class="s">                       vertical-align:top;</span>
-<span class="s">                       padding:0px 12px;&quot;</span><span class="p">&gt;</span>
+<span class="s">                       padding:0px 12px;"</span><span class="p">&gt;</span>
                 WebGIS Fluent
             <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
@@ -327,7 +327,7 @@
 </pre></div>
 </div>
 <p>Next comes the area for the map. This time it is no longer window-filling; instead, an area for tools and the TOC is left free on the left and top:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"map"</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute;</span>
 <span class="s">                     top:82px;</span>
 <span class="s">                     left:320px;</span>
 <span class="s">                     bottom:0px;</span>
@@ -335,39 +335,39 @@
 <span class="s">                     opacity:0;</span>
 <span class="s">                     border-top:1px solid #62b851;</span>
 <span class="s">                     border-left:1px solid #62b851;</span>
-<span class="s">                     box-sizing:border-box;&quot;</span><span class="p">&gt;</span>
+<span class="s">                     box-sizing:border-box;"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>After that, the left frame with the contained tabs and the hourglass is defined:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; top:82px; left:0px; bottom:0px; width:320px; box-sizing:border-box;&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;tabs&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;tabs-layout-container&quot;</span>
-         <span class="na">data-option-top</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
-         <span class="na">data-option-right</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
-         <span class="na">data-option-bottom</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
-         <span class="na">data-option-left</span><span class="o">=</span><span class="s">&quot;0&quot;</span>
-         <span class="na">data-option-add_tools</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
-         <span class="na">data-option-add_tool_content</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-         <span class="na">data-option-content_size</span><span class="o">=</span><span class="s">&quot;fill&quot;</span>
-         <span class="na">data-option-selected</span><span class="o">=</span><span class="s">&quot;presentations&quot;</span>
-         <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:0px; top:0px; right:0px; bottom:24px;&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute; top:82px; left:0px; bottom:0px; width:320px; box-sizing:border-box;"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"tabs"</span> <span class="na">class</span><span class="o">=</span><span class="s">"tabs-layout-container"</span>
+         <span class="na">data-option-top</span><span class="o">=</span><span class="s">"0"</span>
+         <span class="na">data-option-right</span><span class="o">=</span><span class="s">"0"</span>
+         <span class="na">data-option-bottom</span><span class="o">=</span><span class="s">"0"</span>
+         <span class="na">data-option-left</span><span class="o">=</span><span class="s">"0"</span>
+         <span class="na">data-option-add_tools</span><span class="o">=</span><span class="s">"false"</span>
+         <span class="na">data-option-add_tool_content</span><span class="o">=</span><span class="s">"true"</span>
+         <span class="na">data-option-content_size</span><span class="o">=</span><span class="s">"fill"</span>
+         <span class="na">data-option-selected</span><span class="o">=</span><span class="s">"presentations"</span>
+         <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute; left:0px; top:0px; right:0px; bottom:24px;"</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index:9998;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"z-index:9998;</span>
 <span class="s">                position:absolute;</span>
 <span class="s">                right:0px;</span>
 <span class="s">                width:320px;</span>
 <span class="s">                bottom:0px;</span>
 <span class="s">                height:24px;</span>
-<span class="s">                background:#aaa;&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute;</span>
+<span class="s">                background:#aaa;"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute;</span>
 <span class="s">                    left:0px;</span>
 <span class="s">                    top:0px;</span>
 <span class="s">                    width:24px;</span>
 <span class="s">                    height:24px;</span>
 <span class="s">                    cursor:pointer;</span>
-<span class="s">                    background-image:url();&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-info&quot;</span><span class="p">&gt;</span>
+<span class="s">                    background-image:url();"</span> <span class="na">id</span><span class="o">=</span><span class="s">"webgis-info"</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:24px; top:0px; bottom:0px; right:0px;&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;hourglass&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute; left:24px; top:0px; bottom:0px; right:0px;"</span> <span class="na">id</span><span class="o">=</span><span class="s">"hourglass"</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -375,10 +375,10 @@
 </div>
 <p>In addition to the options described above for the tabs, this also adds the positioning of the controls and the setting that the control may fill the entire area. The hourglass is pinned to the bottom of the frame.</p>
 <p>The last section describes the top frame with the toolbox and quick search:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; top:0px; left:0px; right:0px; height:82px; z-index:999; overflow:visible;&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;toolbar&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; left:320px; top:0px; z-index:0;&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute; top:0px; left:0px; right:0px; height:82px; z-index:999; overflow:visible;"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"toolbar"</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute; left:320px; top:0px; z-index:0;"</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;topbar&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;position:absolute; right:0px; top:0px; text-align:right; background-color:#fff;&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"topbar"</span> <span class="na">style</span><span class="o">=</span><span class="s">"position:absolute; right:0px; top:0px; text-align:right; background-color:#fff;"</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
@@ -440,7 +440,7 @@
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

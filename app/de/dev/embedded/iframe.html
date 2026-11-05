@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Karten über iFrame einbettten &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
     <script src="../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/translations.js?v=70a09b52"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=9bf55d28"></script>
     <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -113,7 +113,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -121,14 +121,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../API/index.html">API …</a></li>
@@ -158,8 +158,8 @@ um das aktuelle Kartenbild herunterzuladen (bzw. in einem <code class="docutils 
 <h2>IFrame mit WebGIS Anwendung<a class="headerlink" href="#iframe-mit-webgis-anwendung" title="Link to this heading">¶</a></h2>
 <p>Um eine WebGIS Anwendung auf der Drittseite einzubetten, ist ein entsprechendes <code class="docutils literal notranslate"><span class="pre">iframe</span></code> Element innerhalb
 des <code class="docutils literal notranslate"><span class="pre">body</span></code> Elements zu definieren:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://localhost/map0.htm&quot;</span>
-                    <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index:0;width:500px;height:500px&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">"http://localhost/map0.htm"</span>
+                    <span class="na">style</span><span class="o">=</span><span class="s">"z-index:0;width:500px;height:500px"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -177,7 +177,7 @@ WebGIS Portals handeln ist dieser Eintrag in der <code class="docutils literal n
 </div>
 <p>Über eine <code class="docutils literal notranslate"><span class="pre">callback</span></code> Funktion kann innerhalb der Drittseite auf Änderngen des Kartenausschnittes reagiert werden.
 Dazu muss zuerst ein Script auf der Drittseite geladen werden, dass die Kommunikation mit dem IFrame ermöglicht:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/embedding/webgis-embedding.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/scripts/api/embedding/webgis-embedding.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -187,7 +187,7 @@ Hier im Beispiel ist das die API in der WebGIS Cloud. Diese kann grundsätzlich 
 kann es dabei zur eingebettet API zu Versionsunterschieden kommen.</p>
 </div>
 <p>Über das Script kommt ein Objekte <code class="docutils literal notranslate"><span class="pre">webgis_embedding</span></code> auf die Drittseite. Dieses kann für das IFrame instanziert werden:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">embedding</span> <span class="o">=</span> <span class="n">new</span> <span class="n">webgis_embedding</span><span class="p">(</span><span class="s1">&#39;webgis-frame&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">embedding</span> <span class="o">=</span> <span class="n">new</span> <span class="n">webgis_embedding</span><span class="p">(</span><span class="s1">'webgis-frame'</span><span class="p">,</span> <span class="p">{</span>
     <span class="o">//</span> <span class="n">Options</span><span class="p">:</span> <span class="n">Events</span>
     <span class="n">onChangeExtent</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="p">{},</span>
     <span class="n">onReceiveCurrentMapImage</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="p">{}</span>
@@ -202,8 +202,8 @@ definiert werden, die aufgerufen werden, wenn sich in der eingebettete Karte bei
 Wird aufgerufen, wenn sich der Kartenausschnitt ändert. Das Event liefert folgende Eigenschaften:</p></li>
 </ul>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">     </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map-refresh&#39;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">mapId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map&#39;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s1">'map-refresh'</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">mapId</span><span class="o">:</span><span class="w"> </span><span class="s1">'map'</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">bounds</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">10.283203125000423</span><span class="p">,</span><span class="w"> </span><span class="mf">45.68315803253279</span><span class="p">,</span><span class="w"> </span><span class="mf">15.776367187500407</span><span class="p">,</span><span class="w"> </span><span class="mf">49.3895244515819</span><span class="p">],</span>
 <span class="w">     </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">13.029785156250398</span><span class="p">,</span><span class="w"> </span><span class="mf">47.56911375866688</span><span class="p">],</span>
 <span class="w">     </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">4622334</span>
@@ -219,28 +219,28 @@ Wird aufgerufen, wenn ein Bild der aktuellen Kartendarstellung geliefert wird. D
 der <code class="docutils literal notranslate"><span class="pre">requestCurrentMapImage()</span></code> Funktion aufgerufen. Das <code class="docutils literal notranslate"><span class="pre">event</span></code> Objekt hat folgendes aussehen:</p></li>
 </ul>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">     </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;current-map-image&#39;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">mapId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;map&#39;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">href</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://......&#39;</span><span class="p">,</span><span class="w">   </span><span class="c1">// Url zum Kartenbild (nur wenn result_format nicht extra angeführt wird). Ein Kartenbild kann in er Regel nur einmal abgeholt werden und wird danach automatisch am Server gelöscht!</span>
-<span class="w">     </span><span class="nx">base64</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;...........&#39;</span><span class="w">     </span><span class="c1">// Base64 String des Kartenbildes (nur wenn result_format = &#39;base64&#39;)</span>
+<span class="w">     </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s1">'current-map-image'</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">mapId</span><span class="o">:</span><span class="w"> </span><span class="s1">'map'</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">href</span><span class="o">:</span><span class="w"> </span><span class="s1">'https://......'</span><span class="p">,</span><span class="w">   </span><span class="c1">// Url zum Kartenbild (nur wenn result_format nicht extra angeführt wird). Ein Kartenbild kann in er Regel nur einmal abgeholt werden und wird danach automatisch am Server gelöscht!</span>
+<span class="w">     </span><span class="nx">base64</span><span class="o">:</span><span class="w"> </span><span class="s1">'...........'</span><span class="w">     </span><span class="c1">// Base64 String des Kartenbildes (nur wenn result_format = 'base64')</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Folgendes Beispiel zeit eine mögliche Implementierung dieser beiden Events:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">mapId</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">embedding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">webgis_embedding</span><span class="p">(</span><span class="s1">&#39;webgis-frame&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">embedding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">webgis_embedding</span><span class="p">(</span><span class="s1">'webgis-frame'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">onChangeExtent</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onChangeExtent&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
+<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onChangeExtent'</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
 
 <span class="w">                    </span><span class="nx">mapId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">mapId</span><span class="p">;</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="nx">onReceiveCurrentMapImage</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onReceiveCurrentMapImage&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
+<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onReceiveCurrentMapImage'</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
 
 <span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">href</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;webgis-map-image&#39;</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+<span class="w">                        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'webgis-map-image'</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
 <span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">base64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;webgis-map-image&#39;</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data:image/png;base64, &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">base64</span><span class="p">;</span>
+<span class="w">                            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'webgis-map-image'</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'data:image/png;base64, '</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">base64</span><span class="p">;</span>
 <span class="w">                    </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">    </span><span class="p">});</span>
@@ -259,46 +259,46 @@ aktuellen Karte in unterschiedlichen Formaten anbietet:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
  <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html; charset=utf-8&quot;</span> <span class="p">/&gt;</span>
-     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no&quot;</span> <span class="p">/&gt;</span>
-     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;apple-mobile-web-app-capable&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;yes&quot;</span> <span class="p">/&gt;</span>
+     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">"Content-Type"</span> <span class="na">content</span><span class="o">=</span><span class="s">"text/html; charset=utf-8"</span> <span class="p">/&gt;</span>
+     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"</span> <span class="p">/&gt;</span>
+     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"apple-mobile-web-app-capable"</span> <span class="na">content</span><span class="o">=</span><span class="s">"yes"</span> <span class="p">/&gt;</span>
 
      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
 
-     <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://api.webgiscloud.com/scripts/api/embedding/webgis-embedding.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"https://api.webgiscloud.com/scripts/api/embedding/webgis-embedding.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 
  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>WebGIS IFrame<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 
-     <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-frame&quot;</span>
-             <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at&quot;</span>
-             <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index:0;width:500px;height:500px&quot;</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">id</span><span class="o">=</span><span class="s">"webgis-frame"</span>
+             <span class="na">src</span><span class="o">=</span><span class="s">"https://maps.webgiscloud.com/examples/map/Basemaps/Geoland%20Basemap.at"</span>
+             <span class="na">style</span><span class="o">=</span><span class="s">"z-index:0;width:500px;height:500px"</span><span class="p">&gt;</span>
 
      <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
 
      <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
-     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;download_map_image_href()&quot;</span><span class="p">&gt;</span>Download Map Image (href)<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;download_map_image_base64()&quot;</span><span class="p">&gt;</span>Download Map Image (Base64)<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"download_map_image_href()"</span><span class="p">&gt;</span>Download Map Image (href)<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onclick</span><span class="o">=</span><span class="s">"download_map_image_base64()"</span><span class="p">&gt;</span>Download Map Image (Base64)<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
      <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
-     <span class="p">&lt;</span><span class="nt">img</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;webgis-map-image&quot;</span> <span class="p">/&gt;</span>
+     <span class="p">&lt;</span><span class="nt">img</span> <span class="na">id</span><span class="o">=</span><span class="s">"webgis-map-image"</span> <span class="p">/&gt;</span>
 
-     <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+     <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="p">&gt;</span>
 
 <span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">mapId</span><span class="p">;</span>
-<span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">embedding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">webgis_embedding</span><span class="p">(</span><span class="s1">&#39;webgis-frame&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">embedding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">webgis_embedding</span><span class="p">(</span><span class="s1">'webgis-frame'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">         </span><span class="nx">onChangeExtent</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onChangeExtent&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
+<span class="w">             </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onChangeExtent'</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
 
 <span class="w">             </span><span class="nx">mapId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">mapId</span><span class="p">;</span>
 <span class="w">         </span><span class="p">},</span>
 <span class="w">         </span><span class="nx">onReceiveCurrentMapImage</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onReceiveCurrentMapImage&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
+<span class="w">             </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'onReceiveCurrentMapImage'</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">);</span>
 
 <span class="w">             </span><span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">href</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                 </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;webgis-map-image&#39;</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+<span class="w">                 </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'webgis-map-image'</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
 <span class="w">             </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">base64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                 </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;webgis-map-image&#39;</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data:image/png;base64, &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">base64</span><span class="p">;</span>
+<span class="w">                 </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'webgis-map-image'</span><span class="p">).</span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'data:image/png;base64, '</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">base64</span><span class="p">;</span>
 <span class="w">             </span><span class="p">}</span>
 <span class="w">         </span><span class="p">}</span>
 <span class="w">     </span><span class="p">});</span>
@@ -308,7 +308,7 @@ aktuellen Karte in unterschiedlichen Formaten anbietet:</p>
 <span class="w">     </span><span class="p">}</span>
 
 <span class="w">     </span><span class="nx">download_map_image_base64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(){</span>
-<span class="w">         </span><span class="nx">embedding</span><span class="p">.</span><span class="nx">requestCurrentMapImage</span><span class="p">(</span><span class="nx">mapId</span><span class="p">,</span><span class="s1">&#39;jpg&#39;</span><span class="p">,</span><span class="s1">&#39;base64&#39;</span><span class="p">);</span>
+<span class="w">         </span><span class="nx">embedding</span><span class="p">.</span><span class="nx">requestCurrentMapImage</span><span class="p">(</span><span class="nx">mapId</span><span class="p">,</span><span class="s1">'jpg'</span><span class="p">,</span><span class="s1">'base64'</span><span class="p">);</span>
 <span class="w">     </span><span class="p">}</span>
 
 <span class="w">     </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -364,7 +364,7 @@ aktuellen Karte in unterschiedlichen Formaten anbietet:</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

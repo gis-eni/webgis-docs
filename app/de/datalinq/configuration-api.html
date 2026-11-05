@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Konfiguration DataLinq.API und DataLinq.CodeApi &#8212; DataLinq 2025 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="_static/css/eni.css?v=cc740ad6" />
     <script src="_static/documentation_options.js?v=b6e8874b"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/translations.js?v=70a09b52"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
     <script src="_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="provision.html">Bereitstellung von DataLinq und DataLinq.Code</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installation.html">Systemarchitektur von WebGIS DataLinq</a></li>
@@ -166,87 +166,87 @@ verschiedene Einsatzszenarien.</p>
 <p>Sie enthält zentrale Einstellungen für Sicherheit, Pfade und Clients.</p>
 <p>Beispiel:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;DataLinq.Api&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;StoragePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{path_to_storage}&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;Razor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Engine&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w">  </span><span class="c1">// default or legacy (old engine)</span>
+<span class="w">  </span><span class="nt">"DataLinq.Api"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"StoragePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{path_to_storage}"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"Razor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="w">  </span><span class="c1">// default or legacy (old engine)</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;Crypto&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;SecureStringEncryptionLevel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
-<span class="w">      </span><span class="nt">&quot;DefaultPasswort&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{a-secure-password}&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
-<span class="w">      </span><span class="nt">&quot;SaltBytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{8byte-base64-encoded}&quot;</span><span class="w">  </span><span class="c1">//optional</span>
+<span class="w">    </span><span class="nt">"Crypto"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"SecureStringEncryptionLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">"DefaultPasswort"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{a-secure-password}"</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional</span>
+<span class="w">      </span><span class="nt">"SaltBytes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{8byte-base64-encoded}"</span><span class="w">  </span><span class="c1">//optional</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;ImageRequestWhiteList&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;https://upload.wikimedia.org/&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;https://raw.githubusercontent.com/&quot;</span>
+<span class="w">    </span><span class="nt">"ImageRequestWhiteList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"https://upload.wikimedia.org/"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"https://raw.githubusercontent.com/"</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;SelectEngines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;TextFileEngine&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;AllowedExtensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="s2">&quot;.txt&quot;</span><span class="p">,</span>
-<span class="w">          </span><span class="s2">&quot;.csv&quot;</span>
+<span class="w">    </span><span class="nt">"SelectEngines"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"TextFileEngine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"AllowedExtensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">".txt"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">".csv"</span>
 <span class="w">        </span><span class="p">],</span>
-<span class="w">        </span><span class="nt">&quot;AllowedPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">          </span><span class="s2">&quot;C:\\DataLinq\\Data\\&quot;</span><span class="w"> </span><span class="c1">// or /etc/datalinq/data on linux</span>
+<span class="w">        </span><span class="nt">"AllowedPaths"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">"C:\\DataLinq\\Data\\"</span><span class="w"> </span><span class="c1">// or /etc/datalinq/data on linux</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;DataLinq.CodeApi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;InitializeSandboxOnStartup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;ClientEndpoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="s2">&quot;http://localhost&quot;</span>
+<span class="w">  </span><span class="nt">"DataLinq.CodeApi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"InitializeSandboxOnStartup"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ClientEndpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"http://localhost"</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;Clients&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nt">"Clients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;datalinq&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;Password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;datalinq&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;EndPointParameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*,_*&quot;</span>
+<span class="w">        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datalinq"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datalinq"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"EndPointParameters"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*,_*"</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;AiService&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;UseAzure&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;AzureOpenAi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;DeploymentName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ApiKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">  </span><span class="nt">"AiService"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"UseAzure"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"AzureOpenAi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"DeploymentName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ApiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;OpenAi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;ModelId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ApiKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ServiceUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">    </span><span class="nt">"OpenAi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"ModelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ApiKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ServiceUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;Agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;DataLinqQueryAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqQueryPrompt.txt&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DataLinqCodeAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqCodePrompt.txt&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DataLinqEndpointAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqEndpointPrompt.txt&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DataLinqGeneralAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqGeneralPrompt.txt&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;UserHistorySummarizerAgent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../../nuget/E.Datalinq.Web/Services/Agents/Prompts/UserHistorySummarizerPrompt.txt&quot;</span>
+<span class="w">  </span><span class="nt">"Agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"DataLinqQueryAgent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqQueryPrompt.txt"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DataLinqCodeAgent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqCodePrompt.txt"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DataLinqEndpointAgent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqEndpointPrompt.txt"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DataLinqGeneralAgent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../../nuget/E.Datalinq.Web/Services/Agents/Prompts/DataLinqGeneralPrompt.txt"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"UserHistorySummarizerAgent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"../../nuget/E.Datalinq.Web/Services/Agents/Prompts/UserHistorySummarizerPrompt.txt"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;TokenCache&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;StorageType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;RedisConnectionString&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost:6379&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;FilePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\temp\\datalinq\\Tokens\\&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DefaultTTL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00:05:00&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DefaultMaxUsage&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;EnableBackgroundCleanup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;CleanupIntervalMinutes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;24:00:00&quot;</span>
+<span class="w">  </span><span class="nt">"TokenCache"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"StorageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"RedisConnectionString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localhost:6379"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"FilePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\temp\\datalinq\\Tokens\\"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DefaultTTL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:05:00"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DefaultMaxUsage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"EnableBackgroundCleanup"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"CleanupIntervalMinutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24:00:00"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;VersionControl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;UseVersionControl&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;LocalRepositoryPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C:\\temp\\datalinq\\repo&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;RemoteUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:3000/admin/datalinq-repo.git&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DefaultBranch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;CredentialType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Token&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;Username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;Password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;PersonalAccessToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DefaultAuthorName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DataLinq Bot&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;DefaultAuthorEmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bot@datalinq.com&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;AutoCreateRepository&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nt">"VersionControl"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"UseVersionControl"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"LocalRepositoryPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C:\\temp\\datalinq\\repo"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"RemoteUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:3000/admin/datalinq-repo.git"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DefaultBranch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"CredentialType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"Username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"PersonalAccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DefaultAuthorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DataLinq Bot"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"DefaultAuthorEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bot@datalinq.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"AutoCreateRepository"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -432,16 +432,16 @@ automatisch erstellt wird (Standard: <code class="docutils literal notranslate">
 <p>Sie dient zur Definition von Konstanten, die im DataLinq Views (Razor Code) verwendet werden:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@{  var env = Const.Environment;   }
 
-@if(env == &quot;Production&quot;) {
+@if(env == "Production") {
    // ...
 }
 </pre></div>
 </div>
 <p>Beispiel:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
 <span class="w">  </span><span class="nt">&lt;configuration&gt;</span>
 <span class="w">    </span><span class="nt">&lt;const&gt;</span>
-<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Environment&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Test&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">"Environment"</span><span class="w"> </span><span class="na">value=</span><span class="s">"Test"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">      </span><span class="cm">&lt;!-- production, staging, test, development, ... --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/const&gt;</span>
 <span class="nt">&lt;/configuration&gt;</span>
@@ -513,7 +513,7 @@ Anforderungen angepasst werden.</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2025, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

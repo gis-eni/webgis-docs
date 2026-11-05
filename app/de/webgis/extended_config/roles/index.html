@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Rollenparameter &#8212; WebGIS 2026 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=81100d21"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
@@ -160,8 +160,8 @@
 <section id="rollenparameter-verwenden">
 <h2>Rollenparameter verwenden<a class="headerlink" href="#rollenparameter-verwenden" title="Link to this heading">¶</a></h2>
 <p>Wird PVP als Authentifizierungsmethode verwendet, werden die Rollenparameter von dort automatisch ausgelesen. Zusätzlich können jedem User auch Rollenparameter aus einer Datenbank übergeben werden. Dazu sind in der <code class="docutils literal notranslate"><span class="pre">webgis.config</span></code> folgende beiden Tags notwendig:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;portal_extended_role_parameters_source&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;postgres:Server=127.0.0.1;Database=webgis;User Id=postgres;Password=…&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;portal_extended_role_parameters_statement&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;select EventID,OrgID,EventName,OrgName from digikat_user_rights where User=@username&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"portal_extended_role_parameters_source"</span><span class="w"> </span><span class="na">value=</span><span class="s">"postgres:Server=127.0.0.1;Database=webgis;User Id=postgres;Password=…"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"portal_extended_role_parameters_statement"</span><span class="w"> </span><span class="na">value=</span><span class="s">"select EventID,OrgID,EventName,OrgName from digikat_user_rights where User=@username"</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>Der Parameter <code class="docutils literal notranslate"><span class="pre">portal_extended_role_parameters_source</span></code> gibt den Datenbank-ConnectionString an. Die Daten können hierbei aus SQL Server, Postgres oder Oracle kommen. Der Parameter <code class="docutils literal notranslate"><span class="pre">portal_extended_role_parameters_statement</span></code> gibt das SQL-Statement an, mit dem die Rollenparameter für einen entsprechenden User abgeholt werden können. Als SQL-Parameter können hier folgende Werte angegeben werden:</p>
@@ -176,7 +176,7 @@
 </li>
 </ul>
 <p>Eine weitere Möglichkeit zur Erweiterung der Rollenparameter stellen HTTP-Header-Variablen dar. Diese werden beim Aufruf des Viewers gewöhnlich von einer Portalsoftware (z.B. PVP) übergeben. Um auf diese Variablen zugreifen zu können, ist folgender Eintrag in der <code class="docutils literal notranslate"><span class="pre">webgis.config</span></code> notwendig:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;portal_extended_role_parameters_header&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;X-AUTHENTICATE-cn,X-AUTHENTICATE-email&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"portal_extended_role_parameters_header"</span><span class="w"> </span><span class="na">value=</span><span class="s">"X-AUTHENTICATE-cn,X-AUTHENTICATE-email"</span><span class="w"> </span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>Hier werden mit Beistrich getrennt die Header-Variablen angeführt, die später als Rollenparameter zur Verfügung stehen sollen. Auf diese Werte kann dann auch, wie unten gezeigt, über die Syntax <code class="docutils literal notranslate"><span class="pre">[role-parameter:Parametername]</span></code> zugegriffen werden, z.B. <code class="docutils literal notranslate"><span class="pre">[role-parameter:X-AUTHENTICATE-cn]</span></code>.</p>
@@ -211,13 +211,13 @@
 <section id="rollenparameter-in-editmasken">
 <h4>Rollenparameter in Editmasken<a class="headerlink" href="#rollenparameter-in-editmasken" title="Link to this heading">¶</a></h4>
 <p>Rollenparameter können als <code class="docutils literal notranslate"><span class="pre">autovalue</span></code> automatisch in eine Editmaske übernommen werden. Dazu muss der Parametername folgendermaßen in die Maske übernommen werden:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;edit:attribute prompt=&quot;EventName:&quot; autovalue=&quot;role-parameter:EventName&quot; ... /&gt;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;edit:attribute prompt="EventName:" autovalue="role-parameter:EventName" ... /&gt;
 </pre></div>
 </div>
 <img alt="../../_images/image_21.png" src="../../_images/image_21.png" />
 <p>Bei den Editmasken kann hier noch zusätzlich der Präfix <code class="docutils literal notranslate"><span class="pre">oninsert</span></code> oder <code class="docutils literal notranslate"><span class="pre">onupdate</span></code> angeführt werden, um beispielsweise anzugeben, dass der Autovalue nur beim Erstellen oder Ändern eines Objekts automatsch gesetzt wird:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;edit:attribute prompt=&quot;EventName:&quot; autovalue=&quot;oninsert:role-parameter:EventName&quot; ... /&gt;
-&lt;edit:attribute prompt=&quot;EventName:&quot; autovalue=&quot;onupdate:role-parameter:EventName&quot; ... /&gt;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;edit:attribute prompt="EventName:" autovalue="oninsert:role-parameter:EventName" ... /&gt;
+&lt;edit:attribute prompt="EventName:" autovalue="onupdate:role-parameter:EventName" ... /&gt;
 </pre></div>
 </div>
 <p>Ebenfalls können die Rollenparameter innerhalb der Edit Validierungen verwendet werden:
@@ -230,14 +230,14 @@ Validierungen werden immer am Ende vor dem Speichern des Objektes überprüft. I
 <p>Das Parametrieren von Drucklayouts ist in der webGIS Admin Dokumentation beschrieben und wird hier vorausgesetzt.</p>
 <p>Wenn Rollenparameter im Ausdruck angezeigt werden sollten, müssen sie im Drucklayout als Variable definiert werden (layout.xml):</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;variables&gt;</span>
-<span class="w">   </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TITLE&quot;</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;Karten-Titel 0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TITLE1&quot;</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;Überschrift Zeile 1&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">   </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;EVENTNAME&quot;</span><span class="w"> </span><span class="na">alias=</span><span class="s">&quot;Event Name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;role-parameter:EventName&quot;</span><span class="w">  </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">name=</span><span class="s">"TITLE"</span><span class="w"> </span><span class="na">alias=</span><span class="s">"Karten-Titel 0"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">name=</span><span class="s">"TITLE1"</span><span class="w"> </span><span class="na">alias=</span><span class="s">"Überschrift Zeile 1"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;variable</span><span class="w"> </span><span class="na">name=</span><span class="s">"EVENTNAME"</span><span class="w"> </span><span class="na">alias=</span><span class="s">"Event Name"</span><span class="w"> </span><span class="na">default=</span><span class="s">"role-parameter:EventName"</span><span class="w">  </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/variables&gt;</span>
 </pre></div>
 </div>
 <p>Die Variable bekommt als Default Wert hier den Parameter EventName. Natürlich muss die Variable auch noch irgendwo im Layout Positioniert werden:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;text</span><span class="w"> </span><span class="na">string=</span><span class="s">&quot;[EVENTNAME]&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;3.5&quot;</span><span class="w"> </span><span class="na">font=</span><span class="s">&quot;Arial&quot;</span><span class="w"> </span><span class="na">fontcolor=</span><span class="s">&quot;0,0,0&quot;</span><span class="w"> </span><span class="na">fontstyle=</span><span class="s">&quot;bold&quot;</span><span class="w"> </span><span class="na">fontsize=</span><span class="s">&quot;2.0&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;text</span><span class="w"> </span><span class="na">string=</span><span class="s">"[EVENTNAME]"</span><span class="w"> </span><span class="na">x=</span><span class="s">"3"</span><span class="w"> </span><span class="na">y=</span><span class="s">"3.5"</span><span class="w"> </span><span class="na">font=</span><span class="s">"Arial"</span><span class="w"> </span><span class="na">fontcolor=</span><span class="s">"0,0,0"</span><span class="w"> </span><span class="na">fontstyle=</span><span class="s">"bold"</span><span class="w"> </span><span class="na">fontsize=</span><span class="s">"2.0"</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>Als Ergebnis wird der Parameter im Druckdialog vor dem Drucken angezeigt und danach im Ausdruck eingefügt:</p>
@@ -248,7 +248,7 @@ Validierungen werden immer am Ende vor dem Speichern des Objektes überprüft. I
 <h4>Rollenparameter in Viewer Layout<a class="headerlink" href="#rollenparameter-in-viewer-layout" title="Link to this heading">¶</a></h4>
 <p>Um Rollenparameter im Viewerlayout anzuzeigen, ist der [role-parameter:…] Platzhalter ebenfalls in der layout_viewer.xml möglich.</p>
 <p>Beispiel:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;span</span><span class="w"> </span><span class="na">style=</span><span class="s">&quot;position:absolute;right:156px;top:6px&quot;</span><span class="nt">&gt;</span>[role-parameter:X-AUTHENTICATE-cn]:<span class="nt">&lt;/span&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;span</span><span class="w"> </span><span class="na">style=</span><span class="s">"position:absolute;right:156px;top:6px"</span><span class="nt">&gt;</span>[role-parameter:X-AUTHENTICATE-cn]:<span class="nt">&lt;/span&gt;</span>
 </pre></div>
 </div>
 </section>
@@ -312,7 +312,7 @@ Validierungen werden immer am Ende vor dem Speichern des Objektes überprüft. I
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

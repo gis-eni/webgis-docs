@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>OpenID Connect Authentifizierung &#8212; WebGIS 2026 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/eni.css?v=cc740ad6" />
     <script src="../../_static/documentation_options.js?v=81100d21"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/translations.js?v=70a09b52"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/translations.js?v=9bf55d28"></script>
     <script src="../../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhaltsverzeichnis:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../installation/index.html">Installation</a></li>
@@ -168,26 +168,26 @@
 <p>Mit sich Anwender im <em>WebGIS Portal</em> über <em>Open ID Connect</em> anmelden können, muss in der
 <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> folgendes definiert werden:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Security --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;security&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;oidc&quot;</span><span class="nt">/&gt;</span><span class="w">                  </span><span class="cm">&lt;!-- windows, token, clientid, forms, anonym (url) --&gt;</span>
-<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;security_allowed_methods&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;oidc&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- erlaubte Methoden mit Beistrich getrennt, keine Leerzeichen !! --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"security"</span><span class="w"> </span><span class="na">value=</span><span class="s">"oidc"</span><span class="nt">/&gt;</span><span class="w">                  </span><span class="cm">&lt;!-- windows, token, clientid, forms, anonym (url) --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"security_allowed_methods"</span><span class="w"> </span><span class="na">value=</span><span class="s">"oidc"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- erlaubte Methoden mit Beistrich getrennt, keine Leerzeichen !! --&gt;</span>
 </pre></div>
 </div>
 <p>Weiters muss die Datei <code class="docutils literal notranslate"><span class="pre">_config/application-security.json</span></code> angepasst werden.
 Hier werden die Eigenschaften (Authority, ClientId, etc) für die <strong>OpenID Connect</strong> Anmeldung angeführt:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;oidc&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;oidc&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// example for Keycloak</span>
-<span class="w">      </span><span class="nt">&quot;authority&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8080/realms/webgisrealm&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="s2">&quot;webgis-portal&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;clientSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"identityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oidc"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"oidc"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// example for Keycloak</span>
+<span class="w">      </span><span class="nt">"authority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:8080/realms/webgisrealm"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"clientId"</span><span class="p">:</span><span class="s2">"webgis-portal"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"clientSecret"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"openid"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="p">],</span>
 
 <span class="w">      </span><span class="c1">// claims</span>
-<span class="w">      </span><span class="nt">&quot;claimsFromUserInfoEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;nameClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;preferred_username&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"claimsFromUserInfoEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"nameClaimType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"preferred_username"</span><span class="p">,</span>
 <span class="w">      </span><span class="c1">// optional (roles)</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimValueSeparator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
+<span class="w">      </span><span class="nt">"roleClaimType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roles"</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
+<span class="w">      </span><span class="nt">"roleClaimValueSeparator"</span><span class="p">:</span><span class="w"> </span><span class="s2">","</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -198,18 +198,18 @@ Hier werden die Eigenschaften (Authority, ClientId, etc) für die <strong>OpenID
 eine <strong>OpenID Connect</strong> Anmeldung. Die Konfiguration in der <code class="docutils literal notranslate"><span class="pre">_config/application-security.json</span></code>
 ist allerdings zu modifizieren:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;identityType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;azure-ad&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;azure-ad&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Instance&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://login.microsoftonline.com/&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Domain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-domain}.onmicrosoft.com&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;TenantId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-tenant-id}&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;ClientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{my-client-id}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"identityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"azure-ad"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"azure-ad"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"Instance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://login.microsoftonline.com/"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"Domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{my-domain}.onmicrosoft.com"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"TenantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{my-tenant-id}"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"ClientId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{my-client-id}"</span><span class="p">,</span>
 
 <span class="w">      </span><span class="c1">// optional (roles)</span>
-<span class="w">      </span><span class="nt">&quot;extended-roles-from&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen aus lokalem AD kommen sollten</span>
+<span class="w">      </span><span class="nt">"extended-roles-from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"windows"</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen aus lokalem AD kommen sollten</span>
 <span class="w">      </span><span class="c1">// or</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
-<span class="w">      </span><span class="nt">&quot;roleClaimValueSeparator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
+<span class="w">      </span><span class="nt">"roleClaimType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roles"</span><span class="p">,</span><span class="w">  </span><span class="c1">// optional, nur wenn Rollen im Token vorhanden sind</span>
+<span class="w">      </span><span class="nt">"roleClaimValueSeparator"</span><span class="p">:</span><span class="w"> </span><span class="s2">","</span><span class="w">  </span><span class="c1">// optional, nur wenn mehrere Rollen im Token vorhanden sind, die durch ein Trennzeichen getrennt sind</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -282,7 +282,7 @@ muss noch die <em>Security</em> für die Seite angepasst werden (bei der WebGIS 
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2026, ENIE.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

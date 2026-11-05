@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Smartmap mit Verschiebbarem Kartenmarker &#8212; webgis 1.0 Dokumentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=d7bb20b6" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
     <link rel="stylesheet" type="text/css" href="../_static/css/eni.css?v=cc740ad6" />
     <script src="../_static/documentation_options.js?v=8fdbe8ab"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/translations.js?v=70a09b52"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/translations.js?v=9bf55d28"></script>
     <script src="../_static/js/eni.js?v=0ed9d6f8"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -114,7 +114,7 @@
 
         <div class="searchbox_wrapper">
             
-<div id="searchbox" style="display: none" role="search">
+<search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Schnellsuche</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
@@ -122,14 +122,14 @@
       <input type="submit" value="Los" />
     </form>
     </div>
-</div>
+</search>
 <script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
 
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Inhalt:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../API/index.html">API …</a></li>
@@ -168,19 +168,19 @@ Das erfordert zusätzliche <em>HTML Elemente</em> und die <code class="docutils 
 </div>
 <p>Die einzubindenden Script entsprechen denen, der einfachen <em>Smartmap</em> aus dem letzten Beispiel.</p>
 <p>Optional kommen hier im HTML Block zusätzlich die Element für die Maßstabsleiste dazu:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;smartmap-container&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index:0;position:absolute;left:50px;right:50px;top:50px;bottom:50px;&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"smartmap-container"</span> <span class="na">style</span><span class="o">=</span><span class="s">"z-index:0;position:absolute;left:50px;right:50px;top:50px;bottom:50px;"</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map-container-ui&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: none&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;z-index: 10; position: absolute; right: 0px; width: 300px; bottom: 0px; height: 24px; background: #aaa;&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map-container-hourglass&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"map-container-ui"</span> <span class="na">style</span><span class="o">=</span><span class="s">"display: none"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">"z-index: 10; position: absolute; right: 0px; width: 300px; bottom: 0px; height: 24px; background: #aaa;"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"map-container-hourglass"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Das Javascript wird zum Beispiel von vorher folgendermaßen erweitert:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// The WebGIS API Client ID</span>
-<span class="nx">webgis</span><span class="p">.</span><span class="nx">clientid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ba2c101cbe6d40ad96c897be5dadf2ec&#39;</span><span class="p">;</span><span class="w">  </span><span class="c1">// only an example client id, not valid</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">clientid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ba2c101cbe6d40ad96c897be5dadf2ec'</span><span class="p">;</span><span class="w">  </span><span class="c1">// only an example client id, not valid</span>
 
 <span class="nx">webgis</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">draggableMarker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
@@ -194,11 +194,11 @@ Das erfordert zusätzliche <em>HTML Elemente</em> und die <code class="docutils 
 <span class="w">        </span><span class="nx">draggableMarker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">map</span><span class="p">.</span><span class="nx">addMarker</span><span class="p">({</span>
 <span class="w">            </span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="nx">lat</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">lng</span><span class="o">:</span><span class="w"> </span><span class="nx">lng</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="s1">'blue'</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">draggable</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">        </span><span class="p">});</span>
 
-<span class="w">        </span><span class="nx">draggableMarker</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;dragend&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">draggableMarker</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'dragend'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">draggableMarker</span><span class="p">.</span><span class="nx">getLatLng</span><span class="p">();</span>
 <span class="w">            </span><span class="nx">commitPosition</span><span class="p">(</span><span class="nx">pos</span><span class="p">.</span><span class="nx">lng</span><span class="p">,</span><span class="w"> </span><span class="nx">pos</span><span class="p">.</span><span class="nx">lat</span><span class="p">);</span>
 <span class="w">        </span><span class="p">});</span>
@@ -210,47 +210,47 @@ Das erfordert zusätzliche <em>HTML Elemente</em> und die <code class="docutils 
 <span class="p">};</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">commitPosition</span><span class="p">(</span><span class="nx">lng</span><span class="p">,</span><span class="w"> </span><span class="nx">lat</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;commit coordinates to server&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">lng</span><span class="p">,</span><span class="w"> </span><span class="nx">lat</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'commit coordinates to server'</span><span class="p">,</span><span class="w"> </span><span class="nx">lng</span><span class="p">,</span><span class="w"> </span><span class="nx">lat</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#smartmap-container&#39;</span><span class="p">).</span><span class="nx">webgis_smartmap</span><span class="p">({</span>
+<span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">'#smartmap-container'</span><span class="p">).</span><span class="nx">webgis_smartmap</span><span class="p">({</span>
 <span class="w">        </span><span class="nx">map_options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">services</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;geoland_bm@webgiscloud&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">extent</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;web_mercator_at@webgiscloud&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">services</span><span class="o">:</span><span class="w"> </span><span class="s1">'geoland_bm@webgiscloud'</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">extent</span><span class="o">:</span><span class="w"> </span><span class="s1">'web_mercator_at@webgiscloud'</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nx">quick_search_service</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;webgis_cloud_allgemein@webgiscloud&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">quick_search_category</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">quick_search_placeholder</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Ihre Adresse ...&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">quick_search_map_scale</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">quick_tools</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;webgis.tools.navigation.currentPos&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">quick_search_service</span><span class="o">:</span><span class="w"> </span><span class="s1">'webgis_cloud_allgemein@webgiscloud'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">quick_search_category</span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">quick_search_placeholder</span><span class="o">:</span><span class="w"> </span><span class="s1">'Ihre Adresse ...'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">quick_search_map_scale</span><span class="o">:</span><span class="w"> </span><span class="s1">''</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">quick_tools</span><span class="o">:</span><span class="w"> </span><span class="s1">'webgis.tools.navigation.currentPos'</span><span class="p">,</span>
 <span class="w">        </span><span class="nx">on_init</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">options</span><span class="p">.</span><span class="nx">map</span><span class="p">;</span>
 <span class="w">            </span><span class="c1">// UI</span>
 <span class="w">            </span><span class="c1">// temporäre DOM Elemente in den webgis-contaier kopiren</span>
-<span class="w">            </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#map-container-ui&#39;</span><span class="p">).</span><span class="nx">children</span><span class="p">().</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">webgis</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">'#map-container-ui'</span><span class="p">).</span><span class="nx">children</span><span class="p">().</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">webgisContainer</span><span class="p">));</span>
 <span class="w">            </span><span class="p">});</span>
-<span class="w">            </span><span class="nx">options</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">createHourglass</span><span class="p">(</span><span class="s1">&#39;#map-container-hourglass&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="nx">options</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">createHourglass</span><span class="p">(</span><span class="s1">'#map-container-hourglass'</span><span class="p">);</span>
 
 <span class="w">            </span><span class="nx">map</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="mf">2000000</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">15.2</span><span class="p">,</span><span class="w"> </span><span class="mf">47.3</span><span class="p">]);</span>
 
-<span class="w">            </span><span class="nx">map</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span><span class="w"> </span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">map</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span><span class="w"> </span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">lng</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">lat</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;map-click&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span>
+<span class="w">                    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'map-click'</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span>
 <span class="w">                    </span><span class="nx">setDraggableMarkerPos</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">lng</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">lat</span><span class="p">);</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">});</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">})</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">&#39;eventHandlers&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s1">'eventHandlers'</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="nx">events</span>
-<span class="w">    </span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;onfeaturefound&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'onfeaturefound'</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span><span class="w"> </span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">feature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">args</span><span class="p">.</span><span class="nx">feature</span><span class="p">,</span>
 <span class="w">            </span><span class="nx">marker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">args</span><span class="p">.</span><span class="nx">marker</span><span class="p">;</span>
 
 <span class="w">        </span><span class="nx">map</span><span class="p">.</span><span class="nx">removeMarker</span><span class="p">(</span><span class="nx">marker</span><span class="p">);</span>
-<span class="w">        </span><span class="c1">//console.log(&#39;feature&#39;, feature);</span>
+<span class="w">        </span><span class="c1">//console.log('feature', feature);</span>
 
 <span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="nx">feature</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">coords</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">setDraggableMarkerPos</span><span class="p">(</span><span class="nx">feature</span><span class="p">.</span><span class="nx">coords</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">coords</span><span class="p">[</span><span class="mf">1</span><span class="p">]);</span>
@@ -308,7 +308,7 @@ bekommt.</p>
 
     <div class="footer" role="contentinfo">
     &#169; Copyright 2022, ENI.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
