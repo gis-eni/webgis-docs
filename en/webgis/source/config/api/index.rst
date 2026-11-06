@@ -1019,6 +1019,65 @@ user is no longer inserted into the SQL query unchecked:
    If further characters should be allowed in the search term (e.g. ``=`` or ``*``), the
    expression has to be adjusted. Quotes are always escaped, regardless of this setting.
 
+.. _api-config-dynamic-content:
+
+Section ``Dynamic Content``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Applies to the **dynamic content** of the map (GeoRSS, GeoJSON, API queries) that the viewer loads via
+the ``DynamicContentProxy`` of the WebGIS API. The protection consists of two parts:
+
+* **Securing the download (SSRF protection):** Only ``http`` and ``https`` without user information in
+  the URL are allowed. The server resolves the host and rejects targets that point to loopback, private,
+  link-local (e.g. cloud metadata ``169.254.169.254``) or other non-public addresses. Redirects are
+  checked again at every step. A timeout and a maximum response size also apply. Certificates are
+  validated.
+* **Signing URLs:** The API signs the URLs of dynamic content when a map is loaded (saved maps,
+  publications) or when a tool returns dynamic content. The proxy only downloads signed URLs. Maps with
+  unsigned URLs cannot be saved, shared or published (error message); the map then has to be reloaded
+  (which signs it) and saved again. Presentation variants in the table of contents with the display style
+  ``DynamicContentMarker`` are not affected: the client only passes ``serviceId@queryId``, the server
+  checks the query and the user's permission.
+
+.. code-block:: xml
+
+    <section name="dynamic-content">
+      <add key="allow-hosts" value="" />
+      <add key="timeout-seconds" value="20" />
+      <add key="max-response-bytes" value="52428800" />
+      <add key="max-redirects" value="5" />
+      <add key="allow-unsigned" value="false" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``allow-hosts`` *(optional)*
+     - Comma-separated list of host names (or patterns like ``*.my-domain.com``) that may also point to
+       internal (non-public) addresses. Only required for internal GeoJSON/GeoRSS sources. Default:
+       empty (public targets only).
+   * - ``timeout-seconds`` *(optional)*
+     - Timeout of the download in seconds. Default: ``20``.
+   * - ``max-response-bytes`` *(optional)*
+     - Maximum response size in bytes. Default: ``52428800`` (50 MB).
+   * - ``max-redirects`` *(optional)*
+     - Maximum number of redirects that are followed. Every target is checked again. Default: ``5``.
+   * - ``allow-unsigned`` *(optional)*
+     - ``true``: the proxy also processes URLs without a valid signature. This is only necessary if maps
+       are not loaded via the API, e.g. maps created by the MapBuilder as static HTML or dynamic content
+       set in ``custom.js``. Default: ``false`` (signed URLs only).
+
+.. versionadded:: 8.26.4301
+
+.. warning::
+
+   **Change of existing behavior:** Internal sources have to be added to ``allow-hosts``, certificates
+   are validated and ``UrlInputRedirections`` no longer apply to these downloads. Maps with unsigned
+   dynamic content (see ``allow-unsigned``) no longer load it by default.
+
 Section ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

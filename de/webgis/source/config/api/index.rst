@@ -1030,6 +1030,66 @@ wird dabei nicht mehr ungeprüft in die SQL-Abfrage übernommen:
    Sollen auch weitere Zeichen im Suchbegriff erlaubt sein (z. B. ``=`` oder ``*``), muss der
    Ausdruck angepasst werden. Anführungszeichen werden unabhängig von dieser Einstellung immer maskiert.
 
+.. _api-config-dynamic-content:
+
+Abschnitt ``Dynamic Content``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Betrifft den **Dynamischen Inhalt** der Karte (GeoRSS, GeoJSON, API-Abfragen), den der Viewer über den
+``DynamicContentProxy`` der WebGIS API lädt. Die Absicherung besteht aus zwei Teilen:
+
+* **Download absichern (SSRF-Schutz):** Es sind nur ``http`` und ``https`` ohne Benutzerinformation in
+  der URL erlaubt. Der Server löst den Host auf und lehnt Ziele ab, die auf Loopback, private, Link-Local
+  (z. B. Cloud-Metadaten ``169.254.169.254``) oder andere nicht öffentliche Adressen zeigen. Redirects
+  werden bei jedem Schritt erneut geprüft. Zusätzlich gelten ein Timeout und eine maximale Größe der Antwort.
+  Zertifikate werden dabei geprüft.
+* **URLs signieren:** Die API signiert die URLs des Dynamischen Inhalts, wenn eine Karte geladen wird
+  (gespeicherte Karten, Veröffentlichungen) oder ein Werkzeug Dynamischen Inhalt liefert. Der Proxy lädt nur
+  signierte URLs. Karten mit nicht signierten URLs können nicht gespeichert, geteilt oder veröffentlicht werden
+  (Fehlermeldung); die Karte muss dann neu geladen (wird dabei signiert) und erneut gespeichert werden.
+  Die Darstellungsvarianten im Inhaltsverzeichnis mit dem Darstellungsstil ``DynamicContentMarker`` sind davon
+  nicht betroffen: Der Client übergibt nur ``serviceId@queryId``, der Server prüft die Abfrage und das Recht
+  des Benutzers.
+
+.. code-block:: xml
+
+    <section name="dynamic-content">
+      <add key="allow-hosts" value="" />
+      <add key="timeout-seconds" value="20" />
+      <add key="max-response-bytes" value="52428800" />
+      <add key="max-redirects" value="5" />
+      <add key="allow-unsigned" value="false" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``allow-hosts`` *(optional)*
+     - Kommagetrennte Liste von Hostnamen (oder Mustern wie ``*.meine-domain.at``), die auch auf interne
+       (nicht öffentliche) Adressen zeigen dürfen. Nur für interne GeoJSON-/GeoRSS-Quellen nötig. Standard:
+       leer (nur öffentliche Ziele).
+   * - ``timeout-seconds`` *(optional)*
+     - Timeout für den Abruf in Sekunden. Standard: ``20``.
+   * - ``max-response-bytes`` *(optional)*
+     - Maximale Größe der Antwort in Bytes. Standard: ``52428800`` (50 MB).
+   * - ``max-redirects`` *(optional)*
+     - Maximale Anzahl an Redirects, die verfolgt werden. Jedes Ziel wird erneut geprüft. Standard: ``5``.
+   * - ``allow-unsigned`` *(optional)*
+     - ``true``: Der Proxy verarbeitet auch URLs ohne gültige Signatur. Das ist nur nötig, wenn Karten nicht
+       über die API geladen werden, z. B. mit dem MapBuilder als statisches HTML erzeugte Karten oder
+       Dynamischer Inhalt, der in der ``custom.js`` gesetzt wird. Standard: ``false`` (nur signierte URLs).
+
+.. versionadded:: 8.26.4301
+
+.. warning::
+
+   **Änderung bestehendes Verhalten:** Interne Quellen müssen unter ``allow-hosts`` eingetragen werden,
+   Zertifikate werden geprüft und ``UrlInputRedirections`` gelten für diese Abrufe nicht mehr. Karten mit
+   nicht signiertem Dynamischem Inhalt (siehe ``allow-unsigned``) laden diesen standardmäßig nicht mehr.
+
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
