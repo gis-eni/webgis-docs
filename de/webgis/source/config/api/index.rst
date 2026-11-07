@@ -1045,8 +1045,9 @@ Betrifft den **Dynamischen Inhalt** der Karte (GeoRSS, GeoJSON, API-Abfragen), d
   Zertifikate werden dabei geprüft.
 * **URLs signieren:** Die API signiert die URLs des Dynamischen Inhalts, wenn eine Karte geladen wird
   (gespeicherte Karten, Veröffentlichungen) oder ein Werkzeug Dynamischen Inhalt liefert. Der Proxy lädt nur
-  signierte URLs. Karten mit nicht signierten URLs können nicht gespeichert, geteilt oder veröffentlicht werden
+  signierte URLs. Karten mit nicht signierten URLs können nicht gespeichert oder geteilt werden
   (Fehlermeldung); die Karte muss dann neu geladen (wird dabei signiert) und erneut gespeichert werden.
+  Beim Veröffentlichen (MapBuilder, vertrauenswürdige Kartenautoren) werden nicht signierte URLs dagegen signiert.
   Die Darstellungsvarianten im Inhaltsverzeichnis mit dem Darstellungsstil ``DynamicContentMarker`` sind davon
   nicht betroffen: Der Client übergibt nur ``serviceId@queryId``, der Server prüft die Abfrage und das Recht
   des Benutzers.

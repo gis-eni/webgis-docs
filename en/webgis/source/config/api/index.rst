@@ -1034,8 +1034,9 @@ the ``DynamicContentProxy`` of the WebGIS API. The protection consists of two pa
   validated.
 * **Signing URLs:** The API signs the URLs of dynamic content when a map is loaded (saved maps,
   publications) or when a tool returns dynamic content. The proxy only downloads signed URLs. Maps with
-  unsigned URLs cannot be saved, shared or published (error message); the map then has to be reloaded
-  (which signs it) and saved again. Presentation variants in the table of contents with the display style
+  unsigned URLs cannot be saved or shared (error message); the map then has to be reloaded
+  (which signs it) and saved again. When publishing (MapBuilder, trusted map authors) unsigned URLs are
+  signed instead. Presentation variants in the table of contents with the display style
   ``DynamicContentMarker`` are not affected: the client only passes ``serviceId@queryId``, the server
   checks the query and the user's permission.
 
