@@ -140,6 +140,12 @@ Section ``Subscriber Registration``
        This option is useful for closed instances that are managed exclusively by an administrator. This prevents malicious access to the configuration.
 
        Example: An **intranet instance** could be used for configuration, while the **internet instance** is locked for access. Both instances can share the **storage**, or it can be copied between them.
+   * - ``subscriber-login-allowed-redirect-hosts``
+     - Optional, comma-separated list of hosts (``host`` or ``host:port``) that a subscriber login may redirect to (e.g. if the portal is reachable under a different host name than ``portal-url``).
+
+       The host of ``portal-url`` (path ``/auth/loginAsAdmin/...``) is always allowed. Other redirect targets are rejected with ``400 Bad Request``.
+
+       Since version 8.26.4301.
    * - ``allow-register-new-subscribers``
      - Specifies whether new subscribers may register themselves for the API (``true`` or ``false``).
 
@@ -1026,6 +1032,106 @@ The behavior of the workaround can be adjusted via the ``tool-identify`` *sectio
    occurrence is known so far with **PostGIS** as the data source. Details on the decision
    cascade can be found in the appendix: :doc:`../../annex/ags-spatial-query`.
 
+.. _api-config-lookup:
+
+Section ``Lookup``
+~~~~~~~~~~~~~~~~~~
+
+Applies to the **autocomplete and selection lists** of the predefined filters (VisFilter) that
+obtain their values via a *lookup* (SQL query, layer or Datalinq). The search term entered by the
+user is no longer inserted into the SQL query unchecked:
+
+* If ``{0}`` is placed inside quotes in the SQL query (e.g. ``'{0}'``, ``'{0}%'`` or
+  ``'%{0}%'``), the search term is passed to the database as a **parameter**.
+* If ``{0}`` is placed elsewhere (e.g. in layer queries), quotes in the search term are escaped
+  (``'`` => ``''``).
+* Search terms and parameter values (``{parameter}``) that do not match the configured
+  **whitelist** return an **empty result list**.
+
+.. code-block:: xml
+
+    <section name="lookup">
+      <add key="term-whitelist" value="^[\p{L}\p{N} _.,%/#:()+&amp;@'\-]{0,120}$" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``term-whitelist`` *(optional)*
+     - Regular expression that search terms and parameter values must match. The default allows
+       letters, digits, spaces and the characters ``_ . , % / # : ( ) + & @ ' -`` up to a length
+       of 120 characters. If the expression is invalid, the default is used.
+
+.. versionadded:: 8.26.4301
+
+.. note::
+
+   If further characters should be allowed in the search term (e.g. ``=`` or ``*``), the
+   expression has to be adjusted. Quotes are always escaped, regardless of this setting.
+
+.. _api-config-dynamic-content:
+
+Section ``Dynamic Content``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Applies to the **dynamic content** of the map (GeoRSS, GeoJSON, API queries) that the viewer loads via
+the ``DynamicContentProxy`` of the WebGIS API. The protection consists of two parts:
+
+* **Securing the download (SSRF protection):** Only ``http`` and ``https`` without user information in
+  the URL are allowed. The server resolves the host and rejects targets that point to loopback, private,
+  link-local (e.g. cloud metadata ``169.254.169.254``) or other non-public addresses. Redirects are
+  checked again at every step. A timeout and a maximum response size also apply. Certificates are
+  validated.
+* **Signing URLs:** The API signs the URLs of dynamic content when a map is loaded (saved maps,
+  publications) or when a tool returns dynamic content. The proxy only downloads signed URLs. Maps with
+  unsigned URLs cannot be saved or shared (error message); the map then has to be reloaded
+  (which signs it) and saved again. When publishing (MapBuilder, trusted map authors) unsigned URLs are
+  signed instead. Presentation variants in the table of contents with the display style
+  ``DynamicContentMarker`` are not affected: the client only passes ``serviceId@queryId``, the server
+  checks the query and the user's permission.
+
+.. code-block:: xml
+
+    <section name="dynamic-content">
+      <add key="allow-hosts" value="" />
+      <add key="timeout-seconds" value="20" />
+      <add key="max-response-bytes" value="52428800" />
+      <add key="max-redirects" value="5" />
+      <add key="allow-unsigned" value="false" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``allow-hosts`` *(optional)*
+     - Comma-separated list of host names (or patterns like ``*.my-domain.com``) that may also point to
+       internal (non-public) addresses. Only required for internal GeoJSON/GeoRSS sources. Default:
+       empty (public targets only).
+   * - ``timeout-seconds`` *(optional)*
+     - Timeout of the download in seconds. Default: ``20``.
+   * - ``max-response-bytes`` *(optional)*
+     - Maximum response size in bytes. Default: ``52428800`` (50 MB).
+   * - ``max-redirects`` *(optional)*
+     - Maximum number of redirects that are followed. Every target is checked again. Default: ``5``.
+   * - ``allow-unsigned`` *(optional)*
+     - ``true``: the proxy also processes URLs without a valid signature. This is only necessary if maps
+       are not loaded via the API, e.g. maps created by the MapBuilder as static HTML or dynamic content
+       set in ``custom.js``. Default: ``false`` (signed URLs only).
+
+.. versionadded:: 8.26.4301
+
+.. warning::
+
+   **Change of existing behavior:** Internal sources have to be added to ``allow-hosts``, certificates
+   are validated and ``UrlInputRedirections`` no longer apply to these downloads. Maps with unsigned
+   dynamic content (see ``allow-unsigned``) no longer load it by default.
+
 Section ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1106,6 +1212,9 @@ Security
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
   </section>
 
 For special scenarios, e.g. when the WebGIS API serves exclusively as a **backend for another application**
@@ -1131,6 +1240,31 @@ Furthermore, **credentials** for protected endpoints (e.g. for **clearing the ca
   If you publish the CMS via a CMS upload (see section ``CMS Upload``), additional security measures are required (client, secret) to prevent unauthorized access.
   After an upload, the cache is automatically reloaded, so calling ``cache/clear`` is not necessary in this case. Nevertheless, the endpoint should absolutely
   be protected in publicly accessible instances, to prevent misuse.
+
+.. _api-config-security-untrusted-certificates:
+
+Outbound TLS connections (server certificates)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionchanged:: 8.26.4301
+   The WebGIS API now validates server certificates of outbound HTTPS connections (map services, ArcGIS, WMS, ...) by default.
+   Previously, every certificate was accepted.
+
+If internal services use **self-signed certificates** or certificates of an **internal CA**, connections fail with a TLS error after the update.
+The recommended solution is to install the internal CA certificates in the **certificate store of the server** (Trusted Root Certification Authorities).
+
+Only if this is not possible, the validation can be turned off with the key ``allow-untrusted-server-certificates`` in the *section* ``security``:
+
+.. code-block:: xml
+
+  <section name="security">
+      <add key="allow-untrusted-server-certificates" value="true" /> <!-- default: false -->
+  </section>
+
+.. danger::
+
+  With ``true``, **all** server certificates are accepted. Outbound connections can then be intercepted or manipulated (man-in-the-middle).
+  Use this setting only for legacy services in trusted networks.
 
 Middleware
 ----------

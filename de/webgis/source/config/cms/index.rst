@@ -495,6 +495,17 @@ Wenn externe Dienste eingebunden werden, kann für den Zugriff ein **Proxy-Serve
        - Im Feld ``ignore`` können mehrere Regeln durch ``;`` getrennt angegeben werden. Wenn der aufgerufene Server mit einer dieser Zeichenketten beginnt, wird der Proxy ignoriert.  
        - Auch **reguläre Ausdrücke** können hier verwendet werden.
 
+   * - ``allow_untrusted_server_certificates``
+     - ``true`` / ``false`` (Standard: ``false``)
+
+       .. versionadded:: 8.26.4301
+
+       Serverzertifikate bei ausgehenden HTTPS-Verbindungen werden standardmäßig geprüft. Bei internen Diensten mit selbstsignierten Zertifikaten
+       sollte die interne CA im Zertifikatsspeicher des Servers installiert werden. Nur wenn das nicht möglich ist, kann die Prüfung mit ``true`` abgeschaltet werden.
+
+       .. danger::
+
+          Mit ``true`` werden **alle** Serverzertifikate akzeptiert. Verbindungen können dadurch abgehört oder manipuliert werden (Man-in-the-Middle).
 
 .. _cms-config-mcp-config:
 

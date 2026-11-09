@@ -131,7 +131,15 @@ The following keys enable the configuration of these credentials:
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
    </section>
+
+.. versionchanged:: 8.26.4301
+   Server certificates of outbound HTTPS connections are now validated by default. For internal services with self-signed certificates,
+   the internal CA should be installed in the certificate store of the server. Only if this is not possible, the validation can be turned off by
+   setting ``allow-untrusted-server-certificates`` to ``true`` (security risk: man-in-the-middle). For details see :ref:`api-config-security-untrusted-certificates`.
 
 Section ``Selection lists``
 ===========================
@@ -251,6 +259,20 @@ Section ``Advanced Security``
 
        .. danger::
           The wildcard ``~`` should only be used in exceptional cases for testing and never in a production environment, since it allows any website to request credentials for logged-in users.
+
+   * - ``add-cors-origins-for-default``
+     - Comma-separated list of additional origins (servers) that may call the portal (all pages except ``hmac``) from the browser **with login (cookies)**. Example: ``https://example.com``
+
+       The portal url and the API url are always allowed and do not have to be listed. Calls from origins that are not listed are blocked by the browser. Normally no entry is necessary here. Specify scheme and, if necessary, port, without a path (e.g. ``https://example.com``). The ``hmac`` endpoint is controlled by ``add-cors-origins-for-hmac``.
+
+       The value ``~`` is a wildcard and allows **all** sites. In this case a warning is written to the log file when the application starts.
+
+       Previously, every requesting origin (including login) was allowed for these calls. Sites on foreign servers must now be listed here.
+
+       .. danger::
+          The wildcard ``~`` should only be used in exceptional cases for testing and never in a production environment.
+   * - ``cors-default-allow-any-origin-without-credentials``
+     - Default: ``false``. If ``true``, origins not listed in ``add-cors-origins-for-default`` may also read responses of the portal, but **without** login (cookies). Only necessary if foreign sites retrieve public portal pages without login.
 
 Section ``Logging``
 ===================

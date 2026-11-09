@@ -458,6 +458,20 @@ Beispiel: <code class="docutils literal notranslate"><span class="pre">Domäne\{
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-default</span></code></p></td>
+<td><p>Kommagetrennte Liste zusätzlicher Origins (Server), die Aufrufe an das Portal (alle Seiten außer <code class="docutils literal notranslate"><span class="pre">hmac</span></code>) per Browser <strong>mit Anmeldung (Cookies)</strong> durchführen dürfen. Beispiel: <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code></p>
+<p>Die Portal-Url und die API-Url sind immer erlaubt und müssen nicht angegeben werden. Aufrufe von nicht angeführten Origins werden vom Browser blockiert. Normalerweise ist hier kein Eintrag notwendig. Die Angabe erfolgt mit Schema und ggf. Port, ohne Pfad (z. B. <code class="docutils literal notranslate"><span class="pre">https://example.com</span></code>). Für den <code class="docutils literal notranslate"><span class="pre">hmac</span></code>-Endpunkt gilt <code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-hmac</span></code>.</p>
+<p>Der Wert <code class="docutils literal notranslate"><span class="pre">~</span></code> ist ein Wildcard und erlaubt <strong>alle</strong> Seiten. Beim Start der Anwendung wird in diesem Fall eine Warnung ins Logfile geschrieben.</p>
+<p>Bisher wurde für diese Aufrufe jede anfragende Origin (inklusive Anmeldung) erlaubt. Seiten auf fremden Servern müssen nun hier angeführt werden.</p>
+<div class="admonition danger">
+<p class="admonition-title">Gefahr</p>
+<p>Der Wildcard <code class="docutils literal notranslate"><span class="pre">~</span></code> sollte nur in Ausnahmefällen zum Testen verwendet werden und niemals in einer Produktionsumgebung.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cors-default-allow-any-origin-without-credentials</span></code></p></td>
+<td><p>Standard: <code class="docutils literal notranslate"><span class="pre">false</span></code>. Bei <code class="docutils literal notranslate"><span class="pre">true</span></code> dürfen auch nicht in <code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-default</span></code> angeführte Origins Antworten des Portals lesen, jedoch <strong>ohne</strong> Anmeldung (Cookies). Nur notwendig, wenn fremde Seiten öffentliche Portal-Seiten ohne Anmeldung abrufen.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

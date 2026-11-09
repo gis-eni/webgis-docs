@@ -495,6 +495,17 @@ Overview of the most important configuration parameters
        - In the ``ignore`` field, multiple rules can be specified separated by ``;``. If the called server starts with one of these strings, the proxy is ignored.
        - **Regular expressions** can also be used here.
 
+   * - ``allow_untrusted_server_certificates``
+     - ``true`` / ``false`` (default: ``false``)
+
+       .. versionadded:: 8.26.4301
+
+       Server certificates of outbound HTTPS connections are validated by default. For internal services with self-signed certificates,
+       the internal CA should be installed in the certificate store of the server. Only if this is not possible, the validation can be turned off with ``true``.
+
+       .. danger::
+
+          With ``true``, **all** server certificates are accepted. Connections can then be intercepted or manipulated (man-in-the-middle).
 
 .. _cms-config-mcp-config:
 

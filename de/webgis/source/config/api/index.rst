@@ -140,6 +140,12 @@ Abschnitt ``Subscriber Registration``
        Diese Option ist für geschlossene Instanzen sinnvoll, die ausschließlich von einem Administrator verwaltet werden. Dadurch wird böswilliger Zugriff auf die Konfiguration verhindert.
 
        Beispiel: Eine **Intranet-Instanz** könnte zur Konfiguration genutzt werden, während die **Internet-Instanz** für den Zugriff gesperrt ist. Beide Instanzen können sich den **Storage** teilen oder dieser kann zwischen ihnen kopiert werden.
+   * - ``subscriber-login-allowed-redirect-hosts``
+     - Optionale, kommagetrennte Liste von Hosts (``host`` oder ``host:port``), auf die nach einem Subscriber-Login weitergeleitet werden darf (z. B. wenn das Portal über einen anderen Hostnamen als ``portal-url`` erreichbar ist).
+
+       Der Host von ``portal-url`` (Pfad ``/auth/loginAsAdmin/...``) ist immer erlaubt. Andere Weiterleitungsziele werden mit ``400 Bad Request`` abgelehnt.
+
+       Ab Version 8.26.4301.
    * - ``allow-register-new-subscribers``
      - Gibt an, ob sich neue Subscriber selbst für die API registrieren dürfen (``true`` oder ``false``).
 
@@ -1036,6 +1042,108 @@ Das Verhalten des Workarounds kann über die *Section* ``tool-identify`` in der 
    Datenbank liegen; bei **PostGIS** als Datenquelle ist bisher kein Auftreten bekannt. Details
    zur Entscheidungskaskade finden sich im Anhang: :doc:`../../annex/ags-spatial-query`.
 
+.. _api-config-lookup:
+
+Abschnitt ``Lookup``
+~~~~~~~~~~~~~~~~~~~~
+
+Betrifft die **Autocomplete- und Auswahllisten** der Vorgefilterten Abfragen (VisFilter), die ihre
+Werte über einen *Lookup* (SQL-Abfrage, Layer oder Datalinq) ermitteln. Der eingegebene Suchbegriff
+wird dabei nicht mehr ungeprüft in die SQL-Abfrage übernommen:
+
+* Steht ``{0}`` in der SQL-Abfrage innerhalb von Anführungszeichen (z. B. ``'{0}'``, ``'{0}%'`` oder
+  ``'%{0}%'``), wird der Suchbegriff als **Parameter** an die Datenbank übergeben.
+* Steht ``{0}`` an anderer Stelle (z. B. bei Layer-Abfragen), werden Anführungszeichen im Suchbegriff
+  maskiert (``'`` => ``''``).
+* Suchbegriffe und Parameterwerte (``{parameter}``), die nicht der konfigurierten **Whitelist**
+  entsprechen, liefern eine **leere Ergebnisliste**.
+
+.. code-block:: xml
+
+    <section name="lookup">
+      <add key="term-whitelist" value="^[\p{L}\p{N} _.,%/#:()+&amp;@'\-]{0,120}$" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``term-whitelist`` *(optional)*
+     - Regulärer Ausdruck, dem Suchbegriffe und Parameterwerte entsprechen müssen. Der Standardwert
+       erlaubt Buchstaben, Ziffern, Leerzeichen und die Zeichen ``_ . , % / # : ( ) + & @ ' -``
+       bis zu einer Länge von 120 Zeichen. Ist der Ausdruck ungültig, wird der Standardwert
+       verwendet.
+
+.. versionadded:: 8.26.4301
+
+.. note::
+
+   Sollen auch weitere Zeichen im Suchbegriff erlaubt sein (z. B. ``=`` oder ``*``), muss der
+   Ausdruck angepasst werden. Anführungszeichen werden unabhängig von dieser Einstellung immer maskiert.
+
+.. _api-config-dynamic-content:
+
+Abschnitt ``Dynamic Content``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Betrifft den **Dynamischen Inhalt** der Karte (GeoRSS, GeoJSON, API-Abfragen), den der Viewer über den
+``DynamicContentProxy`` der WebGIS API lädt. Die Absicherung besteht aus zwei Teilen:
+
+* **Download absichern (SSRF-Schutz):** Es sind nur ``http`` und ``https`` ohne Benutzerinformation in
+  der URL erlaubt. Der Server löst den Host auf und lehnt Ziele ab, die auf Loopback, private, Link-Local
+  (z. B. Cloud-Metadaten ``169.254.169.254``) oder andere nicht öffentliche Adressen zeigen. Redirects
+  werden bei jedem Schritt erneut geprüft. Zusätzlich gelten ein Timeout und eine maximale Größe der Antwort.
+  Zertifikate werden dabei geprüft.
+* **URLs signieren:** Die API signiert die URLs des Dynamischen Inhalts, wenn eine Karte geladen wird
+  (gespeicherte Karten, Veröffentlichungen) oder ein Werkzeug Dynamischen Inhalt liefert. Der Proxy lädt nur
+  signierte URLs. Karten mit nicht signierten URLs können nicht gespeichert oder geteilt werden
+  (Fehlermeldung); die Karte muss dann neu geladen (wird dabei signiert) und erneut gespeichert werden.
+  Beim Veröffentlichen (MapBuilder, vertrauenswürdige Kartenautoren) werden nicht signierte URLs dagegen signiert.
+  Die Darstellungsvarianten im Inhaltsverzeichnis mit dem Darstellungsstil ``DynamicContentMarker`` sind davon
+  nicht betroffen: Der Client übergibt nur ``serviceId@queryId``, der Server prüft die Abfrage und das Recht
+  des Benutzers.
+
+.. code-block:: xml
+
+    <section name="dynamic-content">
+      <add key="allow-hosts" value="" />
+      <add key="timeout-seconds" value="20" />
+      <add key="max-response-bytes" value="52428800" />
+      <add key="max-redirects" value="5" />
+      <add key="allow-unsigned" value="false" />
+    </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``allow-hosts`` *(optional)*
+     - Kommagetrennte Liste von Hostnamen (oder Mustern wie ``*.meine-domain.at``), die auch auf interne
+       (nicht öffentliche) Adressen zeigen dürfen. Nur für interne GeoJSON-/GeoRSS-Quellen nötig. Standard:
+       leer (nur öffentliche Ziele).
+   * - ``timeout-seconds`` *(optional)*
+     - Timeout für den Abruf in Sekunden. Standard: ``20``.
+   * - ``max-response-bytes`` *(optional)*
+     - Maximale Größe der Antwort in Bytes. Standard: ``52428800`` (50 MB).
+   * - ``max-redirects`` *(optional)*
+     - Maximale Anzahl an Redirects, die verfolgt werden. Jedes Ziel wird erneut geprüft. Standard: ``5``.
+   * - ``allow-unsigned`` *(optional)*
+     - ``true``: Der Proxy verarbeitet auch URLs ohne gültige Signatur. Das ist nur nötig, wenn Karten nicht
+       über die API geladen werden, z. B. mit dem MapBuilder als statisches HTML erzeugte Karten oder
+       Dynamischer Inhalt, der in der ``custom.js`` gesetzt wird. Standard: ``false`` (nur signierte URLs).
+
+.. versionadded:: 8.26.4301
+
+.. warning::
+
+   **Änderung bestehendes Verhalten:** Interne Quellen müssen unter ``allow-hosts`` eingetragen werden,
+   Zertifikate werden geprüft und ``UrlInputRedirections`` gelten für diese Abrufe nicht mehr. Karten mit
+   nicht signiertem Dynamischem Inhalt (siehe ``allow-unsigned``) laden diesen standardmäßig nicht mehr.
+
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1116,6 +1224,9 @@ Security
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
   </section>
 
 Für spezielle Szenarien, z. B. wenn die WebGIS API ausschließlich als **Backend für eine andere Anwendung**
@@ -1141,6 +1252,31 @@ Weiters können hier auch **Zugangsdaten** für geschützte Endpunkte (z. B. zum
   Veröffentlicht man das CMS über einen CMS Upload (siehe Abschnitt ``CMS Upload``), sind zusätzliche Sicherheitsmaßnahmen erforderlich (Client, Secret), um unbefugten Zugriff zu verhindern.
   Nach einem Upload erfolgt automatisch ein neu Laden des Caches, ein Aurfug von ``cache/clear`` ist in diesem Fall nicht notwendig. Trotzdem sollten der Endpunkt in öffentlich 
   zugänglichen Instanzen unbedingt geschützt werden, um Missbrauch zu verhindern.
+
+.. _api-config-security-untrusted-certificates:
+
+Ausgehende TLS-Verbindungen (Serverzertifikate)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionchanged:: 8.26.4301
+   Die WebGIS API prüft die Serverzertifikate bei ausgehenden HTTPS-Verbindungen (Kartendienste, ArcGIS, WMS, ...) jetzt standardmäßig.
+   Bisher wurde jedes Zertifikat akzeptiert.
+
+Verwenden interne Dienste **selbstsignierte Zertifikate** oder Zertifikate einer **internen CA**, schlagen Verbindungen nach dem Update mit einem TLS-Fehler fehl.
+Die empfohlene Lösung ist, die Zertifikate der internen CA im **Zertifikatsspeicher des Servers** (Vertrauenswürdige Stammzertifizierungsstellen) zu installieren.
+
+Nur wenn das nicht möglich ist, kann die Prüfung mit dem Schlüssel ``allow-untrusted-server-certificates`` in der *Section* ``security`` abgeschaltet werden:
+
+.. code-block:: xml
+
+  <section name="security">
+      <add key="allow-untrusted-server-certificates" value="true" /> <!-- default: false -->
+  </section>
+
+.. danger::
+
+  Mit ``true`` werden **alle** Serverzertifikate akzeptiert. Ausgehende Verbindungen können dadurch abgehört oder manipuliert werden (Man-in-the-Middle).
+  Diese Einstellung sollte nur für Legacy-Dienste in vertrauenswürdigen Netzen verwendet werden.
 
 Middleware
 ----------

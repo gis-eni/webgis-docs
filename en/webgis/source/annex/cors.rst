@@ -140,6 +140,25 @@ The browser developer tools (F12, console or network tab) then show a message si
 
 In this case, add the origin named in the message (here ``https://gemeinde.example.org``) to ``add-cors-origins-for-hmac``.
 
+Calls to other portal pages (default policy)
+--------------------------------------------
+
+All portal pages except ``/hmac`` use the default policy. Only the portal url, the API url
+and the origins listed in ``add-cors-origins-for-default`` are allowed (with login); the notation and rules are the same as for ``add-cors-origins-for-hmac``.
+Calls from other origins are blocked by the browser. Previously, every requesting origin was allowed here.
+
+.. code-block:: xml
+
+   <add key="add-cors-origins-for-default" value="https://example.com" />
+
+If foreign sites should be allowed to read portal responses, but without login (cookies), this can optionally be allowed:
+
+.. code-block:: xml
+
+   <add key="cors-default-allow-any-origin-without-credentials" value="true" />
+
+To embed WebGIS API applications on third-party sites, normally only ``add-cors-origins-for-hmac`` is necessary.
+
 Wildcard ``~``
 --------------
 
@@ -148,6 +167,8 @@ The value ``~`` is a wildcard and allows **all** sites:
 .. code-block:: xml
 
    <add key="add-cors-origins-for-hmac" value="~" />
+
+The wildcard also applies to ``add-cors-origins-for-default``. If it is set, the portal writes a warning to the log file at startup.
 
 .. danger::
 

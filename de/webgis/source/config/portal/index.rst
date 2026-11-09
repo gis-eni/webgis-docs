@@ -127,7 +127,15 @@ Die folgenden Schlüssel ermöglichen die Konfiguration dieser Anmeldeinformatio
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
   </section>
+
+.. versionchanged:: 8.26.4301
+   Serverzertifikate bei ausgehenden HTTPS-Verbindungen werden jetzt standardmäßig geprüft. Bei internen Diensten mit selbstsignierten Zertifikaten
+   sollte die interne CA im Zertifikatsspeicher des Servers installiert werden. Nur wenn das nicht möglich ist, kann die Prüfung mit
+   ``allow-untrusted-server-certificates`` auf ``true`` abgeschaltet werden (Sicherheitsrisiko: Man-in-the-Middle). Details siehe :ref:`api-config-security-untrusted-certificates`.
 
 
 Abschnitt ``Auswahllisten``
@@ -246,6 +254,20 @@ Abschnitt ``Advanced Security``
 
        .. danger::
           Der Wildcard ``~`` sollte nur in Ausnahmefällen zum Testen verwendet werden und niemals in einer Produktionsumgebung, da damit jede beliebige Webseite Zugangsdaten für angemeldete Benutzer abfragen kann.
+
+   * - ``add-cors-origins-for-default``
+     - Kommagetrennte Liste zusätzlicher Origins (Server), die Aufrufe an das Portal (alle Seiten außer ``hmac``) per Browser **mit Anmeldung (Cookies)** durchführen dürfen. Beispiel: ``https://example.com``
+
+       Die Portal-Url und die API-Url sind immer erlaubt und müssen nicht angegeben werden. Aufrufe von nicht angeführten Origins werden vom Browser blockiert. Normalerweise ist hier kein Eintrag notwendig. Die Angabe erfolgt mit Schema und ggf. Port, ohne Pfad (z. B. ``https://example.com``). Für den ``hmac``-Endpunkt gilt ``add-cors-origins-for-hmac``.
+
+       Der Wert ``~`` ist ein Wildcard und erlaubt **alle** Seiten. Beim Start der Anwendung wird in diesem Fall eine Warnung ins Logfile geschrieben.
+
+       Bisher wurde für diese Aufrufe jede anfragende Origin (inklusive Anmeldung) erlaubt. Seiten auf fremden Servern müssen nun hier angeführt werden.
+
+       .. danger::
+          Der Wildcard ``~`` sollte nur in Ausnahmefällen zum Testen verwendet werden und niemals in einer Produktionsumgebung.
+   * - ``cors-default-allow-any-origin-without-credentials``
+     - Standard: ``false``. Bei ``true`` dürfen auch nicht in ``add-cors-origins-for-default`` angeführte Origins Antworten des Portals lesen, jedoch **ohne** Anmeldung (Cookies). Nur notwendig, wenn fremde Seiten öffentliche Portal-Seiten ohne Anmeldung abrufen.
 
 Abschnitt ``Logging``
 =====================
