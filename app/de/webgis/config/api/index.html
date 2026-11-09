@@ -1333,6 +1333,76 @@ verwendet.</p></td>
 Ausdruck angepasst werden. Anführungszeichen werden unabhängig von dieser Einstellung immer maskiert.</p>
 </div>
 </section>
+<section id="abschnitt-dynamic-content">
+<span id="api-config-dynamic-content"></span><h4>Abschnitt <code class="docutils literal notranslate"><span class="pre">Dynamic</span> <span class="pre">Content</span></code><a class="headerlink" href="#abschnitt-dynamic-content" title="Link to this heading">¶</a></h4>
+<p>Betrifft den <strong>Dynamischen Inhalt</strong> der Karte (GeoRSS, GeoJSON, API-Abfragen), den der Viewer über den
+<code class="docutils literal notranslate"><span class="pre">DynamicContentProxy</span></code> der WebGIS API lädt. Die Absicherung besteht aus zwei Teilen:</p>
+<ul class="simple">
+<li><p><strong>Download absichern (SSRF-Schutz):</strong> Es sind nur <code class="docutils literal notranslate"><span class="pre">http</span></code> und <code class="docutils literal notranslate"><span class="pre">https</span></code> ohne Benutzerinformation in
+der URL erlaubt. Der Server löst den Host auf und lehnt Ziele ab, die auf Loopback, private, Link-Local
+(z. B. Cloud-Metadaten <code class="docutils literal notranslate"><span class="pre">169.254.169.254</span></code>) oder andere nicht öffentliche Adressen zeigen. Redirects
+werden bei jedem Schritt erneut geprüft. Zusätzlich gelten ein Timeout und eine maximale Größe der Antwort.
+Zertifikate werden dabei geprüft.</p></li>
+<li><p><strong>URLs signieren:</strong> Die API signiert die URLs des Dynamischen Inhalts, wenn eine Karte geladen wird
+(gespeicherte Karten, Veröffentlichungen) oder ein Werkzeug Dynamischen Inhalt liefert. Der Proxy lädt nur
+signierte URLs. Karten mit nicht signierten URLs können nicht gespeichert oder geteilt werden
+(Fehlermeldung); die Karte muss dann neu geladen (wird dabei signiert) und erneut gespeichert werden.
+Beim Veröffentlichen (MapBuilder, vertrauenswürdige Kartenautoren) werden nicht signierte URLs dagegen signiert.
+Die Darstellungsvarianten im Inhaltsverzeichnis mit dem Darstellungsstil <code class="docutils literal notranslate"><span class="pre">DynamicContentMarker</span></code> sind davon
+nicht betroffen: Der Client übergibt nur <code class="docutils literal notranslate"><span class="pre">serviceId&#64;queryId</span></code>, der Server prüft die Abfrage und das Recht
+des Benutzers.</p></li>
+</ul>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"dynamic-content"</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-hosts"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"timeout-seconds"</span><span class="w"> </span><span class="na">value=</span><span class="s">"20"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-response-bytes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"52428800"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"max-redirects"</span><span class="w"> </span><span class="na">value=</span><span class="s">"5"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-unsigned"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-hosts</span></code> <em>(optional)</em></p></td>
+<td><p>Kommagetrennte Liste von Hostnamen (oder Mustern wie <code class="docutils literal notranslate"><span class="pre">*.meine-domain.at</span></code>), die auch auf interne
+(nicht öffentliche) Adressen zeigen dürfen. Nur für interne GeoJSON-/GeoRSS-Quellen nötig. Standard:
+leer (nur öffentliche Ziele).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">timeout-seconds</span></code> <em>(optional)</em></p></td>
+<td><p>Timeout für den Abruf in Sekunden. Standard: <code class="docutils literal notranslate"><span class="pre">20</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max-response-bytes</span></code> <em>(optional)</em></p></td>
+<td><p>Maximale Größe der Antwort in Bytes. Standard: <code class="docutils literal notranslate"><span class="pre">52428800</span></code> (50 MB).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max-redirects</span></code> <em>(optional)</em></p></td>
+<td><p>Maximale Anzahl an Redirects, die verfolgt werden. Jedes Ziel wird erneut geprüft. Standard: <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow-unsigned</span></code> <em>(optional)</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code>: Der Proxy verarbeitet auch URLs ohne gültige Signatur. Das ist nur nötig, wenn Karten nicht
+über die API geladen werden, z. B. mit dem MapBuilder als statisches HTML erzeugte Karten oder
+Dynamischer Inhalt, der in der <code class="docutils literal notranslate"><span class="pre">custom.js</span></code> gesetzt wird. Standard: <code class="docutils literal notranslate"><span class="pre">false</span></code> (nur signierte URLs).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4301.</span></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warnung</p>
+<p><strong>Änderung bestehendes Verhalten:</strong> Interne Quellen müssen unter <code class="docutils literal notranslate"><span class="pre">allow-hosts</span></code> eingetragen werden,
+Zertifikate werden geprüft und <code class="docutils literal notranslate"><span class="pre">UrlInputRedirections</span></code> gelten für diese Abrufe nicht mehr. Karten mit
+nicht signiertem Dynamischem Inhalt (siehe <code class="docutils literal notranslate"><span class="pre">allow-unsigned</span></code>) laden diesen standardmäßig nicht mehr.</p>
+</div>
+</section>
 <section id="abschnitt-secured-tiles">
 <h4>Abschnitt <code class="docutils literal notranslate"><span class="pre">Secured</span> <span class="pre">Tiles</span></code><a class="headerlink" href="#abschnitt-secured-tiles" title="Link to this heading">¶</a></h4>
 <p>Kartenkacheln werden immer von Client abgeholt (WMTS Dienste). Sind die Dienste allerdings geschützt, hat das den Nachteil, dass der Client auch Information über die Credentials (User, Passwort oder Token) braucht. Diese Credentials sollte allerdings nie an den Client weitergereicht werden.</p>
@@ -1425,6 +1495,9 @@ Die Konfiguration erfolgt in der optionalen <em>Section</em> <code class="docuti
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-url-password"</span><span class="w"> </span><span class="na">value=</span><span class="s">"****************************"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-basicauth-username"</span><span class="w"> </span><span class="na">value=</span><span class="s">"admin"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-basicauth-password"</span><span class="w"> </span><span class="na">value=</span><span class="s">"**************************************"</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-untrusted-server-certificates"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
@@ -1448,6 +1521,26 @@ ist der Endpunkt nur mehr mit gültigen Credentials erreichbar.</p>
 Nach einem Upload erfolgt automatisch ein neu Laden des Caches, ein Aurfug von <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> ist in diesem Fall nicht notwendig. Trotzdem sollten der Endpunkt in öffentlich
 zugänglichen Instanzen unbedingt geschützt werden, um Missbrauch zu verhindern.</p>
 </div>
+<section id="ausgehende-tls-verbindungen-serverzertifikate">
+<span id="api-config-security-untrusted-certificates"></span><h4>Ausgehende TLS-Verbindungen (Serverzertifikate)<a class="headerlink" href="#ausgehende-tls-verbindungen-serverzertifikate" title="Link to this heading">¶</a></h4>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Geändert in Version 8.26.4301: </span>Die WebGIS API prüft die Serverzertifikate bei ausgehenden HTTPS-Verbindungen (Kartendienste, ArcGIS, WMS, …) jetzt standardmäßig.
+Bisher wurde jedes Zertifikat akzeptiert.</p>
+</div>
+<p>Verwenden interne Dienste <strong>selbstsignierte Zertifikate</strong> oder Zertifikate einer <strong>internen CA</strong>, schlagen Verbindungen nach dem Update mit einem TLS-Fehler fehl.
+Die empfohlene Lösung ist, die Zertifikate der internen CA im <strong>Zertifikatsspeicher des Servers</strong> (Vertrauenswürdige Stammzertifizierungsstellen) zu installieren.</p>
+<p>Nur wenn das nicht möglich ist, kann die Prüfung mit dem Schlüssel <code class="docutils literal notranslate"><span class="pre">allow-untrusted-server-certificates</span></code> in der <em>Section</em> <code class="docutils literal notranslate"><span class="pre">security</span></code> abgeschaltet werden:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"security"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-untrusted-server-certificates"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: false --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Gefahr</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">true</span></code> werden <strong>alle</strong> Serverzertifikate akzeptiert. Ausgehende Verbindungen können dadurch abgehört oder manipuliert werden (Man-in-the-Middle).
+Diese Einstellung sollte nur für Legacy-Dienste in vertrauenswürdigen Netzen verwendet werden.</p>
+</div>
+</section>
 </section>
 <section id="middleware">
 <h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>
@@ -1703,11 +1796,15 @@ Um zu prüfen, ob die <strong>DataLinq-Einstellungen</strong> korrekt gesetzt si
 <li><a class="reference internal" href="#werkzeug-karte-teilen">Werkzeug <code class="docutils literal notranslate"><span class="pre">Karte</span> <span class="pre">teilen</span></code></a></li>
 <li><a class="reference internal" href="#werkzeug-identify">Werkzeug <code class="docutils literal notranslate"><span class="pre">Identify</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-lookup">Abschnitt <code class="docutils literal notranslate"><span class="pre">Lookup</span></code></a></li>
+<li><a class="reference internal" href="#abschnitt-dynamic-content">Abschnitt <code class="docutils literal notranslate"><span class="pre">Dynamic</span> <span class="pre">Content</span></code></a></li>
 <li><a class="reference internal" href="#abschnitt-secured-tiles">Abschnitt <code class="docutils literal notranslate"><span class="pre">Secured</span> <span class="pre">Tiles</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#proxy-server">Proxy Server</a></li>
-<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#security">Security</a><ul>
+<li><a class="reference internal" href="#ausgehende-tls-verbindungen-serverzertifikate">Ausgehende TLS-Verbindungen (Serverzertifikate)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#middleware">Middleware</a></li>
 <li><a class="reference internal" href="#httpclient">HttpClient</a></li>
 <li><a class="reference internal" href="#datalinq">DataLinq</a></li>

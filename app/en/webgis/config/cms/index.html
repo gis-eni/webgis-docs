@@ -525,6 +525,19 @@ This allows you to track which users made changes in the CMS, and when and by wh
 </ul>
 </td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow_untrusted_server_certificates</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code> (default: <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4301.</span></p>
+</div>
+<p>Server certificates of outbound HTTPS connections are validated by default. For internal services with self-signed certificates,
+the internal CA should be installed in the certificate store of the server. Only if this is not possible, the validation can be turned off with <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">true</span></code>, <strong>all</strong> server certificates are accepted. Connections can then be intercepted or manipulated (man-in-the-middle).</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 </section>

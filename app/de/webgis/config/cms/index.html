@@ -526,6 +526,19 @@ Damit kann nachverfolgt werden, welche Benutzer Änderungen im CMS vorgenommen h
 </ul>
 </td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">allow_untrusted_server_certificates</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> / <code class="docutils literal notranslate"><span class="pre">false</span></code> (Standard: <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4301.</span></p>
+</div>
+<p>Serverzertifikate bei ausgehenden HTTPS-Verbindungen werden standardmäßig geprüft. Bei internen Diensten mit selbstsignierten Zertifikaten
+sollte die interne CA im Zertifikatsspeicher des Servers installiert werden. Nur wenn das nicht möglich ist, kann die Prüfung mit <code class="docutils literal notranslate"><span class="pre">true</span></code> abgeschaltet werden.</p>
+<div class="admonition danger">
+<p class="admonition-title">Gefahr</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">true</span></code> werden <strong>alle</strong> Serverzertifikate akzeptiert. Verbindungen können dadurch abgehört oder manipuliert werden (Man-in-the-Middle).</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 </section>

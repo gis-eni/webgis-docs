@@ -127,7 +127,15 @@ Die folgenden Schlüssel ermöglichen die Konfiguration dieser Anmeldeinformatio
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
   </section>
+
+.. versionchanged:: 8.26.4301
+   Serverzertifikate bei ausgehenden HTTPS-Verbindungen werden jetzt standardmäßig geprüft. Bei internen Diensten mit selbstsignierten Zertifikaten
+   sollte die interne CA im Zertifikatsspeicher des Servers installiert werden. Nur wenn das nicht möglich ist, kann die Prüfung mit
+   ``allow-untrusted-server-certificates`` auf ``true`` abgeschaltet werden (Sicherheitsrisiko: Man-in-the-Middle). Details siehe :ref:`api-config-security-untrusted-certificates`.
 
 
 Abschnitt ``Auswahllisten``

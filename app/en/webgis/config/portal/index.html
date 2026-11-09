@@ -299,8 +299,16 @@ The following keys enable the configuration of these credentials:</p>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-url-password"</span><span class="w"> </span><span class="na">value=</span><span class="s">"****************************"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-basicauth-username"</span><span class="w"> </span><span class="na">value=</span><span class="s">"admin"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"secure-endpoint-basicauth-password"</span><span class="w"> </span><span class="na">value=</span><span class="s">"**************************************"</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">   </span><span class="cm">&lt;!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) --&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"allow-untrusted-server-certificates"</span><span class="w"> </span><span class="na">value=</span><span class="s">"false"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 8.26.4301: </span>Server certificates of outbound HTTPS connections are now validated by default. For internal services with self-signed certificates,
+the internal CA should be installed in the certificate store of the server. Only if this is not possible, the validation can be turned off by
+setting <code class="docutils literal notranslate"><span class="pre">allow-untrusted-server-certificates</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> (security risk: man-in-the-middle). For details see <a class="reference internal" href="../api/index.html#api-config-security-untrusted-certificates"><span class="std std-ref">Outbound TLS connections (server certificates)</span></a>.</p>
 </div>
 </section>
 <section id="section-selection-lists">
