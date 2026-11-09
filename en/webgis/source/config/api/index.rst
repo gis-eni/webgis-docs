@@ -1159,6 +1159,9 @@ Security
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
   </section>
 
 For special scenarios, e.g. when the WebGIS API serves exclusively as a **backend for another application**
@@ -1184,6 +1187,31 @@ Furthermore, **credentials** for protected endpoints (e.g. for **clearing the ca
   If you publish the CMS via a CMS upload (see section ``CMS Upload``), additional security measures are required (client, secret) to prevent unauthorized access.
   After an upload, the cache is automatically reloaded, so calling ``cache/clear`` is not necessary in this case. Nevertheless, the endpoint should absolutely
   be protected in publicly accessible instances, to prevent misuse.
+
+.. _api-config-security-untrusted-certificates:
+
+Outbound TLS connections (server certificates)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionchanged:: 8.26.4301
+   The WebGIS API now validates server certificates of outbound HTTPS connections (map services, ArcGIS, WMS, ...) by default.
+   Previously, every certificate was accepted.
+
+If internal services use **self-signed certificates** or certificates of an **internal CA**, connections fail with a TLS error after the update.
+The recommended solution is to install the internal CA certificates in the **certificate store of the server** (Trusted Root Certification Authorities).
+
+Only if this is not possible, the validation can be turned off with the key ``allow-untrusted-server-certificates`` in the *section* ``security``:
+
+.. code-block:: xml
+
+  <section name="security">
+      <add key="allow-untrusted-server-certificates" value="true" /> <!-- default: false -->
+  </section>
+
+.. danger::
+
+  With ``true``, **all** server certificates are accepted. Outbound connections can then be intercepted or manipulated (man-in-the-middle).
+  Use this setting only for legacy services in trusted networks.
 
 Middleware
 ----------

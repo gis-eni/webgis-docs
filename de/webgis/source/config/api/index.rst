@@ -1171,6 +1171,9 @@ Security
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
   </section>
 
 Für spezielle Szenarien, z. B. wenn die WebGIS API ausschließlich als **Backend für eine andere Anwendung**
@@ -1196,6 +1199,31 @@ Weiters können hier auch **Zugangsdaten** für geschützte Endpunkte (z. B. zum
   Veröffentlicht man das CMS über einen CMS Upload (siehe Abschnitt ``CMS Upload``), sind zusätzliche Sicherheitsmaßnahmen erforderlich (Client, Secret), um unbefugten Zugriff zu verhindern.
   Nach einem Upload erfolgt automatisch ein neu Laden des Caches, ein Aurfug von ``cache/clear`` ist in diesem Fall nicht notwendig. Trotzdem sollten der Endpunkt in öffentlich 
   zugänglichen Instanzen unbedingt geschützt werden, um Missbrauch zu verhindern.
+
+.. _api-config-security-untrusted-certificates:
+
+Ausgehende TLS-Verbindungen (Serverzertifikate)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionchanged:: 8.26.4301
+   Die WebGIS API prüft die Serverzertifikate bei ausgehenden HTTPS-Verbindungen (Kartendienste, ArcGIS, WMS, ...) jetzt standardmäßig.
+   Bisher wurde jedes Zertifikat akzeptiert.
+
+Verwenden interne Dienste **selbstsignierte Zertifikate** oder Zertifikate einer **internen CA**, schlagen Verbindungen nach dem Update mit einem TLS-Fehler fehl.
+Die empfohlene Lösung ist, die Zertifikate der internen CA im **Zertifikatsspeicher des Servers** (Vertrauenswürdige Stammzertifizierungsstellen) zu installieren.
+
+Nur wenn das nicht möglich ist, kann die Prüfung mit dem Schlüssel ``allow-untrusted-server-certificates`` in der *Section* ``security`` abgeschaltet werden:
+
+.. code-block:: xml
+
+  <section name="security">
+      <add key="allow-untrusted-server-certificates" value="true" /> <!-- default: false -->
+  </section>
+
+.. danger::
+
+  Mit ``true`` werden **alle** Serverzertifikate akzeptiert. Ausgehende Verbindungen können dadurch abgehört oder manipuliert werden (Man-in-the-Middle).
+  Diese Einstellung sollte nur für Legacy-Dienste in vertrauenswürdigen Netzen verwendet werden.
 
 Middleware
 ----------

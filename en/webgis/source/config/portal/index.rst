@@ -131,7 +131,15 @@ The following keys enable the configuration of these credentials:
       <add key="secure-endpoint-url-password" value="****************************" />
       <add key="secure-endpoint-basicauth-username" value="admin" />
       <add key="secure-endpoint-basicauth-password" value="**************************************" />
+
+      <!-- default: false. true disables the validation of TLS server certificates for outbound connections (not recommended) -->
+      <add key="allow-untrusted-server-certificates" value="false" />
    </section>
+
+.. versionchanged:: 8.26.4301
+   Server certificates of outbound HTTPS connections are now validated by default. For internal services with self-signed certificates,
+   the internal CA should be installed in the certificate store of the server. Only if this is not possible, the validation can be turned off by
+   setting ``allow-untrusted-server-certificates`` to ``true`` (security risk: man-in-the-middle). For details see :ref:`api-config-security-untrusted-certificates`.
 
 Section ``Selection lists``
 ===========================
