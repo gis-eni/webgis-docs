@@ -166,11 +166,15 @@
 </div>
 <p>This section describes recommended security measures to protect the system as well as possible. Further general information on the security of web applications can be found in the appendix under <a class="reference internal" href="../../annex/index.html"><span class="doc">Security measures for the WebGIS Portal</span></a>.</p>
 <section id="change-default-passwords">
-<h2>Change default passwords<a class="headerlink" href="#change-default-passwords" title="Link to this heading">¶</a></h2>
+<span id="hardening-default-passwords"></span><h2>Change default passwords<a class="headerlink" href="#change-default-passwords" title="Link to this heading">¶</a></h2>
 <p>During the initial installation, the system contains predefined user accounts with default passwords that are generally known. These passwords should be changed <strong>immediately after installation</strong> to prevent unauthorized access.</p>
 <section id="author-account">
 <h3>Author account<a class="headerlink" href="#author-account" title="Link to this heading">¶</a></h3>
 <p>This account is used for <strong>editing and publishing content</strong>. If the default password is not changed, other people could log in without authorization and manipulate maps or other data.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 8.26.4502: </span>A subscriber logging in with the default password <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> must set a new password immediately.
+The default password can no longer be set as a new password.</p>
+</div>
 </section>
 <section id="admin-account-in-the-api">
 <h3>Admin account in the API<a class="headerlink" href="#admin-account-in-the-api" title="Link to this heading">¶</a></h3>
@@ -188,7 +192,7 @@
 <p>Enter the required information in the registration form.</p>
 <img alt="../../_images/create_admin_2.png" src="../../_images/create_admin_2.png" />
 <ul class="simple">
-<li><p>The password must be at least <strong>8 characters</strong> long.</p></li>
+<li><p>The password must be at least <strong>12 characters</strong> long (<code class="docutils literal notranslate"><span class="pre">password-min-length</span></code>, see <a class="reference internal" href="../api/index.html#api-config-security-subscriber-login"><span class="std std-ref">Subscriber login</span></a>).</p></li>
 </ul>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -229,6 +233,26 @@
 </pre></div>
 </div>
 <p>Once this setting has been made, <strong>self-registration for subscribers is disabled</strong>.</p>
+</section>
+<section id="two-factor-authentication-for-subscribers">
+<span id="hardening-subscriber-mfa"></span><h2>Two-factor authentication for subscribers<a class="headerlink" href="#two-factor-authentication-for-subscribers" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4502.</span></p>
+</div>
+<p>If the subscriber login (<code class="docutils literal notranslate"><span class="pre">/Subscribers/Login</span></code>) is reachable from the internet, at least the administrators should use <strong>two-factor authentication</strong>.
+Every subscriber can set it up with an authenticator app on the <strong>Account</strong> page after logging in.</p>
+<p>It is made mandatory with the key <code class="docutils literal notranslate"><span class="pre">mfa-required</span></code> in the <code class="docutils literal notranslate"><span class="pre">security</span></code> <em>section</em> of the <code class="docutils literal notranslate"><span class="pre">api.config</span></code> (<code class="docutils literal notranslate"><span class="pre">admins</span></code> or <code class="docutils literal notranslate"><span class="pre">all</span></code>):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"security"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"mfa-required"</span><span class="w"> </span><span class="na">value=</span><span class="s">"admins"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p>If the subscribers are stored in a SQL database, run the <strong>Setup</strong> page of the API first.
+For details and further settings (password rules, brute force protection) see <a class="reference internal" href="../api/index.html#api-config-security-subscriber-login"><span class="std std-ref">Subscriber login</span></a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For installations on the internet, logging in via an identity provider (OpenID Connect) is still the recommended option.</p>
+</div>
 </section>
 <section id="disable-login-options-in-publicly-accessible-instances">
 <h2>Disable login options in publicly accessible instances<a class="headerlink" href="#disable-login-options-in-publicly-accessible-instances" title="Link to this heading">¶</a></h2>
@@ -291,6 +315,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#disable-self-registration-for-subscribers">Disable self-registration for subscribers</a></li>
+<li><a class="reference internal" href="#two-factor-authentication-for-subscribers">Two-factor authentication for subscribers</a></li>
 <li><a class="reference internal" href="#disable-login-options-in-publicly-accessible-instances">Disable login options in publicly accessible instances</a><ul>
 <li><a class="reference internal" href="#api-configuration-file-config-api-config">API configuration file (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>)</a></li>
 <li><a class="reference internal" href="#portal-configuration-file-config-portal-config">Portal configuration file (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>)</a></li>

@@ -1541,6 +1541,137 @@ Die empfohlene Lösung ist, die Zertifikate der internen CA im <strong>Zertifika
 Diese Einstellung sollte nur für Legacy-Dienste in vertrauenswürdigen Netzen verwendet werden.</p>
 </div>
 </section>
+<section id="subscriber-anmeldung">
+<span id="api-config-security-subscriber-login"></span><h4>Subscriber-Anmeldung<a class="headerlink" href="#subscriber-anmeldung" title="Link to this heading">¶</a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4502.</span></p>
+</div>
+<p>Über die Anmeldung <code class="docutils literal notranslate"><span class="pre">/Subscribers/Login</span></code> melden sich Kartenautoren und Administratoren (<em>Subscriber</em>) an der WebGIS API an.
+Ist die API aus dem Internet erreichbar, schützen folgende Maßnahmen diese Anmeldung. Sie sind standardmäßig aktiv und können in der
+<em>Section</em> <code class="docutils literal notranslate"><span class="pre">security</span></code> angepasst werden. Alle Schlüssel sind optional, die Werte im Beispiel entsprechen den Standardwerten:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"security"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Anmelde-Cookie und Sitzung --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"cookie-secure"</span><span class="w"> </span><span class="na">value=</span><span class="s">"auto"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"session-max-lifetime-minutes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"480"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"session-idle-timeout-minutes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0"</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Passwortregeln (nur für neue/geänderte Passwörter) --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"password-min-length"</span><span class="w"> </span><span class="na">value=</span><span class="s">"12"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"password-required-character-classes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"0"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"password-blocklist-file"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Schutz vor Brute-Force-Angriffen --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"login-captcha-after-failed-attempts"</span><span class="w"> </span><span class="na">value=</span><span class="s">"3"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"login-lockout-after-failed-attempts"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"login-lockout-minutes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"1,5,15"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"login-failed-attempts-reset-minutes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"60"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"login-ip-max-failed-attempts"</span><span class="w"> </span><span class="na">value=</span><span class="s">"30"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"login-ip-window-minutes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"15"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"login-throttle-redis-connectionstring"</span><span class="w"> </span><span class="na">value=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"captcha-lifetime-minutes"</span><span class="w"> </span><span class="na">value=</span><span class="s">"5"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"password-verification-cache-seconds"</span><span class="w"> </span><span class="na">value=</span><span class="s">"300"</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Zwei-Faktor-Authentifizierung --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"mfa-required"</span><span class="w"> </span><span class="na">value=</span><span class="s">"none"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"mfa-issuer"</span><span class="w"> </span><span class="na">value=</span><span class="s">"WebGIS"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Attribut</strong></p></th>
+<th class="head"><p><strong>Beschreibung</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cookie-secure</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">auto</span></code> (Standard): Das Anmelde-Cookie erhält das <em>Secure</em>-Flag nur bei HTTPS-Aufrufen, lokale Installationen über <code class="docutils literal notranslate"><span class="pre">http://localhost</span></code> funktionieren weiterhin.
+<code class="docutils literal notranslate"><span class="pre">always</span></code>: immer (nur mit HTTPS verwenden), <code class="docutils literal notranslate"><span class="pre">never</span></code>: nie.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">session-max-lifetime-minutes</span></code></p></td>
+<td><p>Maximale Dauer einer Anmeldung unabhängig von der Aktivität. <code class="docutils literal notranslate"><span class="pre">0</span></code> = unbegrenzt (nicht empfohlen).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session-idle-timeout-minutes</span></code></p></td>
+<td><p>Abmeldung nach dieser Zeit ohne Aktivität. <code class="docutils literal notranslate"><span class="pre">0</span></code> = deaktiviert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">password-min-length</span></code></p></td>
+<td><p>Mindestlänge für neue bzw. geänderte Passwörter. Bestehende Passwörter bleiben gültig.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">password-required-character-classes</span></code></p></td>
+<td><p>Anzahl (<code class="docutils literal notranslate"><span class="pre">0</span></code> - <code class="docutils literal notranslate"><span class="pre">4</span></code>) der geforderten Zeichenklassen (Kleinbuchstabe, Großbuchstabe, Ziffer, Sonderzeichen).
+<code class="docutils literal notranslate"><span class="pre">0</span></code> = keine Vorgabe. Empfohlen ist eine ausreichende Länge in Kombination mit der Sperrliste.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">password-blocklist-file</span></code></p></td>
+<td><p>Optionale Textdatei mit gesperrten Passwörtern (ein Passwort pro Zeile), zusätzlich zur eingebauten Liste häufiger Passwörter.
+Relative Pfade beziehen sich auf das Anwendungsverzeichnis der API.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">login-captcha-after-failed-attempts</span></code></p></td>
+<td><p>Nach so vielen Fehlversuchen (pro Benutzername oder Client-IP) muss zusätzlich ein Captcha gelöst werden. <code class="docutils literal notranslate"><span class="pre">0</span></code> = immer Captcha.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">login-lockout-after-failed-attempts</span></code></p></td>
+<td><p>Nach so vielen Fehlversuchen wird der Benutzername vorübergehend gesperrt. <code class="docutils literal notranslate"><span class="pre">0</span></code> = keine Sperre.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">login-lockout-minutes</span></code></p></td>
+<td><p>Dauer der Sperre in Minuten, ansteigend für jeden weiteren Fehlversuch. Der letzte Wert wird wiederholt.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">login-failed-attempts-reset-minutes</span></code></p></td>
+<td><p>Fehlversuche eines Benutzernamens werden nach dieser Zeit ohne weitere Fehlversuche zurückgesetzt.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">login-ip-max-failed-attempts</span></code></p></td>
+<td><p>Fehlversuche pro Client-IP innerhalb von <code class="docutils literal notranslate"><span class="pre">login-ip-window-minutes</span></code>, ab denen jede Anmeldung von dieser IP ein Captcha erfordert und verzögert wird
+(keine harte Sperre). <code class="docutils literal notranslate"><span class="pre">0</span></code> = deaktiviert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">login-ip-window-minutes</span></code></p></td>
+<td><p>Zeitfenster für <code class="docutils literal notranslate"><span class="pre">login-ip-max-failed-attempts</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">login-throttle-redis-connectionstring</span></code></p></td>
+<td><p>Optional: Bei mehreren Instanzen (Load Balancing) können die Fehlversuche über <strong>Redis</strong> geteilt werden. Leer = im Speicher der jeweiligen Instanz.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">captcha-lifetime-minutes</span></code></p></td>
+<td><p>Gültigkeit eines Captchas. Jedes Captcha kann nur einmal verwendet werden.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">password-verification-cache-seconds</span></code></p></td>
+<td><p>Erfolgreiche Passwortprüfungen bei <em>Basic Authentication</em> bzw. <em>DataLinq</em> werden so lange zwischengespeichert, da das Hashen der Passwörter
+bewusst aufwendig ist. <code class="docutils literal notranslate"><span class="pre">0</span></code> = deaktiviert.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mfa-required</span></code></p></td>
+<td><p>Wer die <strong>Zwei-Faktor-Authentifizierung</strong> verwenden muss: <code class="docutils literal notranslate"><span class="pre">none</span></code> (Standard, optional für alle), <code class="docutils literal notranslate"><span class="pre">admins</span></code> oder <code class="docutils literal notranslate"><span class="pre">all</span></code>.
+Betroffene Subscriber werden bei der nächsten Anmeldung durch die Einrichtung geführt.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mfa-issuer</span></code></p></td>
+<td><p>Name, unter dem der Eintrag in der Authenticator-App angezeigt wird.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Passwortregeln</strong></p>
+<p>Neben der Mindestlänge werden neue Passwörter gegen eine Liste häufiger Passwörter (und optional <code class="docutils literal notranslate"><span class="pre">password-blocklist-file</span></code>) geprüft.
+Passwörter, die den Benutzernamen, Vornamen, Nachnamen oder die E-Mail-Adresse enthalten, und triviale Muster (z. B. <code class="docutils literal notranslate"><span class="pre">aaaaaaaaaaaa</span></code> oder <code class="docutils literal notranslate"><span class="pre">123456789012</span></code>)
+sind nicht erlaubt. Bestehende Passwörter bleiben gültig, die Regeln greifen nur beim Anlegen oder Ändern eines Passworts.</p>
+<p>Das Standardpasswort <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> der Erstinstallation kann nicht mehr als neues Passwort gesetzt werden. Meldet sich ein Subscriber damit an,
+muss er das Passwort sofort ändern (siehe <a class="reference internal" href="../hardening/index.html#hardening-default-passwords"><span class="std std-ref">Standardpasswörter ändern</span></a>).</p>
+<p><strong>Zwei-Faktor-Authentifizierung (MFA)</strong></p>
+<p>Subscriber können auf der Seite <strong>Konto</strong> (nach der Anmeldung) eine Zwei-Faktor-Authentifizierung mit einer Authenticator-App (TOTP, z. B. Microsoft oder Google Authenticator)
+einrichten und erhalten dabei Wiederherstellungscodes. Auf derselben Seite kann jeder Subscriber auch sein eigenes Passwort ändern (Angabe des aktuellen Passworts erforderlich).
+Administratoren können die Zwei-Faktor-Authentifizierung eines Subscribers zurücksetzen.</p>
+<div class="admonition important">
+<p class="admonition-title">Wichtig</p>
+<p>Bei einer <strong>SQL-Datenbank</strong> für die Subscriber muss nach dem Update einmal die <strong>Setup</strong>-Seite der API ausgeführt werden. Dabei wird die Tabelle
+<code class="docutils literal notranslate"><span class="pre">webgis_api_subscriber_mfa</span></code> angelegt. Solange die Tabelle fehlt, funktioniert die Anmeldung wie bisher, die Zwei-Faktor-Authentifizierung wird jedoch
+ausgegraut und mit einem entsprechenden Hinweis angezeigt. Bei einer dateibasierten Subscriber-Datenbank ist keine Migration notwendig.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<ul class="simple">
+<li><p><em>Basic Authentication</em> und <em>DataLinq</em>-Zugriffe verwenden weiterhin nur Benutzername und Passwort (ohne zweiten Faktor).</p></li>
+<li><p>Die MFA-Schlüssel werden mit dem Crypto-Key der API verschlüsselt. Wird dieser geändert, muss die Zwei-Faktor-Authentifizierung der Subscriber zurückgesetzt werden.</p></li>
+<li><p>Nach dem Update auf diese Version müssen sich alle Subscriber einmal neu anmelden.</p></li>
+</ul>
+</div>
+</section>
 </section>
 <section id="middleware">
 <h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>
@@ -1554,9 +1685,19 @@ z. B. <strong>Logging</strong>, <strong>Forwarding</strong> oder <strong>Sicherh
 <span class="w">    </span><span class="cm">&lt;!-- logs the original client IP and protocol information in the API logs (information level) --&gt;</span>
 <span class="w">    </span><span class="cm">&lt;!-- should only be enabled if use-x-forwarded-headers is true and the API is behind a reverse proxy --&gt;</span>
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"use-x-forwarded-headers-logging"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- optional: trusted reverse proxies, default: loopback only --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"x-forwarded-known-proxies"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10.0.0.5,10.0.0.6"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"x-forwarded-known-networks"</span><span class="w"> </span><span class="na">value=</span><span class="s">"10.0.0.0/8"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/section&gt;</span>
 </pre></div>
 </div>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4502: </span><code class="docutils literal notranslate"><span class="pre">x-forwarded-known-proxies</span></code> und <code class="docutils literal notranslate"><span class="pre">x-forwarded-known-networks</span></code></p>
+</div>
+<p>Die <em>X-Forwarded</em>-Header werden nur von vertrauenswürdigen Proxies übernommen, standardmäßig nur von <code class="docutils literal notranslate"><span class="pre">localhost</span></code>. Läuft der Reverse Proxy auf einem anderen Server,
+müssen dessen IP-Adressen (<code class="docutils literal notranslate"><span class="pre">x-forwarded-known-proxies</span></code>, durch Beistrich getrennt) bzw. Netzwerke in CIDR-Schreibweise (<code class="docutils literal notranslate"><span class="pre">x-forwarded-known-networks</span></code>) angegeben werden.
+Andernfalls sieht die API die IP-Adresse des Proxies statt jener des Clients, was u. a. den Schutz der <a class="reference internal" href="#api-config-security-subscriber-login"><span class="std std-ref">Subscriber-Anmeldung</span></a> vor
+Brute-Force-Angriffen (Fehlversuche pro Client-IP) beeinträchtigt.</p>
 </section>
 <section id="httpclient">
 <h3>HttpClient<a class="headerlink" href="#httpclient" title="Link to this heading">¶</a></h3>
@@ -1803,6 +1944,7 @@ Um zu prüfen, ob die <strong>DataLinq-Einstellungen</strong> korrekt gesetzt si
 <li><a class="reference internal" href="#proxy-server">Proxy Server</a></li>
 <li><a class="reference internal" href="#security">Security</a><ul>
 <li><a class="reference internal" href="#ausgehende-tls-verbindungen-serverzertifikate">Ausgehende TLS-Verbindungen (Serverzertifikate)</a></li>
+<li><a class="reference internal" href="#subscriber-anmeldung">Subscriber-Anmeldung</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#middleware">Middleware</a></li>

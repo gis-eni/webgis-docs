@@ -167,11 +167,15 @@
 </div>
 <p>Dieser Abschnitt beschreibt empfohlene Sicherheitsmaßnahmen, um das System bestmöglich zu schützen. Weitere generelle Informationen zur Sicherheit von Webapplikationen finden Sie im Anhang unter <a class="reference internal" href="../../annex/index.html"><span class="doc">Sicherheitsmaßnahmen für das WebGIS Portal</span></a>.</p>
 <section id="standardpassworter-andern">
-<h2>Standardpasswörter ändern<a class="headerlink" href="#standardpassworter-andern" title="Link to this heading">¶</a></h2>
+<span id="hardening-default-passwords"></span><h2>Standardpasswörter ändern<a class="headerlink" href="#standardpassworter-andern" title="Link to this heading">¶</a></h2>
 <p>Bei der Erstinstallation enthält das System vordefinierte Benutzerkonten mit Standardpasswörtern, die allgemein bekannt sind. Diese Passwörter sollten <strong>sofort nach der Installation</strong> geändert werden, um unbefugten Zugriff zu verhindern.</p>
 <section id="author-account">
 <h3>Author-Account<a class="headerlink" href="#author-account" title="Link to this heading">¶</a></h3>
 <p>Dieses Konto wird für das <strong>Bearbeiten und Veröffentlichen von Inhalten</strong> genutzt. Wenn das Standardpasswort nicht geändert wird, könnten sich andere Personen unbefugt einloggen und Karten oder andere Daten manipulieren.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Geändert in Version 8.26.4502: </span>Meldet sich ein Subscriber mit dem Standardpasswort <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> an, muss er sofort ein neues Passwort vergeben.
+Das Standardpasswort kann nicht mehr als neues Passwort gesetzt werden.</p>
+</div>
 </section>
 <section id="admin-account-in-der-api">
 <h3>Admin-Account in der API<a class="headerlink" href="#admin-account-in-der-api" title="Link to this heading">¶</a></h3>
@@ -189,7 +193,7 @@
 <p>Geben Sie die erforderlichen Informationen im Registrierungsformular ein.</p>
 <img alt="../../_images/create_admin_2.png" src="../../_images/create_admin_2.png" />
 <ul class="simple">
-<li><p>Das Passwort muss mindestens <strong>8 Zeichen</strong> lang sein.</p></li>
+<li><p>Das Passwort muss mindestens <strong>12 Zeichen</strong> lang sein (<code class="docutils literal notranslate"><span class="pre">password-min-length</span></code>, siehe <a class="reference internal" href="../api/index.html#api-config-security-subscriber-login"><span class="std std-ref">Subscriber-Anmeldung</span></a>).</p></li>
 </ul>
 <div class="admonition danger">
 <p class="admonition-title">Gefahr</p>
@@ -230,6 +234,26 @@
 </pre></div>
 </div>
 <p>Sobald diese Einstellung vorgenommen wurde, ist die <strong>Selbstregistrierung für Subscriber deaktiviert</strong>.</p>
+</section>
+<section id="zwei-faktor-authentifizierung-fur-subscriber">
+<span id="hardening-subscriber-mfa"></span><h2>Zwei-Faktor-Authentifizierung für Subscriber<a class="headerlink" href="#zwei-faktor-authentifizierung-fur-subscriber" title="Link to this heading">¶</a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4502.</span></p>
+</div>
+<p>Ist die Subscriber-Anmeldung (<code class="docutils literal notranslate"><span class="pre">/Subscribers/Login</span></code>) aus dem Internet erreichbar, sollten zumindest die Administratoren eine <strong>Zwei-Faktor-Authentifizierung</strong> verwenden.
+Jeder Subscriber kann diese nach der Anmeldung auf der Seite <strong>Konto</strong> mit einer Authenticator-App einrichten.</p>
+<p>Verpflichtend wird sie über den Schlüssel <code class="docutils literal notranslate"><span class="pre">mfa-required</span></code> in der <em>Section</em> <code class="docutils literal notranslate"><span class="pre">security</span></code> der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> (<code class="docutils literal notranslate"><span class="pre">admins</span></code> oder <code class="docutils literal notranslate"><span class="pre">all</span></code>):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"security"</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"mfa-required"</span><span class="w"> </span><span class="na">value=</span><span class="s">"admins"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</pre></div>
+</div>
+<p>Bei einer SQL-Datenbank für die Subscriber muss vorher die <strong>Setup</strong>-Seite der API ausgeführt werden.
+Details und weitere Einstellungen (Passwortregeln, Schutz vor Brute-Force-Angriffen) siehe <a class="reference internal" href="../api/index.html#api-config-security-subscriber-login"><span class="std std-ref">Subscriber-Anmeldung</span></a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipp</p>
+<p>Für Installationen im Internet ist eine Anmeldung über einen Identity Provider (OpenID Connect) weiterhin die empfohlene Variante.</p>
+</div>
 </section>
 <section id="anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren">
 <h2>Anmeldemöglichkeiten in öffentlich zugänglichen Instanzen deaktivieren<a class="headerlink" href="#anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren" title="Link to this heading">¶</a></h2>
@@ -292,6 +316,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#selbstregistrierung-fur-subscriber-deaktivieren">Selbstregistrierung für Subscriber deaktivieren</a></li>
+<li><a class="reference internal" href="#zwei-faktor-authentifizierung-fur-subscriber">Zwei-Faktor-Authentifizierung für Subscriber</a></li>
 <li><a class="reference internal" href="#anmeldemoglichkeiten-in-offentlich-zuganglichen-instanzen-deaktivieren">Anmeldemöglichkeiten in öffentlich zugänglichen Instanzen deaktivieren</a><ul>
 <li><a class="reference internal" href="#api-konfigurationsdatei-config-api-config">API-Konfigurationsdatei (<code class="docutils literal notranslate"><span class="pre">_config/api.config</span></code>)</a></li>
 <li><a class="reference internal" href="#portal-konfigurationsdatei-config-portal-config">Portal-Konfigurationsdatei (<code class="docutils literal notranslate"><span class="pre">_config/portal.config</span></code>)</a></li>
