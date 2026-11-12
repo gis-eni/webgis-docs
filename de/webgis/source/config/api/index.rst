@@ -1225,6 +1225,120 @@ Nur wenn das nicht möglich ist, kann die Prüfung mit dem Schlüssel ``allow-un
   Mit ``true`` werden **alle** Serverzertifikate akzeptiert. Ausgehende Verbindungen können dadurch abgehört oder manipuliert werden (Man-in-the-Middle).
   Diese Einstellung sollte nur für Legacy-Dienste in vertrauenswürdigen Netzen verwendet werden.
 
+.. _api-config-security-subscriber-login:
+
+Subscriber-Anmeldung
+~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 8.26.4502
+
+Über die Anmeldung ``/Subscribers/Login`` melden sich Kartenautoren und Administratoren (*Subscriber*) an der WebGIS API an.
+Ist die API aus dem Internet erreichbar, schützen folgende Maßnahmen diese Anmeldung. Sie sind standardmäßig aktiv und können in der
+*Section* ``security`` angepasst werden. Alle Schlüssel sind optional, die Werte im Beispiel entsprechen den Standardwerten:
+
+.. code-block:: xml
+
+  <section name="security">
+      <!-- Anmelde-Cookie und Sitzung -->
+      <add key="cookie-secure" value="auto" />
+      <add key="session-max-lifetime-minutes" value="480" />
+      <add key="session-idle-timeout-minutes" value="0" />
+
+      <!-- Passwortregeln (nur für neue/geänderte Passwörter) -->
+      <add key="password-min-length" value="12" />
+      <add key="password-required-character-classes" value="0" />
+      <add key="password-blocklist-file" value="" />
+
+      <!-- Schutz vor Brute-Force-Angriffen -->
+      <add key="login-captcha-after-failed-attempts" value="3" />
+      <add key="login-lockout-after-failed-attempts" value="10" />
+      <add key="login-lockout-minutes" value="1,5,15" />
+      <add key="login-failed-attempts-reset-minutes" value="60" />
+      <add key="login-ip-max-failed-attempts" value="30" />
+      <add key="login-ip-window-minutes" value="15" />
+      <add key="login-throttle-redis-connectionstring" value="" />
+      <add key="captcha-lifetime-minutes" value="5" />
+      <add key="password-verification-cache-seconds" value="300" />
+
+      <!-- Zwei-Faktor-Authentifizierung -->
+      <add key="mfa-required" value="none" />
+      <add key="mfa-issuer" value="WebGIS" />
+  </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``cookie-secure``
+     - ``auto`` (Standard): Das Anmelde-Cookie erhält das *Secure*-Flag nur bei HTTPS-Aufrufen, lokale Installationen über ``http://localhost`` funktionieren weiterhin.
+       ``always``: immer (nur mit HTTPS verwenden), ``never``: nie.
+   * - ``session-max-lifetime-minutes``
+     - Maximale Dauer einer Anmeldung unabhängig von der Aktivität. ``0`` = unbegrenzt (nicht empfohlen).
+   * - ``session-idle-timeout-minutes``
+     - Abmeldung nach dieser Zeit ohne Aktivität. ``0`` = deaktiviert.
+   * - ``password-min-length``
+     - Mindestlänge für neue bzw. geänderte Passwörter. Bestehende Passwörter bleiben gültig.
+   * - ``password-required-character-classes``
+     - Anzahl (``0`` - ``4``) der geforderten Zeichenklassen (Kleinbuchstabe, Großbuchstabe, Ziffer, Sonderzeichen).
+       ``0`` = keine Vorgabe. Empfohlen ist eine ausreichende Länge in Kombination mit der Sperrliste.
+   * - ``password-blocklist-file``
+     - Optionale Textdatei mit gesperrten Passwörtern (ein Passwort pro Zeile), zusätzlich zur eingebauten Liste häufiger Passwörter.
+       Relative Pfade beziehen sich auf das Anwendungsverzeichnis der API.
+   * - ``login-captcha-after-failed-attempts``
+     - Nach so vielen Fehlversuchen (pro Benutzername oder Client-IP) muss zusätzlich ein Captcha gelöst werden. ``0`` = immer Captcha.
+   * - ``login-lockout-after-failed-attempts``
+     - Nach so vielen Fehlversuchen wird der Benutzername vorübergehend gesperrt. ``0`` = keine Sperre.
+   * - ``login-lockout-minutes``
+     - Dauer der Sperre in Minuten, ansteigend für jeden weiteren Fehlversuch. Der letzte Wert wird wiederholt.
+   * - ``login-failed-attempts-reset-minutes``
+     - Fehlversuche eines Benutzernamens werden nach dieser Zeit ohne weitere Fehlversuche zurückgesetzt.
+   * - ``login-ip-max-failed-attempts``
+     - Fehlversuche pro Client-IP innerhalb von ``login-ip-window-minutes``, ab denen jede Anmeldung von dieser IP ein Captcha erfordert und verzögert wird
+       (keine harte Sperre). ``0`` = deaktiviert.
+   * - ``login-ip-window-minutes``
+     - Zeitfenster für ``login-ip-max-failed-attempts``.
+   * - ``login-throttle-redis-connectionstring``
+     - Optional: Bei mehreren Instanzen (Load Balancing) können die Fehlversuche über **Redis** geteilt werden. Leer = im Speicher der jeweiligen Instanz.
+   * - ``captcha-lifetime-minutes``
+     - Gültigkeit eines Captchas. Jedes Captcha kann nur einmal verwendet werden.
+   * - ``password-verification-cache-seconds``
+     - Erfolgreiche Passwortprüfungen bei *Basic Authentication* bzw. *DataLinq* werden so lange zwischengespeichert, da das Hashen der Passwörter
+       bewusst aufwendig ist. ``0`` = deaktiviert.
+   * - ``mfa-required``
+     - Wer die **Zwei-Faktor-Authentifizierung** verwenden muss: ``none`` (Standard, optional für alle), ``admins`` oder ``all``.
+       Betroffene Subscriber werden bei der nächsten Anmeldung durch die Einrichtung geführt.
+   * - ``mfa-issuer``
+     - Name, unter dem der Eintrag in der Authenticator-App angezeigt wird.
+
+**Passwortregeln**
+
+Neben der Mindestlänge werden neue Passwörter gegen eine Liste häufiger Passwörter (und optional ``password-blocklist-file``) geprüft.
+Passwörter, die den Benutzernamen, Vornamen, Nachnamen oder die E-Mail-Adresse enthalten, und triviale Muster (z. B. ``aaaaaaaaaaaa`` oder ``123456789012``)
+sind nicht erlaubt. Bestehende Passwörter bleiben gültig, die Regeln greifen nur beim Anlegen oder Ändern eines Passworts.
+
+Das Standardpasswort ``webgisauthor`` der Erstinstallation kann nicht mehr als neues Passwort gesetzt werden. Meldet sich ein Subscriber damit an,
+muss er das Passwort sofort ändern (siehe :ref:`hardening-default-passwords`).
+
+**Zwei-Faktor-Authentifizierung (MFA)**
+
+Subscriber können auf der Seite **Konto** (nach der Anmeldung) eine Zwei-Faktor-Authentifizierung mit einer Authenticator-App (TOTP, z. B. Microsoft oder Google Authenticator)
+einrichten und erhalten dabei Wiederherstellungscodes. Auf derselben Seite kann jeder Subscriber auch sein eigenes Passwort ändern (Angabe des aktuellen Passworts erforderlich).
+Administratoren können die Zwei-Faktor-Authentifizierung eines Subscribers zurücksetzen.
+
+.. important::
+
+  Bei einer **SQL-Datenbank** für die Subscriber muss nach dem Update einmal die **Setup**-Seite der API ausgeführt werden. Dabei wird die Tabelle
+  ``webgis_api_subscriber_mfa`` angelegt. Solange die Tabelle fehlt, funktioniert die Anmeldung wie bisher, die Zwei-Faktor-Authentifizierung wird jedoch
+  ausgegraut und mit einem entsprechenden Hinweis angezeigt. Bei einer dateibasierten Subscriber-Datenbank ist keine Migration notwendig.
+
+.. note::
+
+  * *Basic Authentication* und *DataLinq*-Zugriffe verwenden weiterhin nur Benutzername und Passwort (ohne zweiten Faktor).
+  * Die MFA-Schlüssel werden mit dem Crypto-Key der API verschlüsselt. Wird dieser geändert, muss die Zwei-Faktor-Authentifizierung der Subscriber zurückgesetzt werden.
+  * Nach dem Update auf diese Version müssen sich alle Subscriber einmal neu anmelden.
+
 Middleware
 ----------
 
@@ -1241,7 +1355,18 @@ z. B. **Logging**, **Forwarding** oder **Sicherheitsprüfungen**.
       <!-- logs the original client IP and protocol information in the API logs (information level) -->
       <!-- should only be enabled if use-x-forwarded-headers is true and the API is behind a reverse proxy -->
       <add key="use-x-forwarded-headers-logging" value="true" />
+      <!-- optional: trusted reverse proxies, default: loopback only -->
+      <add key="x-forwarded-known-proxies" value="10.0.0.5,10.0.0.6" />
+      <add key="x-forwarded-known-networks" value="10.0.0.0/8" />
   </section>
+
+.. versionadded:: 8.26.4502
+   ``x-forwarded-known-proxies`` und ``x-forwarded-known-networks``
+
+Die *X-Forwarded*-Header werden nur von vertrauenswürdigen Proxies übernommen, standardmäßig nur von ``localhost``. Läuft der Reverse Proxy auf einem anderen Server,
+müssen dessen IP-Adressen (``x-forwarded-known-proxies``, durch Beistrich getrennt) bzw. Netzwerke in CIDR-Schreibweise (``x-forwarded-known-networks``) angegeben werden.
+Andernfalls sieht die API die IP-Adresse des Proxies statt jener des Clients, was u. a. den Schutz der :ref:`Subscriber-Anmeldung <api-config-security-subscriber-login>` vor
+Brute-Force-Angriffen (Fehlversuche pro Client-IP) beeinträchtigt.
 
 HttpClient
 ----------
