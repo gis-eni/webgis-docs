@@ -93,8 +93,14 @@ Abschnitt ``Allgemein``
    * - ``portal-name-url``
      - URL zur Webseite des Portalbetreibers. Wird aufgerufen, wenn der Benutzer auf den Titelzeilen-Text klickt.
 
+.. _portal-config-security:
+
 Abschnitt ``Security``
 ======================
+
+.. seealso::
+
+   Anhang :ref:`annex-security`: Überblick, Risikostufen und Empfehlungen für alle sicherheitsrelevanten Schlüssel.
 
 .. list-table::
    :widths: 20 80
@@ -200,6 +206,8 @@ Die hier angegebenen Werte müssen mit denen in der ``api.config`` übereinstimm
 
        Beispiel: ``localhost:6379`` für Redis oder eine Zeitangabe in Sekunden für In-App-Caching (z. B. ``3600``)
 
+.. _portal-config-subscriber-db:
+
 Abschnitt ``Subscriber Datenbank``
 ==================================
 
@@ -230,8 +238,14 @@ Abschnitt ``Urls``
    * - ``portal-url``
      - URL des Portals (dieser Anwendung), wie sie für den Anwender sichtbar ist. Diese wird beispielsweise verwendet, um Links für das Teilen von Karten zu generieren.
 
+.. _portal-config-advanced-security:
+
 Abschnitt ``Advanced Security``
 ===============================
+
+.. seealso::
+
+   Anhang :ref:`annex-security-cors` und :ref:`annex-cors` sowie :ref:`annex-security-keys`.
 
 .. list-table::
    :widths: 20 80

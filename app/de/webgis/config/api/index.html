@@ -286,7 +286,7 @@
 </table>
 </section>
 <section id="abschnitt-subscriber-datenbank">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-subscriber-datenbank" title="Link to this heading">¶</a></h3>
+<span id="api-config-subscriber-db"></span><h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Datenbank</span></code><a class="headerlink" href="#abschnitt-subscriber-datenbank" title="Link to this heading">¶</a></h3>
 <p>Subscriber sind Benutzer, die sich am <strong>WebGIS-Portal</strong> anmelden können, um Karten zu erstellen. Die Informationen dieser Benutzer können entweder in einer <strong>Datenbank</strong> oder vereinfacht im <strong>Dateisystem</strong> gespeichert werden.
 Für die Speicherung im Dateisystem kann der Connection-String wie folgt angegeben werden:
 <code class="docutils literal notranslate"><span class="pre">value=&quot;fs:C:\webgis\webgis-repository\...&quot;</span></code></p>
@@ -311,7 +311,11 @@ Für die Speicherung im Dateisystem kann der Connection-String wie folgt angegeb
 </table>
 </section>
 <section id="abschnitt-subscriber-registration">
-<h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Registration</span></code><a class="headerlink" href="#abschnitt-subscriber-registration" title="Link to this heading">¶</a></h3>
+<span id="api-config-subscriber-registration"></span><h3>Abschnitt <code class="docutils literal notranslate"><span class="pre">Subscriber</span> <span class="pre">Registration</span></code><a class="headerlink" href="#abschnitt-subscriber-registration" title="Link to this heading">¶</a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">Siehe auch</p>
+<p>Anhang <a class="reference internal" href="../../annex/security.html#annex-security-subscriber-login"><span class="std std-ref">Subscriber-Anmeldung und Subscriber-Datenbank</span></a>: Empfehlungen für Internet und Intranet.</p>
+</div>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 20.0%" />
@@ -1335,6 +1339,10 @@ Ausdruck angepasst werden. Anführungszeichen werden unabhängig von dieser Eins
 </section>
 <section id="abschnitt-dynamic-content">
 <span id="api-config-dynamic-content"></span><h4>Abschnitt <code class="docutils literal notranslate"><span class="pre">Dynamic</span> <span class="pre">Content</span></code><a class="headerlink" href="#abschnitt-dynamic-content" title="Link to this heading">¶</a></h4>
+<div class="admonition seealso">
+<p class="admonition-title">Siehe auch</p>
+<p>Anhang <a class="reference internal" href="../../annex/security.html#annex-security-dynamic-content"><span class="std std-ref">Dynamischer Inhalt (SSRF-Schutz)</span></a>.</p>
+</div>
 <p>Betrifft den <strong>Dynamischen Inhalt</strong> der Karte (GeoRSS, GeoJSON, API-Abfragen), den der Viewer über den
 <code class="docutils literal notranslate"><span class="pre">DynamicContentProxy</span></code> der WebGIS API lädt. Die Absicherung besteht aus zwei Teilen:</p>
 <ul class="simple">
@@ -1487,7 +1495,11 @@ Die Konfiguration erfolgt in der optionalen <em>Section</em> <code class="docuti
 </table>
 </section>
 <section id="security">
-<h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
+<span id="api-config-security"></span><h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
+<div class="admonition seealso">
+<p class="admonition-title">Siehe auch</p>
+<p>Anhang <a class="reference internal" href="../../annex/security.html#annex-security"><span class="std std-ref">Sicherheitsmaßnahmen für das WebGIS Portal</span></a>: Überblick, Risikostufen und Empfehlungen für alle sicherheitsrelevanten Schlüssel.</p>
+</div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"security"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"disable-anti-forgery"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w"> </span><span class="cm">&lt;!-- default: false. true is not recommended for production --&gt;</span>
 
@@ -1506,7 +1518,7 @@ dient oder ein Reverse Proxy die Überprüfung verhindert, kann es notwendig sei
 Dies kann über die folgende Einstellung <code class="docutils literal notranslate"><span class="pre">disable-anti-forgery</span></code> in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> erfolgen.</p>
 <p>Weiters können hier auch <strong>Zugangsdaten</strong> für geschützte Endpunkte (z. B. zum <strong>Leeren des Caches</strong>) hinterlegt werden.</p>
 <ul class="simple">
-<li><p><strong>``secure-endpoint-url-password``</strong>: Ein <strong>URL-Passwort</strong>, das als <strong>Query-Parameter ``pww=***``</strong> in der URL übergeben werden muss, um Zugriff auf den geschützten Endpunkt zu erhalten.</p></li>
+<li><p><strong>``secure-endpoint-url-password``</strong>: Ein <strong>URL-Passwort</strong>, das als <strong>Query-Parameter ``pwd=***``</strong> in der URL übergeben werden muss, um Zugriff auf den geschützten Endpunkt zu erhalten.</p></li>
 <li><p><strong>``secure-endpoint-basicauth-username``</strong> und <strong>``secure-endpoint-basicauth-password``</strong>: Ein <strong>Benutzername</strong> und <strong>Passwort</strong> für die <strong>HTTP Basic Authentication</strong>, die für den Zugriff auf den geschützten Endpunkt erforderlich ist.</p></li>
 </ul>
 <div class="admonition note">
@@ -1545,6 +1557,10 @@ Diese Einstellung sollte nur für Legacy-Dienste in vertrauenswürdigen Netzen v
 <span id="api-config-security-subscriber-login"></span><h4>Subscriber-Anmeldung<a class="headerlink" href="#subscriber-anmeldung" title="Link to this heading">¶</a></h4>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 8.26.4502.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">Siehe auch</p>
+<p>Anhang <a class="reference internal" href="../../annex/security.html#annex-security-subscriber-login"><span class="std std-ref">Subscriber-Anmeldung und Subscriber-Datenbank</span></a> und <a class="reference internal" href="../../annex/security.html#annex-security-keys"><span class="std std-ref">Übersicht aller sicherheitsrelevanten Schlüssel</span></a>.</p>
 </div>
 <p>Über die Anmeldung <code class="docutils literal notranslate"><span class="pre">/Subscribers/Login</span></code> melden sich Kartenautoren und Administratoren (<em>Subscriber</em>) an der WebGIS API an.
 Ist die API aus dem Internet erreichbar, schützen folgende Maßnahmen diese Anmeldung. Sie sind standardmäßig aktiv und können in der
@@ -1647,13 +1663,13 @@ Betroffene Subscriber werden bei der nächsten Anmeldung durch die Einrichtung g
 </tr>
 </tbody>
 </table>
-<p><strong>Passwortregeln</strong></p>
+<p id="api-config-security-password-rules"><strong>Passwortregeln</strong></p>
 <p>Neben der Mindestlänge werden neue Passwörter gegen eine Liste häufiger Passwörter (und optional <code class="docutils literal notranslate"><span class="pre">password-blocklist-file</span></code>) geprüft.
 Passwörter, die den Benutzernamen, Vornamen, Nachnamen oder die E-Mail-Adresse enthalten, und triviale Muster (z. B. <code class="docutils literal notranslate"><span class="pre">aaaaaaaaaaaa</span></code> oder <code class="docutils literal notranslate"><span class="pre">123456789012</span></code>)
 sind nicht erlaubt. Bestehende Passwörter bleiben gültig, die Regeln greifen nur beim Anlegen oder Ändern eines Passworts.</p>
 <p>Das Standardpasswort <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> der Erstinstallation kann nicht mehr als neues Passwort gesetzt werden. Meldet sich ein Subscriber damit an,
 muss er das Passwort sofort ändern (siehe <a class="reference internal" href="../hardening/index.html#hardening-default-passwords"><span class="std std-ref">Standardpasswörter ändern</span></a>).</p>
-<p><strong>Zwei-Faktor-Authentifizierung (MFA)</strong></p>
+<p id="api-config-security-mfa"><strong>Zwei-Faktor-Authentifizierung (MFA)</strong></p>
 <p>Subscriber können auf der Seite <strong>Konto</strong> (nach der Anmeldung) eine Zwei-Faktor-Authentifizierung mit einer Authenticator-App (TOTP, z. B. Microsoft oder Google Authenticator)
 einrichten und erhalten dabei Wiederherstellungscodes. Auf derselben Seite kann jeder Subscriber auch sein eigenes Passwort ändern (Angabe des aktuellen Passworts erforderlich).
 Administratoren können die Zwei-Faktor-Authentifizierung eines Subscribers zurücksetzen.</p>
@@ -1674,7 +1690,7 @@ ausgegraut und mit einem entsprechenden Hinweis angezeigt. Bei einer dateibasier
 </section>
 </section>
 <section id="middleware">
-<h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>
+<span id="api-config-middleware"></span><h3>Middleware<a class="headerlink" href="#middleware" title="Link to this heading">¶</a></h3>
 <p>In der <strong>WebGIS API</strong> können über die <strong>Middleware</strong> zusätzliche Funktionen implementiert werden,
 z. B. <strong>Logging</strong>, <strong>Forwarding</strong> oder <strong>Sicherheitsprüfungen</strong>.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"middleware"</span><span class="nt">&gt;</span>

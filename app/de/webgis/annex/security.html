@@ -158,68 +158,613 @@
           <div class="body" role="main">
             
   <section id="sicherheitsmasznahmen-fur-das-webgis-portal">
-<h1>Sicherheitsmaßnahmen für das WebGIS Portal<a class="headerlink" href="#sicherheitsmasznahmen-fur-das-webgis-portal" title="Link to this heading">¶</a></h1>
-<section id="tipps-zur-passwortsicherheit">
-<h2>Tipps zur Passwortsicherheit<a class="headerlink" href="#tipps-zur-passwortsicherheit" title="Link to this heading">¶</a></h2>
-<p>Ein sicheres Passwort ist der erste Schritt, um das <em>WebGIS Portal</em> zu schützen. Hier sind einige Tipps, wie Sie ein starkes Passwort erstellen können:</p>
-<p>Standardpasswörter wie <code class="docutils literal notranslate"><span class="pre">admin123</span></code> oder <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> sind <strong>besonders anfällig für Brute-Force-Angriffe</strong>. Ein Brute-Force-Angriff ist eine Methode, bei der automatisierte Programme Millionen von Passwörtern ausprobieren, bis das richtige gefunden wird. Je kürzer und einfacher das Passwort, desto schneller kann es geknackt werden.</p>
-<p>Beispiel:</p>
+<span id="annex-security"></span><h1>Sicherheitsmaßnahmen für das WebGIS Portal<a class="headerlink" href="#sicherheitsmasznahmen-fur-das-webgis-portal" title="Link to this heading">¶</a></h1>
+<p>Dieses Kapitel richtet sich an <strong>Administratoren und Betreiber</strong>. Es beschreibt, welche Schutzmechanismen
+<em>WebGIS</em> eingebaut hat, über welche Schlüssel in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>, <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> und <code class="docutils literal notranslate"><span class="pre">settings.config</span></code> (CMS) sie
+angepasst werden und welche Einstellungen für eine Installation im <strong>Internet</strong> bzw. im <strong>Intranet</strong> empfohlen sind.
+Eine Anleitung zu den ersten Schritten nach der Installation (Standardpasswörter ändern, Selbstregistrierung und
+Anmeldung abschalten) steht unter <a class="reference internal" href="../config/hardening/index.html"><span class="doc">Sicherheitsmaßnahmen (Hardening)</span></a>.</p>
+<p>Am Ende des Kapitels gibt die Tabelle <a class="reference internal" href="#annex-security-keys"><span class="std std-ref">Übersicht aller sicherheitsrelevanten Schlüssel</span></a> einen Überblick über <strong>alle</strong> sicherheitsrelevanten
+Schlüssel mit Risikostufe und Empfehlung.</p>
+<section id="grundprinzipien">
+<span id="annex-security-principles"></span><h2>Grundprinzipien<a class="headerlink" href="#grundprinzipien" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Ein Passwort wie <code class="docutils literal notranslate"><span class="pre">admin123</span></code> kann mit gängiger Hardware <strong>in wenigen Sekunden</strong> geknackt werden.</p></li>
-<li><p>Ein sicheres Passwort mit <strong>mindestens 12 Zeichen, Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen</strong> benötigt hingegen <strong>Jahre oder sogar Jahrhunderte</strong>, um per Brute-Force entschlüsselt zu werden.</p></li>
+<li><p><strong>Starke, individuelle Passwörter.</strong> Standardpasswörter wie <code class="docutils literal notranslate"><span class="pre">admin123</span></code> oder <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> sind besonders anfällig
+für Brute-Force-Angriffe, bei denen Programme automatisiert Millionen von Passwörtern ausprobieren. Ein Passwort wie
+<code class="docutils literal notranslate"><span class="pre">admin123</span></code> ist in Sekunden geknackt, ein Passwort mit mindestens 12 Zeichen (besser 16+) aus Groß- und Kleinbuchstaben,
+Zahlen und Sonderzeichen ohne Bezug zu Namen oder Wörterbuchbegriffen benötigt Jahre. Jedes Konto sollte ein eigenes
+Passwort haben, ein <strong>Passwortmanager</strong> hilft beim Erzeugen und Speichern. Wo möglich sollte die
+Zwei-Faktor-Authentifizierung verwendet werden (siehe <a class="reference internal" href="#annex-security-mfa"><span class="std std-ref">Zwei-Faktor-Authentifizierung (2FA/TOTP)</span></a>).
+Mehr dazu: <a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">OWASP Authentication Cheat Sheet</a></p></li>
+<li><p><strong>HTTPS auch im Intranet.</strong> Ein Intranet ist nicht automatisch sicher: Mitarbeitergeräte können infiziert sein,
+Passwörter und Sitzungsinformationen können im Netzwerk mitgelesen oder manipuliert werden und moderne Browser blockieren
+zunehmend unverschlüsselte Verbindungen. Das <em>WebGIS Portal</em> sollte daher immer über <strong>HTTPS</strong> betrieben werden.
+Mehr dazu: <a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html">Transport Layer Security Cheat Sheet</a></p></li>
+<li><p><strong>Administration einschränken.</strong> Der Zugriff auf die Administrationsoberflächen (CMS, Subscriber-Anmeldung der API)
+sollte auf einen bestimmten Personenkreis oder auf das interne Netzwerk beschränkt werden. In öffentlichen
+Instanzen sollte die Anmeldung ganz abgeschaltet werden (siehe <a class="reference internal" href="#annex-security-subscriber-login"><span class="std std-ref">Subscriber-Anmeldung und Subscriber-Datenbank</span></a>).</p></li>
+<li><p><strong>Browser-Schutzmechanismen nutzen.</strong> Security-Header wie <code class="docutils literal notranslate"><span class="pre">Strict-Transport-Security</span> <span class="pre">(HSTS)</span></code> und
+<code class="docutils literal notranslate"><span class="pre">Content-Security-Policy</span> <span class="pre">(CSP)</span></code> werden am Webserver bzw. Reverse Proxy aktiviert.</p></li>
+<li><p><strong>Regelmäßig aktualisieren.</strong> Sowohl <em>WebGIS</em> als auch Server, Datenbanken und Drittanbieter-Komponenten.</p></li>
+<li><p><strong>Anmeldungen überwachen.</strong> Wer sich wann angemeldet hat, wird protokolliert. Häufige Fehlanmeldungen oder
+ungewöhnliche Zugriffe auf die Administration können auf einen Angriff hinweisen.</p></li>
+<li><p><strong>Angriffsszenarien kennen.</strong> Auch Intranet-Anwendungen sind von Man-in-the-Middle-Angriffen, Session Hijacking oder
+Cross-Site Scripting (XSS) betroffen. Mehr dazu: <a class="reference external" href="https://owasp.org/www-project-top-ten/">OWASP Top 10 Security Risks</a></p></li>
 </ul>
-<div class="admonition tip">
-<p class="admonition-title">Tipp</p>
-<p>Für den <strong>Author-Account</strong> und den <strong>Admin-Account in der API</strong> sollten <strong>starke, individuelle Passwörter</strong> gewählt werden. Eine gute Passwortstrategie umfasst:</p>
-<ul class="simple">
-<li><p><strong>Mindestens 12 Zeichen</strong> (besser 16+).</p></li>
-<li><p><strong>Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen</strong>.</p></li>
-<li><p><strong>Kein Bezug zu realen Namen, Geburtsdaten oder Wörtern im Wörterbuch</strong>.</p></li>
-<li><p><strong>Jedes Konto sollte ein eigenes, einmaliges Passwort haben</strong>.</p></li>
-<li><p>Falls möglich: <strong>Zwei-Faktor-Authentifizierung (2FA) aktivieren</strong>.</p></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Die folgenden Abschnitte beschreiben das Verhalten bei <strong>Standardwerten</strong>. Die meisten Schutzmechanismen sind
+standardmäßig aktiv. Einstellungen, die einen Schutz abschwächen, sind in der Tabelle <a class="reference internal" href="#annex-security-keys"><span class="std std-ref">Übersicht aller sicherheitsrelevanten Schlüssel</span></a>
+als <strong>Kompatibilitäts-Opt-out</strong> gekennzeichnet.</p>
 </div>
-<p>Zum Generieren und sicheren Speichern von Passwörtern empfiehlt sich die Verwendung eines <strong>Passwortmanagers</strong>.</p>
-<p>Mehr zur Sicherheit von Passwörtern und Brute-Force-Angriffen:
-<a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">OWASP Authentication Cheat Sheet</a></p>
 </section>
-<section id="https-auch-im-intranet-verwenden">
-<h2>HTTPS auch im Intranet verwenden<a class="headerlink" href="#https-auch-im-intranet-verwenden" title="Link to this heading">¶</a></h2>
-<p>Viele glauben, dass ein Intranet automatisch sicher ist, weil es nicht direkt aus dem Internet erreichbar ist. Doch das ist ein Irrtum! Auch innerhalb eines Firmennetzwerks gibt es Risiken:</p>
+<section id="subscriber-anmeldung-und-subscriber-datenbank">
+<span id="annex-security-subscriber-login"></span><h2>Subscriber-Anmeldung und Subscriber-Datenbank<a class="headerlink" href="#subscriber-anmeldung-und-subscriber-datenbank" title="Link to this heading">¶</a></h2>
+<p>Kartenautoren und Administratoren (<em>Subscriber</em>) melden sich über <code class="docutils literal notranslate"><span class="pre">/Subscribers/Login</span></code> der WebGIS API an.
+Subscriber werden in einer <strong>Subscriber-Datenbank</strong> (SQL-Datenbank oder Dateisystem) gespeichert, die in <code class="docutils literal notranslate"><span class="pre">api.config</span></code>
+und <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> mit demselben Wert <code class="docutils literal notranslate"><span class="pre">subscriber-db-connectionstring</span></code>
+(<a class="reference internal" href="../config/api/index.html#api-config-subscriber-db"><span class="std std-ref">api.config</span></a>, <a class="reference internal" href="../config/portal/index.html#portal-config-subscriber-db"><span class="std std-ref">portal.config</span></a>) angegeben wird.
+Der Zugriff auf die Datenbank bzw. das Verzeichnis sollte auf das notwendige Maß beschränkt werden (eigener
+Datenbankbenutzer mit minimalen Rechten, Dateisystemrechte nur für den Anwendungsbenutzer).</p>
+<p>Passwörter werden mit <strong>PBKDF2-SHA256</strong> gehasht; ältere Hashes werden bei der nächsten erfolgreichen Anmeldung
+automatisch umgestellt. Fehlermeldungen der Anmeldung sind allgemein gehalten und gegen das Erraten von Benutzernamen
+abgesichert, Anmeldungen werden protokolliert.</p>
+<p>Ob die Subscriber-Anmeldung überhaupt zur Verfügung steht, steuern zwei Schlüssel (beide ohne Eintrag: <code class="docutils literal notranslate"><span class="pre">false</span></code>):</p>
 <ul class="simple">
-<li><p><strong>Mitarbeitergeräte können infiziert sein</strong> (z. B. durch Phishing oder Malware) und so sensible Daten ausspähen.</p></li>
-<li><p><strong>Daten werden unverschlüsselt übertragen</strong>, wenn kein HTTPS verwendet wird. Das bedeutet, dass Passwörter, Sitzungsinformationen und persönliche Daten von Angreifern oder Schadsoftware mitgelesen werden könnten.</p></li>
-<li><p><strong>Interne Angriffe sind möglich</strong>: Personen mit Zugang zum Netzwerk könnten absichtlich oder versehentlich Daten abfangen oder manipulieren.</p></li>
-<li><p><strong>Zukünftige Browser-Versionen blockieren unverschlüsselte Verbindungen</strong>, was langfristig zu Problemen führen kann.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code> (<a class="reference internal" href="../config/api/index.html#api-config-subscriber-registration"><span class="std std-ref">api.config</span></a>,
+<a class="reference internal" href="../config/portal/index.html#portal-config-advanced-security"><span class="std std-ref">portal.config</span></a>): Ist der Wert <code class="docutils literal notranslate"><span class="pre">false</span></code>, ist keine Anmeldung möglich. In
+<strong>Internet-Instanzen</strong> sollte er in <strong>beiden</strong> Dateien <code class="docutils literal notranslate"><span class="pre">false</span></code> sein, damit auch bei übernommener Konfiguration keine
+Konfiguration von außen möglich ist. Die Konfiguration erfolgt dann in einer internen Instanz, die sich den Storage teilt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">allow-register-new-subscribers</span></code> (<a class="reference internal" href="../config/api/index.html#api-config-subscriber-registration"><span class="std std-ref">api.config</span></a>): Erlaubt die
+Selbstregistrierung neuer Subscriber. Darf nur <strong>während der Installation</strong> auf <code class="docutils literal notranslate"><span class="pre">true</span></code> stehen, um den ersten
+Administrator anzulegen, und <strong>nie im Internet</strong>. Weitere Konten werden anschließend vom Administrator angelegt.</p></li>
 </ul>
-<p>Deshalb sollte das <em>WebGIS Portal</em> immer über <strong>HTTPS</strong> betrieben werden, auch wenn es nur intern genutzt wird. Weitere Informationen zur Bedeutung von HTTPS und möglichen Angriffen sind in der OWASP-Dokumentation zu finden:</p>
-<p><a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html">Transport Layer Security Cheat Sheet</a></p>
+<p>Für Installationen im Internet ist, wenn eine Anmeldung notwendig ist, die Anmeldung über einen Identity Provider
+(OpenID Connect) die empfohlene Variante.</p>
+<section id="passwortregeln">
+<span id="annex-security-password"></span><h3>Passwortregeln<a class="headerlink" href="#passwortregeln" title="Link to this heading">¶</a></h3>
+<p>Beim Anlegen oder Ändern eines Passworts gelten (<a class="reference internal" href="../config/api/index.html#api-config-security-password-rules"><span class="std std-ref">Details</span></a>):</p>
+<ul class="simple">
+<li><p>Mindestlänge <code class="docutils literal notranslate"><span class="pre">password-min-length</span></code> (Standard <code class="docutils literal notranslate"><span class="pre">12</span></code>).</p></li>
+<li><p>Das Passwort darf nicht in einer eingebauten Liste häufiger Passwörter stehen. Optional kann diese Liste mit
+<code class="docutils literal notranslate"><span class="pre">password-blocklist-file</span></code> erweitert werden (z. B. um Listen kompromittierter Passwörter).</p></li>
+<li><p>Benutzername, Vorname, Nachname und E-Mail-Adresse dürfen nicht enthalten sein; triviale Muster
+(<code class="docutils literal notranslate"><span class="pre">aaaaaaaaaaaa</span></code>, <code class="docutils literal notranslate"><span class="pre">123456789012</span></code>) werden abgelehnt.</p></li>
+<li><p>Optional kann mit <code class="docutils literal notranslate"><span class="pre">password-required-character-classes</span></code> (<code class="docutils literal notranslate"><span class="pre">0</span></code> - <code class="docutils literal notranslate"><span class="pre">4</span></code>) eine Anzahl an Zeichenklassen gefordert
+werden. Standard ist <code class="docutils literal notranslate"><span class="pre">0</span></code>: eine ausreichende Länge in Kombination mit der Sperrliste ist wirksamer als
+Kompositionsregeln.</p></li>
+<li><p>Das Standardpasswort <code class="docutils literal notranslate"><span class="pre">webgisauthor</span></code> der Erstinstallation kann nicht mehr gesetzt werden; wer sich damit anmeldet,
+muss es sofort ändern.</p></li>
+</ul>
+<p>Die Regeln gelten nur für neue oder geänderte Passwörter, bestehende Passwörter bleiben gültig. Jeder Subscriber kann sein
+Passwort auf der Seite <strong>Konto</strong> selbst ändern.</p>
 </section>
-<section id="weitere-empfohlene-sicherheitsmasznahmen">
-<h2>Weitere empfohlene Sicherheitsmaßnahmen<a class="headerlink" href="#weitere-empfohlene-sicherheitsmasznahmen" title="Link to this heading">¶</a></h2>
-<p>Neben HTTPS und der Änderung von Standardpasswörtern gibt es weitere wichtige Maßnahmen, um die Anwendung abzusichern:</p>
+<section id="zwei-faktor-authentifizierung-2fa-totp">
+<span id="annex-security-mfa"></span><h3>Zwei-Faktor-Authentifizierung (2FA/TOTP)<a class="headerlink" href="#zwei-faktor-authentifizierung-2fa-totp" title="Link to this heading">¶</a></h3>
+<p>Subscriber können auf der Seite <strong>Konto</strong> eine Zwei-Faktor-Authentifizierung mit einer Authenticator-App (TOTP) und
+Wiederherstellungscodes einrichten. Der Schlüssel <code class="docutils literal notranslate"><span class="pre">mfa-required</span></code> (<a class="reference internal" href="../config/api/index.html#api-config-security-mfa"><span class="std std-ref">Details</span></a>) legt fest,
+wer sie verwenden muss: <code class="docutils literal notranslate"><span class="pre">none</span></code> (Standard, optional), <code class="docutils literal notranslate"><span class="pre">admins</span></code> oder <code class="docutils literal notranslate"><span class="pre">all</span></code>. Betroffene Subscriber werden bei der nächsten
+Anmeldung durch die Einrichtung geführt. <code class="docutils literal notranslate"><span class="pre">mfa-issuer</span></code> bestimmt den Namen in der Authenticator-App.</p>
 <ul class="simple">
-<li><p><strong>Zugriff auf die Administrationsoberfläche einschränken</strong>
-Falls möglich, sollte nur ein <strong>bestimmter Personenkreis oder nur Geräte aus dem internen Netzwerk</strong> Zugriff auf die Administration haben.</p></li>
-<li><p><strong>Sicherheitsmechanismen des Browsers nutzen</strong>
-Es sollten Sicherheitsfunktionen wie <code class="docutils literal notranslate"><span class="pre">Strict-Transport-Security</span> <span class="pre">(HSTS)</span></code> und <code class="docutils literal notranslate"><span class="pre">Content-Security-Policy</span> <span class="pre">(CSP)</span></code> aktiviert werden, um Angriffe durch Schadcode zu verhindern.</p></li>
-<li><p><strong>Regelmäßige Updates durchführen</strong>
-Veraltete Software kann Sicherheitslücken enthalten. Es ist wichtig, sowohl das <em>WebGIS Portal</em> als auch alle verwendeten Server, Datenbanken und Drittanbieter-Komponenten regelmäßig zu aktualisieren.</p></li>
-<li><p><strong>Verdächtige Aktivitäten überwachen</strong>
-Das System sollte protokollieren, wer sich wann eingeloggt hat. Wenn sich jemand mit falschen Passwörtern anmeldet oder ungewöhnlich oft auf die Administration zugreift, könnte dies ein Hinweis auf einen Angriff sein. In diesem Fall sollten Administratoren benachrichtigt werden.</p></li>
+<li><p><strong>Internet:</strong> mindestens <code class="docutils literal notranslate"><span class="pre">admins</span></code>, besser <code class="docutils literal notranslate"><span class="pre">all</span></code>.</p></li>
+<li><p><strong>Intranet:</strong> <code class="docutils literal notranslate"><span class="pre">admins</span></code> empfohlen.</p></li>
+<li><p>Bei einer SQL-Datenbank muss nach dem Update einmal die <strong>Setup</strong>-Seite der API ausgeführt werden (Tabelle
+<code class="docutils literal notranslate"><span class="pre">webgis_api_subscriber_mfa</span></code>). Solange die Tabelle fehlt, funktioniert die Anmeldung <strong>ohne</strong> zweiten Faktor
+(auch bei <code class="docutils literal notranslate"><span class="pre">mfa-required</span></code>), es wird eine Warnung protokolliert.</p></li>
+<li><p><em>Basic Authentication</em> und <em>DataLinq</em> verwenden weiterhin nur Benutzername und Passwort.</p></li>
+<li><p>Die MFA-Schlüssel sind mit dem Crypto-Key der API verschlüsselt. Wird dieser geändert, muss die
+Zwei-Faktor-Authentifizierung der Subscriber zurückgesetzt werden (Administratoren können das).</p></li>
 </ul>
 </section>
-<section id="weiterfuhrende-informationen-fur-interessierte">
-<h2>Weiterführende Informationen für Interessierte<a class="headerlink" href="#weiterfuhrende-informationen-fur-interessierte" title="Link to this heading">¶</a></h2>
-<p>Es gibt eine Vielzahl von <strong>möglichen Angriffsszenarien</strong>, die auch Intranet-Anwendungen betreffen. Dazu gehören:</p>
+<section id="captcha-sperre-und-ip-drosselung">
+<span id="annex-security-captcha-lockout"></span><h3>Captcha, Sperre und IP-Drosselung<a class="headerlink" href="#captcha-sperre-und-ip-drosselung" title="Link to this heading">¶</a></h3>
+<p>Die Anmeldung ist gegen Brute-Force-Angriffe geschützt (<a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">Details</span></a>):</p>
 <ul class="simple">
-<li><p><strong>Man-in-the-Middle-Angriffe (MITM)</strong>, bei denen ein Angreifer den Netzwerkverkehr mitliest.</p></li>
-<li><p><strong>Session Hijacking</strong>, bei dem eine Sitzung eines Nutzers gestohlen wird, um sich als dieser auszugeben.</p></li>
-<li><p><strong>Cross-Site Scripting (XSS)</strong>, bei dem Schadcode in das System eingeschleust wird.</p></li>
+<li><p><strong>Captcha:</strong> Nach <code class="docutils literal notranslate"><span class="pre">login-captcha-after-failed-attempts</span></code> Fehlversuchen (Standard <code class="docutils literal notranslate"><span class="pre">3</span></code>, pro Benutzername oder
+Client-IP) muss ein Captcha gelöst werden. Jedes Captcha ist einmal verwendbar und nur
+<code class="docutils literal notranslate"><span class="pre">captcha-lifetime-minutes</span></code> (Standard <code class="docutils literal notranslate"><span class="pre">5</span></code>) gültig.</p></li>
+<li><p><strong>Sperre pro Benutzername:</strong> Nach <code class="docutils literal notranslate"><span class="pre">login-lockout-after-failed-attempts</span></code> Fehlversuchen (Standard <code class="docutils literal notranslate"><span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code> = keine
+Sperre) wird der Benutzername vorübergehend gesperrt. Die Dauer steigt gemäß <code class="docutils literal notranslate"><span class="pre">login-lockout-minutes</span></code> (Standard
+<code class="docutils literal notranslate"><span class="pre">1,5,15</span></code>, der letzte Wert wird wiederholt). Der Zähler wird nach <code class="docutils literal notranslate"><span class="pre">login-failed-attempts-reset-minutes</span></code>
+(Standard <code class="docutils literal notranslate"><span class="pre">60</span></code>) ohne weitere Fehlversuche zurückgesetzt.</p></li>
+<li><p><strong>Drosselung pro Client-IP:</strong> Ab <code class="docutils literal notranslate"><span class="pre">login-ip-max-failed-attempts</span></code> Fehlversuchen (Standard <code class="docutils literal notranslate"><span class="pre">30</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code> = aus) innerhalb von
+<code class="docutils literal notranslate"><span class="pre">login-ip-window-minutes</span></code> (Standard <code class="docutils literal notranslate"><span class="pre">15</span></code>) erfordert jede Anmeldung von dieser IP ein Captcha und wird verzögert. Eine harte
+Sperre einer IP erfolgt bewusst nicht (gemeinsame Adressen, z. B. hinter NAT).</p></li>
+<li><p><strong>Mehrere Instanzen:</strong> Die Zähler liegen standardmäßig im Speicher der jeweiligen Instanz. Bei Load Balancing können sie
+über <strong>Redis</strong> geteilt werden: <code class="docutils literal notranslate"><span class="pre">login-throttle-redis-connectionstring</span></code>.</p></li>
+<li><p><strong>Passwort-Cache:</strong> Erfolgreiche Passwortprüfungen bei <em>Basic Authentication</em> und <em>DataLinq</em> werden
+<code class="docutils literal notranslate"><span class="pre">password-verification-cache-seconds</span></code> (Standard <code class="docutils literal notranslate"><span class="pre">300</span></code>) im Speicher gehalten, weil das Hashen bewusst aufwendig ist.
+<code class="docutils literal notranslate"><span class="pre">0</span></code> deaktiviert den Cache.</p></li>
 </ul>
-<p>Mehr zu diesen Angriffstechniken und wie man sich dagegen schützt, findet sich in der OWASP-Dokumentation:
-<a class="reference external" href="https://owasp.org/www-project-top-ten/">OWASP Top 10 Security Risks</a></p>
-<p>Durch die Umsetzung dieser Maßnahmen wird das <em>WebGIS Portal</em> optimal geschützt und bleibt sicher und zuverlässig – egal ob im Intranet oder öffentlich im Internet.</p>
+<div class="admonition important">
+<p class="admonition-title">Wichtig</p>
+<p>Die IP-Drosselung setzt voraus, dass die API die <strong>echte Client-IP</strong> sieht. Hinter einem Reverse Proxy müssen daher
+die <em>X-Forwarded</em>-Header korrekt konfiguriert sein (siehe <a class="reference internal" href="#annex-security-proxy"><span class="std std-ref">Reverse Proxy und Client-IP</span></a>).</p>
+</div>
+</section>
+</section>
+<section id="sitzungen-und-cookies">
+<span id="annex-security-sessions"></span><h2>Sitzungen und Cookies<a class="headerlink" href="#sitzungen-und-cookies" title="Link to this heading">¶</a></h2>
+<p>Das Anmelde-Cookie der API ist <code class="docutils literal notranslate"><span class="pre">HttpOnly</span></code> und <code class="docutils literal notranslate"><span class="pre">SameSite=Lax</span></code>. Es enthält einen Sicherheitsstempel, sodass eine Änderung
+des Passworts oder der Zwei-Faktor-Authentifizierung andere Sitzungen ungültig macht
+(<a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">Details</span></a>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cookie-secure</span></code>: <code class="docutils literal notranslate"><span class="pre">auto</span></code> (Standard) setzt das <em>Secure</em>-Flag bei HTTPS-Aufrufen (inkl. <code class="docutils literal notranslate"><span class="pre">X-Forwarded-Proto</span></code>), lokale
+Installationen über <code class="docutils literal notranslate"><span class="pre">http://localhost</span></code> funktionieren weiterhin. <code class="docutils literal notranslate"><span class="pre">always</span></code> setzt es immer (nur mit HTTPS), <code class="docutils literal notranslate"><span class="pre">never</span></code>
+nie. <code class="docutils literal notranslate"><span class="pre">never</span></code> ist im Internet nicht zulässig.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">session-max-lifetime-minutes</span></code>: maximale Dauer einer Anmeldung unabhängig von der Aktivität (Standard <code class="docutils literal notranslate"><span class="pre">480</span></code>,
+<code class="docutils literal notranslate"><span class="pre">0</span></code> = unbegrenzt, nicht empfohlen).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">session-idle-timeout-minutes</span></code>: Abmeldung nach Inaktivität (Standard <code class="docutils literal notranslate"><span class="pre">0</span></code> = aus). Im Internet z. B. 30 bis 60 Minuten.</p></li>
+</ul>
+</section>
+<section id="weiterleitungen-nach-der-anmeldung">
+<span id="annex-security-redirects"></span><h2>Weiterleitungen nach der Anmeldung<a class="headerlink" href="#weiterleitungen-nach-der-anmeldung" title="Link to this heading">¶</a></h2>
+<p>Das Weiterleitungsziel der Subscriber-Anmeldung wird geprüft, bevor ein Zugangs-Token angehängt wird (Schutz vor
+<em>Open Redirect</em>). Immer erlaubt ist der Host von <code class="docutils literal notranslate"><span class="pre">portal-url</span></code>; alle anderen Ziele werden mit <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code> abgelehnt.
+Ist das Portal unter einem anderen Hostnamen erreichbar, können diese Hosts mit
+<code class="docutils literal notranslate"><span class="pre">subscriber-login-allowed-redirect-hosts</span></code> (<a class="reference internal" href="../config/api/index.html#api-config-subscriber-registration"><span class="std std-ref">Details</span></a>) freigegeben werden. Es sollten
+nur <strong>eigene</strong> Hosts eingetragen werden.</p>
+</section>
+<section id="portal-cors">
+<span id="annex-security-cors"></span><h2>Portal-CORS<a class="headerlink" href="#portal-cors" title="Link to this heading">¶</a></h2>
+<p>Der <code class="docutils literal notranslate"><span class="pre">hmac</span></code>-Endpunkt des Portals liefert Zugangsdaten für die API an den angemeldeten Benutzer. Er darf nur von
+freigegebenen Seiten per Browser aufgerufen werden, sonst könnte eine Schadseite im Hintergrund Keys für ihre Besucher
+abfragen. Alle anderen Seiten des Portals sind standardmäßig nur von Portal und API selbst mit Anmeldung (Cookies) aufrufbar
+(<a class="reference internal" href="../config/portal/index.html#portal-config-advanced-security"><span class="std std-ref">Details</span></a>, ausführlich: <a class="reference internal" href="cors.html#annex-cors"><span class="std std-ref">CORS und der HMAC-Endpunkt</span></a>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-hmac</span></code>: Drittseiten, die den <code class="docutils literal notranslate"><span class="pre">hmac</span></code>-Endpunkt aufrufen dürfen (Wert <code class="docutils literal notranslate"><span class="pre">~</span></code> = alle Seiten, nur zum Testen).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add-cors-origins-for-default</span></code>: zusätzliche Origins, die die übrigen Portal-Seiten mit Anmeldung aufrufen dürfen.
+Normalerweise ist kein Eintrag notwendig. Wert <code class="docutils literal notranslate"><span class="pre">~</span></code> = alle Seiten (nur zum Testen, Warnung im Logfile).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cors-default-allow-any-origin-without-credentials</span></code>: Standard <code class="docutils literal notranslate"><span class="pre">false</span></code>. Bei <code class="docutils literal notranslate"><span class="pre">true</span></code> dürfen fremde Origins öffentliche
+Portal-Seiten <strong>ohne</strong> Anmeldung lesen.</p></li>
+</ul>
+<p>Die Wildcard <code class="docutils literal notranslate"><span class="pre">~</span></code> darf in produktiven Umgebungen nicht verwendet werden.</p>
+</section>
+<section id="dynamischer-inhalt-ssrf-schutz">
+<span id="annex-security-dynamic-content"></span><h2>Dynamischer Inhalt (SSRF-Schutz)<a class="headerlink" href="#dynamischer-inhalt-ssrf-schutz" title="Link to this heading">¶</a></h2>
+<p>Der <code class="docutils literal notranslate"><span class="pre">DynamicContentProxy</span></code> lädt Inhalte (GeoRSS, GeoJSON, API-Abfragen) im Auftrag des Viewers. Damit er nicht für Angriffe
+auf interne Systeme missbraucht werden kann (<em>Server-Side Request Forgery</em>), gilt
+(<a class="reference internal" href="../config/api/index.html#api-config-dynamic-content"><span class="std std-ref">Details</span></a>):</p>
+<ul class="simple">
+<li><p>Nur <code class="docutils literal notranslate"><span class="pre">http</span></code> und <code class="docutils literal notranslate"><span class="pre">https</span></code> ohne Benutzerinformation sind erlaubt. Ziele, die auf Loopback, private, Link-Local
+(z. B. Cloud-Metadaten) oder andere nicht öffentliche Adressen zeigen, werden abgelehnt. Das gilt auch für jeden
+Redirect. Zertifikate werden geprüft.</p></li>
+<li><p>Der Proxy lädt nur <strong>signierte URLs</strong>. Die API signiert die URLs beim Laden einer Karte.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">allow-hosts</span></code>: Hostnamen oder Muster, die auch auf interne Adressen zeigen dürfen. Standard leer. Nur konkrete interne
+Quellen eintragen, keine breiten Muster.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">allow-unsigned</span></code>: Standard <code class="docutils literal notranslate"><span class="pre">false</span></code>. <code class="docutils literal notranslate"><span class="pre">true</span></code> lässt auch nicht signierte URLs zu (nur für Karten, die nicht über die
+API geladen werden, z. B. MapBuilder-HTML oder <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeout-seconds</span></code> (Standard <code class="docutils literal notranslate"><span class="pre">20</span></code>), <code class="docutils literal notranslate"><span class="pre">max-response-bytes</span></code> (Standard 50 MB) und <code class="docutils literal notranslate"><span class="pre">max-redirects</span></code> (Standard <code class="docutils literal notranslate"><span class="pre">5</span></code>)
+begrenzen den Abruf.</p></li>
+</ul>
+<p>Auch die Suchbegriffe der Auswahllisten (VisFilter-Lookups) werden geprüft: <code class="docutils literal notranslate"><span class="pre">term-whitelist</span></code> in der Section <code class="docutils literal notranslate"><span class="pre">lookup</span></code>
+(<a class="reference internal" href="../config/api/index.html#api-config-lookup"><span class="std std-ref">Details</span></a>) legt fest, welche Zeichen erlaubt sind.</p>
+</section>
+<section id="ausgehende-tls-verbindungen">
+<span id="annex-security-tls"></span><h2>Ausgehende TLS-Verbindungen<a class="headerlink" href="#ausgehende-tls-verbindungen" title="Link to this heading">¶</a></h2>
+<p>Serverzertifikate bei ausgehenden HTTPS-Verbindungen (Kartendienste, ArcGIS, WMS usw.) werden geprüft. Interne Dienste mit
+selbstsignierten Zertifikaten oder Zertifikaten einer internen CA sollten über die Installation der CA im
+<strong>Zertifikatsspeicher des Servers</strong> angebunden werden. Nur wenn das nicht möglich ist, kann die Prüfung abgeschaltet werden
+(Man-in-the-Middle-Risiko). Der Schlüssel heißt:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">allow-untrusted-server-certificates</span></code> in Section <code class="docutils literal notranslate"><span class="pre">security</span></code> der <code class="docutils literal notranslate"><span class="pre">api.config</span></code>
+(<a class="reference internal" href="../config/api/index.html#api-config-security-untrusted-certificates"><span class="std std-ref">Details</span></a>) und der <code class="docutils literal notranslate"><span class="pre">portal.config</span></code>
+(<a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">Details</span></a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">allow_untrusted_server_certificates</span></code> in der <code class="docutils literal notranslate"><span class="pre">settings.config</span></code> des CMS (<a class="reference internal" href="../config/cms/index.html#cms-config-settings-security"><span class="std std-ref">Details</span></a>).</p></li>
+</ul>
+<p>Standard ist jeweils <code class="docutils literal notranslate"><span class="pre">false</span></code>. In der Praxis sollte <code class="docutils literal notranslate"><span class="pre">true</span></code> nur für Legacy-Dienste in vertrauenswürdigen Netzen verwendet werden.</p>
+<p>Für das Portal gilt zusätzlich: <code class="docutils literal notranslate"><span class="pre">use-local-url-scheme</span></code> (<code class="docutils literal notranslate"><span class="pre">portal.config</span></code>, <a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">Details</span></a>) darf nur
+in lokalen oder Offline-Umgebungen <code class="docutils literal notranslate"><span class="pre">true</span></code> sein, weil der Schlüsselaustausch dann unverschlüsselt über HTTP erfolgt.</p>
+</section>
+<section id="schutz-vor-csrf">
+<span id="annex-security-csrf"></span><h2>Schutz vor CSRF<a class="headerlink" href="#schutz-vor-csrf" title="Link to this heading">¶</a></h2>
+<p>Die Formulare der Subscriber-Verwaltung der API (Anmeldung, Registrierung, Konto, Zwei-Faktor-Authentifizierung) und weitere
+schreibende Endpunkte sind durch <strong>Anti-Forgery-Token</strong> gegen <em>Cross-Site Request Forgery</em> geschützt. Der Schlüssel <code class="docutils literal notranslate"><span class="pre">disable-anti-forgery</span></code> (Section <code class="docutils literal notranslate"><span class="pre">security</span></code> der <code class="docutils literal notranslate"><span class="pre">api.config</span></code>, <a class="reference internal" href="../config/api/index.html#api-config-security"><span class="std std-ref">Details</span></a>)
+schaltet diese Prüfung ab (Standard <code class="docutils literal notranslate"><span class="pre">false</span></code>). Das ist nur in Sonderfällen sinnvoll, z. B. wenn die API ausschließlich als
+Backend für eine andere Anwendung dient oder ein Reverse Proxy die Prüfung verhindert. Im Internet nicht verwenden.</p>
+</section>
+<section id="gesicherte-endpunkte">
+<span id="annex-security-endpoints"></span><h2>Gesicherte Endpunkte<a class="headerlink" href="#gesicherte-endpunkte" title="Link to this heading">¶</a></h2>
+<p>Wartungsendpunkte wie <code class="docutils literal notranslate"><span class="pre">cache/clear</span></code> sind standardmäßig <strong>ohne Anmeldung</strong> erreichbar, damit die Wartung (z. B. nach einem
+CMS-Deployment) funktioniert. Sobald in Section <code class="docutils literal notranslate"><span class="pre">security</span></code> der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> bzw. der <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> Zugangsdaten
+hinterlegt sind, ist der Endpunkt nur noch mit gültigen Credentials erreichbar
+(<a class="reference internal" href="../config/api/index.html#api-config-security"><span class="std std-ref">api.config</span></a>, <a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">portal.config</span></a>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">secure-endpoint-url-password</span></code>: Passwort, das als Query-Parameter <code class="docutils literal notranslate"><span class="pre">pwd</span></code> übergeben wird.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secure-endpoint-basicauth-username</span></code> und <code class="docutils literal notranslate"><span class="pre">secure-endpoint-basicauth-password</span></code>: Zugangsdaten für HTTP Basic Authentication.</p></li>
+</ul>
+<p>In öffentlich zugänglichen Instanzen müssen diese Schlüssel gesetzt werden; im Intranet wird es empfohlen.</p>
+</section>
+<section id="reverse-proxy-und-client-ip">
+<span id="annex-security-proxy"></span><h2>Reverse Proxy und Client-IP<a class="headerlink" href="#reverse-proxy-und-client-ip" title="Link to this heading">¶</a></h2>
+<p>Läuft die API hinter einem Reverse Proxy, sieht sie standardmäßig die IP-Adresse des Proxies statt jener des Clients.
+Das beeinträchtigt u. a. die IP-Drosselung der Anmeldung (<a class="reference internal" href="../config/api/index.html#api-config-middleware"><span class="std std-ref">Details</span></a>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">use-x-forwarded-headers</span></code> (Section <code class="docutils literal notranslate"><span class="pre">middleware</span></code>): übernimmt die <em>X-Forwarded</em>-Header (Standard <code class="docutils literal notranslate"><span class="pre">false</span></code>). Nur hinter einem
+Reverse Proxy aktivieren.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-forwarded-known-proxies</span></code> und <code class="docutils literal notranslate"><span class="pre">x-forwarded-known-networks</span></code>: Die Header werden nur von diesen vertrauenswürdigen Proxies
+(IP-Adressen bzw. Netzwerke in CIDR-Schreibweise) übernommen, standardmäßig nur von <code class="docutils literal notranslate"><span class="pre">localhost</span></code>. Nur die tatsächlich
+verwendeten Proxies eintragen, keine breiten Netze.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use-x-forwarded-headers-logging</span></code>: protokolliert die Header (nur zur Fehlersuche).</p></li>
+</ul>
+</section>
+<section id="ubersicht-aller-sicherheitsrelevanten-schlussel">
+<span id="annex-security-keys"></span><h2>Übersicht aller sicherheitsrelevanten Schlüssel<a class="headerlink" href="#ubersicht-aller-sicherheitsrelevanten-schlussel" title="Link to this heading">¶</a></h2>
+<p><strong>Kategorien</strong></p>
+<ul class="simple">
+<li><p><strong>Kompatibilitäts-Opt-out:</strong> Ein Schutz ist standardmäßig aktiv und kann aus Gründen der Abwärtskompatibilität abgeschaltet
+oder aufgeweicht werden. Die Aktivierung der Ausnahme schwächt die Sicherheit und sollte nur bei Bedarf und mit Kenntnis des
+Risikos erfolgen.</p></li>
+<li><p><strong>Feature-Freischaltung:</strong> Eine Funktion ist erst nach Aktivierung verfügbar. Die Aktivierung vergrößert die Angriffsfläche.</p></li>
+<li><p><strong>Feinjustierung:</strong> Werte, mit denen ein Schutzmechanismus angepasst wird (Zeiten, Grenzwerte, Zugangsdaten, Listen).</p></li>
+</ul>
+<p><strong>Risikostufen</strong> (Auswirkung eines unsicheren Wertes bzw. der Aktivierung der Ausnahme; Standardwerte sind sicher gewählt)</p>
+<ul class="simple">
+<li><p><strong>Hoch:</strong> Ein Angriff ist direkt möglich oder ein Schutzmechanismus wird vollständig ausgehebelt (z. B. Übernahme von
+Konten, Zugriff auf interne Systeme, Abhören oder Manipulation des Datenverkehrs).</p></li>
+<li><p><strong>Mittel:</strong> Der Schutz wird spürbar geschwächt; ein Angriff benötigt zusätzliche Voraussetzungen.</p></li>
+<li><p><strong>Niedrig:</strong> Geringe Auswirkung; Defense in Depth.</p></li>
+<li><p><strong>Info:</strong> Keine direkte Auswirkung auf die Sicherheit; Betriebs- oder Hinweisschlüssel.</p></li>
+</ul>
+<p>Die Schlüssel sind als <code class="docutils literal notranslate"><span class="pre">section:key</span></code> angegeben, wenn sie in einer <em>Section</em> der Konfigurationsdatei stehen (z. B.
+<code class="docutils literal notranslate"><span class="pre">security:cookie-secure</span></code>); der Link führt zur Beschreibung in der jeweiligen Konfigurationsdokumentation. Die
+Empfehlungen gelten für Standardinstallationen. Dort, wo nicht anders angegeben, entspricht die Empfehlung dem Standardwert.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 9.0%" />
+<col style="width: 12.0%" />
+<col style="width: 7.0%" />
+<col style="width: 26.0%" />
+<col style="width: 26.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Schlüssel</strong></p></th>
+<th class="head"><p><strong>Datei</strong></p></th>
+<th class="head"><p><strong>Kategorie</strong></p></th>
+<th class="head"><p><strong>Risiko</strong></p></th>
+<th class="head"><p><strong>Empfehlung Internet</strong></p></th>
+<th class="head"><p><strong>Empfehlung Intranet</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-subscriber-registration"><span class="std std-ref">allow-subscriber-login</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feature-Freischaltung</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> nur, wenn Kartenautoren/Administratoren sich anmelden müssen (ohne Eintrag: <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-advanced-security"><span class="std std-ref">allow-subscriber-login</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Feature-Freischaltung</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> nur, wenn Kartenautoren/Administratoren sich anmelden müssen (ohne Eintrag: <code class="docutils literal notranslate"><span class="pre">false</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-subscriber-registration"><span class="std std-ref">allow-register-new-subscribers</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feature-Freischaltung</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code> (nie aktivieren)</p></td>
+<td><p>Nur während der Installation <code class="docutils literal notranslate"><span class="pre">true</span></code> (ersten Administrator anlegen), danach <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-subscriber-db"><span class="std std-ref">subscriber-db-connectionstring</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Info</p></td>
+<td><p>Zugriff auf Datenbank bzw. Verzeichnis einschränken; Wert in api.config und portal.config identisch</p></td>
+<td><p>Wie Internet</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-subscriber-db"><span class="std std-ref">subscriber-db-connectionstring</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Info</p></td>
+<td><p>Wie in api.config</p></td>
+<td><p>Wie in api.config</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-subscriber-registration"><span class="std std-ref">subscriber-login-allowed-redirect-hosts</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Leer lassen oder nur eigene Hosts eintragen</p></td>
+<td><p>Wie Internet</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:cookie-secure</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">auto</span></code> (korrekte Proxy-Konfiguration vorausgesetzt) oder <code class="docutils literal notranslate"><span class="pre">always</span></code>; nie <code class="docutils literal notranslate"><span class="pre">never</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">auto</span></code>; <code class="docutils literal notranslate"><span class="pre">always</span></code> bei durchgängigem HTTPS</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:session-max-lifetime-minutes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">480</span></code> oder kürzer; nicht <code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">480</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:session-idle-timeout-minutes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><ol class="loweralpha simple" start="26">
+<li><ol class="upperalpha simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">30</span></code> bis <code class="docutils literal notranslate"><span class="pre">60</span></code></p></li>
+</ol>
+</li>
+</ol>
+</td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-password-rules"><span class="std std-ref">security:password-min-length</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">12</span></code> oder mehr</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">12</span></code> oder mehr</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-password-rules"><span class="std std-ref">security:password-required-character-classes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code> (Länge und Sperrliste sind wirksamer)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-password-rules"><span class="std std-ref">security:password-blocklist-file</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p>Empfohlen: Liste kompromittierter Passwörter</p></td>
+<td><p>Optional</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:login-captcha-after-failed-attempts</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code> oder weniger</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:login-lockout-after-failed-attempts</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10</span></code> oder weniger; nicht <code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:login-lockout-minutes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1,5,15</span></code> oder länger</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1,5,15</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:login-failed-attempts-reset-minutes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">60</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">60</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:login-ip-max-failed-attempts</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">30</span></code> oder weniger; nicht <code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">30</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:login-ip-window-minutes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">15</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">15</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:login-throttle-redis-connectionstring</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p>Bei mehreren Instanzen (Load Balancing) setzen</p></td>
+<td><p>Nur bei mehreren Instanzen</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:captcha-lifetime-minutes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-subscriber-login"><span class="std std-ref">security:password-verification-cache-seconds</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">300</span></code> oder weniger</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">300</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-mfa"><span class="std std-ref">security:mfa-required</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admins</span></code> oder <code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admins</span></code> empfohlen; <code class="docutils literal notranslate"><span class="pre">none</span></code> möglich</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-mfa"><span class="std std-ref">security:mfa-issuer</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Info</p></td>
+<td><p>Name in der Authenticator-App</p></td>
+<td><p>Name in der Authenticator-App</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security-untrusted-certificates"><span class="std std-ref">security:allow-untrusted-server-certificates</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; interne CA im Zertifikatsspeicher des Servers installieren</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> nur für Legacy-Dienste in vertrauenswürdigen Netzen</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">security:allow-untrusted-server-certificates</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; interne CA im Zertifikatsspeicher des Servers installieren</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> nur für Legacy-Dienste in vertrauenswürdigen Netzen</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/cms/index.html#cms-config-settings-security"><span class="std std-ref">allow_untrusted_server_certificates</span></a></p></td>
+<td><p>settings.config (CMS)</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; interne CA im Zertifikatsspeicher des Servers installieren</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> nur für Legacy-Dienste in vertrauenswürdigen Netzen</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security"><span class="std std-ref">security:disable-anti-forgery</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> nur in Sonderfällen (Backend für andere Anwendung, Reverse Proxy)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security"><span class="std std-ref">security:secure-endpoint-url-password</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Setzen (starkes Passwort)</p></td>
+<td><p>Setzen empfohlen</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security"><span class="std std-ref">security:secure-endpoint-basicauth-username</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Setzen (gemeinsam mit dem Passwort)</p></td>
+<td><p>Setzen empfohlen</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-security"><span class="std std-ref">security:secure-endpoint-basicauth-password</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Setzen (starkes Passwort)</p></td>
+<td><p>Setzen empfohlen</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">security:secure-endpoint-url-password</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Setzen (starkes Passwort)</p></td>
+<td><p>Setzen empfohlen</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">security:secure-endpoint-basicauth-username</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Setzen (gemeinsam mit dem Passwort)</p></td>
+<td><p>Setzen empfohlen</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">security:secure-endpoint-basicauth-password</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Setzen (starkes Passwort)</p></td>
+<td><p>Setzen empfohlen</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">use-local-url-scheme</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code> (auch im Intranet HTTPS verwenden); <code class="docutils literal notranslate"><span class="pre">true</span></code> nur in Offline-/Testumgebungen</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-dynamic-content"><span class="std std-ref">dynamic-content:allow-hosts</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Hoch</p></td>
+<td><p>Leer (nur öffentliche Ziele)</p></td>
+<td><p>Nur konkrete interne Hostnamen, keine breiten Muster</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-dynamic-content"><span class="std std-ref">dynamic-content:allow-unsigned</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> nur, wenn unsignierte Karten (MapBuilder-HTML, <code class="docutils literal notranslate"><span class="pre">custom.js</span></code>) zwingend benötigt werden</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-dynamic-content"><span class="std std-ref">dynamic-content:timeout-seconds</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">20</span></code> oder weniger</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-dynamic-content"><span class="std std-ref">dynamic-content:max-response-bytes</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">52428800</span></code> (50 MB) oder weniger</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">52428800</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-dynamic-content"><span class="std std-ref">dynamic-content:max-redirects</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code> oder weniger</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-lookup"><span class="std std-ref">lookup:term-whitelist</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Standard; nur um tatsächlich benötigte Zeichen erweitern</p></td>
+<td><p>Standard</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-advanced-security"><span class="std std-ref">add-cors-origins-for-hmac</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Hoch</p></td>
+<td><p>Nur benötigte Drittseiten; nie <code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>Nur benötigte Drittseiten; nie <code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-advanced-security"><span class="std std-ref">add-cors-origins-for-default</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Hoch</p></td>
+<td><p>Leer; nie <code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>Leer; nie <code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-advanced-security"><span class="std std-ref">cors-default-allow-any-origin-without-credentials</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Kompatibilitäts-Opt-out</p></td>
+<td><p>Niedrig</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-middleware"><span class="std std-ref">middleware:use-x-forwarded-headers</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> nur hinter einem Reverse Proxy</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> nur hinter einem Reverse Proxy</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-middleware"><span class="std std-ref">middleware:x-forwarded-known-proxies</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Nur die tatsächlich verwendeten Proxies</p></td>
+<td><p>Nur die tatsächlich verwendeten Proxies</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-middleware"><span class="std std-ref">middleware:x-forwarded-known-networks</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Mittel</p></td>
+<td><p>Nur die Netze der verwendeten Proxies (CIDR), keine breiten Netze</p></td>
+<td><p>Nur die Netze der verwendeten Proxies (CIDR), keine breiten Netze</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/api/index.html#api-config-middleware"><span class="std std-ref">middleware:use-x-forwarded-headers-logging</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feinjustierung</p></td>
+<td><p>Info</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code> (nur zur Fehlersuche)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code> (nur zur Fehlersuche)</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
@@ -238,10 +783,22 @@ Das System sollte protokollieren, wer sich wann eingeloggt hat. Wenn sich jemand
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Sicherheitsmaßnahmen für das WebGIS Portal</a><ul>
-<li><a class="reference internal" href="#tipps-zur-passwortsicherheit">Tipps zur Passwortsicherheit</a></li>
-<li><a class="reference internal" href="#https-auch-im-intranet-verwenden">HTTPS auch im Intranet verwenden</a></li>
-<li><a class="reference internal" href="#weitere-empfohlene-sicherheitsmasznahmen">Weitere empfohlene Sicherheitsmaßnahmen</a></li>
-<li><a class="reference internal" href="#weiterfuhrende-informationen-fur-interessierte">Weiterführende Informationen für Interessierte</a></li>
+<li><a class="reference internal" href="#grundprinzipien">Grundprinzipien</a></li>
+<li><a class="reference internal" href="#subscriber-anmeldung-und-subscriber-datenbank">Subscriber-Anmeldung und Subscriber-Datenbank</a><ul>
+<li><a class="reference internal" href="#passwortregeln">Passwortregeln</a></li>
+<li><a class="reference internal" href="#zwei-faktor-authentifizierung-2fa-totp">Zwei-Faktor-Authentifizierung (2FA/TOTP)</a></li>
+<li><a class="reference internal" href="#captcha-sperre-und-ip-drosselung">Captcha, Sperre und IP-Drosselung</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sitzungen-und-cookies">Sitzungen und Cookies</a></li>
+<li><a class="reference internal" href="#weiterleitungen-nach-der-anmeldung">Weiterleitungen nach der Anmeldung</a></li>
+<li><a class="reference internal" href="#portal-cors">Portal-CORS</a></li>
+<li><a class="reference internal" href="#dynamischer-inhalt-ssrf-schutz">Dynamischer Inhalt (SSRF-Schutz)</a></li>
+<li><a class="reference internal" href="#ausgehende-tls-verbindungen">Ausgehende TLS-Verbindungen</a></li>
+<li><a class="reference internal" href="#schutz-vor-csrf">Schutz vor CSRF</a></li>
+<li><a class="reference internal" href="#gesicherte-endpunkte">Gesicherte Endpunkte</a></li>
+<li><a class="reference internal" href="#reverse-proxy-und-client-ip">Reverse Proxy und Client-IP</a></li>
+<li><a class="reference internal" href="#ubersicht-aller-sicherheitsrelevanten-schlussel">Übersicht aller sicherheitsrelevanten Schlüssel</a></li>
 </ul>
 </li>
 </ul>
