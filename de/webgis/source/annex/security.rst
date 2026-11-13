@@ -270,6 +270,23 @@ Das beeinträchtigt u. a. die IP-Drosselung der Anmeldung (:ref:`Details <api-co
   verwendeten Proxies eintragen, keine breiten Netze.
 - ``use-x-forwarded-headers-logging``: protokolliert die Header (nur zur Fehlersuche).
 
+.. _annex-security-report:
+
+Security-Bericht
+----------------
+
+Die API enthält eine Seite, die die sicherheitsrelevanten Schlüssel der ``api.config`` bewertet: ``/SecurityReport``
+(im Subscriber-Admin als Kachel *Security-Bericht*). Die Seite zeigt je Schlüssel den aktuellen Wert (Geheimnisse und Connection-Strings
+nur als *gesetzt* / *nicht gesetzt*), den Standardwert, Kategorie und Risiko sowie eine Bewertung für Internet- und
+Intranet-Installationen nebeneinander. Die Bewertung entspricht der Tabelle :ref:`annex-security-keys`. Unterhalb der Tabelle
+werden alle Subscriber mit ihrem 2FA-Status aufgelistet (nur Benutzernamen); Administratoren ohne 2FA sind rot markiert.
+
+Die Seite ist unabhängig vom Subscriber-Login, damit sie auch bei deaktivierter Anmeldung (``allow-subscriber-login``) verfügbar ist.
+Der Zugriff erfolgt wie bei den :ref:`gesicherten Endpunkten <annex-security-endpoints>` mit den Zugangsdaten
+(``secure-endpoint-url-password`` als Parameter ``pwd``, Basic Authentication oder Bearer-Token). Sind keine Zugangsdaten
+konfiguriert, ist die Seite nur direkt am Server (``localhost``, ohne Proxy) erreichbar. Beim Start der API werden die
+Abweichungen mit hohem und mittlerem Risiko zusätzlich in das Log (Kategorie ``WebGIS.Security.Audit``) geschrieben.
+
 .. _annex-security-keys:
 
 Übersicht aller sicherheitsrelevanten Schlüssel
