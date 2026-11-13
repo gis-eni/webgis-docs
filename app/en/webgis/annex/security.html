@@ -388,6 +388,19 @@ actually used, no broad networks.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">use-x-forwarded-headers-logging</span></code>: logs the headers (for troubleshooting only).</p></li>
 </ul>
 </section>
+<section id="security-report">
+<span id="annex-security-report"></span><h2>Security report<a class="headerlink" href="#security-report" title="Link to this heading">¶</a></h2>
+<p>The API contains a page that rates the security-relevant keys of <code class="docutils literal notranslate"><span class="pre">api.config</span></code>: <code class="docutils literal notranslate"><span class="pre">/SecurityReport</span></code>
+(a <em>Security-Bericht</em> tile in the subscriber admin; the page itself is currently German only). For each key the page shows the current value (secrets and
+connection strings only as <em>set</em> / <em>not set</em>), the default, category and risk, and a rating for internet and intranet
+installations side by side. The rating corresponds to the table <a class="reference internal" href="#annex-security-keys"><span class="std std-ref">Overview of all security-relevant keys</span></a>. Below the table all
+subscribers are listed with their 2FA status (user names only); administrators without 2FA are marked red.</p>
+<p>The page is independent of the subscriber login, so it is also available if the login (<code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code>) is disabled.
+Access works like for the <a class="reference internal" href="#annex-security-endpoints"><span class="std std-ref">secured endpoints</span></a> with their credentials
+(<code class="docutils literal notranslate"><span class="pre">secure-endpoint-url-password</span></code> as parameter <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, Basic authentication or bearer token). If no credentials are
+configured, the page is only reachable directly on the server (<code class="docutils literal notranslate"><span class="pre">localhost</span></code>, without proxy). When the API starts, the
+deviations with high and medium risk are additionally written to the log (category <code class="docutils literal notranslate"><span class="pre">WebGIS.Security.Audit</span></code>).</p>
+</section>
 <section id="overview-of-all-security-relevant-keys">
 <span id="annex-security-keys"></span><h2>Overview of all security-relevant keys<a class="headerlink" href="#overview-of-all-security-relevant-keys" title="Link to this heading">¶</a></h2>
 <p><strong>Categories</strong></p>
@@ -792,6 +805,7 @@ recommendations apply to standard installations. Where not stated otherwise, the
 <li><a class="reference internal" href="#csrf-protection">CSRF protection</a></li>
 <li><a class="reference internal" href="#secured-endpoints">Secured endpoints</a></li>
 <li><a class="reference internal" href="#reverse-proxy-and-client-ip">Reverse proxy and client IP</a></li>
+<li><a class="reference internal" href="#security-report">Security report</a></li>
 <li><a class="reference internal" href="#overview-of-all-security-relevant-keys">Overview of all security-relevant keys</a></li>
 </ul>
 </li>

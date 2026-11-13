@@ -388,6 +388,19 @@ verwendeten Proxies eintragen, keine breiten Netze.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">use-x-forwarded-headers-logging</span></code>: protokolliert die Header (nur zur Fehlersuche).</p></li>
 </ul>
 </section>
+<section id="security-bericht">
+<span id="annex-security-report"></span><h2>Security-Bericht<a class="headerlink" href="#security-bericht" title="Link to this heading">¶</a></h2>
+<p>Die API enthält eine Seite, die die sicherheitsrelevanten Schlüssel der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> bewertet: <code class="docutils literal notranslate"><span class="pre">/SecurityReport</span></code>
+(im Subscriber-Admin als Kachel <em>Security-Bericht</em>). Die Seite zeigt je Schlüssel den aktuellen Wert (Geheimnisse und Connection-Strings
+nur als <em>gesetzt</em> / <em>nicht gesetzt</em>), den Standardwert, Kategorie und Risiko sowie eine Bewertung für Internet- und
+Intranet-Installationen nebeneinander. Die Bewertung entspricht der Tabelle <a class="reference internal" href="#annex-security-keys"><span class="std std-ref">Übersicht aller sicherheitsrelevanten Schlüssel</span></a>. Unterhalb der Tabelle
+werden alle Subscriber mit ihrem 2FA-Status aufgelistet (nur Benutzernamen); Administratoren ohne 2FA sind rot markiert.</p>
+<p>Die Seite ist unabhängig vom Subscriber-Login, damit sie auch bei deaktivierter Anmeldung (<code class="docutils literal notranslate"><span class="pre">allow-subscriber-login</span></code>) verfügbar ist.
+Der Zugriff erfolgt wie bei den <a class="reference internal" href="#annex-security-endpoints"><span class="std std-ref">gesicherten Endpunkten</span></a> mit den Zugangsdaten
+(<code class="docutils literal notranslate"><span class="pre">secure-endpoint-url-password</span></code> als Parameter <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, Basic Authentication oder Bearer-Token). Sind keine Zugangsdaten
+konfiguriert, ist die Seite nur direkt am Server (<code class="docutils literal notranslate"><span class="pre">localhost</span></code>, ohne Proxy) erreichbar. Beim Start der API werden die
+Abweichungen mit hohem und mittlerem Risiko zusätzlich in das Log (Kategorie <code class="docutils literal notranslate"><span class="pre">WebGIS.Security.Audit</span></code>) geschrieben.</p>
+</section>
 <section id="ubersicht-aller-sicherheitsrelevanten-schlussel">
 <span id="annex-security-keys"></span><h2>Übersicht aller sicherheitsrelevanten Schlüssel<a class="headerlink" href="#ubersicht-aller-sicherheitsrelevanten-schlussel" title="Link to this heading">¶</a></h2>
 <p><strong>Kategorien</strong></p>
@@ -798,6 +811,7 @@ Empfehlungen gelten für Standardinstallationen. Dort, wo nicht anders angegeben
 <li><a class="reference internal" href="#schutz-vor-csrf">Schutz vor CSRF</a></li>
 <li><a class="reference internal" href="#gesicherte-endpunkte">Gesicherte Endpunkte</a></li>
 <li><a class="reference internal" href="#reverse-proxy-und-client-ip">Reverse Proxy und Client-IP</a></li>
+<li><a class="reference internal" href="#security-bericht">Security-Bericht</a></li>
 <li><a class="reference internal" href="#ubersicht-aller-sicherheitsrelevanten-schlussel">Übersicht aller sicherheitsrelevanten Schlüssel</a></li>
 </ul>
 </li>
