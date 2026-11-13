@@ -299,6 +299,8 @@ If external services are integrated, a **proxy server** may be required for acce
       }
    }
 
+.. _cms-config-settings-security:
+
 Overview of the most important configuration parameters
 ---------------------------------------------------------
 
@@ -336,6 +338,8 @@ Overview of the most important configuration parameters
        .. danger::
 
           With ``true``, **all** server certificates are accepted. Connections can then be intercepted or manipulated (man-in-the-middle).
+
+       See also annex :ref:`annex-security-tls`.
 
 File ``_config/application-security.config``
 =============================================

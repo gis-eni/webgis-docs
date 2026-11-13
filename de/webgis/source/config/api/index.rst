@@ -98,6 +98,8 @@ Um die Anzahl der Zugriffe auf die **Cache-Datenbank** zu reduzieren (da bei jed
        - Für **Redis** z. B. ``localhost:6379``.  
        - Für **InApp** wird hier die Zeit in Sekunden angegeben, für die ein Wert im Side-Cache gehalten werden soll (z. B. ``3600`` für eine Stunde).
 
+.. _api-config-subscriber-db:
+
 Abschnitt ``Subscriber Datenbank``
 ----------------------------------
 
@@ -116,8 +118,14 @@ Für die Speicherung im Dateisystem kann der Connection-String wie folgt angegeb
    * - ``subscriber-admins``
      - Liste von **Administrator-Subscriber-Namen**, durch Komma getrennt (z. B. ``admin``). Diese Benutzer können andere Profile verwalten (löschen, ändern usw.).
 
+.. _api-config-subscriber-registration:
+
 Abschnitt ``Subscriber Registration``
 -------------------------------------
+
+.. seealso::
+
+   Anhang :ref:`annex-security-subscriber-login`: Empfehlungen für Internet und Intranet.
 
 .. list-table::
    :widths: 20 80
@@ -1035,6 +1043,10 @@ wird dabei nicht mehr ungeprüft in die SQL-Abfrage übernommen:
 Abschnitt ``Dynamic Content``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. seealso::
+
+   Anhang :ref:`annex-security-dynamic-content`.
+
 Betrifft den **Dynamischen Inhalt** der Karte (GeoRSS, GeoJSON, API-Abfragen), den der Viewer über den
 ``DynamicContentProxy`` der WebGIS API lädt. Die Absicherung besteht aus zwei Teilen:
 
@@ -1159,8 +1171,14 @@ Die Konfiguration erfolgt in der optionalen *Section* ``proxy`` in der ``api.con
    * - ``ignore`` *(optional)*
      - Liste von **Regeln**, anhand derer bestimmte Server vom Proxy **ausgenommen** werden. Mehrere Regeln können mit ``;`` getrennt angegeben werden. Es sind auch **reguläre Ausdrücke** möglich.
 
+.. _api-config-security:
+
 Security
 --------
+
+.. seealso::
+
+   Anhang :ref:`annex-security`: Überblick, Risikostufen und Empfehlungen für alle sicherheitsrelevanten Schlüssel.
 
 .. code-block:: xml
 
@@ -1182,7 +1200,7 @@ Dies kann über die folgende Einstellung ``disable-anti-forgery`` in der ``api.c
 
 Weiters können hier auch **Zugangsdaten** für geschützte Endpunkte (z. B. zum **Leeren des Caches**) hinterlegt werden.
 
-* **``secure-endpoint-url-password``**: Ein **URL-Passwort**, das als **Query-Parameter ``pww=***``** in der URL übergeben werden muss, um Zugriff auf den geschützten Endpunkt zu erhalten.
+* **``secure-endpoint-url-password``**: Ein **URL-Passwort**, das als **Query-Parameter ``pwd=***``** in der URL übergeben werden muss, um Zugriff auf den geschützten Endpunkt zu erhalten.
 * **``secure-endpoint-basicauth-username``** und **``secure-endpoint-basicauth-password``**: Ein **Benutzername** und **Passwort** für die **HTTP Basic Authentication**, die für den Zugriff auf den geschützten Endpunkt erforderlich ist.
 
 .. note::
@@ -1231,6 +1249,10 @@ Subscriber-Anmeldung
 ~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 8.26.4502
+
+.. seealso::
+
+   Anhang :ref:`annex-security-subscriber-login` und :ref:`annex-security-keys`.
 
 Über die Anmeldung ``/Subscribers/Login`` melden sich Kartenautoren und Administratoren (*Subscriber*) an der WebGIS API an.
 Ist die API aus dem Internet erreichbar, schützen folgende Maßnahmen diese Anmeldung. Sie sind standardmäßig aktiv und können in der
@@ -1312,6 +1334,8 @@ Ist die API aus dem Internet erreichbar, schützen folgende Maßnahmen diese Anm
    * - ``mfa-issuer``
      - Name, unter dem der Eintrag in der Authenticator-App angezeigt wird.
 
+.. _api-config-security-password-rules:
+
 **Passwortregeln**
 
 Neben der Mindestlänge werden neue Passwörter gegen eine Liste häufiger Passwörter (und optional ``password-blocklist-file``) geprüft.
@@ -1320,6 +1344,8 @@ sind nicht erlaubt. Bestehende Passwörter bleiben gültig, die Regeln greifen n
 
 Das Standardpasswort ``webgisauthor`` der Erstinstallation kann nicht mehr als neues Passwort gesetzt werden. Meldet sich ein Subscriber damit an,
 muss er das Passwort sofort ändern (siehe :ref:`hardening-default-passwords`).
+
+.. _api-config-security-mfa:
 
 **Zwei-Faktor-Authentifizierung (MFA)**
 
@@ -1338,6 +1364,8 @@ Administratoren können die Zwei-Faktor-Authentifizierung eines Subscribers zur�
   * *Basic Authentication* und *DataLinq*-Zugriffe verwenden weiterhin nur Benutzername und Passwort (ohne zweiten Faktor).
   * Die MFA-Schlüssel werden mit dem Crypto-Key der API verschlüsselt. Wird dieser geändert, muss die Zwei-Faktor-Authentifizierung der Subscriber zurückgesetzt werden.
   * Nach dem Update auf diese Version müssen sich alle Subscriber einmal neu anmelden.
+
+.. _api-config-middleware:
 
 Middleware
 ----------

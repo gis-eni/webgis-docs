@@ -98,6 +98,8 @@ To reduce the number of accesses to the **cache database** (since it is accessed
        - For **Redis**, e.g. ``localhost:6379``.
        - For **InApp**, this specifies the time in seconds for which a value should be kept in the side cache (e.g. ``3600`` for one hour).
 
+.. _api-config-subscriber-db:
+
 Section ``Subscriber Database``
 ----------------------------------
 
@@ -116,8 +118,14 @@ For storage in the file system, the connection string can be specified as follow
    * - ``subscriber-admins``
      - List of **administrator subscriber names**, separated by commas (e.g. ``admin``). These users can manage other profiles (delete, change, etc.).
 
+.. _api-config-subscriber-registration:
+
 Section ``Subscriber Registration``
 -------------------------------------
+
+.. seealso::
+
+   Annex :ref:`annex-security-subscriber-login`: recommendations for internet and intranet.
 
 .. list-table::
    :widths: 20 80
@@ -1024,6 +1032,10 @@ user is no longer inserted into the SQL query unchecked:
 Section ``Dynamic Content``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. seealso::
+
+   Annex :ref:`annex-security-dynamic-content`.
+
 Applies to the **dynamic content** of the map (GeoRSS, GeoJSON, API queries) that the viewer loads via
 the ``DynamicContentProxy`` of the WebGIS API. The protection consists of two parts:
 
@@ -1147,8 +1159,14 @@ The configuration is done in the optional *section* ``proxy`` in ``api.config``:
    * - ``ignore`` *(optional)*
      - List of **rules** used to **exclude** certain servers from the proxy. Multiple rules can be specified separated by ``;``. **Regular expressions** are also possible.
 
+.. _api-config-security:
+
 Security
 --------
+
+.. seealso::
+
+   Annex :ref:`annex-security`: overview, risk levels and recommendations for all security-relevant keys.
 
 .. code-block:: xml
 
@@ -1170,7 +1188,7 @@ This can be done via the following setting ``disable-anti-forgery`` in ``api.con
 
 Furthermore, **credentials** for protected endpoints (e.g. for **clearing the cache**) can also be stored here.
 
-* **``secure-endpoint-url-password``**: A **URL password** that must be passed as the **query parameter ``pww=***``** in the URL to gain access to the protected endpoint.
+* **``secure-endpoint-url-password``**: A **URL password** that must be passed as the **query parameter ``pwd=***``** in the URL to gain access to the protected endpoint.
 * **``secure-endpoint-basicauth-username``** and **``secure-endpoint-basicauth-password``**: A **user name** and **password** for **HTTP Basic Authentication**, required for access to the protected endpoint.
 
 .. note::
@@ -1219,6 +1237,10 @@ Subscriber login
 ~~~~~~~~~~~~~~~~
 
 .. versionadded:: 8.26.4502
+
+.. seealso::
+
+   Annex :ref:`annex-security-subscriber-login` and :ref:`annex-security-keys`.
 
 Map authors and administrators (*subscribers*) log in to the WebGIS API via ``/Subscribers/Login``.
 If the API is reachable from the internet, the following measures protect this login. They are active by default and can be adjusted
@@ -1300,6 +1322,8 @@ in the ``security`` *section*. All keys are optional, the values in the example 
    * - ``mfa-issuer``
      - Name under which the entry is shown in the authenticator app.
 
+.. _api-config-security-password-rules:
+
 **Password rules**
 
 In addition to the minimum length, new passwords are checked against a list of common passwords (and optionally ``password-blocklist-file``).
@@ -1308,6 +1332,8 @@ are not allowed. Existing passwords remain valid; the rules only apply when a pa
 
 The default password ``webgisauthor`` of the initial installation can no longer be set as a new password. A subscriber logging in with it
 must change the password immediately (see :ref:`hardening-default-passwords`).
+
+.. _api-config-security-mfa:
 
 **Two-factor authentication (MFA)**
 
@@ -1326,6 +1352,8 @@ Administrators can reset the two-factor authentication of a subscriber.
   * *Basic Authentication* and *DataLinq* access still use only username and password (without a second factor).
   * The MFA secrets are encrypted with the crypto key of the API. If this key changes, the two-factor authentication of the subscribers must be reset.
   * After updating to this version, all subscribers have to log in again once.
+
+.. _api-config-middleware:
 
 Middleware
 ----------
