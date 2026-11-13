@@ -15,7 +15,7 @@ Preparation
 
 The deployment tool as well as other packages can be downloaded under *Releases* from the GitHub repository https://github.com/e-netze/webgis/releases.
 
-An installation of the .NET App Runtime 9.0.x is required.
+An installation of the .NET App Runtime 10.0.x is required.
 
 Microsoft offers two main runtime variants for running .NET applications:
 
@@ -27,8 +27,10 @@ Microsoft offers two main runtime variants for running .NET applications:
 
 .. raw:: html
 
-   <p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0" target="_blank">Download .NET 8.0 Runtime</a></p>
+   <p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/10.0" target="_blank">Download .NET 10.0 Runtime</a></p>
 
+The *deploy tool* is a single file (``webgis.deploy.exe`` on Windows, ``webgis.deploy`` on Linux)
+and uses the installed .NET runtime.
 
 **Windows:**
 
@@ -37,12 +39,41 @@ After that, the EXE file can simply be run.
 
 **Linux:**
 
-Coming Soon ...
+On Linux, the program can for example be copied to ``/opt/deploy/webgis``.
+After that, the file must be made executable and can be started:
+
+.. code-block:: bash
+
+    chmod +x webgis.deploy
+    ./webgis.deploy
 
 .. note::
 
    The description below is based on a Windows system. On Linux, the installation
    should work similarly by calling the *deploy tool*.
+
+.. _deploy-console-ui:
+
+Usage
+-----
+
+.. versionchanged:: 9.26.4502
+   The *deploy tool* has a new console interface with selection lists, progress bars, colors and symbols.
+
+* **Selection lists** (profile, version): Select with the arrow keys ``↑`` / ``↓`` and confirm with ``ENTER``.
+* **Multiple selection** (components): Toggle individual entries with ``SPACE`` and confirm with ``ENTER``.
+* **Yes/no questions**: Enter ``y`` or ``n``. ``ENTER`` accepts the suggested value in parentheses.
+* **Inputs**: The suggested value is shown in parentheses and is accepted with ``ENTER``.
+
+The output is divided into sections (*Download*, *Repository*, *Deploy*, *Configure*).
+For each step, only one line with ``✔`` and the number of files is shown. Details such as individual
+files and paths are only shown with the ``--verbose`` parameter (see :ref:`deploy-automate`).
+
+.. note::
+
+   To display colors and symbols correctly, a modern terminal should be used
+   (e.g. *Windows Terminal*). If the output is redirected (e.g. to a file), the program
+   asks no questions and outputs no colors.
 
 Deploying a New Version
 -------------------------------------------
@@ -55,28 +86,35 @@ is a good choice to start with:
 
 
 .. code-block:: text
-   :emphasize-lines: 1,5
+   :emphasize-lines: 1,10
 
     C:\deploy\webgis\> .\webgis.deploy.exe
 
-    ******************************************
-    *                                        *
-    *      WebGIS.Deploy Tool 7.25.701      *
-    *                                        *
-    ******************************************
+    ╔════════════════════════════════════╗
+    ║    WebGIS.Deploy Tool 9.26.4502    ║
+    ╚════════════════════════════════════╝
     Work-Directory: C:\deploy\webgis
-    Directory C:\deploy\webgis\_deploy_repository exists: True
-    Try Write security keys: C:\deploy\webgis\_deploy_repository\keys.config
-    succeeded
-    Choose a profile or create a new by enter an unique name, eg. production, staging, test
-    Input profile index [0]: local
 
-In the next step, the program offers to download the current release from *GitHub*,
-if it is not already available.
+    Choose a profile:
+
+    > <new...>
+
+    Enter a name for the new profile (eg. production, staging, test): local
+
+On the first start, there is only the ``<new...>`` entry. It creates a new profile.
+On subsequent calls, the existing profiles are shown in the list.
+
+In the next step, the program offers to download the current release from *GitHub*.
 
 .. code-block:: text
 
-   Do you want to download latetest version from GitHub? Y/N [Y]
+   Do you want to download the latest version from GitHub? [y/n] (y): y
+
+   ── Download ───────────────────────────────────────────────
+   ✔ Download webgis-win64-9.26.4502.zip (95 MB)
+
+A progress bar is shown during the download. If the current version already exists in the
+``download`` directory, it is not downloaded again.
 
 If this is not possible, the latest release can also be downloaded manually.
 To do this, the ZIP files must be placed in the ``download`` directory.
@@ -88,48 +126,50 @@ In the example, that would be here: ``C:\deploy\webgis\download``
     C:\deploy\webgis\>
     .
     ├── download
-    │   └── webgis-win64-7.25.701.zip
+    │   └── webgis-win64-9.26.4502.zip
     └── webgis.deploy.exe
 
 If ZIP files are present in the ``download`` directory, the different versions are displayed:
 
 .. code-block:: text
 
-    Choose a version
-    0 ... 7.25.701
-    Input version index [0]:
+    Choose a version:
 
-The newest version gets the index ``0``.
+    > 9.26.4502
+      9.26.4301
+
+The newest version is at the top and is preselected.
 
 .. note::
 
    All values entered via ``webgis.deploy`` do not need to be entered again on
-   subsequent calls. Instead, these values are shown with an index number. You then
-   only need to enter the corresponding number, or it is enough to simply press
-   ``ENTER`` if the desired index is the
-   suggested value, e.g. ``Input version index [0]`` => ``ENTER`` => version with
-   index ``0``.
+   subsequent calls. Existing profiles are shown in the selection list
+   and can be selected with the arrow keys.
 
-The deployment tool now asks once more whether the selected version should actually be deployed with the profile:
+The deployment tool shows a summary and asks once more whether the selected version should actually be deployed with the profile:
 
 .. code-block:: text
 
-    Deploy version 7.25.701 to profile local
-    Do you want to continue? Y/N [Y]
+    ╭──────────┬───────────╮
+    │ Profile  │ local     │
+    │ Version  │ 9.26.4502 │
+    │ Platform │ win64     │
+    ╰──────────┴───────────╯
+    Do you want to continue? [y/n] (y):
 
 When a profile (here ``local``) is published for the first time, a few more
-values must be specified. If you want to use the default value, it is enough to confirm the question
+values must be specified. If you want to use the default value (in parentheses), it is enough to confirm the question
 with ``ENTER``.
 
 .. code-block:: text
 
-    Company [my-company]: foo
-    Target installation path [C:\apps\webgis]:
-    Repsitory path [C:\apps\webgis/local/webgis-repository]:
-    Api online url [http://localhost:5001]:
-    Api internal url [http://localhost:5001]:
-    Portal online url [http://localhost:5002]:
-    Portal internal url [http://localhost:5002]:
+    Company (my-company): foo
+    Target installation path (C:\apps\webgis):
+    Repsitory path (C:\apps\webgis/local/webgis-repository):
+    Api online url (http://localhost:5001):
+    Api internal url (http://localhost:5001):
+    Portal online url (http://localhost:5002):
+    Portal internal url (http://localhost:5002):
 
 .. todo:
 
@@ -138,7 +178,7 @@ with ``ENTER``.
 * **Target path of the installation:** The path where WebGIS should be installed.
   Under this directory, the deployment tool creates an additional folder with the profile name
   and the version. Here, the app would be
-  installed under ``C:\apps\webgis\local\7.25.701``.
+  installed under ``C:\apps\webgis\local\9.26.4502``.
 
 * **Repository path:** Various files required for the software to work are stored in the repository path,
   for example the CMS tree, print layouts, etc.
@@ -174,13 +214,18 @@ with ``ENTER``.
 
 In the last step, it must also be specified which components of WebGIS should be installed.
 In theory, all components (*WebGIS API*, *WebGIS Portal* and *WebGIS CMS*) can be installed separately.
-For the first installation, you can answer all options with YES [Y] here.
+All components are preselected. Individual components can be deselected with ``SPACE``.
+For the first installation, you can simply confirm with ``ENTER`` here.
 
 .. code-block:: text
 
-  Do you want to deploy WebGIS API? Y/N [Y]
-  Do you want to deploy WebGIS Portal? Y/N [Y]
-  Do you want to deploy WebGIS CMS? Y/N [Y]
+  Select the components to deploy:
+
+  > [X] WebGIS API
+    [X] WebGIS Portal
+    [X] WebGIS CMS
+
+  (Press <space> to toggle a choice and <enter> to accept)
 
 .. note::
 
@@ -195,62 +240,66 @@ The deployment process then starts:
 
 .. code-block:: text
 
-    ************************************************************************************************************************
+    ── Repository ─────────────────────────────────────────────
+    ✔ Create repository (webgis-api) (71 files)
+    ✔ Create repository (webgis-portal)
+    ✔ Create repository (webgis-cms) (167 files)
 
-    Create a new webgis repositiry C:\apps\webgis/local/webgis-repository
+    ── Deploy WebGIS 9.26.4502 ────────────────────────────────
+    ✔ WebGIS API (6,659 files)
+    ✔ WebGIS Portal (951 files)
+    ✔ WebGIS CMS (1,670 files)
+    ✔ WebGIS Scripts (4 files)
+    ✔ WebGIS Requirements (4 files)
+    ✔ Root files (2 files)
 
-    ************************************************************************************************************************
+    ── Configure ──────────────────────────────────────────────
+    ✔ Security keys
+    ✔ Overrides webgis-api (2 files)
+      webgis-api
+      └── _config
+          ├── api.config
+          └── application-security.config
+    ✔ Overrides webgis-portal (2 files)
+      webgis-portal
+      └── _config
+          ├── application-security.config
+          └── portal.config
+    ✔ Overrides webgis-cms (4 files)
+      webgis-cms
+      └── _config
+          ├── application-security.config
+          ├── cms.config
+          ├── datalinq.config
+          └── settings.config
+    ✔ Custom CSS (0 files)
 
-    ...succeeded 71 items created
-    ...succeeded 0 items created
-    ...succeeded 167 items created
-
-    Deploy version 7.25.701
-    Deploy WebGIS API:
-    ...succeeded 6659 items created
-    Deploy WebGIS Portal:
-    ...succeeded 951 items created
-    Deploy WebGIS CMS:
-    ...succeeded 1670 items created
-    Deploy WebGIS Scripts:
-    ...succeeded 4 items created
-    Deploy WebGIS Scripts:
-    ...succeeded 4 items created
-    Copy root files
-    ...succeeded 2 items created
-    Append keys.config
-    Overrides
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\api.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\application-security.config
-    ...succeeded 2 items created/overridden
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\application-security.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\portal.config
-    ...succeeded 2 items created/overridden
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\application-security.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\cms.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\datalinq.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\settings.config
-    ...succeeded 4 items created/overridden
-    Create Custom CSS
-    Build default.css css overrides...
-    Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\default.css not exits
-    Build portal.css css overrides...
-    Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\portal.css not exits
-
-
-    ########################################################################################################################
-
-    Deploy succeeded
-
-    ########################################################################################################################
+    ╭─ ✔ WebGIS 9.26.4502 deployed ──────────────────────────╮
+    │                                                        │
+    │  Profile       local                                   │
+    │  Components    API, Portal, CMS                        │
+    │  Installation  C:\apps\webgis\local\9.26.4502          │
+    │  Repository    C:\apps\webgis/local/webgis-repository  │
+    │  Duration      1:28 min                                │
+    │                                                        │
+    ╰────────────────────────────────────────────────────────╯
 
     Press ENTER to quit...
 
+A progress bar is shown for each step while extracting.
 Both *webgis-portal*, *webgis-api* and *webgis-cms* are deployed. After unpacking the ZIP files,
 user-specific files from the directory ``_deploy_repository\profiles\{profile}\webgis-[api|cms|portal]\override``
 are copied into the respective application directory.
 This overwrites the configuration from the installation package with the configuration from the
 current profile.
+
+.. _deploy-override-tree:
+
+Below each *Overrides* line, a tree shows which files were copied. The paths are
+relative to the respective application directory (``webgis-api``, ``webgis-portal``, ``webgis-cms``),
+i.e. as the files were placed in the target.
+
+.. versionadded:: 9.26.4502
 
 .. note::
 
@@ -266,29 +315,17 @@ Changing the Current Configuration
 ------------------------------------
 
 If you make changes to the configuration (e.g. ``api.config``), this is done in the *override*
-directory. Then run ``webgis.deploy.exe`` again and you will get the following message:
+directory. Then run ``webgis.deploy.exe`` again, select the existing profile and the version
+and you will get the following output:
 
 .. code-block:: text
 
-    ******************************************
-    *                                        *
-    *      WebGIS.Deploy Tool 7.25.701      *
-    *                                        *
-    ******************************************
-    Work-Directory: C:\deploy\webgis
-    Choose a profile or create a new by enter an unique name, eg. production, staging, test
-    0 ... local
-    Input profile index [0]:
-
-    Do you want to download latetest version from GitHub? Y/N [Y]
-    Download not implementet! Comming soon. Please download laytest Versions manually...
-
-    Choose a version
-    0 ... 7.25.701
-    Input version index [0]:
-
-    Deploy version 7.25.701 to profile local
-    Do you want to continue? Y/N [Y]
+    ╭──────────┬───────────╮
+    │ Profile  │ local     │
+    │ Version  │ 9.26.4502 │
+    │ Platform │ win64     │
+    ╰──────────┴───────────╯
+    Do you want to continue? [y/n] (y): y
     Company: foo
     Target installation path: C:\apps\webgis
     Repsitory path: C:\apps\webgis/local/webgis-repository
@@ -297,43 +334,22 @@ directory. Then run ``webgis.deploy.exe`` again and you will get the following m
     Portal online url: http://localhost:5002
     Portal internal url: http://localhost:5002
 
-    Deploy version 7.25.701
+    ── Deploy WebGIS 9.26.4502 ────────────────────────────────
+    ⚠ Version already deployed, files are not extracted again
 
+    ── Configure ──────────────────────────────────────────────
+    ✔ Security keys
+    ✔ Overrides webgis-api (2 files)
+      webgis-api
+      └── _config
+          ├── api.config
+          └── application-security.config
+    ...
+    ✔ Custom CSS (0 files)
 
-    ***********************************************************************************************************************************************************************************
-
-    Warning: version already deployed
-
-    ***********************************************************************************************************************************************************************************
-
-    Append keys.config
-    Overrides
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\api.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-api\override\_config\application-security.config
-    ...succeeded 2 items created/overridden
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\application-security.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-portal\override\_config\portal.config
-    ...succeeded 2 items created/overridden
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\application-security.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\cms.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\datalinq.config
-    Copy C:\deploy\webgis\_deploy_repository\profiles\local\webgis-cms\override\_config\settings.config
-    ...succeeded 4 items created/overridden
-    Create Custom CSS
-    Build default.css css overrides...
-    Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\default.css not exits
-    Build portal.css css overrides...
-    Canceld: C:\deploy\webgis\_deploy_repository\profiles\local\css-modify\portal.css not exits
-
-
-    ###################################################################################################################################################################################
-
-    Deploy succeeded
-
-    ###################################################################################################################################################################################
-
-    Press ENTER to quit...
-
+    ╭─ ✔ WebGIS 9.26.4502 deployed ──────────────────────────╮
+    │  ...                                                   │
+    ╰────────────────────────────────────────────────────────╯
 
 The warning appears that this version has already been deployed. No data is copied from the ZIP files.
 Only the *overrides* and changes to the styles ``default.css`` and
@@ -442,6 +458,8 @@ A more detailed description of the individual *CSS files* and their scope, varia
   about adjusting the CI colors for login and admin pages.
 
 
+.. _deploy-automate:
+
 Automating Updates
 ---------------------
 
@@ -451,22 +469,41 @@ The parameter ``--help`` shows which parameters are possible:
 .. code-block:: text
 
   .\webgis.deploy.exe --help
-   ******************************************
-   *                                        *
-   *      WebGIS.Deploy Tool 7.25.1001      *
-   *                                        *
-   ******************************************
-   Work-Directory: C:\deploy\webgis
-   usage: webgis.deploy [options]
 
-   Options:
-     -h,       --help            Show this help message and exit
-     -p,       --profile         Choose a profile
-     -d,       --download-latest Download latest version
-     -v,       --version         Choose a version, --version latest ... latest version
-     -cms,     --deploy-cms      Deploy WebGis CMS
-     -portal,  --deploy-portal   Deploy WebGIS Portal
-     -api,     --deploy-api      Deploy WebGIS API
+  usage: webgis.deploy [options]
 
-   Examples:
-     webgis.deploy -p production -v latest --download-latest --deploy-cms --deploy-portal --deploy-api
+  Options:
+  -h, --help                Show this help message and exit
+  -p, --profile             Choose a profile (runs without further questions)
+  -d, --download-latest     Download latest version
+  -v, --version             Choose a version, --version latest ... latest version
+  --cms, --deploy-cms       Deploy WebGIS CMS
+  --portal, --deploy-portal Deploy WebGIS Portal
+  --api, --deploy-api       Deploy WebGIS API
+  --portable                Only list/use portable (self-contained) ZIPs, skip GitHub download
+  --non-interactive         Never prompt (also automatic if input/output is redirected)
+  --no-color                Disable colors and ANSI sequences
+  --verbose                 Show detailed output (files, paths, ...)
+
+  Examples:
+    webgis.deploy -p production -v latest --download-latest --deploy-cms --deploy-portal --deploy-api
+
+If a profile is specified with ``-p``, the confirmation and the component selection are skipped. Only the
+components specified via ``--api``, ``--portal`` or ``--cms`` are deployed.
+For a call completely without questions (e.g. in scripts), additionally specify ``--non-interactive``.
+
+.. versionadded:: 9.26.4502
+   The parameters ``--non-interactive``, ``--no-color`` and ``--verbose``.
+
+* ``--non-interactive``: The program asks no questions. If a required value (e.g. profile or
+  version) is missing, the program aborts with an error. For profile values that are not set yet,
+  the default values are used. This mode is used automatically if input or output
+  is redirected (e.g. in scripts or CI pipelines).
+* ``--no-color``: No colors and control characters in the output, e.g. for log files.
+* ``--verbose``: Additionally outputs details, e.g. individual copied files and paths.
+
+.. versionchanged:: 9.26.4502
+   In non-interactive mode (``--non-interactive`` or redirected input/output), the latest version
+   is only downloaded from *GitHub* if ``-d`` / ``--download-latest`` is specified.
+
+The return value (*exit code*) is ``0`` if the deployment was successful and ``1`` on an error.
