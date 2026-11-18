@@ -11,6 +11,8 @@ Eine sichere Konfiguration des *WebGIS Portals* ist essenziell, um **Datenverlus
 Dieser Abschnitt beschreibt empfohlene Sicherheitsmaßnahmen, um das System bestmöglich zu schützen. Weitere generelle Informationen zur Sicherheit von Webapplikationen finden Sie im Anhang unter :doc:`Sicherheitsmaßnahmen für das WebGIS Portal </annex/index>`.
 
 
+.. _hardening-default-passwords:
+
 Standardpasswörter ändern
 =========================
 
@@ -20,6 +22,10 @@ Author-Account
 --------------
 
 Dieses Konto wird für das **Bearbeiten und Veröffentlichen von Inhalten** genutzt. Wenn das Standardpasswort nicht geändert wird, könnten sich andere Personen unbefugt einloggen und Karten oder andere Daten manipulieren.
+
+.. versionchanged:: 8.26.4502
+   Meldet sich ein Subscriber mit dem Standardpasswort ``webgisauthor`` an, muss er sofort ein neues Passwort vergeben.
+   Das Standardpasswort kann nicht mehr als neues Passwort gesetzt werden.
 
 Admin-Account in der API
 ------------------------
@@ -44,7 +50,7 @@ Um einen **Admin-Benutzer** für die API anzulegen, folgen Sie diesen Schritten:
 
    .. image:: img/create_admin_2.png  
 
-   - Das Passwort muss mindestens **8 Zeichen** lang sein.
+   - Das Passwort muss mindestens **12 Zeichen** lang sein (``password-min-length``, siehe :ref:`api-config-security-subscriber-login`).
 
    .. danger::
 
@@ -88,6 +94,31 @@ Die Selbstregistrierung wird deaktiviert, indem in der Konfigurationsdatei der A
    </configuration>
 
 Sobald diese Einstellung vorgenommen wurde, ist die **Selbstregistrierung für Subscriber deaktiviert**.
+
+.. _hardening-subscriber-mfa:
+
+Zwei-Faktor-Authentifizierung für Subscriber
+============================================
+
+.. versionadded:: 8.26.4502
+
+Ist die Subscriber-Anmeldung (``/Subscribers/Login``) aus dem Internet erreichbar, sollten zumindest die Administratoren eine **Zwei-Faktor-Authentifizierung** verwenden.
+Jeder Subscriber kann diese nach der Anmeldung auf der Seite **Konto** mit einer Authenticator-App einrichten.
+
+Verpflichtend wird sie über den Schlüssel ``mfa-required`` in der *Section* ``security`` der ``api.config`` (``admins`` oder ``all``):
+
+.. code-block:: xml
+
+   <section name="security">
+      <add key="mfa-required" value="admins" />
+   </section>
+
+Bei einer SQL-Datenbank für die Subscriber muss vorher die **Setup**-Seite der API ausgeführt werden.
+Details und weitere Einstellungen (Passwortregeln, Schutz vor Brute-Force-Angriffen) siehe :ref:`api-config-security-subscriber-login`.
+
+.. tip::
+
+   Für Installationen im Internet ist eine Anmeldung über einen Identity Provider (OpenID Connect) weiterhin die empfohlene Variante.
 
 Anmeldemöglichkeiten in öffentlich zugänglichen Instanzen deaktivieren
 ======================================================================

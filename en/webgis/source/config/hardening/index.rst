@@ -11,6 +11,8 @@ A secure configuration of the *WebGIS Portal* is essential to prevent **data los
 This section describes recommended security measures to protect the system as well as possible. Further general information on the security of web applications can be found in the appendix under :doc:`Security measures for the WebGIS Portal </annex/index>`.
 
 
+.. _hardening-default-passwords:
+
 Change default passwords
 =========================
 
@@ -20,6 +22,10 @@ Author account
 --------------
 
 This account is used for **editing and publishing content**. If the default password is not changed, other people could log in without authorization and manipulate maps or other data.
+
+.. versionchanged:: 8.26.4502
+   A subscriber logging in with the default password ``webgisauthor`` must set a new password immediately.
+   The default password can no longer be set as a new password.
 
 Admin account in the API
 -------------------------
@@ -44,7 +50,7 @@ To create an **admin user** for the API, follow these steps:
 
    .. image:: img/create_admin_2.png
 
-   - The password must be at least **8 characters** long.
+   - The password must be at least **12 characters** long (``password-min-length``, see :ref:`api-config-security-subscriber-login`).
 
    .. danger::
 
@@ -88,6 +94,31 @@ Self-registration is disabled by setting ``allow-register-new-subscribers`` to `
    </configuration>
 
 Once this setting has been made, **self-registration for subscribers is disabled**.
+
+.. _hardening-subscriber-mfa:
+
+Two-factor authentication for subscribers
+=========================================
+
+.. versionadded:: 8.26.4502
+
+If the subscriber login (``/Subscribers/Login``) is reachable from the internet, at least the administrators should use **two-factor authentication**.
+Every subscriber can set it up with an authenticator app on the **Account** page after logging in.
+
+It is made mandatory with the key ``mfa-required`` in the ``security`` *section* of the ``api.config`` (``admins`` or ``all``):
+
+.. code-block:: xml
+
+   <section name="security">
+      <add key="mfa-required" value="admins" />
+   </section>
+
+If the subscribers are stored in a SQL database, run the **Setup** page of the API first.
+For details and further settings (password rules, brute force protection) see :ref:`api-config-security-subscriber-login`.
+
+.. tip::
+
+   For installations on the internet, logging in via an identity provider (OpenID Connect) is still the recommended option.
 
 Disable login options in publicly accessible instances
 ==========================================================

@@ -469,6 +469,8 @@ Wenn externe Dienste eingebunden werden, kann für den Zugriff ein **Proxy-Serve
       }
    }
 
+.. _cms-config-settings-security:
+
 Übersicht der wichtigsten Konfigurationsparameter
 -------------------------------------------------
 
@@ -506,6 +508,8 @@ Wenn externe Dienste eingebunden werden, kann für den Zugriff ein **Proxy-Serve
        .. danger::
 
           Mit ``true`` werden **alle** Serverzertifikate akzeptiert. Verbindungen können dadurch abgehört oder manipuliert werden (Man-in-the-Middle).
+
+       Siehe auch Anhang :ref:`annex-security-tls`.
 
 .. _cms-config-mcp-config:
 

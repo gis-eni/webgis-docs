@@ -108,6 +108,8 @@ To reduce the number of accesses to the **cache database** (since it is accessed
        - For **Redis**, e.g. ``localhost:6379``.
        - For **InApp**, this specifies the time in seconds for which a value should be kept in the side cache (e.g. ``3600`` for one hour).
 
+.. _api-config-subscriber-db:
+
 Section ``Subscriber Database``
 ----------------------------------
 
@@ -126,8 +128,14 @@ For storage in the file system, the connection string can be specified as follow
    * - ``subscriber-admins``
      - List of **administrator subscriber names**, separated by commas (e.g. ``admin``). These users can manage other profiles (delete, change, etc.).
 
+.. _api-config-subscriber-registration:
+
 Section ``Subscriber Registration``
 -------------------------------------
+
+.. seealso::
+
+   Annex :ref:`annex-security-subscriber-login`: recommendations for internet and intranet.
 
 .. list-table::
    :widths: 20 80
@@ -1077,6 +1085,10 @@ user is no longer inserted into the SQL query unchecked:
 Section ``Dynamic Content``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. seealso::
+
+   Annex :ref:`annex-security-dynamic-content`.
+
 Applies to the **dynamic content** of the map (GeoRSS, GeoJSON, API queries) that the viewer loads via
 the ``DynamicContentProxy`` of the WebGIS API. The protection consists of two parts:
 
@@ -1200,8 +1212,14 @@ The configuration is done in the optional *section* ``proxy`` in ``api.config``:
    * - ``ignore`` *(optional)*
      - List of **rules** used to **exclude** certain servers from the proxy. Multiple rules can be specified separated by ``;``. **Regular expressions** are also possible.
 
+.. _api-config-security:
+
 Security
 --------
+
+.. seealso::
+
+   Annex :ref:`annex-security`: overview, risk levels and recommendations for all security-relevant keys.
 
 .. code-block:: xml
 
@@ -1223,7 +1241,7 @@ This can be done via the following setting ``disable-anti-forgery`` in ``api.con
 
 Furthermore, **credentials** for protected endpoints (e.g. for **clearing the cache**) can also be stored here.
 
-* **``secure-endpoint-url-password``**: A **URL password** that must be passed as the **query parameter ``pww=***``** in the URL to gain access to the protected endpoint.
+* **``secure-endpoint-url-password``**: A **URL password** that must be passed as the **query parameter ``pwd=***``** in the URL to gain access to the protected endpoint.
 * **``secure-endpoint-basicauth-username``** and **``secure-endpoint-basicauth-password``**: A **user name** and **password** for **HTTP Basic Authentication**, required for access to the protected endpoint.
 
 .. note::
@@ -1266,6 +1284,130 @@ Only if this is not possible, the validation can be turned off with the key ``al
   With ``true``, **all** server certificates are accepted. Outbound connections can then be intercepted or manipulated (man-in-the-middle).
   Use this setting only for legacy services in trusted networks.
 
+.. _api-config-security-subscriber-login:
+
+Subscriber login
+~~~~~~~~~~~~~~~~
+
+.. versionadded:: 8.26.4502
+
+.. seealso::
+
+   Annex :ref:`annex-security-subscriber-login` and :ref:`annex-security-keys`.
+
+Map authors and administrators (*subscribers*) log in to the WebGIS API via ``/Subscribers/Login``.
+If the API is reachable from the internet, the following measures protect this login. They are active by default and can be adjusted
+in the ``security`` *section*. All keys are optional, the values in the example are the defaults:
+
+.. code-block:: xml
+
+  <section name="security">
+      <!-- login cookie and session -->
+      <add key="cookie-secure" value="auto" />
+      <add key="session-max-lifetime-minutes" value="480" />
+      <add key="session-idle-timeout-minutes" value="0" />
+
+      <!-- password rules (only for new/changed passwords) -->
+      <add key="password-min-length" value="12" />
+      <add key="password-required-character-classes" value="0" />
+      <add key="password-blocklist-file" value="" />
+
+      <!-- brute force protection -->
+      <add key="login-captcha-after-failed-attempts" value="3" />
+      <add key="login-lockout-after-failed-attempts" value="10" />
+      <add key="login-lockout-minutes" value="1,5,15" />
+      <add key="login-failed-attempts-reset-minutes" value="60" />
+      <add key="login-ip-max-failed-attempts" value="30" />
+      <add key="login-ip-window-minutes" value="15" />
+      <add key="login-throttle-redis-connectionstring" value="" />
+      <add key="captcha-lifetime-minutes" value="5" />
+      <add key="password-verification-cache-seconds" value="300" />
+
+      <!-- two-factor authentication -->
+      <add key="mfa-required" value="none" />
+      <add key="mfa-issuer" value="WebGIS" />
+  </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``cookie-secure``
+     - ``auto`` (default): the login cookie gets the *Secure* flag only for HTTPS requests, so local installations via ``http://localhost`` keep working.
+       ``always``: always (use with HTTPS only), ``never``: never.
+   * - ``session-max-lifetime-minutes``
+     - Maximum duration of a login, regardless of activity. ``0`` = unlimited (not recommended).
+   * - ``session-idle-timeout-minutes``
+     - Logout after this period without activity. ``0`` = disabled.
+   * - ``password-min-length``
+     - Minimum length of new or changed passwords. Existing passwords remain valid.
+   * - ``password-required-character-classes``
+     - Number (``0`` - ``4``) of required character classes (lowercase, uppercase, digit, special character).
+       ``0`` = no requirement. Recommended is a sufficient length combined with the blocklist.
+   * - ``password-blocklist-file``
+     - Optional text file with blocked passwords (one password per line), in addition to the built-in list of common passwords.
+       Relative paths are resolved against the application directory of the API.
+   * - ``login-captcha-after-failed-attempts``
+     - After this number of failed attempts (per username or client IP), a captcha must be solved as well. ``0`` = always show a captcha.
+   * - ``login-lockout-after-failed-attempts``
+     - After this number of failed attempts, the username is temporarily locked. ``0`` = no lockout.
+   * - ``login-lockout-minutes``
+     - Lockout duration in minutes, escalating with every further failed attempt. The last value repeats.
+   * - ``login-failed-attempts-reset-minutes``
+     - Failed attempts of a username are reset after this period without further failures.
+   * - ``login-ip-max-failed-attempts``
+     - Failed attempts per client IP within ``login-ip-window-minutes`` after which every login from this IP requires a captcha and is slowed down
+       (no hard block). ``0`` = disabled.
+   * - ``login-ip-window-minutes``
+     - Time window for ``login-ip-max-failed-attempts``.
+   * - ``login-throttle-redis-connectionstring``
+     - Optional: with multiple instances (load balancing), failed attempts can be shared via **Redis**. Empty = in the memory of each instance.
+   * - ``captcha-lifetime-minutes``
+     - Validity of a captcha. Each captcha can only be used once.
+   * - ``password-verification-cache-seconds``
+     - Successful password verifications for *Basic Authentication* and *DataLinq* are cached for this period, because password hashing is
+       intentionally expensive. ``0`` = disabled.
+   * - ``mfa-required``
+     - Who must use **two-factor authentication**: ``none`` (default, optional for everyone), ``admins`` or ``all``.
+       Affected subscribers are guided through the setup at their next login.
+   * - ``mfa-issuer``
+     - Name under which the entry is shown in the authenticator app.
+
+.. _api-config-security-password-rules:
+
+**Password rules**
+
+In addition to the minimum length, new passwords are checked against a list of common passwords (and optionally ``password-blocklist-file``).
+Passwords containing the username, first name, last name or email address, and trivial patterns (e.g. ``aaaaaaaaaaaa`` or ``123456789012``)
+are not allowed. Existing passwords remain valid; the rules only apply when a password is created or changed.
+
+The default password ``webgisauthor`` of the initial installation can no longer be set as a new password. A subscriber logging in with it
+must change the password immediately (see :ref:`hardening-default-passwords`).
+
+.. _api-config-security-mfa:
+
+**Two-factor authentication (MFA)**
+
+After logging in, subscribers can set up two-factor authentication with an authenticator app (TOTP, e.g. Microsoft or Google Authenticator) on the **Account** page
+and receive recovery codes. On the same page, every subscriber can also change their own password (the current password is required).
+Administrators can reset the two-factor authentication of a subscriber.
+
+.. important::
+
+  If the subscribers are stored in a **SQL database**, run the **Setup** page of the API once after the update. It creates the table
+  ``webgis_api_subscriber_mfa``. As long as the table is missing, the login works as before, but two-factor authentication is greyed out
+  with a corresponding hint. A file-based subscriber database needs no migration.
+
+.. note::
+
+  * *Basic Authentication* and *DataLinq* access still use only username and password (without a second factor).
+  * The MFA secrets are encrypted with the crypto key of the API. If this key changes, the two-factor authentication of the subscribers must be reset.
+  * After updating to this version, all subscribers have to log in again once.
+
+.. _api-config-middleware:
+
 Middleware
 ----------
 
@@ -1282,7 +1424,18 @@ e.g. **logging**, **forwarding** or **security checks**.
       <!-- logs the original client IP and protocol information in the API logs (information level) -->
       <!-- should only be enabled if use-x-forwarded-headers is true and the API is behind a reverse proxy -->
       <add key="use-x-forwarded-headers-logging" value="true" />
+      <!-- optional: trusted reverse proxies, default: loopback only -->
+      <add key="x-forwarded-known-proxies" value="10.0.0.5,10.0.0.6" />
+      <add key="x-forwarded-known-networks" value="10.0.0.0/8" />
   </section>
+
+.. versionadded:: 8.26.4502
+   ``x-forwarded-known-proxies`` and ``x-forwarded-known-networks``
+
+The *X-Forwarded* headers are only accepted from trusted proxies, by default only from ``localhost``. If the reverse proxy runs on another server,
+its IP addresses (``x-forwarded-known-proxies``, comma separated) or networks in CIDR notation (``x-forwarded-known-networks``) must be specified.
+Otherwise the API sees the IP address of the proxy instead of the client, which among other things weakens the brute force protection of the
+:ref:`subscriber login <api-config-security-subscriber-login>` (failed attempts per client IP).
 
 HttpClient
 ----------

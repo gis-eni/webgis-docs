@@ -96,8 +96,14 @@ Section ``General``
    * - ``portal-name-url``
      - URL of the portal operator's website. Opened when the user clicks the title bar text.
 
+.. _portal-config-security:
+
 Section ``Security``
 ====================
+
+.. seealso::
+
+   Annex :ref:`annex-security`: overview, risk levels and recommendations for all security-relevant keys.
 
 .. list-table::
    :widths: 20 80
@@ -119,6 +125,17 @@ Section ``Security``
        .. danger::
 
           This value should only be set to ``true`` in local or offline environments, for example for test purposes. Even for intranet applications, encrypted SSL connections are recommended today.
+
+   * - ``accept-legacy-auth-cookie``
+     - Default: ``false``. The login cookie of the portal uses a new format and contains an expiry date. Cookies in the old format written by older versions are no longer accepted; users have to sign in once again after the update. With ``true``, old cookies are still read for a transition period (the expiry date is checked as well). This should only be used for a short transition period. See :ref:`annex-security-sessions`.
+
+       .. versionadded:: 8.26.4601
+   * - ``allowed-redirect-hosts``
+     - Comma-separated list of hosts a redirect after login (``/hmac?redirect=...``, e.g. for DataLinq pages when OpenID Connect or Azure AD is used) may point to. Example: ``reports.example.com,*.example.com``
+
+       The host of the portal url and the api url are always allowed. Only ``http`` and ``https`` targets are permitted. Targets that are not allowed are not signed and the redirect is discarded. A leading ``*.`` also allows all subdomains. Only **your own** hosts should be entered. See :ref:`annex-security-redirects`.
+
+       .. versionadded:: 8.26.4601
 
 In addition, optional credentials for secured endpoints can be defined here, for example for clearing the (user) cache.
 These endpoints should be protected with a password to prevent unauthorized access.
@@ -205,6 +222,8 @@ The values entered here must match those in ``api.config``.
 
        Example: ``localhost:6379`` for Redis or a time value in seconds for in-app caching (for example ``3600``)
 
+.. _portal-config-subscriber-db:
+
 Section ``Subscriber database``
 ===============================
 
@@ -235,8 +254,14 @@ Section ``Urls``
    * - ``portal-url``
      - URL of the portal, as visible to the user. This is used, for example, to generate links for sharing maps.
 
+.. _portal-config-advanced-security:
+
 Section ``Advanced Security``
 =============================
+
+.. seealso::
+
+   Annex :ref:`annex-security-cors` and :ref:`annex-cors` as well as :ref:`annex-security-keys`.
 
 .. list-table::
    :widths: 20 80
