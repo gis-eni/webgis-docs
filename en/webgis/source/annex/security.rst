@@ -158,6 +158,12 @@ the password or the two-factor authentication invalidates other sessions
   ``0`` = unlimited, not recommended).
 - ``session-idle-timeout-minutes``: logout after inactivity (default ``0`` = off). On the internet, e.g. 30 to 60 minutes.
 
+The login cookie of the **portal** (``webgis5core-portal-auth2``) uses a new format
+and contains an expiry date that is checked on every request. Invalid or expired cookies are discarded and deleted.
+Cookies in the old format are no longer accepted; users have to sign in once again after
+the update. As a transition, ``security:accept-legacy-auth-cookie`` in ``portal.config`` can be set to ``true``
+(:ref:`details <portal-config-security>`). With several portal instances (cluster), all instances should be updated at the same time.
+
 .. _annex-security-redirects:
 
 Redirects after login
@@ -168,6 +174,11 @@ The redirect target of the subscriber login is validated before an access token 
 If the portal is reachable under a different host name, these hosts can be allowed with
 ``subscriber-login-allowed-redirect-hosts`` (:ref:`details <api-config-subscriber-registration>`). Only
 **your own** hosts should be entered.
+
+For portals with OpenID Connect or Azure AD, the same applies to ``/hmac?redirect=...`` (e.g. DataLinq pages): the target is
+signed (no longer encrypted) and validated again after login. The host of the portal url, the api url and the hosts in
+``security:allowed-redirect-hosts`` in ``portal.config`` are allowed (:ref:`details <portal-config-security>`). The target is
+only valid for a few minutes.
 
 .. _annex-security-cors:
 
@@ -473,6 +484,18 @@ recommendations apply to standard installations. Where not stated otherwise, the
      - High
      - ``false``; install the internal CA in the certificate store of the server
      - ``false``; ``true`` only for legacy services in trusted networks
+   * - :ref:`security:accept-legacy-auth-cookie <portal-config-security>`
+     - portal.config
+     - Compatibility opt-out
+     - High
+     - ``false``
+     - ``false``; ``true`` only briefly during an update
+   * - :ref:`security:allowed-redirect-hosts <portal-config-security>`
+     - portal.config
+     - Fine-tuning
+     - Medium
+     - Leave empty or enter only your own hosts
+     - Same as internet
    * - :ref:`allow_untrusted_server_certificates <cms-config-settings-security>`
      - settings.config (CMS)
      - Compatibility opt-out

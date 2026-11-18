@@ -122,6 +122,16 @@ Abschnitt ``Security``
        .. danger::  
           Dieser Wert sollte nur in lokalen oder Offline-Umgebungen (z. B. für Testzwecke) auf ``true`` gesetzt werden. Auch für Intranetanwendungen wird heute eine verschlüsselte Verbindung über SSL empfohlen.
 
+   * - ``accept-legacy-auth-cookie``
+     - Standard: ``false``. Das Anmelde-Cookie des Portals verwendet ein neues Format und enthält ein Ablaufdatum. Cookies im alten Format, die von älteren Versionen geschrieben wurden, werden nicht mehr akzeptiert; Benutzer müssen sich nach dem Update einmal neu anmelden. Mit ``true`` werden alte Cookies übergangsweise noch gelesen (das Ablaufdatum wird auch dabei geprüft). Das sollte nur für eine kurze Übergangszeit verwendet werden. Siehe :ref:`annex-security-sessions`.
+
+       .. versionadded:: 8.26.4601
+   * - ``allowed-redirect-hosts``
+     - Kommagetrennte Liste von Hosts, auf die eine Weiterleitung nach der Anmeldung (``/hmac?redirect=...``, z. B. für DataLinq-Seiten, wenn OpenID Connect oder Azure AD verwendet wird) zeigen darf. Beispiel: ``reports.example.com,*.example.com``
+
+       Der Host der Portal-Url und der API-Url sind immer erlaubt. Es sind nur ``http``- und ``https``-Ziele zulässig. Nicht erlaubte Ziele werden nicht signiert und die Weiterleitung wird verworfen. Mit ``*.`` am Anfang werden auch alle Subdomains erlaubt. Es sollten nur **eigene** Hosts eingetragen werden. Siehe :ref:`annex-security-redirects`.
+
+       .. versionadded:: 8.26.4601
 Zusätzlich können hier optionale Anmeldeinformationen für gesicherte Endpunkte definiert werden, 
 z. B. für das Löschen des (User) Caches. Diese Endpunkte sollten mit einem Passwort geschützt werden, um unbefugten Zugriff zu verhindern. 
 Die folgenden Schlüssel ermöglichen die Konfiguration dieser Anmeldeinformationen:

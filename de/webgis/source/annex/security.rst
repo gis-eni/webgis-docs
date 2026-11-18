@@ -158,6 +158,12 @@ des Passworts oder der Zwei-Faktor-Authentifizierung andere Sitzungen ungültig 
   ``0`` = unbegrenzt, nicht empfohlen).
 - ``session-idle-timeout-minutes``: Abmeldung nach Inaktivität (Standard ``0`` = aus). Im Internet z. B. 30 bis 60 Minuten.
 
+Das Anmelde-Cookie des **Portals** (``webgis5core-portal-auth2``) verwendet ein neues Format
+und enthält ein Ablaufdatum, das bei jedem Zugriff geprüft wird. Ungültige oder abgelaufene Cookies werden verworfen und gelöscht.
+Cookies im alten Format werden nicht mehr akzeptiert, Benutzer müssen sich nach dem Update einmal
+neu anmelden. Als Übergangslösung kann ``security:accept-legacy-auth-cookie`` in der ``portal.config`` auf ``true`` gesetzt werden
+(:ref:`Details <portal-config-security>`). Bei mehreren Portal-Instanzen (Cluster) sollten alle Instanzen gleichzeitig aktualisiert werden.
+
 .. _annex-security-redirects:
 
 Weiterleitungen nach der Anmeldung
@@ -168,6 +174,11 @@ Das Weiterleitungsziel der Subscriber-Anmeldung wird geprüft, bevor ein Zugangs
 Ist das Portal unter einem anderen Hostnamen erreichbar, können diese Hosts mit
 ``subscriber-login-allowed-redirect-hosts`` (:ref:`Details <api-config-subscriber-registration>`) freigegeben werden. Es sollten
 nur **eigene** Hosts eingetragen werden.
+
+Für Portale mit OpenID Connect oder Azure AD gilt Entsprechendes für ``/hmac?redirect=...`` (z. B. DataLinq-Seiten): Das Ziel wird
+signiert (nicht mehr verschlüsselt) und nach der Anmeldung erneut geprüft. Erlaubt sind der Host der Portal-Url, der API-Url und die
+Hosts in ``security:allowed-redirect-hosts`` in der ``portal.config`` (:ref:`Details <portal-config-security>`). Das Ziel ist
+nur wenige Minuten gültig.
 
 .. _annex-security-cors:
 
@@ -472,6 +483,18 @@ Empfehlungen gelten für Standardinstallationen. Dort, wo nicht anders angegeben
      - Hoch
      - ``false``; interne CA im Zertifikatsspeicher des Servers installieren
      - ``false``; ``true`` nur für Legacy-Dienste in vertrauenswürdigen Netzen
+   * - :ref:`security:accept-legacy-auth-cookie <portal-config-security>`
+     - portal.config
+     - Kompatibilitäts-Opt-out
+     - Hoch
+     - ``false``
+     - ``false``; ``true`` nur kurzfristig während eines Updates
+   * - :ref:`security:allowed-redirect-hosts <portal-config-security>`
+     - portal.config
+     - Feinjustierung
+     - Mittel
+     - Leer lassen oder nur eigene Hosts eintragen
+     - Wie Internet
    * - :ref:`allow_untrusted_server_certificates <cms-config-settings-security>`
      - settings.config (CMS)
      - Kompatibilitäts-Opt-out
