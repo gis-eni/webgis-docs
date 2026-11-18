@@ -291,6 +291,21 @@
 </div>
 </td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">accept-legacy-auth-cookie</span></code></p></td>
+<td><p>Standard: <code class="docutils literal notranslate"><span class="pre">false</span></code>. Das Anmelde-Cookie des Portals verwendet ein neues Format und enthält ein Ablaufdatum. Cookies im alten Format, die von älteren Versionen geschrieben wurden, werden nicht mehr akzeptiert; Benutzer müssen sich nach dem Update einmal neu anmelden. Mit <code class="docutils literal notranslate"><span class="pre">true</span></code> werden alte Cookies übergangsweise noch gelesen (das Ablaufdatum wird auch dabei geprüft). Das sollte nur für eine kurze Übergangszeit verwendet werden. Siehe <a class="reference internal" href="../../annex/security.html#annex-security-sessions"><span class="std std-ref">Sitzungen und Cookies</span></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4601.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allowed-redirect-hosts</span></code></p></td>
+<td><p>Kommagetrennte Liste von Hosts, auf die eine Weiterleitung nach der Anmeldung (<code class="docutils literal notranslate"><span class="pre">/hmac?redirect=...</span></code>, z. B. für DataLinq-Seiten, wenn OpenID Connect oder Azure AD verwendet wird) zeigen darf. Beispiel: <code class="docutils literal notranslate"><span class="pre">reports.example.com,*.example.com</span></code></p>
+<p>Der Host der Portal-Url und der API-Url sind immer erlaubt. Es sind nur <code class="docutils literal notranslate"><span class="pre">http</span></code>- und <code class="docutils literal notranslate"><span class="pre">https</span></code>-Ziele zulässig. Nicht erlaubte Ziele werden nicht signiert und die Weiterleitung wird verworfen. Mit <code class="docutils literal notranslate"><span class="pre">*.</span></code> am Anfang werden auch alle Subdomains erlaubt. Es sollten nur <strong>eigene</strong> Hosts eingetragen werden. Siehe <a class="reference internal" href="../../annex/security.html#annex-security-redirects"><span class="std std-ref">Weiterleitungen nach der Anmeldung</span></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4601.</span></p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p>Zusätzlich können hier optionale Anmeldeinformationen für gesicherte Endpunkte definiert werden,

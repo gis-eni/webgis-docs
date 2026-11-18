@@ -293,6 +293,21 @@ This section explains how to adapt the file to your own requirements for product
 </div>
 </td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">accept-legacy-auth-cookie</span></code></p></td>
+<td><p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code>. The login cookie of the portal uses a new format and contains an expiry date. Cookies in the old format written by older versions are no longer accepted; users have to sign in once again after the update. With <code class="docutils literal notranslate"><span class="pre">true</span></code>, old cookies are still read for a transition period (the expiry date is checked as well). This should only be used for a short transition period. See <a class="reference internal" href="../../annex/security.html#annex-security-sessions"><span class="std std-ref">Sessions and cookies</span></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4601.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">allowed-redirect-hosts</span></code></p></td>
+<td><p>Comma-separated list of hosts a redirect after login (<code class="docutils literal notranslate"><span class="pre">/hmac?redirect=...</span></code>, e.g. for DataLinq pages when OpenID Connect or Azure AD is used) may point to. Example: <code class="docutils literal notranslate"><span class="pre">reports.example.com,*.example.com</span></code></p>
+<p>The host of the portal url and the api url are always allowed. Only <code class="docutils literal notranslate"><span class="pre">http</span></code> and <code class="docutils literal notranslate"><span class="pre">https</span></code> targets are permitted. Targets that are not allowed are not signed and the redirect is discarded. A leading <code class="docutils literal notranslate"><span class="pre">*.</span></code> also allows all subdomains. Only <strong>your own</strong> hosts should be entered. See <a class="reference internal" href="../../annex/security.html#annex-security-redirects"><span class="std std-ref">Redirects after login</span></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4601.</span></p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p>In addition, optional credentials for secured endpoints can be defined here, for example for clearing the (user) cache.

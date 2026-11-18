@@ -295,6 +295,11 @@ never. <code class="docutils literal notranslate"><span class="pre">never</span>
 <code class="docutils literal notranslate"><span class="pre">0</span></code> = unlimited, not recommended).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">session-idle-timeout-minutes</span></code>: logout after inactivity (default <code class="docutils literal notranslate"><span class="pre">0</span></code> = off). On the internet, e.g. 30 to 60 minutes.</p></li>
 </ul>
+<p>The login cookie of the <strong>portal</strong> (<code class="docutils literal notranslate"><span class="pre">webgis5core-portal-auth2</span></code>) uses a new format
+and contains an expiry date that is checked on every request. Invalid or expired cookies are discarded and deleted.
+Cookies in the old format are no longer accepted; users have to sign in once again after
+the update. As a transition, <code class="docutils literal notranslate"><span class="pre">security:accept-legacy-auth-cookie</span></code> in <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> can be set to <code class="docutils literal notranslate"><span class="pre">true</span></code>
+(<a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">details</span></a>). With several portal instances (cluster), all instances should be updated at the same time.</p>
 </section>
 <section id="redirects-after-login">
 <span id="annex-security-redirects"></span><h2>Redirects after login<a class="headerlink" href="#redirects-after-login" title="Link to this heading">¶</a></h2>
@@ -303,6 +308,10 @@ never. <code class="docutils literal notranslate"><span class="pre">never</span>
 If the portal is reachable under a different host name, these hosts can be allowed with
 <code class="docutils literal notranslate"><span class="pre">subscriber-login-allowed-redirect-hosts</span></code> (<a class="reference internal" href="../config/api/index.html#api-config-subscriber-registration"><span class="std std-ref">details</span></a>). Only
 <strong>your own</strong> hosts should be entered.</p>
+<p>For portals with OpenID Connect or Azure AD, the same applies to <code class="docutils literal notranslate"><span class="pre">/hmac?redirect=...</span></code> (e.g. DataLinq pages): the target is
+signed (no longer encrypted) and validated again after login. The host of the portal url, the api url and the hosts in
+<code class="docutils literal notranslate"><span class="pre">security:allowed-redirect-hosts</span></code> in <code class="docutils literal notranslate"><span class="pre">portal.config</span></code> are allowed (<a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">details</span></a>). The target is
+only valid for a few minutes.</p>
 </section>
 <section id="portal-cors">
 <span id="annex-security-cors"></span><h2>Portal CORS<a class="headerlink" href="#portal-cors" title="Link to this heading">¶</a></h2>
@@ -615,6 +624,20 @@ recommendations apply to standard installations. Where not stated otherwise, the
 <td><p>High</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; install the internal CA in the certificate store of the server</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> only for legacy services in trusted networks</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">security:accept-legacy-auth-cookie</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Compatibility opt-out</p></td>
+<td><p>High</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> only briefly during an update</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../config/portal/index.html#portal-config-security"><span class="std std-ref">security:allowed-redirect-hosts</span></a></p></td>
+<td><p>portal.config</p></td>
+<td><p>Fine-tuning</p></td>
+<td><p>Medium</p></td>
+<td><p>Leave empty or enter only your own hosts</p></td>
+<td><p>Same as internet</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../config/cms/index.html#cms-config-settings-security"><span class="std std-ref">allow_untrusted_server_certificates</span></a></p></td>
 <td><p>settings.config (CMS)</p></td>
