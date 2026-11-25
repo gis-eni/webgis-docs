@@ -348,6 +348,46 @@ limit the download.</p></li>
 <p>The search terms of the selection lists (VisFilter lookups) are validated as well: <code class="docutils literal notranslate"><span class="pre">term-whitelist</span></code> in the <code class="docutils literal notranslate"><span class="pre">lookup</span></code> section
 (<a class="reference internal" href="../config/api/index.html#api-config-lookup"><span class="std std-ref">details</span></a>) determines which characters are allowed.</p>
 </section>
+<section id="custom-services">
+<span id="annex-security-custom-services"></span><h2>Custom services<a class="headerlink" href="#custom-services" title="Link to this heading">¶</a></h2>
+<p>If <code class="docutils literal notranslate"><span class="pre">webgis.usability.allowAddCustomServices</span></code> is enabled in the viewer (<code class="docutils literal notranslate"><span class="pre">custom.js</span></code>), users can add their own WMS/ArcGIS
+services to the map via a URL (optionally with user and password). The API requests this URL itself. Without a restriction,
+any host the API can reach can be accessed this way, including internal systems (SSRF). Hiding the input form in the viewer
+alone does not protect, because the API endpoint can still be called.</p>
+<p>The server-side restriction is <code class="docutils literal notranslate"><span class="pre">security-add-custom-services-host-blacklist</span></code> in the <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<ul class="simple">
+<li><p>Comma-separated list of regular expressions that are checked against the host name of the service URL, e.g.
+<code class="docutils literal notranslate"><span class="pre">^127\.0\..*,^10\..*,^192\.168\..*,.*\.intern\.domain\.at$</span></code>.</p></li>
+<li><p>The entry <code class="docutils literal notranslate"><span class="pre">forbidden</span></code> blocks all hosts; custom services are disabled.</p></li>
+<li><p>Without an entry, all <code class="docutils literal notranslate"><span class="pre">http</span></code>/<code class="docutils literal notranslate"><span class="pre">https</span></code> hosts are allowed (except <code class="docutils literal notranslate"><span class="pre">localhost</span></code>/<code class="docutils literal notranslate"><span class="pre">127.0.*</span></code>).</p></li>
+</ul>
+<p>For internet applications <code class="docutils literal notranslate"><span class="pre">forbidden</span></code> is recommended. A blacklist only protects partially, because it can never cover all
+internal hosts completely. The <a class="reference internal" href="#annex-security-report"><span class="std std-ref">security report</span></a> rates <code class="docutils literal notranslate"><span class="pre">forbidden</span></code> as OK, a blacklist as
+medium and a missing entry as high risk.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4601: </span>Rating in the security report. The connection data of custom services (incl. user and password) is encrypted with
+authenticated encryption in saved maps.</p>
+</div>
+</section>
+<section id="datalinq-code-editing">
+<span id="annex-security-datalinq"></span><h2>DataLinq code editing<a class="headerlink" href="#datalinq-code-editing" title="Link to this heading">¶</a></h2>
+<p>With <code class="docutils literal notranslate"><span class="pre">allow-code-editing</span></code> in the <code class="docutils literal notranslate"><span class="pre">datalinq</span></code> section of the <code class="docutils literal notranslate"><span class="pre">api.config</span></code> (<a class="reference internal" href="../config/api/index.html#api-config-datalinq"><span class="std std-ref">details</span></a>),
+DataLinq objects (endpoints, queries, views) can be changed or uploaded via a DataLinq.Code instance. Views contain Razor
+code that is compiled and executed in the API process. Anyone who is allowed to edit code can therefore execute arbitrary
+code on the server. Editing requires a login, but a compromised account or a security vulnerability is enough for a
+complete takeover of the server.</p>
+<p>The value should therefore only be <code class="docutils literal notranslate"><span class="pre">true</span></code> in the <strong>development environment</strong>:</p>
+<ul class="simple">
+<li><p><strong>Internet:</strong> never <code class="docutils literal notranslate"><span class="pre">true</span></code>. The <a class="reference internal" href="#annex-security-report"><span class="std std-ref">security report</span></a> rates <code class="docutils literal notranslate"><span class="pre">true</span></code> as high risk.</p></li>
+<li><p><strong>Intranet:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code> is rated as medium risk.</p></li>
+<li><p>If DataLinq is not active (<code class="docutils literal notranslate"><span class="pre">include</span></code> is not <code class="docutils literal notranslate"><span class="pre">true</span></code>), the key has no effect.</p></li>
+</ul>
+<p>Production systems use DataLinq read-only; changed objects are created in the development environment and deployed
+afterwards.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4801: </span>Rating in the security report.</p>
+</div>
+</section>
 <section id="outbound-tls-connections">
 <span id="annex-security-tls"></span><h2>Outbound TLS connections<a class="headerlink" href="#outbound-tls-connections" title="Link to this heading">¶</a></h2>
 <p>Server certificates of outbound HTTPS connections (map services, ArcGIS, WMS, etc.) are validated. Internal services with
@@ -737,6 +777,20 @@ recommendations apply to standard installations. Where not stated otherwise, the
 <td><p><code class="docutils literal notranslate"><span class="pre">5</span></code> or fewer</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#annex-security-custom-services"><span class="std std-ref">security-add-custom-services-host-blacklist</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feature enablement</p></td>
+<td><p>High</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">forbidden</span></code> (no custom services); a blacklist is rated as medium risk</p></td>
+<td><p>Blacklist with internal hosts/networks recommended</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#annex-security-datalinq"><span class="std std-ref">datalinq:allow-code-editing</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feature enablement</p></td>
+<td><p>High</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code> (never <code class="docutils literal notranslate"><span class="pre">true</span></code>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> only in the development environment (rated as medium risk)</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-lookup"><span class="std std-ref">lookup:term-whitelist</span></a></p></td>
 <td><p>api.config</p></td>
 <td><p>Fine-tuning</p></td>
@@ -824,6 +878,8 @@ recommendations apply to standard installations. Where not stated otherwise, the
 <li><a class="reference internal" href="#redirects-after-login">Redirects after login</a></li>
 <li><a class="reference internal" href="#portal-cors">Portal CORS</a></li>
 <li><a class="reference internal" href="#dynamic-content-ssrf-protection">Dynamic content (SSRF protection)</a></li>
+<li><a class="reference internal" href="#custom-services">Custom services</a></li>
+<li><a class="reference internal" href="#datalinq-code-editing">DataLinq code editing</a></li>
 <li><a class="reference internal" href="#outbound-tls-connections">Outbound TLS connections</a></li>
 <li><a class="reference internal" href="#csrf-protection">CSRF protection</a></li>
 <li><a class="reference internal" href="#secured-endpoints">Secured endpoints</a></li>

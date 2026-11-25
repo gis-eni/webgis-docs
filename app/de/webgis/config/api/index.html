@@ -1750,7 +1750,7 @@ konfiguriert ist. Ist im CMS ein höher Wert konfiguriert, muss dieser auch hier
 </table>
 </section>
 <section id="datalinq">
-<h3>DataLinq<a class="headerlink" href="#datalinq" title="Link to this heading">¶</a></h3>
+<span id="api-config-datalinq"></span><h3>DataLinq<a class="headerlink" href="#datalinq" title="Link to this heading">¶</a></h3>
 <p>Über die <em>Section</em> kann angegeben werden, ob <strong>DataLinq</strong> von einer <strong>WebGIS API Instanz</strong> angeboten wird.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"datalinq"</span><span class="nt">&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"include"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -1803,7 +1803,7 @@ konfiguriert ist. Ist im CMS ein höher Wert konfiguriert, muss dieser auch hier
 <td><p>Steuert, ob <strong>DataLinq-Objekte</strong> (Endpoints, Queries, Views) über eine <strong>DataLinq.Code-Instanz</strong> bearbeitet werden können.</p>
 <div class="admonition danger">
 <p class="admonition-title">Gefahr</p>
-<p>Aus <strong>Sicherheitsgründen</strong> sollte dies nur für <strong>lokale oder Intranet-Instanzen</strong> aktiviert sein. Auf <strong>Produktivsystemen</strong> sollte DataLinq nur als <strong>Read-Only</strong> verwendet werden.</p>
+<p>Aus <strong>Sicherheitsgründen</strong> sollte dies grundsätzlich nur in der <strong>Entwicklungsumgebung</strong> aktiviert sein, im <strong>Internet</strong> nie. Auf <strong>Produktivsystemen</strong> sollte DataLinq nur als <strong>Read-Only</strong> verwendet werden (siehe <a class="reference internal" href="../../annex/security.html#annex-security-datalinq"><span class="std std-ref">DataLinq-Code-Bearbeitung</span></a>).</p>
 </div>
 </td>
 </tr>

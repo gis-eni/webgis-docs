@@ -1737,7 +1737,7 @@ configured in the CMS. If a higher value is configured in the CMS, it must also 
 </table>
 </section>
 <section id="datalinq">
-<h3>DataLinq<a class="headerlink" href="#datalinq" title="Link to this heading">¶</a></h3>
+<span id="api-config-datalinq"></span><h3>DataLinq<a class="headerlink" href="#datalinq" title="Link to this heading">¶</a></h3>
 <p>This section specifies whether <strong>DataLinq</strong> is offered by a <strong>WebGIS API instance</strong>.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;section</span><span class="w"> </span><span class="na">name=</span><span class="s">"datalinq"</span><span class="nt">&gt;</span>
 <span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">"include"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -1790,7 +1790,7 @@ configured in the CMS. If a higher value is configured in the CMS, it must also 
 <td><p>Controls whether <strong>DataLinq objects</strong> (endpoints, queries, views) can be edited via a <strong>DataLinq.Code instance</strong>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>For <strong>security reasons</strong>, this should only be enabled for <strong>local or intranet instances</strong>. On <strong>production systems</strong>, DataLinq should only be used as <strong>read-only</strong>.</p>
+<p>For <strong>security reasons</strong>, this should only be enabled in the <strong>development environment</strong>, never on the <strong>internet</strong>. On <strong>production systems</strong>, DataLinq should only be used as <strong>read-only</strong> (see <a class="reference internal" href="../../annex/security.html#annex-security-datalinq"><span class="std std-ref">DataLinq code editing</span></a>).</p>
 </div>
 </td>
 </tr>

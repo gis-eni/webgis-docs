@@ -349,6 +349,46 @@ begrenzen den Abruf.</p></li>
 <p>Auch die Suchbegriffe der Auswahllisten (VisFilter-Lookups) werden geprüft: <code class="docutils literal notranslate"><span class="pre">term-whitelist</span></code> in der Section <code class="docutils literal notranslate"><span class="pre">lookup</span></code>
 (<a class="reference internal" href="../config/api/index.html#api-config-lookup"><span class="std std-ref">Details</span></a>) legt fest, welche Zeichen erlaubt sind.</p>
 </section>
+<section id="benutzerdefinierte-dienste">
+<span id="annex-security-custom-services"></span><h2>Benutzerdefinierte Dienste<a class="headerlink" href="#benutzerdefinierte-dienste" title="Link to this heading">¶</a></h2>
+<p>Ist im Viewer <code class="docutils literal notranslate"><span class="pre">webgis.usability.allowAddCustomServices</span></code> aktiv (<code class="docutils literal notranslate"><span class="pre">custom.js</span></code>), können Benutzer eigene WMS/ArcGIS-Dienste
+über eine URL (optional mit Benutzer und Passwort) zur Karte hinzufügen. Die API ruft diese URL selbst ab. Ohne
+Einschränkung kann darüber jeder Host erreicht werden, den die API erreicht, auch interne Systeme (SSRF). Das Ausblenden der
+Eingabemaske im Viewer allein schützt nicht, weil der Endpunkt der API weiterhin aufrufbar ist.</p>
+<p>Eingeschränkt wird das serverseitig mit <code class="docutils literal notranslate"><span class="pre">security-add-custom-services-host-blacklist</span></code> in der <code class="docutils literal notranslate"><span class="pre">api.config</span></code>:</p>
+<ul class="simple">
+<li><p>Kommagetrennte Liste regulärer Ausdrücke, die gegen den Hostnamen der Dienst-URL geprüft werden, z. B.
+<code class="docutils literal notranslate"><span class="pre">^127\.0\..*,^10\..*,^192\.168\..*,.*\.intern\.domain\.at$</span></code>.</p></li>
+<li><p>Der Eintrag <code class="docutils literal notranslate"><span class="pre">forbidden</span></code> sperrt alle Hosts; benutzerdefinierte Dienste sind damit abgeschaltet.</p></li>
+<li><p>Ohne Eintrag sind alle <code class="docutils literal notranslate"><span class="pre">http</span></code>/<code class="docutils literal notranslate"><span class="pre">https</span></code>-Hosts erlaubt (ausgenommen <code class="docutils literal notranslate"><span class="pre">localhost</span></code>/<code class="docutils literal notranslate"><span class="pre">127.0.*</span></code>).</p></li>
+</ul>
+<p>Für Internet-Anwendungen wird <code class="docutils literal notranslate"><span class="pre">forbidden</span></code> empfohlen. Eine Blacklist schützt nur teilweise, weil sie nie alle internen
+Hosts vollständig erfassen kann. Der <a class="reference internal" href="#annex-security-report"><span class="std std-ref">Security-Bericht</span></a> bewertet <code class="docutils literal notranslate"><span class="pre">forbidden</span></code> als OK, eine
+Blacklist als mittleres und einen fehlenden Eintrag als hohes Risiko.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4601: </span>Bewertung im Security-Bericht. Die Verbindungsdaten benutzerdefinierter Dienste (inkl. Benutzer und Passwort) werden
+in gespeicherten Karten authentifiziert verschlüsselt.</p>
+</div>
+</section>
+<section id="datalinq-code-bearbeitung">
+<span id="annex-security-datalinq"></span><h2>DataLinq-Code-Bearbeitung<a class="headerlink" href="#datalinq-code-bearbeitung" title="Link to this heading">¶</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">allow-code-editing</span></code> in der Section <code class="docutils literal notranslate"><span class="pre">datalinq</span></code> der <code class="docutils literal notranslate"><span class="pre">api.config</span></code> (<a class="reference internal" href="../config/api/index.html#api-config-datalinq"><span class="std std-ref">Details</span></a>) können
+DataLinq-Objekte (Endpoints, Queries, Views) über eine DataLinq.Code-Instanz geändert oder neu eingespielt werden. Views
+enthalten Razor-Code, der im Prozess der API kompiliert und ausgeführt wird. Wer Code bearbeiten darf, kann damit beliebigen
+Code am Server ausführen. Die Bearbeitung setzt zwar eine Anmeldung voraus, ein kompromittiertes Konto oder eine
+Sicherheitslücke reicht aber für die vollständige Übernahme des Servers.</p>
+<p>Der Wert sollte deshalb grundsätzlich nur in der <strong>Entwicklungsumgebung</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code> sein:</p>
+<ul class="simple">
+<li><p><strong>Internet:</strong> nie <code class="docutils literal notranslate"><span class="pre">true</span></code>. Der <a class="reference internal" href="#annex-security-report"><span class="std std-ref">Security-Bericht</span></a> bewertet <code class="docutils literal notranslate"><span class="pre">true</span></code> als hohes Risiko.</p></li>
+<li><p><strong>Intranet:</strong> <code class="docutils literal notranslate"><span class="pre">true</span></code> wird als mittleres Risiko bewertet.</p></li>
+<li><p>Ist DataLinq nicht aktiv (<code class="docutils literal notranslate"><span class="pre">include</span></code> ist nicht <code class="docutils literal notranslate"><span class="pre">true</span></code>), ist der Schlüssel ohne Wirkung.</p></li>
+</ul>
+<p>Produktivsysteme verwenden DataLinq nur lesend; geänderte Objekte werden in der Entwicklungsumgebung erstellt und
+anschließend ausgeliefert.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 8.26.4801: </span>Bewertung im Security-Bericht.</p>
+</div>
+</section>
 <section id="ausgehende-tls-verbindungen">
 <span id="annex-security-tls"></span><h2>Ausgehende TLS-Verbindungen<a class="headerlink" href="#ausgehende-tls-verbindungen" title="Link to this heading">¶</a></h2>
 <p>Serverzertifikate bei ausgehenden HTTPS-Verbindungen (Kartendienste, ArcGIS, WMS usw.) werden geprüft. Interne Dienste mit
@@ -743,6 +783,20 @@ Empfehlungen gelten für Standardinstallationen. Dort, wo nicht anders angegeben
 <td><p><code class="docutils literal notranslate"><span class="pre">5</span></code> oder weniger</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#annex-security-custom-services"><span class="std std-ref">security-add-custom-services-host-blacklist</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feature-Freischaltung</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">forbidden</span></code> (keine benutzerdefinierten Dienste); eine Blacklist gilt als mittleres Risiko</p></td>
+<td><p>Blacklist mit internen Hosts/Netzen empfohlen</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#annex-security-datalinq"><span class="std std-ref">datalinq:allow-code-editing</span></a></p></td>
+<td><p>api.config</p></td>
+<td><p>Feature-Freischaltung</p></td>
+<td><p>Hoch</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code> (nie <code class="docutils literal notranslate"><span class="pre">true</span></code>)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code>; <code class="docutils literal notranslate"><span class="pre">true</span></code> nur in der Entwicklungsumgebung (wird als mittleres Risiko bewertet)</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../config/api/index.html#api-config-lookup"><span class="std std-ref">lookup:term-whitelist</span></a></p></td>
 <td><p>api.config</p></td>
 <td><p>Feinjustierung</p></td>
@@ -830,6 +884,8 @@ Empfehlungen gelten für Standardinstallationen. Dort, wo nicht anders angegeben
 <li><a class="reference internal" href="#weiterleitungen-nach-der-anmeldung">Weiterleitungen nach der Anmeldung</a></li>
 <li><a class="reference internal" href="#portal-cors">Portal-CORS</a></li>
 <li><a class="reference internal" href="#dynamischer-inhalt-ssrf-schutz">Dynamischer Inhalt (SSRF-Schutz)</a></li>
+<li><a class="reference internal" href="#benutzerdefinierte-dienste">Benutzerdefinierte Dienste</a></li>
+<li><a class="reference internal" href="#datalinq-code-bearbeitung">DataLinq-Code-Bearbeitung</a></li>
 <li><a class="reference internal" href="#ausgehende-tls-verbindungen">Ausgehende TLS-Verbindungen</a></li>
 <li><a class="reference internal" href="#schutz-vor-csrf">Schutz vor CSRF</a></li>
 <li><a class="reference internal" href="#gesicherte-endpunkte">Gesicherte Endpunkte</a></li>
