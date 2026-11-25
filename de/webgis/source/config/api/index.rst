@@ -1478,6 +1478,8 @@ HttpClient
        WebGIS wartet beim Drucken immer maximal 100 Sekunden auf einen Dienst, egal was im CMS
        konfiguriert ist. Ist im CMS ein höher Wert konfiguriert, muss dieser auch hier gesetzt werden.
 
+.. _api-config-datalinq:
+
 DataLinq 
 ---------
 
@@ -1530,7 +1532,7 @@ DataLinq
        
        .. danger::
 
-          Aus **Sicherheitsgründen** sollte dies nur für **lokale oder Intranet-Instanzen** aktiviert sein. Auf **Produktivsystemen** sollte DataLinq nur als **Read-Only** verwendet werden.
+          Aus **Sicherheitsgründen** sollte dies grundsätzlich nur in der **Entwicklungsumgebung** aktiviert sein, im **Internet** nie. Auf **Produktivsystemen** sollte DataLinq nur als **Read-Only** verwendet werden (siehe :ref:`annex-security-datalinq`).
    * - ``razor-engine``
      - Gibt an, welche **Razor-Engine** verwendet wird. Standardmäßig ist dies die **DataLinqLanguageEngineRazor** (``default``).  
        Die **LegacyEngine** (``legacy``) ist eine ältere Version, die nicht mehr weiterentwickelt wird. 
