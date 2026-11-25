@@ -247,6 +247,30 @@ Blacklist als mittleres und einen fehlenden Eintrag als hohes Risiko.
    Bewertung im Security-Bericht. Die Verbindungsdaten benutzerdefinierter Dienste (inkl. Benutzer und Passwort) werden
    in gespeicherten Karten authentifiziert verschlüsselt.
 
+.. _annex-security-datalinq:
+
+DataLinq-Code-Bearbeitung
+-------------------------
+
+Mit ``allow-code-editing`` in der Section ``datalinq`` der ``api.config`` (:ref:`Details <api-config-datalinq>`) können
+DataLinq-Objekte (Endpoints, Queries, Views) über eine DataLinq.Code-Instanz geändert oder neu eingespielt werden. Views
+enthalten Razor-Code, der im Prozess der API kompiliert und ausgeführt wird. Wer Code bearbeiten darf, kann damit beliebigen
+Code am Server ausführen. Die Bearbeitung setzt zwar eine Anmeldung voraus, ein kompromittiertes Konto oder eine
+Sicherheitslücke reicht aber für die vollständige Übernahme des Servers.
+
+Der Wert sollte deshalb grundsätzlich nur in der **Entwicklungsumgebung** ``true`` sein:
+
+- **Internet:** nie ``true``. Der :ref:`Security-Bericht <annex-security-report>` bewertet ``true`` als hohes Risiko.
+- **Intranet:** ``true`` wird als mittleres Risiko bewertet.
+- Ist DataLinq nicht aktiv (``include`` ist nicht ``true``), ist der Schlüssel ohne Wirkung.
+
+Produktivsysteme verwenden DataLinq nur lesend; geänderte Objekte werden in der Entwicklungsumgebung erstellt und
+anschließend ausgeliefert.
+
+.. versionadded:: 8.26.4801
+
+   Bewertung im Security-Bericht.
+
 .. _annex-security-tls:
 
 Ausgehende TLS-Verbindungen
@@ -611,6 +635,12 @@ Empfehlungen gelten für Standardinstallationen. Dort, wo nicht anders angegeben
      - Hoch
      - ``forbidden`` (keine benutzerdefinierten Dienste); eine Blacklist gilt als mittleres Risiko
      - Blacklist mit internen Hosts/Netzen empfohlen
+   * - :ref:`datalinq:allow-code-editing <annex-security-datalinq>`
+     - api.config
+     - Feature-Freischaltung
+     - Hoch
+     - ``false`` (nie ``true``)
+     - ``false``; ``true`` nur in der Entwicklungsumgebung (wird als mittleres Risiko bewertet)
    * - :ref:`lookup:term-whitelist <api-config-lookup>`
      - api.config
      - Feinjustierung

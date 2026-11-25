@@ -247,6 +247,30 @@ medium and a missing entry as high risk.
    Rating in the security report. The connection data of custom services (incl. user and password) is encrypted with
    authenticated encryption in saved maps.
 
+.. _annex-security-datalinq:
+
+DataLinq code editing
+---------------------
+
+With ``allow-code-editing`` in the ``datalinq`` section of the ``api.config`` (:ref:`details <api-config-datalinq>`),
+DataLinq objects (endpoints, queries, views) can be changed or uploaded via a DataLinq.Code instance. Views contain Razor
+code that is compiled and executed in the API process. Anyone who is allowed to edit code can therefore execute arbitrary
+code on the server. Editing requires a login, but a compromised account or a security vulnerability is enough for a
+complete takeover of the server.
+
+The value should therefore only be ``true`` in the **development environment**:
+
+- **Internet:** never ``true``. The :ref:`security report <annex-security-report>` rates ``true`` as high risk.
+- **Intranet:** ``true`` is rated as medium risk.
+- If DataLinq is not active (``include`` is not ``true``), the key has no effect.
+
+Production systems use DataLinq read-only; changed objects are created in the development environment and deployed
+afterwards.
+
+.. versionadded:: 8.26.4801
+
+   Rating in the security report.
+
 .. _annex-security-tls:
 
 Outbound TLS connections
@@ -612,6 +636,12 @@ recommendations apply to standard installations. Where not stated otherwise, the
      - High
      - ``forbidden`` (no custom services); a blacklist is rated as medium risk
      - Blacklist with internal hosts/networks recommended
+   * - :ref:`datalinq:allow-code-editing <annex-security-datalinq>`
+     - api.config
+     - Feature enablement
+     - High
+     - ``false`` (never ``true``)
+     - ``false``; ``true`` only in the development environment (rated as medium risk)
    * - :ref:`lookup:term-whitelist <api-config-lookup>`
      - api.config
      - Fine-tuning
