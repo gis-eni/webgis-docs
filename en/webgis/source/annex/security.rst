@@ -221,6 +221,32 @@ on internal systems (*server-side request forgery*), the following applies
 The search terms of the selection lists (VisFilter lookups) are validated as well: ``term-whitelist`` in the ``lookup`` section
 (:ref:`details <api-config-lookup>`) determines which characters are allowed.
 
+.. _annex-security-custom-services:
+
+Custom services
+---------------
+
+If ``webgis.usability.allowAddCustomServices`` is enabled in the viewer (``custom.js``), users can add their own WMS/ArcGIS
+services to the map via a URL (optionally with user and password). The API requests this URL itself. Without a restriction,
+any host the API can reach can be accessed this way, including internal systems (SSRF). Hiding the input form in the viewer
+alone does not protect, because the API endpoint can still be called.
+
+The server-side restriction is ``security-add-custom-services-host-blacklist`` in the ``api.config``:
+
+- Comma-separated list of regular expressions that are checked against the host name of the service URL, e.g.
+  ``^127\.0\..*,^10\..*,^192\.168\..*,.*\.intern\.domain\.at$``.
+- The entry ``forbidden`` blocks all hosts; custom services are disabled.
+- Without an entry, all ``http``/``https`` hosts are allowed (except ``localhost``/``127.0.*``).
+
+For internet applications ``forbidden`` is recommended. A blacklist only protects partially, because it can never cover all
+internal hosts completely. The :ref:`security report <annex-security-report>` rates ``forbidden`` as OK, a blacklist as
+medium and a missing entry as high risk.
+
+.. versionadded:: 8.26.4601
+
+   Rating in the security report. The connection data of custom services (incl. user and password) is encrypted with
+   authenticated encryption in saved maps.
+
 .. _annex-security-tls:
 
 Outbound TLS connections
@@ -580,6 +606,12 @@ recommendations apply to standard installations. Where not stated otherwise, the
      - Low
      - ``5`` or fewer
      - ``5``
+   * - :ref:`security-add-custom-services-host-blacklist <annex-security-custom-services>`
+     - api.config
+     - Feature enablement
+     - High
+     - ``forbidden`` (no custom services); a blacklist is rated as medium risk
+     - Blacklist with internal hosts/networks recommended
    * - :ref:`lookup:term-whitelist <api-config-lookup>`
      - api.config
      - Fine-tuning
