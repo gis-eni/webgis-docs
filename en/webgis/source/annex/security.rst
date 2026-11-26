@@ -231,21 +231,29 @@ services to the map via a URL (optionally with user and password). The API reque
 any host the API can reach can be accessed this way, including internal systems (SSRF). Hiding the input form in the viewer
 alone does not protect, because the API endpoint can still be called.
 
-The server-side restriction is ``security-add-custom-services-host-blacklist`` in the ``api.config``:
+Therefore the feature must be enabled on the server (section ``security`` of the ``api.config``,
+:ref:`details <api-config-security-custom-services>`):
 
-- Comma-separated list of regular expressions that are checked against the host name of the service URL, e.g.
-  ``^127\.0\..*,^10\..*,^192\.168\..*,.*\.intern\.domain\.at$``.
-- The entry ``forbidden`` blocks all hosts; custom services are disabled.
-- Without an entry, all ``http``/``https`` hosts are allowed (except ``localhost``/``127.0.*``).
+- ``allow-custom-services``: default ``false``, the API rejects custom services. With ``true``, the host of the service
+  URL must resolve to public addresses; ``localhost``, private, loopback and link-local addresses are rejected.
+- ``custom-services-allow-hosts``: hosts that are allowed without this check (e.g. internal map servers). Only enter
+  concrete host names or ``*.domain``, never ``*``.
+- ``security-add-custom-services-host-blacklist`` (outside the section ``security``): comma-separated list of regular
+  expressions checked against the host name, to additionally block public hosts. ``forbidden`` blocks all hosts.
 
-For internet applications ``forbidden`` is recommended. A blacklist only protects partially, because it can never cover all
-internal hosts completely. The :ref:`security report <annex-security-report>` rates ``forbidden`` as OK, a blacklist as
-medium and a missing entry as high risk.
+Error messages do not reveal any details about the target (e.g. whether a host is reachable). The
+:ref:`security report <annex-security-report>` rates enabling the feature on the internet as a hint,
+``custom-services-allow-hosts`` with entries on the internet as medium and with ``*`` as high risk.
 
 .. versionadded:: 8.26.4601
 
    Rating in the security report. The connection data of custom services (incl. user and password) is encrypted with
    authenticated encryption in saved maps.
+
+.. versionchanged:: 8.26.4801
+
+   Custom services must be enabled with ``allow-custom-services`` and may only reach public hosts by default.
+   Previously, all hosts except ``localhost``/``127.0.*`` were allowed unless a blacklist was set.
 
 .. _annex-security-datalinq:
 
@@ -630,12 +638,24 @@ recommendations apply to standard installations. Where not stated otherwise, the
      - Low
      - ``5`` or fewer
      - ``5``
-   * - :ref:`security-add-custom-services-host-blacklist <annex-security-custom-services>`
+   * - :ref:`security:allow-custom-services <api-config-security-custom-services>`
      - api.config
      - Feature enablement
      - High
-     - ``forbidden`` (no custom services); a blacklist is rated as medium risk
-     - Blacklist with internal hosts/networks recommended
+     - ``false`` (no custom services)
+     - ``false``; ``true`` only if the feature is needed in the viewer
+   * - :ref:`security:custom-services-allow-hosts <api-config-security-custom-services>`
+     - api.config
+     - Compatibility opt-out
+     - High
+     - Empty (public hosts only); never ``*``
+     - Only concrete internal host names, no broad patterns
+   * - :ref:`security-add-custom-services-host-blacklist <annex-security-custom-services>`
+     - api.config
+     - Fine-tuning
+     - Low
+     - Recommended if custom services are enabled
+     - Optional
    * - :ref:`datalinq:allow-code-editing <annex-security-datalinq>`
      - api.config
      - Feature enablement

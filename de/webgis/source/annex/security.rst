@@ -231,21 +231,31 @@ Ist im Viewer ``webgis.usability.allowAddCustomServices`` aktiv (``custom.js``),
 Einschränkung kann darüber jeder Host erreicht werden, den die API erreicht, auch interne Systeme (SSRF). Das Ausblenden der
 Eingabemaske im Viewer allein schützt nicht, weil der Endpunkt der API weiterhin aufrufbar ist.
 
-Eingeschränkt wird das serverseitig mit ``security-add-custom-services-host-blacklist`` in der ``api.config``:
+Deshalb muss die Funktion serverseitig freigeschaltet werden (Section ``security`` der ``api.config``,
+:ref:`Details <api-config-security-custom-services>`):
 
-- Kommagetrennte Liste regulärer Ausdrücke, die gegen den Hostnamen der Dienst-URL geprüft werden, z. B.
-  ``^127\.0\..*,^10\..*,^192\.168\..*,.*\.intern\.domain\.at$``.
-- Der Eintrag ``forbidden`` sperrt alle Hosts; benutzerdefinierte Dienste sind damit abgeschaltet.
-- Ohne Eintrag sind alle ``http``/``https``-Hosts erlaubt (ausgenommen ``localhost``/``127.0.*``).
+- ``allow-custom-services``: Standard ``false``, die API lehnt benutzerdefinierte Dienste ab. Mit ``true`` muss der Host
+  der Dienst-URL auf öffentliche Adressen auflösen; ``localhost``, private, Loopback- und Link-Local-Adressen werden
+  abgelehnt.
+- ``custom-services-allow-hosts``: Hosts, die ohne diese Prüfung erlaubt sind (z. B. interne Kartenserver). Nur konkrete
+  Hostnamen bzw. ``*.domain`` eintragen, nie ``*``.
+- ``security-add-custom-services-host-blacklist`` (außerhalb der Section ``security``): kommagetrennte Liste regulärer
+  Ausdrücke gegen den Hostnamen, um zusätzlich auch öffentliche Hosts zu sperren. ``forbidden`` sperrt alle Hosts.
 
-Für Internet-Anwendungen wird ``forbidden`` empfohlen. Eine Blacklist schützt nur teilweise, weil sie nie alle internen
-Hosts vollständig erfassen kann. Der :ref:`Security-Bericht <annex-security-report>` bewertet ``forbidden`` als OK, eine
-Blacklist als mittleres und einen fehlenden Eintrag als hohes Risiko.
+Fehlermeldungen geben keine Details über das Ziel preis (z. B. ob ein Host erreichbar ist). Der
+:ref:`Security-Bericht <annex-security-report>` bewertet eine Freischaltung im Internet als Hinweis,
+``custom-services-allow-hosts`` mit Einträgen im Internet als mittleres und mit ``*`` als hohes Risiko.
 
 .. versionadded:: 8.26.4601
 
    Bewertung im Security-Bericht. Die Verbindungsdaten benutzerdefinierter Dienste (inkl. Benutzer und Passwort) werden
    in gespeicherten Karten authentifiziert verschlüsselt.
+
+.. versionchanged:: 8.26.4801
+
+   Benutzerdefinierte Dienste müssen mit ``allow-custom-services`` freigeschaltet werden und dürfen standardmäßig nur
+   öffentliche Hosts erreichen. Bisher waren alle Hosts außer ``localhost``/``127.0.*`` erlaubt, sofern keine Blacklist
+   gesetzt war.
 
 .. _annex-security-datalinq:
 
@@ -629,12 +639,24 @@ Empfehlungen gelten für Standardinstallationen. Dort, wo nicht anders angegeben
      - Niedrig
      - ``5`` oder weniger
      - ``5``
-   * - :ref:`security-add-custom-services-host-blacklist <annex-security-custom-services>`
+   * - :ref:`security:allow-custom-services <api-config-security-custom-services>`
      - api.config
      - Feature-Freischaltung
      - Hoch
-     - ``forbidden`` (keine benutzerdefinierten Dienste); eine Blacklist gilt als mittleres Risiko
-     - Blacklist mit internen Hosts/Netzen empfohlen
+     - ``false`` (keine benutzerdefinierten Dienste)
+     - ``false``; ``true`` nur, wenn die Funktion im Viewer benötigt wird
+   * - :ref:`security:custom-services-allow-hosts <api-config-security-custom-services>`
+     - api.config
+     - Kompatibilitäts-Opt-out
+     - Hoch
+     - Leer (nur öffentliche Hosts); nie ``*``
+     - Nur konkrete interne Hostnamen, keine breiten Muster
+   * - :ref:`security-add-custom-services-host-blacklist <annex-security-custom-services>`
+     - api.config
+     - Feinjustierung
+     - Niedrig
+     - Bei freigeschalteten Diensten setzen empfohlen
+     - Optional
    * - :ref:`datalinq:allow-code-editing <annex-security-datalinq>`
      - api.config
      - Feature-Freischaltung

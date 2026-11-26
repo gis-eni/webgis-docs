@@ -1091,6 +1091,12 @@ the ``DynamicContentProxy`` of the WebGIS API. The protection consists of two pa
    are validated and ``UrlInputRedirections`` no longer apply to these downloads. Maps with unsigned
    dynamic content (see ``allow-unsigned``) no longer load it by default.
 
+.. versionchanged:: 8.26.4801
+
+   The URLs are signed with an HMAC signature. Older signatures (e.g. in saved maps or MapBuilder HTML)
+   remain valid and are renewed when a map is loaded. If several instances of different versions share the
+   same storage, older versions do not load the dynamic content of maps that were saved with this version.
+
 Section ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1352,6 +1358,51 @@ Administrators can reset the two-factor authentication of a subscriber.
   * *Basic Authentication* and *DataLinq* access still use only username and password (without a second factor).
   * The MFA secrets are encrypted with the crypto key of the API. If this key changes, the two-factor authentication of the subscribers must be reset.
   * After updating to this version, all subscribers have to log in again once.
+
+.. _api-config-security-custom-services:
+
+Custom services
+~~~~~~~~~~~~~~~
+
+.. versionadded:: 8.26.4801
+
+.. seealso::
+
+   Annex :ref:`annex-security-custom-services`.
+
+With ``webgis.usability.allowAddCustomServices`` (``custom.js``), users can add their own WMS/ArcGIS services to the map via a URL
+in the viewer. The API requests these services itself. For this to work, the API must also allow it:
+
+.. code-block:: xml
+
+  <section name="security">
+      <add key="allow-custom-services" value="false" />
+      <add key="custom-services-allow-hosts" value="" />
+  </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribute**
+     - **Description**
+   * - ``allow-custom-services``
+     - ``false`` (default): the API rejects custom services, even if the option is enabled in the viewer.
+       ``true``: custom services are allowed. The host of the service URL must then resolve to **public** addresses;
+       ``localhost``, private, loopback and link-local addresses (e.g. ``10.*``, ``192.168.*``, ``169.254.*``) are rejected.
+   * - ``custom-services-allow-hosts``
+     - Hosts that are allowed without this address check, e.g. internal map servers in the intranet. Separated by ``;`` or ``,``.
+       Exact host names (``gis.intern.company.local``) and subdomain patterns (``*.intern.company.local``) are allowed.
+       ``*`` allows all hosts (not recommended).
+
+The existing ``security-add-custom-services-host-blacklist`` (see :ref:`annex-security-custom-services`) still applies
+in addition, to block public hosts as well. ``forbidden`` still disables custom services completely.
+
+.. important::
+
+  Previously, custom services were possible without a server-side opt-in. After the update, ``allow-custom-services``
+  must be set to ``true`` if the feature is used in the viewer. Internal services must additionally be added to
+  ``custom-services-allow-hosts``.
 
 .. _api-config-middleware:
 

@@ -1103,6 +1103,13 @@ Betrifft den **Dynamischen Inhalt** der Karte (GeoRSS, GeoJSON, API-Abfragen), d
    Zertifikate werden geprüft und ``UrlInputRedirections`` gelten für diese Abrufe nicht mehr. Karten mit
    nicht signiertem Dynamischem Inhalt (siehe ``allow-unsigned``) laden diesen standardmäßig nicht mehr.
 
+.. versionchanged:: 8.26.4801
+
+   Die URLs werden mit einer HMAC-Signatur signiert. Ältere Signaturen (z. B. in gespeicherten Karten oder
+   MapBuilder-HTML) bleiben gültig und werden beim Laden einer Karte erneuert. Teilen sich mehrere Instanzen
+   unterschiedlicher Versionen dieselbe Speicherung, laden ältere Versionen den Dynamischen Inhalt von Karten
+   nicht, die mit dieser Version gespeichert wurden.
+
 Abschnitt ``Secured Tiles``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1364,6 +1371,51 @@ Administratoren können die Zwei-Faktor-Authentifizierung eines Subscribers zur�
   * *Basic Authentication* und *DataLinq*-Zugriffe verwenden weiterhin nur Benutzername und Passwort (ohne zweiten Faktor).
   * Die MFA-Schlüssel werden mit dem Crypto-Key der API verschlüsselt. Wird dieser geändert, muss die Zwei-Faktor-Authentifizierung der Subscriber zurückgesetzt werden.
   * Nach dem Update auf diese Version müssen sich alle Subscriber einmal neu anmelden.
+
+.. _api-config-security-custom-services:
+
+Benutzerdefinierte Dienste
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 8.26.4801
+
+.. seealso::
+
+   Anhang :ref:`annex-security-custom-services`.
+
+Mit ``webgis.usability.allowAddCustomServices`` (``custom.js``) können Benutzer im Viewer eigene WMS/ArcGIS-Dienste über eine URL
+zur Karte hinzufügen. Die API ruft diese Dienste selbst ab. Damit das funktioniert, muss die API das zusätzlich erlauben:
+
+.. code-block:: xml
+
+  <section name="security">
+      <add key="allow-custom-services" value="false" />
+      <add key="custom-services-allow-hosts" value="" />
+  </section>
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - **Attribut**
+     - **Beschreibung**
+   * - ``allow-custom-services``
+     - ``false`` (Standard): Die API lehnt benutzerdefinierte Dienste ab, auch wenn die Option im Viewer aktiv ist.
+       ``true``: Benutzerdefinierte Dienste sind erlaubt. Der Host der Dienst-URL muss dann auf **öffentliche** Adressen auflösen;
+       ``localhost``, private, Loopback- und Link-Local-Adressen (z. B. ``10.*``, ``192.168.*``, ``169.254.*``) werden abgelehnt.
+   * - ``custom-services-allow-hosts``
+     - Hosts, die ohne diese Adressprüfung erlaubt sind, z. B. interne Kartenserver im Intranet. Getrennt durch ``;`` oder ``,``.
+       Erlaubt sind exakte Hostnamen (``gis.intern.firma.local``) und Subdomain-Muster (``*.intern.firma.local``).
+       ``*`` erlaubt alle Hosts (nicht empfohlen).
+
+Die bestehende ``security-add-custom-services-host-blacklist`` (siehe :ref:`annex-security-custom-services`) gilt weiterhin
+zusätzlich, um auch öffentliche Hosts zu sperren. ``forbidden`` schaltet benutzerdefinierte Dienste weiterhin ganz ab.
+
+.. important::
+
+  Bisher waren benutzerdefinierte Dienste ohne serverseitige Freischaltung möglich. Nach dem Update muss
+  ``allow-custom-services`` auf ``true`` gesetzt werden, wenn die Funktion im Viewer genutzt wird. Interne Dienste
+  müssen zusätzlich in ``custom-services-allow-hosts`` eingetragen werden.
 
 .. _api-config-middleware:
 
