@@ -130,6 +130,10 @@ Section ``Security``
      - Default: ``false``. The login cookie of the portal uses a new format and contains an expiry date. Cookies in the old format written by older versions are no longer accepted; users have to sign in once again after the update. With ``true``, old cookies are still read for a transition period (the expiry date is checked as well). This should only be used for a short transition period. See :ref:`annex-security-sessions`.
 
        .. versionadded:: 8.26.4601
+   * - ``cookie-secure``
+     - ``auto`` (default): The login cookie of the portal gets the *Secure* flag only for HTTPS requests; installations over ``http://localhost`` or without TLS keep working. ``always``: always (use only with HTTPS), ``never``: never. The cookie is always set with *HttpOnly* and *SameSite=Lax*. Behind a TLS-terminating reverse proxy the ``X-Forwarded-*`` headers must be forwarded correctly so that ``auto`` detects HTTPS.
+
+       .. versionadded:: 8.26.4601
    * - ``allowed-redirect-hosts``
      - Comma-separated list of hosts a redirect after login (``/hmac?redirect=...``, e.g. for DataLinq pages when OpenID Connect or Azure AD is used) may point to. Example: ``reports.example.com,*.example.com``
 

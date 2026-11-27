@@ -126,6 +126,10 @@ Abschnitt ``Security``
      - Standard: ``false``. Das Anmelde-Cookie des Portals verwendet ein neues Format und enthält ein Ablaufdatum. Cookies im alten Format, die von älteren Versionen geschrieben wurden, werden nicht mehr akzeptiert; Benutzer müssen sich nach dem Update einmal neu anmelden. Mit ``true`` werden alte Cookies übergangsweise noch gelesen (das Ablaufdatum wird auch dabei geprüft). Das sollte nur für eine kurze Übergangszeit verwendet werden. Siehe :ref:`annex-security-sessions`.
 
        .. versionadded:: 8.26.4601
+   * - ``cookie-secure``
+     - ``auto`` (Standard): Das Anmelde-Cookie des Portals erhält das *Secure*-Flag nur bei HTTPS-Aufrufen, Installationen über ``http://localhost`` oder ohne TLS funktionieren weiterhin. ``always``: immer (nur mit HTTPS verwenden), ``never``: nie. Das Cookie wird immer mit *HttpOnly* und *SameSite=Lax* gesetzt. Hinter einem TLS-terminierenden Reverse Proxy müssen die ``X-Forwarded-*``-Header korrekt weitergegeben werden, damit ``auto`` HTTPS erkennt.
+
+       .. versionadded:: 8.26.4601
    * - ``allowed-redirect-hosts``
      - Kommagetrennte Liste von Hosts, auf die eine Weiterleitung nach der Anmeldung (``/hmac?redirect=...``, z. B. für DataLinq-Seiten, wenn OpenID Connect oder Azure AD verwendet wird) zeigen darf. Beispiel: ``reports.example.com,*.example.com``
 
